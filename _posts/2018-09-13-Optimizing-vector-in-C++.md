@@ -18,9 +18,13 @@ std::vector<int> vecStudent(100);
 
 Because the pitfall of vector is reallocate memory of all elements when capacity < size. 
 This memory reallocation takes so much time. There are many steps to reallocate old elements to the new memory. 
+
     - Multiply the vector's capacity with 2. So, allocate memory for the new vector with the capacity that has just been changed. 
+  
     - Copy all of elements in the old vector to the new vector. 
+  
     - Delete all of elements in the old vector. 
+
     - Finally, delete this old vector. 
 
 
