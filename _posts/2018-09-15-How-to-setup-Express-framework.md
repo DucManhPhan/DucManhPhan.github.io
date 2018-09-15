@@ -19,8 +19,11 @@ Now, you want to make the project using Express framework.
 Typing command in Visual Studio Code's terminal or Command Prompt.
 
 ```
-express name_project
+express name_project -e
 ```
+
+Parameter e is something that you want to use template engine javascript - EJS. 
+To find out some information about EJS, you can read about the article: [https://ducmanhphan.github.io/2018-09-15-What-is-EJS/](What is EJS?)
 
 At this moment, you have the directory that looks same as the below image. 
 
