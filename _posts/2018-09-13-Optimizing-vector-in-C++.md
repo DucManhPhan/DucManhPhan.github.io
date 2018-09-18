@@ -3,7 +3,7 @@ layout: post
 title: Optimizing vector in C++
 ---
 
-1. Initialize the capacity or the size of vector when knowing about exactly the number of elements or the minimum of elements in vector. 
+## Initialize the capacity or the size of vector when knowing about exactly the number of elements or the minimum of elements in vector. 
 
 ```C++
 std::vector<int> vecStudent;
@@ -28,10 +28,11 @@ This memory reallocation takes so much time. There are many steps to reallocate 
     - Finally, delete this old vector. 
 
 
-2. Should use assignment, or assign(), or insert() when you need to copy the vector's elements to the other vector. 
+## Should use assignment, or assign(), or insert() when you need to copy the vector's elements to the other vector. 
 
+<br>
 
-3. Use move semantic for the temporary variable. 
+## Use move semantic for the temporary variable. 
 
 Consider the below example: 
 
@@ -50,12 +51,34 @@ When use std::move() function, you do not have to make the copy of the variable,
 The state of the variable will become undefine, it can not be accessed. 
 
 
-4. Use interator or subscription of the element, instead of using the at() function.
+## Use interator or subscription of the element, instead of using the at() function.
 
+In order to explain this statement, you can see the function at() of vector file.
 
+```C++
+const_reference at(size_type _Off) const
+{	// subscript nonmutable sequence with checking
+    if (size() <= _Off)
+		_Xran();
+	return ((*this)[_Off]);
+}
 
+reference at(size_type _Off)
+{	// subscript mutable sequence with checking
+	if (size() <= _Off)
+        _Xran();
+	return ((*this)[_Off]);
+}
+```
+
+Before returning the value of element in vector, checking this index can be less than size of vector. 
+
+If the index is invalid, it will throw an object of class std::out_of_range.
+
+Therefore, the cause to decrease the speed of at() function is that call the size() function and check the condition of index of element. 
+
+<br>
 
 Refer to: 
-[http://oldhandsblog.blogspot.com/2016/09/c-optimization-bibliography.html](OldHandsBlog)
-
-[http://www.acodersjourney.com/2016/11/6-tips-supercharge-cpp-11-vector-performance/](AcodersJourney)
+[OldHandsBlog](http://oldhandsblog.blogspot.com/2016/09/c-optimization-bibliography.html) - 
+[AcodersJourney](http://www.acodersjourney.com/2016/11/6-tips-supercharge-cpp-11-vector-performance/)
