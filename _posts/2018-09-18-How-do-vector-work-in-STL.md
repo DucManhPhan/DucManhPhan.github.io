@@ -83,7 +83,7 @@ Inserting at the middle of vector is as same as inserting at the begining of vec
 
 <br>
 
-## Internal vector works
+## Internally vector works
 
 In order to allocate new memory for vector, it will compare the value of two variable: capacity and size. 
 
