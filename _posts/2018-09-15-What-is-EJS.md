@@ -1,6 +1,6 @@
 ---
 layout: post
-title: What is EJS
+title: What is EJS?
 ---
 
 
