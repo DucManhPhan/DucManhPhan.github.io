@@ -23,17 +23,30 @@ description: Practice makes perfect!
 
 # List of links in the navigation bar
 navbar-links:
-  Home: "Home"
   Memory Management: "Memory Management"
-  Algorithm & Data structure: 
-    - Algorithm: "Algorithm"
-    - Data structure: "Data structure"
+  Algorithm: 
+    - Dynamic Programming: "DP"
+    - Backtracking: "Backtracking"
+    - Divide & Conquer: "Divide and Conquer"
+    - Greedy Algorithm: "Greedy Algorithm"
+    - Sorting Algorithm: "Sorting Algorithm"
+  Data structure:
+    - Array: "Array"
+    - Linked List: "Linked List"
+    - Binary tree: 
+        - Binary Search Tree: "Binary Search Tree"
+        - AVL: "AVL"
+        - Red-Black Tree: "Red-Black Tree"
+        - B-Tree: "B-Tree"
+    - Stack: "Stack"
+    - Queue: "Queue"
+    - Heap: "Heap"
+        - Min/Max Heap: "Min/Max Heap"
+        - Fibonacci Heap: "Fibonacci Heap"
   Language:
     - C++: "C++"
     - C#: "C#"
     - Javascript: "Javascript"
-    - Python: "Python"
-    - Java: "Java"
     - HTML & CSS: "HTML&CSS"
   About Me: "aboutme"
 
