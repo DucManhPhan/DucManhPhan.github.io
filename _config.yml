@@ -23,7 +23,7 @@ description: Practice makes perfect!
 
 # List of links in the navigation bar
 navbar-links:
-  Home: ""
+  Home: "Home"
   Memory Management: "Memory Management"
   Algorithm & Data structure: 
     - Algorithm: "Algorithm"
