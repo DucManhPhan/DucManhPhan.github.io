@@ -1,6 +1,8 @@
 ---
 layout: post
 title: Pass data from backend to html in Node.js - Express framework
+bigimg: /img/path.jpg
+tags: [Express framework, Node.js]
 ---
 
 Hi everyone!
@@ -11,7 +13,7 @@ Firstly, find the "routes" folder. In this folder, there are two files ending wi
 
 And then, open the index.js file. You can see something like: 
 
-```Javascript
+```javascript
 var express = require('express');
 var router = express.Router();
 

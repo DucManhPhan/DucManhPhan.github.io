@@ -1,6 +1,8 @@
 ---
 layout: post
 title: How do vector work in STL/C++?
+bigimg: /img/path.jpg
+tags: [C++, STL, vector]
 ---
 
 # How do vector work in STL / C++ ?

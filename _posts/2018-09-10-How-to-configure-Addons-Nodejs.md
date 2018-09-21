@@ -1,7 +1,8 @@
 ---
 layout: post
 title: How to configure C++ addon in Node.js.
-image: /img/hello_world.jpeg
+bigimg: /img/path.jpg
+tags: [C++, Addon, Node.js]
 ---
 
 

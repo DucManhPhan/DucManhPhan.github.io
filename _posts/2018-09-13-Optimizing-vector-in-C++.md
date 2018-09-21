@@ -1,6 +1,7 @@
 ---
 layout: post
 title: Optimizing vector in C++
+bigimg: /img/path.jpg
 ---
 
 ## Initialize the capacity or the size of vector when knowing about exactly the number of elements or the minimum of elements in vector. 

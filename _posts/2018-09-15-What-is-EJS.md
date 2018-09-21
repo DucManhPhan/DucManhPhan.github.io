@@ -1,6 +1,8 @@
 ---
 layout: post
 title: What is EJS?
+bigimg: /img/path.jpg
+tags: [EJS, Node.js]
 ---
 
 

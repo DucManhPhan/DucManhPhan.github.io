@@ -1,6 +1,8 @@
 ---
 layout: post
-title: How to setup Express framework. 
+title: How to setup Express framework.
+bigimg: /img/path.jpg
+tags: [Express framework, node.js] 
 ---
 
 Hi, everyone. Today, I will guide you some information about setting Express framework.
