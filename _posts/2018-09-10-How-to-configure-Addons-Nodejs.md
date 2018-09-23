@@ -7,7 +7,7 @@ tags: [C++, Addon, Node.js]
 
 
 
-1. Make the package.json file.
+## Make the package.json file.
 In Node.js, we have to set up the package.json. We can use the command: 
 The most important part in package.json is "name" and "version".
 
@@ -16,7 +16,7 @@ npm init
 ```
 
 
-2. Setup NAN (Native Abstraction of Node.js). 
+## Setup NAN (Native Abstraction of Node.js). 
 Nan is considered as the thin abstraction layer between V8 library and Node.js. 
 
 We need Nan because when the V8 library has some updated parts, we do not want to recompile all project. 
@@ -28,9 +28,9 @@ npm install -g nan@latest
 ```
 
 
-3. Setup the node-gyp and make the binding.gyp file.
+## Setup the node-gyp and make the binding.gyp file.
 
-  > 3.1. Make binding.gyp file. 
+  - Make binding.gyp file. 
   
   Binding.gyp file is used to configure the output of the compiled process, such as: name of file (Ex: hello.node) and the source files is need to build. 
   
@@ -52,7 +52,7 @@ npm install -g nan@latest
   }
   ```
 
-  > 3.2. Install the node-gyp tool. 
+  - Install the node-gyp tool. 
 
   Inorder to build the C++ addon, we need the node-gyp and download with command line: 
 
@@ -60,7 +60,7 @@ npm install -g nan@latest
   npm install -g node-gyp
   ```
   
-  > 3.3. Check whether npm have the windows-build-tool or not. 
+  - Check whether npm have the windows-build-tool or not. 
   
   We can install windows-build-tool with command: 
   
@@ -77,7 +77,7 @@ npm install -g nan@latest
   ```
 
 
-4. Build project with node-gyp. 
+## Build project with node-gyp. 
 
   - The first step, we call the command: 
 
@@ -102,7 +102,7 @@ npm install -g nan@latest
   At this step, we have the file "\*.node". This \*.node will be in the directory ./build/Release or ./build/Debug. 
   
   
-5. Run the program in the \*.js file. 
+## Run the program in the \*.js file. 
   
   In the \*.js file, we use the function require() to implement with the C++ Addons.
 
