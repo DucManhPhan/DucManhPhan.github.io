@@ -2,7 +2,7 @@
 layout: post
 title: Optimization with String concatenation in C#
 bigimg: /img/path.jpg
-tags: [test]
+tags: [optimization, string, C#]
 ---
 
 https://ericlippert.com/2013/06/17/string-concatenation-behind-the-scenes-part-one/
