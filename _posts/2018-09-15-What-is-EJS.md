@@ -5,28 +5,34 @@ bigimg: /img/path.jpg
 tags: [EJS, Node.js]
 ---
 
+## 1. Definition of EJS
 
 
 
-To declare the variable in EJS, you can use syntax: 
+## 2. Basic implementation in EJS
+    - Declare the variable in EJS
+    
+    You can use syntax: 
 
-Example: 
-```Javascript
-<% var numberOfStudent = 5; %>
-```
+    Example: 
+    ```Javascript
+    <% var numberOfStudent = 5; %>
+    ```
 
-To print the variable in EJS, using the syntax: 
+    - Print the variable in EJS
+  
+    Using the syntax: 
 
-Example: 
-```Javascript 
-<h2>The value of b variable: <%= b %> </h2>
-```
+    Example: 
+    ```Javascript 
+    <h2>The value of b variable: <%= b %> </h2>
+    ```
 
 
-When you want EJS that will appear the statement of HTML, using the "-" before "%". 
+    When you want EJS that will appear the statement of HTML, using the "-" before "%". 
 
-Example: 
-```Javascript
-<% var y = "<h2 style='color: red'> hello </h2>"; %>
-<%- y %>
-```
+    Example: 
+    ```Javascript
+    <% var y = "<h2 style='color: red'> hello </h2>"; %>
+    <%- y %>
+    ```
