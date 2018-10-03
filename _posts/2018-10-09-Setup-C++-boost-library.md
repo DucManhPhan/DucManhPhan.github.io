@@ -16,4 +16,10 @@ Before programming with C++ Boost Library, we have to intend to install the Boos
 - In the directory such as boost_1_68_0, run the "bootstrap.bat".
 - Finally, run the executable file: "b2".
 
+This image is our result when installing successfully. 
+
+![successfully setup boost library](/img/result_setup_boost_lib.png)
+
+We can use the above paths to insert into our project. 
+
 Thanks for your reading. 
