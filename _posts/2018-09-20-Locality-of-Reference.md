@@ -7,7 +7,7 @@ tags: [Locality of Reference, Quick-sort, Memory]
 
 
 ## Definition of Locality of Reference
-
+According to the wikipedia.org, locality of reference, also known as the principle of locality, is a term for the phenomenon in which the same values, or related storage locations, are frequently, depending on the memory access pattern. 
 
 ## Types of Locality of Reference
 
