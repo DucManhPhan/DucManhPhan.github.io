@@ -2,7 +2,7 @@
 layout: post
 title: Setup C++ Boost Library
 bigimg: /img/path.jpg
-tags: [test]
+tags: [boost library, C++]
 ---
 
 Boost contains over 80 libraries for C++ programming language that supports for task and structures such as Linear Algebra, **Image Processing**, **Pseudo random number generation**, multithreading, regular expression and **unit testing**. 
@@ -16,3 +16,4 @@ Before programming with C++ Boost Library, we have to intend to install the Boos
 - In the directory such as boost_1_68_0, run the "bootstrap.bat".
 - Finally, run the executable file: "b2".
 
+Thanks for your reading. 
