@@ -1,6 +1,6 @@
 ---
 layout: post
-title: How to setup Express framework.
+title: How to setup Express framework
 bigimg: /img/path.jpg
 tags: [Express framework, node.js] 
 ---

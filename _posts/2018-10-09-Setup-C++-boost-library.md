@@ -22,4 +22,22 @@ This image is our result when installing successfully.
 
 We can use the above paths to insert into our project. 
 
+Here, there are two ways to configure for your project in Visual Studio. 
+
+- **First way**
+  
+  In your properties's project,
+    - Find the key "Additional Include Directories" in "C/C++\General", add your path ".../boost_1_68_0"
+    - At "Linker\General", find the key "Additional Library Directories", add path ".../boost_1_68_0/stage/lib".
+
+- **Second way**
+  
+  Because there are some garbage files in your boost_1_68_0, then, you can delete them. Next, you will copy some neccessary folder into your folder. 
+
+  - Make folder new with the same name at the different path - "boost_1_68_0".
+  - In the new foler "boost_1_68_0", create the nested foler "include\boost", then, copy from all folders in the old path "boost_1_68_0\libs" to the new folder "boost_1_68_0\include\boost".
+  - In the new foler "boost_1_68_0", create the nested foler "lib", then, copy all files of the old path "boost_1_68_0\stage\lib" to the folder that has just created, it is "boost_1_68_0\lib".
+  - In your project properties, find the key "Additional Include Directories" in "C/C++\General", add your path "./boost_1_68_0/include".
+  - In your project properties, at "Linker\General", find the key "Additional Library Directories", add path "./boost_1_68_0/lib".
+
 Thanks for your reading. 

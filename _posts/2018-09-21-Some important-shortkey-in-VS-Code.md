@@ -1,6 +1,6 @@
 ---
 layout: post
-title: Some important shortkey in Visual Studio Code.
+title: Some important shortkey in Visual Studio Code
 bigimg: /img/path.jpg
 tags: [shortkey, Visual studio code]
 ---
