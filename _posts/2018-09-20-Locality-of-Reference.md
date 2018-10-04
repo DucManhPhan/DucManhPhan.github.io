@@ -7,12 +7,26 @@ tags: [Locality of Reference, Memory]
 
 ## Cache memory
 
+Cache memory is high-speed static random access memory (SRAM) that a computer microprocessor can access more quickly than it can access regular random access memory (RAM).
+
+The purpose of cache memory is to store program instructions and data that are used repeatedly in the operation of programs or information that the CPU is likely to need next. 
+
+The processor can access this information quickly from the cache rather than having to get it from the computer's main memory. 
+
+Fast access to these instructions increases the overall speed of the program. 
+
+The ability of cache memory to improve a computer's performance relies on the concept of the locality of reference. 
 
 ## The types of memory in computer
 
+There are several types of memory. Each type has the strength and weakness. The below image will talk about these. 
+
+![The type of memory](/img/type-memory.png)
 
 ## Definition of Locality of Reference
 According to the wikipedia.org, locality of reference, also known as the principle of locality, is a term for the phenomenon in which the same values, or related storage locations, are frequently, depending on the memory access pattern. 
+
+Locality describes various situations that make a system more predictable, such as where the same storage location is repeatedly accessed, creating a pattern of memory access that the cache memory relies upon.
 
 ## The types of Locality of Reference
 There are two basic types of locality of reference. 
@@ -24,6 +38,11 @@ There are two basic types of locality of reference.
 - Spatial locality
 
   If a particular storage location is referenced at a particular time, then it is likely that nearby memory locations will be referenced in the near future. 
+
+- Sequential locality
+
+  A special case of spatial locality, occurs when elements are arranged and accessed linearly, such as, traversing the elements in one-dimensional array. 
+
 
 ## How cache memory enhances the processing of computer
 
@@ -52,10 +71,44 @@ This way the cache memory with the locality of reference can enhance the speed o
 
 ## Example for using cache memory with locality of reference
 
+Example: 
+```C++
+int sum = 0; 
+for (int i = 0; i < n; ++i){
+  sum += a[i];
+}
+
+return sum;
+```
+
+- Data
+
+  - Reference array elements in succession (stride-1 reference pattern): Spatial Locality.
+  - Reference *sum* each iteration: Temporal Locality.
+
+- Instructions
+
+  - Reference instructions in sequence: Spatial Locality. 
+  - Cycle through loop repeatedly: Temporal Locality.
 
 ## Example for cache pollution 
 
-https://en.wikipedia.org/wiki/Cache_pollution
+Cache pollution describes situations where an executing computer program loads data into CPU cache unsuccessfully, thus causing other useful data to be evicted from the cache into lower levels of the memory hierarchy, degrading performance. 
+
+Example: 
+```
+ T[0] = T[0] + 1;
+ for i in 0..sizeof(CACHE)
+   C[i] = C[i] + 1;
+ T[0] = T[0] + C[sizeof(CACHE)-1];
+```
+
+Before the loop starts, T[0] will be fetched from memory into cache, its value updated. 
+
+However, as the loop executes, because the number of data elements the loop references requires the whole cache to be filled to its capacity, the cache block containing T[0] has to be evicted. 
+
+Thus, the next time the program requests T[0] to be updated, the cache misses, and the cache controller has to request the data bus to bring the corresponding cache block from the main memory again. 
+
 
 
 Refer to :
