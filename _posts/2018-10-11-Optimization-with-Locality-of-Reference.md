@@ -1,6 +1,7 @@
 ---
 layout: post
 title: Optimization with Locality of Reference
+bigimg: /img/path.jpg
 tags: [optimization, locality of reference]
 ---
 
