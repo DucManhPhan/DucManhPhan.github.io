@@ -5,11 +5,32 @@ bigimg: /img/path.jpg
 tags: [Behavioral Pattern, javascript, C++]
 ---
 
+# Given Problem 
 
+
+# Analysis Problem
+
+
+# Definition of Observer Pattern
+
+
+# When to use
+
+
+# Benefits & Drawback
+
+
+# Code C++/Javascript
+
+
+
+# Application & Examples
 
 
 
 Refer: 
 
 Head First Design Pattern
+
+[SourceMaking](https://sourcemaking.com/design_patterns/observer)
 
