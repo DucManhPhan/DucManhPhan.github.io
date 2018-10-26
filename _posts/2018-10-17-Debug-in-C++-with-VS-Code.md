@@ -241,3 +241,14 @@ Refer:
 
 [C/C++ for Visual Studio Code (Preview)](https://code.visualstudio.com/docs/languages/cpp)
 
+[Configure c_cpp_properties.json](https://github.com/Microsoft/vscode-cpptools/blob/master/Documentation/LanguageServer/c_cpp_properties.json.md)
+
+[Configure launch.json](https://github.com/Microsoft/vscode-cpptools/blob/master/launch.md)
+
+[Customizing Default Settings](https://github.com/Microsoft/vscode-cpptools/blob/master/Documentation/LanguageServer/Customizing%20Default%20Settings.md)
+
+[Configure IntelliSense Engine for includePath and browse.path](https://github.com/Microsoft/vscode-cpptools/blob/master/Documentation/LanguageServer/IntelliSense%20engine.md)
+
+[Configuring includePath for better IntelliSense results](https://github.com/Microsoft/vscode-cpptools/blob/master/Documentation/Getting%20started%20with%20IntelliSense%20configuration.md)
+
+
