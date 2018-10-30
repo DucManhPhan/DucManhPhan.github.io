@@ -41,3 +41,15 @@ Here, there are two ways to configure for your project in Visual Studio.
   - In your project properties, at "Linker\General", find the key "Additional Library Directories", add path "./boost_1_68_0/lib".
 
 Thanks for your reading. 
+
+Refer:
+
+[How Boost automatically includes libraries](https://codeyarns.com/2014/06/09/how-boost-automatically-includes-libraries/)
+
+https://www.boost.org/doc/libs/1_68_0/tools/bcp/doc/html/index.html
+
+https://www.technical-recipes.com/2014/using-subset-boost-in-windows/
+
+http://manpages.ubuntu.com/manpages/bionic/man1/bcp.1.html
+
+https://steveire.wordpress.com/2016/08/21/boost-dependencies-and-bcp/

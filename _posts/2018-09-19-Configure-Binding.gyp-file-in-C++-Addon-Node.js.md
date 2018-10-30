@@ -39,3 +39,11 @@ The following image is the structure of our folder.
 ## Use complier of Windows Build Tools 
 
 
+
+Refer: 
+
+[GYP file - User Documentation](https://gyp.gsrc.io/docs/UserDocumentation.md)
+
+[Input Format Reference](https://gyp.gsrc.io/docs/InputFormatReference.md)
+
+[Sample for configuring binding.gyp](https://notendur.hi.is/bjb46/vefforritun/final/node_modules/canvas/binding.gyp)
