@@ -98,6 +98,9 @@ In order to push the usage of VIM, we should learn something about command in mo
 - :n : jump to the nth line
 - :0 : jump to the start of file
 - :$ : jump to the end of file
+- gg : move to the first line
+- G : go to the end of file
+- 123G : move to the line number 123
 - w : move cursor to the beginning of the next word
 - e : move cursor to the end of the current word
 - b : move cursor to the beginning of the previous word
@@ -106,20 +109,54 @@ In order to push the usage of VIM, we should learn something about command in mo
 
 
 # Undo and Redo
-- u : undo single action, ex: 3u - undo last 3 actions
+- u : undo last change of action, ex: 3u - undo last 3 actions
 - Ctrl + r or :red : redo action 
+- U : return the last line which was modified to its original state (reverse all changes in last modified line). U is seldom useful in practice, but it often accidentally pressed instead of u, so it is good to know about.
 
 
 # Commands in Visual Mode
 
 
-# Commands in Insert Mode
+# Commands in Normal Mode
+- d : delete text specified by motion (!important)
+- c : delete text specified by motion and go to insert mode (!important)
+- y : yank (copy) text specified by motion (!important)
+  
+- x : delete character under the cursor
+- r : replace character under cursor with another character
+- s : delete character under cursor and move to insert mode
+- yy : yank (copy) the current line
+- dd : delete the current line
+- fx : go to the next occurrence of 'x' on the current line
+- Fx : find the previous 'x' in the current line
+- tC : jump till just before the next 'C' in the line
+- TC : jump till just after the previous the 'C' in the same line
+- 
+
+
+# Commands with Insert Mode
 
 
 
 # Commands with Find operation
 
 
+
+# Commands with file
+
+
+
+# Commands with tab
+
+
+# Some interesting commands
+- ciw : change the inner word
+- d$ : delete to the end of line
+- yG : copy everything through the end of the file
+- cf) : change through the next closing parentheses or the next other character
+- cw : delete word and enter the insert mode
+- dw : delete word and staying in the normal mode
+- 
 
 
 
