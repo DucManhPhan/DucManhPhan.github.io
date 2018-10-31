@@ -84,8 +84,7 @@ Or something will not happen. So we can try to use the other way:
     - ai: the current indentation level and the line above
     - ii: the current indentation level excluding the line above
 
-
-# Movement of Cursor
+# Motion - Commands
 In order to push the usage of VIM, we should learn something about command in movement with cursor. 
 - h : move cursor to left by one position, ex: 10h - move to left by 10 character.
 - l : move cursor to right by one position
@@ -131,11 +130,20 @@ In order to push the usage of VIM, we should learn something about command in mo
 - Fx : find the previous 'x' in the current line
 - tC : jump till just before the next 'C' in the line
 - TC : jump till just after the previous the 'C' in the same line
-- 
 
 
 # Commands with Insert Mode
-
+- i : insert at the current location
+- a : insert after the current location (append)
+- I : insert at the start of the current line
+- A : insert after the end of the current line
+- o : insert line below the current line
+- O : insert line above the current line
+- s : delete character under cursor and start inserting in its place (substitute text) 
+- S : delete all text on line and start inserting in its place (substitute line) 
+- cw : delete to the end of current word and start inserting in its place (any movement command can be substituted for w) 
+- cc : same as S (change line) 
+- C : delete from the cursor to the end of line and start inserting at the cursor position 
 
 
 # Commands with Find operation
@@ -156,6 +164,10 @@ In order to push the usage of VIM, we should learn something about command in mo
 - cf) : change through the next closing parentheses or the next other character
 - cw : delete word and enter the insert mode
 - dw : delete word and staying in the normal mode
+- cfx : change all text till the 'x' (includes the 'x') 
+- ctx : change all text tille the 'x'
+- dtx : delete all text till the next 'x'
+- dfx : same, but include the 'x'
 - 
 
 
@@ -164,3 +176,4 @@ Refer:
 
 [Vim Text Objects: The Definitive Guide](https://blog.carbonfive.com/2011/10/17/vim-text-objects-the-definitive-guide/)
 
+[](http://vim.wikia.com/wiki/Tutorial)
