@@ -16,7 +16,7 @@ In this article, we will look at some ways the real copy object.
 Consider this below code: 
 
 ```Javascript
-et obj = {
+let obj = {
     age: 10, 
     birthYear: 2009, 
     name: "satoshi"
