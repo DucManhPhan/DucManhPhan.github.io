@@ -299,6 +299,11 @@ To the library that it can be got from the somewhere, you can turn this library 
                         "/source-charset:utf-8",
                         "/EHsc",
                         "/GR"
+                    ], 
+                    'WarningLevel': 4,
+                    'ExceptionHandling': 1,
+                    'DisableSpecificWarnings': [
+                        4100, 4127, 4201, 4244, 4267, 4506, 4611, 4714, 4512
                     ]
                 },
                 'VCLibrarianTool': {
@@ -337,9 +342,26 @@ To the library that it can be got from the somewhere, you can turn this library 
 ```
 
 
-## Use variables for shorting the path of folders
+## Use variables for shorting the path of folders / set state of project
+To define the variables for the path of folders, you can set the following structure: 
 
-
+```Javascript
+{
+    'variables': [
+        'SOURCE_FILE%': 'E:\\prj1\\src', 
+        'INCLUDE_FILE%': 'E:\\prj1\\include', 
+        'change_state%': 'true', 
+        'with_gif%', 'false',
+        'with_jpg%': 'false'
+    ]
+    'targets': [
+        {
+            'target_name': 'name_prj', 
+            ...
+        }
+    ]
+}
+```
 
 
 Notice: You should read about [GYP file - User Documentation](https://gyp.gsrc.io/docs/UserDocumentation.md). It is the most detail document that I think.
