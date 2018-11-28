@@ -168,7 +168,7 @@ In order to push the usage of VIM, we should learn something about command in mo
 - ctx : change all text tille the 'x'
 - dtx : delete all text till the next 'x'
 - dfx : same, but include the 'x'
-- 
+
 
 
 
@@ -176,4 +176,4 @@ Refer:
 
 [Vim Text Objects: The Definitive Guide](https://blog.carbonfive.com/2011/10/17/vim-text-objects-the-definitive-guide/)
 
-[](http://vim.wikia.com/wiki/Tutorial)
+[Wikipedia about VIM](http://vim.wikia.com/wiki/Tutorial)
