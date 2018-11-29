@@ -47,6 +47,8 @@ With the command "use name_db", you will make the database new if the "name_db" 
 use name_db
 ```
 
+Ex: use tech_shops
+
 Notice: When using this command "use name_db", you have to insert the information into this "name_db" database. If not, the application will not detect it.
 
 
@@ -61,6 +63,8 @@ show collections
 ```Javascript
 db.createCollection('table1');
 ```
+
+Ex: db.createCollection('listOfWebsite');
 
 ## Delete the database 
 
@@ -78,6 +82,14 @@ The command "db.createCollection('name_collection')" will make the new collectio
 db.name_collection.insert(json_string);
 ```
 
+Ex: db.listOfWebsite.insert({
+  "name": "tiki", 
+  "link": "https://tiki.vn", 
+  "products": [
+    "mobile", "books"
+  ]
+});
+
 Notice: json_string is the string of json object that you have to make it. 
 
 
@@ -92,6 +104,42 @@ db.name_collection.find();
 ```Javascript
 db.name_collection.find().pretty();
 ```
+
+
+## Update data in the specific object in collection
+
+
+```Javascript
+db.name_collection.update(
+  <condition>, 
+  <update>,
+  {multi: true}
+)
+```
+
+Ex: db.listOfWebsite.update(
+  {"name": "amazon"}, 
+  {$set: {"incomes": "1 billions dollar"}}, 
+  {upsert: true},
+  {multi: true}
+);
+
+When "multi: true" property, it means many object that satifies the condition, will be updated. 
+
+But multi property is false, it will update for one object that application finds the objects that is satified. 
+
+
+Ex: db.listOfWebsite.update(
+  {"name": "amazon", 
+  {$unset: {"incomes": "1 billions dollar}},
+  {multi: false}
+)
+
+When you see the field "unset", it means that when it satisfies the condition, it will delete the field "incomes: \"1 billion dollar\"" at the first object that it found. 
+
+And "upsert" filed = update + insert. The default value of "upsert" is false. It means:
+- upsert = true : If it does not find the other fields that satifies the condition, it will automatically insert this field into the object and set value for this field. 
+- upsert = false : if the object has no field, it will ignore it. 
 
 
 Thanks for your reading. 
