@@ -17,7 +17,7 @@ When it has finished completely, module express will be contain in node-modules 
 
 
 ## Make the directory of express project. 
-Now, you want to make the project using Express framework. 
+Now, you want to make the project using Express framework with template engine EJS. 
 
 Typing command in Visual Studio Code's terminal or Command Prompt.
 

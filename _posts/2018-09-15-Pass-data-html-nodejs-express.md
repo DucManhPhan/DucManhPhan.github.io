@@ -23,7 +23,7 @@ router.get('/', function(req, res, next) {
 });
 ```
 
-The first parameter of the get function, it is "/", means the home page of website. Al the codes means that when you access to the home page, node.js will render file "index.ejs" in "views" folder. And the "title" variable will be pass to the html, the title variable's value will be replace to the "title" in html. 
+The first parameter of the get function, it is "/", means the home page of website. All the codes means that when you access to the home page, node.js will render file "index.ejs" in "views" folder. And the "title" variable will be pass to the html, the title variable's value will be replace to the "title" in html. 
 
 
 Now, you want to pass the array into file html, you can do the following: 
