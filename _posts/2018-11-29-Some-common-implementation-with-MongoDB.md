@@ -128,12 +128,13 @@ When "multi: true" property, it means many object that satifies the condition, w
 
 But multi property is false, it will update for one object that application finds the objects that is satified. 
 
-
-Ex: db.listOfWebsite.update(
+```Javascript
+db.listOfWebsite.update(
   {"name": "amazon", 
   {$unset: {"incomes": "1 billions dollar}},
   {multi: false}
 )
+```
 
 When you see the field "unset", it means that when it satisfies the condition, it will delete the field "incomes: \"1 billion dollar\"" at the first object that it found. 
 
