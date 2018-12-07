@@ -42,8 +42,8 @@ for (unsigned int i = 0; i < length; ++i)
         }
 
 		double value = v->NumberValue();	
-        vect[i]	 = value;
-		resArr[i] = value;		
+        vect[i] = value;
+        resArr[i] = value;		
     }
 	else
 	{

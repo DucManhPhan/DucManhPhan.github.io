@@ -1,7 +1,7 @@
 ---
 layout: post
 title: How to use char, wchar_t, char16_t and char32_t right a way in C++
-bigimg: /img/ravashing-beach.jpg
+bigimg: /img/image-header/ravashing-beach.jpg
 tags: [test]
 ---
 
