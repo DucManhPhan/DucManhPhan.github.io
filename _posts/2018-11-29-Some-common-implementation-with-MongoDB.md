@@ -136,8 +136,8 @@ But multi property is false, it will update for one object that application find
 
 ```Javascript
 db.listOfWebsite.update(
-  {"name": "amazon"}, 
-  {$unset: {"incomes": "1 billions dollar}},
+  {"name": "amazon", 
+  {$unset: {"incomes": "1 billions dollar"}},
   {multi: false}
 )
 ```
