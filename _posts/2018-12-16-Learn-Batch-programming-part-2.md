@@ -18,7 +18,7 @@ with:
 
 Ex: 
 
-```Javascript
+```
 ::change to the parent directory
 cd ..
 
