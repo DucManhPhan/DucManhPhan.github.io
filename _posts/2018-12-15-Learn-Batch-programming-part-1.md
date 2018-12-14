@@ -38,8 +38,8 @@ with:
   - *item* : a text string or environment variable, substring (%var:~n, m%), search syntax.
   - *filename* : a file to test || a wildcard pattern.
   - /I : case Insensitive string comparison.
-  - compare-op : EQU, NEQ, LSS, LEQ,  GTR, GEQ.
-  - == : perform command if the two strings are equal.
+  - "compare-op" : EQU, NEQ, LSS, LEQ,  GTR, GEQ.
+  - "==" : perform command if the two strings are equal.
 
 Ex: Check whether folder is empty or not.
 
