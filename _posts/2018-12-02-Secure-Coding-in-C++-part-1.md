@@ -1,6 +1,6 @@
 ---
 layout: post
-title: Secure coding in C++ - Part 1: String
+title: Secure coding in C++ - Part 1 - String
 bigimg: /img/path.jpg
 tags: [secure coding, C++]
 ---

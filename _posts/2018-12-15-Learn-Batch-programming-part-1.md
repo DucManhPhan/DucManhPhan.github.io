@@ -43,7 +43,7 @@ with:
 
 Ex: Check whether folder is empty or not.
 
-```Javascript
+```
 ::Check the first passed parameter is null or not
 if {%1}=={} set _empty=Syntax: %0 "" &goto :message
 
@@ -95,7 +95,7 @@ Notice:
 
 Ex: list all the text files in a folder
 
-```Javascript
+```
 @echo off
 FOR /F "tokens=*" %%G IN ('dir /b E:\...\*.txt') DO echo %%G
 ```
@@ -111,7 +111,7 @@ with:
 
 Ex: 
 
-```Javascript
+```
 ::Copy a single file
 for %%G in ("C:\doc file\file_1.txt" "C:\doc file\file_2.txt") do copy %%G E:\docs\
 ```
@@ -129,7 +129,7 @@ with:
 
 Ex: 
 
-```Javascript
+```
 @echo off 
 for /l %g in (1, 2, 10) do echo %g
 ```
@@ -146,7 +146,7 @@ with:
 
 Ex: 
 
-```Javascript
+```
 @ECHO OFF 
 FOR /D %%G IN (D:\doc\*) DO @ECHO %%G
 ```
@@ -170,7 +170,7 @@ Ex:
 
 Delete every .bak file in every subfolder starting at C:\temp
 
-```Javascript
+```
 @echo off
 For /R C:\temp\ %%G IN (*.bak) do Echo del "%%G"
 ```
