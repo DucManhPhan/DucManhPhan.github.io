@@ -17,8 +17,8 @@ File syntax:
 
 String syntax: 
     IF [/I] [NOT] *item1==item2 command*
-    IF [/I] *item1 compare-op item2 command*
-    IF [/I] *item1 compare-op item2 (command)* ELSE (*command*)
+    IF [/I] *item1 compareop item2 command*
+    IF [/I] *item1 compareop item2 (command)* ELSE (*command*)
 
 Use AND conditions:
     IF condition_1 (
@@ -38,7 +38,7 @@ with:
   - *item* : a text string or environment variable, substring (%var:~n, m%), search syntax.
   - *filename* : a file to test || a wildcard pattern.
   - /I : case Insensitive string comparison.
-  - "compare-op" : EQU, NEQ, LSS, LEQ,  GTR, GEQ.
+  - compareop : EQU, NEQ, LSS, LEQ,  GTR, GEQ.
   - "==" : perform command if the two strings are equal.
 
 Ex: Check whether folder is empty or not.
