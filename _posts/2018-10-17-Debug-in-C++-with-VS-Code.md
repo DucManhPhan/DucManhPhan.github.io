@@ -253,7 +253,7 @@ Refer:
 
 [C/C++ extension for Visual Studio Code](https://blogs.msdn.microsoft.com/vcblog/2016/03/31/cc-extension-for-visual-studio-code/#MSBuild)
 
-[](https://stackoverflow.com/questions/30269449/how-do-i-set-up-visual-studio-code-to-compile-c-code)
+[How do I setup VS code to compile C code](https://stackoverflow.com/questions/30269449/how-do-i-set-up-visual-studio-code-to-compile-c-code)
 
 [Using Visual Studio Code and Building and Debugging with C++ on Mac OS X](http://www.suodenjoki.dk/us/archive/2016/vscode-cpp-mac.htm)
 
