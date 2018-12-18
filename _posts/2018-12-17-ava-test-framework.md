@@ -121,12 +121,14 @@ The below is the common assertion that you will need to use.
 - test.after.always()     : register a hook that will always run once your tests ans other hooks complete.
 - test.beforeEach()       : register a hook to be run before each test in your test file. 
 - test.afterEach()        : register a hook to be run after each test.
-- test.afterEach.always() : register an 
+- test.afterEach.always() : register an after hook that is called even if other test hooks, or the test itself, fail.
+- .before() hooks execute before .beforeEach() hooks.
+- .afterEach() hooks before .after() hooks.
 
 
 ## Notice
-
-
+- Tests run concurrently.
+- Each test file is run in a seperate Node.js process. It's greate performance on modern multi-core processors, allowing multiple test files to execute in parallel.
 
 
 Refer: 
