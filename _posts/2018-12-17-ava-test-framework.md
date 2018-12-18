@@ -39,16 +39,21 @@ Title must be unique within each test file. The asynchronous function will be ca
 Ex: 
 
 ```Javascript
-test('', async t => {
+test('name_action', async t => {
   // prepare data for testing
   // ...
 
   try {
     // implement test case at here 
-    // ...
+    // ... 
+    // t.deepEqual(...);
+    // t.is(...);
+    // t.pass();
   } catch (e) {
     // process when having exceptions
-    // ...
+    // ... 
+    // console.log(e);
+    // t.fail();
   } finally {
     // process something when ending test case 
     // ...
@@ -58,7 +63,65 @@ test('', async t => {
 
 Note: In order for the enhanced assertion messages to behave correctly, the first arguments must be named t. 
 
+### Running test serially
+By default, tests run concurrently. But when each test case works with I/O operations, it can cause the error. So, you want your test cases that must be run synchronously. 
 
+Use *.serial* modifier, it will force those tests to run serially before the concurrent ones.
+
+Note: In your one test file, you use each test case with *.serial', then test cases will run serially. But when you want to run many test files, all of test files will run concurrently if you do not set the flag *--serial*. 
+
+```Javascript
+ava --serial .\\test_folder\\*.js
+```
+
+
+### Using async keyword
+Ava supports asyn function in the second parameter. 
+
+```Javascript
+test('action', async t => {
+  // do something 
+}
+```
+
+
+### Running specific test
+If you only want to run some test cases, not all of test cases. You can use *.only* modifier. 
+
+```Javascript
+test.only('action', t => {
+  // do something
+});
+```
+
+Note: You can use the *.only* modifier with all tests. It cannot be used with hooks or .todo().
+
+
+### Skipping test
+When your test case can not be fixed, you can use the *.skip* modifier to skip this test case. 
+
+```Javascript
+test.skip('action', t => {
+  // do something
+});
+```
+
+
+### Using assertion
+The below is the common assertion that you will need to use. 
+- .pass([message]): passing assertion.
+- .fail([message]): failing assertion.
+- .is(value, expected, [message]): assert that *value* is equal to *expected*.
+- .deepEqual(value, expected, [message]): assert that *value* is equal to *expected*.
+
+
+### Use before and after hooks
+- test.before()           : register a hook to be run before the first test in your test file. 
+- test.after()            : register a hook to be run after the last test. 
+- test.after.always()     : register a hook that will always run once your tests ans other hooks complete.
+- test.beforeEach()       : register a hook to be run before each test in your test file. 
+- test.afterEach()        : register a hook to be run after each test.
+- test.afterEach.always() : register an 
 
 
 ## Notice
@@ -66,9 +129,9 @@ Note: In order for the enhanced assertion messages to behave correctly, the firs
 
 
 
-
-
 Refer: 
+
+[The comparison between ava and jest](https://stackshare.io/stackups/ava-vs-jest)
 
 [Ava testing framework documentation](https://github.com/avajs/ava)
 

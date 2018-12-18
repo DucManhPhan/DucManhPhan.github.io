@@ -37,7 +37,7 @@ Use OR conditions:
 with: 
   - *item* : a text string or environment variable, substring (%var:~n, m%), search syntax.
   - *filename* : a file to test || a wildcard pattern.
-  - /I : case Insensitive string comparison.
+  - "/I" : case Insensitive string comparison.
   - compareop : EQU, NEQ, LSS, LEQ,  GTR, GEQ.
   - "==" : perform command if the two strings are equal.
 
