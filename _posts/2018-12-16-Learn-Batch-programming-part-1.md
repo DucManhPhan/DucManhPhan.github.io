@@ -47,17 +47,10 @@ Use OR conditions:
 
 with: 
 
-```
-  - item : a text string or environment variable, substring (%var:~n, m%), search syntax.
+  - item : a text string or environment variable, substring (%var:~n, m%), search syntax. *compareop* means EQU, NEQ, LSS, LEQ,  GTR, GEQ.
 
-  - filename : a file to test || a wildcard pattern.
+  - filename : a file to test || a wildcard pattern.  /I means case insensitive string comparison. == means perform command if the two strings are equal.
 
-  - item "/I" : case Insensitive string comparison.
-
-  - compareop : EQU, NEQ, LSS, LEQ,  GTR, GEQ.
-
-  - item "==" : perform command if the two strings are equal.
-```
 
 Ex: Check whether folder is empty or not.
 
