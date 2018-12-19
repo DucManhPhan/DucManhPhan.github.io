@@ -45,12 +45,6 @@ Use OR conditions:
     IF %_tempvar% EQU 1 Command_if_either_is_true
 ```
 
-with: 
-
-  - item : a text string or environment variable, substring (%var:~n, m%), search syntax. *compareop* means EQU, NEQ, LSS, LEQ,  GTR, GEQ.
-
-  - filename : a file to test || a wildcard pattern.  /I means case insensitive string comparison. == means perform command if the two strings are equal.
-
 
 Ex: Check whether folder is empty or not.
 
