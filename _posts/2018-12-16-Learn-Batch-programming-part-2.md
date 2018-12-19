@@ -14,7 +14,8 @@ Syntax:
     CD [..]
 
 with: 
-  - /D : change the current DRIVE in addition to changing folder. 
+  
+  /D : change the current DRIVE in addition to changing folder. 
 
 Ex: 
 
