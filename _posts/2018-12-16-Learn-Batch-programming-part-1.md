@@ -12,39 +12,52 @@ The below things you will learn some commands that need to do with automatically
 ## If statement
 
 File syntax: 
+
+```
     IF [NOT] EXIST *filename command* 
     IF [NOT] EXIST *filename (command)* ELSE (*command*)
+```
 
-String syntax: 
+String syntax:
+
+```
     IF [/I] [NOT] *item1==item2 command*
     IF [/I] *item1 compareop item2 command*
     IF [/I] *item1 compareop item2 (command)* ELSE (*command*)
+```
 
 Use AND conditions:
-    IF condition_1 (
+
+```
+    IF condition_1 
       IF condition_2 (
         Command_if_both_are_true
       )
     )
+```
 
 Use OR conditions:
+
+```
     SET "_tempvar="
     IF condition_1 set _tempvar=1
     IF condition_2 set _tempvar=1
     IF %_tempvar% EQU 1 Command_if_either_is_true
-
+```
 
 with: 
 
-  * item : a text string or environment variable, substring (%var:~n, m%), search syntax.
+```
+  - item : a text string or environment variable, substring (%var:~n, m%), search syntax.
 
-  * filename : a file to test || a wildcard pattern.
+  - filename : a file to test || a wildcard pattern.
 
-  * item "/I" : case Insensitive string comparison.
+  - item "/I" : case Insensitive string comparison.
 
-  * compareop : EQU, NEQ, LSS, LEQ,  GTR, GEQ.
+  - compareop : EQU, NEQ, LSS, LEQ,  GTR, GEQ.
 
-  * item "==" : perform command if the two strings are equal.
+  - item "==" : perform command if the two strings are equal.
+```
 
 Ex: Check whether folder is empty or not.
 
