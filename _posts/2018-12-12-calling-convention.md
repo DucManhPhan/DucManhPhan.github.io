@@ -1,7 +1,7 @@
 ---
 layout: post
-title: Find out something about calling convention
+title: Calling convention in C++
 bigimg: /img/path.jpg
-tags: [calling convention]
+tags: [C++]
 ---
 
