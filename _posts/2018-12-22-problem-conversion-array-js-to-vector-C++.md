@@ -9,9 +9,12 @@ tags: [C++, v8, native module, NAN]
 When using the v8 library or NAN for C++ addon modules, you want to convert the array in Node.js to the std::vector in C++. 
 
 # 1. Problem
-You will have some wrong result in std::vector when using the push_back() function. 
+You will have wrong result in std::vector when using the push_back() function. 
+
 For example: 
+
 In Javascript, arr = [1, 2, 3, 4, 5]
+
 But the below v8, or NAN, you will have: std::vector<int> vect = {0, 0, 0, 0, 0, 1, 2, 3, 4, 5}
 
 I think that the problem can be caused by the asynchronous of Javascript.
@@ -41,7 +44,7 @@ for (unsigned int i = 0; i < length; ++i)
             return;
         }
 
-		double value = v->NumberValue();	
+		double value = v->NumberValue();
         vect[i] = value;
         resArr[i] = value;		
     }
