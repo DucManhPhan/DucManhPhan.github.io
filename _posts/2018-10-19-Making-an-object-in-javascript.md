@@ -7,7 +7,14 @@ tags: [javascript]
 
 In Javascript, everything is object, an object is a collection of properties, and a property is an association between a key and a value. So, there are so multiple interesting ways to create the object. In this article, we are going to find out these ways. 
 
-# Use class syntax - ES6
+# Table of Contents
+- [Use class syntax in ES6](#use-class-syntax-in-es6)
+- [Use constructor function](#use-constructor-function)
+- [Use object initializer](#use-object-initializer)
+- [Use Object.create() method](#use-Object.create()-method)
+- [Use Object() constructor](#use-Object()-constructor)
+
+# Use class syntax in ES6
 
 
 # Use constructor function

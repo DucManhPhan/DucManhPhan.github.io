@@ -11,6 +11,14 @@ After spending so much time to search information about debuging, I think the Vi
 
 First of all, Visual Studio Code supports the compiler, debugger, intellisence mode. In this article, we will find out all of information about compiler, debugger in Vs Code. 
 
+
+## Table of Contents
+- [1. Debugger Extension](#1-debugger-extension)
+- [2. Build source code](#2-build-source-code)
+- [3. Debug source code](#3-debug-source-code)
+- [4. Summarize](#4-summarize)
+
+
 ## 1. Debugger Extension
 The first thing to do is to install the Microsoft C/C++ extension. It is used to debug our source code. 
 

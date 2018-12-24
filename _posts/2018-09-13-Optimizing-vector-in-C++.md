@@ -4,6 +4,13 @@ title: Optimizing vector in C++
 bigimg: /img/path.jpg
 ---
 
+## Table of Contents
+- [Initialize the capacity or the size of vector when knowing about exactly the number of elements or the minimum of elements in vector.](#initialize-the-capacity-or-the-size-of-vector-when-knowing-about-exactly-the-number-of-elements-or-the-minimum-of-elements-in-vector)
+- [Should use assignment, or assign(), or insert() when you need to copy the vector's elements to the other vector.](#should-use-assignment-or-assign-or-insert-when-you-need-to-copy-the-vector's-elements-to-the-other-vector)
+- [Use move semantic for the temporary variable.](#use-move-semantic-for-the-temporary-variable)
+- [Use iterator or subscription of the element, instead of using the at() function.](#use-iterator-or-subscription-of-the-element-instead-of-using-the-at()-function)
+
+
 ## Initialize the capacity or the size of vector when knowing about exactly the number of elements or the minimum of elements in vector. 
 
 ```C++
@@ -52,7 +59,7 @@ When use std::move() function, you do not have to make the copy of the variable,
 The state of the variable will become undefine, it can not be accessed. 
 
 
-## Use interator or subscription of the element, instead of using the at() function.
+## Use iterator or subscription of the element, instead of using the at() function.
 
 In order to explain this statement, you can see the function at() of vector file.
 

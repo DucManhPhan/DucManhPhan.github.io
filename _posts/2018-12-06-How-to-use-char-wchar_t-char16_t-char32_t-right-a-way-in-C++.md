@@ -10,6 +10,14 @@ When you worked with the software that need to use the language which is out of 
 So today, I will find something out about character types that is supported in C++. When having deep understand about all character types, you will easily convert between utf8, utf16 and utf32.
 
 
+## Table of Contents
+- [General information about char, wchar_t, char16_t, char32_t](#general-information-about-char-wchar_t-char16_t-char32_t)
+- [char type](#char-type)
+- [wchar_t type](#wchar_t-type)
+- [char16_t type](#char16_t-type)
+- [char32_t type](#char32_t-type)
+
+
 ## General information about char, wchar_t, char16_t, char32_t
 To talk about the character types, we have to come back to the time that C and C++ are created. In the 1960s, the C programming language is invented by Dennis Ritchie (September 9, 1941 – c. October 12, 2011), with long-time colleague Ken Thompson.
 

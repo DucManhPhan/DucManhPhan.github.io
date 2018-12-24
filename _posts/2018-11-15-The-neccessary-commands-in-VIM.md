@@ -11,6 +11,22 @@ VIM has so powerful multiple commands, and it helps developers to type keyboard 
 
 In this article, we will find out the most common commands of VIM, and how to memorize the commands quickly.
 
+
+## Table of Contents
+- [Structure of Editing command in VIM](#structure-of-editing-command-in-VIM)
+- [Plaintext Text Objects](#plaintext-text-objects)
+- [Programming Language Text Objects](#programming-language-text-objects)
+- [Motion - Commands](#motion-commands)
+- [Undo and Redo](#undo-and-redo)
+- [Commands in Visual Mode](#commands-in-visual-mode)
+- [Commands in Normal Mode](#commands-in-normal-mode)
+- [Commands with Insert Mode](#commands-with-insert-mode)
+- [Commands with Find operation](commands-with-find-operation)
+- [Commands with file](#commands-with-file)
+- [Commands with tab](#commands-with-tab)
+- [Some interesting commands](#some-interesting-commands)
+
+
 # Structure of Editing command in VIM
 When we know the structure of commands, means we can use so many commands. We do not remember the detail of each command. 
 
@@ -84,7 +100,7 @@ Or something will not happen. So we can try to use the other way:
     - ai: the current indentation level and the line above
     - ii: the current indentation level excluding the line above
 
-# Motion - Commands
+# Motion Commands
 In order to push the usage of VIM, we should learn something about command in movement with cursor. 
 - h : move cursor to left by one position, ex: 10h - move to left by 10 character.
 - l : move cursor to right by one position

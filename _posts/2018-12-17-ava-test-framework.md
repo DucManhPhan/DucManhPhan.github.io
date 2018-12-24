@@ -7,10 +7,13 @@ tags: [ava testing]
 
 To developers, writing test case is a important skill that everyone have to learn and expert. Because you can not code the perfect software, when you can not cover all the case. In Node.js project, it's neccessary to use testing framework such as Ava, Jest, Jasmine, Karma, ... The testing framework will boost your performance and make your life easier. 
 
-Today, I will completely show you how to use Ava testing framework. The content of this article is contained some parts: 
-- Installing Ava
-- How to use test function in Ava
-- Some informations that need to note
+Today, I will completely show you how to use Ava testing framework. 
+
+
+## Table of Contents
+- [Installing Ava](#installing-ava)
+- [How to use test function in Ava](#use-test()-function-in-ava)
+- [Some informations that need to note](#note)
 
 
 ## Installing Ava

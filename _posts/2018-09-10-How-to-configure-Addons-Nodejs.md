@@ -6,6 +6,13 @@ tags: [C++, Addon, Node.js]
 ---
 
 
+## Tablel of Contents
+- [Make the package.json file.](#make-the-package.json-file)
+- [Setup NAN (Native Abstraction of Node.js).](#setup-nan-native-abstraction-of-node.js)
+- [Setup the node.gyp and make the binding.gyp file.](#setup-the-node.gyp-and-make-the-binding.gyp-file)
+-[Build project with node.gyp.](#build-project-with-node.gyp)
+- [Run the program in the \*.js file.](#run-the-program-in-the-*.js-file)
+
 
 ## Make the package.json file.
 In Node.js, we have to set up the package.json. We can use the command: 
@@ -28,7 +35,7 @@ npm install -g nan@latest
 ```
 
 
-## Setup the node-gyp and make the binding.gyp file.
+## Setup the node.gyp and make the binding.gyp file.
 
   - Make binding.gyp file. 
   
@@ -77,7 +84,7 @@ npm install -g nan@latest
   ```
 
 
-## Build project with node-gyp. 
+## Build project with node.gyp. 
 
   - The first step, we call the command: 
 
@@ -106,3 +113,5 @@ npm install -g nan@latest
   
   In the \*.js file, we use the function require() to implement with the C++ Addons.
 
+
+Thanks for your reading.

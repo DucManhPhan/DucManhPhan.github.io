@@ -9,6 +9,11 @@ When I have just began to find out something in blockchain, especially bitcoin, 
 
 After arduous days, I have dig into the bitcoin. I think I know about why to have the number of bitcoin.
 
+
+## Table of Contents
+- [The Problem](#the-problem)
+- [Solution](#solution)
+
 ## The Problem
 With bitcoin, each 10 minutes, there is a block mined from miners all over the world. The origin value of bitcoin is 50 bitcoin. After each 4 years, the value of bitcoin will reduce two times. So, calculate the total number of bitcoin?
 

@@ -5,6 +5,11 @@ bigimg: /img/path.jpg
 tags: [EJS, Node.js]
 ---
 
+## Table of Contents
+- [1. Definition of EJS](1-definition-of-ejs)
+- [2. Basic implementation in EJS](#2-basic-implementation-in-ejs)
+
+
 ## 1. Definition of EJS
 EJS - Embedded JavaScript, is a simple templating language that lets you generate HTML markup with plain Javascript.
 

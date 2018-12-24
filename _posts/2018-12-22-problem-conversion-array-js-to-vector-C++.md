@@ -8,7 +8,11 @@ tags: [C++, v8, native module, NAN]
 
 When using the v8 library or NAN for C++ addon modules, you want to convert the array in Node.js to the std::vector in C++. 
 
-# 1. Problem
+## Table of Contents
+- [Problem](#1-problem)
+- [Solution](#2-solution)
+
+## 1. Problem
 You will have wrong result in std::vector when using the push_back() function. 
 
 For example: 
@@ -19,7 +23,7 @@ But the below v8, or NAN, you will have: std::vector<int> vect = {0, 0, 0, 0, 0,
 
 I think that the problem can be caused by the asynchronous of Javascript.
 
-# 2. Solution
+## 2. Solution
 You can use the basic array in C++. 
 
 Code: 

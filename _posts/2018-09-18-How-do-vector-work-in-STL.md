@@ -5,7 +5,14 @@ bigimg: /img/path.jpg
 tags: [C++, STL, vector]
 ---
 
-# How do vector work in STL / C++ ?
+
+## Table of Contents
+- [How do vector work in STL/C++ ?](#how-do-vector-work-in-STL/C++)
+- [Hidden in vector](#hidden-in-vector)
+- [Internally vector works](#internally-vector-works)
+
+
+## How do vector work in STL/C++ ?
 
 Vector is the common data structure that is always used in programming language. Because we do not take care about the size of vector. It automatically shrink or expand itself. 
 
@@ -103,3 +110,5 @@ When capacity is larger than size, you have some steps that vector works:
 
     - Finally, delete this old vector. 
 
+
+Thanks for your reading.
