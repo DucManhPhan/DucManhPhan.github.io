@@ -5,7 +5,7 @@ bigimg: /img/image-header/ravashing-beach.jpg
 tags: [bootstrap]
 ---
 
-In order to the speed of making the website, I think that I have to learn about Bootstrap framework immediately. Because with bootstrap, you can easily make the website fast.
+In order to improve the speed of making the website, I think that I have to learn about Bootstrap framework immediately. Because with bootstrap, you can easily make the website fast.
 
 The belows is some basic titles about Bootstrap. 
 
