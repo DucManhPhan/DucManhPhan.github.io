@@ -5,6 +5,9 @@ bigimg: /img/path.jpg
 tags: [C++, loop]
 ---
 
+
+
+
 Refer to: 
 
 https://stackoverflow.com/questions/10750057/how-to-print-out-the-contents-of-a-vector/11335634#11335634
