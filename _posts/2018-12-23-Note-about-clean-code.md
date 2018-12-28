@@ -100,7 +100,7 @@ The choose the name for variable is as same as naming class. When you understand
 
     Even though this variable has a short lifespan, being temporary storage isn't the most important thing about this variable. Instead, a name like *user_info* would be more descriptive. 
 
-- 
+- Iterator variable: 
 
 ### 2.2. Function's name
 With the name of function, you should choose the specific words, avoiding **empty** words to concentrate on the target of this function. 
