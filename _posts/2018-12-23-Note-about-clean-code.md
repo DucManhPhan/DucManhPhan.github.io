@@ -100,7 +100,9 @@ The choose the name for variable is as same as naming class. When you understand
 
     Even though this variable has a short lifespan, being temporary storage isn't the most important thing about this variable. Instead, a name like *user_info* would be more descriptive. 
 
-- Iterator variable:  
+- Iterator variable: Normally, the i, j, k keywords are usually used in the loop statements. But when you have many nested loops, it make some arduous bug that you can not detect. 
+
+    
 
 
 
