@@ -15,6 +15,8 @@ In this article, we will continue find out something about bootstrap 4.
 - [Pagination](#pagination)
 - [Form](#form)
 
+<br>
+
 ## Menu
 In bootstrap 4, there are two types of menu. It includes: 
 - horizontal menu
@@ -39,6 +41,7 @@ Ex:
 
 To make the tabs, you can add the **.nav-tabs** class in <ul> element. 
 
+<br>
 
 ## Jumbotron
 A jumbotron indicates a big grey box for calling extra attention to some special content or information.
@@ -55,6 +58,7 @@ Ex:
 </div>
 ```
 
+<br>
 
 ## Collapse with button
 When you want to hide the contents of the other elements, you can use **.collapse** class. 
@@ -71,6 +75,7 @@ Ex:
 </div>
 ```
 
+<br>
 
 ## Pagination
 
@@ -95,6 +100,7 @@ Ex:
 </ul>
 ```
 
+<br>
 
 ## Form
 
