@@ -186,8 +186,53 @@ The choose the name for variable is as same as naming class. When you understand
 
     <br>
 
+    **Prefer min and max for (Inclusive) limits**
 
+    ```
+    The clearest way to name a limit is to put max_ and min_ in front of the thing being limited.
+    ```
 
+    For example:
+
+    ```Python
+    MAX_ITEMS_IN_CART 10
+    
+    if shopping_cart.num_items() > MAX_ITEMS_IN_CART:
+        Error("Too many items in cart.")
+    ```
+    <br>
+
+    **Prefer first and last for Inclusive Ranges**
+
+    ![First, last for inclusive ranges](../img/clean-code/first-last-inclusive-ranges.png)
+
+    For *inclusive* ranges where the range should include end point, a good choice is **first/last**.
+
+    Example: 
+
+    ```Python
+    set.PrintKeys(first="Bart", last="Maggie")
+    ```
+    <br>
+
+    **Prefer begin and end for Inclusive/Exclusive Ranges**
+
+    ![Begin, end for Inclusive/Exclusive Ranges](../img/clean-code/begin-end-inclusive-exclusive-ranges.png)
+
+    <br>
+
+    **Naming Booleans**
+
+    When you want to choose name for the boolean variable, you should add words like **is, has, can, should** that make booleans more clear.
+
+    It's best to avoid *negated* terms in a name. 
+
+    For example: 
+
+    ```C++
+    bool disable_ssl = false;  // should not use.
+    bool use_ssl = true;   // should use it.
+    ```
 
 ### 2.2. Function's name
 With the name of function, you should choose the specific words, avoiding **empty** words to concentrate on the target of this function. 
@@ -219,6 +264,17 @@ class BinaryTree {
 "What did the **Size()** method calculate?" is the first question you think. It can be the height of the tree, the number of nodes, the memory footprint of the tree. 
 
 You can turn this **Size()** method into something like **Height()**, **NumNodes()**, or **MemoryBytes()**.
+
+<br>
+Example:
+
+```python
+results = Database.all_objects.filter("year <= 2011");
+```
+
+It turns out that filter is the ambiguous word. It can mean *to pick out* or *to get rid of*. It's best to avoid the name *filter* because it's so easily mistrusted.
+
+So, to want *to pick out*, a better name is **select()**. To want *to get rid of*, a better name is **exclude()**.
 
 <br>
 
