@@ -162,9 +162,9 @@ Ex:
 ```
 
 The following are the controls that is used in the form. 
-- Use **.btn** class with type=button|reset|submit for button control.
-- Use **form-check-input**, **.form-check-label** classes with type=checkbox|radio to make the checkbox or radio for input control.
-- Use **form-control** class with type=text|password|email|search|url|tel|number|color|date|time|datetime-local|month|week for input control.
+- Use **.btn** class with type=button\|reset\|submit for button control.
+- Use **form-check-input**, **.form-check-label** classes with type=checkbox\|radio to make the checkbox or radio for input control.
+- Use **form-control** class with type=text\|password\|email\|search\|url\|tel\|number\|color\|date\|time\|datetime-local\|month\|week for input control.
 - Use **.form-control-file** class with type=file.
 - Use **.form-control-range** class with type=range.
 
