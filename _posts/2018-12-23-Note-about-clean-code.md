@@ -100,16 +100,99 @@ The choose the name for variable is as same as naming class. When you understand
 
     Even though this variable has a short lifespan, being temporary storage isn't the most important thing about this variable. Instead, a name like *user_info* would be more descriptive. 
 
-- Iterator variable: Normally, the i, j, k keywords are usually used in the loop statements. But when you have many nested loops, it make some arduous bug that you can not detect. 
+- Iterator variable: Normally, the i, j, k keywords are usually used as iterator variable in the loop statements. But when you have many nested loops, it make some arduous bug that you can not detect. 
 
+    So, you can append the first character of the array variables into the iterator variables.
+
+    ```C++
+    for (int ci = 0; i < clubs.size(); ++i)
+        for (int mi = 0; j < clubs[ci].members.size(); ++j)
+            for (int ui = 0; k < users.size(); ++k)
+                if (clubs[ci].members[mi] == users[ui])
+                    cout << "user[" << ui << "] is in club[" << ci << "]";
+    ```
+
+- Normal variable: If a variable contains something that the reader must know, you can attach an extra word to the variable's name.
+    For example: 
+
+    ```C++
+    std::string strId_Hex = "af84ef845cd8";  // format of strId is hexa
+    ```
+
+    If your variable is **a measurement** (such as amount of time or a number of bytes). It's helpful to encode the units into the variable's name. 
+
+    For example: 
+
+    ```Javascript
+    let start_ms = (new Date()).getTime();
+    ...
+    let elapsed_ms = (new Date()).getTime() - start_ms;
+    ...
+    ``` 
+
+    The belows is the table that contains unitless function parameter, and the variable with units. 
+
+    | Function parameter | Parameter with units |
+    | ------------------ | -------------------- |
+    | Start(int delay)   | delay -> delay_secs  |
+    | CreateCache(int size) | size -> size_mb   |
+    | ThrottleDownload(float limit) | limit -> max_kbps |
+    | Rotate(float angle) | angle -> degrees_cw |
+
+    <br>
+
+    When the variable contains an important information that is related to the **security** such as encoding of a string, encrypted string, ..., you can attach this information to this variable. 
+
+    | Situation | Better name |
+    | --------- | ----------- |
+    | A password is in *plaintext* and should be encrypted before further processing | plaintext_password |
+    | A user-provided comment that needs escaping before being displayed | unescaped_comment |
+    | Bytes of html have been converted to UTF8 | html_utf8 |
+    | Incoming data has been *url encoded* | data_urlenc |
+
+    For example: 
     
+    Use **$** symbol for the JQuery object.
+
+    ```Javascript
+    let $all_images = $('img');   // $all_images is a JQuery object
+    let height = 200;       // height is not
+    ```
+
+    In HTML/CSS, use underscores to seperate words in IDs, and dashes to separate words in classes
+
+    ```HTML
+    <div id="middle_column" class="main-content">
+    ...
+    ```
+
+    <br>
+
+    Based on the **scope of variable**, you can choose the suitable name for it. Chooing shorter name for shorter scope and long name for large scope. 
+
+    For example: 
+
+    ```C++
+    if (debug) {
+        map<string, int> m;
+        LookUpNamesNumbers(&m);
+        Print(m);
+    }
+    ```
+
+    Because m is a variable that only exists in the short if statement. And the reader can easily get all the information about **m variable**. 
+
+    But you have to take care about it when it is global variable or a class member. Then, **m variable** have longer name to pack enough information about it.
+
+    <br>
+
 
 
 
 ### 2.2. Function's name
 With the name of function, you should choose the specific words, avoiding **empty** words to concentrate on the target of this function. 
 
-You have to wonder some questions with "Why, Which, What, Where, How, Who" to make the problem clear by yourself.
+You have to wonder some questions with "Why, Which, What, Where, How, Who" to make the problem clear by yourself. And you have to understand some steps that will be implemented in the function. Then, based on them, you can choose the function's name.
 
 For example:
 
@@ -169,3 +252,4 @@ The belows is the set of verbs that you need to naming the function.
 
 
 
+Thanks for your reading.

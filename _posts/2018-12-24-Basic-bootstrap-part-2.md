@@ -59,7 +59,7 @@ Ex:
 ## Collapse with button
 When you want to hide the contents of the other elements, you can use **.collapse** class. 
 
-To control (show/hide) the collapsible content, add the **data-toggle="collapse"** attribute to an <a> or a <button> element. Then add the **data-target="#id"** attribute to connect the button with the collapsible content (<div id="demo">).
+To control (show/hide) the collapsible content, add the **data-toggle="collapse"** attribute to an \<a\> or a \<button\> element. Then add the **data-target="#id"** attribute to connect the button with the collapsible content (<div id="demo">).
 
 Ex: 
 
