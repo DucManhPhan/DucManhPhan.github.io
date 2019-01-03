@@ -5,9 +5,9 @@ bigimg: /img/image-header/ravashing-beach.jpg
 tags: [ava testing, node.js]
 ---
 
-Before you go into debugging test case that use ava in Node.js, you can read up on knowledge about AVA framework at the following link: [Ava test](2018-12-17-ava-test-framework.md)
+Before you go into debugging test case that use ava in Node.js, you can read up on knowledge about AVA framework at the following link: [Ava test](https://ducmanhphan.github.io/2018-12-17-ava-test-framework/)
 
-The first thing to do is you have to configure file **launch.json** in Visual studio code. You can reference to the article [Debug in C++ with VS Code](2018-10-17-Debug-in-C++-with-VS-Code.md) to know parameter in file lauch.json.
+The first thing to do is you have to configure file **launch.json** in Visual studio code. You can reference to the article [Debug in C++ with VS Code](https://ducmanhphan.github.io/2018-10-17-Debug-in-C++-with-VS-Code/) to know parameter in file lauch.json.
 
 The nex thing is the content of file **launch.json**. 
 
