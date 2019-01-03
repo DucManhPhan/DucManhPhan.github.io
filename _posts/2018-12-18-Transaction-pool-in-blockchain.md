@@ -25,7 +25,9 @@ Confirmed transactions have the reversed meanings with the unconfirmed transacti
 
 ## How do transactions work
 
-![The way transactions work](../img/Bitcoin-transaction-life-cycle.png)
+![The way transactions work](../img/Bitcoin-transaction-life-cycle.png "The image it borrowed from https://en.m.bitcoinwiki.org")
+
+
 
 Assuming that you want to send some of your bitcoin to your friend. You open your wallet, fill in information about the number of bitcoin that need to transfer and the address of receiver. 
 
