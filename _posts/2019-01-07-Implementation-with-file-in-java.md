@@ -103,6 +103,8 @@ Belows are the hierachy of classes in Character streams.
     - PrintWriter: Prints a formatted representation of an object to a test-output stream.
     - StringWriter: Character output stream is collected in a string buffer and may be used for constructing a string.
 
+<br>
+
 
 ## When to use Byte streams
 - When you want to process raw data like binary files.
@@ -133,3 +135,6 @@ https://www.tutorialspoint.com/java/java_files_io.htm
 http://tutorials.jenkov.com/java-io/streams.html
 
 https://www.developer.com/java/data/understanding-byte-streams-and-character-streams-in-java.html
+
+https://docs.oracle.com/javase/tutorial/essential/io/index.html
+
