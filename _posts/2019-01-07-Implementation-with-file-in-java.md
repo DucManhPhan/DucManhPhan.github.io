@@ -17,6 +17,8 @@ But in Java, it supports so many classes, methods for reading/writing file. It w
 - [Introduction about stream](#introduction-about-stream)
   - [The Byte stream classes](#the-byte-stream-classes)
   - [The Character stream classes](#the-character-stream-classes)
+  - [Data streams](#data-streams)
+  - [Object streams](#object-streams)
 - [When to use Byte streams](#when-to-use-byte-streams)
 - [When to use Character streams](#when-to-use-character-streams)
 - [Important note](#important-note)
@@ -104,6 +106,53 @@ Belows are the hierachy of classes in Character streams.
     - PipedWriter: Uses a pipe for character output stream.
     - PrintWriter: Prints a formatted representation of an object to a test-output stream.
     - StringWriter: Character output stream is collected in a string buffer and may be used for constructing a string.
+
+
+### Data streams
+Data streams support binary I/O of primitive data type values (boolean, char, byte, short, int, long, float and double) as well as String values. 
+
+All data streams implement either the DataOutput interface or the DataInput interface. 
+
+To read/write numeric data, use **readXXX()** method or **writeXXX()** method. XXX can be something like Int, Double, Short, ...
+
+To read/write string data type, use **readUTF()** method or **writeUTF()** method with encoding UTF8.
+
+For example: To make the DataOutputStream, DataInputStream, follow the below way:
+
+```Java
+DataOutputStream out = new DataOutputStream(new BufferedOutputStream(new FileOutputStream(dataFile)));
+...
+
+DataInputStream in = new DataInputStream(new BufferedInputStream(new FileInputStream(dataFile)));
+
+try {
+    while (true) {
+        price = in.readDouble();
+        unit = in.readInt();
+        desc = in.readUTF();
+        System.out.format("You ordered %d" + " units of %s at $%.2f%n",
+            unit, desc, price);
+        total += unit * price;
+    }
+} catch (EOFException e) {
+    ...
+}
+```
+DataStreams detects an end-of-file condition by catching EOFException, instead of testing for an invalid return value.
+
+DataStreams uses one very bad programming technique: it uses floating point numbers to represent monetary values. In general, floating point is bad for precise values. It's particularly bad for decimal fractions,because common values (such as 0.1) do not have a binary representation.
+
+The correct type to use for currency values is java.math.BigDecimal. Unfortunately, BigDecimal is an object type, so it won't work with data streams. However, BigDecimal will work with object streams, which are covered in the next section.
+
+
+### Object streams
+Object streams support I/O of objects. Most standard classes support serialization of their objects. They implement interface Serializable.
+
+The object stream classes are ObjectInputStream and ObjectOutputStream. These classes implement ObjectInput and ObjectOutput, which are subinterfaces of DataInput and DataOutput. 
+
+That means that all the primitive data I/O methods covered in Data Streams are also implemented in object streams. So an object stream can contain a mixture of primitive and object values.
+
+To read/write with Object streams, use **readObject()** method and **writeObject()** method.
 
 <br>
 
