@@ -11,6 +11,8 @@ In C++, there are some functions that is related to the implementation with file
 
 But in Java, it supports so many classes, methods for reading/writing file. It will make you difficult about how to use it. Today, in this article, we will find out something about it, and specify them when to use, which pros and cons of them.
 
+<br>
+
 ## Table of Contens
 - [Introduction about stream](#introduction-about-stream)
   - [The Byte stream classes](#the-byte-stream-classes)
@@ -47,14 +49,14 @@ Similiarity with C++, when implementing with files, it has two mode: binary mode
     FileWritter class uses FileOutputStream
 
     ```
-    There are two general-purpose byte-to-character "bridge" streams: **InputStreamReader** and **OutputStreamWriter**. Use them to create streams when there are no prepackaged character stream classes that meet your needs.
+    There are two general-purpose byte-to-character "bridge" streams: InputStreamReader and OutputStreamWriter. Use them to create streams when there are no prepackaged character stream classes that meet your needs.
     ```
 
 <br>
 
 Belows are the image about a hierachy of classes in Input/Output stream.
 
-![Input/output stream classes](.../img/file-in-java.png)
+![Input/output stream classes](../img/file-in-java.png)
 
 ### The Byte stream classes
 The hierarchical layout is as follows:
@@ -109,10 +111,12 @@ Belows are the hierachy of classes in Character streams.
 ## When to use Byte streams
 - When you want to process raw data like binary files.
 
+<br>
 
 ## When to use Character streams
 - Process text files. These text files can be processed character by character. A character size is typically 16 bit.
 
+<br>
 
 ## Important note
 - Names of character streams typically end with Reader/Writer and names of byte streams end with InputStream/OutputStream.
