@@ -9,12 +9,14 @@ There are so many ways to process with standard I/O or files. But using scanner 
 
 But actually, using Scanner has many problems. It can cause your problem make action wrong, not perform following your intention. In this article, we will find the pros and cons when using scanner to avoid them.
 
+<br>
 
 ## Table of Contents
 - [Introduction about Scanner class](#introduction-about-scanner-class)
 - [Problem with Scanner class](#problem-with-scanner-class)
 - [The disadvantage of Scanner class](#the-disadvantage-of-scanner-class)
 
+<br>
 
 ## Introduction about Scanner class
 Scanner is a class in java.util package that is used to get input from standard I/O or files with primitives types such as int, double, strings, ...
@@ -55,6 +57,7 @@ Even though a scanner is not a stream, you need to close it to indicate that you
 
 Passing a null parameter into any method of a Scanner will cause a NullPointerException to be thrown. 
 
+<br>
 
 ## Problem with Scanner class
 When you call **nextABC()** method with ABC is int, long, ..., before calling **nextLine()** method. The result is that you can not receive a string that you have just been typed.
@@ -85,6 +88,8 @@ int n = Integer.parseInt(br.readLine());
 
 String s = br.readLine();
 ```
+
+<br>
 
 ## The disadvantage of Scanner class
 - Scanner has a little buffer (1KB char buffer).

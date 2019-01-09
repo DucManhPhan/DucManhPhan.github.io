@@ -11,10 +11,14 @@ In C++, there are some functions that is related to the implementation with file
 
 But in Java, it supports so many classes, methods for reading/writing file. It will make you difficult about how to use it. Today, in this article, we will find out something about it, and specify them when to use, which pros and cons of them.
 
+<br>
+
 ## Table of Contens
 - [Introduction about stream](#introduction-about-stream)
   - [The Byte stream classes](#the-byte-stream-classes)
   - [The Character stream classes](#the-character-stream-classes)
+  - [Data streams](#data-streams)
+  - [Object streams](#object-streams)
 - [When to use Byte streams](#when-to-use-byte-streams)
 - [When to use Character streams](#when-to-use-character-streams)
 - [Important note](#important-note)
@@ -47,14 +51,14 @@ Similiarity with C++, when implementing with files, it has two mode: binary mode
     FileWritter class uses FileOutputStream
 
     ```
-    There are two general-purpose byte-to-character "bridge" streams: **InputStreamReader** and **OutputStreamWriter**. Use them to create streams when there are no prepackaged character stream classes that meet your needs.
+    There are two general-purpose byte-to-character "bridge" streams: InputStreamReader and OutputStreamWriter. Use them to create streams when there are no prepackaged character stream classes that meet your needs.
     ```
 
 <br>
 
 Belows are the image about a hierachy of classes in Input/Output stream.
 
-![Input/output stream classes](.../img/file-in-java.png)
+![Input/output stream classes](../img/file-in-java.png)
 
 ### The Byte stream classes
 The hierarchical layout is as follows:
@@ -103,16 +107,65 @@ Belows are the hierachy of classes in Character streams.
     - PrintWriter: Prints a formatted representation of an object to a test-output stream.
     - StringWriter: Character output stream is collected in a string buffer and may be used for constructing a string.
 
+
+### Data streams
+Data streams support binary I/O of primitive data type values (boolean, char, byte, short, int, long, float and double) as well as String values. 
+
+All data streams implement either the DataOutput interface or the DataInput interface. 
+
+To read/write numeric data, use **readXXX()** method or **writeXXX()** method. XXX can be something like Int, Double, Short, ...
+
+To read/write string data type, use **readUTF()** method or **writeUTF()** method with encoding UTF8.
+
+For example: To make the DataOutputStream, DataInputStream, follow the below way:
+
+```Java
+DataOutputStream out = new DataOutputStream(new BufferedOutputStream(new FileOutputStream(dataFile)));
+...
+
+DataInputStream in = new DataInputStream(new BufferedInputStream(new FileInputStream(dataFile)));
+
+try {
+    while (true) {
+        price = in.readDouble();
+        unit = in.readInt();
+        desc = in.readUTF();
+        System.out.format("You ordered %d" + " units of %s at $%.2f%n",
+            unit, desc, price);
+        total += unit * price;
+    }
+} catch (EOFException e) {
+    ...
+}
+```
+DataStreams detects an end-of-file condition by catching EOFException, instead of testing for an invalid return value.
+
+DataStreams uses one very bad programming technique: it uses floating point numbers to represent monetary values. In general, floating point is bad for precise values. It's particularly bad for decimal fractions,because common values (such as 0.1) do not have a binary representation.
+
+The correct type to use for currency values is java.math.BigDecimal. Unfortunately, BigDecimal is an object type, so it won't work with data streams. However, BigDecimal will work with object streams, which are covered in the next section.
+
+
+### Object streams
+Object streams support I/O of objects. Most standard classes support serialization of their objects. They implement interface Serializable.
+
+The object stream classes are ObjectInputStream and ObjectOutputStream. These classes implement ObjectInput and ObjectOutput, which are subinterfaces of DataInput and DataOutput. 
+
+That means that all the primitive data I/O methods covered in Data Streams are also implemented in object streams. So an object stream can contain a mixture of primitive and object values.
+
+To read/write with Object streams, use **readObject()** method and **writeObject()** method.
+
 <br>
 
 
 ## When to use Byte streams
 - When you want to process raw data like binary files.
 
+<br>
 
 ## When to use Character streams
 - Process text files. These text files can be processed character by character. A character size is typically 16 bit.
 
+<br>
 
 ## Important note
 - Names of character streams typically end with Reader/Writer and names of byte streams end with InputStream/OutputStream.
