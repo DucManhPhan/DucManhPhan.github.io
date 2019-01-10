@@ -46,3 +46,5 @@ https://www.techwalla.com/articles/disadvantages-of-a-relational-database
 
 https://smallbusiness.chron.com/limitations-relational-databases-business-applications-24159.html
 
+https://mangolassi.it/topic/4545/when-to-use-sql-or-nosql/3
+
