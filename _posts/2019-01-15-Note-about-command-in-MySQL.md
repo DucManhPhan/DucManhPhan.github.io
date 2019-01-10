@@ -43,7 +43,7 @@ where year(cdate) = 2019 and month(cdate) = 1
 order by month(cdate);
 ```
 
-The **month** function will return the value from 1 to 12. 
+The **month()** function will return the value from 1 to 12. 
 
 The **year()** function will return an integer that is a year.
 
@@ -159,7 +159,7 @@ In case the row in the left table does not match with the row in the right table
 
 In other words, the LEFT JOIN clause allows you to select rows from the both left and right tables that are matched, plus all rows from the left table ( t1 ) even with no matching rows found in the right table ( t2 ).
 
-
+<br>
 
 ## Right join clause
 ![Right join](../img/right-join.png)
