@@ -13,7 +13,6 @@ In this article, we will find out something about relational database.
 ## Table of Contents
 - [Advantages of Relational database](#advantages-of-relational-database)
 - [Disadvantage of Relational database](#disadvantage-of-relational-database)
-- [Important note](#important-note)
 
 <br>
 
@@ -37,10 +36,6 @@ In this article, we will find out something about relational database.
 - Locking mechanism defined by RDBMSs do not allow design transactions to be supported. 
 
 <br>
-
-## Important note
-
-
 
 
 Refer: 
