@@ -2,7 +2,7 @@
 layout: post
 title: What is EJS?
 bigimg: /img/path.jpg
-tags: [EJS, Node.js]
+tags: [node.js]
 ---
 
 ## Table of Contents

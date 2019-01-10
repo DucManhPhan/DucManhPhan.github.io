@@ -2,6 +2,7 @@
 layout: post
 title: Optimizing vector in C++
 bigimg: /img/path.jpg
+tag: [C++]
 ---
 
 ## Table of Contents

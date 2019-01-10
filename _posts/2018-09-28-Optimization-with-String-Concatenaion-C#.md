@@ -5,6 +5,9 @@ bigimg: /img/path.jpg
 tags: [optimization, string, C#]
 ---
 
+
+Refer: 
+
 https://ericlippert.com/2013/06/17/string-concatenation-behind-the-scenes-part-one/
 
 https://ericlippert.com/2013/06/24/string-concatenation-behind-the-scenes-part-two/

@@ -2,7 +2,7 @@
 layout: post
 title: Cache Memory with Locality of Reference
 bigimg: /img/path.jpg
-tags: [Locality of Reference, Memory]
+tags: [Memory management]
 ---
 
 ## Cache memory

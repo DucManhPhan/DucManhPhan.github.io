@@ -2,7 +2,7 @@
 layout: post
 title: How to configure C++ addon in Node.js
 bigimg: /img/path.jpg
-tags: [C++, Addon, Node.js]
+tags: [C++, node.js]
 ---
 
 

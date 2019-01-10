@@ -2,7 +2,7 @@
 layout: post
 title: Pass data from backend to html in Node.js - Express framework
 bigimg: /img/path.jpg
-tags: [Express framework, Node.js]
+tags: [Express, node.js]
 ---
 
 Hi everyone!

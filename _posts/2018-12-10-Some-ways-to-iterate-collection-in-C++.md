@@ -2,7 +2,7 @@
 layout: post
 title: Some ways to iterate collection in C++
 bigimg: /img/path.jpg
-tags: [C++, loop]
+tags: [C++]
 ---
 
 

@@ -2,7 +2,7 @@
 layout: post
 title: Configure binding.gyp file in C++ Addon - Node.js
 bigimg: /img/path.jpg
-tags: [C++ Addon Node.js, Binding.gyp file]
+tags: [node.js]
 ---
 
 In order to use the C++  into the Node.js, you have the three options: 
