@@ -7,3 +7,6 @@ asked to describe places in Speaking part 1, 3.
 easy to access and give you numerous ways of accessing and categorizing information. 
 
 4. A primary benefit of using an RBDMS is that data is only stored in one location.
+
+5. Now, if you "look for" the last trendy technologies (Big Data, NoSQL or JavaScript), 
+you’ll find "more in-depth" articles explaining how they work.

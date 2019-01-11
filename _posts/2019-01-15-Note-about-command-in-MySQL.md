@@ -7,7 +7,7 @@ tags: [database]
 
 In MySQL, there are so many commands that you need to master to implement the most difficult statements in the real world. Understanding the tricky is always necessary to improve the speed when writing commands.
 
-In this article, we will learn something about the way to write specific requirements in reality.
+In this article, we will learn something about the way to write specific requirements in reality. And we will study how to create CRUD operations in MySQL.
 
 Assuming that you the database have some the following tables:
 
@@ -27,7 +27,7 @@ products(id, name, quantity, price, cdate, mdate)
 - [Inner Join clause](#inner-join-clause)
 - [Left join clause](#left-join-clause)
 - [Right join clause](#right-join-clause)
-
+- [CRUD Operations](#crud-operations)
 
 <br>
 
@@ -186,7 +186,9 @@ All rows from the t2 table (right table) will appear at least once in the result
 
 Based on the join_predicate, if no matching row from the t1 table (left table) exists, NULL will appear in columns from the t1 table for the rows that have no match in the t2 table.
 
+<br>
 
+## CRUD Operations
 
 
 Refer: 
