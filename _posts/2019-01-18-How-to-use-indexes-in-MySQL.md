@@ -12,20 +12,29 @@ Using too many indexes is to make your database that is accessed data slow down 
 
 
 ## Table of Contents
+- [How database works when calling query](#how-database-works-when-calling-query)
+- [Use index in MySQL](#use-index-in-mysql)
+- [Important note](important-note)
 
-
+<br>
 
 ## How database works when calling query
 
 
 
+<br>
+
 ## Use index in MySQL
 
 
 
+<br>
+
 ## Important note
 
 
+
+<br>
 
 Refer: 
 
