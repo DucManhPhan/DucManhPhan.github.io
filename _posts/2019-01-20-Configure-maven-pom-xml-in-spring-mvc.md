@@ -77,6 +77,8 @@ A POM - Project Object Model is an xml files that contains all informations abou
 
 All our informations will be contained in **project** tag. To be default, some parameters of project will be inserted in pom.xml.
 
+![Parameters in POM file](../img/POM-file.png)
+
 ```xml
 <project ...>
     <modelVersion>4.0.0</modelVersion>
@@ -90,12 +92,38 @@ All our informations will be contained in **project** tag. To be default, some p
     <dependencies>...</dependencies>
     <modules>...</modules>
 
-
-    <packaging>...</packaging>
-
+    <!-- Project information -->
     <name>...</name>
+    <description>...</description>
+    <url>...</url>
+    <inceptionYear>...</inceptionYear>
+    <licenses>...</licenses>
+    <developers>...</developers>
+    <contributors>...</contributors>
+    <organization>...</organization>
 
-    ...
+     <!-- Build Settings -->
+    <packaging>...</packaging>
+    <properties>...</properties>
+    <build>...</build>
+    <reporting>...</reporting>
+
+    <!-- Build Environment -->
+
+    <!-- Environment Information -->
+
+    <issueManagement>...</issueManagement>
+    <ciManagement>...</ciManagement>
+    <mailingLists>...</mailingLists> 
+    <scm>...</scm>
+  
+    <!-- Maven Environment -->
+
+    <prerequisites>...</prerequisites>
+    <repositories>...</repositories>
+    <pluginRepositories>...</pluginRepositories>
+    <distributionManagement>...</distributionManagement>
+    <profiles>...</profiles>    
 </project>
 ```
 
@@ -201,7 +229,7 @@ Belows are the definitions of some common packages that will use for Spring MVC.
 
 Maven provides four dependency scopes:
 - compile: A compile-scope dependency is available in all phases. It is the default value.
-
+- 
 
 <br>
 
@@ -210,9 +238,7 @@ Firstly, we add informations about libraries that we need into **dependencies** 
 
 To check the path of this local repository, you can open **User setting** of Netbeans or Eclipse. Finally, Maven will add the path of each libraries into **Dependencies** folder in Netbeans.
 
-
 <br>
-
 
 ## Important note
 
