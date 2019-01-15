@@ -233,6 +233,8 @@ Maven provides four dependency scopes:
 - provided: A provided dependency is used to compile the application, but will not be deployed. You would use this scope when you expect the JDK or application server to provide the JAR. For instance, Servlet.
 - runtime: Runtime-scope dependencies are not needed for compilation, only for execution, such as JDBC drivers.
 - test: Test-scope dependencies are needed only to compile and run tests. For instance, JUnit.
+- system: It has properties as same as **provided**, but we have to apply JAR file specifically.
+- import: It is used to import some **dependency** but it must be pointed in **\<dependencyManagement\/\>** tags in POM files.
 
 <br>
 
