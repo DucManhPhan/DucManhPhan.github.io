@@ -61,9 +61,10 @@ The followings is the table explains the meanings of each path in your folder st
 | src/main/webapp         | Web application sources       |
 | src/main/filters        | Resource filter files         |
 | src/test/java           | Test sources                  |
-| src/test/resources      | Test resources                | 
+| src/test/resources      | Resources is used for unit tests, and it will not be deployed | 
 | src/test/filters        | Test resource filter files    |
 | src/it                  | Integration tests             |
+| src/site                | Files are used to generate the Maven project |
 
 At the top level, files descriptive of the project is a **pom.xml** file.
 
@@ -77,7 +78,7 @@ A POM - Project Object Model is an xml files that contains all informations abou
 
 All our informations will be contained in **project** tag. To be default, some parameters of project will be inserted in pom.xml.
 
-![Parameters in POM file](../img/POM-file.png)
+![Parameters in POM file](../img/POM-file/POM-file.png)
 
 ```xml
 <project ...>
@@ -131,7 +132,7 @@ With:
 - groupId: a name of your company, ...
 - artifactId: a name of package, project
 - version: a version of project
-- packaging: there are two values: jar & war. jar - library or java application; war - web application.
+- packaging: there are four values: ear, pom, jar (default value) and war. jar - library or java application; war - web application.
 - modelVersion: its value will be always 4.0.0 for Maven 2.x POMs.
 
 Note about **jar**, **war** files:
@@ -229,7 +230,9 @@ Belows are the definitions of some common packages that will use for Spring MVC.
 
 Maven provides four dependency scopes:
 - compile: A compile-scope dependency is available in all phases. It is the default value.
-- 
+- provided: A provided dependency is used to compile the application, but will not be deployed. You would use this scope when you expect the JDK or application server to provide the JAR. For instance, Servlet.
+- runtime: Runtime-scope dependencies are not needed for compilation, only for execution, such as JDBC drivers.
+- test: Test-scope dependencies are needed only to compile and run tests. For instance, JUnit.
 
 <br>
 
@@ -241,13 +244,16 @@ To check the path of this local repository, you can open **User setting** of Net
 <br>
 
 ## Important note
-
-
-
+- Understanding about structure folder in Maven project.
+- The important parameters in POM file such as parent, packaging, dependencies, properties, name, scope, ...
+- How to add libraries into our project with Maven.
+- Necessary parameters for common libraries in Spring MVC.
 
 <br>
 
 Refer: 
+
+**POM file**
 
 http://www.java2s.com/Tutorials/Java/Maven_Tutorial/1020__Maven_POM_File.htm
 
