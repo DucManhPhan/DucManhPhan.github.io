@@ -15,7 +15,7 @@ But the huge problems will happen when we have to make a big project such as we 
 - [Introduction to project lifecycles](#introduction-to-project-lifecycles)
 - [Default lifecycle](#default-lifecycle)
 - [Clean lifecycle](#clean-lifecycle)
-- [Site lifecycle](#life-cycle)
+- [Site lifecycle](#site-lifecycle)
 - [Plugins](#plugins)
 - [Plugin goals](#goals-and-phases)
 - [Plugin configurations](#plugin-configurations)
