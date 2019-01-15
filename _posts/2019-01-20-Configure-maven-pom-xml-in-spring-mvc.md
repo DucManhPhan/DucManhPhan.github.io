@@ -5,6 +5,15 @@ bigimg: /img/image-header/home-office-1.jpg
 tags: [java]
 ---
 
+In order to understand the difficulty when we do not use the maven in Java project, there are some tasks that we have to do:
+- copy resources such as conf files to the build folder.
+- compile the source files.
+- copy dependency jars to build folder.
+- run unit tests.
+- package the build folder as jar.
+
+To make our life easier to breath, Maven was created.
+
 Maven is a tool for managing resource objects or package in Java. It is as same as npm in Node.js. When you want to build a enormous project, absolutely, you need maven. 
 
 Understanding some tricky things about maven will help you easily to write code, use so many packages effectively. You do not manually add many packages into your project. To configure maven, you will cope with understanding some parameter in POM file.
@@ -230,10 +239,12 @@ Belows are the definitions of some common packages that will use for Spring MVC.
 
 Maven provides four dependency scopes:
 - compile: A compile-scope dependency is available in all phases. It is the default value.
-- provided: A provided dependency is used to compile the application, but will not be deployed. You would use this scope when you expect the JDK or application server to provide the JAR. For instance, Servlet.
-- runtime: Runtime-scope dependencies are not needed for compilation, only for execution, such as JDBC drivers.
+- provided: A provided dependency is used to compile the application, but will not be deployed. You would use this scope when you expect the JDK or application server to provide the JAR. For instance, Servlet. **provided** dependencies are available on the compilation classpath (not runtime). They are not transitive, nor are they packaged.
+- runtime: Runtime-scope dependencies are not needed for compilation, only for executing and test the system, such as JDBC drivers.
 - test: Test-scope dependencies are needed only to compile and run tests. For instance, JUnit.
-- system: It has properties as same as **provided**, but we have to apply JAR file specifically.
+- system: It has properties as same as **provided**, except that you have to provide an explicit path to the JAR on the local file system. 
+
+    This is intended to allow compilation against native objects that may be part of the system libraries. The artifact is assumed to always be available and is not looked up in a repository. If you declare the scope to be system, you must also provide the **systemPath** element. Note that this scope is not recommended (you should always try to reference dependencies in a public or custom Maven repository). 
 - import: It is used to import some **dependency** but it must be pointed in **\<dependencyManagement\/\>** tags in POM files.
 
 <br>
@@ -256,6 +267,10 @@ To check the path of this local repository, you can open **User setting** of Net
 Refer: 
 
 **POM file**
+
+http://www.codetab.org/apache-maven-tutorial/
+
+https://books.sonatype.com/mvnref-book/reference/pom-relationships-sect-pom-syntax.html
 
 http://www.java2s.com/Tutorials/Java/Maven_Tutorial/1020__Maven_POM_File.htm
 
@@ -284,3 +299,9 @@ https://web.archive.org/web/20120626020019/http://java.sun.com/j2ee/tutorial/1_3
 https://maven.apache.org/guides/getting-started/maven-in-five-minutes.html
 
 http://www.vogella.com/tutorials/ApacheMaven/article.html
+
+<br>
+
+**Project Dependecies**
+
+https://books.sonatype.com/mvnref-book/reference/pom-relationships-sect-project-dependencies.html#pom-relationships-sect-dependency-scope
