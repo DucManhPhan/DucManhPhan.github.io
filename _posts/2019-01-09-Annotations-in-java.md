@@ -221,6 +221,8 @@ Thanks for reading.
 
 Refer: 
 
+https://www.baeldung.com/spring-bean-annotations
+
 https://www.developer.com/java/other/article.php/3556176/An-Introduction-to-Java-Annotations.htm
 
 https://en.wikipedia.org/wiki/Java_version_history
