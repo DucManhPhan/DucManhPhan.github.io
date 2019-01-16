@@ -166,9 +166,39 @@ Belows are the definitions of some common packages that will use for Spring MVC.
     <spring.version>4.0.0.RELEASE</spring.version>
     <jstl.version>1.2</jstl.version>
     <javax.servlet.version>3.0.1</javax.servlet.version>
+
+    <!-- Spring -->
+	<spring-framework.version>4.0.2.RELEASE</spring-framework.version>
 </properties>
 
 <dependencies>
+    <!--Spring and  transactions-->
+    <dependency>
+        <groupId>org.springframework</groupId>
+        <artifactId>spring-context</artifactId>
+        <version>${spring-framework.version}</version>
+    </dependency>
+
+    <dependency>
+        <groupId>org.springframework</groupId>
+        <artifactId>spring-tx</artifactId>
+        <version>${spring-framework.version}</version>
+    </dependency>
+
+    <!--Spring JDBC support-->
+    <dependency>
+        <groupId>org.springframework</groupId>
+        <artifactId>spring-jdbc</artifactId>
+        <version>${spring.version}</version>
+    </dependency>
+    
+    <!--MySQL driver-->
+    <dependency>
+        <groupId>mysql</groupId>
+        <artifactId>mysql-connector-java</artifactId>
+        <version>5.0.5</version>
+    </dependency>
+
     <dependency>
         <groupId>javax</groupId>
         <artifactId>javaee-web-api</artifactId>

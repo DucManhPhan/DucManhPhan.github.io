@@ -10,3 +10,6 @@ easy to access and give you numerous ways of accessing and categorizing informat
 
 5. Now, if you "look for" the last trendy technologies (Big Data, NoSQL or JavaScript), 
 you’ll find "more in-depth" articles explaining how they work.
+
+6. Simply speaking, an annotation is a mechanism for associating a meta-tag with program elements and allowing the compiler
+or the VM to extract program behaviors from these annotated elements and generate interdependent code when necessary.
