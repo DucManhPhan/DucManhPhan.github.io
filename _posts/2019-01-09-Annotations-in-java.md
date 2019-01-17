@@ -175,7 +175,7 @@ There are 3 annotation types:
 
         So, two questions will be answered in the next days.
 
-    ```@Bean``` annotation will tell that method produces a bean to be managed by the core Spring container. It is a method-level annotation. **During Java configuration (@Configuration), the method is executed and its return value is registered as a bean within a BeanFactory.**
+    ```@Bean``` annotation will tell that method produces a bean to be managed by the core Spring container. It is a method-level annotation. **During Java configuration ```(@Configuration)```, the method is executed and its return value is registered as a bean within a BeanFactory.**
 
 - ```@Autowired``` annotation
 
@@ -187,23 +187,26 @@ There are 3 annotation types:
 
 - ```@ComponentScan("source_path")``` and ```@EnableWebMvc``` annotations
 
-    They are required for Spring to find and configure all annotated classes. Spring will search for annotations on classes specified in the value parameter that is passed to @ComponentScan i.e "com.company.project". Therefore, if you've spedified root package, ajust accordingly.
+    They are required for Spring to find and configure all annotated classes. Spring will search for annotations on classes specified in the value parameter that is passed to ```@ComponentScan``` i.e "com.company.project". Therefore, if you've spedified root package, ajust accordingly.
 
 - ```@Controller``` annotation
 
-    It will notify for Spring that the below class is a controller. Then, this class can receives requests direct to the corresponding method identified by the @RequestMapping annotation.
+    It will notify for Spring that the below class is a controller. Then, this class can receives requests direct to the corresponding method identified by the ```@RequestMapping``` annotation.
 
 - ```@RequestMapping(value="/", method=RequestMethod.GET)``` annotation
 
-    When a controller receives the requests with the specific path, it will route to the method that is determined by the @RequestMapping annotation.
+    When a controller receives the requests with the specific path, it will route to the method that is determined by the ```@RequestMapping``` annotation.
 
 - ```@Configuration``` annotation
 
     It will identify the class that is accompanied with it, as a configuration class.
 
-    These classes consist principally of @Bean-annotated methods that define instantiation, configuration, and initialization logic for objects that are managed by the Spring IoC container.
+    These classes consist principally of ```@Bean-annotated``` methods that define instantiation, configuration, and initialization logic for objects that are managed by the Spring IoC container.
 
-    Annotating a class with the @Configuration indicates that the class can be used by the Spring IoC container as a source of bean definitions. The simplest possible @Configuration class would read as follows: 
+    Annotating a class with the ```@Configuration``` indicates that the class can be used by the Spring IoC container as a source of bean definitions. The simplest possible @Configuration class would read as follows: 
+
+- ```@ModelAttribute``` annotation
+    
 
 <br>
 

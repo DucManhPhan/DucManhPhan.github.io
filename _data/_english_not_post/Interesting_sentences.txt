@@ -13,3 +13,10 @@ you’ll find "more in-depth" articles explaining how they work.
 
 6. Simply speaking, an annotation is a mechanism for associating a meta-tag with program elements and allowing the compiler
 or the VM to extract program behaviors from these annotated elements and generate interdependent code when necessary.
+
+7. Before I wrap up, here's a quick question:
+What's your biggest challenge doing REST with Spring?
+Don't worry about going into to much detail - just hit Reply and shoot me a supremely short answer - for example: 
+Security or Exception Handling
+
+8. 
