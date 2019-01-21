@@ -142,7 +142,7 @@ And in **.navbar**, you also use with form.
 The inside of **.navbar-nav** contains many **.nav-item**.  
 
 
-With **.navbar** class, you can use to accompany with some class **.nav-bar-expand-xl|lg|md|sm**.
+With **.navbar** class, you can use to accompany with some class **.nav-bar-expand-xl\|lg\|md\|sm**.
 
 **.justify-content-center** make the **.navbar** lie at the center of the navigation bar.
 
