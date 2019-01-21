@@ -17,8 +17,6 @@ In this article, we will find out about Servlet and comparing it with CGI. Almos
 - [How Servlet works](#how-servlet-works)
 - [Disadvantages of Servlet](#disadvantages-of-servlet)
 - [Advantages of Servlet](#advantages-of-servlet)
-- [Important note](#important-note)
-
 
 <br>
 
@@ -54,7 +52,7 @@ To understand some definitions that are relevant to a servlet, we will see the b
 
 ![The structure of server in Java](../img/servlet-jsp/structure-webserver-client.png)
 
-Web Server is a computer where the web content is stored. Web container or Servlet container manages servlet and requests from the end user.
+Web Server is a computer where the web content is stored. Web container or Servlet container manages the life cycle of a servlet instance and requests from the end user. Web container is responsible for initializing the servlet or creating a new thread to handle the requests. Web container creates multiple threads to process multiple requests to a single servlet.
 
 At the moment, we will have a question - Which part of Java is responsible for get request from user and tranfer it to the Web Container? I do not make sure this answer is right. But I will check it later. So, fighting.
 
@@ -67,30 +65,55 @@ Next, we will find out How servlet works when Web container receives requests.
 <br>
 
 ## How Servlet works
+This part is completely referernced from the website [studytonight.com](https://www.studytonight.com/servlet/how-a-servlet-application-work.php).
+
+1. User sends requests for a servlet by clicking a link that has URL to a servlet.
+
+    ![](../img/servlet-jsp/step-1-servlet-work.png)
+
+2. The container finds the servlet using **deployment descriptor** and creates two objects
+Two objects are corresponding
+- HttpServletRequest
+- HttpServletResponse
+
+    ![](../img/servlet-jsp/step-2-servlet-work.png)
+
+3. Then the container creates and allocates a thread for that request and calls the Servlet's ```service()``` method and passes the **request**, **response** objects as arguments.
+
+    ![](../img/servlet-jsp/step-3-servlet-work.png)
+
+4. The ```service()``` method, then decides which servlet method, ```doGet()``` or ```doPost()``` to call, based on **HttpRequestMethod** sent by client. Suppose the client sent an HTTP Get request, so the ```service()``` will call Servlet's ```doGet()``` method.
+
+    ![](../img/servlet-jsp/step-4-servlet-work.png)
+
+5. Then the Servlet uses response object to write the response back to the client.
+
+    ![](../img/servlet-jsp/step-5-servlet-work.png)
+
+6. After the ```service()``` method is completed the **thread** dies. And the request and response objects are ready for **garbage collection**.
+
+    ![](../img/servlet-jsp/step-6-servlet-work.png)
 
 
-
+With the above steps, we will understand the background of the servlet's work. But to be aware of deeper servlet such as dispatcher servlet, JSP life cycle, ..., we will dig into the servlet in the other article.
 
 <br>
 
 ## Disadvantages of Servlet
-
-
+- Designing in servlet is difficult and slows down the application.
+- Writing complex business logic makes the application difficult to understand.
 
 <br>
 
 ## Advantages of Servlet
-
-
-
-<br>
-
-## Important note
-
-
+- Portability: portable across OS and across web servers.
+- Power: Harness the full power of the core Java APIs such as networking and URL access, multithreading, image manipulation, data compression, JDBC, Object Serialization.
+- Efficiency and Endurance: Memory resident, so invocation highly efficient—no process to spawn or interpreter to invoke.
+- Safety: Support safe programming since inherit Java’s strong type safety, exception-handling mechanism.
+- Elegance: Code is clean, object-oriented, modular, and simple (i.e.. Session tracking, cookie)
+- Integration: Tightly integrated with the server—translate file paths, perform logging, check authorization, and MIME type mapping.
 
 <br>
-
 
 Refer: 
 
@@ -108,3 +131,8 @@ http://ecomputernotes.com/servlet/intro/differencebetweenservletandcgi
 
 https://www.baeldung.com/intro-to-servlets
 
+**Advantages and Disadvantages of Servlet**
+
+http://msmuthuimm031.blogspot.com/2011/10/what-are-advantages-and-disadvantages.html
+
+https://myjavadoubts.blogspot.com/2016/06/10-limitations-of-servlets.html
