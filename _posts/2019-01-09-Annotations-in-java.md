@@ -191,7 +191,9 @@ There are 3 annotation types:
 
 - ```@Controller``` annotation
 
-    It will notify for Spring that the below class is a controller. Then, this class can receives requests direct to the corresponding method identified by the ```@RequestMapping``` annotation.
+    It will notify for Spring that the below class is a controller. Then, this class can receives requests direct to the corresponding method identified by the ```@RequestMapping``` annotation. 
+
+    And ```@Controller``` is simply a specialization of the ```@Component``` class and allows implementation classes to be auto-detected through the classpath scanning.
 
 - ```@RequestMapping(value="/", method=RequestMethod.GET)``` annotation
 
@@ -203,10 +205,111 @@ There are 3 annotation types:
 
     These classes consist principally of ```@Bean-annotated``` methods that define instantiation, configuration, and initialization logic for objects that are managed by the Spring IoC container.
 
-    Annotating a class with the ```@Configuration``` indicates that the class can be used by the Spring IoC container as a source of bean definitions. The simplest possible @Configuration class would read as follows: 
+    Annotating a class with the ```@Configuration``` indicates that the class can be used by the Spring IoC container as a source of bean definitions.
 
 - ```@ModelAttribute``` annotation
+
+- ```@GetMapping``` annotation
+
+    It is a composed annotation that acts as shortcut for ```@RequestMapping(value="/", method=RequestMethod.GET)```. Below is the definition of ```@GetMapping```.
+
+    ```java
+    @Target(value=METHOD)
+    @Retention(value=RUNTIME)
+    @Documented
+    @RequestMapping(method=GET)
+    public @interface GetMapping
+    ```
+
+    But ```@RequestMapping``` can be used at class level and method level. And ```@GetMapping``` only used at method level. 
+
+    ```@RequestMapping``` on class makes that URL to be base for all ```@RequestMapping``` on methods. So, it makes your controller easy to understand and readable.
+
+    ```java
+    @RestController
+    @RequestMapping("books-rest")
+    public class SimpleBookRestController {
+        
+        @GetMapping("/{id}")        // => URL: localhost:8080/books-rest/id 
+        public Book getBook(@PathVariable int id) {
+            return findBookById(id);
+        }
     
+        private Book findBookById(int id) {
+            // ...
+        }
+    }
+    ```
+
+- ```@SpringBootApplication``` annotation
+
+    When implementing with ```@SpringBootApplication```, it will do the following steps:
+    - ```@Configuration``` tags the class as a source of bean definitions for the application context. 
+    - ```@EnableAutoConfiguration``` tells Spring Boot to start adding beans based on classpath settings, other beans, and various property settings.
+    - Normally, we would add ```@EnableWebMvc``` for a Spring MVC App, but Spring Boot adds it automatically when it sees **spring-webmvc** on the classpath. This flags the application as a web application and activates key behaviours such as setting up a ```DispatcherServlet```.
+    - ```@ComponentScan``` tells Spring to look for other components, configurations, and services in the our package, allowing it to find the controllers.
+
+- ```@Data``` and ```@Entity``` annotations
+
+    When using Spring Data JPA, the above annotations are some useful annotations that we need to know:
+    - ```@Data``` is Lombok annotation to create all the getters, setters, **equals()**, **hash()**, and **toString()** methods, based on the fields.
+    - ```@Entity``` is a JPA annotation to make this object ready for storage in a JPA-based data store.
+    - Note: **create custom constructor when we need a new instance, but don't yet have an id.**
+
+- Annotation for HTTP operations
+
+    Corresponding to HTTP GET, POST, PUT, and DELETE calls, they are some operations such as ```@GetMapping```, ```@PostMapping```, ```@PutMapping``` and ```@DeleteMapping```.
+
+    - ```@PostMapping``` annotation
+    - ```@PostMapping``` annotation
+    - ```@PutMapping```  annotation
+    - ```@DeleteMapping``` annotation
+
+- ```@RestController``` annotation
+
+    Is is a convenince annotation for creating Restful controller. It is specialization of ```@Component``` and is autodetected through classpath scanning. It adds the ```@Controller``` and ```@ResponseBody``` annotations. It converts the response to JSON or XML. 
+
+    It does not work with the view technology, so the methods cannnot return **ModelAndView**. It is typically in combination with annotated handler methods based on the ```@RequestMapping``` annotation.
+
+    The ```@Controller``` annotation is used with the view technology.
+
+    Consider this code:
+
+    ```java
+    @RestController
+    @RequestMapping("books-rest")
+    public class SimpleBookRestController {
+        
+        @GetMapping("/{id}")        // => URL: localhost:8080/books-rest/id 
+        public Book getBook(@PathVariable int id) {
+            return findBookById(id);
+        }
+    
+        private Book findBookById(int id) {
+            // ...
+        }
+    }
+    ```
+
+    The above code will be corresponding to:
+
+    ```java
+    @Controller
+    @RequestMapping("books")
+    public class SimpleBookController {
+    
+        @GetMapping("/{id}")
+        public @ResponseBody Book getBook(@PathVariable int id) {
+            return findBookById(id);
+        }
+    
+        private Book findBookById(int id) {
+            // ...
+        }
+    }
+    ```
+
+
 
 <br>
 
@@ -247,4 +350,22 @@ https://stackoverflow.com/questions/38088977/spring-component-bean-annotation
 https://docs.spring.io/spring/docs/3.0.0.M4/reference/html/ch03s11.html
 
 https://dzone.com/articles/playing-sround-with-spring-bean-configuration
+
+https://docs.spring.io/spring/docs/current/javadoc-api/org/springframework/web/bind/annotation/GetMapping.html
+
+
+**Repositories**
+
+https://docs.spring.io/spring-data/jpa/docs/current/reference/html/#repositories
+
+https://spring.io/guides/tutorials/rest/
+
+http://zetcode.com/springboot/restcontroller/
+
+
+**Custom Annotations**
+
+https://www.logicbig.com/tutorials/spring-framework/spring-web-mvc/request-mapping-variants.html
+
+http://appsdeveloperblog.com/spring-mvc-postmapping-getmapping-putmapping-deletemapping/
 
