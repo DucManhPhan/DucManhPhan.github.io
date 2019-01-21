@@ -30,13 +30,6 @@ JSP tags can be used for a variety of purposes, such as retrieving information f
 
 <br>
 
-## How Servlet works and Compare to CGI
-
-
-
-
-<br>
-
 ## How JSP works
 
 

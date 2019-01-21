@@ -172,7 +172,20 @@ Belows are the definitions of some common packages that will use for Spring MVC.
 </properties>
 
 <dependencies>
-    <!--Spring and  transactions-->
+    <!--jquery, bootstrap from webjars-->
+    <dependency>
+        <groupId>org.webjars</groupId>
+        <artifactId>bootstrap</artifactId>
+        <version>3.3.7</version>
+    </dependency>
+
+    <dependency>
+        <groupId>org.webjars</groupId>
+        <artifactId>jquery</artifactId>
+        <version>1.12.4</version>
+    </dependency>
+
+    <!--Spring and transactions-->
     <dependency>
         <groupId>org.springframework</groupId>
         <artifactId>spring-context</artifactId>

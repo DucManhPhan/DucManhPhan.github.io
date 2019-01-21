@@ -19,4 +19,8 @@ What's your biggest challenge doing REST with Spring?
 Don't worry about going into to much detail - just hit Reply and shoot me a supremely short answer - for example: 
 Security or Exception Handling
 
-8. 
+8. Each layer in a software system holds certain capabilities that are required by the layers above it.
+
+9. With such rapid change in technology, is CGI rapidly becoming obsolete? 
+
+10. 
