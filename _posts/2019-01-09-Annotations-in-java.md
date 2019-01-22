@@ -308,8 +308,13 @@ There are 3 annotation types:
         }
     }
     ```
+- ```@EnableWebSecurity``` annotation
 
+    It enables the Spring Security in our application.
 
+- ```@EnableJdbcHttpSession``` annotation
+
+    The ```@EnableJdbcHttpSession``` annotation creates a Spring Bean with the name of **springSessionRepositoryFilter**  that implements the filter. The filter is what is in charge of replacing the HttpSession implementation to be backed by Spring Session. In this instance, Spring Session is backed by a relational database. By default, the session timeout is 1800 seconds (30 minutes).
 
 <br>
 

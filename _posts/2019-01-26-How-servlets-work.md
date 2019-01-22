@@ -115,7 +115,38 @@ With the above steps, we will understand the background of the servlet's work. B
 
 <br>
 
+## Important note
+- In MVC architecture pattern, Servlet plays a controller role and JSP is view.
+
+- **Servlet is a Java class  which is used to extend the capabilities of servers that host applications accessed by means of a request - response model.**
+
+- In Servlet, by default, we can override the ```service()``` method.
+
+- Request always goes from servlet to JSP and not from JSP to servlet.
+
+- Servlet works on server-side whereas JSP works on client-side.
+
+- Servlet is HTML in JAVA, JSP is java in html.
+
+- Web container also known as a Servlet container or Servlet engine is the component of a Web Server that interacts with Java servlets. A web container is responsible for managing the lifecycle of servlets, mapping a URL to a particular servlet and ensuring that the URL requester has the correct access right. For example: Apache Tomcat is Servlet engine.
+
+- A servlet engine is a large chunk of Java code that is either, essentially, a complete web server (or can at least communicate with a web server) and **handle dynamic loading of servlet classes**, **compilation of JSP files**, **initialisation of servlet instances** and **handling of page requests**. Several servlet engines exist - often embedded into commercial middleware software which may include a specialised web server, database access logic, and the servlet engine itself. However, there is an open-source reference implementation servlet engine - Jakarta Tomcat from the Apache Project. Tomcat can operate as a full blown web server, or under control of Apache. 
+
+- The web server and servlet engine may be a single integrated piece of software, or be two separate communicating processes.
+
+- **Once initialised, a servlet object can handle multiple successive requests while storing per-session information inside instance variables - thus quite neatly solving the session management problem.**
+
+- File web.xml is used to tell the Servlet engine how to map URL requests to servlet class files (found in either WEB-INF\classes or WEB-INF\lib). However, we do not need to, because a default is used.
+
+<br>
+
 Refer: 
+
+https://www.ntu.edu.sg/home/ehchua/programming/java/JavaServlets.html
+
+**Context Directory**
+
+https://www.doc.ic.ac.uk/csg-old/java/servlets/
 
 https://www.tutorialspoint.com/jsp/jsp_overview.htm
 
@@ -136,3 +167,8 @@ https://www.baeldung.com/intro-to-servlets
 http://msmuthuimm031.blogspot.com/2011/10/what-are-advantages-and-disadvantages.html
 
 https://myjavadoubts.blogspot.com/2016/06/10-limitations-of-servlets.html
+
+http://www.servlets.com/engines/
+
+
+

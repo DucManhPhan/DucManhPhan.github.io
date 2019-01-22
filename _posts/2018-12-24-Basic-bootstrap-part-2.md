@@ -5,13 +5,15 @@ bigimg: /img/image-header/ravashing-beach.jpg
 tags: [bootstrap]
 ---
 
-In this article, we will continue find out something about bootstrap 4. 
+In this article, we will continue finding out something about bootstrap 4. 
 
 ## Table of Contents
 
 - [Menu](#menu)
 - [Jumbotron](#jumbotron)
-- [Collapse with button](#collapse-with-button)
+- [Collapse with button and anchor](#collapse-with-button-and-anchor)
+- [Accordion](#accordion)
+- [Dropdown state](#dropdown-state)
 - [Pagination](#pagination)
 - [Form](#form)
 
@@ -60,8 +62,8 @@ Ex:
 
 <br>
 
-## Collapse with button
-When you want to hide the contents of the other elements, you can use **.collapse** class. 
+## Collapse with button and anchor
+When you want to hide the contents of the other elements, you can use **.collapse** class to set collapsable state for these elements. 
 
 To control (show/hide) the collapsible content, add the **data-toggle="collapse"** attribute to an \<a\> or a \<button\> element. Then add the **data-target="#id"** attribute to connect the button with the collapsible content (<div id="demo">).
 
@@ -75,10 +77,41 @@ Ex:
 </div>
 ```
 
+Before we practice collapsing with button, now, we will continue with anchor.
+
+With anchor, we will do something like collapse with button. But replacing the **data-target** property in **collapse with button**, use **href** property in **\<a\>**.
+
+```html
+<div class="content">
+   <a class="btn btn-primary" data-toggle="collapse" href="#collapse_target">Click here</a>
+
+   <div id="collapse_target" class="collapse">
+      Lorem ipsum dolor text....
+   </div>
+</div>
+```
+
+Apart from **\<a\>** element that is used with **href**, all other tags can be used with **data-target**.
+
+<br>
+
+## Accordion
+Be simplicity, accordion contains many collapsable elements. Accordion allows showing only one collapsed element at the same time.
+
+
+
+
+
+<br>
+
+## Dropdown state
+
+
+
+
 <br>
 
 ## Pagination
-
 Pagination is used to go to the other pages in website quickly. The pagination have the image: 
 
 ![Pagination in Bootstrap 4](../img/bootstrap-course/Pagination.png)
