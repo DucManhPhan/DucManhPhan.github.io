@@ -44,5 +44,4 @@ In this article, we will delve deeper into the work flows and the relationship b
 
 Refer:
 
-
-
+https://stackoverflow.com/questions/44172261/how-spring-boot-application-works-internally

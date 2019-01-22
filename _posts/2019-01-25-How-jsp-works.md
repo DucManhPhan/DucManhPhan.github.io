@@ -62,6 +62,14 @@ Typically, the JSP engine checks to see whether a servlet for a JSP file already
 
 Refer: 
 
+**Need to read**
+
+https://www.buggybread.com/2014/05/j2ee-jsp-java-server-pages.html
+
+http://mrbool.com/working-with-java-server-pages-jsp/29048
+
+https://www.ntu.edu.sg/home/ehchua/programming/java/JavaServerPages.html
+
 https://www.tutorialspoint.com/jsp/jsp_architecture.htm
 
 https://www.tutorialspoint.com/jsp/jsp_overview.htm
