@@ -23,4 +23,6 @@ Security or Exception Handling
 
 9. With such rapid change in technology, is CGI rapidly becoming obsolete? 
 
-10. 
+10. Here's the article going in depth into the configuration and implementation of that.
+
+11. 

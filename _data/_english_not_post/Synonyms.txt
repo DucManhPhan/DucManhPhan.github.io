@@ -68,3 +68,14 @@ establish - set up
 
 
 envisage /ɪn'vɪzɪdʒ/ - cope with - encounter - face
+
+
+responsible for - in charge of 
+Ex: ViewResolvers are the objects in charge of obtaning View objects for a specific operation and locale.
+
+to be equivalent to ... - to be equal to - replacement - like - substitute
+Ex: An expression object and method, #themes.code(...), which is equivalent to the spring:theme JSP custom tag.
+
+
+come with - have - contain - include 
+Ex: Version 3 comes with new features and many under-the-hood improvements.

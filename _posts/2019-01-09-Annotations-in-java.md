@@ -195,6 +195,8 @@ There are 3 annotation types:
 
     And ```@Controller``` is simply a specialization of the ```@Component``` class and allows implementation classes to be auto-detected through the classpath scanning.
 
+    In typical Spring MVC application, ```@Controller``` classes are responsible for preparing a model map with data and selecting a view to be rendered. This model map allows for the complete abstraction of the view technology and, in the case of Thymeleaf, it is transformed into a Thymeleaf context object (part of the Thymeleaf template execution context) that makes all the defined variables available to expressions executed in templates.
+
 - ```@RequestMapping(value="/", method=RequestMethod.GET)``` annotation
 
     When a controller receives the requests with the specific path, it will route to the method that is determined by the ```@RequestMapping``` annotation.
