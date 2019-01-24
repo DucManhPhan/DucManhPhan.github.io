@@ -48,6 +48,7 @@ In this style, the templates are usually created with a parent-child relation, f
 
 ## Commands to structure layout with thymeleaf
 - Use Thymeleaf in HTML.
+
     To notify that we are using Thymeleaf, use this code:
 
     ```html
@@ -86,6 +87,7 @@ In this style, the templates are usually created with a parent-child relation, f
     ```
 
 - Mark segments used to reuse in the other view
+
     In order to implement reusablity, use ```th:fragment```. 
     
     Assuming that all the common page component is written in layout.html file.
@@ -105,6 +107,7 @@ In this style, the templates are usually created with a parent-child relation, f
     ```
 
 - Use the commom page components
+
     We will use ```th:replace``` and ```th:insert```.
 
     ```html
@@ -122,6 +125,7 @@ In this style, the templates are usually created with a parent-child relation, f
     Because we will use common page components in layout.html, we will point specific file and the name of fragment component.
 
 - Including with markup selectors
+
     Fragments do not need to be explicitly specified using ```th:fragment``` at the page they are extracted from. Thymeleaf can select an arbitrary section of a page as a fragment (even a page living on an external server) by means of its Markup Selector syntax, similar to XPath expressions, CSS or JQuery selectors.
 
     ```html
@@ -145,6 +149,7 @@ In this style, the templates are usually created with a parent-child relation, f
     ```
 
 - Using expression
+
     In ```templatename::selector```, both ```template``` and ```selector``` can be fully-featured expressios.
 
     The interesting thing in this part is that we can choose item based on the specific condition.
