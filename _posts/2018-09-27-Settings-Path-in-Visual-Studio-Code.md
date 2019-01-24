@@ -26,5 +26,5 @@ The meaning of each predefined variables is:
 
 Refer: 
 
-[Variable Reference with Path](https://code.visualstudio.com/docs/editor/variables-reference)
+[https://code.visualstudio.com/docs/editor/variables-reference](https://code.visualstudio.com/docs/editor/variables-reference)
 

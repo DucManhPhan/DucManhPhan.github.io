@@ -99,9 +99,9 @@ String s = br.readLine();
 
 Refer: 
 
-https://docs.oracle.com/javase/8/docs/api/java/util/Scanner.html
+[https://docs.oracle.com/javase/8/docs/api/java/util/Scanner.html](https://docs.oracle.com/javase/8/docs/api/java/util/Scanner.html)
 
-https://www.geeksforgeeks.org/scanner-class-in-java/
+[https://www.geeksforgeeks.org/scanner-class-in-java/](https://www.geeksforgeeks.org/scanner-class-in-java/)
 
-https://www.geeksforgeeks.org/difference-between-scanner-and-bufferreader-class-in-java/
+[https://www.geeksforgeeks.org/difference-between-scanner-and-bufferreader-class-in-java/](https://www.geeksforgeeks.org/difference-between-scanner-and-bufferreader-class-in-java/)
 

@@ -175,18 +175,18 @@ To read/write with Object streams, use **readObject()** method and **writeObject
 
 Refer:
 
-https://www.geeksforgeeks.org/different-ways-reading-text-file-java/
+[https://www.geeksforgeeks.org/different-ways-reading-text-file-java/](https://www.geeksforgeeks.org/different-ways-reading-text-file-java/)
 
-https://www.geeksforgeeks.org/scanner-class-in-java/
+[https://www.geeksforgeeks.org/scanner-class-in-java/](https://www.geeksforgeeks.org/scanner-class-in-java/)
 
-https://www.geeksforgeeks.org/java-io-bufferedreader-class-java/
+[https://www.geeksforgeeks.org/java-io-bufferedreader-class-java/](https://www.geeksforgeeks.org/java-io-bufferedreader-class-java/)
 
-https://www.geeksforgeeks.org/file-handling-java-using-filewriter-filereader/
+[https://www.geeksforgeeks.org/file-handling-java-using-filewriter-filereader/](https://www.geeksforgeeks.org/file-handling-java-using-filewriter-filereader/)
 
-https://www.tutorialspoint.com/java/java_files_io.htm
+[https://www.tutorialspoint.com/java/java_files_io.htm](https://www.tutorialspoint.com/java/java_files_io.htm)
 
-http://tutorials.jenkov.com/java-io/streams.html
+[http://tutorials.jenkov.com/java-io/streams.html](http://tutorials.jenkov.com/java-io/streams.html)
 
-https://www.developer.com/java/data/understanding-byte-streams-and-character-streams-in-java.html
+[https://www.developer.com/java/data/understanding-byte-streams-and-character-streams-in-java.html](https://www.developer.com/java/data/understanding-byte-streams-and-character-streams-in-java.html)
 
-https://docs.oracle.com/javase/tutorial/essential/io/index.html
+[https://docs.oracle.com/javase/tutorial/essential/io/index.html](https://docs.oracle.com/javase/tutorial/essential/io/index.html)

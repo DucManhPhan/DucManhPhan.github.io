@@ -7,7 +7,7 @@ tags: [Mining, Nonce, Blockchain]
 
 
 
-https://www.investopedia.com/news/how-bitcoin-works/
+[https://www.investopedia.com/news/how-bitcoin-works/](https://www.investopedia.com/news/how-bitcoin-works/)
 
-https://www.investopedia.com/tech/how-does-bitcoin-mining-work/
+[https://www.investopedia.com/tech/how-does-bitcoin-mining-work/](https://www.investopedia.com/tech/how-does-bitcoin-mining-work/)
 

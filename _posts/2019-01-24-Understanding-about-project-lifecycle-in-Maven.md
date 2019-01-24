@@ -317,22 +317,22 @@ Refer:
 
 **Make own project lifecycle**
 
-http://bethecoder.com/applications/tutorials/design-patterns/java-design-patterns/state-project-life-cycle-example.html
+[http://bethecoder.com/applications/tutorials/design-patterns/java-design-patterns/state-project-life-cycle-example.html](http://bethecoder.com/applications/tutorials/design-patterns/java-design-patterns/state-project-life-cycle-example.html)
 
 **Detail for Maven configuration**
 
-https://books.sonatype.com/mvnref-book/reference/lifecycle-sect-structure.html#lifecycle-sect-default
+[https://books.sonatype.com/mvnref-book/reference/lifecycle-sect-structure.html#lifecycle-sect-default](https://books.sonatype.com/mvnref-book/reference/lifecycle-sect-structure.html#lifecycle-sect-default)
 
-https://maven.apache.org/guides/introduction/introduction-to-the-lifecycle.html#Lifecycle_Reference
+[https://maven.apache.org/guides/introduction/introduction-to-the-lifecycle.html#Lifecycle_Reference](https://maven.apache.org/guides/introduction/introduction-to-the-lifecycle.html#Lifecycle_Reference)
 
-https://www.javaworld.com/article/2072203/build-ci-sdlc/an-introduction-to-maven-2.html
+[https://www.javaworld.com/article/2072203/build-ci-sdlc/an-introduction-to-maven-2.html](https://www.javaworld.com/article/2072203/build-ci-sdlc/an-introduction-to-maven-2.html)
 
-http://www.codetab.org/apache-maven-tutorial/maven-lifecycle-phases/
+[http://www.codetab.org/apache-maven-tutorial/maven-lifecycle-phases/](http://www.codetab.org/apache-maven-tutorial/maven-lifecycle-phases/)
 
-http://www.codetab.org/apache-maven-tutorial/maven-lifecycle-and-goals/
+[http://www.codetab.org/apache-maven-tutorial/maven-lifecycle-and-goals/](http://www.codetab.org/apache-maven-tutorial/maven-lifecycle-and-goals/)
 
-http://www.codetab.org/apache-maven-tutorial/maven-plugins/#sec-plugins
+[http://www.codetab.org/apache-maven-tutorial/maven-plugins/#sec-plugins](http://www.codetab.org/apache-maven-tutorial/maven-plugins/#sec-plugins)
 
-http://www.codetab.org/apache-maven-tutorial/maven-plugin-goals/
+[http://www.codetab.org/apache-maven-tutorial/maven-plugin-goals/](http://www.codetab.org/apache-maven-tutorial/maven-plugin-goals/)
 
-http://www.codetab.org/apache-maven-tutorial/maven-plugin-execution/
+[http://www.codetab.org/apache-maven-tutorial/maven-plugin-execution/](http://www.codetab.org/apache-maven-tutorial/maven-plugin-execution/)

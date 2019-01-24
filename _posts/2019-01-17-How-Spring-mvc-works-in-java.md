@@ -62,13 +62,13 @@ ViewResolvers are the objects in charge of obtaining View objects for a specific
 
 Refer:
 
-https://docs.spring.io/spring/docs/3.0.0.M3/reference/html/ch16s02.html
+[https://docs.spring.io/spring/docs/3.0.0.M3/reference/html/ch16s02.html](https://docs.spring.io/spring/docs/3.0.0.M3/reference/html/ch16s02.html)
 
-https://stackify.com/spring-mvc/
+[https://stackify.com/spring-mvc/](https://stackify.com/spring-mvc/)
 
-https://javadeveloperzone.com/spring-mvc/spring-multi-controller/
+[https://javadeveloperzone.com/spring-mvc/spring-multi-controller/](https://javadeveloperzone.com/spring-mvc/spring-multi-controller/)
 
-https://crunchify.com/spring-mvc-how-to-access-modelmap-values-in-a-jsp/
+[https://crunchify.com/spring-mvc-how-to-access-modelmap-values-in-a-jsp/](https://crunchify.com/spring-mvc-how-to-access-modelmap-values-in-a-jsp/)
 
-https://www.thymeleaf.org/doc/tutorials/3.0/thymeleafspring.html
+[https://www.thymeleaf.org/doc/tutorials/3.0/thymeleafspring.html](https://www.thymeleaf.org/doc/tutorials/3.0/thymeleafspring.html)
 

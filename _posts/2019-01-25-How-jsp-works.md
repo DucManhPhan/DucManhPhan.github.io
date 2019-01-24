@@ -64,21 +64,21 @@ Refer:
 
 **Need to read**
 
-https://www.buggybread.com/2014/05/j2ee-jsp-java-server-pages.html
+[https://www.buggybread.com/2014/05/j2ee-jsp-java-server-pages.html](https://www.buggybread.com/2014/05/j2ee-jsp-java-server-pages.html)
 
-http://mrbool.com/working-with-java-server-pages-jsp/29048
+[http://mrbool.com/working-with-java-server-pages-jsp/29048](http://mrbool.com/working-with-java-server-pages-jsp/29048)
 
-https://www.ntu.edu.sg/home/ehchua/programming/java/JavaServerPages.html
+[https://www.ntu.edu.sg/home/ehchua/programming/java/JavaServerPages.html](https://www.ntu.edu.sg/home/ehchua/programming/java/JavaServerPages.html)
 
-https://www.tutorialspoint.com/jsp/jsp_architecture.htm
+[https://www.tutorialspoint.com/jsp/jsp_architecture.htm](https://www.tutorialspoint.com/jsp/jsp_architecture.htm)
 
-https://www.tutorialspoint.com/jsp/jsp_overview.htm
+[https://www.tutorialspoint.com/jsp/jsp_overview.htm](https://www.tutorialspoint.com/jsp/jsp_overview.htm)
 
-https://docs.oracle.com/javaee/5/tutorial/doc/bnafe.html
+[https://docs.oracle.com/javaee/5/tutorial/doc/bnafe.html](https://docs.oracle.com/javaee/5/tutorial/doc/bnafe.html)
 
-https://o7planning.org/vi/10263/huong-dan-lap-trinh-java-jsp#a750360
+[https://o7planning.org/vi/10263/huong-dan-lap-trinh-java-jsp#a750360](https://o7planning.org/vi/10263/huong-dan-lap-trinh-java-jsp#a750360)
 
-http://www.ntu.edu.sg/home/ehchua/programming/java/javaserverpages.html
+[http://www.ntu.edu.sg/home/ehchua/programming/java/javaserverpages.html](http://www.ntu.edu.sg/home/ehchua/programming/java/javaserverpages.html)
 
-https://www.oreilly.com/library/view/head-first-servlets/9780596516680/ch11s06.html
+[https://www.oreilly.com/library/view/head-first-servlets/9780596516680/ch11s06.html](https://www.oreilly.com/library/view/head-first-servlets/9780596516680/ch11s06.html)
 

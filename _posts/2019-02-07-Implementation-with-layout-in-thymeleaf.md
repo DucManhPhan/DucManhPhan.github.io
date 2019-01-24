@@ -199,11 +199,11 @@ Refer:
 
 [https://www.thymeleaf.org/doc/articles/layouts.html](https://www.thymeleaf.org/doc/articles/layouts.html)
 
-https://www.thymeleaf.org/doc/tutorials/3.0/usingthymeleaf.html#appendix-c-markup-selector-syntax
+[https://www.thymeleaf.org/doc/tutorials/3.0/usingthymeleaf.html#appendix-c-markup-selector-syntax](https://www.thymeleaf.org/doc/tutorials/3.0/usingthymeleaf.html#appendix-c-markup-selector-syntax)
 
-https://www.thymeleaf.org/doc/tutorials/3.0/usingthymeleaf.html#parameterizable-fragment-signatures
+[https://www.thymeleaf.org/doc/tutorials/3.0/usingthymeleaf.html#parameterizable-fragment-signatures](https://www.thymeleaf.org/doc/tutorials/3.0/usingthymeleaf.html#parameterizable-fragment-signatures)
 
-https://github.com/thymeleaf
+[https://github.com/thymeleaf](https://github.com/thymeleaf)
 
-https://www.thymeleaf.org/documentation.html
+[https://www.thymeleaf.org/documentation.html](https://www.thymeleaf.org/documentation.html)
 

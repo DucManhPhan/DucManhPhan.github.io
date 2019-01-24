@@ -32,5 +32,5 @@ Refer:
 
 Head First Design Pattern
 
-[SourceMaking](https://sourcemaking.com/design_patterns/observer)
+[https://sourcemaking.com/design_patterns/observer](https://sourcemaking.com/design_patterns/observer)
 

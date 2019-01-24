@@ -10,5 +10,5 @@ tags: [java]
 
 Refer:
 
-https://dzone.com/articles/spring-spring-boot-and-component-scan
+[https://dzone.com/articles/spring-spring-boot-and-component-scan](https://dzone.com/articles/spring-spring-boot-and-component-scan)
 

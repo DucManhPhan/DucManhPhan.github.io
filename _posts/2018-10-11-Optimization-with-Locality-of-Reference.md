@@ -56,5 +56,7 @@ for (int i = 0; i < n; ++i) {
 
 Thanks for your reading. 
 
-Refer: https://en.wikibooks.org/wiki/Optimizing_C%2B%2B/Code_optimization/Faster_operations
+Refer: 
+
+[https://en.wikibooks.org/wiki/Optimizing_C%2B%2B/Code_optimization/Faster_operations](https://en.wikibooks.org/wiki/Optimizing_C%2B%2B/Code_optimization/Faster_operations)
 

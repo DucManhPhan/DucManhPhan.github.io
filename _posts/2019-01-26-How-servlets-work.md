@@ -142,33 +142,33 @@ With the above steps, we will understand the background of the servlet's work. B
 
 Refer: 
 
-https://www.ntu.edu.sg/home/ehchua/programming/java/JavaServlets.html
+[https://www.ntu.edu.sg/home/ehchua/programming/java/JavaServlets.html](https://www.ntu.edu.sg/home/ehchua/programming/java/JavaServlets.html)
 
 **Context Directory**
 
-https://www.doc.ic.ac.uk/csg-old/java/servlets/
+[https://www.doc.ic.ac.uk/csg-old/java/servlets/](https://www.doc.ic.ac.uk/csg-old/java/servlets/)
 
-https://www.tutorialspoint.com/jsp/jsp_overview.htm
+[https://www.tutorialspoint.com/jsp/jsp_overview.htm](https://www.tutorialspoint.com/jsp/jsp_overview.htm)
 
-https://docs.oracle.com/javaee/5/tutorial/doc/bnafe.html
+[https://docs.oracle.com/javaee/5/tutorial/doc/bnafe.html](https://docs.oracle.com/javaee/5/tutorial/doc/bnafe.html)
 
-https://www.studytonight.com/servlet/introduction-to-servlet.php
+[https://www.studytonight.com/servlet/introduction-to-servlet.php](https://www.studytonight.com/servlet/introduction-to-servlet.php)
 
-https://www.studytonight.com/servlet/how-a-servlet-application-work.php
+[https://www.studytonight.com/servlet/how-a-servlet-application-work.php](https://www.studytonight.com/servlet/how-a-servlet-application-work.php)
 
-http://www-it.fmi.uni-sofia.bg/courses/WDB/references/CGI_Developer_Guide/CH1.HTM
+[http://www-it.fmi.uni-sofia.bg/courses/WDB/references/CGI_Developer_Guide/CH1.HTM](http://www-it.fmi.uni-sofia.bg/courses/WDB/references/CGI_Developer_Guide/CH1.HTM)
 
-http://ecomputernotes.com/servlet/intro/differencebetweenservletandcgi
+[http://ecomputernotes.com/servlet/intro/differencebetweenservletandcgi](http://ecomputernotes.com/servlet/intro/differencebetweenservletandcgi)
 
-https://www.baeldung.com/intro-to-servlets
+[https://www.baeldung.com/intro-to-servlets](https://www.baeldung.com/intro-to-servlets)
 
 **Advantages and Disadvantages of Servlet**
 
-http://msmuthuimm031.blogspot.com/2011/10/what-are-advantages-and-disadvantages.html
+[http://msmuthuimm031.blogspot.com/2011/10/what-are-advantages-and-disadvantages.html](http://msmuthuimm031.blogspot.com/2011/10/what-are-advantages-and-disadvantages.html)
 
-https://myjavadoubts.blogspot.com/2016/06/10-limitations-of-servlets.html
+[https://myjavadoubts.blogspot.com/2016/06/10-limitations-of-servlets.html](https://myjavadoubts.blogspot.com/2016/06/10-limitations-of-servlets.html)
 
-http://www.servlets.com/engines/
+[http://www.servlets.com/engines/](http://www.servlets.com/engines/)
 
 
 

@@ -9,5 +9,5 @@ tags: [MFC]
 
 Refer:
 
-http://www.functionx.com/visualc/controls/spincontrol.htm
+[http://www.functionx.com/visualc/controls/spincontrol.htm](http://www.functionx.com/visualc/controls/spincontrol.htm)
 

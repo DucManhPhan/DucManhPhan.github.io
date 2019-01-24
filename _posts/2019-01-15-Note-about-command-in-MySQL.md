@@ -193,9 +193,9 @@ Based on the join_predicate, if no matching row from the t1 table (left table) e
 
 Refer: 
 
-https://dev.mysql.com/doc/mysql-tutorial-excerpt/5.7/en/date-calculations.html
+[https://dev.mysql.com/doc/mysql-tutorial-excerpt/5.7/en/date-calculations.html](https://dev.mysql.com/doc/mysql-tutorial-excerpt/5.7/en/date-calculations.html)
 
-https://dba.stackexchange.com/questions/52476/how-to-get-a-list-result-of-best-selling-items
+[https://dba.stackexchange.com/questions/52476/how-to-get-a-list-result-of-best-selling-items](https://dba.stackexchange.com/questions/52476/how-to-get-a-list-result-of-best-selling-items)
 
-http://www.mysqltutorial.org/mysql-inner-join.aspx
+[http://www.mysqltutorial.org/mysql-inner-join.aspx](http://www.mysqltutorial.org/mysql-inner-join.aspx)
 

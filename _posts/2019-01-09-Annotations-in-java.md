@@ -334,45 +334,45 @@ Thanks for reading.
 
 Refer: 
 
-https://www.baeldung.com/spring-bean-annotations
+[https://www.baeldung.com/spring-bean-annotations](https://www.baeldung.com/spring-bean-annotations)
 
-https://www.developer.com/java/other/article.php/3556176/An-Introduction-to-Java-Annotations.htm
+[https://www.developer.com/java/other/article.php/3556176/An-Introduction-to-Java-Annotations.htm](https://www.developer.com/java/other/article.php/3556176/An-Introduction-to-Java-Annotations.htm)
 
-https://en.wikipedia.org/wiki/Java_version_history
+[https://en.wikipedia.org/wiki/Java_version_history](https://en.wikipedia.org/wiki/Java_version_history)
 
-https://www.journaldev.com/721/java-annotations
+[https://www.journaldev.com/721/java-annotations](https://www.journaldev.com/721/java-annotations)
 
-http://spring.io/blog/2010/07/22/spring-mvc-3-showcase/
+[http://spring.io/blog/2010/07/22/spring-mvc-3-showcase/](http://spring.io/blog/2010/07/22/spring-mvc-3-showcase/)
 
-http://outbottle.com/spring-4-web-mvc-hello-world-using-annotation-configuration-with-netbeans/
+[http://outbottle.com/spring-4-web-mvc-hello-world-using-annotation-configuration-with-netbeans/](http://outbottle.com/spring-4-web-mvc-hello-world-using-annotation-configuration-with-netbeans/)
 
-https://stackoverflow.com/questions/34172888/difference-between-bean-and-autowired
+[https://stackoverflow.com/questions/34172888/difference-between-bean-and-autowired](https://stackoverflow.com/questions/34172888/difference-between-bean-and-autowired)
 
-http://zetcode.com/articles/springbootbean/
+[http://zetcode.com/articles/springbootbean/](http://zetcode.com/articles/springbootbean/)
 
-https://docs.spring.io/spring/docs/current/spring-framework-reference/#beans-java-basic-concepts
+[https://docs.spring.io/spring/docs/current/spring-framework-reference/#beans-java-basic-concepts](https://docs.spring.io/spring/docs/current/spring-framework-reference/#beans-java-basic-concepts)
 
-https://stackoverflow.com/questions/38088977/spring-component-bean-annotation
+[https://stackoverflow.com/questions/38088977/spring-component-bean-annotation](https://stackoverflow.com/questions/38088977/spring-component-bean-annotation)
 
-https://docs.spring.io/spring/docs/3.0.0.M4/reference/html/ch03s11.html
+[https://docs.spring.io/spring/docs/3.0.0.M4/reference/html/ch03s11.html](https://docs.spring.io/spring/docs/3.0.0.M4/reference/html/ch03s11.html)
 
-https://dzone.com/articles/playing-sround-with-spring-bean-configuration
+[https://dzone.com/articles/playing-sround-with-spring-bean-configuration](https://dzone.com/articles/playing-sround-with-spring-bean-configuration)
 
-https://docs.spring.io/spring/docs/current/javadoc-api/org/springframework/web/bind/annotation/GetMapping.html
+[https://docs.spring.io/spring/docs/current/javadoc-api/org/springframework/web/bind/annotation/GetMapping.html](https://docs.spring.io/spring/docs/current/javadoc-api/org/springframework/web/bind/annotation/GetMapping.html)
 
 
 **Repositories**
 
-https://docs.spring.io/spring-data/jpa/docs/current/reference/html/#repositories
+[https://docs.spring.io/spring-data/jpa/docs/current/reference/html/#repositories](https://docs.spring.io/spring-data/jpa/docs/current/reference/html/#repositories)
 
-https://spring.io/guides/tutorials/rest/
+[https://spring.io/guides/tutorials/rest/](https://spring.io/guides/tutorials/rest/)
 
-http://zetcode.com/springboot/restcontroller/
+[http://zetcode.com/springboot/restcontroller/](http://zetcode.com/springboot/restcontroller/)
 
 
 **Custom Annotations**
 
-https://www.logicbig.com/tutorials/spring-framework/spring-web-mvc/request-mapping-variants.html
+[https://www.logicbig.com/tutorials/spring-framework/spring-web-mvc/request-mapping-variants.html](https://www.logicbig.com/tutorials/spring-framework/spring-web-mvc/request-mapping-variants.html)
 
-http://appsdeveloperblog.com/spring-mvc-postmapping-getmapping-putmapping-deletemapping/
+[http://appsdeveloperblog.com/spring-mvc-postmapping-getmapping-putmapping-deletemapping/](http://appsdeveloperblog.com/spring-mvc-postmapping-getmapping-putmapping-deletemapping/)
 

@@ -13,9 +13,9 @@ tags: [Blockchain]
 
 Refer: 
 
-https://www.investopedia.com/terms/b/block-time-cryptocurrency.asp
+[https://www.investopedia.com/terms/b/block-time-cryptocurrency.asp](https://www.investopedia.com/terms/b/block-time-cryptocurrency.asp)
 
-https://www.investopedia.com/terms/b/block-reward.asp
+[https://www.investopedia.com/terms/b/block-reward.asp](https://www.investopedia.com/terms/b/block-reward.asp)
 
-https://www.investopedia.com/terms/t/target-hash.asp
+[https://www.investopedia.com/terms/t/target-hash.asp](https://www.investopedia.com/terms/t/target-hash.asp)
 

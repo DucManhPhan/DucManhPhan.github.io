@@ -223,10 +223,10 @@ The meaning of each table in this database:
 
 Refer: 
 
-https://hackernoon.com/mysql-tutorial-example-relation-foreign-key-database-funtion-join-table-query-one-namy-nest-41dd09648fbd
+[https://hackernoon.com/mysql-tutorial-example-relation-foreign-key-database-funtion-join-table-query-one-namy-nest-41dd09648fbd](https://hackernoon.com/mysql-tutorial-example-relation-foreign-key-database-funtion-join-table-query-one-namy-nest-41dd09648fbd)
 
-https://letrantrunghieu.wordpress.com/2016/06/07/cac-thao-tac-co-ban-voi-mysql-workbench/#3
+[https://letrantrunghieu.wordpress.com/2016/06/07/cac-thao-tac-co-ban-voi-mysql-workbench/#3](https://letrantrunghieu.wordpress.com/2016/06/07/cac-thao-tac-co-ban-voi-mysql-workbench/#3)
 
-http://www.mysqltutorial.org/mysql-foreign-key/
+[http://www.mysqltutorial.org/mysql-foreign-key/](http://www.mysqltutorial.org/mysql-foreign-key/)
 
-http://www.mysqltutorial.org/basic-mysql-tutorial.aspx
+[http://www.mysqltutorial.org/basic-mysql-tutorial.aspx](http://www.mysqltutorial.org/basic-mysql-tutorial.aspx)

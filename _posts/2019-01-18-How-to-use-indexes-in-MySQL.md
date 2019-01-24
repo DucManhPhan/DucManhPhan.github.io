@@ -38,11 +38,11 @@ Using too many indexes is to make your database that is accessed data slow down 
 
 Refer: 
 
-http://coding-geek.com/how-databases-work/#Tree_and_database_index
+[http://coding-geek.com/how-databases-work/#Tree_and_database_index](http://coding-geek.com/how-databases-work/#Tree_and_database_index)
 
-https://chartio.com/learn/databases/how-does-indexing-work/
+[https://chartio.com/learn/databases/how-does-indexing-work/](https://chartio.com/learn/databases/how-does-indexing-work/)
 
-http://www.mysqltutorial.org/mysql-index/mysql-use-index/
+[http://www.mysqltutorial.org/mysql-index/mysql-use-index/](http://www.mysqltutorial.org/mysql-index/mysql-use-index/)
 
-http://www.mysqltutorial.org/mysql-index/mysql-index-cardinality/
+[http://www.mysqltutorial.org/mysql-index/mysql-index-cardinality/](http://www.mysqltutorial.org/mysql-index/mysql-index-cardinality/)
 

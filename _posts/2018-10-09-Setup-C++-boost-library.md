@@ -62,16 +62,16 @@ Thanks for your reading.
 
 Refer: 
 
-[BCP - John Maddock](https://www.boost.org/doc/libs/1_68_0/tools/bcp/doc/html/index.html)
+[https://www.boost.org/doc/libs/1_68_0/tools/bcp/doc/html/index.html](https://www.boost.org/doc/libs/1_68_0/tools/bcp/doc/html/index.html)
 
-[Boost dependencies and bcp](https://steveire.wordpress.com/2016/08/21/boost-dependencies-and-bcp/)
+[https://steveire.wordpress.com/2016/08/21/boost-dependencies-and-bcp/](https://steveire.wordpress.com/2016/08/21/boost-dependencies-and-bcp/)
 
 [How Boost automatically includes libraries](https://codeyarns.com/2014/06/09/how-boost-automatically-includes-libraries/)
 
-https://www.boost.org/doc/libs/1_68_0/tools/bcp/doc/html/index.html
+[https://www.boost.org/doc/libs/1_68_0/tools/bcp/doc/html/index.html](https://www.boost.org/doc/libs/1_68_0/tools/bcp/doc/html/index.html)
 
-https://www.technical-recipes.com/2014/using-subset-boost-in-windows/
+[https://www.technical-recipes.com/2014/using-subset-boost-in-windows/](https://www.technical-recipes.com/2014/using-subset-boost-in-windows/)
 
-http://manpages.ubuntu.com/manpages/bionic/man1/bcp.1.html
+[http://manpages.ubuntu.com/manpages/bionic/man1/bcp.1.html](http://manpages.ubuntu.com/manpages/bionic/man1/bcp.1.html)
 
-https://steveire.wordpress.com/2016/08/21/boost-dependencies-and-bcp/
+[https://steveire.wordpress.com/2016/08/21/boost-dependencies-and-bcp/](https://steveire.wordpress.com/2016/08/21/boost-dependencies-and-bcp/)

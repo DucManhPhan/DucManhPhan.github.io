@@ -113,10 +113,9 @@ Thus, the next time the program requests T[0] to be updated, the cache misses, a
 
 Refer to :
 
- https://www.csetutor.com/locality-of-reference-in-cache-memory/
+ [https://www.csetutor.com/locality-of-reference-in-cache-memory/](https://www.csetutor.com/locality-of-reference-in-cache-memory/)
 
- https://en.wikipedia.org/wiki/Locality_of_reference
+ [https://en.wikipedia.org/wiki/Locality_of_reference](https://en.wikipedia.org/wiki/Locality_of_reference)
 
- https://en.wikipedia.org/wiki/Cache_pollution
-
- https://ivoroshilin.wordpress.com/2013/02/06/know-your-locality-of-reference-some-techniques-for-keeping-data-in-the-cpu-cache/
+ [https://en.wikipedia.org/wiki/Cache_pollution](https://en.wikipedia.org/wiki/Cache_pollution)
+[https://ivoroshilin.wordpress.com/2013/02/06/know-your-locality-of-reference-some-techniques-for-keeping-data-in-the-cpu-cache/](https://ivoroshilin.wordpress.com/2013/02/06/know-your-locality-of-reference-some-techniques-for-keeping-data-in-the-cpu-cache/)

@@ -54,19 +54,19 @@ jdbc.password=password
 
 Refer: 
 
-https://docs.spring.io/spring-security/site/docs/current/reference/html/jc.html
+[https://docs.spring.io/spring-security/site/docs/current/reference/html/jc.html](https://docs.spring.io/spring-security/site/docs/current/reference/html/jc.html)
 
-http://tuphuchuy.blogspot.com/2015/03/huong-dan-cai-at-maven-tren-windows.html
+[http://tuphuchuy.blogspot.com/2015/03/huong-dan-cai-at-maven-tren-windows.html](http://tuphuchuy.blogspot.com/2015/03/huong-dan-cai-at-maven-tren-windows.html)
 
-https://o7planning.org/vi/10131/huong-dan-su-dung-maven-cho-nguoi-moi-bat-dau
+[https://o7planning.org/vi/10131/huong-dan-su-dung-maven-cho-nguoi-moi-bat-dau](https://o7planning.org/vi/10131/huong-dan-su-dung-maven-cho-nguoi-moi-bat-dau)
 
-http://outbottle.com/spring-4-web-mvc-hello-world-using-annotation-configuration-with-netbeans/
+[http://outbottle.com/spring-4-web-mvc-hello-world-using-annotation-configuration-with-netbeans/](http://outbottle.com/spring-4-web-mvc-hello-world-using-annotation-configuration-with-netbeans/)
 
-https://www.journaldev.com/721/java-annotations
+[https://www.journaldev.com/721/java-annotations](https://www.journaldev.com/721/java-annotations)
 
-https://www.journaldev.com/817/java-override-annotation
+[https://www.journaldev.com/817/java-override-annotation](https://www.journaldev.com/817/java-override-annotation)
 
-https://www.journaldev.com/16813/dao-design-pattern
+[https://www.journaldev.com/16813/dao-design-pattern](https://www.journaldev.com/16813/dao-design-pattern)
 
 
 **Combine Thymeleaf with Spring MVC**

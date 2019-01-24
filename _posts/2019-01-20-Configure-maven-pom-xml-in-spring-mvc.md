@@ -311,40 +311,39 @@ Refer:
 
 **POM file**
 
-http://www.codetab.org/apache-maven-tutorial/
+[http://www.codetab.org/apache-maven-tutorial/](http://www.codetab.org/apache-maven-tutorial/)
 
-https://books.sonatype.com/mvnref-book/reference/pom-relationships-sect-pom-syntax.html
+[https://books.sonatype.com/mvnref-book/reference/pom-relationships-sect-pom-syntax.html](https://books.sonatype.com/mvnref-book/reference/pom-relationships-sect-pom-syntax.html)
 
-http://www.java2s.com/Tutorials/Java/Maven_Tutorial/1020__Maven_POM_File.htm
+[http://www.java2s.com/Tutorials/Java/Maven_Tutorial/1020__Maven_POM_File.htm](http://www.java2s.com/Tutorials/Java/Maven_Tutorial/1020__Maven_POM_File.htm)
 
-https://o7planning.org/vi/10411/quan-ly-cac-phu-thuoc-trong-maven
+[https://o7planning.org/vi/10411/quan-ly-cac-phu-thuoc-trong-maven](https://o7planning.org/vi/10411/quan-ly-cac-phu-thuoc-trong-maven)
 
-https://o7planning.org/vi/10131/huong-dan-su-dung-maven-cho-nguoi-moi-bat-dau
+[https://o7planning.org/vi/10131/huong-dan-su-dung-maven-cho-nguoi-moi-bat-dau](https://o7planning.org/vi/10131/huong-dan-su-dung-maven-cho-nguoi-moi-bat-dau)
 
-https://maven.apache.org/guides/introduction/introduction-to-the-standard-directory-layout.html
+[https://maven.apache.org/guides/introduction/introduction-to-the-standard-directory-layout.html](https://maven.apache.org/guides/introduction/introduction-to-the-standard-directory-layout.html)
 
-https://www.javaworld.com/article/2071772/java-app-dev/the-maven-2-pom-demystified.html
+[https://www.javaworld.com/article/2071772/java-app-dev/the-maven-2-pom-demystified.html](https://www.javaworld.com/article/2071772/java-app-dev/the-maven-2-pom-demystified.html)
 
-https://www.javaworld.com/article/2072203/build-ci-sdlc/an-introduction-to-maven-2.html
+[https://www.javaworld.com/article/2072203/build-ci-sdlc/an-introduction-to-maven-2.html](https://www.javaworld.com/article/2072203/build-ci-sdlc/an-introduction-to-maven-2.html)
 
 <br>
 
 **JAR**, **WAR** files
 
-https://en.wikipedia.org/wiki/WAR_(file_format)
+[https://en.wikipedia.org/wiki/WAR_(file_format)](https://en.wikipedia.org/wiki/WAR_(file_format))
 
-https://en.wikipedia.org/wiki/JAR_(file_format)
+[https://en.wikipedia.org/wiki/JAR_(file_format)](https://en.wikipedia.org/wiki/JAR_(file_format))
 
-https://web.archive.org/web/20120626012843/http://java.sun.com/developer/Books/javaprogramming/JAR/basics
+[https://web.archive.org/web/20120626012843/http://java.sun.com/developer/Books/javaprogramming/JAR/basics](https://web.archive.org/web/20120626012843/http://java.sun.com/developer/Books/javaprogramming/JAR/basics)
 
-https://web.archive.org/web/20120626020019/http://java.sun.com/j2ee/tutorial/1_3-fcs/doc/WCC3.html
+[https://web.archive.org/web/20120626020019/http://java.sun.com/j2ee/tutorial/1_3-fcs/doc/WCC3.html](https://web.archive.org/web/20120626020019/http://java.sun.com/j2ee/tutorial/1_3-fcs/doc/WCC3.html)
 
-https://maven.apache.org/guides/getting-started/maven-in-five-minutes.html
+[https://maven.apache.org/guides/getting-started/maven-in-five-minutes.html](https://maven.apache.org/guides/getting-started/maven-in-five-minutes.html)
 
-http://www.vogella.com/tutorials/ApacheMaven/article.html
+[http://www.vogella.com/tutorials/ApacheMaven/article.html](http://www.vogella.com/tutorials/ApacheMaven/article.html)
 
 <br>
 
 **Project Dependecies**
-
-https://books.sonatype.com/mvnref-book/reference/pom-relationships-sect-project-dependencies.html#pom-relationships-sect-dependency-scope
+[https://books.sonatype.com/mvnref-book/reference/pom-relationships-sect-project-dependencies.html#pom-relationships-sect-dependency-scope](https://books.sonatype.com/mvnref-book/reference/pom-relationships-sect-project-dependencies.html#pom-relationships-sect-dependency-scope)

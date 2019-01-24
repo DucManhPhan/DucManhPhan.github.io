@@ -163,5 +163,5 @@ This way do not depend the compiler, but it's really arduous, because actually w
 
 Refer: 
 
-http://diendan.congdongcviet.com/threads/t13568::cach-goi-mot-private-method-cua-mot-class-trong-cpp.cpp/page4/
+[http://diendan.congdongcviet.com/threads/t13568::cach-goi-mot-private-method-cua-mot-class-trong-cpp.cpp/page4/](http://diendan.congdongcviet.com/threads/t13568::cach-goi-mot-private-method-cua-mot-class-trong-cpp.cpp/page4/)
 

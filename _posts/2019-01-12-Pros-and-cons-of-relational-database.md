@@ -40,11 +40,11 @@ In this article, we will find out something about relational database.
 
 Refer: 
 
-https://it.toolbox.com/blogs/craigborysowich/some-pros-cons-of-relational-databases-050108
+[https://it.toolbox.com/blogs/craigborysowich/some-pros-cons-of-relational-databases-050108](https://it.toolbox.com/blogs/craigborysowich/some-pros-cons-of-relational-databases-050108)
 
-https://www.techwalla.com/articles/disadvantages-of-a-relational-database
+[https://www.techwalla.com/articles/disadvantages-of-a-relational-database](https://www.techwalla.com/articles/disadvantages-of-a-relational-database)
 
-https://smallbusiness.chron.com/limitations-relational-databases-business-applications-24159.html
+[https://smallbusiness.chron.com/limitations-relational-databases-business-applications-24159.html](https://smallbusiness.chron.com/limitations-relational-databases-business-applications-24159.html)
 
-https://mangolassi.it/topic/4545/when-to-use-sql-or-nosql/3
+[https://mangolassi.it/topic/4545/when-to-use-sql-or-nosql/3](https://mangolassi.it/topic/4545/when-to-use-sql-or-nosql/3)
 
