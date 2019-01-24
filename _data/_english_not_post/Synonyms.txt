@@ -79,3 +79,8 @@ Ex: An expression object and method, #themes.code(...), which is equivalent to t
 
 come with - have - contain - include 
 Ex: Version 3 comes with new features and many under-the-hood improvements.
+
+
+successive /sək'sesɪv/ - sequence - continuous
+Ex: A servlet object can handle multiple successive requests while storing per-session information inside
+instance variables.
