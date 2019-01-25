@@ -15,12 +15,16 @@ In this article, we will delve deeper into the work flows and the relationship b
 - [Introduction to Spring Boot](#introduction-to-spring-boot)
 - [How Spring Boot works](#how-spring-boot-works)
 - [The position of Servlet JSP in Spring Boot](#the-position-of-servlet-jsp-in-spring-boot)
-- [The difference between Spring MVC and Spring Boot](#the-difference-between-spring-mv c-and-spring-boot)
+- [The difference between Spring MVC and Spring Boot](#the-difference-between-spring-mvc-and-spring-boot)
 
 
 <br>
 
 ## Introduction to Spring Boot
+Spring Boot is a standalone application which reduces several tedious development steps and boilerplate code and configuration. It helps us to create a web application as a standalone JAR file with zero XML configuration and embedded web server. It also bundles the application with all the necessary dependencies.
+
+
+
 
 
 <br>
@@ -37,7 +41,7 @@ In this article, we will delve deeper into the work flows and the relationship b
 <br>
 
 ## The difference between Spring MVC and Spring Boot
-
+- 
 
 
 <br>

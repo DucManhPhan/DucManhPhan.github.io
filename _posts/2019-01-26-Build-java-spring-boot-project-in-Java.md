@@ -14,3 +14,5 @@ Refer:
 **Interesting tutorials**
 
 [http://spring.io/guides](http://spring.io/guides)
+
+[https://www.baeldung.com/spring-boot-crud-thymeleaf](https://www.baeldung.com/spring-boot-crud-thymeleaf)
