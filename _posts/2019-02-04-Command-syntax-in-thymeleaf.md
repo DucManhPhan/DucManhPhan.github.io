@@ -14,40 +14,144 @@ All informations are referenced from this [website](https://www.thymeleaf.org/do
 <br>
 
 ## Table of Contents
-- [Link URLs](#link-urls)
-- [Messages and Variables](#messages-and-variables)
-- [Using text](#using-text)
-- [Conditional statement](#conditional-statement)
+- [Introduction expression in Thymeleaf](#introduction-expression-in-thymeleaf)
+- [Link URLs expression](#link-urls-expression)
+- [Messages expression](#messages-expression)
+- [Variable expression](#variable-expression)
+- [Selection variable](#selection-variable)
+- [Conditional operators](#conditional-operators)
+- [Conditional evaluation](#conditional-evaluation)
 - [Loop statement](#loop-statement)
 - [Recap](#recap)
 
 
 <br>
 
-## Link URLs
+## Introduction expression in Thymeleaf
+There are some following expressions:
+- Simple expression
+    - Variable expression: ```${...}```
+    - Selection Variable: ```*{...}```
+    - Message expression: ```#{...}```
+    - Link URLs expression: ```@{...}```
+- Literals
+    - Text literals: 'one text', 'Another one!',…
+    - Number literals: 0, 34, 3.0, 12.3,…
+    - Boolean literals: true, false
+    - Null literal: null
+    - Literal tokens: one, sometext, main,…
+- Text operations
+    - String concatenation: +
+    - Literal substitutions: |The name is ${name}|
+- Arithmetic operations:
+    - Binary operators: +, -, *, /, %
+    - Minus sign (unary operator): -
+- Boolean operations:
+    - Binary operators: and, or
+    - Boolean negation (unary operator): !, not
+- Comparisons and equality:
+    - Comparators: >, <, >=, <= (gt, lt, ge, le)
+    - Equality operators: ==, != (eq, ne)
+- Conditional operators:
+    - If-then: (if) ? (then)
+    - If-then-else: (if) ? (then) : (else)
+    - Default: (value) ?: (defaultvalue)
 
+<br>
+
+## Link URLs expression
+Syntax: 
+- ```@{...}``` of Thymeleaf Standard Dialect.
+
+There are two types of URLs:
+- Absolute URLs
+- Relative URLs
+    - Page-relative, like ```user/login.html```
+    - Context-relative, like ```/itemdetails?id=3``` (context name in server will be added automatically)
+    - Server-relative, like ```~/billing/processInvoice``` (allows calling URLs in another context (= application) in the same server
+    - Protocol-relative URLs, like ```//code.jquery.com/jquery-2.0.3.min.js```
+
+Thymeleaf can handle absolute URLs in any situation, but for relative ones it will require you to use a context object that implements the IWebContext interface, which contains some info coming from the HTTP request and needed to create relative links.
+
+So, we have: 
+- ```th:href``` is an attribute modifier attribute: once processed, it will compute the link URL to be used and set the ```href``` attribute of the \<a\> tag to this URL.
+- We are allowed to use expressions for URL parameters (as you can see in ```orderId=${o.id}```). The required URL-encoding operations will also be automatically performed.
+- If several parameters are needed, these will be separated by commas like ```@{/order/process(execId=${execId},execType='FAST')}```
+- Variable templates are also allowed in URL paths, like ```@{/order/{orderId}/details(orderId=${orderId})}```
+- Relative URLs starting with ```/``` (like ```/order/details```) will be automatically prefixed the application context name.
+- If cookies are not enabled or this is not yet known, a ```";jsessionid=..."``` suffix might be added to relative URLs so that session is preserved. This is called URL Rewriting, and Thymeleaf allows you to plug in your own rewriting filters by using the ```response.encodeURL(...)``` mechanism from the Servlet API for every URL.
+- The ```th:href``` tag allowed us to (optionally) have a working static ```href``` attribute in our template, so that our template links remained navigable by a browser when opened directly for prototyping purposes.
+
+```html
+<!-- Will produce 'http://localhost:8080/gtvg/order/details?orderId=3' (plus rewriting) -->
+<a href="details.html" 
+   th:href="@{http://localhost:8080/gtvg/order/details(orderId=${o.id})}">view</a>
+
+<!-- Will produce '/gtvg/order/details?orderId=3' (plus rewriting) -->
+<a href="details.html" th:href="@{/order/details(orderId=${o.id})}">view</a>
+
+<!-- Will produce '/gtvg/order/3/details' (plus rewriting) -->
+<a href="details.html" th:href="@{/order/{orderId}/details(orderId=${o.id})}">view</a>
+```
+
+<br>
+
+## Messages expression
+Syntax: ```#{...}```
+
+We will usually use this message expression int ```th:text``` or ```th:utext```. We can pass parameter into message expression through a pair of parentheses.
+
+```html
+<p th:utext="#{${welcomeMsgKey}(${session.user.name})}">
+    Welcome to our grocery store, Sebastian Pepper!
+</p>
+```
+
+So, the value of ```${session.user.name}``` will be passed to the message expression.
+
+<br>
+
+## Variable expression
+Syntax: ```${...}```
+
+It is in fact OGNL (Object-Graph Navigation Language) expressions executed on the map of variables contained in the context.
+
+Some expression basic object includes:
+- ```#ctx```: the context object. 
+- ```#vars```: the context variable.
+- ```#locale```: the context locale.
+- ```#httpServletRequest```: the ```HttpServletRequest``` object (only in Web Contexts).
+- ```#httpSession```: the ```HttpSession``` object (only in Web Contexts).
+
+```html
+<p>Today is: <span th:text="${today}">13 february 2011</span>.</p>
+```
+
+means:
+
+```java
+ctx.getVariables().get("today");
+```
+
+<br>
+
+## Selection variable
+Syntax: ```*{...}```
+
+The selection variable is the other way of the variable expression for evaluating a value of expression.
+
+Especially, the asterisk syntax evaluates expressions on selected objects rather than on whole context variables map. As long as there is no selected object, the dollar ```$``` and the asterisk ```*``` syntaxes do exactly the same.
+
+<br>
+
+## Conditional operators
 
 
 
 
 <br>
 
-## Messages and Variables
-
-
-
-
-
-<br>
-
-## Using text
-
-
-
-
-<br>
-
-## Conditional statement
+## Conditional evaluation
 When we have a specific condition to display elements in html, we can use simple conditionals: ```if``` and ```unless```.
 
 ```html
@@ -177,6 +281,11 @@ In order to use the status variable in ```th:each``` attribute, we can exert two
     ```html
     spring.thymeleaf.prefix=classpath:/templates/
     ```
-
-
+- Conditional evaluation is used to select between tags/elements in html/thymeleaf.
+- Conditional operator is used to evaluate only one of two expressions depending on the result of evaluating a condition (which is itself another expression). such as:
+    ```html
+    <tr th:class="${row.even}? 'even' : 'odd'">
+        ...
+    </tr>
+    ```
 
