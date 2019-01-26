@@ -172,6 +172,13 @@ Belows are the definitions of some common packages that will use for Spring MVC.
 </properties>
 
 <dependencies>
+    <!--use Log4j-->
+    <dependency>
+        <groupId>org.slf4j</groupId>
+        <artifactId>slf4j-log4j12</artifactId>
+        <version>1.7.25</version>
+    </dependency>
+
     <!--jquery, bootstrap from webjars-->
     <dependency>
         <groupId>org.webjars</groupId>

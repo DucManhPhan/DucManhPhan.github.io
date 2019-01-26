@@ -8,6 +8,12 @@ tags: [C++]
 
 
 
+
+
+
+
+
+
 Refer: 
 
 [https://lemire.me/blog/2012/06/26/which-is-fastest-read-fread-ifstream-or-mmap/](https://lemire.me/blog/2012/06/26/which-is-fastest-read-fread-ifstream-or-mmap/)

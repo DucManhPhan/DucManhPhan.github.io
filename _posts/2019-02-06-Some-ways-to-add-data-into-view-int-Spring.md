@@ -21,3 +21,7 @@ Refer:
 [https://www.logicbig.com/tutorials/spring-framework/spring-web-mvc/spring-model-attribute-with-session.html](https://www.logicbig.com/tutorials/spring-framework/spring-web-mvc/spring-model-attribute-with-session.html)
 
 [https://www.thymeleaf.org/doc/articles/springmvcaccessdata.html](https://www.thymeleaf.org/doc/articles/springmvcaccessdata.html)
+
+**Use ```@ModelAttribute annotation```**
+
+[https://www.javadevjournal.com/spring-mvc/spring-mvc-model-attribute-annotation/](https://www.javadevjournal.com/spring-mvc/spring-mvc-model-attribute-annotation/)

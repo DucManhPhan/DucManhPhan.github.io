@@ -129,6 +129,8 @@ There are 3 annotation types:
 
 - ```@Bean``` annotation
 
+    The objects that are managed by the Spring IoC container are called **beans**.
+
     Check this example to understand deeper about ```@Bean``` and ```@Autowired```.
 
     For instance: 
@@ -177,6 +179,11 @@ There are 3 annotation types:
 
     ```@Bean``` annotation will tell that method produces a bean to be managed by the core Spring container. It is a method-level annotation. **During Java configuration ```(@Configuration)```, the method is executed and its return value is registered as a bean within a BeanFactory.**
 
+    So, with ```@Bean``` annotation, we will have some concludes:
+    - ```@Bean``` annotation will be used to indicate a method that is initialized a bean or return an instance of bean). 
+    - A name of bean is a name of method in default. But we can set a bean's name throughout ```name``` property of ```@Bean```.
+    - All methods that are marked by ```@Bean``` annotation, have to utilize in a class with ```@Componenent``` annotation or ```@Configuration``` annotation, but usually it is ```@Configuration``` annotation.
+
 - ```@Autowired``` annotation
 
     It says "please give me an instance of this class, for example, one that I created with an @Bean annotation earlier". And ```@Bean``` and ```@Autowired``` is a pair that is as same as ```try, catch``` in managing exception.    
@@ -210,6 +217,8 @@ There are 3 annotation types:
     Annotating a class with the ```@Configuration``` indicates that the class can be used by the Spring IoC container as a source of bean definitions.
 
 - ```@ModelAttribute``` annotation
+
+    This annotation is used to push data into View. You can refer this [link](https://ducmanhphan.github.io/2019-02-06-Some-ways-to-add-data-into-view-int-Spring) to understand deeper.
 
 - ```@GetMapping``` annotation
 
