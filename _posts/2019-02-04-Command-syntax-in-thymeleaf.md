@@ -21,6 +21,7 @@ All informations are referenced from this [website](https://www.thymeleaf.org/do
 - [Selection variable](#selection-variable)
 - [Conditional operators](#conditional-operators)
 - [Conditional evaluation](#conditional-evaluation)
+- [Arithmetic operations](#arithmetic-operations)
 - [Loop statement](#loop-statement)
 - [Recap](#recap)
 
@@ -142,12 +143,67 @@ The selection variable is the other way of the variable expression for evaluatin
 
 Especially, the asterisk syntax evaluates expressions on selected objects rather than on whole context variables map. As long as there is no selected object, the dollar ```$``` and the asterisk ```*``` syntaxes do exactly the same.
 
+```html
+<div th:object="${sesson.user}">
+    <p>Name: <span th:text="*{firstName}"></span></p>
+    <p>Name: <span th:text="*{lastName}"></span></p>
+    <p>Name: <span th:text="*{nationality}"></span></p>
+</div>
+```
+
+It is equivalent to:
+
+```html
+<div>
+    <p>Name: <span th:text="${sesson.user.firstName}"></span></p>
+    <p>Name: <span th:text="${sesson.user.lastName}"></span></p>
+    <p>Name: <span th:text="${sesson.user.nationality}"></span></p>
+</div>
+```
+
+When an object selection is in place, the selected object will be also available to dollar expressions as the ```#object``` expression variable:
+
+```html
+<div th:object="${sesson.user}">
+    <p>Name: <span th:text="${#object.firstName}"></span></p>
+    <p>Name: <span th:text="${sesson.user.lastName}"></span></p>
+    <p>Name: <span th:text="*{nationality}"></span></p>
+</div>
+```
+
 <br>
 
 ## Conditional operators
+Conditional expressions are meant to evaluate only one of two expressions depending on the result of evaluating a condition (which is itself another expression).
 
+```html
+<tr th:class="${row.even} ? 'even' : 'old'">
+    ...
+</tr>
+```
 
+Else expressions can also be omitted, in which case a null value is returned if the condition is false:
 
+```html
+<tr th:class="${row.even} ? 'alt'">
+    ...
+</tr>
+```
+
+Next, the special kind of conditional operator is a default expression - Elvis operator. It has no ```then``` part.
+
+```html
+<div th:object="${session.user}">
+    ...
+    <p>Age: <span th:text="*{age} ?: '(no age specified)'">15</span></p>
+</div>
+```
+
+It is completely equivalent to:
+
+```html
+<p>Age: <span th:text="*{age} ? *{age} : '(no age specified)'">15</span></p>
+```
 
 <br>
 
@@ -268,9 +324,52 @@ In order to use the status variable in ```th:each``` attribute, we can exert two
 
 <br>
 
+## Arithmetic operations
+In these operations, we have two ways to use them because of depending on each template engine:
+
+```html
+th:with="isEven=(${prodStat.count} % 2 == 0)"
+```
+
+Or
+
+```html
+th:with="isEven=${prodStat.count % 2 == 0}"
+```
+
+
+<br>
+
 ## Comments and Blocks
+Some comment styles in Thymeleaf are:
+- standard html/xml
+
+    ```html
+    <!--Comment to something-->
+    ```
+
+- parser-level comment blocks
+
+    ```html
+    <!--/* We want to comment something here */-->
+    ```
 
 
+```th:block``` will be used in situation where we want to combine some elements into one block.
+
+```html
+<table>
+  <th:block th:each="user : ${users}">
+    <tr>
+        <td th:text="${user.login}">...</td>
+        <td th:text="${user.name}">...</td>
+    </tr>
+    <tr>
+        <td colspan="2" th:text="${user.address}">...</td>
+    </tr>
+  </th:block>
+</table>
+```
 
 
 <br>
