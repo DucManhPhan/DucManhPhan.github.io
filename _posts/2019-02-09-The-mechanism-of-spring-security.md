@@ -11,3 +11,6 @@ tags: [java]
 Refer:
 
 [https://www.dineshonjava.com/spring-security-take-baby-step-to-secure/](https://www.dineshonjava.com/spring-security-take-baby-step-to-secure/)
+
+[https://en.wikipedia.org/wiki/Spring_Security](https://en.wikipedia.org/wiki/Spring_Security)
+
