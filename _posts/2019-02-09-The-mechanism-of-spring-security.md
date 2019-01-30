@@ -194,7 +194,13 @@ tags: [java]
 
     If more than one ```AuthenticationProvider``` supports the passed ```Authentication``` object, the first one able to successfully authenticate the ```Authentication``` object determines the result, overriding any possible ```AuthenticationException``` thrown by earlier supporting ```AuthenticationProvider```s. On successful authentication, no subsequent ```AuthenticationProvider```s will be tried. If authentication was not successful by any supporting ```AuthenticationProvider``` the last thrown ```AuthenticationException``` will be rethrown.
 
-- 
+- Explain about ```principal``` and ```credentials```
+
+    Authentication represents the process by which the identify of a subject is verified, , and must be performed in a secure fashion; otherwise a perpetrator may impersonate others to gain access to a system. Authentication typically involves the subject demonstrating some form of evidence to prove its identity.
+
+    Once authenticated, a Subject is populated with associated identities, or Principals (of type java.security.Principal). A Subject may have many Principals. For example, a person may have a name Principal ("John Doe") and an SSN Principal ("123-45-6789"), which distinguish it from other Subjects.
+
+    In addition to associated Principals, a Subject may own security-related attributes, which are referred to as credentials. A credential may contain information used to authenticate the subject to new services. Such credentials include passwords, Kerberos tickets, and public key certificates. Credentials might also contain data that enables the subject to perform certain activities. Cryptographic keys, for example, represent credentials that enable the subject to sign or encrypt data. Public and private credential classes are not part of the core Java SE API. Any class, therefore, can represent a credential.
 
 <br>
 
@@ -208,6 +214,8 @@ tags: [java]
 Refer:
 
 **Spring security architecture**
+
+[https://spring.io/guides/topicals/spring-security-architecture/](https://spring.io/guides/topicals/spring-security-architecture/)
 
 [https://blog.imaginea.com/spring-security-architecture-part-1/](https://blog.imaginea.com/spring-security-architecture-part-1/)
 
@@ -242,3 +250,8 @@ Refer:
 [https://www.javacodegeeks.com/2018/02/securitycontext-securitycontextholder-spring-security.html](https://www.javacodegeeks.com/2018/02/securitycontext-securitycontextholder-spring-security.html)
 
 [https://docs.oracle.com/javase/8/docs/technotes/guides/security/jgss/tutorials/glossary.html](https://docs.oracle.com/javase/8/docs/technotes/guides/security/jgss/tutorials/glossary.html)
+
+**AuthenticationProvider**
+[https://www.baeldung.com/spring-security-authentication-provider](https://www.baeldung.com/spring-security-authentication-provider)
+
+[https://www.logicbig.com/tutorials/spring-framework/spring-security/custom-authentication-provider.html](https://www.logicbig.com/tutorials/spring-framework/spring-security/custom-authentication-provider.html)
