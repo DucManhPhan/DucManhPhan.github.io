@@ -8,7 +8,10 @@ tags: [java]
 
 
 ## Table of Contents
-
+- [Introduction to Spring security](#introduction-to-spring-security)
+- [Mechanism of Spring security](#mechanism-of-spring-security)
+- [Some important note in Spring security](#some-important-note-in-spring-security)
+- [Recap](#recap)
 
 
 
@@ -204,6 +207,10 @@ tags: [java]
 
 Refer:
 
+**Spring security architecture**
+
+[https://blog.imaginea.com/spring-security-architecture-part-1/](https://blog.imaginea.com/spring-security-architecture-part-1/)
+
 [https://www.dineshonjava.com/spring-security-take-baby-step-to-secure/](https://www.dineshonjava.com/spring-security-take-baby-step-to-secure/)
 
 [https://en.wikipedia.org/wiki/Spring_Security](https://en.wikipedia.org/wiki/Spring_Security)
@@ -233,3 +240,5 @@ Refer:
 
 **SecurityContext and SecurityContextHolder**
 [https://www.javacodegeeks.com/2018/02/securitycontext-securitycontextholder-spring-security.html](https://www.javacodegeeks.com/2018/02/securitycontext-securitycontextholder-spring-security.html)
+
+[https://docs.oracle.com/javase/8/docs/technotes/guides/security/jgss/tutorials/glossary.html](https://docs.oracle.com/javase/8/docs/technotes/guides/security/jgss/tutorials/glossary.html)
