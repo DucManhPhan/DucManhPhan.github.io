@@ -46,3 +46,4 @@ Refer:
 
 [http://www.mysqltutorial.org/mysql-index/mysql-index-cardinality/](http://www.mysqltutorial.org/mysql-index/mysql-index-cardinality/)
 
+[https://gravitymodel.net/database-indexing-archiving-purging/](https://gravitymodel.net/database-indexing-archiving-purging/)

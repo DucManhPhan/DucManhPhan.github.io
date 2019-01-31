@@ -1,7 +1,7 @@
 ---
 layout: post
 title: Decorator pattern
-bigimg: /img/image-header/home-office-1.jpg
+bigimg: /img/image-header/home-office-2.jpg
 tags: [design pattern]
 ---
 

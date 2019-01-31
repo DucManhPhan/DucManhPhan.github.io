@@ -14,7 +14,6 @@ tags: [java]
 - [Recap](#recap)
 
 
-
 <br>
 
 ## Introduction to Spring security
@@ -26,7 +25,7 @@ tags: [java]
 <br>
 
 ## Mechanism of Spring security
-
+![](../img/)
 
 
 
@@ -252,6 +251,7 @@ Refer:
 [https://docs.oracle.com/javase/8/docs/technotes/guides/security/jgss/tutorials/glossary.html](https://docs.oracle.com/javase/8/docs/technotes/guides/security/jgss/tutorials/glossary.html)
 
 **AuthenticationProvider**
+
 [https://www.baeldung.com/spring-security-authentication-provider](https://www.baeldung.com/spring-security-authentication-provider)
 
 [https://www.logicbig.com/tutorials/spring-framework/spring-security/custom-authentication-provider.html](https://www.logicbig.com/tutorials/spring-framework/spring-security/custom-authentication-provider.html)
