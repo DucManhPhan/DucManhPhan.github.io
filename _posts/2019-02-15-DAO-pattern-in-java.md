@@ -60,5 +60,10 @@ The DAO pattern is a structural pattern that allow us to isolate the application
 
 Refer:
 
+[https://thinkinginobjects.com/2012/08/26/dont-use-dao-use-repository/](https://thinkinginobjects.com/2012/08/26/dont-use-dao-use-repository/)
 
+[https://www.oracle.com/technetwork/java/dataaccessobject-138824.html](https://www.oracle.com/technetwork/java/dataaccessobject-138824.html)
 
+[https://www.journaldev.com/16813/dao-design-pattern](https://www.journaldev.com/16813/dao-design-pattern)
+
+[https://www.baeldung.com/java-dao-pattern](https://www.baeldung.com/java-dao-pattern)
