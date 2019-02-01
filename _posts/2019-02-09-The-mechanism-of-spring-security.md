@@ -17,17 +17,319 @@ tags: [java]
 <br>
 
 ## Introduction to Spring security
+Spring Security is a Java EE framework that focuses on providing both authentication and authorization to Java applications. 
 
+Some features are included into Spring Security:
+- Comprehensive and extensible support for both Authentication and Authorization
+- Protection against attacks like session fixation, clickjacking, cross site request forgery, etc
+- Servlet API integration
+- Optional integration with Spring Web MVC
 
+Next, Spring security will contains some sub-modules:
 
-
+![submodules in Spring security](../img/spring-security/spring-secruity-submodules.png)
 
 <br>
 
 ## Mechanism of Spring security
-![](../img/)
+Firstly, we will find out the general knowledge about Spring security. This information is referenced from this [link](https://codersontrang.wordpress.com/2017/10/30/xac-thuc-co-ban-va-phan-quyen-bang-spring-security-cho-ung-dung-webflux/).
 
+![General structure of Spring security](../img/spring-security/general-structure-spring-security.png)
 
+So, in Spring Security, we have two primary parts: 
+- Authentication Manager
+
+    This part is responsible for authenticate user's information that includes ```username``` and ```password``` which are typed in the login form. It will check whether username and password are valid or not. 
+
+    It will be used to answer a question *Who are you?*.
+
+- Authorization Manager
+
+    This part will be used to assign role for user after the above ```authentication``` step passed. Based on their role, the system's resource will be limited.
+
+    It will be used to answer a question *Which part will be limited to the user?*.
+
+We will explain all steps in the above image:
+- First of all, a user have to input a username and password in a login form. When a user completely finish this input stage, user will click to ```Login``` button, and username, password will be combined into an object of ```Authentication```.
+
+- Next, this ```Authentication``` object will be sent to an ```authenticate()``` method of ```Authentication Manager``` to check whether a username is valid or not. 
+
+    Based on ```username``` information of ```Authentication``` object, ```Authentication Manager``` will call the ```UserDetailsRepository``` to fetch all information that is stored in database system. All of this information is put into a ```UserDetails``` object, it will include username,password and authorities. 
+
+    Then, a password information in ```UserDetails``` object will be compared to a password of the ```Authentication``` object. 
+
+    If the above condition about password is invalid, user will come back to the login form. Otherwise, a new ```Authentication``` object will be created, and it will contain not only username and password which is input from user, but also contain information about authorities which get from database system.
+
+- The newly created ```Authentication``` will be passed to ```Authorization Manager``` to check user's authorization. 
+
+    The user's authorization will be checked based on a user's role and the role that is needed from these resources. A user's role is in the above ```Authentication``` object. 
+    
+    The role from resources will be configured in a ```authorizeExchange()``` method. This comparison will be checked in a ```verify()``` method of ```Authorization Manager```.
+
+- Finally, if the above comparison about authorization is valid, a user can access these resources. Otherwirse, a user will be received a notify that these resources can not access.
+
+<br>
+
+To go into the details of Spring security's mechanism with Authetication, we will continue with the following image:
+
+![](../img/spring-security/spring-security-basic-authentication.png)
+
+The explaination is referenced to the [link](https://blog.imaginea.com/spring-security-architecture-part-1/).
+
+After a user click a Login button to implement POST method in HTTP protocol, a request will reach the server, then, it is intercepted by the series of filters.
+
+```UsernamePasswordAuthenticationFilter``` will handle the authentication request which extends from ```AbstractAuthenticationProcessingFilter```.
+
+For form based login, our login form must present two parameters to this filter: ```username``` and ```password```.By default, this filter responds to the URL ```/login```. But if we would like to have different parameters and different URL, then we have to override the ```attemptAuthentication()``` method.
+
+```java
+public class CustomUsernamePasswordAuthFilter extends UsernamePasswordAuthenticationFilter {
+ 
+    public Authentication attemptAuthentication(HttpServletRequest request,
+        HttpServletResponse response) throws AuthenticationException {
+
+        // Your logic here
+    }
+}
+```
+
+- ```AbstractAuthenticationProcessingFilter```
+
+    This filter has following abstract method which is implemented by ```UsernamePasswordAuthenticationFilter```.
+
+    ```java
+    public abstract Authentication attemptAuthentication(HttpServletRequest    request,HttpServletResponse response)
+    ```
+    
+    This filter does the following operations.
+    - First it checks for whether authentication is required or not based on our ```HttpSecurity``` configuration. If authentication is not required, it simply invoke the next filter in the chain.
+
+    - If authentication requires, then it calls the ```attemptAuthentication(request, response)``` which is implemented by ```UsernamePasswordAuthenticationFilter``` and this method returns the ```Authentication``` object.
+
+- ```UsernamePasswordAuthenticationFilter```
+
+    - In ```attemptAuthentication()``` method first it obtains the username & password from the request. 
+
+    - Then it constructs the ```UsernamePasswordAuthenticationToken``` using the below code. Which is nothing but ```Authentication``` object.
+
+        ```java
+        UsernamePasswordAuthenticationToken authRequest = new UsernamePasswordAuthenticationToken(username, password);
+        ```
+
+        This ```Authentication``` object will be as mentioned below.
+
+        ```java
+        principal  =  username
+        credentials  =  password
+        authorities   =  null
+        isAuthenticated  =  false
+        ```
+
+    - So once it build the ```UsernamePasswordAuthenticationToken/Authentication``` object, then it invokes the ```authenticate()``` method of ```Authentication Manager```. Means this filter delegates the job to the ```AuthenticationManager```.
+
+        ```java
+        this.getAuthenticationManager().authenticate(authRequest);
+        ```
+
+- ```AuthenticationManager```
+
+    ```ProviderManager``` is the implementation of ```AuthenticationManager``` and which has the following method.
+
+    ```java
+    public Authentication authenticate(Authentication authentication);
+    ```
+
+- ```ProviderManager```
+
+    ```ProviderManager``` iterates through all the provided/configured ```Authentication``` providers and delegate the actual ```Authentication``` job to ```Authentication``` providers.
+
+    ```java
+    for(AuthenticationProvider provider : getProviders()) {
+        Authentication result = provider.authenticate(authentication);
+    }
+    ```
+
+- ```AuthenticationProvider```
+
+    - There are many implementations for ```AuthenticationProvider```. One of the implementation is ```DAOAuthenticationProvider```. Which extends from the ```AbstractUserDetailsAuthenticationProvider```.
+
+    - As mentioned above ```AuthenticationManager``` delegates the job to ```AuthenticationProvider``` to authenticate the user. To this ```AuthenticationProvider``` we can pass/inject the following information.
+        - UserDetailsService
+        - Salt
+        - PasswordEncoder
+
+- ```UserDetailsService```
+
+    Which is responsible to load the actual user details which means ```UserDetails``` object. We will have our custom implementation of ```UserDetailsService``` to load or retrieve the ```UserDetails``` object either from internal memory or from ```Database```.
+
+    ```java
+    public class UserDetailsServiceImpl implements UserDetailsService {
+ 
+        @Override
+        public UserDetails loadUserByUsername(String userinput) throws UsernameNotFoundException {
+            // Write a logic to retrieve the UserDetails from DB.
+        }
+    }
+    ```
+
+- ```PasswordEncoder```
+
+    - We have multiple implementations of Password Encoder like
+        - MD4PasswordEncoder
+        - MD5PasswordEncoder
+        - ShaPasswordEncoder
+        - PlaintextPasswordEncoder
+
+    - We can have our own implementation of password encoder.
+
+        ```java
+        public class PBKDF2PasswordEncoder implements  PasswordEncoder {
+	
+            private static final int ITERATIONS = 10000;
+            private static final int KEY_LENGTH = 256;
+            private final static Logger LOG = LoggerFactory.getLogger(PBKDF2PasswordEncoder.class);
+        
+            @Override
+            public String encodePassword(String rawPass, Object salt) {
+                byte[] hashedPassword = null;
+                if (rawPass != null && salt != null) {
+                    char[] passwordChars = rawPass.toCharArray();
+                    byte[] saltBytes = (byte[]) salt;
+                    PBEKeySpec spec = new PBEKeySpec(passwordChars, saltBytes, ITERATIONS, KEY_LENGTH);
+                    try {
+                        SecretKeyFactory key = SecretKeyFactory.getInstance("PBKDF2WithHmacSHA1");
+                        hashedPassword = key.generateSecret(spec).getEncoded();
+                    } catch (InvalidKeySpecException e) {
+                        LOG.error("Invalid key spec exception", e);
+                        throw new RuntimeException(e);
+                    } catch (NoSuchAlgorithmException e) {
+                        LOG.error("Not a valid algorithm", e);
+                        throw new RuntimeException(e);
+                    }
+                    return toBase64(hashedPassword);
+                }
+                return null;
+            }
+        
+            @Override
+            public boolean isPasswordValid(String encPass, String rawPass, Object salt) {
+                byte[] saltBytes = fromBase64((String) salt);
+                String encPasswd = encodePassword(rawPass,saltBytes);
+                if(encPasswd != null && encPass != null) {
+                    return encPasswd.equals(encPass);
+                }
+                return false;
+            }
+            
+            public byte[] fromBase64(String hex) throws IllegalArgumentException {
+                return DatatypeConverter.parseBase64Binary(hex);
+            }
+        
+            public String toBase64(byte[] array) {
+                return DatatypeConverter.printBase64Binary(array);
+            }
+        }
+        ```
+
+- ```Salt```
+
+    Salt is a random Byte [] array. We can generate the salt as mentioned below.
+
+    ```java
+    public byte[] generateSalt() {
+        byte[] salt = new byte[32];
+        Random random = new SecureRandom();
+        random.nextBytes(salt);
+        return salt;
+    }
+    ```
+
+Now finally ```AuthenticationProvider``` authenticate the user and build the ```Authentication``` object and return to the ```AuthenticationManager```. Here i have mentioned some of the code blocks which helps you to understand the flow in detail.
+
+```java
+public Authentication authenticate(Authentication authentication) {
+   UserDetails user = retrieveUser(username,
+                             (UsernamePasswordAuthenticationToken) authentication);
+   additionalAuthenticationChecks(user,
+                           (UsernamePasswordAuthenticationToken) authentication);
+   return createSuccessAuthentication(principalToReturn, authentication, user);
+}
+```
+
+This method retrieves the ```UserDetails``` object from DB using custom implementation of ```UserDetailsService```.
+
+```java
+protected final UserDetails retrieveUser(String username,
+                              UsernamePasswordAuthenticationToken authentication) {
+   UserDetails loadedUser = this.getUserDetailsService().loadUserByUsername(username);
+   return loadedUser;
+}
+```
+
+This method checks whether the provided password is valid or not.
+
+```java
+protected void additionalAuthenticationChecks(UserDetails user ,  UsernamePasswordAuthenticatonToken authentication) {
+ 
+    String presentedPassword = authentication.getCredentials().toString();
+    if(!passwordEncoder.isPasswordValid(userDetails.getPassword(),presentedPassword,salt)) {
+       logger.debug("Authentication failed: password does not match stored value");
+       throw new BadCredentialsException(messages.getMessage(
+       "AbstractUserDetailsAuthenticationProvider.badCredentials", "Bad  credentials"));
+}
+```
+
+Once password validated successfully, this method creates the ```Authentication``` object with ```Authorities``` and sets the ```isAuthenticated``` flag as true.
+
+```java
+protected Authentication createSuccessAuthentication(Object principal,
+                                 Authentication authentication, UserDetails user) {
+   UsernamePasswordAuthenticationToken result = 
+                       new  UsernamePasswordAuthenticationToken(principal,authentication.getCredentials(),
+                             authoritiesMapper.mapAuthorities(user.getAuthorities()));
+   return result;
+}
+```
+
+- ```createSuccessAuthentication()``` method creates the following ```Authentication``` object.
+
+    ```java
+    principal  =  username
+    credentials  =  password
+    authorities   =  REGULAR_USER
+    isAuthenticated  =  true
+    ```
+
+- ```AuthenticationProvider``` returns the ```Authentication``` object to ```AuthenticationManager```.
+
+- In the above mentioned ```Authentication``` process if ```Authentication``` fails, then filter clears the ```Security``` context and invokes the failure-handler.
+
+    ```java
+    protected void unsuccessfulAuthentication(HttpServletRequest request,
+			HttpServletResponse response, AuthenticationException failed)
+			throws IOException, ServletException {
+ 
+		SecurityContextHolder.clearContext();
+ 
+		failureHandler.onAuthenticationFailure(request, response, failed);
+    }
+    ```
+
+- If it successfully gets the ```Authentication``` object then it does following things.
+    - It stores the ```Authentication``` object in the ```SecurityContextHolder```.
+    - And it invokes the success-handler.
+
+        ```java
+        protected void successfulAuthentication(HttpServletRequest request,
+			HttpServletResponse response, FilterChain chain, Authentication authResult)
+			throws IOException, ServletException {
+ 
+ 
+            SecurityContextHolder.getContext().setAuthentication(authResult);
+    
+            successHandler.onAuthenticationSuccess(request, response, authResult);
+        }
+        ```        
 
 <br>
 
@@ -204,9 +506,7 @@ tags: [java]
 <br>
 
 ## Recap
-
-
-
+- Understanding about mechanism of Spring Security will help us to customize the authentication and authorization to follow our thought.
 
 <br>
 
@@ -217,6 +517,8 @@ Refer:
 [https://spring.io/guides/topicals/spring-security-architecture/](https://spring.io/guides/topicals/spring-security-architecture/)
 
 [https://blog.imaginea.com/spring-security-architecture-part-1/](https://blog.imaginea.com/spring-security-architecture-part-1/)
+
+[https://www.blog.labouardy.com/spring-security-authentication/](https://www.blog.labouardy.com/spring-security-authentication/)
 
 [https://www.dineshonjava.com/spring-security-take-baby-step-to-secure/](https://www.dineshonjava.com/spring-security-take-baby-step-to-secure/)
 
