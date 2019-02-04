@@ -11,6 +11,14 @@ In this article, we will find out about height, line-height properties, and how 
 
 <br>
 
+## Table of contents
+- [Line-height and height properties](#line-height-and-height-properties)
+- [Values of line-height property](#values-of-line-height-property)
+- [Sample](#sample)
+- [Wrapping up](#wrapping-up)
+
+<br>
+
 ## Line-height and height properties
 ```height``` is the vertical measurement of the container.
 
@@ -24,6 +32,19 @@ Using ```height``` property when we want to explicitly set the container size.
 
 Using ```line-height``` property for typographic layout where it might be relevant if a user resizes the text.
 
+<br>
+
+## Values of line-height property
+The following table will describe values of line-height property:
+
+|    value    |      Description       |
+| ----------- | ---------------------- |
+| normal      | A normal line height. This is default. |
+| number      | A number that will be multiplied with the current font-size to set the line height. |
+| length      | A fixed line height in px, pt, cm, ... |
+| %           | A line height in percent of the current font size. |
+| initial     | Sets this property to its default value. |
+| inherit     | Inherits this property from its parent element. |
 
 <br>
 
