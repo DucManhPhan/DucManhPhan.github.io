@@ -21,7 +21,7 @@ In this article, we will find out about DAO pattern, some interesting informatio
 <br>
 
 ## Introduction to DAO pattern
-The DAO pattern is a structural pattern that allow us to isolate the application/business layer from the persistence layer (usually a relational database, but it could be any other persistence mechanism) using an abstract API.
+The DAO pattern is a structural pattern that allow us to isolate the application/business layer from the persistence layer (usually a relational database, but it could be any other persistence mechanism)using an abstract API.
 
 
 

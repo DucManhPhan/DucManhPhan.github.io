@@ -95,7 +95,7 @@ public class CustomUsernamePasswordAuthFilter extends UsernamePasswordAuthentica
 }
 ```
 
-- ```AbstractAuthenticationProcessingFilter```
+- **AbstractAuthenticationProcessingFilter**
 
     This filter has following abstract method which is implemented by ```UsernamePasswordAuthenticationFilter```.
 
@@ -108,7 +108,7 @@ public class CustomUsernamePasswordAuthFilter extends UsernamePasswordAuthentica
 
     - If authentication requires, then it calls the ```attemptAuthentication(request, response)``` which is implemented by ```UsernamePasswordAuthenticationFilter``` and this method returns the ```Authentication``` object.
 
-- ```UsernamePasswordAuthenticationFilter```
+- **UsernamePasswordAuthenticationFilter**
 
     - In ```attemptAuthentication()``` method first it obtains the username & password from the request. 
 
@@ -133,7 +133,7 @@ public class CustomUsernamePasswordAuthFilter extends UsernamePasswordAuthentica
         this.getAuthenticationManager().authenticate(authRequest);
         ```
 
-- ```AuthenticationManager```
+- **AuthenticationManager**
 
     ```ProviderManager``` is the implementation of ```AuthenticationManager``` and which has the following method.
 
@@ -141,7 +141,7 @@ public class CustomUsernamePasswordAuthFilter extends UsernamePasswordAuthentica
     public Authentication authenticate(Authentication authentication);
     ```
 
-- ```ProviderManager```
+- **ProviderManager**
 
     ```ProviderManager``` iterates through all the provided/configured ```Authentication``` providers and delegate the actual ```Authentication``` job to ```Authentication``` providers.
 
@@ -151,7 +151,7 @@ public class CustomUsernamePasswordAuthFilter extends UsernamePasswordAuthentica
     }
     ```
 
-- ```AuthenticationProvider```
+- **AuthenticationProvider**
 
     - There are many implementations for ```AuthenticationProvider```. One of the implementation is ```DAOAuthenticationProvider```. Which extends from the ```AbstractUserDetailsAuthenticationProvider```.
 
@@ -160,7 +160,7 @@ public class CustomUsernamePasswordAuthFilter extends UsernamePasswordAuthentica
         - Salt
         - PasswordEncoder
 
-- ```UserDetailsService```
+- **UserDetailsService**
 
     Which is responsible to load the actual user details which means ```UserDetails``` object. We will have our custom implementation of ```UserDetailsService``` to load or retrieve the ```UserDetails``` object either from internal memory or from ```Database```.
 
@@ -174,7 +174,7 @@ public class CustomUsernamePasswordAuthFilter extends UsernamePasswordAuthentica
     }
     ```
 
-- ```PasswordEncoder```
+- **PasswordEncoder**
 
     - We have multiple implementations of Password Encoder like
         - MD4PasswordEncoder
@@ -233,7 +233,7 @@ public class CustomUsernamePasswordAuthFilter extends UsernamePasswordAuthentica
         }
         ```
 
-- ```Salt```
+- **Salt**
 
     Salt is a random Byte [] array. We can generate the salt as mentioned below.
 
