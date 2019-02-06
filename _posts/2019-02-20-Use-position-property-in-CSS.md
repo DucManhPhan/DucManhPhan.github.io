@@ -108,8 +108,9 @@ We have a result:
 ![apply relative value](../img/front-end/relative-beaches.jpeg)
 
 So, we have:
-- The element is positioned according to the normal flow of the document, and then offset relative to itself based on the values of ```top```, ```right```, ```bottom``` and ```left```.
+- The element is **positioned according to the normal flow of the document**, and then offset relative to itself based on the values of ```top```, ```right```, ```bottom``` and ```left```.
 - The offset does not effect the position of any other elements, thus, the space given for the element in the page layout is the same as if the position were static.
+- This value creates a new ```stacking context``` when the value of ```z-index``` is not ```auo```. Its effect on ```table-*-group```, ```table-row```, ```table-column```, ```table-cell```, and ```table-caption``` elements is undefined.
 
 <br>
 
@@ -144,6 +145,11 @@ So, the position of child element will set based on a parent element.
 The result will be:
 
 ![absolute value](../img/front-end/absolute-value.png)
+
+So, we will have:
+- The element is **removed from the normal document flow, and no space is created for the element in the page layout**. 
+- It is positioned relative to its closet positioned ancestor, if any; otherwise, it is placed relative to the initial containing block. Thus, its final position is determined by the values of ```
+- 
 
 <br>
 
@@ -182,7 +188,7 @@ ul {
 }
 
 ul li {
-	list-style-type: none;
+    list-style-type: none;
 }
 
 a {
