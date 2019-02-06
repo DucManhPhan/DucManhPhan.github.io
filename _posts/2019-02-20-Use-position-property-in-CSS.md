@@ -176,9 +176,13 @@ ul {
     display: flex;
     justify-content: space-between;
     position: fixed;
+    top: 0;
     left: 0;
     right: 0;
-    top: 0;
+}
+
+ul li {
+	list-style-type: none;
 }
 
 a {
@@ -190,6 +194,9 @@ a {
 }
 ```
 
+We will have a result for this case.
+
+![fixed value for position property](../img/front-end/fixed-value-position-property.png)
 
 <br>
 
