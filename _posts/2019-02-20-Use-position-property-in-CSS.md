@@ -148,8 +148,8 @@ The result will be:
 
 So, we will have:
 - The element is **removed from the normal document flow, and no space is created for the element in the page layout**. 
-- It is positioned relative to its closet positioned ancestor, if any; otherwise, it is placed relative to the initial containing block. Thus, its final position is determined by the values of ```
-- 
+- It is positioned relative to its closet positioned ancestor, if any; otherwise, it is placed relative to the initial containing block. Thus, its final position is determined by the values of ```top```, ```right```, ```bottom```, and ```left```.
+- It creates a new ```stacking context``` when the value of ```z-index``` is not ```auto```. The margins of absolutely positioned boxes do not collapse with other margins.
 
 <br>
 
@@ -203,6 +203,11 @@ a {
 We will have a result for this case.
 
 ![fixed value for position property](../img/front-end/fixed-value-position-property.png)
+
+So, we have:
+- The element is **removed from the normal document flow, and no space is created for the element in the page layout**.
+- It is positioned relative to the initial containing block established by the viewport, except when one of its ancestors has a ```transform```, ```perspective```, or ```filter``` property set to something other than ```none```. Its final position is determined by the values of ```top```, ```right```, ```bottom```, and ```left```.
+- It creates a new ```stacking context```.
 
 <br>
 
