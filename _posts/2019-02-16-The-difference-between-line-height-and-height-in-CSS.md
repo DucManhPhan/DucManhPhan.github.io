@@ -49,7 +49,7 @@ The following table will describe values of line-height property:
 <br>
 
 ## Sample
-Consider the above problem with the following image:
+Consider a problem about centering texts in navigation bar, with the following image:
 
 ![](../img/front-end/line-height-and-height-navigation.png)
 
