@@ -1,6 +1,6 @@
 ---
 layout: post
-title: Knowledge about SCSS
+title: The history of Angular
 bigimg: /img/path.jpg
 tags: [front-end]
 ---
