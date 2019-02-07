@@ -54,9 +54,10 @@ And css-transition property is also important thing that we need to take care. B
 
 <br>
 
+Thanks for your reading.
+
 Refer:
 
 [http://ageekandhisblog.com/html-css-techniques-for-hiding-elements-and-displaynone-vs-visibilityhidden/](http://ageekandhisblog.com/html-css-techniques-for-hiding-elements-and-displaynone-vs-visibilityhidden/)
 
-
-Thanks for your reading.
+[https://medium.com/frontend-fun/css-how-css-display-none-affects-images-on-page-load-dbdf1aaea820](https://medium.com/frontend-fun/css-how-css-display-none-affects-images-on-page-load-dbdf1aaea820)
