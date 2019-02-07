@@ -103,7 +103,17 @@ ng build
 
 This command will do some steps:
 - build application, compress and encapsulate source code.
-- resource files will be saved in ```/dist``` directory.
+
+- Using this command, the app is still in an development state. So, it means the certain optimizations where not perform and the app is still using the development environment variables.
+
+    To change this situation, use the ```--prod``` flag:
+
+    ```
+    ng build --prod
+    ```
+
+- It will cause the CLI to build our application and places the output in a directory called ```dist``` (by default).
+
 - Resource in CSS such as images, fonts will be embedded inline if size < 10KB.
 
 <br>
@@ -116,7 +126,8 @@ ng serve -o
 ```
 
 Some following character in this command: 
-- run project at local.
+- start our application in development mode at local.
+- It will watch the directory of our application for changes. So if it detects a change, it will recompile the application (partly) and automatically update the application in the browser.
 - default port: 4200
 
 It will have some options:
