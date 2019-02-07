@@ -12,6 +12,13 @@ Everything in Javascript is object. So, the need to copy the object is enomorous
 
 In this article, we will look at some ways the real copy object.
 
+## Table of contents
+- [Use Object.assign](#use-object.assign)
+- [Use JSON.parse and JSON.stringify](#use-json.parse-and-json.stringify)
+- [Use for loop to copy](#use-for-loop-to-copy)
+
+<br>
+
 # Use Object.assign
 Consider this below code: 
 
@@ -143,7 +150,9 @@ console.log(nestedObjCopy);
 
 It also works correctly. But this way and the recursiveDeepCopy function in the above website also use recursive, so we have to take care of the case of overflow stack. 
 
+Thanks for your reading.
 
+<br>
 
 Refer: 
 

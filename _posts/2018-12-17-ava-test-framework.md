@@ -15,6 +15,7 @@ Today, I will completely show you how to use Ava testing framework.
 - [How to use test function in Ava](#use-test()-function-in-ava)
 - [Some informations that need to note](#note)
 
+<br>
 
 ## Installing Ava
 Syntax: 
@@ -23,6 +24,7 @@ Syntax:
 npm install ava --save-dev
 ```
 
+<br>
 
 ## Use test() function in Ava
 In order to use test() function in ava, you can use two ways to get test() function; 
@@ -66,6 +68,8 @@ test('name_action', async t => {
 
 Note: In order for the enhanced assertion messages to behave correctly, the first arguments must be named t. 
 
+<br>
+
 ### Running test serially
 By default, tests run concurrently. But when each test case works with I/O operations, it can cause the error. So, you want your test cases that must be run synchronously. 
 
@@ -77,6 +81,7 @@ Note: In your one test file, you use each test case with *.serial', then test ca
 ava --serial .\\test_folder\\*.js
 ```
 
+<br>
 
 ### Using async keyword
 Ava supports asyn function in the second parameter. 
@@ -87,6 +92,7 @@ test('action', async t => {
 }
 ```
 
+<br>
 
 ### Running specific test
 If you only want to run some test cases, not all of test cases. You can use *.only* modifier. 
@@ -99,6 +105,7 @@ test.only('action', t => {
 
 Note: You can use the *.only* modifier with all tests. It cannot be used with hooks or .todo().
 
+<br>
 
 ### Skipping test
 When your test case can not be fixed, you can use the *.skip* modifier to skip this test case. 
@@ -109,6 +116,7 @@ test.skip('action', t => {
 });
 ```
 
+<br>
 
 ### Using assertion
 The below is the common assertion that you will need to use. 
@@ -117,6 +125,7 @@ The below is the common assertion that you will need to use.
 - .is(value, expected, [message]): assert that *value* is equal to *expected*.
 - .deepEqual(value, expected, [message]): assert that *value* is equal to *expected*.
 
+<br>
 
 ### Use before and after hooks
 - test.before()           : register a hook to be run before the first test in your test file. 
@@ -128,11 +137,15 @@ The below is the common assertion that you will need to use.
 - .before() hooks execute before .beforeEach() hooks.
 - .afterEach() hooks before .after() hooks.
 
+<br>
 
 ## Notice
 - Tests run concurrently.
 - Each test file is run in a seperate Node.js process. It's greate performance on modern multi-core processors, allowing multiple test files to execute in parallel.
 
+Thanks for your reading.
+
+<br>
 
 Refer: 
 

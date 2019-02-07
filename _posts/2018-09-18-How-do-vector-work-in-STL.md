@@ -5,12 +5,12 @@ bigimg: /img/path.jpg
 tags: [C++, STL, vector]
 ---
 
-
 ## Table of Contents
 - [How do vector work in STL/C++ ?](#how-do-vector-work-in-STL/C++)
 - [Hidden in vector](#hidden-in-vector)
 - [Internally vector works](#internally-vector-works)
 
+<br>
 
 ## How do vector work in STL/C++ ?
 
@@ -19,6 +19,8 @@ Vector is the common data structure that is always used in programming language.
 So what is the vector's mechanism?
 
 Before diving into the way to analyse the working of vector. We are going to discover what vector contains. 
+
+<br>
 
 ## Hidden in vector
 
@@ -46,7 +48,7 @@ public:
 We can see that vector has three pointer: first, last, end. The way to create vector, I think, it is as same as creating two dimensional array. 
 
 Example: 
-<br>
+
 ```C++
 // create two dimensional array.
 int** pFakeVector = nullptr; 
@@ -80,7 +82,6 @@ delete[] pFakeVector[0];
 delete[] pFakeVector;
 
 ```
-
 
 So, vector is suitable for inserting elements at the end of array, because vector has a pointer to the end of array. 
 

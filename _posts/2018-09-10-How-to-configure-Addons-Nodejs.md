@@ -37,7 +37,7 @@ npm install -g nan@latest
 
 ## Setup the node.gyp and make the binding.gyp file.
 
-  - Make binding.gyp file. 
+- Make binding.gyp file. 
   
   Binding.gyp file is used to configure the output of the compiled process, such as: name of file (Ex: hello.node) and the source files is need to build. 
   
@@ -59,7 +59,7 @@ npm install -g nan@latest
   }
   ```
 
-  - Install the node-gyp tool. 
+- Install the node-gyp tool. 
 
   Inorder to build the C++ addon, we need the node-gyp and download with command line: 
 
@@ -67,7 +67,7 @@ npm install -g nan@latest
   npm install -g node-gyp
   ```
   
-  - Check whether npm have the windows-build-tool or not. 
+- Check whether npm have the windows-build-tool or not. 
   
   We can install windows-build-tool with command: 
   
@@ -86,7 +86,7 @@ npm install -g nan@latest
 
 ## Build project with node.gyp. 
 
-  - The first step, we call the command: 
+- The first step, we call the command: 
 
   ```
   node-gyp configure
@@ -98,7 +98,7 @@ npm install -g nan@latest
   
   Now you will have either a Makefile (on Unix platforms) or a vcxproj file (on Windows) in the build/ directory. 
  
-  - Second step
+- Second step
   
   Call the command: 
   
@@ -110,8 +110,7 @@ npm install -g nan@latest
   
   
 ## Run the program in the \*.js file. 
-  
-  In the \*.js file, we use the function require() to implement with the C++ Addons.
+In the \*.js file, we use the function require() to implement with the C++ Addons.
 
 
 Thanks for your reading.

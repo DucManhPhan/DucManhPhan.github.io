@@ -5,7 +5,7 @@ bigimg: /img/path.jpg
 tags: [node.js]
 ---
 
-In order to use the C++  into the Node.js, you have the three options: 
+In order to use the C++ into the Node.js, you have the three options: 
 - Automation - call your C++ as a standalone app in a child process.
 - Shared library - pack your C++ routines in a shared library (*.dll) and call those routines from Node.js directly through [node-ffi](https://github.com/node-ffi/node-ffi/wiki/Node-FFI-Tutorial). 
 - Node.js Addon - compile your C++ code as a native Node.js module.
@@ -75,13 +75,21 @@ Consider the binding.gyp file have common properties:
 
 The top-level settings in the target include: 
 - 'target_name': The name by which the target should be known, which should be unique across all .gyp files. This name will be used as the project name in the generated Visual Studio solution.
+
 - 'type': there are three options: "executable", "shared_library", "static_library" and "none". This should almost always be set to ‘<(library)’, which allows the user to define at gyp time whether libraries are to be built static or shared. The type can be set explicitly to static_library or shared_library.
+
 - 'dependencies': This lists other targets that this target depends on. The gyp-generated files will guarantee that the other targets are built before this target. Any library targets in the dependencies list will be linked with this target. The various settings (defines, include_dirs, etc.) listed in the direct_dependent_settings sections of the targets in this list will be applied to how this target is built and linked.
+
 - 'defines': The C preprocessor definitions that will be passed in on compilation command lines (using -D or /D options).
+
 - 'include_dirs': The directories in which included header files live. These will be passed in on compilation command lines (using -I or /I options).
+
 - 'sources': The source files of this target.
+
 - 'conditions': A block of conditions that will be evaluated to update the different settings in the target dictionary.
+
 - 'direct_dependent_settings': This defines the settings that will be applied to other targets that directly depend on this target--that is, that list this target in their 'dependencies' setting. This is where you list the defines, include_dirs, cflags and linkflags that other targets that compile or link against this target need to build consistently.
+
 - 'export_dependent_settings': This lists the targets whose direct_dependent_settings should be “passed on” to other targets that use (depend on) this target.
 
 
@@ -92,6 +100,7 @@ Note: With outside library, we have two folder: "include" and "lib".
 The following image is the structure of our folder. 
 ![./img/structure-folder-Binding.gyp.png](Structure folder in binding.gyp file)
 
+<br>
 
 ## Make the static library / executable file / shared library
 You can add property "type" in binding.gyp with the following sample: 
@@ -132,6 +141,7 @@ Or with shared library
 }
 ```
 
+<br>
 
 ## Including some files to build
 When your project has so many *.cpp, *h files, you can separate the files into the compatible folder, such as: "./source", "./include".
@@ -157,6 +167,7 @@ Ex:
 }
 ```
 
+<br>
 
 ## Dependencies between targets
 GYP provides useful primitives for establishing dependencies between targets, which need to be configured in the following situations.
@@ -238,6 +249,7 @@ You can reference to the binding.gyp file of the node-ffi module. ([node-ffi mod
 }
 ```
 
+<br>
 
 ## ## Use some outside library that have extension .lib 
 In order to insert the library (*.lib) into the visual studio project, you can use the two properties: 'libraries', 'link_settings'. 
@@ -272,6 +284,7 @@ In order to insert the library (*.lib) into the visual studio project, you can u
 
 To the library that it can be got from the somewhere, you can turn this library into the new node module. From this module, you will return the path of "include" folder and "lib" folder of these libraries. 
 
+<br>
 
 ## Adding properties for setting in Visual Studio
 
@@ -341,6 +354,7 @@ To the library that it can be got from the somewhere, you can turn this library 
 }
 ```
 
+<br>
 
 ## Use variables for shorting the path of folders / set state of project
 To define the variables for the path of folders, you can set the following structure: 
@@ -368,6 +382,9 @@ Notice: You should read about [GYP file - User Documentation](https://gyp.gsrc.i
 
 You can learn how to configure through some website: [libffi.gyp](https://github.com/node-ffi/node-ffi/blob/master/deps/libffi/libffi.gyp), it is really difficult to understand. 
 
+Thanks for your reading.
+
+<br>
 
 Refer: 
 

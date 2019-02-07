@@ -79,3 +79,5 @@ Example:
     <% }); %>
 </ul>
 ```
+
+Thanks for your reading.

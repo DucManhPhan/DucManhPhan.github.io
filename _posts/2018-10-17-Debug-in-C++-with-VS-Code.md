@@ -241,6 +241,10 @@ The another way you can squeeze them into one file: tasks.json.
 }
 ```
 
+Thanks for your reading.
+
+<br>
+
 Refer:
 
 [How can i compile C++ files through Visual Studio Code](https://askubuntu.com/questions/1032647/how-can-i-compile-c-files-through-visual-studio-code)

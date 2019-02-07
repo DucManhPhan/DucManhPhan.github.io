@@ -12,6 +12,8 @@ When using the v8 library or NAN for C++ addon modules, you want to convert the 
 - [Problem](#1-problem)
 - [Solution](#2-solution)
 
+<br>
+
 ## 1. Problem
 You will have wrong result in std::vector when using the push_back() function. 
 
@@ -22,6 +24,8 @@ In Javascript, arr = [1, 2, 3, 4, 5]
 But the below v8, or NAN, you will have: std::vector<int> vect = {0, 0, 0, 0, 0, 1, 2, 3, 4, 5}
 
 I think that the problem can be caused by the asynchronous of Javascript.
+
+<br>
 
 ## 2. Solution
 You can use the basic array in C++. 

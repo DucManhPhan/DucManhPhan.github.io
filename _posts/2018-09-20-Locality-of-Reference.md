@@ -5,6 +5,21 @@ bigimg: /img/path.jpg
 tags: [Memory management]
 ---
 
+In order to optimize source code, there are so many ways to do it. But using locality of reference is the suitable way to optimize.
+
+In this article, we will find something about Locality of Reference.
+
+## Table of contents
+- [Cache memory](#cache-memory)
+- [The types of memory in computer](#the-types-of-memory-in-computer)
+- [Definition of Locality of Reference](#definition-of-locality-of-reference)
+- [The types of Locality of Reference](#the-types-of-locality-of-reference)
+- [How cache memory enhances the processing of computer](#how-cache-memory-enhances-the-processing-of-computer)
+- [Example for using cache memory with locality of reference](#example-for-using-cache-memory-with-locality-of-reference)
+- [Example for cache pollution](#example-for-cache-pollution)
+
+<br>
+
 ## Cache memory
 
 Cache memory is high-speed static random access memory (SRAM) that a computer microprocessor can access more quickly than it can access regular random access memory (RAM).
@@ -17,16 +32,22 @@ Fast access to these instructions increases the overall speed of the program.
 
 The ability of cache memory to improve a computer's performance relies on the concept of the locality of reference. 
 
+<br>
+
 ## The types of memory in computer
 
 There are several types of memory. Each type has the strength and weakness. The below image will talk about these. 
 
 ![The type of memory](/img/type-memory.png)
 
+<br>
+
 ## Definition of Locality of Reference
 According to the wikipedia.org, locality of reference, also known as the principle of locality, is a term for the phenomenon in which the same values, or related storage locations, are frequently, depending on the memory access pattern. 
 
 Locality describes various situations that make a system more predictable, such as where the same storage location is repeatedly accessed, creating a pattern of memory access that the cache memory relies upon.
+
+<br>
 
 ## The types of Locality of Reference
 There are two basic types of locality of reference. 
@@ -43,6 +64,7 @@ There are two basic types of locality of reference.
 
   A special case of spatial locality, occurs when elements are arranged and accessed linearly, such as, traversing the elements in one-dimensional array. 
 
+<br>
 
 ## How cache memory enhances the processing of computer
 
@@ -68,6 +90,7 @@ As a CPU can hold only a single instruction at a time, the time required to brin
 
 This way the cache memory with the locality of reference can enhance the speed of computer system. It is due to the locality of reference, that almost all the instructions fetched from primary memory to cache memory will get executed by the CPU.
 
+<br>
 
 ## Example for using cache memory with locality of reference
 
@@ -91,7 +114,9 @@ return sum;
   - Reference instructions in sequence: Spatial Locality. 
   - Cycle through loop repeatedly: Temporal Locality.
 
-## Example for cache pollution 
+<br>
+
+## Example for cache pollution
 
 Cache pollution describes situations where an executing computer program loads data into CPU cache unsuccessfully, thus causing other useful data to be evicted from the cache into lower levels of the memory hierarchy, degrading performance. 
 
@@ -109,7 +134,9 @@ However, as the loop executes, because the number of data elements the loop refe
 
 Thus, the next time the program requests T[0] to be updated, the cache misses, and the cache controller has to request the data bus to bring the corresponding cache block from the main memory again. 
 
+<br>
 
+Thanks for your reading.
 
 Refer to :
 

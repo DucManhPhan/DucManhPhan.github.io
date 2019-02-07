@@ -17,16 +17,18 @@ This article will make you understand about this question and deeper blockchain.
 - [Transaction pool](#transaction-pool)
 - [How do transactions work](#how-do-transactions-work)
 
+<br>
 
 ## Transaction pool
 Transaction pool is the place where contains all of unconfirmed transactions. Transaction pool is stored on a special device and its contents can be accessed, observed in real time.
 
 Confirmed transactions have the reversed meanings with the unconfirmed transactions. Confirmed transactions are the transactions which are included into the block in the blockchain.
 
+<br>
+
 ## How do transactions work
 
 ![The way transactions work](../img/Bitcoin-transaction-life-cycle.png "The image it borrowed from https://en.m.bitcoinwiki.org")
-
 
 
 Assuming that you want to send some of your bitcoin to your friend. You open your wallet, fill in information about the number of bitcoin that need to transfer and the address of receiver. 
@@ -52,6 +54,7 @@ After your transaction and the other transactions are confirmed transactions, th
 
 Thanks for your reading.
 
+<br>
 
 Refer: 
 

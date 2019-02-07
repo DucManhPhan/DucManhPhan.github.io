@@ -9,6 +9,7 @@ In order to improve the speed of making the website, I think that I have to lear
 
 The belows is some basic titles about Bootstrap. 
 
+<br>
 
 # Table of Contents
 
@@ -17,6 +18,7 @@ The belows is some basic titles about Bootstrap.
   - [Grid system](#grid-system)
   - [Naviagtion bar](#naviagtion-bar)
 
+<br>
 
 ## Use bootstrap framework
 
@@ -58,6 +60,7 @@ In order to download all necessary files in bootstrap 4, you can get from the li
   - Bootstrap 4 uses the Flexbox Grid, bootstrap 3 uses the float method.
   - Bootstrap 4 uses *rem* CSS units, bootstrap 3 uses px units.
 
+<br>
 
 ## Container 
 There are two container classes to choose from: 
@@ -71,6 +74,7 @@ With **.container**, we have some cases:
 - If it is large devices - 1200 px > screen width >= 992 px, this element will appear at the center of the screen and this element's width is equal to 992 px.
 - If it is xlarge devices - screen width >= 1200 px, this element will appear at the center of the screen and this element's width is equal to 1200 px.
 
+<br>
 
 ## Grid system
 Bootstrap's grid system is built with flexbox and allows up to 12 columns across the page. 
@@ -100,6 +104,7 @@ Ex:
 ```
 
 <br>
+
 If you want to choose the offset value for the column, you can do with the below guides: 
 
 ![The Bootstrap Grid system with offset value](../img/bootstrap-course/grid-system-offset.png)
@@ -127,6 +132,7 @@ Ex: Sample for using multiple grids.
 Note: 
 - Image is got from the "Bootstrap 3" course in pluralsight.com
 
+<br>
 
 ## Naviagtion bar
 A navigation bar is a navigation header that is placed at the top of the page.

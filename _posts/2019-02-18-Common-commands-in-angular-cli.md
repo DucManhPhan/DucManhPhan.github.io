@@ -28,6 +28,7 @@ The installation may take a while.
 To check the existence or the version of node.js, npm, we use command:
 
 ```
+node -v
 npm -v
 ```
 
