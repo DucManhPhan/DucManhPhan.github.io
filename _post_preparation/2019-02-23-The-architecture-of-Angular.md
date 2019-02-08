@@ -38,7 +38,7 @@ So, we can conclude that there are eight main building blocks
 <br>
 
 ## 1. Module
-
+Module is the block of code which is designed to perform a single task. 
 
 
 <br>
@@ -99,3 +99,5 @@ Refer:
 [https://angular.io/guide/architecture](https://angular.io/guide/architecture)
 
 [https://www.c-sharpcorner.com/article/basic-architecture-of-angular-2-applications/](https://www.c-sharpcorner.com/article/basic-architecture-of-angular-2-applications/)
+
+[https://www.code-sample.com/2018/01/angular-4-and-5-architecture-overview.html](https://www.code-sample.com/2018/01/angular-4-and-5-architecture-overview.html)
