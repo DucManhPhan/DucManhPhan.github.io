@@ -77,8 +77,36 @@ nav {
 <br>
 
 ## Import files
+When our css file is more bigger than before, we have to think about splitting up css files into smaller files. Because it keeps things easier to maintain.
 
+A convention name of Sass file is with a leading underscore. We might name it something like ```_partial.scss```.
 
+The underscore lets Sass know that the file is only a partial file and that it should not be generated into a CSS file. Sass partials are used with the ```@import``` directive.
+
+The drawback of using ```@import``` is that each time we use ```@import``` in CSS it creates another HTTP request. 
+
+Sass builds on top of the current CSS ```@import``` but instead of requiring an HTTP request, Sass will take the file that you want to import and combine it with the file you're importing into so you can serve a single CSS file to the web browser.
+
+For example:
+
+```css
+/* _reset.scss */
+html,
+body,
+ul,
+ol {
+  margin:  0;
+  padding: 0;
+}
+```
+
+```css
+/* base.scss */
+body {
+  font: 100% Helvetica, sans-serif;
+  background-color: #efefef;
+}
+```
 
 <br>
 
