@@ -1,6 +1,6 @@
 ---
 layout: post
-title: Knowledge about SASS
+title: Learn JQuery - Selectors
 bigimg: /img/path.jpg
 tags: [front-end]
 ---
