@@ -34,3 +34,6 @@ Refer:
 
 [https://docs.spring.io/spring-javaconfig/docs/1.0.0.M4/reference/html/ch04s02.html](https://docs.spring.io/spring-javaconfig/docs/1.0.0.M4/reference/html/ch04s02.html)
 
+[https://huongdanjava.com/vi/bean-autowiring-trong-spring-la-gi.html](https://huongdanjava.com/vi/bean-autowiring-trong-spring-la-gi.html)
+
+[https://huongdanjava.com/vi/bean-autowiring-su-dung-autowired-annotation.html](https://huongdanjava.com/vi/bean-autowiring-su-dung-autowired-annotation.html)
