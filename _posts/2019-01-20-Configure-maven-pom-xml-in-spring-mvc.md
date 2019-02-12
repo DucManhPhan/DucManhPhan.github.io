@@ -172,6 +172,31 @@ Belows are the definitions of some common packages that will use for Spring MVC.
 </properties>
 
 <dependencies>
+    <!--hibernate dependencies-->
+    <dependency>
+        <groupId>org.hibernate.common</groupId>
+        <artifactId>hibernate-commons-annotations</artifactId>
+        <version>4.0.5.Final</version>
+    </dependency>
+        
+    <dependency>
+        <groupId>org.hibernate</groupId>
+        <artifactId>hibernate-core</artifactId>
+        <version>4.3.11.Final</version>
+    </dependency>
+
+    <dependency>
+        <groupId>org.hibernate</groupId>
+        <artifactId>hibernate-entitymanager</artifactId>
+        <version>4.3.11.Final</version>
+    </dependency>
+
+    <dependency>
+        <groupId>org.hibernate.javax.persistence</groupId>
+        <artifactId>hibernate-jpa-2.1-jpa</artifactId>
+        <version>1.0.0.Final</version>
+    </dependency>
+
     <!--use Log4j-->
     <dependency>
         <groupId>org.slf4j</groupId>
