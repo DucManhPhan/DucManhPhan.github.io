@@ -172,6 +172,15 @@ Belows are the definitions of some common packages that will use for Spring MVC.
 </properties>
 
 <dependencies>
+    <!--Use guava library-->
+    <dependency>
+        <groupId>com.google.guava</groupId>
+        <artifactId>guava</artifactId>
+        <version>27.0.1-jre</version>
+        <!-- or, for Android: -->
+        <version>27.0.1-android</version>
+    </dependency>
+
     <!--hibernate dependencies-->
     <dependency>
         <groupId>org.hibernate.common</groupId>
