@@ -134,7 +134,7 @@ So, in this article, we will discuss about logout problem in spring boot.
     In this solution, we will still use ```configure()``` method, but there are some changes in ```fetchSignoutSite()``` method in ```Controller``` class.
 
     ```java
-    @RequestMapping(value = {"/logout"}, method = RequestMethod.POST)
+    @RequestMapping(value = {"/logout"}, method = RequestMethod.GET)
     public String fetchSignoutSite(HttpServletRequest request, HttpServletResponse response){
         
         HttpSession session = request.getSession(false);
