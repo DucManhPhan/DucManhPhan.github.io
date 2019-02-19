@@ -30,9 +30,9 @@ In this article, we will find out about the structure of Spring MVC and how Spri
 
 ![](../img/servlet-jsp/spring-mvc-basics-code.jpg)
 
-Views are in charge of rendering the actual HTML interface, usually by the execution of some template engine like Thymeleaf.
+```Views``` are in charge of rendering the actual HTML interface, usually by the execution of some template engine like Thymeleaf.
 
-ViewResolvers are the objects in charge of obtaining View objects for a specific operation and locale. Typically, controllers ask ViewResolvers to forward to a view with a specific name (a String returned by the controller method), and then all the view resolvers in the application execute in ordered chain until one of them is able to resolve that view, in which case a View object is returned and control is passed to it for the renderization of HTML.
+```ViewResolvers``` are the objects in charge of obtaining View objects for a specific operation and locale. Typically, ```controllers``` ask ```ViewResolvers``` to forward to a view with a specific name (a String returned by the controller method), and then all the ```ViewResolvers``` in the application execute in ordered chain until one of them is able to resolve that view, in which case a ```View``` object is returned and control is passed to it for the renderization of HTML.
 
 
 

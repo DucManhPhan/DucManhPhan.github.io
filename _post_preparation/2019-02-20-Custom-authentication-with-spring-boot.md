@@ -16,3 +16,7 @@ Refer:
 [http://herogtech.com/pass-extra-parameter-spring-security-login-page/](http://herogtech.com/pass-extra-parameter-spring-security-login-page/)
 
 [https://leaks.wanari.com/2017/11/28/how-to-make-custom-usernamepasswordauthenticationfilter-with-spring-security/](https://leaks.wanari.com/2017/11/28/how-to-make-custom-usernamepasswordauthenticationfilter-with-spring-security/)
+
+**Custom successful authentication**
+
+[https://github.com/eugenp/tutorials/blob/master/spring-security-mvc-custom/src/main/java/org/baeldung/spring/SecSecurityConfig.java](https://github.com/eugenp/tutorials/blob/master/spring-security-mvc-custom/src/main/java/org/baeldung/spring/SecSecurityConfig.java)
