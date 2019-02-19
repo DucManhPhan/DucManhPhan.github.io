@@ -12,16 +12,9 @@ But in Spring Boot, we do not have a specific solution for this problem.
 So, in this article, we will discuss about logout problem in spring boot. 
 
 ## Table of contents
-- [Some must steps to do when logout](#some-must-steps-to-do-when-logout)
 - [Solution](#solution)
 - [The meanings of source code](#the-meaning-of-source-code)
 - [Wrapping up](#wrapping-up)
-
-<br>
-
-## Some must steps to do when logout
-
-
 
 <br>
 
@@ -65,6 +58,10 @@ So, in this article, we will discuss about logout problem in spring boot.
         ...
     }
     ```
+
+    So, we will explain how Spring Security logout based on ```AntPathRequestMatcher``` class.
+
+    While going to the URL ```/logout```, an object of ```AntPathRequestMatcher``` class will compare its link with link that is routed. If matched, Spring security will log out and implement sequence actions such as ```invalidateHttpSession()```, ```deleteCookies()```, and ```logoutSuccessUrl()```.
 
 - Second solution
 
@@ -186,14 +183,75 @@ We can do that by defining anchor with the ```href = "@{/logout}"``` in thymelea
 <br>
 
 ## The meanings of source code
+- Using ```AntPathRequestMatcher``` class
 
+    ```java
+    public final class AntPathRequestMatcher
+    extends java.lang.Object
+    implements RequestMatcher, RequestVariablesExtractor
+    ```
+
+    Matcher will compares a pre-defined ant-style pattern against the URL (servletPath + pathInfo) of an ```HttpServletRequest```. The query string of the URL is ignored and matching is case-insensitive or case-sensitive depending on the arguments passed into the constructor. 
+
+     Using a pattern value of /** or ** is treated as a universal match, which will match any request. Patterns which end with /** (and have no other wildcards) are optimized by using a substring match — a pattern of /aaa/** will match /aaa, /aaa/ and any sub-directories, such as /aaa/bbb/ccc.
+
+    For all other cases, Spring's ```AntPathMatcher``` is used to perform the match.
+
+    Note: Use ```org.springframework.security.web.util.matcher.AntPathRequestMatcher```, and not the deprecated ```org.springframework.security.web.util.AntPathRequestMatcher``` class.    
+
+- Use ```SecurityHolderContext```, ```SecurityContext``` class
+
+    We will have two declarations of ```SecurityHolderContext```, ```SecurityContext``` class.
+
+    ```java
+    public interface SecurityContext {
+
+        // --> Obtains the currently authenticated principal, or an authentication request token.
+        Authentication getAuthentication();  
+
+        // --> changes the currently authenticated principal, or removes the authentication information.
+        void setAuthentication(Authentication authentication);  
+    }
+    ```
+
+    ```java
+    public class SecurityContextHolder extends java.lang.Object {
+
+        // Obtain the current SecurityContext.
+        // returned value is never null
+        public static SecurityContext getContext();
+
+        // Associates a new SecurityContext with the current thread of execution.
+        // context may be not null
+        public static void setContext(SecurityContext context);
+    }    
+    ```
+
+    The ```interface SecurityContext``` will define the minimum security information associated with the current thread of execution.
+
+    And the security context is stored in a ```SecurityContextHolder``` class.
+
+    ```SecurityContext``` is centering interface of Spring Security, saves all information that is relevant to the security in application. When we start Spring Security, ```SecurityContext``` will be initialize.
+
+    We can not access directly into ```SecurityContext```, but we can use ```SecurityContextHolder``` class. This class will contain the current ```SecurityContext``` of application, which includes ```principal``` that is interacting with application.
+
+    Spring Security will use ```Authentication``` object to represent their information. The following code will help us get ```username``` and ```password``` that is typed from a user.
+
+    ```java
+    Object principal = SecurityContextHolder.getContext().getAuthentication().getPrincipal();
+
+    if (principal instanceof UserDetails) {
+        String username = ((UserDetails) principal).getUsername();
+    } else {
+        String username = principal.toString();
+    }
+    ```
 
 <br>
 
 ## Wrapping up
-
-
-
+- In reality, we have two ways to logout in Spring security. It includes to set information in ```configure()``` method and use ```SecurityContextHolder``` class.
+- We can not access directly into ```SecurityContext``` object, we have to get it to depend on ```SecurityContextHolder```.
 
 <br>
 
