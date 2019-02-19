@@ -12,8 +12,8 @@ So, in this article, we will talk about some ways to center in our website's con
 <br>
 
 ## Table of contents
-
-
+- [Use line-height and height for centering elements in menu](#use-line-height-and-height-for-centering-elements-in-menu)
+- [Wrapping up](#wrapping-up)
 
 
 <br>
@@ -72,4 +72,18 @@ We can use line-height and height properties for this problem. Our code will hav
   color: #219AA7;
 }
 ```
+
+<br>
+
+## Wrapping up
+
+
+
+<br>
+
+Thanks for your reading.
+
+<br>
+
+Refer:
 
