@@ -143,7 +143,7 @@ public class CustomUsernamePasswordAuthFilter extends UsernamePasswordAuthentica
 
 - **ProviderManager**
 
-    ```ProviderManager``` iterates through all the provided/configured ```Authentication``` providers and delegate the actual ```Authentication``` job to ```Authentication``` providers.
+    ```ProviderManager``` iterates through all the provided/configured ```AuthenticationProvider```s and delegate the actual ```Authentication``` job to ```AuthenticationProvider```s.
 
     ```java
     for(AuthenticationProvider provider : getProviders()) {

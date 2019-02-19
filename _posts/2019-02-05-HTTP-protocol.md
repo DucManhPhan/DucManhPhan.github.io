@@ -169,7 +169,7 @@ The format of an HTTP request message is as follow:
 
     - Content-Type: mime-type - Used by POST request, to inform the server the media type of the request body.
 
-    - Cache-Control: no-cache|... - The client can use this header to specify how the pages are to be cached by proxy server. 
+    - Cache-Control: no-cache\|... - The client can use this header to specify how the pages are to be cached by proxy server. 
     
         "no-cache" requires proxy to obtain a fresh copy from the original server, even though a local cached copy is available. 
         
