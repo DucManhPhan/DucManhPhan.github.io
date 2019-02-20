@@ -5,9 +5,11 @@ bigimg: /img/path.jpg
 tags: [java]
 ---
 
-Spring Security provides two implementation for Remember-Me:
-- Simple Hash-Based Token Approach: use hashing to preserve the security of cookie-based tokens.
-- Persistent Token Approach: use a database or other persistent storage mechanism to store the generated tokens.
+Before discussing about Remember-Me mechanism in Spring, we should read about [The mechanism of Spring Security](https://ducmanhphan.github.io/2019-02-09-The-mechanism-of-spring-security) to understand the way that Spring Security does. 
+
+Then, we will find out about Remember-Me mechanism in Spring Security.
+
+<br>
 
 ## Table of contents
 - [Problem](#problem)
@@ -31,6 +33,10 @@ So, to solve this problem, Remember-Me is a convenient mechanism that remembers 
 ## Remember-me mechanism 
 To understand Remember-Me mechanism deeper, we should read about this article: [The mechanism of Spring Security](https://ducmanhphan.github.com/2019-02-09-The-mechanism-of-spring-security).
 
+Spring Security provides two implementation for Remember-Me:
+- Simple Hash-Based Token Approach: use hashing to preserve the security of cookie-based tokens.
+- Persistent Token Approach: use a database or other persistent storage mechanism to store the generated tokens.
+
 Remember-me or persistent-login authentication refers to web sites being able to remember the identity of a principal between sessions. 
 
 This is typically accomplished by sending a cookie to the browser, with the cookie being detected during future sessions and causing automated login to take place. 
@@ -40,9 +46,6 @@ Spring Security provides the necessary hooks for these operations to take place,
 One uses hashing to preserve the security of cookie-based tokens and the other uses a database or other persistent storage mechanism to store the generated tokens.
 
 Note that both implemementations require a ```UserDetailsService```. If we are using an ```AuthenticationProvider``` which doesn't use a ```UserDetailsService``` (for example, the LDAP provider) then it won't work unless you also have a ```UserDetailsService``` bean in our application context. 
-
-- Simple Hash-Based Token Approach
-- Persistent Token Approach
 
 Remember-Me authentication is not used with basic authentication, given it is often not used with ```HttpSession```s. Remember-Me is used with ```UsernamePasswordAuthenticationFilter```, and is implemented via hooks in the ```AbstractAuthenticationProcessingFilter``` superclass. The hooks will invoke a concrete ```RememberMeServices``` at the appropriate times.
 
@@ -60,13 +63,13 @@ void loginSuccess(HttpServletRequest request, HttpServletResponse response, Auth
 
 The ```autoLogin()``` method is called by ```RememberMeAuthenticationFilter``` whenever the ```SecurityContextHolder``` does not contain an ```Authentication```.
 
-This interface therefore provides the underlying remember-me implementation with sufficient notification of authentication-related events, and delegates to the implementation whenever a candidate web request might contain a cookie and wish to be remembered. This design allows any number of remember-me implementation strategies.
+This interface, therefore, provides the underlying remember-me implementation with sufficient notification of authentication-related events, and delegates to the implementation whenever a candidate web request might contain a cookie and wish to be remembered. This design allows any number of remember-me implementation strategies.
 
 <br>
 
 There are two implementations for ```RememberMeServices```:
-    - TokenBaseRememberMeServices
-    - PersistentTokenBasedRememberMeServices
+- TokenBaseRememberMeServices
+- PersistentTokenBasedRememberMeServices
 
 Next, we will discuss about ```TokenBaseRememberMeServices```.
 
