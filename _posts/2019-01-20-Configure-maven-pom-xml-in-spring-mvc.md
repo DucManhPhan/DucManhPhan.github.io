@@ -148,6 +148,11 @@ Note about **jar**, **war** files:
 - .jar files: The .jar files contain libraries, resources and accessories files like property files.
 - .war files: The war file contains the web application that can be deployed on any servlet/jsp container. The .war file contains jsp, html, javascript and other files necessary for the development of web applications.
 
+Note: 
+- ```<version>1.0.0-SNAPSHOT</version>```: The ```SNAPSHOT``` version suffix tells Maven that this project is currently in development. It has implications for the way artifacts are handled by the dependency resolution.
+- ```artifacts```: Maven artifacts belong to a group (typically ```com.company.application```), and must have a unique identifier (typically the application's name).
+- The main repository for Maven is called the Central Repository and can be searched on at ```http://maven.org```.
+
 <br>
 
 ## Add specific packages into project through pom file
