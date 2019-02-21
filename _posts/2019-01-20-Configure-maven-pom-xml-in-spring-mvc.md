@@ -343,6 +343,12 @@ Firstly, we add informations about libraries that we need into **dependencies** 
 
 To check the path of this local repository, you can open **User setting** of Netbeans or Eclipse. Finally, Maven will add the path of each libraries into **Dependencies** folder in Netbeans.
 
+And Spring Boot Maven Plugin provides some convenient features:
+- It searches for the ```public static void main()``` method to flag as a runnable class.
+
+- It provides a built-in dependency resolver that sets the version number to match ```Spring Boot dependencies```. You can override any version you wish, but it will default to Boot’s chosen set of versions.
+
+
 <br>
 
 ## Important note
