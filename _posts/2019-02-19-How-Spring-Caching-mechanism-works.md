@@ -21,7 +21,7 @@ In this article, we will learn how to manage application cache from Spring frame
 ## Introduction to memory in computer
 Before diving into Spring caching, we need to understand about how many ways to contains data in computer. Generally speaking, we have a picture that discribe the speed and amount of each part.
 
-![The structure of memory computer](../img/Java-common/spring-caching/computer-memory-structure.gif)
+![The structure of memory computer](../img/Java-common/spring-caching/memory-structure.gif)
 
 At the top of pyramid, it is CPU Register. It is nearest to the CPU, so it has the highest speed in all of components, and it has the smallest amount of memory when compared with other memories, simply because CPU always need to optimize the space.
 
@@ -90,7 +90,7 @@ There are some following types of cache:
 ## How Spring Caching mechanism works
 The below image is used to describe the mechanism of Spring Caching.
 
-![The mechanism of Spring Caching](../img/Java-common/spring-caching/spring-caching-mechanism.JPG)
+![The mechanism of Spring Caching](../img/Java-common/spring-caching/spring-caching-mechanism.jpg)
 
 1. Server receives requests from user.
 
