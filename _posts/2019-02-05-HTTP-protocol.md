@@ -2,7 +2,7 @@
 layout: post
 title: HTTP protocol
 bigimg: /img/image-header/home-office-1.jpg
-tags: [java]
+tags: [Protocol]
 ---
 
 When we are working with website development, especially doing something with form such as login, ..., we have to be curious about how we can push data into the web server. What is something that help us to do these?

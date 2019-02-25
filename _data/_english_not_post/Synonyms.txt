@@ -106,3 +106,10 @@ Ex: A humdrum life.
 --> Unlike foreign films, the film themes of this country are likely to be monotonous and humdrum.
 
 
+surmise /'sɜrmaɪz - sə:'maiz/ (vt): phỏng đoán, ngờ ngợ.
+Ex: I can only surmise that with the JavaConfig for Spring security there are several configuration attributes that are set for the default .formLogin(),
+and unless you explicitly set these attributes, the login.jsp will not execute the correct action.
+
+immense /ɪ'mens/ (adj) -  enormous - giant - gigantic - great - huge - large - mammoth - monumental - stupendous - vast: unusually great in size or amount or degree or especially extent or scope.
+Ex: Listing all components in one file quickly lead to an immense and unmanageable system.
+
