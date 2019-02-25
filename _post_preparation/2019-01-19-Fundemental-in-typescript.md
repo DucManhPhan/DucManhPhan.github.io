@@ -15,3 +15,7 @@ Refer:
 [https://www.typescriptlang.org/docs/handbook/basic-types.html](https://www.typescriptlang.org/docs/handbook/basic-types.html)
 
 [https://codeburst.io/understanding-typescript-basics-e003dbad2191](https://codeburst.io/understanding-typescript-basics-e003dbad2191)
+
+[https://angularfirebase.com/lessons/typescript-the-basics/](https://angularfirebase.com/lessons/typescript-the-basics/)
+
+[https://angularfirebase.com/lessons/object-oriented-programming-with-typescript/](https://angularfirebase.com/lessons/object-oriented-programming-with-typescript/)
