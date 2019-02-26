@@ -6,6 +6,70 @@ tags: [java]
 ---
 
 
+- Custom Authentication
+    
+     ```UserDetails``` class and ```User``` class.
+
+    ```java
+    public interface UserDetailsService {
+        UserDetails loadUserByUsername(String username) throws UsernameNotFoundException;        
+    }
+
+    public interface UserDetails extends Serializable {
+        Collection<? extends GrandtedAuthority> getAuthorities();
+        String getPassword();
+        String getUsername();
+        boolean isAccountNonExpired();
+        boolean isAccountNonLocked();
+        boolean isCredentialsNonExpired();
+        boolean isEnabled();
+    }
+
+    @Entity
+    public class User implements Serializable {
+        @Id
+        @GeneratedValue(strategy = GenerationType.AUTO)
+        private Long id;
+        private String firstName;
+        private String lastName;
+        private String email;
+        private String password;
+        ...
+    }
+    ```
+
+    Based on ```UserDetails``` class and ```User``` class, we can custom authentication.
+
+    ```java
+    public class CustomUserDetials extends User implements UserDetails {
+        public CustomUserDetials(User u){
+            super(user);
+        }
+
+        public Collection getAuthorities() {
+            return AuthorityUtils.createAuthorityList("ROLE_USER");
+        }
+
+        public String getUsername() {
+            return getEmail();
+        }
+
+        public boolean isEnabled() {
+            return true;
+        }
+
+        ...
+    }
+
+    public UserDetails loadUserByUsername(String username) throws UsernameNotFoundException {
+        User user = userRepository.findByEmail(username);
+        if (user == null) {
+            throw new UsernameNotFoundException(...);
+        }
+
+        return new CustomUserDetails(user);
+    }
+    ```
 
 
 

@@ -293,6 +293,8 @@ Thanks for your reading.
 
 Refer:
 
+[https://dzone.com/articles/spring-31-caching-and-0](https://dzone.com/articles/spring-31-caching-and-0)
+
 [https://doanduyhai.wordpress.com/2012/07/01/cache-abstraction-in-spring-3/](https://doanduyhai.wordpress.com/2012/07/01/cache-abstraction-in-spring-3/)
 
 [https://javabeat.net/enablecaching-spring/](https://javabeat.net/enablecaching-spring/)

@@ -509,39 +509,6 @@ protected Authentication createSuccessAuthentication(Object principal,
 
 ## Recap
 - Understanding about mechanism of Spring Security will help us to customize the authentication and authorization to follow our thought.
-- Custom Authentication
-    
-     ```UserDetails``` class and ```User``` class.
-
-    ```java
-    public interface UserDetails extends Serializable {
-        Collection<? extends GrandtedAuthority> getAuthorities();
-        String getPassword();
-        String getUsername();
-        boolean isAccountNonExpired();
-        boolean isAccountNonLocked();
-        boolean isCredentialsNonExpired();
-        boolean isEnabled();
-    }
-
-    @Entity
-    public class User implements Serializable {
-        @Id
-        @GeneratedValue(strategy = GenerationType.AUTO)
-        private Long id;
-        private String firstName;
-        private String lastName;
-        private String email;
-        private String password;
-        ...
-    }
-    ```
-
-    Based on ```UserDetails``` class and ```User``` class, we can custom authentication.
-
-    ```java
-    public class CustomUserDetials extends User
-    ```
 
 
 <br>
