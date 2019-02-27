@@ -259,7 +259,7 @@ Thanks for your reading.
 
 Refer:
 
-[https://www.messycola.com/new-blog/2017/5/24/part-vi-integrating-spring-security-with-spring-boot]
+[https://www.messycola.com/new-blog/2017/5/24/part-vi-integrating-spring-security-with-spring-boot](https://www.messycola.com/new-blog/2017/5/24/part-vi-integrating-spring-security-with-spring-boot)
 
 [https://www.concretepage.com/spring-boot/spring-boot-mvc-security-custom-login-and-logout-thymeleaf-csrf-mysql-database-jpa-hibernate-example](https://www.concretepage.com/spring-boot/spring-boot-mvc-security-custom-login-and-logout-thymeleaf-csrf-mysql-database-jpa-hibernate-example)
 
