@@ -1,7 +1,7 @@
 ---
 layout: post
 title: The architecture of Angular
-bigimg: /img/path.jpg
+bigimg: /img/image-header/ravashing-beach.jpg
 tags: [front-end, angular]
 ---
 

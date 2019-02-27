@@ -1,7 +1,7 @@
 ---
 layout: post
 title: Some common problems and avoid them in BEM/CSS
-bigimg: /img/path.jpg
+bigimg: /img/image-header/ravashing-beach.jpg
 tags: [front-end]
 ---
 

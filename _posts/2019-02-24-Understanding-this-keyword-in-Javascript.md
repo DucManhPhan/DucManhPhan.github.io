@@ -1,7 +1,7 @@
 ---
 layout: post
 title: Understanding this keyword in Javascript
-bigimg: /img/path.jpg
+bigimg: /img/image-header/ravashing-beach.jpg
 tags: [front-end]
 ---
 

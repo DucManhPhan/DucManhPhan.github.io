@@ -1,7 +1,7 @@
 ---
 layout: post
 title: Chain of Responsibility pattern
-bigimg: /img/path.jpg
-tags: [design pattern]
+bigimg: /img/image-header/ravashing-beach.jpg
+tags: [behaviral pattern, design pattern]
 ---
 
