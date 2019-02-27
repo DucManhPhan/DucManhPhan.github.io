@@ -113,3 +113,11 @@ and unless you explicitly set these attributes, the login.jsp will not execute t
 immense /ɪ'mens/ (adj) -  enormous - giant - gigantic - great - huge - large - mammoth - monumental - stupendous - vast: unusually great in size or amount or degree or especially extent or scope.
 Ex: Listing all components in one file quickly lead to an immense and unmanageable system.
 
+
+sanitize /'sænɪtaɪz/ - enhance - improve
+Ex: One of your colleagues suggested that it’s unsafe to pass raw data straight to the ordering system. 
+So you added an extra validation step to sanitize the data in a request.
+
+
+ascertain /æsə'teɪn/ - determine - clear up - find out
+Ex: We must ascertain what this situation is difficult.
