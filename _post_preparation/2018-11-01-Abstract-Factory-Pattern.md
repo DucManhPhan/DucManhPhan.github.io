@@ -10,7 +10,7 @@ tags: [creational pattern, design pattern]
 ## Table of contents
 - [Given Problem](#given-problem)
 - [Analysis Problem](#analysis-problem)
-- [Definition of Chain of Responsiblity Pattern](#definition-of-chain-fo-repsonsibility-pattern)
+- [Definition of Abstract factory Pattern](#definition-of-abstract-factory-pattern)
 - [When to use](#when-to-use)
 - [Benefits & Drawback](#benefits-&-drawback)
 - [Code C++ /Java / Javascript](#code-c++-java-javascript)
@@ -32,7 +32,7 @@ tags: [creational pattern, design pattern]
 
 <br>
 
-## Definition of Chain of Responsiblity Pattern
+## Definition of Abstract factory Pattern
 
 
 

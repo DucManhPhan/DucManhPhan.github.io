@@ -73,7 +73,7 @@ Note: A request no handled at all by any handler is a valid use case.
     - It can deep stack traces, which can affect performance. 
     - It can lead to duplicate code across handlers, increasing maintance.
     - it many not be easy to observe the characteristic of operation, due to debug.
-
+	- the number of operations when a new handler is added into the pipeline. We need to break an existing next or successor/predecessor link, insert the new handler, then relink it to the chain. It is very similar to a linked list. If a successor link is a badly set accidently, the whole chain is broken.
 
 <br>
 
