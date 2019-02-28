@@ -27,7 +27,7 @@ In ```Chain of Responsibility``` pattern, when we have a new handler, 3 operatio
 - relinking the new handler with its successor
 - relinking the existing predecessor to the new handler
 
-So, in some applications, these operations is quite error-prone indeed.
+So, in some applications, these operations are quite error-prone indeed.
 
 Then, ```Pipeline``` pattern was born to solve this problem.
 

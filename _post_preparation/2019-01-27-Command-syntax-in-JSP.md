@@ -16,3 +16,4 @@ Refer:
 
 [https://o7planning.org/vi/10263/huong-dan-lap-trinh-java-jsp](https://o7planning.org/vi/10263/huong-dan-lap-trinh-java-jsp)
 
+[https://beginnersbook.com/2013/05/jsp-tutorial-introduction/](https://beginnersbook.com/2013/05/jsp-tutorial-introduction/)

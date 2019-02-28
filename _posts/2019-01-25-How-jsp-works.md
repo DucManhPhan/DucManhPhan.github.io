@@ -64,6 +64,8 @@ Refer:
 
 **Need to read**
 
+[https://beginnersbook.com/2013/05/jsp-tutorial-life-cycle/](https://beginnersbook.com/2013/05/jsp-tutorial-life-cycle/)
+
 [https://www.buggybread.com/2014/05/j2ee-jsp-java-server-pages.html](https://www.buggybread.com/2014/05/j2ee-jsp-java-server-pages.html)
 
 [http://mrbool.com/working-with-java-server-pages-jsp/29048](http://mrbool.com/working-with-java-server-pages-jsp/29048)
