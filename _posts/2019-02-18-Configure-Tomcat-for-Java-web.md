@@ -156,6 +156,4 @@ Refer:
 
 [https://o7planning.org/vi/11583/cai-dat-va-cau-hinh-tomcat-server](https://o7planning.org/vi/11583/cai-dat-va-cau-hinh-tomcat-server)
 
-[https://examples.javacodegeeks.com/enterprise-java/tomcat/tomcat-server-xml-configuration-example/](https://examples.javacodegeeks.com/enterprise-java/tomcat/tomcat-server-xml-configuration-example/)
-
 [https://crunchify.com/tomcat-starts-but-home-page-does-not-open-on-browser-with-url-http-localhost8080/](https://crunchify.com/tomcat-starts-but-home-page-does-not-open-on-browser-with-url-http-localhost8080/)

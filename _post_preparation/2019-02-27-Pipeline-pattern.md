@@ -85,3 +85,6 @@ Refer:
 [https://matthewdaly.co.uk/blog/2018/10/05/understanding-the-pipeline-pattern/](https://matthewdaly.co.uk/blog/2018/10/05/understanding-the-pipeline-pattern/)
 
 [http://ipcc.cs.uoregon.edu/lectures/lecture-10-pipeline.pdf](http://ipcc.cs.uoregon.edu/lectures/lecture-10-pipeline.pdf)
+
+[https://stackoverflow.com/questions/39947155/pipeline-design-pattern-implementation](https://stackoverflow.com/questions/39947155/pipeline-design-pattern-implementation)
+
