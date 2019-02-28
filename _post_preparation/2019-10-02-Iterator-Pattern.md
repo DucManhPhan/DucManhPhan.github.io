@@ -1,6 +1,6 @@
 ---
 layout: post
-title: Strategy Pattern
+title: Iterator Pattern
 bigimg: /img/path.jpg
 tags: [behavioral pattern, design pattern]
 ---
@@ -9,7 +9,7 @@ tags: [behavioral pattern, design pattern]
 
 ## Table of contents
 - [Given Problem](#given-problem)
-- [Solution of Strategy Pattern](#solution-of-strategy-pattern)
+- [Solution of Iterator Pattern](#solution-of-iterator-pattern)
 - [When to use](#when-to-use)
 - [Benefits & Drawback](#benefits-&-drawback)
 - [Code C++ /Java / Javascript](#code-c++-java-javascript)
@@ -25,7 +25,7 @@ tags: [behavioral pattern, design pattern]
 
 <br>
 
-## Solution of Strategy Pattern
+## Solution of Iterator Pattern
 
 
 

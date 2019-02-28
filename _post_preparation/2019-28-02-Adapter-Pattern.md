@@ -1,15 +1,15 @@
 ---
 layout: post
-title: Strategy Pattern
+title: Adapter Pattern
 bigimg: /img/path.jpg
-tags: [behavioral pattern, design pattern]
+tags: [structural pattern, design pattern]
 ---
 
 <br>
 
 ## Table of contents
 - [Given Problem](#given-problem)
-- [Solution of Strategy Pattern](#solution-of-strategy-pattern)
+- [Solution of Adapter Pattern](#solution-of-adapter-pattern)
 - [When to use](#when-to-use)
 - [Benefits & Drawback](#benefits-&-drawback)
 - [Code C++ /Java / Javascript](#code-c++-java-javascript)
@@ -25,7 +25,7 @@ tags: [behavioral pattern, design pattern]
 
 <br>
 
-## Solution of Strategy Pattern
+## Solution of Adapter Pattern
 
 
 

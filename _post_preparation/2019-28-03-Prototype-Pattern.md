@@ -1,15 +1,15 @@
 ---
 layout: post
-title: Strategy Pattern
+title: Prototype Pattern
 bigimg: /img/path.jpg
-tags: [behavioral pattern, design pattern]
+tags: [creational pattern, design pattern]
 ---
 
 <br>
 
 ## Table of contents
 - [Given Problem](#given-problem)
-- [Solution of Strategy Pattern](#solution-of-strategy-pattern)
+- [Solution of Prototype Pattern](#solution-of-prototype-pattern)
 - [When to use](#when-to-use)
 - [Benefits & Drawback](#benefits-&-drawback)
 - [Code C++ /Java / Javascript](#code-c++-java-javascript)
@@ -25,7 +25,7 @@ tags: [behavioral pattern, design pattern]
 
 <br>
 
-## Solution of Strategy Pattern
+## Solution of Prototype Pattern
 
 
 
