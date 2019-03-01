@@ -62,6 +62,10 @@ In this article, we will find out about the structure of Spring MVC and how Spri
 
 Refer:
 
+[https://justforchangesake.wordpress.com/2014/05/07/spring-mvc-request-life-cycle/](https://justforchangesake.wordpress.com/2014/05/07/spring-mvc-request-life-cycle/)
+
+[https://dzone.com/articles/how-spring-mvc-really-works](https://dzone.com/articles/how-spring-mvc-really-works)
+
 [https://www.intertech.com/Blog/how-to-use-springs-webapplicationinitializer/](https://www.intertech.com/Blog/how-to-use-springs-webapplicationinitializer/)
 
 [https://docs.spring.io/spring/docs/3.0.0.M3/reference/html/ch16s02.html](https://docs.spring.io/spring/docs/3.0.0.M3/reference/html/ch16s02.html)
