@@ -91,9 +91,28 @@ In order to run our project, first of all, we need to add new server such as Res
 ## Errors with Resin when running project
 - ```javac compiler is not available in Java(TM) SE Runtime Environment 1.8.0_181-b13. Check that you are using the JDK, not the JRE.```
 
-    - Reason: Environment variable - ```JAVA_HOME``` is not configured right away. So that JDK can not be found it.
-    - Solution: For example, my installation directory is: ```D:\Program Files (x86)\Java```, there is a file for lib. After opening, check that there is indeed ```tools.jar```, then the correct environment variable ```JAVA-HOME``` configuration should be configured as ```D:\Program Files (x86)\Java```.
+    - Reason: Because in our project, we are choosing default ```Installed JREs``` is JRE 1.81. So, Eclipse or E-builder do not find javac compiler.
+    - Solution: Change the path of ```Installed JREs``` to JDK 1.81.
 
+        - Step 1: Open ```Windows``` --> ```Preferences```. Then select ```Add``` button.
+
+            ![Fix error javac compiler](../img/Java-Common/create-server-for-project/error-javac-compiler-1.png)
+
+        - Step 2: Select ```Add``` button, we have:
+
+            ![Fix error javac compiler](../img/Java-Common/create-server-for-project/error-javac-compiler-2.png)
+
+        - Step 3: Select ```Next``` button, we have:
+
+            ![Fix error javac compiler](../img/Java-Common/create-server-for-project/error-javac-compiler-3.png)
+
+            In this dialog, we type the path for JRE home is the path of JDK. Because in JDK folder, we have JRE.
+
+            Click ```Finish``` button.
+        
+        - Step 4: Check to option that has JDK.
+
+            Click ```Apply``` button --> ```OK``` button.
 <br>
 
 Refer:
