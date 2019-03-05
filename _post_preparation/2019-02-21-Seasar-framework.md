@@ -18,9 +18,7 @@ So, in this article, we will discuss about seasar framework and we have to answe
 - [Introduction to Seasar](#introduction-to-seasar)
 - [Environment and Configuration](#environment-and-configuration)
 - [Kijimuna](#kijimuna)
-- 
 - [Wrapping up](#wrapping-up)
-
 
 
 <br>
@@ -49,13 +47,15 @@ Some steps to setup for using Seasar with Eclipse:
 
     Then, we have an interesting information about this error. We can install multiple versions of both 32-bit and 64-bit Java at the same time on the same machine.
 
+    But Eclipse 3.1.1 is ver old version of this IDE. So, we think that you can use the other latest version of IDE.
+
 - Before creating project with seasar framework, we need to change our workspace folder for seasar framework. 
 
     Go to ```File``` -> ```Switch Workspace```. 
 
 - Setting up Omondo UML Eclipse plugin.
 
-
+    Because Omondo UML plugin is not suitable for some latest version of eclipse. So, we do not need to install it in our eclipse.
 
 - Setting Kijimuna Plugin installation
 
@@ -92,6 +92,21 @@ Some steps to setup for using Seasar with Eclipse:
 
     We can download ```jakarta-tomcat-5.0.26.zip.``` from this [link about Tomcat](https://archive.apache.org/dist/tomcat/tomcat-5/archive/v5.0.26-beta/bin/).
 
+    With Tomcat, we can refer to this [link](https://ducmanhphan.github.io/2019-02-18-Configure-Tomcat-for-Java-web/)
+
+- Setup external jar files for using Seasar framework
+
+    This step is the most important when we want to utilize seasar framework. Therefore, we need to remeber all jar files that is included.
+
+    To use Seasar, following jar files are required:
+    - javaassist.jar
+    - commons-logging.jar
+    - lig4j-1.2.8.jar
+    - ognl-2.6.5.jar
+    - aopalliance.jar
+    - servlet-api.jar
+    - s2-framework-2.3.0.jar
+
 <b>
 
 ## Kijimuna
@@ -107,6 +122,10 @@ It has the following features:
 - Outline
     - Display of a component tree. 
     - 
+
+
+## Some important parts in Seasar framework
+
 
 
 

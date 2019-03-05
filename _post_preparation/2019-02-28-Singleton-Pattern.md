@@ -42,7 +42,7 @@ In Singleton, there are two ways to create instance.
 - lazy-initialized - it means that this instance will be instantiate during the first call of the method ```getInstance()```.
 
 
-![Singleton Pattern with UMML](../img/design-pattern/singleton-pattern/singleton.png)
+![Singleton Pattern with UML](../img/design-pattern/singleton-pattern/singleton.png)
 
 In this UML diagram, Singleton pattern has some parts:
 - ```instance: Singleton```: Singleton class has the unique instance.
