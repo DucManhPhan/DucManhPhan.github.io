@@ -1,6 +1,6 @@
 ---
 layout: post
-title: Configure Resin in Eclipse
+title: Configure Resin in e Builder
 bigimg: /img/image-header/california.jpg
 tags: [Java]
 ---
@@ -10,14 +10,14 @@ In this article, we will discuss about how to configure Resin server into our ID
 <br>
 
 ## Table of contents
-- [Configure Resin in eclipse](#download-resin-in-eclipse)
+- [Configure Resin in e builder](#download-resin-in-e-builder)
 - [Create new Server for our project](#create-new-server-for-our-project)
 - [Errors with Resin when running project](#errors-with-resin-when-running-project)
 
 
 <br>
 
-## Configure Resin in eclipse
+## Configure Resin in e Builder
 - Download Resin 
 
     We can go to the download website of resin [http://caucho.com/products/resin/download](http://caucho.com/products/resin/download).
@@ -113,9 +113,18 @@ In order to run our project, first of all, we need to add new server such as Res
         - Step 4: Check to option that has JDK.
 
             Click ```Apply``` button --> ```OK``` button.
+
+- Note: In order to use e Builder property, we need to configure JDK and JRE that is allowed with this [link](https://www-en.intra-mart.jp/document/library/ebuilder/public/e_builder_setup_guide/texts/jre/index.html)
+
 <br>
 
 Refer:
+
+**Setting for JDK and JRE for e Builder**
+
+[https://www-en.intra-mart.jp/document/library/ebuilder/public/e_builder_setup_guide/texts/jre/index.html](https://www-en.intra-mart.jp/document/library/ebuilder/public/e_builder_setup_guide/texts/jre/index.html)
+
+<br>
 
 [https://blog.csdn.net/lifelegendc/article/details/63684433](https://blog.csdn.net/lifelegendc/article/details/63684433)
 

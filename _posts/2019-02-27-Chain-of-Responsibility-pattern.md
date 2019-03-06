@@ -50,6 +50,7 @@ The pattern chains the receiving objects together, and then passes any request m
     - the handler should be ascertained automatically.
     - we may want to issue a request to one of several objects without specifying the receiver explicitly.
     - the set of handlers that can handle a request should be specified dynamically.
+	- a scenario within you need to pass a request to one handler among a list of handlers at run-time based on certain conditions.
 
 - When not to use
     - when each request is only handled by one handler.
@@ -65,6 +66,11 @@ Note: A request no handled at all by any handler is a valid use case.
     - simplified object. The object does not need to know the chain structure.
     - enhance flexibility of object assigned duties. By changing the members within the chain or change their order, allow dynamic adding or deleting responsibility.
     - increase the request processing new class of very convenient.
+	- Unfortunately, the Chain doesn't guarantee that every command is handled, which makes the problem worse, since unhandled commands propagate through the full length of the chain, slowing down the application. One way to solve this is by checking if, at the end of the chain, the request has been handled at least once, otherwise we will have to implement handlers for all the possible requests that may appear.
+	- Broken Chain problem: Sometimes we could forget to include in the implementation of the handleRequest method the call to the successor, causing a break in the chain. The request is not sent forward from the broken link and so it ends up unhandled. However,  A variation of the pattern can be made to send the request to all the handlers by removing the condition from the handler and always calling the successor. e.g. moving the code to traverse the chain into the base class keeping the request handling in a different method in the subclasses.
+	- As with the Observer pattern, Chain of Responsibility can make it difficult to follow through the logic of a particular path in the code at runtime.
+	- If new operations need to be added to the Handler, modifying the source code is required.
+	- Do not use Chain of Responsibility when each request is only handled by one handler, or, when the client object knows which service object should handle the request.
 
 - Drawback
     - Mostly, it can get broken easily
@@ -230,6 +236,12 @@ Handler with 0 is called: 0
 
     The CoR handlers can execute arbitrary operations independently of each other. They can also stop passing the request further at any point. On the other hand, various Decorators can extend the object’s behavior while keeping it consistent with the base interface. In addition, decorators aren’t allowed to break the flow of the request.
 
+- **Chain of Responsibility**, **Command**, **Mediator**, and **Observer**, address how you can decouple senders and receivers, but with different trade-offs. **Chain of Responsibility** passes a sender request along a chain of potential receivers.
+
+- **Chain of Responsibility** can use **Command** to represent requests as objects.
+
+- **Chain of Responsibility** is often applied in conjunction with **Composite**. There, a component’s parent can act as its successor.
+
 
 <br>
 
@@ -252,6 +264,16 @@ Handler with 0 is called: 0
 
     For example let’s say a request is placed for the purchase of a new keyboard for an office. The value of the purchase is not that big, so the request is sent from the head of the office to the head of the department and then to the materials department where it stops, being handled locally. But if equipment for the whole department is needed then the request goes form the head of the department, to materials department, to the purchase office and even to the manager if the value is too big.
 
+- Example 3
+
+	In Windows system, this pattern is used to handle events generated from the keyboard or mouse. 
+
+	Exception handling system also implement this pattern with the runtime checking if a handler is provided for the exeception through the call stack. If no handler is defined, the exeception will cause a crash in the program, as it is unhandled.
+
+	.NET framework implements COR pattern for HttpModule.
+
+	In JavaEE, the concept of Servlet filters implements the COR pattern, and may also decorate the request to add extra information before the request is handled by a servlet.
+
 <br>
 
 Thanks for your reading.
@@ -269,3 +291,5 @@ Refer:
 [https://www.oodesign.com/chain-of-responsibility-pattern.html](https://www.oodesign.com/chain-of-responsibility-pattern.html)
 
 [https://www.geeksforgeeks.org/chain-responsibility-design-pattern/](https://www.geeksforgeeks.org/chain-responsibility-design-pattern/)
+
+[https://www.hojjatk.com/2012/11/chain-of-responsibility-pipeline-design.html](https://www.hojjatk.com/2012/11/chain-of-responsibility-pipeline-design.html)

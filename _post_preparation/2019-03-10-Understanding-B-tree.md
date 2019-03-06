@@ -1,7 +1,7 @@
 ---
 layout: post
 title: Understanding B tree
-bigimg: /img/image-header-ravashing-beach.jpg
+bigimg: /img/image-header/ravashing-beach.jpg
 tags: [data structure]
 ---
 

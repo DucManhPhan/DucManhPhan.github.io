@@ -10,3 +10,9 @@ tags: [javascript]
 
 
 # 
+
+
+Refer:
+
+[https://github.com/getify/You-Dont-Know-JS/blob/master/async%20%26%20performance/ch1.md](https://github.com/getify/You-Dont-Know-JS/blob/master/async%20%26%20performance/ch1.md)
+
