@@ -12,17 +12,16 @@ In this article, we will find out about DAO pattern, some interesting informatio
 <br>
 
 ## Table of Contents
-- [Introduction to DAO pattern](#introduction-to-dao-pattern)
-- [Diagram of DAO pattern](#diagram-of-dao-pattern)
+- [Given Problem](#given-problem)
+- [Solution with DAO pattern](#solution-with-dao-pattern)
 - [When to use DAO pattern](#when-to-use-dao-pattern)
-- [Cases used DAO pattern](#cases-used-dao-pattern)
+- [The advantages / disadvantages](#the-advantages-/-disadvantages)
+- [Source code C++ / Java / Javascript](#source-code-c++-/-java-/-javascript)
 - [Wrapping up](#wrapping-up)
 
 <br>
 
-## Introduction to DAO pattern
-The DAO pattern is a structural pattern that allow us to isolate the application/business layer from the persistence layer (usually a relational database, but it could be any other persistence mechanism)using an abstract API.
-
+## Given Problem
 
 
 
@@ -30,7 +29,10 @@ The DAO pattern is a structural pattern that allow us to isolate the application
 
 <br>
 
-## Diagram of DAO pattern
+## Solution with DAO pattern
+The DAO pattern is a structural pattern that allow us to isolate the application/business layer from the persistence layer (usually a relational database, but it could be any other persistence mechanism) using an abstract API.
+
+
 
 
 
@@ -44,7 +46,15 @@ The DAO pattern is a structural pattern that allow us to isolate the application
 
 <br>
 
-## Cases used DAO pattern
+## The advantages / disadvantages
+
+
+
+
+<br>
+
+## Source code C++ / Java / Javascript
+
 
 
 

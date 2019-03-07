@@ -12,8 +12,8 @@ In this article, we will discuss about how to configure Resin server into our ID
 ## Table of contents
 - [Configure Resin in e builder](#download-resin-in-e-builder)
 - [Create new Server for our project](#create-new-server-for-our-project)
+- [Deploy WAR file with Resin](#deploy-war-file-with-resin)
 - [Errors with Resin when running project](#errors-with-resin-when-running-project)
-
 
 <br>
 
@@ -85,6 +85,27 @@ In order to run our project, first of all, we need to add new server such as Res
     ![Add project under Server](../img/Java-Common/create-server-for-project/add-server-to-project-4.png)
 
 - Click ```Finish``` button.
+
+<br>
+
+## Deploy WAR file with Resin 
+In eclipse or e Builder IDE, we have to make an WAR file that is created by IM Juggling.
+
+In case of Windows:
+- Open Command Prompt.
+- Type commands
+
+    ```
+    cd <%RESIN_HOME%>
+    resin deploy WAR_FILE_PATH
+    ```
+
+In case of Linux:
+
+```
+# <%RESIN_HOME%>/bin/resinctl deploy any directory path/war file name
+```
+
 
 <br>
 

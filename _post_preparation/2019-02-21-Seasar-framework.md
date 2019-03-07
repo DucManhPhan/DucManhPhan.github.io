@@ -151,3 +151,5 @@ Refer:
 [http://s2container.seasar.org/2.3/en/DIContainer.html](http://s2container.seasar.org/2.3/en/DIContainer.html)
 
 [http://www.seasar.org/en/tutorial/eclipse/kijimuna/index.html](http://www.seasar.org/en/tutorial/eclipse/kijimuna/index.html)
+
+[http://itref.fc2web.com/java/seasar/](http://itref.fc2web.com/java/seasar/)

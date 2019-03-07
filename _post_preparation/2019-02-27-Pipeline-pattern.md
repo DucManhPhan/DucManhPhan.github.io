@@ -57,6 +57,9 @@ Then, we will go to the definition and characteristic of pipeline:
 ## When to use
 - Commonly used in scenarios where we need to execute the asynchronous tasks in sequence.
 
+- The Pipeline pattern is very useful in parallel design when we can didive an application up into series of tasks to be performed in such a way that each task can run concurrently with other tasks. It is important that the output of each task is in the same order as the input.
+
+    If the order does not matter, then a parallel loop can be performed. When the order matters and we do not want to wait until all items have complete task A before the items start executing task B, then a Pipeline implementation is perfect.
 
 <br>
 
