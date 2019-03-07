@@ -83,14 +83,36 @@ When having problems, it takes so much time to resolve them. So, in this article
 
 - Solution
 
-    ```
-    git filter-branch -f --index-filter 'git rm --cached --ignore-unmatch pi/data/node-login.0'
+    - First way: 
 
-    git filter-branch -f --index-filter 'git rm --cached --ignore-unmatch pi/data/node-login.1'
+        ```
+        git filter-branch -f --index-filter 'git rm --cached --ignore-unmatch pi/data/node-login.0'
 
-    git filter-branch -f --index-filter 'git rm --cached --ignore-unmatch pi/data/local.0'
-    ```
+        git filter-branch -f --index-filter 'git rm --cached --ignore-unmatch pi/data/node-login.1'
 
+        git filter-branch -f --index-filter 'git rm --cached --ignore-unmatch pi/data/local.0'
+        ```
+
+    - Second way:
+
+        ```
+        git filter-branch -f --index-filter "git rm -rf --cached --ignore-unmatch FOLDERNAME" -- --all
+        ```
+
+        replace FOLDERNAME with the file or folder we wish to remove from the given git repository.
+
+    - Third way:
+
+        ```
+        git rm --cached name_of_a_giant_file
+        git rm --cached name_of_another_giant_file
+        git commit --amend -CHEAD
+        git push
+        ```
+
+    - Fourth way:
+
+        Use [BFG Repo Cleaner](https://rtyley.github.io/bfg-repo-cleaner/)
 
 <br>
 
