@@ -76,6 +76,22 @@ When having problems, it takes so much time to resolve them. So, in this article
     git pull
     ```
 
+## The file exceeds Github's file size limit of 100.00 MB
+- Problem:
+    
+    When we want to push a big file with size that is larger than 100.00 MB.
+
+- Solution
+
+    ```
+    git filter-branch -f --index-filter 'git rm --cached --ignore-unmatch pi/data/node-login.0'
+
+    git filter-branch -f --index-filter 'git rm --cached --ignore-unmatch pi/data/node-login.1'
+
+    git filter-branch -f --index-filter 'git rm --cached --ignore-unmatch pi/data/local.0'
+    ```
+
+
 <br>
 
 ## Wrapping up
