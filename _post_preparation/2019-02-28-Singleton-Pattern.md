@@ -62,7 +62,7 @@ In this UML diagram, Singleton pattern has some parts:
 <br>
 
 ## Why not to use
-- Singleton hides the dependencies between classes  instead of exposing them through the interface. This means we need to read the code of each method to know if a class is using another class.
+- Singleton hides the dependencies between classes instead of exposing them through the interface. This means we need to read the code of each method to know if a class is using another class.
 
 - Singleton violates the ```Single Responsibility Principle```, they control their own creation and lifecycle (using lazy initialization, the Singleton chose when it is created). A class should only focus on what it is used to do.
 
@@ -74,11 +74,19 @@ In this UML diagram, Singleton pattern has some parts:
     - It makes unit testing difficult since we can end up with a situation where tests need to be ordered which is a piece of nonsence. By definition, each unit test should be independent from each other. 
     - Moreover, it makes the code less predictable. 
 
+- We should not use singleton for sharing variables / data between different objects since it produces a very tight coupling.
+
+To replace the usage of Singleton, we can [use a single instance](#replace-singleton-pattern-with-single-instance).
 
 <br>
 
 ## Benefits & Drawback
+- Benefits
 
+
+
+
+- Drawback
 
 
 <br>
@@ -93,6 +101,43 @@ In this UML diagram, Singleton pattern has some parts:
 <br>
 
 ## Code C++ /Java / Javascript
+- C++
+
+    Version 1:
+
+    ```C++
+    class Singleton 
+    {
+    public:
+        static Singleton& getInstance() 
+        {
+            static Singleton instance;
+
+            return instance;
+        }
+
+    }
+    ```
+
+
+<br>
+
+## Relations with other Patterns
+
+
+
+
+
+<br>
+
+## Some thoughts about Singleton
+- In defense of Singleton:
+    - **They are not as bad as globals** because globals have no standard-enforced initialization order, and you could easily see non-deterministic bugs due to naive or unexpected dependency orders. Singleton (assuming they're allocated on the heap) are created after all globals, and in a very predictable place in the code.
+
+    - **They're very useful for resource-lazy / -caching systems** such as an interface to a slow I/O device. If you intelligently build a singleton interface to a slow device, and no one ever calls it, you won't waste any time. If another piece of code calls it from multiple places, your singleton can optimize caching for both simultaneously, and avoid any double look-ups. You can also easily avoid any deadlock condition on the singleton-controlled resource.
+
+- Against singletons:
+    - **In C++, there's no nice way to auto-clean-up after singletons.** There are work-arounds, and slightly hacky ways to do it, but there's just no simple, universal way to make sure your singleton's destructor is always called. This isn't so terrible memory-wise -- just think of it as more global variables, for this purpose. But it can be bad if your singleton allocates other resources (e.g. locks some files) and doesn't release them.
 
 
 
@@ -105,8 +150,12 @@ In this UML diagram, Singleton pattern has some parts:
 <br>
 
 ## Wrapping up
-
-
+- Writing a Singleton is easier than writing a single instance using Dependency Injection.
+- For a quick and dirty solution, we should use a Singleton. For a long and durable solution, we should use a single instance.
+- Singleton pattern has two important properties:
+    - single instance
+    - global access
+- 
 
 
 
@@ -117,3 +166,13 @@ Thanks for your reading.
 <br>
 
 Refer: 
+
+[https://stackoverflow.com/questions/11831/singletons-good-design-or-a-crutch](https://stackoverflow.com/questions/11831/singletons-good-design-or-a-crutch)
+
+[https://testing.googleblog.com/2008/08/by-miko-hevery-so-you-join-new-project.html](https://testing.googleblog.com/2008/08/by-miko-hevery-so-you-join-new-project.html)
+
+[https://testing.googleblog.com/2008/08/where-have-all-singletons-gone.html](https://testing.googleblog.com/2008/08/where-have-all-singletons-gone.html)
+
+[https://testing.googleblog.com/2008/08/root-cause-of-singletons.html](https://testing.googleblog.com/2008/08/root-cause-of-singletons.html)
+
+[http://www.drdobbs.com/cpp/c-and-the-perils-of-double-checked-locki/184405726](http://www.drdobbs.com/cpp/c-and-the-perils-of-double-checked-locki/184405726)
