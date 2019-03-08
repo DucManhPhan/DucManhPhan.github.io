@@ -6,6 +6,27 @@ tags: [front-end]
 ---
 
 
+<br>
+
+## Table of contents
+
+
+
+
+<br>
+
+## Introduction to ES6
+ECMAScript 6 is also known as ES6 and ECMAScript 2015.
+
+Some new features in ES6 are:
+- ```let```
+- ```const```
+- Exponentiation (**)
+- Default parameter values
+- ```Array.find()```
+- ```Array.findIndex()```
+
+<br>
 
 Refer:
 
