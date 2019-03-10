@@ -1,7 +1,7 @@
 ---
 layout: post
 title: Routing in Angular
-bigimg: /img/path.jpg
+bigimg: /img/image-header/california.jpg
 tags: [Angular]
 ---
 
