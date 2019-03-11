@@ -1,7 +1,7 @@
 ---
 layout: post
 title: Seasar framework
-bigimg: /img/path.jpg
+bigimg: /img/image-header/ravashing-beach.jpg
 tags: [java]
 ---
 
@@ -18,13 +18,16 @@ So, in this article, we will discuss about seasar framework and we have to answe
 - [Introduction to Seasar](#introduction-to-seasar)
 - [Environment and Configuration](#environment-and-configuration)
 - [Kijimuna](#kijimuna)
-- [Wrapping up](#wrapping-up)
-
+- [Some important parts in Seasar framework](#some-important-parts-in-seasar-framework)
 
 <br>
 
 ## Introduction to Seasar
+Seasar2 is an open-source application framework similar to the Spring framework (Java). Initially, it was developed for the Java platform by Yasuo Higa, but .NET and PHP platforms are currently supported as well. Seasar2 has a large base of Japanese users, but there is a steady increase of non-Japanese user since English support was annouced at the JavaOne 2005 Tokyo conference.
 
+Seasar2 is currently supported by the Seasar Foundation, a non-profit open source organization. 
+
+The main difference with other frameworks is the support of the concept "Convention over Configuration" to reduce the XML configuration prominent when using framework such as Spring. The aim is to reduce the number or eliminate configuration files by making developers conform to programming and configuration conventions and letting the framework do the work. For example, if a property type is an interface and there is an object that implements this interface, dependency is configured by the container. If the test method name ends with a "Tx", a transaction is initiated before the unit test and rolledback after the test. 
 
 
 <br>
@@ -121,18 +124,20 @@ It has the following features:
 
 - Outline
     - Display of a component tree. 
-    - 
-
-
-## Some important parts in Seasar framework
-
-
-
 
 <br>
 
-## Wrapping up
+## Some important parts in Seasar framework
+Seasar2 support of other open source software are prefixed with S2. Like most open source software, Seasar2 software may be divided into 3 major categories:
+- Seasar2 core
+- Related software
+- Sandbox software - software still under development
 
+Related software may further be subdivided into the following subdivision:
+- Database related: S2DAO, S2Hibernate, S2Unit(JUnit)
+- Presentation: S2JSF, S2Struts, S2Tapestry, Flash player
+- Communication related: S2RMI, S2Axis
+- Miscellaneous: Kijimuna
 
 
 
