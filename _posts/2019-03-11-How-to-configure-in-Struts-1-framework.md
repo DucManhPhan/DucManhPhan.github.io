@@ -236,6 +236,10 @@ The ```type``` attribute of the ```<form-bean>``` is used to enter FQCN of the b
 
 Refer:
 
+**Configure struts-config.xml**
+
+[https://en.wikibooks.org/wiki/Java_Programming/Struts](https://en.wikibooks.org/wiki/Java_Programming/Struts)
+
 [https://www.codejava.net/frameworks/struts/how-to-configure-struts-framework-in-webxml](https://www.codejava.net/frameworks/struts/how-to-configure-struts-framework-in-webxml)
 
 [https://www.java-samples.com/showtutorial.php?tutorialid=576](https://www.java-samples.com/showtutorial.php?tutorialid=576)

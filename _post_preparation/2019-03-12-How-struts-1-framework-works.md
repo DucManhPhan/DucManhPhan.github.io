@@ -81,7 +81,12 @@ In the ```process()``` method, **ActionServlet** invokes ```process()``` method 
 
 - ModuleConfig
 
+    ModuleConfig contains the content of ```struts-config.xml``` file. It contains all ```ActionForm```, ```Action```, ```ActionForward```, ```ActionMapping``` class names.
 
+    Whenever client request comes, ```ActionServlet``` sends request to ```RequestProcessor```, ```RequestProcessor``` uses ```ModuleConfig``` object to find out the ```ActionForm``` and ```Action``` class names of the requested action path uri.
+
+    Some important methods are:
+    -   
 
 <br>
 

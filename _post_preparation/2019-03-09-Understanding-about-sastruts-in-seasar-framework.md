@@ -12,7 +12,7 @@ And then, we will discuss about ```Prject structure```, ```Architecture``` of SA
 <br>
 
 ## Table of contents
-
+- [Project structure](#project-structure)
 
 
 
@@ -48,15 +48,15 @@ In SAStruts project, some folders that we need to follow these paths:
 SAStruts gets the path of the JSP file from the Webapp root as the base point, the path of the Java file from the ```Main Java Source Path``` as the base point, and the root package name as the base point from the convention.dicon path. WebServer, context is the base point of the URL accessed by the View.
 
 Continously, we have something. 
-- ```Actions``` are stored in the root package .action. For example, the action class corresponding to the URL of ```http: // host name / project name / xxx /``` should be named XxxAction.
+- ```Actions``` are stored in the root package ```.action```. For example, the action class corresponding to the URL of ```http: // host name / project name / xxx /``` should be named XxxAction.
 
-- The ```action form``` is stored in the root package .form. For example, the action form used in XxxAction should be named XxxForm. The role of the action form is to manage the parameters of the request.
+- The ```action form``` is stored in the root package ```.form```. For example, the action form used in XxxAction should be named XxxForm. The role of the action form is to manage the parameters of the request.
 
-- ```Entities``` are stored in the root package .entity. An entity is data that is persisted to a database. The name of the entity can be any name, but usually it will match the name of the table.
+- ```Entities``` are stored in the root package ```.entity```. An entity is data that is persisted to a database. The name of the entity can be any name, but usually it will match the name of the table.
 
 - A class that stores operations on entities is called a ```service```. The service is stored in the root package .service. The name should end with Service like XxxService. Xxx can specify an arbitrary name, but usually it will be an entity name.
 
-- Utilities are stored in the root package .util. We can put the class name freely. Utility classes usually consist of static methods.
+- Utilities are stored in the root package ```.util```. We can put the class name freely. Utility classes usually consist of static methods.
 
 - Store the JSP in the directory corresponding to the action . For example, JSP used in XxxAction should be stored in / xxx /. 
 
