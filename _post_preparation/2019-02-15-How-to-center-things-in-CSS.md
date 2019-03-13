@@ -75,6 +75,12 @@ We can use line-height and height properties for this problem. Our code will hav
 
 <br>
 
+## Centering object with html, css
+
+
+
+<br>
+
 ## Wrapping up
 
 

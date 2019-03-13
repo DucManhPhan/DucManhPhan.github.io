@@ -34,24 +34,3 @@ Thanks for your reading.
 Refer: 
 
 [https://www.w3schools.com/cssref/css_selectors.asp](https://www.w3schools.com/cssref/css_selectors.asp)
-
-
-
-
-
-
-
-
-
-
-
-
-
-
-
-
-
-
-Refer: 
-
-
