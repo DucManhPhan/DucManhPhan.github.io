@@ -76,6 +76,22 @@ When having problems, it takes so much time to resolve them. So, in this article
     git pull
     ```
 
+<br>
+
+## Updates were rejected because the tip of your current branch is behind its remote counter part
+- Problem
+
+    When we used the command ```git push origin master```, Git commandline will show the below error:
+
+    ```
+    Updates were rejected because the tip of your current branch is behind its remote counter part.
+    ```
+
+- Solution
+
+    Use ```git pull --rebase```.
+
+
 ## The file exceeds Github's file size limit of 100.00 MB
 - Problem:
     
@@ -86,17 +102,30 @@ When having problems, it takes so much time to resolve them. So, in this article
     - First way: 
 
         ```
-        git filter-branch -f --index-filter 'git rm --cached --ignore-unmatch pi/data/node-login.0'
-
-        git filter-branch -f --index-filter 'git rm --cached --ignore-unmatch pi/data/node-login.1'
-
-        git filter-branch -f --index-filter 'git rm --cached --ignore-unmatch pi/data/local.0'
+        git pull --rebase
+        git push -f origin master
         ```
+
+        
+
+        If you have already made some commits, you can do the following
+
+        ```git pull --rebase```
+
+        This will place all your local commits on top of newly pulled changes.
+
+        BE VERY CAREFUL WITH THIS: this will probably overwrite all your present files with the files as they are at the head of the branch in the remote repo! If this happens and you didn't want it to you can UNDO THIS CHANGE with
+
+        ```git rebase --abort```
+
+        ... naturally you have to do that before doing any new commits!
+
 
     - Second way:
 
         ```
         git filter-branch -f --index-filter "git rm -rf --cached --ignore-unmatch FOLDERNAME" -- --all
+        git push
         ```
 
         replace FOLDERNAME with the file or folder we wish to remove from the given git repository.

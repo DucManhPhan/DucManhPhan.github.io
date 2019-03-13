@@ -67,3 +67,5 @@ Continously, we have something.
 Refer:
 
 [http://s2container.seasar.org/2.4/ja/](http://s2container.seasar.org/2.4/ja/)
+
+[https://www.techscore.com/tech/Java/ApacheJakarta/Struts/index/](https://www.techscore.com/tech/Java/ApacheJakarta/Struts/index/)
