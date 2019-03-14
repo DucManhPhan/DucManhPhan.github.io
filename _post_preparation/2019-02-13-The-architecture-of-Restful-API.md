@@ -10,7 +10,7 @@ tags: [java]
 
 ## Table of contents
 - [Introduction to REST](#introduction-to-rest)
-- []()
+- [The endpoint](#the-endpoint)
 - [Wrapping up](#wrapping-up)
 
 
@@ -85,3 +85,13 @@ Refer:
 [https://en.wikipedia.org/wiki/Representational_state_transfer](https://en.wikipedia.org/wiki/Representational_state_transfer)
 
 [https://blog.cloud-elements.com/restful-architecture-101](https://blog.cloud-elements.com/restful-architecture-101)
+
+[https://dzone.com/refcardz/restful-api-lifecycle-management?chapter=1](https://dzone.com/refcardz/restful-api-lifecycle-management?chapter=1)
+
+[https://dzone.com/refcardz/rest-foundations-restful?chapter=2](https://dzone.com/refcardz/rest-foundations-restful?chapter=2)
+
+[https://dzone.com/articles/interview-rest-author-brian?fromrel=true](https://dzone.com/articles/interview-rest-author-brian?fromrel=true)
+
+[https://dzone.com/articles/restful-services-2?fromrel=true](https://dzone.com/articles/restful-services-2?fromrel=true)
+
+[https://dzone.com/articles/introduction-to-restful-web-service-a-jax-rs-speci?fromrel=true](https://dzone.com/articles/introduction-to-restful-web-service-a-jax-rs-speci?fromrel=true)
