@@ -10,7 +10,7 @@ In this article, we will discuss about how to configure Resin server into our ID
 <br>
 
 ## Table of contents
-- [Configure Resin in e builder](#download-resin-in-e-builder)
+- [Configure Resin in e builder](#configure-resin-in-e-builder)
 - [Create new Server for our project](#create-new-server-for-our-project)
 - [Deploy WAR file with Resin](#deploy-war-file-with-resin)
 - [Errors with Resin when running project](#errors-with-resin-when-running-project)

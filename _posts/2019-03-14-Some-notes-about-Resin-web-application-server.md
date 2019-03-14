@@ -10,11 +10,19 @@ In this article, we will discuss about Resin web server, simply because I have s
 <br>
 
 ## Table of contents
+- [Introduction to Resin server](#introduction-to-resin-server)
 - [Directory layout of Resin home folder](#directory-layout-of-resin-home-folder)
 - [resin-data folder layout](#resin-data-folder-layout)
 - [Understanding about app-default.xml in Resin web server](#understanding-about-app-default.xml-in-resin-web-server)
 - [Deploy web application with resin.xml](#deploy-web-application)
 - [Some errors when deploying war file in Resin server](#some-errors-when-deploying-war-file-in-resin-server)
+
+<br>
+
+## Introduction to Resin server
+Resin is a web server and Java application server from Caucho Technology. In addition to Resin (GPL), Resin Pro is available for enterprise and production environments with a license. Resin supports the Java EE standard as well as a mod_php/PHP like engine called Quercus.
+
+Although a Java-based server, key pieces of Resin's core networking are written in highly optimized C. Caucho states Java is the layer that allows Resin to be "full featured" while C provides the speed. Resin, which was released in 1999, predates Apache Tomcat, and is one of the most mature application servers and web servers.
 
 <br>
 
@@ -346,6 +354,8 @@ Refer:
 [http://accel-archives.intra-mart.jp/2014-summer/document/iap/public_en/setup/iap_setup_guide/texts/appendix/resin_deploy.html](http://accel-archives.intra-mart.jp/2014-summer/document/iap/public_en/setup/iap_setup_guide/texts/appendix/resin_deploy.html)
 
 [https://caucho.com/resin-4.0/admin/resin-directory.xtp](https://caucho.com/resin-4.0/admin/resin-directory.xtp)
+
+[https://en.wikipedia.org/wiki/Resin_(software)](https://en.wikipedia.org/wiki/Resin_(software))
 
 <br>
 
