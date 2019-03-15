@@ -66,6 +66,18 @@ Continously, we have something.
 
 Refer:
 
+[https://viblo.asia/p/tim-hieu-ve-smart-deploy-trong-seasar-yMnKMLwD57P](https://viblo.asia/p/tim-hieu-ve-smart-deploy-trong-seasar-yMnKMLwD57P)
+
+[http://s2container.seasar.org/2.4/ja/S2.4SmartDeploy.html](http://s2container.seasar.org/2.4/ja/S2.4SmartDeploy.html)
+
 [http://s2container.seasar.org/2.4/ja/](http://s2container.seasar.org/2.4/ja/)
 
 [https://www.techscore.com/tech/Java/ApacheJakarta/Struts/index/](https://www.techscore.com/tech/Java/ApacheJakarta/Struts/index/)
+
+[http://itref.fc2web.com/java/seasar/sastruts.html](http://itref.fc2web.com/java/seasar/sastruts.html)
+
+[https://kinjouj.github.io/2012/10/sastruts-3-s2jdbc.html](https://kinjouj.github.io/2012/10/sastruts-3-s2jdbc.html)
+
+**Configure file in SAStruts**
+
+[http://sastruts.seasar.org/fileReference.html#env](http://sastruts.seasar.org/fileReference.html#env)

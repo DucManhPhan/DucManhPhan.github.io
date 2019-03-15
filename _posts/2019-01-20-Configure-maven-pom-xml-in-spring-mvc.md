@@ -399,3 +399,8 @@ Refer:
 
 **Project Dependecies**
 [https://books.sonatype.com/mvnref-book/reference/pom-relationships-sect-project-dependencies.html#pom-relationships-sect-dependency-scope](https://books.sonatype.com/mvnref-book/reference/pom-relationships-sect-project-dependencies.html#pom-relationships-sect-dependency-scope)
+
+
+**Setup maven in eclipse**
+
+[https://o7planning.org/vi/10101/cai-dat-maven-vao-eclipse](https://o7planning.org/vi/10101/cai-dat-maven-vao-eclipse)
