@@ -239,8 +239,6 @@ Some key features for classes in Typescript:
 
 <br>
 
-<br>
-
 ## Wrapping up
 
 

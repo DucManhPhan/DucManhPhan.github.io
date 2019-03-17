@@ -14,6 +14,7 @@ So, in this article, we will find some common commands to manage our Angular pro
 - [Setup Angular CLI](#setup-angular-cli)
 - [Create new Angular project](#create-new-angular-project)
 - [Generate new parts](#generate-new-parts)
+- [Generting a route](#generating-a-route)
 - [Build our project](#build-our-project)
 - [Run project](#run-project)
 - [Some useful commands](#some-useful-commands)
@@ -93,6 +94,26 @@ To create a new component, we can use the following command:
 ng generate component header  
 ```
 
+The below table will describe commands that need to make our parts:
+
+|      Scaffold       |                Usage                |
+| ------------------- | ----------------------------------- |
+| Component           | ```ng g componenet my-new-componenet``` |
+| Directive           | ```ng g directive my-new-directive``` |
+| Pipe                | ```ng g pipe my-new-pipe``` |
+| Service             | ```ng g service my-new-service``` |
+| Class               | ```ng g class my-new-class``` |
+| Interface           | ```ng g interface my-new-interface``` |
+| Enum                | ```ng g enum my-new-enum``` |
+| Module              | ```ng g module my-module``` |
+
+<br>
+
+## Generting a route
+
+
+
+
 <br>
 
 ## Build our project
@@ -156,3 +177,9 @@ It will have some options:
 - ```ng config```: get/set some values of configuration.
 
 Thanks for your reading.
+
+<br>
+
+Refer:
+
+[https://www.npmjs.com/package/angular-cli#generating-components-directives-pipes-and-services](https://www.npmjs.com/package/angular-cli#generating-components-directives-pipes-and-services)
