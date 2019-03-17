@@ -68,11 +68,15 @@ There are two container classes to choose from:
 - .container-fluid class provides a full width container, spanning the entire width of the viewport.
 
 With **.container**, we have some cases: 
-- If it is the extra small devices - screen width <= 576 px, this element's width is equal to 100%.
-- If it is small devices - 768 px > screen width >= 576 px, this element will appear at the center of the screen and this element's width is equal to 576 px.
-- If it is medium devices - 992 px > screen width >= 768, this element will appear at the center of the screen and this element's width is equal to 768 px.
-- If it is large devices - 1200 px > screen width >= 992 px, this element will appear at the center of the screen and this element's width is equal to 992 px.
-- If it is xlarge devices - screen width >= 1200 px, this element will appear at the center of the screen and this element's width is equal to 1200 px.
+- If it is the extra small devices - screen width <= 576 px - means that it is **Phone**, this element's width is equal to 100%.
+
+- If it is small devices - 768 px > screen width >= 576 px - means that it is **Phone**, this element will appear at the center of the screen and this element's width is equal to 576 px.
+
+- If it is medium devices - 992 px > screen width >= 768 - means that it is **Tablet**, this element will appear at the center of the screen and this element's width is equal to 768 px.
+
+- If it is large devices - 1200 px > screen width >= 992 px - means that is is **Desktop**, this element will appear at the center of the screen and this element's width is equal to 992 px.
+
+- If it is xlarge devices - screen width >= 1200 px - means that is is **Desktop**, this element will appear at the center of the screen and this element's width is equal to 1200 px.
 
 <br>
 
