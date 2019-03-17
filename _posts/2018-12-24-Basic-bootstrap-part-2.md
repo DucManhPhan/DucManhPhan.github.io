@@ -24,9 +24,9 @@ In bootstrap 4, there are two types of menu. It includes:
 - horizontal menu
 - vertical menu
 
-To make horizontal menu, add the **.nav** class to a <ul> element, followed by **.nav-item** for each <li> and add the **.nav-link** class to their links.
+To make horizontal menu, add the **.nav** class to a \<ul\> element, followed by **.nav-item** for each \<li\> and add the **.nav-link** class to their links.
 
-To make the vertical menu, add the **.flex-column** class into the <ul> element that is behind the **.nav** class.
+To make the vertical menu, add the **.flex-column** class into the \<ul\> element that is behind the **.nav** class.
 
 Ex:
 
@@ -41,7 +41,7 @@ Ex:
 </ul> 
 ```
 
-To make the tabs, you can add the **.nav-tabs** class in <ul> element. 
+To make the tabs, you can add the **.nav-tabs** class in \<ul\> element. 
 
 <br>
 
@@ -65,7 +65,7 @@ Ex:
 ## Collapse with button and anchor
 When you want to hide the contents of the other elements, you can use **.collapse** class to set collapsable state for these elements. 
 
-To control (show/hide) the collapsible content, add the **data-toggle="collapse"** attribute to an \<a\> or a \<button\> element. Then add the **data-target="#id"** attribute to connect the button with the collapsible content (<div id="demo">).
+To control (show/hide) the collapsible content, add the **data-toggle="collapse"** attribute to an \<a\> or a \<button\> element. Then add the **data-target="#id"** attribute to connect the button with the collapsible content (\<div id="demo"\>).
 
 Ex: 
 
@@ -93,14 +93,82 @@ With anchor, we will do something like collapse with button. But replacing the *
 
 Apart from **\<a\>** element that is used with **href**, all other tags can be used with **data-target**.
 
+The Bootstrap collapse plugin requires the two elements to work properly - the controller element such as a button or hyperlink by clicking on which you want to collapse the other element, and the collapsible element itself. 
+
+- The ```data-toggle="collapse"``` attribute is added to the controller element along with a attribute ```data-target``` (for buttons) or ```href``` (for anchors) to automatically assign the control of a collapsible element.
+
+- The ```data-target``` or ```href``` attribute accepts a CSS selector to apply the collapse to a specific element. Be sure to add the class ```.collapse``` to collapsible element.
+
+- We can optionally add the class ```.in``` to the collapsible element, we can utilize the Bootstrap panel component.
+
+To gain more information about collapsing elements, we can refer to the [link](https://www.tutorialrepublic.com/twitter-bootstrap-tutorial/bootstrap-accordion.php).
+
 <br>
 
 ## Accordion
 Be simplicity, accordion contains many collapsable elements. Accordion allows showing only one collapsed element at the same time.
 
+```html
+<div id="accordion" class="panel-group">
+   <div class="panel panel-default">
+      <div class="panel-heading">
+            <h4 class="panel-title">
+               <a data-toggle="collapse" data-parent="#accordion" href="#collapseOne">1. What is HTML?</a>
+            </h4>
+      </div>
 
+      <div id="collapseOne" class="panel-collapse collapse in">
+            <div class="panel-body">
+               <p>HTML stands for HyperText Markup Language. HTML is the standard markup language for describing the structure of web pages. <a href="https://www.tutorialrepublic.com/html-tutorial/" target="_blank">Learn more.</a></p>
+            </div>
+      </div>
+   </div>
 
+   <div class="panel panel-default">
+      <div class="panel-heading">
+            <h4 class="panel-title">
+               <a data-toggle="collapse" data-parent="#accordion" href="#collapseTwo">2. What is Bootstrap?</a>
+            </h4>
+      </div>
 
+      <div id="collapseTwo" class="panel-collapse collapse in">
+            <div class="panel-body">
+               <p>Bootstrap is a sleek, intuitive, and powerful front-end framework for faster and easier web development. It is a collection of CSS and HTML conventions. <a href="https://www.tutorialrepublic.com/twitter-bootstrap-tutorial/" target="_blank">Learn more.</a></p>
+            </div>
+      </div>
+   </div>
+
+   <div class="panel panel-default">
+      <div class="panel-heading">
+            <h4 class="panel-title">
+               <a data-toggle="collapse" data-parent="#accordion" href="#collapseThree">3. What is CSS?</a>
+            </h4>
+      </div>
+
+      <div id="collapseThree" class="panel-collapse collapse">
+            <div class="panel-body">
+               <p>CSS stands for Cascading Style Sheet. CSS allows you to specify various style properties for a given HTML element such as colors, backgrounds, fonts etc. <a href="https://www.tutorialrepublic.com/css-tutorial/" target="_blank">Learn more.</a></p>
+            </div>
+      </div>
+   </div>
+</div>
+```
+
+```javascript
+$(document).ready(function(){
+   // Add minus icon for collapse element which is open by default
+   $(".collapse.in").each(function(){
+      $(this).siblings(".panel-heading").find(".glyphicon").addClass("glyphicon-minus").removeClass("glyphicon-plus");
+   });
+
+   // Toggle plus minus icon on show hide of collapse element
+   $(".collapse").on('show.bs.collapse', function(){
+      $(this).parent().find(".glyphicon").removeClass("glyphicon-plus").addClass("glyphicon-minus");
+   }).on('hide.bs.collapse', function(){
+      $(this).parent().find(".glyphicon").removeClass("glyphicon-minus").addClass("glyphicon-plus");
+   });
+});
+```
 
 <br>
 
