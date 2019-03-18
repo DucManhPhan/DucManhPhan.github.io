@@ -404,3 +404,7 @@ Refer:
 **Setup maven in eclipse**
 
 [https://o7planning.org/vi/10101/cai-dat-maven-vao-eclipse](https://o7planning.org/vi/10101/cai-dat-maven-vao-eclipse)
+
+**Create empty maven project in eclipse**
+
+[https://o7planning.org/vi/11253/tao-maven-web-app-project-rong-tren-eclipse](https://o7planning.org/vi/11253/tao-maven-web-app-project-rong-tren-eclipse)

@@ -121,3 +121,13 @@ So you added an extra validation step to sanitize the data in a request.
 
 ascertain /æsə'teɪn/ - determine - clear up - find out
 Ex: We must ascertain what this situation is difficult.
+
+
+pretend /prɪ'tend/ (vt): làm ra vẻ, giả vờ, giả đò, giả bộ, giả cách
+Sync:  act  bluff  fake  feign  make believe  sham
+
+Ex: Let's pretend that we are required to have property names in lower case with underscore, instead of camel case.
+
+
+evolve /ɪ'vɒlv/ (vt, vi): rút ra, suy luận ra; làm tiến triển; tiến triển.
+Ex: Systems evolve over time, and the functionality that they expose changes along with these evolutions. 
