@@ -9,9 +9,9 @@ tags: [Angular]
 <br>
 
 ## Table of contents
-
-
-
+- [Introduction to Routing in Angular](#introduction-to-routing-in-angular)
+- [Route](#route)
+- [RouterModule](#routermodule)
 
 <br>
 
@@ -32,13 +32,66 @@ Routing in Angular is also referred to as component routing because the Router m
 
 <br>
 
-## 
+## Route
+
+
+
+
+
+
+<br>
+
+## RouterModule
+It is used to add router directives and providers. And ```RouterModule``` can be imported multiple times: once per lazily-loaded bundle. Since the router deals with a global shared resource-location, we cannot have more than one router service active.
+
+ There are two methods in ```RouterModule```. 
+
+```javascript          
+class RouterModule {
+  static forRoot(routes: Route[], config?: ExtraOptions): ModuleWithProviders<RouterModule>
+
+  static forChild(routes: Route[]): ModuleWithProviders<RouterModule>
+}    
+```
+
+```forRoot()``` and ```forChild()``` are used to create a module with all the router providers and directives. But: 
+- ```forRoot()``` contains the router service itself and ```forRoot()``` also includes some optional parameters to set up an application listener to perform an initial navigation.
+- ```forChild()``` does not include the router service.
+
+When registered at the root, the module should be used as follows:
+
+```javascript
+@NgModule({
+  imports: [RouterModule.forRoot(ROUTES)]
+})
+class MyNgModule {}
+```
+
+For submodules and lazy loaded submodules, the module should be used as follows:
+
+```javascript
+@NgModule({
+  imports: [RouterModule.forChild(ROUTES)]
+})
+class MyNgModule {}
+```
+
+In order to understand how to use it, we can refer to this [link](https://github.com/DucManhPhan/Learn-Javascript/tree/master/src/Angular/src/use-routing-module).
+
+<br>
+
+## Some directives in RouterModule
+- RouterLink
+
+
 
 
 
 Refer:
 
 [https://www.techiediaries.com/angular-router/](https://www.techiediaries.com/angular-router/)
+
+[https://angular.io/guide/router](https://angular.io/guide/router)
 
 [https://angular.io/api/router/Route](https://angular.io/api/router/Route)
 
