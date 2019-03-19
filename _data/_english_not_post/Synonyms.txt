@@ -131,3 +131,7 @@ Ex: Let's pretend that we are required to have property names in lower case with
 
 evolve /ɪ'vɒlv/ (vt, vi): rút ra, suy luận ra; làm tiến triển; tiến triển.
 Ex: Systems evolve over time, and the functionality that they expose changes along with these evolutions. 
+
+
+insidious /ɪn'sɪdɪəs/ (adj): something that is insidious is dangerous because it seems to be harmless or not important but in fact causes harm or damage:
+the insidious effects of gossip --> am i, am tham
