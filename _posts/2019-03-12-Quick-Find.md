@@ -5,6 +5,7 @@ bigimg: /img/image-header/california.jpg
 tags: [Data structure]
 ---
 
+In this tutorial, we will find out about quick find - one of implementations in Union-Find. And understanding Quick Find has advantages and disadvantages that will make us confidence to implement.
 
 <br>
 
@@ -80,12 +81,5 @@ public class QuickFindUF {
 
 <br>
 
-## Application of Quick Find
-
-
-
-
-<br>
-
-Refer:
+Thanks for your reading.
 
