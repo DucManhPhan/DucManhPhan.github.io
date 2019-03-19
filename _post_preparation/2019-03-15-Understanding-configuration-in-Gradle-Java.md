@@ -42,6 +42,12 @@ tags: [Java]
 
 <br>
 
+## Setup Gradle Tomcat plugin
+
+
+
+<br>
+
 ## Some tasks in Gradle
 
 |          Tasks           |                        Description                    |
@@ -62,7 +68,10 @@ tags: [Java]
 <br>
 
 ## Understanding build.gradle file
+- Declaring repositories
 
+
+- Declaring dependencies
 
 
 
@@ -102,3 +111,8 @@ Refer:
 [https://www.tutorialspoint.com/gradle/gradle_eclipse_integration.htm](https://www.tutorialspoint.com/gradle/gradle_eclipse_integration.htm)
 
 [https://www.journaldev.com/7971/gradle](https://www.journaldev.com/7971/gradle)
+
+[https://docs.gradle.org/current/userguide/introduction_dependency_management.html#sub:file_dependencies](https://docs.gradle.org/current/userguide/introduction_dependency_management.html#sub:file_dependencies)
+
+[https://docs.gradle.org/current/userguide/declaring_repositories.html#declaring_repositories](https://docs.gradle.org/current/userguide/declaring_repositories.html#declaring_repositories)
+
