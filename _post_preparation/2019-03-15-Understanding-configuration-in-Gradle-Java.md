@@ -7,7 +7,7 @@ tags: [Java]
 
 <br>
 
-## 
+## Table of contents
 
 
 
@@ -42,6 +42,25 @@ tags: [Java]
 
 <br>
 
+## Some tasks in Gradle
+
+|          Tasks           |                        Description                    |
+| ------------------------ | ----------------------------------------------------- |
+| assemble                 | Assembles the outputs of this project.                |
+| build                    | Assembles and tests this project.                     |
+| buildDependents          | Assembles and tests this project and all projects that depend on it. |
+| buildNeeded              | Assembles and tests this project and all projects it depends on. |
+| classes                  | Assembles main classes. |
+| jar                      | Assembles a jar archive containing the main classes. |
+| testClasses              | Assembles test classes. |
+| war                      | Generate a war archive with all the compile classes, the web-app content and the libraries. |
+| tomcatJasper             | Runs the JSP compiler and turns JSP pages into Java sources. |
+| tomcatRun                | Uses our files and where they are and deploys them to Tomcat. |
+| tomcatRunWar             | Assembles the webapp into a war and deploys it to Tomcat. |
+| tomcatStop               | Stops Tomcat. |
+
+<br>
+
 ## Understanding build.gradle file
 
 
@@ -57,7 +76,15 @@ tags: [Java]
 
     In ```Gradle Tasks``` View, select ```build``` tasks in folder ```build```, right click --> ```Run Gradle Tasks```.
 
-    ![]()
+    ![](../img/Java-Common/gradle/build-project-gradle-task.png)
+
+<br>
+
+## Run project with Gradle
+In ```Gradle Tasks``` View, select our current project --> select ```web application``` folder --> select ```tomcatRun``` tasks --> right click --> ```Run Gradle Tasks```.
+
+![](../img/Java-Common/gradle/run-gradle-project-Tomcat.png)
+
 
 <br>
 
