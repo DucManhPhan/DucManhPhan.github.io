@@ -20,6 +20,8 @@ In this tutorial, we will discuss about Gradle to understand how to build our pr
 - [Run project with Gradle](#run-project-with-gradle)
 - [Updating claspath with the latest changes in build.gradle file](#updating-classpath-with-the-latest-changes-in-build.gradle-file)
 - [Using JQuery in build.gradle](#using-jquery-in-build.gradle)
+- [Configuring the Main class of Jar file](#configuring-the-main-class-of-jar-file)
+- [Wrapping up](#wrapping-up)
 
 <br>
 
@@ -51,7 +53,9 @@ In the next parts, we will delve into ```build.gradle``` file to understand how 
 
     Select ```Add``` button --> fill in some information:
     - Name: Buildship
-    - Location: http://download.eclipse.org/buildship/updates/e46/releases/1.0/1.0.19.v20160830-1454
+    - Location: [http://download.eclipse.org/buildship/updates/e46/releases/1.0/1.0.19.v20160830-1454](http://download.eclipse.org/buildship/updates/e46/releases/1.0/1.0.19.v20160830-1454)
+
+    ```Buildship``` is an Eclipse plugin that allows us to build application and libraries using Gradle through our IDE. The basic functionality of Buildship is well-documented.
 
     Next, we can setup Buildship in eclipse.
 
@@ -268,6 +272,34 @@ In the next parts, we will delve into ```build.gradle``` file to understand how 
 }
     ```
 
+- ```sourceSets {}```
+
+    configures the source sets of this project. A ```SourceSetContainer``` manages a set of ```SourceSet``` objects.
+
+    Refer: [SourceDirectorySet](https://docs.gradle.org/current/dsl/org.gradle.api.file.SourceDirectorySet.html)
+
+- ```dependencies {}```
+
+    configures dependencies for this project.
+
+    Refer: [DependencyHandler](https://docs.gradle.org/current/dsl/org.gradle.api.artifacts.dsl.DependencyHandler.html)
+
+    |     Configuration       |      Extends      |     Used by task    |          Description        |
+    | ----------------------- | ----------------- | ------------------- | --------------------------- |
+    | 
+
+- ```buildScript {}```
+
+    configures the build script classpath
+
+    Refer: [ScriptHandler](https://docs.gradle.org/current/javadoc/org/gradle/api/initialization/dsl/ScriptHandler.html)
+
+- ```repositories {}```
+
+    configure the repositories for this project.
+
+    Refer: [RepositoryHandler](https://docs.gradle.org/current/dsl/org.gradle.api.artifacts.dsl.RepositoryHandler.html)
+
 <br>
 
 ## How dependency resolution work
@@ -434,6 +466,8 @@ Refer:
 **Configure task build in Gradle**
 
 [https://docs.gradle.org/2.4/userguide/tutorial_using_tasks.html](https://docs.gradle.org/2.4/userguide/tutorial_using_tasks.html)
+
+[https://docs.gradle.org/current/dsl/org.gradle.api.Project.html#org.gradle.api.Project:configurations(groovy.lang.Closure)](https://docs.gradle.org/current/dsl/org.gradle.api.Project.html#org.gradle.api.Project:configurations(groovy.lang.Closure))
 
 [https://gradle.org/training/](https://gradle.org/training/)
 
