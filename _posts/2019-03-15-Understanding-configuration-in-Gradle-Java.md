@@ -286,7 +286,13 @@ In the next parts, we will delve into ```build.gradle``` file to understand how 
 
     |     Configuration       |      Extends      |     Used by task    |          Description        |
     | ----------------------- | ----------------- | ------------------- | --------------------------- |
-    | 
+    | compile                 | | compileJava | These are the dependencies needed at compile time to compile the source files. |
+    | runtime                 | compile | | These are the dependencies for runtime of the application, but are not needed for compilation. |
+    | testCompile             | compile | compileTestJava | These are all the dependencies to compile test source files. |
+    | testRuntime             | testCompile | test | These are all the dependencies needed to run the tests. |
+    | archives                |  | uploadArchives | This contains artifacts, such as JAR files created by the project. |
+    | default                 | runtime | | This is the default configuration that contains all runtime dependencies. |
+    
 
 - ```buildScript {}```
 
