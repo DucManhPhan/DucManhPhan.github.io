@@ -203,6 +203,14 @@ In the next parts, we will delve into ```build.gradle``` file to understand how 
 
 - ```apply plugin: 'java'```
 
+    When we want to create a Java project, we need to apply the [Java plugin](https://docs.gradle.org/2.4/userguide/java_plugin.html).
+
+    Below is the tasks of java plugin that need to know.
+
+    ![](../img/Java-Common/gradle/java-Plugin-Tasks.png)
+
+    So, java plugin will add new conventions such as the default project layout, ... or new tasks, and new properties to our build.
+
     Consider the case where the Maven directory structure is used for Java sources and resources. These directories are: 
     - src/main/java
     - src/main/resources
@@ -243,6 +251,21 @@ In the next parts, we will delve into ```build.gradle``` file to understand how 
     ```java
     apply plugin: 'java'
     sourceSets.main.java.srcDirs = ['src/java']
+    ```
+
+    or 
+
+    ```java
+    sourceSets {
+    main {
+        java {
+            srcDir 'src/java'
+        }
+        resources {
+            srcDir 'src/resources'
+        }
+    }
+}
     ```
 
 <br>
@@ -371,6 +394,32 @@ Eclipse does not automatically update the ```classpath```, if the ```build.gradl
         js 'jquery:jquery:3.2.1:min@js'
     }
     ```
+
+<br>
+
+## Configuring the Main class of Jar file
+The Java plugin adds a jar task to our project, and every jar object has a ```manifest``` property which is an instance of Manifest.
+
+Using ```attributes()``` method of the Manifest interface will configure the main class of the jar file.
+
+We can refer to this [link](https://docs.oracle.com/javase/tutorial/deployment/jar/manifestindex.html), to understand more deeper about configuring Manifest file.
+
+```java
+apply plugin: 'java'
+ 
+jar {
+    manifest {
+        attributes 'Main-Class': 'com.manhpd.tutorial.HelloWorld'
+    }
+}
+```
+
+<br>
+
+## Wrapping up
+- Understanding what we need to run project with Gradle.
+
+
 
 <br>
 
