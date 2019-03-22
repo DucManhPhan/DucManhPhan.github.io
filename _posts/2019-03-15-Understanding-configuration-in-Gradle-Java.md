@@ -302,7 +302,7 @@ In the next parts, we will delve into ```build.gradle``` file to understand how 
 
 - ```repositories {}```
 
-    configure the repositories for this project.
+    configure the repositories for this project.    
 
     Refer: [RepositoryHandler](https://docs.gradle.org/current/dsl/org.gradle.api.artifacts.dsl.RepositoryHandler.html)
 
