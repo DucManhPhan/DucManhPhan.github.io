@@ -75,6 +75,22 @@ CONFIG += c++11
 
 - ```QT``` - used to indicate what libraries (QT modules) are being used in our project.
 
+    The table shows the options that can be used with the Qt variable:
+
+    |              Option          |       Features         |
+    | ---------------------------- | ---------------------- |
+    | core (include by default)    | QtCore module          |
+    | gui (include by default)     | QtGui module           |
+    | network                      | QtNetwork module       |
+    | opengl                       | QtOpenGL module        |
+    | sql                          | QtSql module           |
+    | svg                          | QtSvg module           |
+    | xml                          | QtXml module           |
+    | xmlpatterns                  | QtXmlPatterns module   |
+    | qt3support                   | Qt3Support module      |
+
+    Note that adding the ```opengl``` option to the QT variable automatically causes the equivalent option to be added to the ```CONFIG``` variable. Therefore, for Qt applications, it is not necessary to add the ```opengl``` option to both ```CONFIG``` and ```QT```.
+ 
 - ```SOURCES``` - specifies the source files that implement the application. Most applications require multiple files; this situation is dealt with by listing all the files on the same line space separated.
 
     ```bat
@@ -100,6 +116,15 @@ CONFIG += c++11
 - ```HEADERS``` - specify the header files created for use by the application.
 
 - ```CONFIG``` - used to give ```qmake``` information about the application's configuration.
+
+    The ```CONFIG``` variable specifies the options and features that the compiler should use and the libraries that should be link against. Anything can be added to the ```CONFIG``` variable.
+
+    Some following options control the compiler flags that are used to build the project:
+
+    |          Option         |               Description               |
+    | ----------------------- | --------------------------------------- |
+    | release                 | The project is to be built in release mode. This is ignored if debug is also specified. |
+    | debug                   | 
 
     ```
     CONFIG += qt warn_on release
@@ -183,6 +208,12 @@ Refer:
 [https://doc.qt.io/archives/3.3/qmake-manual-3.html](https://doc.qt.io/archives/3.3/qmake-manual-3.html)
 
 [https://doc.qt.io/archives/qt-4.8/qmake-project-files.html](https://doc.qt.io/archives/qt-4.8/qmake-project-files.html)
+
+[https://doc.qt.io/archives/qt-4.8/signalsandslots.html](https://doc.qt.io/archives/qt-4.8/signalsandslots.html)
+
+[https://doc.qt.io/archives/qt-4.8/qt-widgets-calculator-example.html](https://doc.qt.io/archives/qt-4.8/qt-widgets-calculator-example.html)
+
+[https://doc.qt.io/archives/qt-4.8/qt-widgets-imageviewer-example.html](https://doc.qt.io/archives/qt-4.8/qt-widgets-imageviewer-example.html)
 
 [https://stackoverflow.com/questions/45228238/qt-5-8-msvc-2015-compile-error](https://stackoverflow.com/questions/45228238/qt-5-8-msvc-2015-compile-error)
 
