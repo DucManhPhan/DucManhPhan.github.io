@@ -62,8 +62,8 @@ SOURCES += \
         main.cpp \
         test.cpp
 
-HEADERS += main.h \
-        test.h
+HEADERS +=  main.h \
+            test.h
 
 CONFIG += qt warn_on release
 CONFIG += c++11
@@ -180,8 +180,9 @@ CONFIG += c++11
                      p,SLOT(on_action_Open_triggered()), Qt::UniqueConnection);
     ```
 
-- Creating QNetworkAccessManager in another thread
+- QObject: Cannot create children for a parent that is in a different thread. (Parent is QNetworkAccessManager(0x1c2ed984210), parent's thread is QThread(0x1c2ed9489d0), current thread is QThread(0x1c2f1c58760)
 
+    
 
 - Hide concole ```qtcreator_process_stub.exe```
 
