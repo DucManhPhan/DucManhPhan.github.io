@@ -25,8 +25,15 @@ tags: [Qt]
 ## Encoding in Qt
 Encoding standards specify how strings are represented in memory. 
 
+- Controls in Qt
 
+    All controls in Qt are enabled for 16-bit characters. That means that content of a ```QTextEdit``` is ```Unicode``` (or ```UTF-32``` / ```UCS-4```). We can refer to this [link](https://developer.nokia.com/Community/Discussion/showthread.php)
 
+    When getting the content of a ```QTextEdit``` control (via ```plainText()```), you get back a ```QString``` which contains Unicode.
+
+    From there on, you can convert to other format as you like: ```toUTF8()```, ```toUCS4()```, ...
+
+- 
 
 When we want to know about how many encoding that is supported in ```QTextCodec```, then, we will use ```QTextCodec::availableCodecs();``` to get the output:
 
