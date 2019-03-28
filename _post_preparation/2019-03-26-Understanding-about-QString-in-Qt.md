@@ -93,7 +93,7 @@ In the other article, we will discuss about ```implicit sharing``` mechanism in 
     ```
     QSettings* settings         = new QSettings(path, QSettings::IniFormat);
 
-    this->NameUser               = settings->value("NameUser").toString();
+    this->NameUser              = settings->value("NameUser").toString();
     ...
 
     ui->txtNameUser->setText(NameUser);
@@ -119,7 +119,7 @@ In the other article, we will discuss about ```implicit sharing``` mechanism in 
     QSettings* settings         = new QSettings(path, QSettings::IniFormat);
     settings->setIniCodec("UTF-8");
 
-    this->NameUser               = settings->value("NameUser").toString();
+    this->NameUser              = settings->value("NameUser").toString();
     ...
 
     ui->txtNameUser->setText(NameUser);

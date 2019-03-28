@@ -15,7 +15,24 @@ tags: [Qt]
 
 <br>
 
+## The cause that create Signal and Slot in Qt
+
+
+
+
+
+
+<br>
+
 ## Introduction to Signals and Slots
+
+
+
+
+
+<br>
+
+## How signal and slot works
 
 
 
@@ -31,6 +48,16 @@ tags: [Qt]
 
 ## Wrapping up
 
+
+
+
+
+
+<br>
+
+Thanks for your reading.
+
+<br>
 
 Refer:
 
