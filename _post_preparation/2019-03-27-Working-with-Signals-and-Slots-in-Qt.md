@@ -30,10 +30,23 @@ tags: [Qt]
 
 <br>
 
+## Connect signal and slot with different arugments
+Refer to the [link](https://stackoverflow.com/questions/7926978/how-we-can-connect-the-signals-and-slot-with-different-arguments).
+
+
+
+
+<br>
+
 ## Wrapping up
+- In Qt, signals and slots require matching argument types.
 
 
 Refer:
+
+[https://root.cern.ch/how/how-use-signalslot-communication-mechanism](https://root.cern.ch/how/how-use-signalslot-communication-mechanism)
+
+[https://woboq.com/blog/how-qt-signals-slots-work.html](https://woboq.com/blog/how-qt-signals-slots-work.html)
 
 [https://doc.qt.io/archives/qt-4.8/signalsandslots.html](https://doc.qt.io/archives/qt-4.8/signalsandslots.html)
 
