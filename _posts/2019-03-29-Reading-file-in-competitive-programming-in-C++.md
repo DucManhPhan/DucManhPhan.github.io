@@ -148,6 +148,21 @@ The below is two ways to read data:
 
 <br>
 
+## Some pitfalls of cin / cout
+- By default, cin / cout waste time synchronizing themselves with the C library's stdio buffers, so that we can freely intermix calls to scanf / printf with operations on cin / cout.
+
+    ```C++
+    std::ios_base::sync_with_stdio(false);
+    ```
+
+- Many C++ tutorials tell us to write ```std::cout << std::endl;``` instead of ```cout << "\n";```. But ```std::endl``` is actually slower because it forces a flush, which is usually unnecessary (We'd need to flush if we were writing an interactive progress bar, but not when writing a million lines of data).
+
+- There was a bug in very old versions of ```GCC``` (pre-2004) that significantly slowed down C++ ```iostreams```. Don’t use ancient compilers.
+
+Avoid these pitfalls, ```cin``` / ```cout``` will be just as fast as ```scanf``` / ```printf```. This is probably because ```scanf``` / ```printf``` need to interpret their format string argument at runtime and incur the overhead of ```varargs``` for the other arguments, while the overhead resolution for ```cin``` / ```cout``` all happens at compile time. In any case, the difference is small enough that we do not have to care either way, since almost no reasonable code performs so much input / output for that differences to matter.
+
+<br>
+
 ## Advantages of \<iostream\> over \<cstdio\>
 ==> Increase type safety, reduce errors, allow extensibility, and provide inheritability.
 
