@@ -9,8 +9,9 @@ tags: [Qt]
 <br>
 
 ## Table of contents
-
-
+- [Introduction to Signals and Slots](#introduction-to-signals-and-slots)
+- [Update UI in a different thread](#update-ui-in-a-different-thread)
+- [Wrapping up](#wrapping-up)
 
 
 <br>
