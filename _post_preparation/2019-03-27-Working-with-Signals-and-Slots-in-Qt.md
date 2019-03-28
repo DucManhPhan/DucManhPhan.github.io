@@ -44,6 +44,8 @@ Refer to the [link](https://stackoverflow.com/questions/7926978/how-we-can-conne
 
 Refer:
 
+[https://woboq.com/blog/new-signals-slots-syntax-in-qt5.html](https://woboq.com/blog/new-signals-slots-syntax-in-qt5.html)
+
 [https://root.cern.ch/how/how-use-signalslot-communication-mechanism](https://root.cern.ch/how/how-use-signalslot-communication-mechanism)
 
 [https://woboq.com/blog/how-qt-signals-slots-work.html](https://woboq.com/blog/how-qt-signals-slots-work.html)
