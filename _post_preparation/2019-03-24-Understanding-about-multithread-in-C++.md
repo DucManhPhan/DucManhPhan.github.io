@@ -12,6 +12,8 @@ tags: [C++, Multithread]
 ## Table of contents
 - [Introduction to multithread](#introduction-to-multithread)
 - [Launching a thread](#launching-a-thread)
+- [Transferring ownership of a thread](#transferring-ownership-of-a-thread)
+- [How std::thread.join() do](how-std::thread-join()-do)
 - [Wrapping up](#wrapping-up)
 
 
@@ -154,12 +156,125 @@ Before going to the concept of multithread, we will need to understand about pro
 
 We only have to make this decision before the ```std::thread``` object is destroyed - the thread itself may well have finished long before we join with it or detach it, and if we detach it, then the thread may continue running long after the ```std::thread``` object is destroyed.
 
+And we have a difference between using ```mutex``` and ```join()``` method:
+
+```
+join() stops current thread until another one finishes. mutex stops current thread until mutex owner releases it or locks right away if it isn't locked.
+```
+
 <br>
 
 ## Transferring ownership of a thread
+- Context's problem
+
+    - We want to write a function that creates a thread to run in the background but passes back ownership of the new thread to the calling function rather than waiting for it to complete.
+
+    - Create a thread and pass ownership in to some functions that should wait for it to complete.
+
+- Solution
+
+    Use ```std::move()``` method with ```std::thread``` object. 
+
+    One benefit of the move support of ```std::thread``` is that we can build on the th
+
+<br>
+
+## How std::thread.join() do
+According to [en.cppreference.com](https://en.cppreference.com/w/cpp/thread/thread/join), we have information about ```join()``` method:
+
+```
+Blocks the current thread until the thread identified by *this finishes its execution.
+
+The completion of the thread identified by *this synchronizes with the corresponding successful return from join().
+
+No synchronization is performed on *this itself. Concurrently calling join() on the same std::thread object from multiple threads constitutes a data race that results in undefined behavior. 
+```
+
+So, in reality, when using ```join()``` method, **current thread will be blocked until thread identified by *this finishes its execution**,  do we need to use ```mutex.lock()```?
+
+--> We still need mutexes and conditions. Joining a thread makes one thread of execution wait for another thread to finish running. We still need mutexes to protect shared resources. It allows main() in this example to wait for all threads to finish before quitting itself.
+
+```C++
+#include <iostream>
+#include <thread>
+#include <chrono>
+#include <mutex>
+
+using namespace std;
+
+int global_counter = 0;
+std::mutex counter_mutex;
+
+void five_thread_fn(){
+    for(int i = 0; i<5; i++){
+        counter_mutex.lock();
+        global_counter++;
+        counter_mutex.unlock();
+        std::cout << "Updated from five_thread"  << endl;
+        std::this_thread::sleep_for(std::chrono::seconds(5));
+    }
+    //When this thread finishes we wait for it to join
+}
+
+void ten_thread_fn(){
+    for(int i = 0; i<10; i++){
+        counter_mutex.lock();
+        global_counter++;
+        counter_mutex.unlock();
+        std::cout << "Updated from ten_thread"  << endl;
+        std::this_thread::sleep_for(std::chrono::seconds(1));
+    }
+    //When this thread finishes we wait for it to join
+}
+int main(int argc, char *argv[]) {
+    std::cout << "starting thread ten..." << std::endl;
+    std::thread ten_thread(ten_thread_fn);
+
+    std::cout << "Running ten thread" << endl;
+    std::thread five_thread(five_thread_fn);
 
 
+    ten_thread.join();
+    std::cout << "Ten Thread is done." << std::endl;
+    five_thread.join();
+    std::cout << "Five Thread is done." << std::endl;
+}
+```
 
+```
+starting thread ten...
+Running ten thread
+Updated from ten_thread
+Running five_thread
+Updated from ten_thread
+Updated from ten_thread
+Updated from ten_thread
+Updated from ten_thread
+Updated from five_thread
+Updated from ten_thread
+Updated from ten_thread
+Updated from ten_thread
+Updated from ten_thread
+Updated from ten_thread
+Updated from five_thread
+Ten Thread is done.
+Updated from five_thread
+Updated from five_thread
+Five Thread is done.
+```
+
+Since std::cout is a shared resource access and use of it should also be mutex protected too.
+
+<br>
+
+## Disadvantages when using join() method
+- Encourages continual creating/terminating/destroying of threads, so hammering performance and increasing the probabilty of leaks, thread-runaway, memory-runaway and general loss-of-control of your app.
+
+- Stuffs GUI event-handlers by enforcing unwanted waits, resulting in unresponsive 'hourglass apps' that your customers will hate.
+
+- Causes apps to fail to shutdown because they are waiting for the termination of an unresposive, uninterruptible thread.
+
+- Other bad things.
 
 <br>
 
@@ -177,6 +292,10 @@ Thanks for your reading.
 
 Refer:
 
+Some keywords to need to understand: pools, tasks, app-lifetime threads, inter-thread comms via producer-consumer queues.
+
 [https://www.geeksforgeeks.org/multithreading-python-set-1/](https://www.geeksforgeeks.org/multithreading-python-set-1/)
 
 [https://stackoverflow.com/questions/10673585/start-thread-with-member-function](https://stackoverflow.com/questions/10673585/start-thread-with-member-function)
+
+[https://stackoverflow.com/questions/15148057/what-does-stdthread-join-do](https://stackoverflow.com/questions/15148057/what-does-stdthread-join-do)
