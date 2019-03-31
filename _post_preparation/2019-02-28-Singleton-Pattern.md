@@ -1,12 +1,9 @@
 ---
 layout: post
 title: Singleton Pattern
-bigimg: /img/path.jpg
+bigimg: /img/image-header/california.jpg
 tags: [creational pattern, design pattern]
 ---
-
-
-
 
 
 
@@ -103,7 +100,7 @@ To replace the usage of Singleton, we can [use a single instance](#replace-singl
 ## Code C++ /Java / Javascript
 - C++
 
-    Version 1:
+    Version 1: pre-initialize instance
 
     ```C++
     class Singleton 
@@ -117,8 +114,34 @@ To replace the usage of Singleton, we can [use a single instance](#replace-singl
         }
 
     }
+
+    private:
+        Singleton() {}
+
+        // C++ 03
+        // ========
+        // Don't forget to declare these two. You want to make sure they
+        // are unacceptable otherwise you may accidentally get copies of
+        // your singleton appearing.
+        Singleton(Singleton const&);                // Don't Implement
+        void operator=(Singleton const&);           // Don't implement
+
+    public:
+        // C++ 11
+        // =======
+        // We can use the better technique of deleting the methods
+        // we don't want.
+        S(S const&)               = delete;
+        void operator=(S const&)  = delete;
+
+        // Note: Scott Meyers mentions in his Effective Modern
+        //       C++ book, that deleted functions should generally
+        //       be public as it results in better error messages
+        //       due to the compilers behavior to check accessibility
+        //       before deleted status
     ```
 
+    Version 2: 
 
 <br>
 
@@ -139,13 +162,14 @@ To replace the usage of Singleton, we can [use a single instance](#replace-singl
 - Against singletons:
     - **In C++, there's no nice way to auto-clean-up after singletons.** There are work-arounds, and slightly hacky ways to do it, but there's just no simple, universal way to make sure your singleton's destructor is always called. This isn't so terrible memory-wise -- just think of it as more global variables, for this purpose. But it can be bad if your singleton allocates other resources (e.g. locks some files) and doesn't release them.
 
-
-
 <br>
 
 ## Application & Examples
+- Good situations to use Singleton:
+    - Logging framework
+    - Thread recycling pools.
 
-
+- 
 
 <br>
 
@@ -167,6 +191,10 @@ Thanks for your reading.
 
 Refer: 
 
+[http://www.yolinux.com/TUTORIALS/C++Singleton.html](http://www.yolinux.com/TUTORIALS/C++Singleton.html)
+
+[https://stackoverflow.com/questions/1008019/c-singleton-design-pattern](https://stackoverflow.com/questions/1008019/c-singleton-design-pattern)
+
 [https://stackoverflow.com/questions/11831/singletons-good-design-or-a-crutch](https://stackoverflow.com/questions/11831/singletons-good-design-or-a-crutch)
 
 [https://testing.googleblog.com/2008/08/by-miko-hevery-so-you-join-new-project.html](https://testing.googleblog.com/2008/08/by-miko-hevery-so-you-join-new-project.html)
@@ -174,5 +202,37 @@ Refer:
 [https://testing.googleblog.com/2008/08/where-have-all-singletons-gone.html](https://testing.googleblog.com/2008/08/where-have-all-singletons-gone.html)
 
 [https://testing.googleblog.com/2008/08/root-cause-of-singletons.html](https://testing.googleblog.com/2008/08/root-cause-of-singletons.html)
+
+<br>
+
+**When to use Singleton**
+
+[https://stackoverflow.com/questions/86582/singleton-how-should-it-be-used](https://stackoverflow.com/questions/86582/singleton-how-should-it-be-used)
+
+<br>
+
+**Initialization order and how to cope**
+
+[https://stackoverflow.com/questions/211237/static-variables-initialisation-order/211307#211307](https://stackoverflow.com/questions/211237/static-variables-initialisation-order/211307#211307)
+
+[https://stackoverflow.com/questions/335369/finding-c-static-initialization-order-problems/335746#335746](https://stackoverflow.com/questions/335369/finding-c-static-initialization-order-problems/335746#335746)
+
+<br>
+
+**Lifetime of static variable**
+
+[https://stackoverflow.com/questions/246564/what-is-the-lifetime-of-a-static-variable-in-a-c-function](https://stackoverflow.com/questions/246564/what-is-the-lifetime-of-a-static-variable-in-a-c-function)
+
+<br>
+
+**Some threading implications to Singleton**
+
+[https://stackoverflow.com/questions/449436/singleton-instance-declared-as-static-variable-of-getinstance-method-is-it-thre/449823#449823](https://stackoverflow.com/questions/449436/singleton-instance-declared-as-static-variable-of-getinstance-method-is-it-thre/449823#449823)
+
+<br>
+
+**Explain why double checked locking will not work on C++**
+
+[https://stackoverflow.com/questions/367633/what-are-all-the-common-undefined-behaviours-that-a-c-programmer-should-know-a/367690#367690](https://stackoverflow.com/questions/367633/what-are-all-the-common-undefined-behaviours-that-a-c-programmer-should-know-a/367690#367690)
 
 [http://www.drdobbs.com/cpp/c-and-the-perils-of-double-checked-locki/184405726](http://www.drdobbs.com/cpp/c-and-the-perils-of-double-checked-locki/184405726)
