@@ -57,7 +57,7 @@ Before going to the concept of multithread, we will need to understand about pro
 
     So, we will embed a name of function to the constructor of ```std::thread``` like the above sample. And it's important to bear in mind that by default the arguments are copied into internal storage, where they can be accessed by the newly created thread of execution, even if the correponding parameter in the function is expecting a reference. 
 
-    
+    The second sample, we can see that 
 
 - With function object
 
