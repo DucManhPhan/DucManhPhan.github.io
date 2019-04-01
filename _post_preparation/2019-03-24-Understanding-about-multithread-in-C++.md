@@ -14,8 +14,7 @@ tags: [C++, Multithread]
 - [Launching a thread](#launching-a-thread)
 - [Transferring ownership of a thread](#transferring-ownership-of-a-thread)
 - [How std::thread.join() do](how-std::thread-join()-do)
-- [Wrapping up](#wrapping-up)
-
+- [Disadvantages when using join() method](#disadvantages-when-using-join()-method)
 
 
 <br>
@@ -27,7 +26,7 @@ Before going to the concept of multithread, we will need to understand about pro
 
 ```
 
-
+![](../img/multithread/multithreading-python.png)
 
 
 <br>
@@ -173,9 +172,68 @@ join() stops current thread until another one finishes. mutex stops current thre
 
 - Solution
 
-    Use ```std::move()``` method with ```std::thread``` object. 
+    Use ```std::move()``` method with ```std::thread``` object.
 
-    One benefit of the move support of ```std::thread``` is that we can build on
+    If ownership should be transferred into a function, it can just accept an instance of ```std::thread``` by value as one of the parameters.
+
+    ```C++
+    void f(std::thread t);
+
+    void g() {
+        void some_function();
+        f(std::thread(some_function));
+
+        std::thread t(some_function);
+        f(std::move(t));
+    }
+    ```
+
+    One benefit of the move support of ```std::thread``` is that we can build on the class is taken advantages of RAII paradigm. This avoids any unpleasant consequences should the RAII class's object outlive the thread it was referencing, and it also means that no one else can join or detach the thread once ownership has been transferred into the object.
+
+    ```C++
+    class scope_thread {
+    private:
+        std::thread t;
+
+    public:
+        explicit scoped_thread(std::thread t_) : t(std::move(t_)) {
+            if (!t.joinable()) {
+                throw std::logic_error("No thread");
+            }
+        }
+
+        ~scoped_thread() {
+            t.join();
+        }
+
+        scoped_thread(scoped_thread const&) =delete;
+        scoped_thread& operator=(scoped_thread const&) =delete;
+    };
+
+    struct func;
+
+    void f() {
+        int some_local_state;
+        scoped_thread t(std::thread(func(some_local_state)));
+
+        do_something_in_current_thread();
+    }
+    ```
+
+    Another benefit of the move support ```std::thread``` is to allow for containers of std::thread objects, if those containers are move aware.
+
+    ```C++
+    void do_work(unsigned id);
+
+    void f() {
+        std::vector<std::thread> threads;
+        for (unsigned i = 0; i < 20; ++i) {
+            threads.push_back(std::thread(do_work, i));
+        }
+
+        std::for_each(threads.begin(), threads.end(), std::mem_fn(&std::thread::join));
+    }
+    ```
 
 <br>
 
@@ -275,14 +333,6 @@ Since std::cout is a shared resource access and use of it should also be mutex p
 - Causes apps to fail to shutdown because they are waiting for the termination of an unresposive, uninterruptible thread.
 
 - Other bad things.
-
-<br>
-
-## Wrapping up
-
-
-
-
 
 <br>
 
