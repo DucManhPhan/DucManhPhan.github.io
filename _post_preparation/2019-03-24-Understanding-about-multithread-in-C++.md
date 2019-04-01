@@ -175,7 +175,7 @@ join() stops current thread until another one finishes. mutex stops current thre
 
     Use ```std::move()``` method with ```std::thread``` object. 
 
-    One benefit of the move support of ```std::thread``` is that we can build on the th
+    One benefit of the move support of ```std::thread``` is that we can build on
 
 <br>
 
