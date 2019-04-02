@@ -38,6 +38,16 @@ Using too many indexes is to make your database that is accessed data slow down 
 
 Refer: 
 
+[https://techtalk.vn/ly-do-khien-uber-phai-chuyen-tu-postgres-sang-mysql.html](https://techtalk.vn/ly-do-khien-uber-phai-chuyen-tu-postgres-sang-mysql.html)
+
+[https://dev.mysql.com/doc/refman/5.7/en/index-merge-optimization.html](https://dev.mysql.com/doc/refman/5.7/en/index-merge-optimization.html)
+
+[https://planet.mysql.com/entry/?id=661727](https://planet.mysql.com/entry/?id=661727)
+
+[https://techtalk.vn/nhung-kien-thuc-giup-website-cua-ban-nhanh-len-gap-n-lan.html](https://techtalk.vn/nhung-kien-thuc-giup-website-cua-ban-nhanh-len-gap-n-lan.html)
+
+[https://www.slideshare.net/billkarwin/how-to-design-indexes-really](https://www.slideshare.net/billkarwin/how-to-design-indexes-really)
+
 [https://cstack.github.io/db_tutorial/parts/part7.html](https://cstack.github.io/db_tutorial/parts/part7.html)
 
 [https://dzone.com/articles/database-btree-indexing-in-sqlite](https://dzone.com/articles/database-btree-indexing-in-sqlite)

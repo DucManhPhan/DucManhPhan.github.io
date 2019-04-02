@@ -47,3 +47,4 @@ Thanks for your reading.
 
 Refer:
 
+[http://jakascorner.com/blog/2015/12/why-threads-dangerous.html](http://jakascorner.com/blog/2015/12/why-threads-dangerous.html)

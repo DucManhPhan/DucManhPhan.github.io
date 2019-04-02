@@ -64,3 +64,7 @@ Refer:
 [https://thispointer.com/c11-multithreading-part-4-data-sharing-and-race-conditions/](https://thispointer.com/c11-multithreading-part-4-data-sharing-and-race-conditions/)
 
 [https://thispointer.com/c11-multithreading-part-5-using-mutex-to-fix-race-conditions/](https://thispointer.com/c11-multithreading-part-5-using-mutex-to-fix-race-conditions/)
+
+[http://jakascorner.com/blog/2016/01/deadlock.html](http://jakascorner.com/blog/2016/01/deadlock.html)
+
+[http://jakascorner.com/blog/2016/01/data-races.html](http://jakascorner.com/blog/2016/01/data-races.html)
