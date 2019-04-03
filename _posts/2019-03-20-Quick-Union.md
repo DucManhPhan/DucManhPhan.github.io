@@ -24,7 +24,7 @@ A disjoint-set is a data structure that keeps track of a set of elements partiti
 - Find: Determine which subset a particular elements is in. This can be used for determining if two elements are in the same subset.
 - Union: Join two subsets into a single subset.
 
-And Quick Union is one of the implementations of Union-Find algorithm.
+And Quick Union is one of the implementations of Union-Find algorithm. And it's an algorithm for solving the dynamic connectivity problem, also called **lazy approach**.
 
 Some implementations of Union-Find algorithm:
 - Quick Find
@@ -191,6 +191,9 @@ public class QuickUnionUF {
         - Modify quick-union to avoid tall trees.
         - Keep track of size of each component.
         - Balance by linking small tree below large tree.
+        - Time taken for union and connected commands is at most the depth of the tallest tree, which is O(logN) at most.
+
+            Proof: When T1 is merged to T2, where T1 <= T2, the depth of T1 will increase by 1. Now, the depth of T2 (after merging) will increase by 1 if merged with T3, where T3 >= T2. So, every time, we need a tree X >= tree Y, to increase the depth of tree Y by 1. Therefore, the size of T1 can increase at most logN.
 
     - Find operation:
         - The weighted quick-union algorithms will link the root of the smaller of the two trees to the root of the larger of the two trees.
@@ -342,3 +345,5 @@ Refer:
 [http://www.sfs.uni-tuebingen.de/~dg/l1.html#other](http://www.sfs.uni-tuebingen.de/~dg/l1.html#other)
 
 [https://brilliant.org/wiki/disjoint-set-data-structure/#weighting](https://brilliant.org/wiki/disjoint-set-data-structure/#weighting)
+
+[https://medium.com/omarelgabrys-blog/dynamic-connectivity-problem-9460f3dff2c6](https://medium.com/omarelgabrys-blog/dynamic-connectivity-problem-9460f3dff2c6)
