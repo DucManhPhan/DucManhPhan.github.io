@@ -37,7 +37,7 @@ Some implementations of Union-Find algorithm:
 ## Source code
 - Data structure
 
-    - Integer array id[] of size N.
+    - Maintain integer array id[] of size N.
     - Interpretation: id[i] is parent of i.
     - Root of i is: id[id[id[...id[i]...]]]
 
@@ -48,6 +48,11 @@ Some implementations of Union-Find algorithm:
 - Union operation: to merge components containing p and q, change all entries whose id equals id[p] and id[q]. So, we have a problem: many values can be changed.
 
     ![](../img/Data-structure/Union-Find/quick-union-union-operation.png)
+
+- Analysis: 
+    - Find operation takes time proportional to depth of p and q in tree.
+        - could be proportional to N.
+    - Union operation takes constant time, given roots.
 
 ```java
 public class QuickUnionUF {
@@ -110,7 +115,7 @@ public class QuickUnionUF {
     - Trees can get tall
     - Find operation is too expensive (could be N array accesses)
 
-    SO, we could wind up with a long skinny tree. Of each object just pointing to next and then to do a find operation for object at the bottom would involve going all the way through the tree. 
+    So, we could wind up with a long skinny tree. Of each object just pointing to next and then to do a find operation for object at the bottom would involve going all the way through the tree. 
 
     Costing involving in the array accesses is just to do the find operation and that's going to be slow if we have a lot of operations.
     
@@ -126,7 +131,7 @@ public class QuickUnionUF {
         - Keep track of size of each tree (number of object)
         - Balance by linking root of smaller tree to root of larger tree (reasonable alternatives: union by height or rank).
 
-    ![](../img/Data-structure/Union-Find/weighted-quick-union-improvement.png)
+        ![](../img/Data-structure/Union-Find/weighted-quick-union-improvement.png)
 
     - Source code
         - Data structure: same as quick-union, but maintain extra array sz[i] to count number of objects in the tree rooted at i.
@@ -182,6 +187,32 @@ public class QuickUnionUF {
             Q: Stop at guaranteed acceptable performance?
             A: No, easy to improve further.
 
+    - Analysis: 
+        - Modify quick-union to avoid tall trees.
+        - Keep track of size of each component.
+        - Balance by linking small tree below large tree.
+
+    - Find operation:
+        - The weighted quick-union algorithms will link the root of the smaller of the two trees to the root of the larger of the two trees.
+        - The distance from each node to the root of its tree is small, so the find operation is efficient.
+
+    - Union operation:
+        - The worst scenario for weighted quick-union algorithm is that each union operation links trees of equal size. If the number of objects is less than 2^n, the distance from any node to the root of its tree is less than n.
+
+    - Some question for weighted quick-union
+        - Is performance improved?
+            - Theory: lgN per union or find operation.
+            - Practice: constant time.
+
+        - Example: huge practical problem.
+            - 10^10 edges connecting 10^9 nodes.
+            - reduces time from 3000 years to 1 minute.
+            - Supercomputer wouldn't help much.
+            - Good algorithm makes solution possible.
+        - Stop at guaranteed acceptable performance?
+            - Not hard to improve algorithm further.
+
+
 - Path compression
 
     Quick union with path compression: Just after computing the root of p, set the id of each examined node to point to that root.
@@ -207,9 +238,17 @@ public class QuickUnionUF {
 
 - Weighted quick-union with path compression
 
-    [Hopcroft-UIman, Tarjan] Starting from an empty data structure, any sequence of M union-find ops on N objects makes <= c(N + Mlg*N) array accesses.
-    - Analysis can be improved to N + M*α(M, N)
-    - Simple algorithm with fascinating mathematics.
+    Theorem: A sequence of M union and find operations takes O(N + M lg* N) time.
+    - Informally it provides an upper bound on the running time.
+
+    - lg* is the iterate logarithm function. It refers to the number of times that the logarithm function must be iterated until the resulting number is less than 1. This function grows very slowly.
+
+    - lg* N grows so slowly that we may as well consider it to be a constant.
+    - So the algorithm is linear. The running time is constant factor of the time it takes to read in the data.
+
+    - So the algorithm could be used in **online** mode, solving the problem at the same rate that data is read in.
+
+    - It's nice when an algorithm has this property, since data can be processed in real time. Unfortunately parsing algorithms for context free languages normally run in cubic time, so  real time natural language processing is not possible. Or at least one can say that real time natural language processing is not possible under the assumption that context free parsing is necessary. Perhaps more superficial **chunk** parsing suffices.
 
         |      N     |    lg*N    |
         | ---------- | ---------- |
@@ -245,7 +284,8 @@ public class QuickUnionUF {
 
         10^9 unions and finds with 10^9 objects
         - WQUPC reduces time from 30 years to 6 seconds.
-        - Super computer won't help much; good algorithm enables solution.
+        - Super computer won't help much. 
+        - Good algorithm enables solution.
 
 
 <br>
@@ -298,3 +338,7 @@ Refer:
 [https://www.hackerearth.com/practice/data-structures/disjoint-data-strutures/basics-of-disjoint-data-structures/tutorial/](https://www.hackerearth.com/practice/data-structures/disjoint-data-strutures/basics-of-disjoint-data-structures/tutorial/)
 
 [https://www.geeksforgeeks.org/union-find/](https://www.geeksforgeeks.org/union-find/)
+
+[http://www.sfs.uni-tuebingen.de/~dg/l1.html#other](http://www.sfs.uni-tuebingen.de/~dg/l1.html#other)
+
+[https://brilliant.org/wiki/disjoint-set-data-structure/#weighting](https://brilliant.org/wiki/disjoint-set-data-structure/#weighting)

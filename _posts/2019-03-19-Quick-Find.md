@@ -28,8 +28,18 @@ And Quick Find is one of the implementations of Union-Find algorithm.
 <br>
 
 ## Source code
+- Data structure
+    - Maintain array id[] with name for each component.
+    - If p and q are connected, then same id.
+    - Initialize id[i] = i.
+
 - Find operation: check if p and q have the same id.
+
 - Union operation: to merge components containing p and q, change all entries whose id equals id[p] and id[q]. So, we have a problem: many values can be changed.
+
+- Analysis: 
+    - Find operation takes a constant number of operations.
+    - Union operation takes time proportional to N. This is very slow.
 
 ```java
 public class QuickFindUF {
