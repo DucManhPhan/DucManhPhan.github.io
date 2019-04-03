@@ -18,10 +18,12 @@ In this tutorial, we will find out about quick find - one of implementations in 
 <br>
 
 ## Introduction to Quick Find
+A disjoint-set is a data structure that keeps track of a set of elements partitioned into a number of disjoint (non-overlapping) subsets. A Union-Find algorithm is an algorithm that performs two useful operations on such a data structure:
 
+- Find: Determine which subset a particular elements is in. This can be used for determining if two elements are in the same subset.
+- Union: Join two subsets into a single subset.
 
-
-
+And Quick Find is one of the implementations of Union-Find algorithm.
 
 <br>
 
@@ -41,6 +43,10 @@ public class QuickFindUF {
         }
     }
     
+    int find(int i) {
+        return id[i];
+    }
+
     // check whether p and q are in the same
     // component (2 array access)
     public boolean connected(int p, int q) {
@@ -77,7 +83,7 @@ public class QuickFindUF {
 
     Takes N^2 array accesses to process sequence of N union commands on N objects.
 
-    In particular, if we you just have N union commands on N objects which is not unreasonable. They're either connected or not when that will take quadratic time in squared time. It's much to slow. And we can not accept quadratic time algorithms for large problems. The reason is they do not scale.
+    In particular, if we just have N union commands on N objects which is not unreasonable. They're either connected or not when that will take quadratic time in squared time. It's much to slow. And we can not accept quadratic time algorithms for large problems. The reason is they do not scale.
 
 <br>
 

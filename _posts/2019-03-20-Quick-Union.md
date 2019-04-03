@@ -19,10 +19,18 @@ In this tutorial, we will discuss about Quick - Union to understand all of it. T
 <br>
 
 ## Introduction to Quick Union
+A disjoint-set is a data structure that keeps track of a set of elements partitioned into a number of disjoint (non-overlapping) subsets. A Union-Find algorithm is an algorithm that performs two useful operations on such a data structure:
 
+- Find: Determine which subset a particular elements is in. This can be used for determining if two elements are in the same subset.
+- Union: Join two subsets into a single subset.
 
+And Quick Union is one of the implementations of Union-Find algorithm.
 
-
+Some implementations of Union-Find algorithm:
+- Quick Find
+- Quick Union
+- Weighted quick union
+- Weighted quick union with path compression
 
 <br>
 
@@ -57,7 +65,7 @@ public class QuickUnionUF {
        
     // chase parent pointers until reach root 
     // (depth of i array accesses)
-    private int root(int i) {
+    private int root(int i) {   // find operation
         while (i != id[i]) {
             i = id[i];
         }
@@ -90,7 +98,7 @@ public class QuickUnionUF {
     |   algorithm    |  initialize  | union  |  find   |
     | -------------- | ------------ | ------ | ------- |
     | quick-find     | N            | N      | 1       |
-    | quick-union    | N            | N (*)     | N (worst case) | 
+    | quick-union    | N            | N (*)  | N (worst case) | 
 
     ```*``` : includes cost of finding roots. 
 
@@ -285,3 +293,8 @@ public class QuickUnionUF {
 
 Refer:
 
+[https://stackoverflow.com/questions/43036204/what-is-the-time-complexity-of-quick-union](https://stackoverflow.com/questions/43036204/what-is-the-time-complexity-of-quick-union)
+
+[https://www.hackerearth.com/practice/data-structures/disjoint-data-strutures/basics-of-disjoint-data-structures/tutorial/](https://www.hackerearth.com/practice/data-structures/disjoint-data-strutures/basics-of-disjoint-data-structures/tutorial/)
+
+[https://www.geeksforgeeks.org/union-find/](https://www.geeksforgeeks.org/union-find/)
