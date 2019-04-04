@@ -78,7 +78,6 @@ ko.applyBindings(new ViewModel());
 Finally, when runs this example, we have a result: ```Hello Blue Storm```.
 
 So, in this example, we can learn some interesting keywords such as ```data-bind```, ```ko```, ```applyBindings```, ...
-
 - ```ko```
 
     ```<script type="text/javascript" src="knockout-2.2.1.js"></script>```
@@ -99,7 +98,7 @@ So, in this example, we can learn some interesting keywords such as ```data-bind
 
     Normally, KnockoutJS use two-way data binding.
 
-- ```applyBindings```
+- ```applyBindings()```
 
     The ```data-bind``` attribute isn’t native to HTML, though it is perfectly OK (it’s strictly compliant in HTML 5, and causes no problems with HTML 4 even though a validator will point out that it’s an unrecognized attribute). But since the browser doesn’t know what it means, you need to activate Knockout to make it take effect.
 
