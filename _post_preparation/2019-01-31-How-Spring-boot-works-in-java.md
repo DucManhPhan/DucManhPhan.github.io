@@ -46,6 +46,25 @@ Spring Boot is a standalone application which reduces several tedious developmen
 
 <br>
 
+## Wrapping up
+- Spring Boot supports auto-configuration for some template engines:
+    - FreeMarker
+    - Groovy
+    - Thymeleaf
+    - Mustache
+
+    When we are using one of the above template engines with default configuration, be default, our template will be got from ```src/main/resources/templates```.
+
+- We should not use JSP in Spring Boot, simply because we will encounter some limitations when utilizing them with embedded servlet containers.
+    - With Jetty and Tomcat, it should work if we use war packaging. An executable war will work when launched with java -jar, and will also be deployable to any standard container. JSPs are not supported when using an executable jar.
+
+    - Undertow does not support JSPs.
+
+    - Creating a custom error.jsp page does not override the default view for error handling. Custom error pages should be used instead.
+
+
+<br>
+
 Refer:
 
 [https://dzone.com/articles/how-spring-boot-initialize-the-spring-mvc-applicat](https://dzone.com/articles/how-spring-boot-initialize-the-spring-mvc-applicat)
