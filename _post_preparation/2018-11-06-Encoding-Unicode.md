@@ -11,7 +11,7 @@ tags: [unicode]
 
 ## Table of content
 - [Introduction to Unicode](#introduction-to-unicode)
-- [Unicode encodings](#unicode-encodings)
+- [UTF-8 encoding](#utf-8-encoding)
 - [Surrogate pair](#surrogate-pair)
 - [The relationship between UCS and Unicode](#the-relationship-between-ucs-and-unicode)
 
@@ -105,25 +105,73 @@ tags: [unicode]
 
 <br>
 
-## Unicode encodings
-- UTF-8 use code unit that is 1 byte, and it is a multibyte encoding able to encode the whole Unicode charset. An encoded character takes between 1 and 4 bytes.
+## UTF-8 encoding
+UTF-8 use code unit that is 1 byte, and it is a multibyte encoding able to encode the whole Unicode charset. An encoded character takes between 1 and 4 bytes. The encoding is defined by the Unicode Standard, and was originally designed by Ken Thompson and Rob Pike.
 
-    Some advantages of UTF-8 when comparing with UTF-16, UTF-32:
-    - represent the whole Unicode code points.
-    - It is compatible with ASCII
-    - It reduces memory size when compared with UTF-16, UTF-32.
-    - UTF-8 do not need to use BOM - Byte Order Mark.
-    - Most C byte functions are compatible with UTF-8 encoded string such as strcat(), printf(), ..., whereas they fail with UTF-16 and UTF-32 encoded strings because these encodings encode small codes with null bytes.
+UTF-8 stands for Unicode (Universal Coded Character Set) Transformation Format - 8 bit. It was designed for backward compatibility with ASCII.
 
-    Problem with UTF-8:
-    - When we compare it to ASCII or ISO 8859-1, is that it is a multibyte encoding: we cannot access a character by its character index directly, you have to iterate on each character because each character may have a different length in bytes. If getting a character by its index is a common operation in your program, use a character string instead of a UTF-8 encoded string.
+Since ASCII bytes do not occur when encoding non-ASCII code points into UTF-8, UTF-8 is safe to use within most programming and document languages that interpret certain ASCII characters in a special way, such as "/" in filenames, "\" in escape sequences, and "%" in printf.
 
+Some advantages of UTF-8 when comparing with UTF-16, UTF-32:
+- represent the whole Unicode code points.
+- It is compatible with ASCII
+- It reduces memory size when compared with UTF-16, UTF-32.
+- UTF-8 do not need to use BOM - Byte Order Mark.
+- Most C byte functions are compatible with UTF-8 encoded string such as strcat(), printf(), ..., whereas they fail with UTF-16 and UTF-32 encoded strings because these encodings encode small codes with null bytes.
 
+Problem with UTF-8:
+- When we compare it to ASCII or ISO 8859-1, is that it is a multibyte encoding: we cannot access a character by its character index directly, you have to iterate on each character because each character may have a different length in bytes. If getting a character by its index is a common operation in your program, use a character string instead of a UTF-8 encoded string.
+
+Below is the table depict that how to encode characters with UTF-8.
+
+![Encoding with UTF-8](../img/Unicode/utf8-encoding-table.png)
+
+So, we have the interesting feature of UTF-8 --> ```Prefix code```: The first byte indicates the number of bytes in the sequence. Reading from a stream can instantaneously decode each individual fully received sequence, without first having to wait for either the first byte of a next sequence or an end-of-stream indication.The length of multi-byte sequences is easily determined by humans as it is simply the number of high-order 1s in the leading byte. An incorrect character will not be decoded if a stream ends mid-sequence.
+
+For example:
+
+Consider the encoding of the Euro sign, €. 
+1. The Unicode code point for "€" is U+20AC.
+2. According to the scheme table above, this will take three bytes to encode, since it is between U+0800 and U+FFFF.
+3. Hexadecimal 20AC is binary 0010 0000 1010 1100. The two leading zeros are added because, as the scheme table shows, a three-byte encoding needs exactly sixteen bits from the code point.
+4. Because the encoding will be three bytes long, its leading byte starts with three 1s, then a 0 (1110...)
+5. The four most significant bits of the code point are stored in the remaining low order four bits of this byte (1110 0010), leaving 12 bits of the code point yet to be encoded (...0000 1010 1100).
+6. All continuation bytes contain exactly six bits from the code point. So the next six bits of the code point are stored in the low order six bits of the next byte, and 10 is stored in the high order two bits to mark it as a continuation byte (so 1000 0010).
+7. Finally the last six bits of the code point are stored in the low order six bits of the final byte, and again 10 is stored in the high order two bits (1010 1100).
+
+The three bytes 1110 0010 1000 0010 1010 1100 can be more concisely written in hexadecimal, as E2 82 AC. 
+
+To understand more about UTF-8, we should refer to this [link](https://en.wikipedia.org/wiki/UTF-8).
 
 <br>
 
-## Surrogate pair
-The ```High Surrogate``` (U+D800 – U+DBFF) and ```Low Surrogate``` (U+DC00 – U+DFFF) codes are reserved for encoding non-BMP characters in UTF-16 by using a pair of 16-bit codes: one ```High Surrogate``` and one ```Low Surrogate```. A single surrogate code point will never be assigned a character. 
+## UTF-16 encoding
+- Definition
+    UTF-16 is an acronym of **16-bit Unicode Transformation Format**, is a character encoding capable of encoding all 1,112,064 valid code points of Unicode. The encoding is variable-length, as code points are encoded with one or two 16-bit code units.
+
+    UTF-16 is used internally by systems such as Windows, Java, and Javascript, and often for plain text and for word-processing data files on Windows. It's rarely used for files on Linux / Unix or macOS. It never gained popularity on the web, where UTF-8 is dominant. UTF-16 is used by under 0.01% of web pages themselves. WHATWG recommends that **for security reasons browser apps should not use UTF-16**.
+
+- The history of UTF-16
+
+    For a long time ago, it's time that was not born UTF-16, the late 1980 like that, IEEE and Unicode consortium together created the early 2-byte encoding that was usually called Unicode, but is now called ```UCS2```. The original idea of UCS2 was to replace the typical 256-character encodings, which required 1 byte per character, with an encoding using 65,536 values, which would require 2 bytes per character. 
+
+    **UCS2 differs from UTF-16 by being a constant length encoding and only capable of encoding character of BMP. It is supported by many programs.**
+
+    And two groups worked on this parallel, the IEEE and Unicode Consoritum, to attempt to synchronize their character assignments so that the developing encodings would by manually compatible.
+
+    So 65,536 characters was not suffice, and IEEE introduced a larger 31-bit space and an encoding UCS4 that would require 4-byte per character. This was resisted by the Unicode Consortium, both because 4 bytes per character wasted a lot of disk space and memory, and because some manufacturers were already heavily invested in 2-byte-per-character technology.
+
+    Therefore, UTF-16 was developed as a compromise to resolve this impassive in version 2.0 of the Unicode standard in July 1996 and is fully specified in RFC 2781 published in 2000 by the IETF.
+
+    In UTF-16, code points greater or equal to 2^16 are encoded using two 16-bit code units. The standards organizations chose the largest block available of un-allocated 16-bit code points to use as these code units. Unlike UTF-8 they did not provide a means to encode these code points. 
+
+- How UTF-16 works
+
+
+
+- Surrogate pair
+    
+    The ```High Surrogate``` (U+D800 – U+DBFF) and ```Low Surrogate``` (U+DC00 – U+DFFF) codes are reserved for encoding non-BMP characters in UTF-16 by using a pair of 16-bit codes: one ```High Surrogate``` and one ```Low Surrogate```. A single surrogate code point will never be assigned a character. 
 
 
 
