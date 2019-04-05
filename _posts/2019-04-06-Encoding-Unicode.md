@@ -241,9 +241,24 @@ There are currently implementations of Unicode encoding: UTF-8, UTF-16 and UTF-3
 
     There are also GB2312 character encoding, GBK character encoding, GB18030, BIG5, Shift-JIS, ...
 
+- UTF-8, UTF-16, UTF-32 are just couple of ways to store Unicode code points in computer's memory. Once Unicode character is converted into bytes, it can be easily persisted in disk, transferred over network and recreated at other end. Fundamental difference between UTF-32 and UTF-8, UTF-16 is that former is fixed width encoding.
+
+- UTF-8 uses one byte at the minimum in encoding the characters while UTF-16 uses minimum two bytes.
+
+- UTF-8 is compatible with ASCII while UTF-16 is incompatible with ASCII.
+
+- UTF-8 take less bytes for many characters it would take less memory that UTF-16, well that really depends on what language the string is in. For non-European languages, UTF-8 requires more memory than UTF-16.
+
+- ASCII is strictly faster than multi-byte encoding scheme because less data to process = faster.
+
+- UTF-32 is fixed width encoding, always takes 32 bits, but UTF-8 and UTF-16 are variable length encoding where UTF-8 can take 1 to 4 bytes while UTF-16 will take either 2 or 4 bytes.
+
+
 <br>
 
 Refer: 
+
+[https://javarevisited.blogspot.com/2015/02/difference-between-utf-8-utf-16-and-utf.html?m=1](https://javarevisited.blogspot.com/2015/02/difference-between-utf-8-utf-16-and-utf.html?m=1)
 
 [https://viblo.asia/p/tim-hieu-unicode-PwRkgVOXeEd](https://viblo.asia/p/tim-hieu-unicode-PwRkgVOXeEd)
 
