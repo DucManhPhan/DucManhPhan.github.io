@@ -16,7 +16,7 @@ In this article, we will delve deeper into the work flows and the relationship b
 - [How Spring Boot works](#how-spring-boot-works)
 - [The position of Servlet JSP in Spring Boot](#the-position-of-servlet-jsp-in-spring-boot)
 - [The difference between Spring MVC and Spring Boot](#the-difference-between-spring-mvc-and-spring-boot)
-
+- [Wrapping up](#wrapping-up)
 
 <br>
 
