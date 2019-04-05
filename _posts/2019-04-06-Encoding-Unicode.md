@@ -1,19 +1,20 @@
 ---
 layout: post
 title: Dive into Encoding with Unicode
-bigimg: /img/path.jpg
+bigimg: /img/image-header/california.jpg
 tags: [unicode]
 ---
 
-
+When we work with foreign companies such as Japan, China, ..., we always encourter some problems about character encoding. So, in this article, we will discuss about encoding with Unicode to clear some hides in this problem.
 
 <br>
 
 ## Table of content
 - [Introduction to Unicode](#introduction-to-unicode)
 - [UTF-8 encoding](#utf-8-encoding)
-- [Surrogate pair](#surrogate-pair)
+- [UTF-16 encoding](#utf-16-encoding)
 - [The relationship between UCS and Unicode](#the-relationship-between-ucs-and-unicode)
+- [Wrapping up](#wrapping-up)
 
 <br>
 
@@ -167,21 +168,51 @@ To understand more about UTF-8, we should refer to this [link](https://en.wikipe
 
 - How UTF-16 works
 
+    - U+0000 to U+D7FF and U+E000 to U+FFFF
+        
+        All code points from U+0000 to U+D7FF and from U+E000 to U+FFFF, are encoded as single 16-bit code units by both UTF-16 and UCS2. But only code points in the Basic Multilingual Plane can be represented in UCS2.
+
+    - U+010000 to U+10FFFF
+        
+        Code points from other planes - **Supplementary Planes** are encoded as **two 16-bit code units called a surrogate pair**.
+
+        ![](../img/Unicode/utf-16-decoder.png)
+
+        The below way to encode code point into UTF-16:
+            - ```0x10000``` is subtracted from the code point, leaving a 20-bit number in the range ```0x00000–0xFFFFF```.
+            - The high ten bits (in the range ```0x000–0x3FF```) are added to 0xD800 to give the first 16-bit code unit or high surrogate, which will be in the range ```0xD800–0xDBFF```.
+            - The low ten bits (also in the range ```0x000–0x3FF```) are added to 0xDC00 to give the second 16-bit code unit or low surrogate, which will be in the range ```0xDC00–0xDFFF```.
+
+        The high surrogate and low surrogate are also known as **leading** and **trailing** surrogates.
+
+        The most commonly used characters are all in the BMP, handling of surrogate pairs is often not thoroughly tested. This leads to persistent bugs and potential security holes, even in popular and well-reviewed application software.
+
+        For example:
+
+        To encode U+10437 (𐐷) to UTF-16:
+        - Subtract ```0x10000``` from the code point, leaving ```0x0437```.
+        - For the high surrogate, shift right by 10 (divide by 0x400), then add ```0xD800```, resulting in 0x0001 + 0xD800 = 0xD801.
+        - For the low surrogate, take the low 10 bits (remainder of dividing by 0x400), then add ```0xDC00```, resulting in 0x0037 + 0xDC00 = 0xDC37.
+
+        To decode U+10437 (𐐷) from UTF-16:
+        - Take the high surrogate (0xD801) and subtract 0xD800, then multiply by 0x400, resulting in 0x0001 × 0x400 = 0x0400.
+        - Take the low surrogate (0xDC37) and subtract 0xDC00, resulting in 0x37.
+        - Add these two results together (0x0437), and finally add 0x10000 to get the final decoded UTF-32 code point, 0x10437.
 
 
 - Surrogate pair
     
-    The ```High Surrogate``` (U+D800 – U+DBFF) and ```Low Surrogate``` (U+DC00 – U+DFFF) codes are reserved for encoding non-BMP characters in UTF-16 by using a pair of 16-bit codes: one ```High Surrogate``` and one ```Low Surrogate```. A single surrogate code point will never be assigned a character. 
-
+    The ```High Surrogate``` (OxD800 – 0xDBFF) and ```Low Surrogate``` (0xDC00 – 0xDFFF) codes are reserved for encoding non-BMP characters in UTF-16 by using a pair of 16-bit codes: one ```High Surrogate``` and one ```Low Surrogate```. A single surrogate code point will never be assigned a character. 
 
 
 <br>
 
 ## The relationship between UCS and Unicode
+Both are developed by different organizations, and the purpose is to cover all characters. Since Unicode 2.0, Unicode has started to synchronize with UCS fonts. The historical relationship between the two can refer to the Unicode 5.2.0.
 
-Refer to the [link](http://www.programmersought.com/article/933268197/).
+There are two ways to implement UCS encoding: UCS-2, UCS-4.
 
-
+There are currently implementations of Unicode encoding: UTF-8, UTF-16 and UTF-32. UTF-32 is basically equivalent to UCS-4, using a fixed 32-bit encoding. UTF-16 is originally equivalent to UCS-2, but for now UTF-16 should be the parent of UCS-2.
 
 
 <br>
@@ -191,8 +222,24 @@ Refer to the [link](http://www.programmersought.com/article/933268197/).
 
     All characters in Vietnamese has the length from 1 byte to 3 bytes.
 
+- Common character encoding
+    - ASCII character encoding
 
+        The ASCII code is 1 byte (8 bits) to encode the character, but in fact only the last 7 bits of one byte are used. The highest bit is uniformly defined as 0, which can represent 128 (27) characters in total. For example, the encoding of the character 'a' is 0110 0001, which is equivalent to the decimal integer 97, the encoding of the character 'A' is 0100 0001, and the decimal integer is 65. 
 
+    - ISO-5589-1 character encoding
+
+        Also known as Latin-1, it is a code developed by the International Organization for Standardization (ISO) for characters in Western European languages. It encodes characters with 1 byte (8 bits) and can represent 255 characters in total. Compatible with ASCII encoding. (The so-called compatibility means that for the same character, its encoding value is the same). 
+
+    - UCS character encoding
+
+        Universal Character Set (UCS) is a character defined by ISO ISO 10646 (or ISO/IEC 10646) standard The encoding method uses 4-byte encoding. UCS covers all characters in known languages. 
+
+    - Unicode character encoding
+
+        It is the encoding mechanism developed by http://www.unicode.org, which should include the commonly used texts all over the world. Use 2 byte encoding. 
+
+    There are also GB2312 character encoding, GBK character encoding, GB18030, BIG5, Shift-JIS, ...
 
 <br>
 
