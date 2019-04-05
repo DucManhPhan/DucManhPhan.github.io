@@ -13,6 +13,7 @@ When we work with foreign companies such as Japan, China, ..., we always encourt
 - [Introduction to Unicode](#introduction-to-unicode)
 - [UTF-8 encoding](#utf-8-encoding)
 - [UTF-16 encoding](#utf-16-encoding)
+- [Security background](#security-background)
 - [The relationship between UCS and Unicode](#the-relationship-between-ucs-and-unicode)
 - [Wrapping up](#wrapping-up)
 
@@ -207,6 +208,19 @@ To understand more about UTF-8, we should refer to this [link](https://en.wikipe
 
 <br>
 
+## Security background
+There is a set of encoding security issues when the producer and consumer do not agree on the encoding in use, or on the way a given encoding is to be implemented.
+
+For instance, an attack was reported in 2011 where a Shift-JIS lead byte 0x82 was used to mask a 0x22 trail byte in a JSON resource of which an attacker could control some field. The producer did not see the problem even though this is an illegal byte combination. The consumer decoded it as a single U+FFFD and therefore changed the overall interpretation as U+0022 is an important delimiter. Decoders of encodings that use multiple bytes for scalar values now require that in case of an illegal byte combination, a scalar value in the range U+0000 to U+007F, inclusive, cannot be masked. For the aforementioned sequence the output would be U+FFFD  U+0022.
+
+This is a larger issue for encodings that map anything that is an ASCII byte to something that is not an ASCII code point, when there is no lead byte present. These are “ASCII-incompatible” encodings and other than ISO-2022-JP, UTF-16BE, and UTF-16LE, which are unfortunately required due to deployed content, they are not supported. (Investigation is ongoing whether more labels of other such encodings can be mapped to the replacement encoding, rather than the unknown encoding fallback.) An example attack is injecting carefully crafted content into a resource and then encouraging the user to override the encoding, resulting in e.g. script execution.
+
+Encoders used by URLs found in HTML and HTML’s form feature can also result in slight information loss when an encoding is used that cannot represent all scalar values. E.g. when a resource uses the windows-1252 encoding a server will not be able to distinguish between an end user entering “💩” and “&#128169;” into a form.
+
+The problems outlined here go away when exclusively using UTF-8, which is one of the many reasons that is now the mandatory encoding for all things. 
+
+<br>
+
 ## The relationship between UCS and Unicode
 Both are developed by different organizations, and the purpose is to cover all characters. Since Unicode 2.0, Unicode has started to synchronize with UCS fonts. The historical relationship between the two can refer to the Unicode 5.2.0.
 
@@ -329,3 +343,9 @@ Refer:
 **All characters in Unicode**
 
 [https://unicode-table.com/en/#cjk-unified-ideographs-extension-a](https://unicode-table.com/en/#cjk-unified-ideographs-extension-a)
+
+<br>
+
+**Security**
+
+[https://encoding.spec.whatwg.org/#security-background](https://encoding.spec.whatwg.org/#security-background)
