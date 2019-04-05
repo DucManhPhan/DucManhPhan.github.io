@@ -10,6 +10,7 @@ tags: [front-end]
 
 ## Table of contents
 - [Data binding with KnockoutJS](#data-binding-with-knockoutjs)
+- [Observable in KnockoutJS](#observable-in-knockoutjs)
 - [Wrapping up](#wrapping-up)
 
 
