@@ -2,6 +2,6 @@
 layout: post
 title: Calling convention in C++
 bigimg: /img/path.jpg
-tags: [C++]
+tags: [C++, Computer Science]
 ---
 
