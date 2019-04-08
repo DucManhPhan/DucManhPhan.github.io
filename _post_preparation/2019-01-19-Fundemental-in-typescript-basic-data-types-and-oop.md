@@ -113,10 +113,10 @@ The following is basic data types that we need to know:
 
 - ```any```
 
-    When we do not know about the type of some variables, for instance, variables from the use or a 3rd party library, we need to use ```any``` data type.
+    When we do not know about the type ofs some interesting variables, for instance, variables from the use or a 3rd in interface party library, we need to use ```any``` data type.
 
     ```javascript
-    let num: any = 4;
+    let num:    any = 4;
     num = "accepted";
     ```
 
@@ -205,16 +205,55 @@ The following is basic data types that we need to know:
 Interfaces are used at design time to provide auto completion and at compile time to provide type checking.
 
 ```javascript
-function printLabel(labelledObj : {label: string}) {
-    console.log(labelledObj.label);
+interface LabeledValue {
+    label: string;
 }
 
-let 
+function printLabel(labeledObj : {label: string}) {
+    console.log(labeledObj.label);
+}
 
+function printLabelInterface(labeledObj : LabeledValue) {
+    console.log(labeledObj.label);
+}
+
+let myObj = {size: 10, label: "Size 10 Object"};
+printLabel(myObj);
 ```
 
-It supported features:
+With the above example, the type checker checks the call to ```printLabel()```. The ```printLabel()``` function has a single parameter that requires that the object passed in has a property called ```label``` of type ```string```. Our object actually has more properties than this, but the compiler only checks that at least the ones present and match the types required. There are some cases where Typescript isn't as lenient.
+
+Typescript also supports some interesting features in interface:
 - Optional properties
+
+    ```javascript
+    interface SquareConfig {
+        color?: string;
+        width?: number;                            
+    }
+
+    function createSquare(config: SquareConfig) : {color: string, area: number} {
+        let newSquare = {color: "white", area: 100};
+
+        if (config.color) {
+            newSquare.color = config.color;
+        }
+
+        if (config.with) {
+            // Error: Property 'with' does not exist on type 'SquareConfig'
+            newSquare.area = config.with * config.with;
+        }
+
+        return newSquare;
+    }
+    ```
+
+    These optional properties are popular when creating patterns like **option bags** where we can pass an object to a function that **only has a couple of properties filled in**.
+
+    The advantage of optional properties is that we can describe these possibly available properties while still also preventing use of properties that are not part of the interface. 
+
+    For example, had we mistyped the name of the ```width``` property in **createSquare()**.
+
 - Function types
 - Array types
 - Class types
