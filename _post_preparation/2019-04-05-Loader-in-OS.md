@@ -11,3 +11,4 @@ tags: [Computer Science]
 
 Refer:
 
+[https://en.wikipedia.org/wiki/Loader_(computing)](https://en.wikipedia.org/wiki/Loader_(computing))
