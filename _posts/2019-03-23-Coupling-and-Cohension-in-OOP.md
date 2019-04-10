@@ -179,7 +179,7 @@ In this article, we will discuss about coupling and cohesion in OOP, mainly beca
 <br>
 
 ## Coupling
-## Definition
+### Definition
 
 According to [wikipedia.org](https://en.wikipedia.org/wiki/Coupling_(computer_programming)), we have a definition of coupling:
 
@@ -194,6 +194,8 @@ Coupling increases between two classes A and B if:
 - A is a subclass of (or implements) class B.
 
 Low coupling refers to a relationship in which one module interacts with another module through a simple and stable interface and does not need to be concerned with the other module's internal implementation
+
+![](../img/design-pattern/core-oop/cohension-coupling/Loosely-couple-and-tightly-couple.png)
 
 ### Some properties that need to consider in coupling
 In Coupling, we need to consider some properties:
