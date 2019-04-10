@@ -5,7 +5,7 @@ bigimg: /img/image-header/california.jpg
 tags: [Node.js]
 ---
 
-
+In this article, we will discuss about how to integrate Typescript into Node.js project such as web project, talk about disadvantages of Typescript that is compared with Javascript.
 
 <br>
 
@@ -19,9 +19,11 @@ tags: [Node.js]
 
 ## Why do we need to integrate Typescript into Node.js project
 Here are some reasons that we think that we should use Typescript into Node.js project:
-- When we are working with large project, use common syntax in Javscript make us confused because we do not know about parameters of javascript.
-
-
+- Typescript is purely object oriented programming.
+- When we are working with large project, use common syntax in Javscript make us confused because we do not know about parameters and their types of javascript.
+- We can easily detect errors at the compile time.
+- Great tooling support with IntelliSense.
+- The ability to compile down to a version of Javascript that runs on all browsers.
 
 <br>
 
@@ -174,3 +176,7 @@ Refer:
 [https://blog.risingstack.com/building-a-node-js-app-with-typescript-tutorial/](https://blog.risingstack.com/building-a-node-js-app-with-typescript-tutorial/)
 
 [https://github.com/DefinitelyTyped/DefinitelyTyped](https://github.com/DefinitelyTyped/DefinitelyTyped)
+
+[https://ionicframework.com/docs/v3/developer-resources/typescript/](https://ionicframework.com/docs/v3/developer-resources/typescript/)
+
+[https://www.upwork.com/hiring/community/the-advantages-of-typescript/](https://www.upwork.com/hiring/community/the-advantages-of-typescript/)
