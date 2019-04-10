@@ -5,12 +5,15 @@ bigimg: /img/image-header/california.jpg
 tags: [C++, Multithread]
 ---
 
+When we want to improve the performance of system, there are many ways to enhance performance such as architecture design, optimization algorithms, ... But we can immediately think about multithread at first. 
 
+So, in this article, we will find something out about multithreading in C++, how to know difference between process and thread, how to create thread in C++, ...
 
 <br>
 
 ## Table of contents
 - [Introduction to multithread](#introduction-to-multithread)
+- [The difference between process and thread](#the-difference-between-process-and-thread)
 - [Launching a thread](#launching-a-thread)
 - [Transferring ownership of a thread](#transferring-ownership-of-a-thread)
 - [How std::thread.join() do](how-std::thread-join()-do)
@@ -20,13 +23,48 @@ tags: [C++, Multithread]
 <br>
 
 ## Introduction to multithread
-Before going to the concept of multithread, we will need to understand about process concepts. According to the [wikipedia.org](), we have:
+Before, going deeper into multithreading, we need to understand about the concept - process. 
 
 ```
+In computing, a process is the instance of a computer program that is being executed. It contains the program code and its activity. Depending on the OS, a process may be made up of multiple threads of execution that execute instructions concurrently.
+```
+
+According to the [wikipedia.org](https://en.wikipedia.org/wiki/Multithreading_(computer_architecture)), we have the definition of thread:
 
 ```
+In computer science, a thread of execution is the smallest sequence of programmed instructions that can be managed independently by a scheduler,which is typically a part of the operating system. 
+
+The implementation of threads and processes differs between operating systems, but in most cases a thread is a component of a process. Multiple threads can exist within one process, executing concurrently and sharing resources such as memory, while different processes do not share these resources. 
+
+In particular, the threads of a process share its executable code and the values of its dynamically allocated variables and non-thread-local global variables at any given time. 
+```
+
+A thread can contains all this information in a **Thread Control Block (TCB)**:
+- **Thread Identifier**: Unique id (TID) is assigned to every new thread.
+- **Stack pointer**: points to thread's stack in the process. Stack contains the local variables under thread's scope.
+- **Program counter**: a register which stores the address of the instruction currently being executed by thread.
+- **Thread state**: can be running, ready, waiting, start or done.
+- **Thread's register set**: registers assigned to thread for computations.
+- **Parent processs Pointer**: A pointer to the Process control block (PCB) of the process that the thread lives on.
 
 ![](../img/multithread/multithreading-python.png)
+
+
+<br>
+
+## The difference between process and thread
+|                         |         Process        |             Thread              |
+| ----------------------- | ---------------------- | ------------------------------- |
+| Definition              | A process is a program under execution | A thread is a lightweight process that can be managed independently by a scheduler |
+| Context switching time  | Processes require more time for context switching as they are more heavy | Threads require less time for context switching as they are lighter than processes |
+| Memory Sharing          | Processes are totally independent and don't share memory | A thread may share some memory with its peer threads |
+| Communication           | Communication between processes requires more time than between threads | Communication between threads requires less time than between processes |
+| Blocked                 | If a process get blocked, remaining processes can continue execution | If a user level thread gets blocked, all of its peer threads also get blocked |
+| Resource consumption    | Processes require more than resouces than threads | Threads generally need less resources than processes |
+| Dependency              | Individual processes are independent data and code segments | Threads are parts of a process and so are dependent |
+| Data and Code sharing   | Processes have independent data and code segments | A thread shares the data segment, code segment, files, ... with its peer threads |
+| Treatment by OS         | All the different processes are treated separately by the operating system | All user level peer threads are treated as a single task by the operating system |
+| Time for termination    | Processes require more time for termination | Threads require less time for termination |
 
 
 <br>
@@ -349,3 +387,5 @@ Some keywords to need to understand: pools, tasks, app-lifetime threads, inter-t
 [https://stackoverflow.com/questions/10673585/start-thread-with-member-function](https://stackoverflow.com/questions/10673585/start-thread-with-member-function)
 
 [https://stackoverflow.com/questions/15148057/what-does-stdthread-join-do](https://stackoverflow.com/questions/15148057/what-does-stdthread-join-do)
+
+[https://www.tutorialspoint.com/difference-between-process-and-thread](https://www.tutorialspoint.com/difference-between-process-and-thread)

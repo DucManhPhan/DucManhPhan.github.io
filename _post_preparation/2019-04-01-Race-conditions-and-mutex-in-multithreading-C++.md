@@ -11,8 +11,8 @@ tags: [C++, multithreading]
 
 ## Table of contents
 - [Race condition](#race-condition)
-- 
-
+- [Mutex](#mutex)
+- [Wrapping up](#wrapping-up)
 
 <br>
 

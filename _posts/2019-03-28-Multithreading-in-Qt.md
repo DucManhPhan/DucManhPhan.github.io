@@ -5,13 +5,16 @@ bigimg: /img/image-header/california.jpg
 tags: [Qt]
 ---
 
+When I work with multithreading in Qt at the first time, I feel it really confused with the concepts Signal/Slot. I always have some error about that it can not create threads in QtNetworkManager thread. 
 
+So, in this article, we will discuss about multithreadin in Qt. To go through this article, we will look forward you can easily grasp all of things about multithreading in Qt.
 
 <br>
 
 ## Table of contents
 - [Introduction to Multithreading in Qt](#introduction-to-multithreading-in-qt)\
 - [How to use multithread in Qt](#how-to-use-multithread-in-qt)
+- [When to use alternatives to Threads](#when-to-use-alternatives-to-threads)
 - [Passing argument to a SLOT](#passing-argument-to-a-slot)
 - [How to call Slot in a thread from different thread](#how-to-call-slot-in-a-thread-from-different-thread)
 - [Wrapping up](#wrapping-up)
@@ -353,7 +356,9 @@ Source code:
 ## Wrapping up
 - Do not subclass QThread. That's the starting point for many programmers' headaches. A QThread is a thread manager, which controls one thread. A QThread is not a thread. Transfer information from thread to thread via signals and slots, using an event-driven approach.
 
+<br>
 
+Thanks for your reading.
 
 <br>
 
