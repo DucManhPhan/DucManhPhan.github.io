@@ -70,7 +70,7 @@ tags: [Design Pattern]
     In high cohesion, there is a separate class for all the jobs to execute a specific job, which result better usability and maintaince.
 
     --> So, we have:
-    - High cohesion is when we have a class that does a well defined job. Low cohesion is when a class does a lot of jobs that don�t have much in common.
+    - High cohesion is when we have a class that does a well defined job. Low cohesion is when a class does a lot of jobs that don’t have much in common.
     - High cohesion gives us better maintaining facility and Low cohesion results in monolithic classes that are difficult to maintain, understand and reduces re-usability
 
     For example:
@@ -98,16 +98,6 @@ tags: [Design Pattern]
 
         
 
-        // getter, setter properties.
-
-        // method
-        public void readInfor();
-
-        public void writeInfor();
-    }
-    ```
-
-    The ```Person``` class has tightly cohesion, simply because Person's responsibilities is relevant to save information about people. It do not relate to functionalities about read/write to file. So, to reduce tightly cohension, we should separate the implementation about read/write file into other class such as File, ...
 
 <br>
 
@@ -141,7 +131,7 @@ Below is a table that depict about difference between cohesion and coupling
 | Cohesion is a degree (quality) to which a component / module focuses on the single thing | Coupling is a degree to which a component / module is connected to the other modules |
 | While designing we should strive for high cohesion. Ex: cohesive component/module focus on a single task with little interaction with other modules of the system | While designing we should strive for low coupling. Ex: dependency between modules should be less |
 | Cohesion is the kind of natural extension of data hiding, for example, class having all members visible with a package having default visibility | Making private fields, private methods and non public classes provides loose coupling |
-| Cohesion is Intra � Module Concept | Coupling is Inter -Module Concept |
+| Cohesion is Intra – Module Concept | Coupling is Inter -Module Concept |
 
 <br>
 
