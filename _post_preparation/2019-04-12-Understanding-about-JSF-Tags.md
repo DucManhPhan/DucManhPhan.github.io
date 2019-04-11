@@ -1,6 +1,6 @@
 ---
 layout: post
-title: Understanding about JSF Facelets Tags
+title: Understanding about JSF Tags
 bigimg: /img/image-header/california.jpg
 tags: [Java]
 ---
@@ -35,6 +35,8 @@ JavaServer Faces (JSF) is a
 
 
 Refer:
+
+[https://www.javacodegeeks.com/2018/03/jsf-2-0-tutorial-for-beginners.html](https://www.javacodegeeks.com/2018/03/jsf-2-0-tutorial-for-beginners.html)
 
 [https://www.tutorialspoint.com/jsf/jsf_facelets_tags.htm](https://www.tutorialspoint.com/jsf/jsf_facelets_tags.htm)
 
