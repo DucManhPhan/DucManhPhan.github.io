@@ -101,7 +101,7 @@ When render CSS file via ```h:outputStylesheet``` tag, remember put the ```<h:he
 
     - Why do you define the output within the tag an not inside the head part?
 
-        JSF will render css output in gheadh tag automatically.
+        JSF will render css output in â€œheadâ€ tag automatically.
 
 <br>
 
