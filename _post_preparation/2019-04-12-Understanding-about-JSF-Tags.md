@@ -25,7 +25,14 @@ JavaServer Faces (JSF) is a
 
 <br>
 
-## 
+## The architecture of JSF framework
+
+
+<br>
+
+## JSF Basic Tags
+
+
 
 
 <br>
