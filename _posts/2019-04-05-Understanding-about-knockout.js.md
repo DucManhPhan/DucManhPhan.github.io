@@ -78,7 +78,8 @@ ko.applyBindings(new ViewModel());
 Finally, when runs this example, we have a result: ```Hello Blue Storm```.
 
 So, in this example, we can learn some interesting keywords such as ```data-bind```, ```ko```, ```applyBindings```, ...
-- ```ko```
+
+- ko
 
     ```javascript
     <script type="text/javascript" src="knockout-2.2.1.js"></script>
