@@ -11,7 +11,7 @@ Trước khi đưa ra câu trả lời thì mình có một bức xúc muốn b�
 
 Để tránh có cái nhìn sai lạc trước tiên phải xóa bỏ ngay một số hình dung sai lầm thường thấy về DDD là DDD là một công nghệ mới hay là một Framework mới. DDD không liên quan gì đến công nghệ hay Framework là những thứ thuộc về tầng vật lý ( Physical View ) mà nó là một khái niệm thuộc về tầng logic ( Conceptual View ) khi chúng ta xây dựng một hệ thống phần mềm. Cụ thể hơn nó là một Design Pattern và hơn nữa đây là Design Pattern ở cấp độ kiến trúc của hệ thống Architectural Pattern , chúng ta cần rõ điều này để phân biệt với các Design Pattern nổi tiếng ở cấp độ class được viết trong sách của bọn bè lũ bốn tên ( Gang of Four ) . Nó cung cấp một cấu trúc thực hành ( Structure of practice ) và các thuật ngữ ( terminology ) giúp cho việc ra các quyết định thiết kế được hiệu quả hơn. Và vì nó tỏ ra hổ báo như thế nên chúng ta rà soát lại kiến trúc ngôi nhà mà nó vẽ ra một lần nữa xem tròn méo thế nào. 
 
-![](../img/Architecture-pattern/Domain-driven-design/ddd_layers-1.png)
+![](../../img/Architecture-pattern/Domain-driven-design/ddd_layers-1.png)
 
 Ở bài trước cũng đã nêu ra kiến trúc này rồi nhưng chưa đi sâu vào chi tiết vê sự khác biệt giữa mô hình 3 lớp truyền thống với kiến trúc của DDD. Theo mô tả của DDD thì các tầng của nó có vai trò như sau:
 
@@ -31,7 +31,7 @@ Tương tự ngày xưa nói Data Mining bây giờ có thêm Big Data rồi th�
 
 Trong mô hình ba lớp cũ thì những cái gì không thuộc về xử lý liên quan đến nghiệp vụ sẽ được xếp chung vào 1 giỏ gọi là cross-cutting concern và không có tài liệu nào đề cập đến cái gọi là infrastructure cả. Có một truyện ngược đời kiểu sinh con rồi mới sinh cha thế này. Sau khi Domain Driven Design và đưa ra Infrastructure Layer thì một số đồng chí khi so sánh giữa mô hình 3 lớp cũ với DDD lại dùng chính khái niệm này để mô tả về mô hình 3 lớp như trong cái hình này.
 
-![](../img/Architecture-pattern/3-layer/Traditional-layered-architecture.png)
+![](../../img/Architecture-pattern/3-layer/Traditional-layered-architecture.png)
 
 Quả thực là vấn nạn do các chuyên gia tạo ra trong ngành IT không biết bao nhiêu mà kể, thế nên để hiểu đúng vấn đề thì chính chúng ta phải chủ động đãi cát tìm vàng còn đâu bọn chuyên gia chém thế nào thì makeno thôi. Thường thì Infrastructure được hiểu theo nghĩa là liên quan nhiều đến yếu tố vật lý phần cứng ví dụ như Infrastructure as Service của Amazon cung cấp Cloud service ở mức độ phần cứng chẳng hạn còn ở đây Infrastructure lại được hiểu theo nghĩa là hạ tầng phần mềm nhưng lại chỉ là hạ tầng phần mềm trong scope của ứng dụng thôi chứ không được hiểu theo scope rộng là infrastructure của toàn bộ hệ thống ( bao gồm hệ điều hành, platform etc… )
 
@@ -61,17 +61,17 @@ Hiện tại chúng ta đang nói về thiết kế nhưng thiết kế chỉ l�
 
 DAO thì nó gần hơn với mức lưu trữ ( storage ) và nó thực sự là data-centric đó là lý do tại sao có rất nhiều trường hợp 1 DAO sẽ được match 1-1 với 1 table trong database. DAO là nơi ẩn giấu các câu query và trả về các object state cho object client gọi nó. Repository thì đứng ơ tầng cao hơn, nó cũng xử lý data và che giấu các câu query nhưng data mà nó làm việc là domain object, có có thể gọi DAO để lấy dữ liệu từ tầng lưu trữ và dùng các dữ liệu đó để xử lý các domain object hoặc nó có thể extract data cần thiết từ domain object để lưu trữ vào storage. Cái khác nữa là Repository được implement theo pattern mà đồng chí Martin Flower định nghĩa ( tức là nó được cài đặt chương trình bơi khi máy bay bị rơi vì nó là phi công chứ không phải là đơn giản là một người bình thường ) . Cách hình dung dễ nhất về Repository là lấy một đối tượng tương tự là Collection để minh họa về nó, Repository giống như một collection các domain object. Với collection bạn có thể thơm hoặc bớt các phần tử của nó cũng như truy cập một phần tử nào đó qua index, còn với Repository bạn cũng có thể lấy ra một domain object, xóa nó đi lấy ra một domain object nào đó tùy theo điều kiện nào đó. 
 
-![](../img/Architecture-pattern/Domain-driven-design/sequence-layers-ddd.png)
+![](../../img/Architecture-pattern/Domain-driven-design/sequence-layers-ddd.png)
 
 Các bạn cứ nhìn vào hình trên đây là sẽ hiểu về vai trò của Factory và Repository. Ở đây Gateway có thể  nằm ở tầng Infrastructure và có thể là DAO hoặc cũng có thể là object truy cập vào một webservice ở bên ngoài.
 
 Và để cho dễ nhớ về đám gạch đá ( bulding block ) để xây nhà theo kiến trúc DDD này thì chúng ta tóm tắt trong cái hình này cho dễ hình dung.
 
-![](../img/Architecture-pattern/Domain-driven-design/Domain-objects-State-behaviour.png)
+![](../../img/Architecture-pattern/Domain-driven-design/Domain-objects-State-behaviour.png)
 
 - Data Transfer Object: Tuy không phải là một phần của DDD nhưng cũng đưa vào đây vì nó vẫn đường được sử dụng trong mô hình nhiều lớp, đơn giản nó chỉ là các Object không có logic và chỉ được dùng để truyền dữ liệu qua các layer khác nhau trong ứng dụng mà thôi. 
 
-![](../img/Architecture-pattern/Domain-driven-design/Model-driven-design.png)
+![](../../img/Architecture-pattern/Domain-driven-design/Model-driven-design.png)
 
 Viết nhiều chữ quá cũng không hiệu quả, nên phần kết của cái bài đi tìm câu trả lời cho câu hỏi What Design Driven Domain là cái gì mình sử dụng cái hình này, nhìn vào đó ta có thể thấy được thought process ( tư duy thiết kế tổng quan ) của DDD được triển khai như thế nào. Có một số khái niệm chưa được giải thích sẽ bổng sung thêm khi có thời gian. 
 

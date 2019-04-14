@@ -15,7 +15,7 @@ Trở ngại lớn đối với nhận thức của con người là khi chúng 
 
 Một thứ mà chúng ta đã quá quen thuộc là khái niệm ứng dụng web, tuy nhiên không phải  developer nào cũng  để ý đặt câu hỏi xem có những loại ứng dụng web nào?  Chúng ta cùng nhìn lại hình dưới đây để điểm qua lịch sử phát triển của các ứng dụng web.  
 
-![](../img/front-end/types-web-application.png)
+![](../../img/front-end/types-web-application.png)
 
 Ứng dụng web chia ra làm 2 loại là web tĩnh  ( static web ) và web động ( dynamic web ). Khái niệm web tĩnh có lẽ đã trở nên mờ nhạt với nhiều người vì nó được sử dụng từ nhiều năm trước thời kỳ đầu của kỹ nguyên web.  Nó được gọi là tĩnh vì nội dung của trang web không thay đổi khi nó được load trên browser,  người dùng chỉ nhìn thấy một nội dung mới khi họ click vào 1 hyperlink nào đó trên trang và 1 trang web khác với nội dung cố định được load về.Các trang web hiện thời mà chúng ta đang truy nhập tất nhiên là loại web động với nội dung thường xuyên biến đổi và phong phú hơn web tĩnh rất nhiều.  Song  Dynamic web cũng được chia làm 2 loại.Một loại là DOM Scripting dựa trên việc sử dụng ngôn ngữ phía client là javascript để thao tác trên Document Object Model ( Chữ viết tắt là DOM ) để biến đổi nội dung trang web nên nó được gọi là Client Side Programming và trang web mà browser đọc được là DHTML viết tắt của ```Dynamic Html=Html+ Javascript```
 
@@ -24,7 +24,7 @@ Còn loại còn lại là Server Side Programming  bởi vì nội dung trang w
 
 Đến đây thì chúng ta đã thấy là 1 Web Application quen thuộc được nhìn dưới một khái niệm có vẻ mới là Data Driven Web. Khái niệm này tương thích với kiến trúc ứng dụng 3 lớp mà chúng ta vẫn thường thấy.   
 
-![](../img/Architecture-pattern/3-layer/3-layer.jpg)
+![](../../img/Architecture-pattern/3-layer/3-layer.jpg)
 
 Vì nó là thứ thường thấy và quá quen thuộc nên chẳng mấy ai đề cập rằng kiến trúc này thuộc loại kiến trúc Data Driven Design và chỉ khi xuất hiện khái niệm Domain Driven Design thì chúng ta mới cần lật lại mô hình kiến trúc cũ để tạo ra một tương quan so sánh giữa 2 mô hình mới và cũ. Vậy những điểm cơ bản giống và khác nhau giữa 2 loại mô hình kiến trúc ( architectural pattern )  này là gì.
 
@@ -46,13 +46,13 @@ Trong những ứng dụng nhỏ thì vấn đề này là invisible và chúng 
 
 Lý do mà Data Driven Design thất bại là vì khi phát triển ứng dụng lớn thì Data Master là Technical Expert, họ hiểu về kỹ thuật nhưng lại không hiểu về các lĩnh vực chuyên sâu cụ thể ( Domain ) chẳng hạn như Y tế, Ngân hàng. Để hiểu được sâu logic của những bài toán trong lĩnh vực này cần đến các Domain Expert như là Bác sĩ hay Banker và các tiếp cận theo hướng Domain Driven Design huy động được contribution của các Domain Expert trong việc tham gia thiết kế khiến cho các context của ứng dụng nằm trong tầm kiểm soát tốt hơn. 
 
-![](../img/Architecture-pattern/Domain-driven-design/DDD-layered-architecture.png)
+![](../../img/Architecture-pattern/Domain-driven-design/DDD-layered-architecture.png)
 
 Ở đây mô hình Domain Driven Design vẫn giữ lại những ưu điểm của mô hình kiến trúc phân lớp ( Layered Archiecture ) để đảm bảo nguyên lý Seperation of Concern. Các phần logic xử lý khác nhau sẽ được cô lập ra khỏi các phần khác làm tăng tính Lose Coupling của ứng dụng và tính dễ đọc ( readity ) và dễ maintain source cũng như úng dụng khi có thay đổi logic của từng layer thì không ảnh hướng đến các layer khác.
 
 Riêng phần Domain Model sẽ là phần core logic, trái tim của ứng dụng có dấu ấn rất lớn của các Domain Expert trong việc thiết kế nó. Còn phần database vốn được xem là trái tim của ứng dụng trong mô hình cũ sẽ được externalize ra ngoài thành một phần độc lập với logic nằm trong phần Infrastructure xếp chung với các cross-cutting concerns khác của ứng dụng, và khi business rule của ứng dụng có thay đổi thì nó cũng không ảnh hưởng nhiều đến phần này.
 
-![](../img/Architecture-pattern/Domain-driven-design/Trends-in-application-modeling.jpg)
+![](../../img/Architecture-pattern/Domain-driven-design/Trends-in-application-modeling.jpg)
 
 Tóm lại vai trò của 2 hướng tiếp cận trong việc thiết kế ứng dụng là khá rõ ràng. Data Driven Design sẽ chiếm ưu thế đối với các ứng dụng cỡ vừa và nhỏ còn Domain Driven Design là kẻ chiến thắng đối với các hệ thống lớn. Domain Driven Design sẽ làm phức tạp hóa các giải pháp khi đưa nó vào áp dụng trong các hệ thống nhỏ và yêu cầu nhiều về resource ( con người ) hơn trong việc phát triển và làm chậm time to market của sản phẩm. Vì vậy cần rất thận trọng khi lựa chọn Domain Driven Desgin cho hệ thống của mình. 
 
