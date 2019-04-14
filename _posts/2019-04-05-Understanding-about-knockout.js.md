@@ -80,7 +80,9 @@ Finally, when runs this example, we have a result: ```Hello Blue Storm```.
 So, in this example, we can learn some interesting keywords such as ```data-bind```, ```ko```, ```applyBindings```, ...
 - ```ko```
 
-    ```<script type="text/javascript" src="knockout-2.2.1.js"></script>```
+    ```javascript
+    <script type="text/javascript" src="knockout-2.2.1.js"></script>
+    ```
 
     When the above script file is added to the HTML document, a global variable ```ko``` is created and all exposed functions can be reached using this global Knockout variable such as:
 
