@@ -16,9 +16,10 @@ Let's get started!
 ## Table of Contents
 - [Given Problem](#given-problem)
 - [Solution with DAO pattern](#solution-with-dao-pattern)
+- [Source code C++ / Java / Javascript](#source-code-c++-/-java-/-javascript)
 - [When to use DAO pattern](#when-to-use-dao-pattern)
 - [The advantages / disadvantages](#the-advantages-/-disadvantages)
-- [Source code C++ / Java / Javascript](#source-code-c++-/-java-/-javascript)
+- [Related Design Patterns](#related-design-patterns)
 - [Wrapping up](#wrapping-up)
 
 <br>
@@ -69,8 +70,9 @@ Now, we will use Java language to describe the DAO pattern. And based on these c
 
 ## When to use DAO pattern
 - When we need to change the current database to the other database such as Oracle, MySQL, MariaDB, SQL Server, MongoDB.
-- When we want to separate application into specific parts.
-- 
+- We want to separate a data source's client interface from its data access mechanism.
+- We want to adapt a specific data resource's access API to a generic client interface.
+- In a larger project, different teams work on different parts of the application: the DAO pattern allows clean separation of concerns.
 
 <br>
 
@@ -87,18 +89,51 @@ Now, we will use Java language to describe the DAO pattern. And based on these c
     - Switching the DB technology: if we switch from MySQL to DB2, we just need to write another implementation of the interface and switch the MySQL DAO and the DB2 DAO.
 
 2. Disadvantages
-    - 
+    - Potential disadvantages of using DAO include leaky abstraction, code duplication, and abstraction inversion. 
+    
+        A leaky abstraction is an abstraction that leaks details that it is supposed to abstract away.
+
+    - When application requires multiple DAOs, one might find oneself repeating essentially the same create, read, update, and delete code for each DAO --> Solution: implementing a generic DAO that handles these common operations.
+
+<br>
+
+## Related Design Patterns
+- Abstract Factory: Applications often use a Factory to select the right DAO implementation at run time.
+- Transfer Object: The DAO pattern offten uses a Transfer Object to send data source to its client and vice versa.
 
 <br>
 
 ## Wrapping up
+- Some assumptions behind the DAO implementation:
+    - All database access in the system is made through a DAO to achieve encapsulation.
+    - Each DAO instance is responsible for one primary domain object or entity. If a domain object has an independent lifecycle, it should have its own DAO.
+    - The DAO is responsible for creations, reads (by primary key), updates, and deletions -- that is CRUD -- on the domain object.
+    - The DAO may allow queries based on criteria other than the primary key. We refer to these as *finder methods* or *finders*. The return value of a finder is normally a collection of the domain object for which the DAO is responsible.
+    - The DAO is not responsible for handling transactions, sessions, or connections. These are handled outside the DAO to achieve flexibility.
 
+- A typical DAO implementation has the following components:
+    - A DAO factory class.
+    - A DAO interface.
+    - A concrete class that implements the DAO interface.
+    - Data transfer object (sometimes called **Value Objects**)
 
-
+- The concrete DAO class contains logic for accessing data from a specific data source.
 
 <br>
 
 Refer:
+
+**Advanced DAO programming**
+
+[https://www.ibm.com/developerworks/library/j-dao/](https://www.ibm.com/developerworks/library/j-dao/)
+
+[https://pkp.sfu.ca/wiki/index.php?title=Data_Access_Objects_(DAO)](https://pkp.sfu.ca/wiki/index.php?title=Data_Access_Objects_(DAO))
+
+<br>
+
+[http://best-practice-software-engineering.ifs.tuwien.ac.at/patterns/dao.html](http://best-practice-software-engineering.ifs.tuwien.ac.at/patterns/dao.html)
+
+[https://en.wikipedia.org/wiki/Data_access_object](https://en.wikipedia.org/wiki/Data_access_object)
 
 [https://thinkinginobjects.com/2012/08/26/dont-use-dao-use-repository/](https://thinkinginobjects.com/2012/08/26/dont-use-dao-use-repository/)
 
@@ -109,3 +144,7 @@ Refer:
 [https://www.baeldung.com/java-dao-pattern](https://www.baeldung.com/java-dao-pattern)
 
 [https://thinkinginobjects.com/2012/08/26/dont-use-dao-use-repository/](https://thinkinginobjects.com/2012/08/26/dont-use-dao-use-repository/)
+
+[https://www.ibm.com/developerworks/library/j-genericdao/index.html](https://www.ibm.com/developerworks/library/j-genericdao/index.html)
+
+[https://xebia.com/blog/jpa-implementation-patterns-data-access-objects/](https://xebia.com/blog/jpa-implementation-patterns-data-access-objects/)
