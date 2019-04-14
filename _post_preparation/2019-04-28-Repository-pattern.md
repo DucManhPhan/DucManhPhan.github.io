@@ -1,16 +1,15 @@
 ---
 layout: post
-title: Abstract Factory Pattern
+title: Repository pattern
 bigimg: /img/path.jpg
-tags: [creational pattern, design pattern]
+tags: [structure pattern, design pattern]
 ---
 
 <br>
 
 ## Table of contents
 - [Given Problem](#given-problem)
-- [Analysis Problem](#analysis-problem)
-- [Definition of Abstract factory Pattern](#definition-of-abstract-factory-pattern)
+- [Solution of Repository Pattern](#solution-of-repository-pattern)
 - [When to use](#when-to-use)
 - [Benefits & Drawback](#benefits-&-drawback)
 - [Code C++ /Java / Javascript](#code-c++-java-javascript)
@@ -26,13 +25,7 @@ tags: [creational pattern, design pattern]
 
 <br>
 
-## Analysis Problem
-
-
-
-<br>
-
-## Definition of Abstract factory Pattern
+## Solution of Repository Pattern
 
 
 
@@ -75,6 +68,4 @@ Thanks for your reading.
 <br>
 
 Refer: 
-
-[https://thinkinginobjects.com/2012/09/05/abstract-factory-in-domain-modelling/](https://thinkinginobjects.com/2012/09/05/abstract-factory-in-domain-modelling/)
 

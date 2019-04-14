@@ -27,12 +27,12 @@ In this post, I’m going to write about:
 ## Ubiquitous language
 A recurrent problem in software development, revolves around understanding the code, what it is, what it does, how it does it, why it does it… it is even more complicated to understand the code if it uses a terminology different than the terminology the Domain experts use, for example, if the domain experts talk about elder users while the code talks about supervisors, this might bring a lot of confusion when discussing the application. Most of this ambiguity, however, can be solved with proper naming of classes and methods, making them express what an object is and what a method does in the context of the domain.
 
-The main idea of using a Ubiquitous Language is to align the application with the business. This is accomplished by adopting a common language, between the business and technology, in the code. The source for the language is the business side of the company, they have the concepts that need to be implemented, but the terminology is then negotiated with the technology side of the company (meaning that the business side doesn’t always choose the best naming either) with the objective of creating **a common terminology that can be used by business, technology and in the code itself without any ambiguity**, a ubiquitous language. The code, classes, methods, properties and modules naming must align with the ubiquitous language. It is worth refactoring the code if needed!
+The main idea of using a **Ubiquitous Language** is to align the application with the business. This is accomplished by adopting a common language, between the business and technology, in the code. The source for the language is the business side of the company, they have the concepts that need to be implemented, but the terminology is then negotiated with the technology side of the company (meaning that the business side doesn’t always choose the best naming either) with the objective of creating **a common terminology that can be used by business, technology and in the code itself without any ambiguity**, a ubiquitous language. The code, classes, methods, properties and modules naming must align with the ubiquitous language. It is worth refactoring the code if needed!
 
 <br>
 
 ## Layers
-I already talked about layering in a previous post, but I find it import at this point to remember the layers identified by DDD:
+I have already talked about layering in a previous post, but I find it import at this point to remember the layers identified by DDD:
 
 - User Interface
 

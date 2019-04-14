@@ -21,6 +21,20 @@ tags: [design pattern, SOLID]
 
 
 
+
+<br>
+
+## Wrapping up
+
+
+
+
+<br>
+
+Thanks for your reading.
+
+<br>
+
 Refer:
 
 [https://gravitymodel.net/core-software-principles/](https://gravitymodel.net/core-software-principles/)
