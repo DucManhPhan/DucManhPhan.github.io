@@ -14,7 +14,7 @@ Therefore, understanding about architecture of JPA is benefical for us. In this 
 ## Table of contents
 - [Introduction to JPA](#introduction-to-jpa)
 - [JPA Providers](#jpa-providers)
-- [What is Java persistence](#what-is-java-persistence)
+- [Introduction to Java persistence](#introduction-to-java-persistence)
 - 
 - 
 - [Wrapping up](#wrapping-up)
@@ -45,7 +45,7 @@ Some of these products include:
 
 <br>
 
-## What is Java persistence
+## Introduction to Java persistence
 
 
 
@@ -53,6 +53,8 @@ Some of these products include:
 <br>
 
 ## Wrapping up
+- In Hibernate, the Session interface follows the Repository pattern. However, by introducing our own repository interfaces, we decouple our domain objects from the hibernate implementation, make the domain model package easy to test and reuse.
+
 
 <br>
 

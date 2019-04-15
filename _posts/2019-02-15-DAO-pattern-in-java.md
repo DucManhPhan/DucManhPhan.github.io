@@ -93,13 +93,26 @@ Now, we will use Java language to describe the DAO pattern. And based on these c
     
         A leaky abstraction is an abstraction that leaks details that it is supposed to abstract away.
 
-    - When application requires multiple DAOs, one might find oneself repeating essentially the same create, read, update, and delete code for each DAO --> Solution: implementing a generic DAO that handles these common operations.
+    - When application requires multiple DAOs, one might find oneself repeating essentially the same create, read, update, and delete code for each DAO 
+    
+        --> Solution: implementing a generic DAO that handles these common operations.
 
 <br>
 
 ## Related Design Patterns
-- Abstract Factory: Applications often use a Factory to select the right DAO implementation at run time.
-- Transfer Object: The DAO pattern offten uses a Transfer Object to send data source to its client and vice versa.
+- Abstract Factory pattern and Factory Method pattern
+
+    Applications often use a Factory to select the right DAO implementation at run time.
+
+    To understand about how to use Abstract Factory pattern with DAO pattern, refer to the [link](https://www.oracle.com/technetwork/java/dataaccessobject-138824.html).
+
+- Transfer Object
+    
+    The DAO pattern offten uses a Transfer Object to send data source to its client and vice versa.
+
+- Broker pattern
+
+    The DAO pattern is related to the Broker pattern, which describes approaches for decoupling clients and servers in distributed systems. The DAO pattern more specifically applies this pattern to decouple the resouce tier from clients in another tier, such as the business or presentation tier.
 
 <br>
 
@@ -119,6 +132,13 @@ Now, we will use Java language to describe the DAO pattern. And based on these c
 
 - The concrete DAO class contains logic for accessing data from a specific data source.
 
+- Use a DAO pattern when we need a DAO, whereas we do not need a repository. A DAO can basically be used as a messaging system, between the application and the database. 
+
+    So, if we need to generate a report, which is often a rendering of read-only data, or update any logging tables, then a DAO should suffice. No need for managing such transaction in session, just quick data dumps and updates.
+
+    For managing actual domain entities, and not **Value Object**, use a repository.
+
+
 <br>
 
 Refer:
@@ -128,6 +148,8 @@ Refer:
 [https://www.ibm.com/developerworks/library/j-dao/](https://www.ibm.com/developerworks/library/j-dao/)
 
 [https://pkp.sfu.ca/wiki/index.php?title=Data_Access_Objects_(DAO)](https://pkp.sfu.ca/wiki/index.php?title=Data_Access_Objects_(DAO))
+
+[https://www.oracle.com/technetwork/java/dataaccessobject-138824.html](https://www.oracle.com/technetwork/java/dataaccessobject-138824.html)
 
 <br>
 
