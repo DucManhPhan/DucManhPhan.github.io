@@ -16,8 +16,8 @@ tags: [structure pattern, design pattern]
 - [When to use](#when-to-use)
 - [Benefits & Drawback](#benefits-&-drawback)
 - [Code C++ /Java / Javascript](#code-c++-java-javascript)
-- [Application & Examples](#application-&-examples)
 - [The difference between Repository pattern and DAO pattern](#the-difference-between-repository-pattern-and-dao-pattern)
+- [Related Patterns](#related-patterns)
 - [Wrapping up](#wrapping-up)
 
 
@@ -41,6 +41,15 @@ A repository performs the tasks of an intermediary between the domain model laye
 
 ![](../img/design-pattern/repository-pattern/Interactions-of-the-repository.png)
 
+It is important note about Repository pattern: Repositories play an important part in DDD, they speak the language of the domain and act as mediators between the domain and data mapping layers. They provide a common language to all team members by translating technical terminology into business terminology.
+
+In a nutshell, a Repository:
+- Is not a data access layer
+- Provides a higher level of data manipulation
+- Is persistence ignorance
+- Is a collection of aggregate roots
+- Offers a mechanism to manage entities
+
 <br>
 
 ## When to use
@@ -57,18 +66,14 @@ A repository performs the tasks of an intermediary between the domain model laye
     - When we need to change logic of Data Access Layer or Persistence Layer, business logic, no need to modify Repository.
 
 2. Drawbacks
-    - 
+    - About performance: The more abstract away the repository library, we would need to design and implement more levels of abstraction, covering more cases. However, a specialized repository would perform better, knowing the full abilities of its underlying store.
+
+    - Another disadvantages would be development and maintaince cost. These disadvantages outweigh any advantages of having a fully generic structure...
 
 
 <br>
 
 ## Code C++ /Java / Javascript
-
-
-
-<br>
-
-## Application & Examples
 
 
 
@@ -85,9 +90,18 @@ But, some people still give some differences between them. Actually, we still wa
 |              DAO pattern               |                       Repository pattern                   |
 | -------------------------------------- | ---------------------------------------------------------- |
 | DAO is an abstraction of data persistence. --> So, a DAO will be a per-table object. | Repository is an abstraction of a collection of objects. |
-| DAO would be considered closer to the database, often table-centric. | Repository would be considered closer to the Domain, dealing only in Aggregate Roots. |
+| DAOis more lower level, and it would be considered closer to the database/storage dealing only with data, often table-centric. | Repository is a higher level concept, and it would be considered closer to the Domain, dealing only in Aggregate Roots. |
 | DAO would not be implemented by using Repository pattern. | Repository could be implemented using DAO's. |
 | DAO uses **Read and Write** concept. | Repository uses **Read Only** concept. |
+
+--> The main different between the Repository pattern and the DAO pattern is that the DAO pattern is at a low level of abstraction and does not speak the ubiquitous language of the domain.
+
+<br>
+
+## Related Patterns
+- Data Mapper. This pattern describes how to map data to different sachems. It is often used to map between a data store and a domain model.
+  
+- Unit of Work. This pattern keeps track of everything that happens during a business transaction that affects the database. At the conclusion of the transaction, it determines how to update the database to conform to the changes.
 
 <br>
 
@@ -102,6 +116,15 @@ But, some people still give some differences between them. Actually, we still wa
 
     By doing this and using Dependency Injection in the controllers of our Web API, we can implement mock repositories that return fake data instead of data from the database. This decoupled approach allows us to create and run unit tests that focus the logic of our application without requiring connectivity to the database.
 
+- Here are the main differences between Repository and DAO:
+    - Repository provides a higher level of data manipulation.
+    - Repository is persistence ignorance.
+    - Repository is a collection of aggregate roots.
+    - Repository offers a mechanism to manage entities.
+    - Repository speaks the domain language.
+    - Repository is part of the domain model.
+    - Repository exposes a DDD-compliant API.
+
 <br>
 
 Thanks for your reading.
@@ -110,6 +133,9 @@ Thanks for your reading.
 
 Refer: 
 
+[https://www.infoworld.com/article/3117713/design-patterns-that-i-often-avoid-repository-pattern.html](https://www.infoworld.com/article/3117713/design-patterns-that-i-often-avoid-repository-pattern.html)
+
+[https://stackoverflow.com/questions/12846490/what-are-the-advantages-disadvantages-of-making-a-repository-persistence-ignoran](https://stackoverflow.com/questions/12846490/what-are-the-advantages-disadvantages-of-making-a-repository-persistence-ignoran)
 
 [https://docs.microsoft.com/vi-vn/previous-versions/msp-n-p/ff649690(v=pandp.10)](https://docs.microsoft.com/vi-vn/previous-versions/msp-n-p/ff649690(v=pandp.10))
 
@@ -120,6 +146,8 @@ Refer:
 [https://deviq.com/repository-pattern/](https://deviq.com/repository-pattern/)
 
 **The difference between DAO pattern and Repository pattern**
+
+[https://blog.fedecarg.com/2009/03/15/domain-driven-design-the-repository/](https://blog.fedecarg.com/2009/03/15/domain-driven-design-the-repository/)
 
 [https://www.dofactory.com/topic/1138/repository-pattern-vs-dao-pattern.aspx](https://www.dofactory.com/topic/1138/repository-pattern-vs-dao-pattern.aspx)
 

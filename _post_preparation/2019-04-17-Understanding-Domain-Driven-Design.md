@@ -70,6 +70,24 @@ Thanks for your reading
 
 Refer:
 
+**Series about Domain Driven Design**
+
+[https://blog.fedecarg.com/2009/03/11/domain-driven-design-and-mvc-architectures/](https://blog.fedecarg.com/2009/03/11/domain-driven-design-and-mvc-architectures/)
+
+[https://blog.fedecarg.com/2009/03/12/domain-driven-design-and-data-access-strategies/](https://blog.fedecarg.com/2009/03/12/domain-driven-design-and-data-access-strategies/)
+
+[https://blog.fedecarg.com/2009/03/15/domain-driven-design-the-repository/](https://blog.fedecarg.com/2009/03/15/domain-driven-design-the-repository/)
+
+[https://blog.fedecarg.com/2009/03/22/domain-driven-design-sample-application/](https://blog.fedecarg.com/2009/03/22/domain-driven-design-sample-application/)
+
+<br>
+
+**Best practice - An Inroduction to Domain Driven Design**
+
+[https://msdn.microsoft.com/en-us/magazine/dd419654.aspx](https://msdn.microsoft.com/en-us/magazine/dd419654.aspx)
+
+<br>
+
 [https://edwardthienhoang.wordpress.com/2017/04/08/domain-drive-development-ddd-first-thought-part-1/](https://edwardthienhoang.wordpress.com/2017/04/08/domain-drive-development-ddd-first-thought-part-1/)
 
 [https://www.infoq.com/minibooks/domain-driven-design-quickly](https://www.infoq.com/minibooks/domain-driven-design-quickly)

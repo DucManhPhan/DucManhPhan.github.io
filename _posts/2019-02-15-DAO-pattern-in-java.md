@@ -178,6 +178,9 @@ int Main(String[] args) {
 
     For managing actual domain entities, and not **Value Object**, use a repository.
 
+- In the absence of an ORM frameowork, the DAO pattern handles the impedance mismatch that a relational database has with object-oriented techniques. In DDD, we inject Repositories, not DAO's in domain entities. 
+
+- DAO's are related to peristence, and persistence is infrastructure, not domain. The main problem is that we have lots of different concerns polluting the domain. According to DDD, an object should be distilled unitl nothing remains that does not relate to its meaning or support its role in interactions. And that's exactly the problem the Repository pattern tries to solve.
 
 <br>
 
