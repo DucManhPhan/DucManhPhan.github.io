@@ -44,6 +44,8 @@ For example:
 
 DAO pattern can be represented with many ways such as Java Persistence API (JPA), Enterprise Java Bean (EJB), Object-Relational Mapping (ORM) with many specific implementations such as Hibernate, iBATIS, Spring JPA, ...
 
+![Basic DAO pattern](../img/design-pattern/dao-pattern/DAO-pattern.png)
+
 <br>
 
 ## Source code C++ / Java / Javascript
@@ -51,19 +53,55 @@ Now, we will use Java language to describe the DAO pattern. And based on these c
 
 ```java
 // Domain class
+public class Student {
+    private int     studentId;
+    private String  userName;
+    private int     age;
 
+    public int getStudentID() {
+        return studentId;
+    }
+
+    public void setStudentID(int studentId) {
+        this.studentId = studentId;
+    }
+
+    public String getUserName() {
+        return userName;
+    }
+
+    public void setUserName(String userName) {
+        this.userName = userName;
+    }
+
+    public int getAge() {
+        return age;
+    }
+
+    public void setAge(int age) {
+        this.age = age;
+    }
+}
 
 // DAO class
+public interface StudentDAO {
+    Student get(String userName);
+    void create(Student student);
+    void update(Student student);
+    void delete(String userName);
+}
 
 
 // Implementation of DAO class
-
+public class StudentDAOImpl implements StudentDAO {
+    ...
+}
 
 
 // Main Application
-
-
-
+int Main(String[] args) {
+    ...
+}
 ```
 
 <br>
