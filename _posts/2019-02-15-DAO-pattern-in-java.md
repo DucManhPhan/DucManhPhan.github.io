@@ -135,6 +135,8 @@ int Main(String[] args) {
     
         --> Solution: implementing a generic DAO that handles these common operations.
 
+    - Any changes to the interface require edits in not just one implementation, but in multiple implementations in multiple classes. When the Open/Closed rule is violated here, it really blows up.
+
 <br>
 
 ## Related Design Patterns

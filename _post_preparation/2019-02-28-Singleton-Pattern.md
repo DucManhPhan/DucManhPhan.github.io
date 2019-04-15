@@ -169,19 +169,16 @@ To replace the usage of Singleton, we can [use a single instance](#replace-singl
     - Logging framework
     - Thread recycling pools.
 
-- 
-
 <br>
 
 ## Wrapping up
 - Writing a Singleton is easier than writing a single instance using Dependency Injection.
+
 - For a quick and dirty solution, we should use a Singleton. For a long and durable solution, we should use a single instance.
+
 - Singleton pattern has two important properties:
     - single instance
     - global access
-- 
-
-
 
 <br>
 
