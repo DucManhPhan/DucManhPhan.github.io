@@ -159,9 +159,13 @@ int Main(String[] args) {
 ## Wrapping up
 - Some assumptions behind the DAO implementation:
     - All database access in the system is made through a DAO to achieve encapsulation.
+
     - Each DAO instance is responsible for one primary domain object or entity. If a domain object has an independent lifecycle, it should have its own DAO.
+
     - The DAO is responsible for creations, reads (by primary key), updates, and deletions -- that is CRUD -- on the domain object.
+
     - The DAO may allow queries based on criteria other than the primary key. We refer to these as *finder methods* or *finders*. The return value of a finder is normally a collection of the domain object for which the DAO is responsible.
+    
     - The DAO is not responsible for handling transactions, sessions, or connections. These are handled outside the DAO to achieve flexibility.
 
 - A typical DAO implementation has the following components:

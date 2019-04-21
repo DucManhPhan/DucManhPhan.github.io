@@ -53,7 +53,7 @@ In a nutshell, a Repository:
 <br>
 
 ## When to use
-
+- When working with Domain Driven Design pattern.
 
 
 <br>
@@ -74,7 +74,7 @@ In a nutshell, a Repository:
 <br>
 
 ## Code C++ /Java / Javascript
-
+We can refer to the [link](https://ducmanhphan.github.io/2019-02-15-DAO-pattern-in-java)
 
 
 <br>
@@ -99,9 +99,12 @@ But, some people still give some differences between them. Actually, we still wa
 <br>
 
 ## Related Patterns
-- Data Mapper. This pattern describes how to map data to different sachems. It is often used to map between a data store and a domain model.
+- Data Mapper
+
+    This pattern describes how to map data to different sachems. It is often used to map between a data store and a domain model.
   
-- Unit of Work. This pattern keeps track of everything that happens during a business transaction that affects the database. At the conclusion of the transaction, it determines how to update the database to conform to the changes.
+- Unit of Work
+    This pattern keeps track of everything that happens during a business transaction that affects the database. At the conclusion of the transaction, it determines how to update the database to conform to the changes.
 
 <br>
 
