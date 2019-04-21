@@ -122,6 +122,38 @@ Here are some reasons that we think that we should use Typescript into Node.js p
 
     ```npm start```
 
+- Use ```tslint``` package
+
+    TSLint is an extensible static analysis tool that checks Typescript code for readability, maintainability, and functionality errors. It is widely supported across modern editors & build systems and can be customized with our own lint rules, configurations, and formatters.
+
+    TSLint will be deprecated some time in 2019.
+
+    ```js
+    npm install tslint --save-dev
+    ```
+
+    Sometimes, when using the above command, typing ```tslint --init``` is not working. So, to repair this mistake, we can do something like this:
+
+    ```js
+    npm install tslint typescript -g
+    ```
+
+    or 
+
+    ```js
+    npm install tslint typescript --save-dev
+    ```
+
+    Then,
+
+    ```js
+    tslint --init
+    ```
+
+    ```tslint --init``` will create ```tslint.json``` configuration file.
+
+    To do more configurations with TSLint, refer to the [link](https://spin.atomicobject.com/2017/06/05/tslint-linting-setup/).
+
 <br>
 
 ## Create some scripts for compiling and run Node.js project with Typescript
@@ -180,3 +212,5 @@ Refer:
 [https://ionicframework.com/docs/v3/developer-resources/typescript/](https://ionicframework.com/docs/v3/developer-resources/typescript/)
 
 [https://www.upwork.com/hiring/community/the-advantages-of-typescript/](https://www.upwork.com/hiring/community/the-advantages-of-typescript/)
+
+[https://palantir.github.io/tslint/usage/cli/](https://palantir.github.io/tslint/usage/cli/)
