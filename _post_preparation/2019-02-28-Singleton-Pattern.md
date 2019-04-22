@@ -143,10 +143,14 @@ To replace the usage of Singleton, we can [use a single instance](#replace-singl
 
     Version 2: 
 
+- Java
+
+
+
 <br>
 
 ## Relations with other Patterns
-
+    - 
 
 
 
