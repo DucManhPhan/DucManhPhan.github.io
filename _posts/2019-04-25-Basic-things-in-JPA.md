@@ -15,7 +15,14 @@ So, in this article, we will talk about how to configure an entity class with JP
 - [Introduction to JPA](#introduction-to-jpa)
 - [JPA Providers](#jpa-providers)
 - [JPA Entity class](#jpa-entity-class)
-- []()
+- [Data types of Persistent Fields and Persistent Properties](#data-types-of-persistent-fields-and-persistent-properties)
+- [Persistent Fields](#persistent-fields)
+- [Persistent Properties](#persistent-properties)
+- [Relationship Mappings](#relationship-mappings)
+- [Direction in Entity relationships](#direction-in-entity-relationships)
+- [Cascade Opeartions and Relationships](#cascade-operations-and-relationships)
+- [Orphan Removal in relationships](#orphan-removal-in-relationships)
+- [Embeddable Classes in Entity](#embeddable-classes-in-entity)
 - [Wrapping up](#wrapping-up)
 
 
@@ -260,33 +267,190 @@ There are four types of multiplicities: ```one-to-one```, ```one-to-many```, ```
 
 - Many-to-One
 
+    Multiple instances of an entity can be related to a single instance of the other entity. This multiplicity is the opposite of a one-to-many relationship.
+
+    In the example, from the perspective of LineItem, the relationship to Order is many-to-one. 
     
+    Many-to-one relationships use the ```javax.persistence.ManyToOne``` annotation on the corresponding persistent property or field.
+
+- Many-to-Many
+
+    The entity instances can be related to multiple instances of each other. 
+    
+    For example, in college, each course has many students, and every student may take several courses. Therefore, in an enrollment application, Course and Student would have a many-to-many relationship. 
+    
+    Many-to-many relationships use the ```javax.persistence.ManyToMany``` annotation on the corresponding persistent property or field.
+
+<br>
+
+## Direction in Entity relationships
+There are two directions of a relationship, bidirectional and unidirectional. 
+- A bidirectional relationship has both an owning side and inverse side.
+- A unidirectional relationship has only an owning side. The owning side of a relationship determines how the Persistent runtime makes updates to the relationship in the database.
+
+1. Bidirectional 
+
+    Each entity has a relationship field or property that refers to the other entity. Through the relationship field or property, and entity class's code can access its related object. If an entity has a related field, then the entity is said to know about its related object. 
+
+    For example, if Order know what LineItem instances it has and if LineItem knows what Order it belongs to, then they have a bidirectional relationship.
+
+    Bidirectional relationships must follow these rules:
+    - The inverse side of a bidirectional relationship must refer to its owning side by using the ```mappedBy``` element of the ```@OneToOne```, ```@OneToMany```, or ```@ManyToMany``` annotation. The ```mappedBy``` element designates the property or field in the entity that is the owner of the relationship, it means that the ```mappedBy``` attribute contains the name of the association-field on the owning side.
+
+    - The owning side has to have the ```inversedBy``` attribute of the ```@OneToOne```, ```@ManyToOne```, or ```@ManyToMany``` mapping declarations. The ```inversedBy``` attribute contains the name of the association-field on the inverse-side.
+
+    - ```@ManyToOne``` is always the owning side of a bidirectional association.
+
+    - ```@OneToMany``` is always the inverse side of a bidirectional association.
+
+    - The owning side of a ```@OneToOne``` association is the entity with the table containing the foreign key.
+
+    - The many side of many-to-one bidirectional relationships must not define the ```mappedBy``` element. The many side is always the owning side of the relationship.
+
+    - For one-to-one bidirectional relationships, the owning side corresponds to the side that contains the corresponding foreign key.
+
+    - For many-to-many bidirectional relationships, either side may be the owning side. So, we can pick the owning side of a many-to-many association ourself.
+
+For example:
+
+Assuming that we have two objects that are employee and company. A company that has many employees, but one employee is only worked in one company. So, in employee table, it has id of company.
+
+![](../img/Java-Common/jpa/one-to-many-employee-company.png)
+
+So, we have our source code about this problem.
+- In the owning side, we have:
+
+    ```java
+    @Entity 
+    @Table(name = "EMPLOYEE")
+    @Data
+    public class Employee {
+
+        @Id
+        @Column(name = "ID")
+        private int id;
+
+        @Column(name = "EMPLOYEE_ID")
+        private int employeeId;
+
+        @Column(name = "NAME")
+        private String name;
+
+        @ManyToOne(fetch = FetchType.LAZY)
+        @JoinColumn(name = "EMPLOYEE_ID", referencedColumnName = "ID")
+        private Company company;
+    }
+    ```
+- In the inverse side, we have:
+
+    ```java
+    @Entity 
+    @Table(name = "COMPANY")
+    @Data
+    public class Company {
+
+        @Id
+        @GeneratedValue(strategy = GenerationType.AUTO)
+        @Column(name = "ID")
+        private int id;
+
+        @Column(name = "NAME")
+        private String name;
+
+        @Column(name = "ADDRESS")
+        private String address;
+
+        @OneToMany(cascade = CascadeType.ALL, fetch = FetchType.LAZY, mappedBy = "company")
+        private Collection<Employee> employees;
+    }
+    ```
+--> ```mappedBy``` is the name of association-mapping attribute on the owning side. With this, we have now established a bidirectional association between Employee and Company entities.
+
+The ```@JoinColumn``` annotation defines the actual physical mapping on the owning side.
+
+```FetchType.LAZY``` indicates that the entity will be fetched on demand. For example, we could query the database for an Employee object. The company object associated will not be fetched until we call ```Employee.getCompany();```.
+
+2. Unidirectional
+
+    Only one entity has a relationship field or property that refers to the other. 
+
+    For example, LineItem would have a relationship field that identifies Product, but Product would not have a relationship field or property for LineItem. In other words, LineItem knows about Product, but Product doesn't know which LineItem instances refer to it.
 
 <br>
 
 ## Cascade Opeartions and Relationships
+Entities that use relationships often have dependencies on the existence of the other entity in the relationship. 
 
+For example, a line item is part of an order, and if the order is deleted, then the line item should also be deleted. This is called a cascade delete relationship.
 
+The ```javax.persistence.CascadeType``` enumerated type defines the cascade operations that are applied in the cascade element of the relationship annotations.
 
+| Cascade Operation | Description |
+| ----------------- | ----------- |
+| ALL               | All cascade operations will be applied to the parent entity's relatd entity. ```All``` is equivalent to specifying ```cascade = {DETACH, MERGE, PERSIST, REFRESH, REMOVE}```. |
+| DETACH            | if the parent entity is detached from the persistence context, the related entity will also detached. |
+| MERGE             | if the parent entity is merged into the persistence context, the related entity will also be merged. |
+| PERSIST           | If the parent entity is persisted into the persistence context, the related entity will also be persisted.|
+| REFRESH           | If the parent entity is refreshed in the current persistence context, the related entity will also be refreshed. |
+| REMOVE            | If the parent entity is removed from the current persistence context, the related entity will also be removed. |
 
 <br>
 
 ## Orphan Removal in relationships
+When a target entity in one-to-one or one-to-many relationship is removed from the relationship, it is often desirable to cascade the remove operation to the target entity. Such target entities are considered **orphans** and the ```orphanRemoval``` attribute can be used to specify that orphaned entities should be removed. For example, if an order has many line items, and one of the line items is removed from the order, the removed line item is considered an orphan. If ```orphanRemoval``` is set to true, the line item entity will be deleted when the line item is removed from the order.
 
+The ```orphanRemoval``` attribute in ```@OneToMany``` and ```@oneToOne``` takes a boolean value, and is by default ```false```.
 
-
+```java
+@OneToMany(mappedBy="customer", orphanRemoval="true")
+public List<Order> getOrders() { 
+    ... 
+}
+```
 
 <br>
 
 ## Embeddable Classes in Entity
+Embeddable classes are used to represent the state of an entity, but don't have a persistent identity of their own, unlike entity classes. Instances of an embedded class share the identity of the entity that owns it.
 
+Embeddable classes only exist as the state of another entity. An entity may have single valued or collection-valued embeddable class attributes.
 
+For example:
+
+```java
+@Embeddable
+public class ZipCode {}
+    String zip; String plusHour();
+}
+```
+
+```java
+@Entity 
+public class Address {
+    @Id 
+    protected int id;
+
+    String street1;
+    String street2;
+    String city
+
+    String pronices;
+
+    @Embeded
+    ZipCode z
+    
+    ...
+}
+```
+
+Entities that own embeddable classes as part of their persistent state may annotate the field or property with the ```javax.persitence.Embedded``` annotation, but are not required to do so.
+
+Embeddable classes may themselves use other embeddable classes to represent their state. They may also contain collections of basic Java programming language types, or other embeddable classes. Embeddable classes may also contain relationships to other entities or collections of entities. If the embeddable class has such a relationship, the relationship is from the target entity or collection of entities to the entity that owns the embeddable class. 
 
 <br>
 
 ## Wrapping up
 - JPA can not persist ```static``` or ```final``` fields.
-
 
 
 <br>
