@@ -5,6 +5,9 @@ bigimg: /img/image-header/california.jpg
 tags: [front-end]
 ---
 
+In this article, we will introduce about data binding in KnockoutJS and some important properties that is used frequently and it is relavant to data binding.
+
+Let's go.
 
 <br>
 
@@ -51,13 +54,13 @@ let viewmodel = function(name) {
 
     - To read the observable’s current value, just call the observable with no parameters. 
 
-        For example: viewmodel.name();
+        For example: ```viewmodel.name();```
         
     - To write a new value to the observable, call the observable and pass the new value as a parameter. 
 
-        For example: viewmodel.name("Hello, world");
+        For example: ```viewmodel.name("Hello, world");```
 
-    - To write values to multiple observable properties on a model object, we can use chaining syntax. For example, ```myViewModel.personName('Mary').personAge(50)``` will change the name value to 'Mary' and the age value to 50.
+    - To write values to multiple observable properties on a model object, we can use ```chaining syntax```. For example, ```myViewModel.personName('Mary').personAge(50)``` will change the name value to 'Mary' and the age value to 50.
 
 - Use computed values 
 
@@ -92,8 +95,7 @@ let viewmodel = function(name) {
 <br>
 
 ## Wrapping up
-
-
+- Remember some important properties in data binding and how to use it.
 
 
 <br>

@@ -11,8 +11,9 @@ tags: [Java]
 <br>
 
 ## Table of contents
-
-
+- [Introduction to Optional concept](#introduction-to-optional-concept)
+- [Why do we need to use Optional in Java](#why-do-we-need-to-use-optional-in-java)
+- [Wrapping up](#wrapping-up)
 
 
 

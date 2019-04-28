@@ -110,7 +110,7 @@ There are 3 annotation types:
 <br>
 
 ## Rule of thumbs for defining annotation type
-- Annotation declaration should start with an 'at' sign like @, following with an interface keyword, following with the annotation name.
+- Annotation declaration should start with an 'at' sign like @, following with an ```interface``` keyword, following with the annotation name.
 - Method declarations should not have any parameters.
 - Method declarations should not have any throws clauses.
 - Return types of the method should be one of the following:
