@@ -1,6 +1,6 @@
 ---
 layout: post
-title: Fix problem when installing manyJDK version
+title: Fix problem when installing many JDK version
 bigimg: /img/image-header/california.jpg
 tags: [Java]
 ---
