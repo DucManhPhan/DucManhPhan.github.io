@@ -76,10 +76,26 @@ In this article, we will use the ```hibernate.cfg.xml``` file. It is located in 
 
 The content of ```hibernate.cfg.xml``` file like that:
 
-```java
+```xml
+<!DOCTYPE hibernate-configuration SYSTEM
+"http://www.hibernate.org/dtd/hibernate-configuration-3.0.dtd">
 
-
-
+<hibernate-configuration>
+	<session-factory>
+		<property name="hibernate.dialect">org.hibernate.dialect.MySQLDialect</property>
+		<property name="hibernate.connection.driver_class">com.mysql.jdbc.Driver</property>
+		<property name="hibernate.connection.url">jdbc:mysql://localhost:3306/java_sql</property>
+		<property name="hibernate.connection.useUnicode">true</property>
+        <property name="hibernate.connection.characterEncoding">UTF-8</property>
+	    <property name="hibernate.connection.username">root</property>
+	    <property name="hibernate.connection.password">12345</property>
+	    <property name="hibernate.current_session_context_class">thread</property>
+        <property name="hibernate.hbm2ddl.auto">update</property>
+        <property name="hibernate.show_sql">true</property>
+        <property name="hibernate.format_sql">true</property>
+	    <mapping class="com.mhb.manhpd.hibernate.Employee"/>
+	</session-factory>
+</hibernate-configuration>
 ```
 
 <br>
