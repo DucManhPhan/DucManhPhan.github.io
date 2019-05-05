@@ -10,8 +10,8 @@ tags: [design pattern, SOLID]
 <br>
 
 ## Table of contents
-
-
+- [Single Responsibility Priciple](#single-responsibility-principle)
+- [Wrapping up](#wrapping-up)
 
 
 

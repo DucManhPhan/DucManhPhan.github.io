@@ -1,9 +1,14 @@
 ---
 layout: post
 title: Factory Method Pattern
-bigimg: /img/path.jpg
+bigimg: /img/image-header/ravashing-beach.jpg
 tags: [creational pattern, design pattern]
 ---
+
+
+
+
+<br>
 
 # Table of Contents
 - [Given Problem](#given-problem)
@@ -14,23 +19,50 @@ tags: [creational pattern, design pattern]
 - [Application & Examples](#application-&-examples)
 
 
+<br>
+
 # Given Problem 
 
+
+
+
+<br>
 
 # Analysis Problem
 
 
+
+<br>
+
 # Definition of Factory Method Pattern
 
+
+
+<br>
 
 # When to use
 
 
+
+<br>
+
 # Benefits & Drawback
 
+
+
+<br>
 
 # Code C++/Javascript
 
 
 
+
+<br>
+
 # Application & Examples
+
+
+
+
+
+<br>
