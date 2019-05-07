@@ -95,6 +95,45 @@ Let's start.
 
 <br>
 
+## Convert Map to List
+- Convert ```Map<String, Double>``` to ```List<Pair<String, Double>>```
+
+    It means that we need to map ```Stream<Map.Entry<String, Double>>``` into a ```Stream<Pair<String, Double>>```.
+
+    ```java
+    List<Pair<String, Double>> mostRelevantTitles = 
+                            implicitDataSum.entrySet()
+                                        .stream()
+                                        .sorted(Comparator.comparing(e -> -e.getValue()))
+                                        .map(e -> new Pair<>(e.getKey(), e.getValue()))
+                                        .collect(Collectors.toList());
+    ```
+
+    We can replace the comparator ```Comparator.comparing(e -> -e.getValue())``` by ```Map.Entry.comparingByValue(Comparator.reverseOrder())```.
+
+- Convert ```Map<String, Double>``` to ```List<String>``` or ```List<Double>```
+
+    There are some ways to convert them such as:
+    
+    ```java
+    Map<String, Double> map = new HashMap<>();
+
+    List<String> lstKeys = new ArrayList(map.keySet());
+    List<Double> lstValues = new ArrayList(map.values);
+    ```
+
+    ```java
+    List<String> lstKeys = map.keySet().stream().collect(Collectors.toList());
+    List<Double> lstValues = map.values().stream().collect(Collectors.toList());
+    ```
+
+<br>
+
+## Convert String to Int
+
+
+<br>
+
 ## Check whether an object is instance of which class
 
 
