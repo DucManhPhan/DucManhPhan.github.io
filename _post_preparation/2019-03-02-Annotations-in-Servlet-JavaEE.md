@@ -1,11 +1,25 @@
 ---
 layout: post
-title: Annotations in Servlet
+title: Annotations in Servlet JavaEE
 bigimg: /img/image-header/california.jpg
 tags: [Java]
 ---
 
 
+
+
+
+
+<br>
+## Table of contents
+
+
+
+
+
+<br>
+
+## 
 
 
 Refer:

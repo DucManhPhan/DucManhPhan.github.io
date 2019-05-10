@@ -197,7 +197,7 @@ You can revert the previous state by using the following way:
 
 Syntax:
 
-    git checkout --the_name_of_folder_or_file
+```git checkout --the_name_of_folder_or_file```
 
 --> This satement will replace the changes in the working "tree" with the newest data in HEAD (Remote machine).
 
@@ -240,6 +240,13 @@ To check this remote whether it makes or not, use the syntax:
 or 
 
     git remote -v
+
+<br>
+
+## Merge parent branch into child branch
+
+
+
 
 <br>
 

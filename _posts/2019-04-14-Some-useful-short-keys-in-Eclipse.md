@@ -56,6 +56,8 @@ So, in this article, I will discuss about some useful shortcut keys in Eclipse.
 
 - Ctrl + Backspace: Delete previous word.
 
+- Alt + Shift + W: Shows file in package explorer.
+
 - Shift + Ctrl + M: Add import.
 
 - Shift + Ctrl + X: To upper case.
@@ -130,3 +132,5 @@ So, in this article, I will discuss about some useful shortcut keys in Eclipse.
 Refer:
 
 [https://www.shortcutfoo.com/app/dojos/eclipse-win/cheatsheet](https://www.shortcutfoo.com/app/dojos/eclipse-win/cheatsheet)
+
+[https://www.linkedin.com/pulse/top-30-eclipse-keyboard-shortcuts-java-programmer-jayveersinh-solanki](https://www.linkedin.com/pulse/top-30-eclipse-keyboard-shortcuts-java-programmer-jayveersinh-solanki)

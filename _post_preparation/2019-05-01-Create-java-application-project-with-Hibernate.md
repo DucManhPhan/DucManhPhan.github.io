@@ -272,10 +272,89 @@ We have some rules for persistent class that we can apply to our own cases.
 <br>
 
 ## Fix some problems
+- If we modify Hibernate from EclipseLink, with one-to-one relationship or one-to-many relationship, we have error such as:
 
+    ```
+    Multiple writable mappings exist for the field []. Only one may be defined as writable, all others must be specified read-only.
+    ```
 
+    Source code for this problem:
 
+    ```java
+    public class User implements Serializable {
+        private static final long serialVersionUID = 1L;
 
+        @Id
+        @GeneratedValue(strategy=GenerationType.AUTO)
+        private int id;
+
+        private String email;
+
+        private String password;
+
+        private int reputation;
+
+        @OneToOne(mappedBy="user", cascade={CascadeType.ALL})
+        private Company company;
+
+         @OneToOne(mappedBy="user")
+        private Person person;
+
+        ...
+    }
+
+    @Entity
+    public class Person implements Serializable {
+        private static final long serialVersionUID = 1L;
+
+        @Id
+        @GeneratedValue(strategy=GenerationType.AUTO)
+        @Column(name="id_user")
+        private int idUser;
+
+        @Temporal( TemporalType.DATE)
+        private Date birthdate;
+
+        private String gender;
+
+        private String name;
+
+        private String surname;
+
+        @OneToOne
+        @JoinColumn(name="id_user", insertable=false, updatable=false)
+        private User user;
+    }
+
+    public class Company implements Serializable {
+        private static final long serialVersionUID = 1L;
+
+        @Id
+        @GeneratedValue(strategy=GenerationType.AUTO)
+        @Column(name="id_user")
+        private int idUser;
+
+        private String email;
+
+        private String name;
+
+        @ManyToOne
+        @JoinColumn(name="area")
+        private Area areaBean;
+
+        @OneToOne(cascade={CascadeType.ALL})
+        @JoinColumn(name="id_user", insertable=false, updatable=false)
+        private User user;
+    }
+    ```
+
+    The reason for this error: we have the ```id_user``` column mapped twice, once using a basic ```@Id``` mapping, and once using the ```@ManyToOne```. We need to make one of them readonly, such as ```insertable=false```, ```updatable=false``` in ```@JoinColumn``` annotation. Or better just remove the basic id, and put the ```@Id``` on the ```@ManyToOne```.
+
+    So, we have two way to solve this error:
+    - Replace ```@JoinColumn(name="area")``` as ```@PrimaryKeyColumn(name = "area", referencedColumnName = "id")```.
+    - Placing the ```insertable=false```, ```updatable=false``` in the ```@JoinColumn``` annotation in both classes, ```Person``` and ```Company```.
+
+    We can reference to this [link](https://en.wikibooks.org/wiki/Java_Persistence/Identity_and_Sequencing#Primary_Keys_through_OneToOne_and_ManyToOne_Relationships).
 <br>
 
 ## Wrapping up
