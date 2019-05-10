@@ -20,22 +20,8 @@ So, in this article, I will discuss about some useful shortcut keys in Eclipse.
 <br>
 
 ## Search functionalities in Eclipse
-|     Search name      |         Search scope         |        Search target         |        Windows/Linux keys        |          MacOS keys         |
-| -------------------- | ---------------------------- | ---------------------------- | -------------------------------- | --------------------------- |
-| Find and Replace     | Current file                 | Text                         | Ctrl + F                         | Cmd + F                     |
-| Find Next - Find Previous | Current file            | Text                         | Ctrl + K, Shift + Ctrl + K       | Cmd + K, Cmd + Shift + K    |
-| Quick Outline        | Current file                 | Declarations                 | Ctrl + O                         | Cmd + O                     |
-| Show Occurences in File Quick Menu | Current file   | References                   | Ctrl + Shift + U                 | Cmd + Shift + U             |
-| Open Resource        | Workspace                    | Files                        | Ctrl + Shift + R                 | Cmd + Shift + R             |
-| Find Text in Workspace | Workspace                  | Text                         | Ctrl + Alt + G                   | Cmd + Alt + G               |
-| Open Type            | Workspace                    | Types                        | Ctrl + Shift + T                 | Cmd + Shift + T             |
-| Quick Hierarchy      | Workspace                    | Files                        | Ctrl + T                         | Cmd + T                     |
-| References in Workspace | Workspace                 | References                   | Ctrl + Shift + G                 | Cmd + Shift + G             |
-| Declaration in Workspace | Workspace                | Declarations                 | Ctrl + G                         | Cmd + G                     |
-| Code Search Quick Search | Workspace + catalogs     | Declarations, References     | Ctrl + Alt + Shift + G           | Cmd + Alt + Shift + G       |
-| Code Search Quick Menu   | Workspace + catalogs     | Declarations, References     | Ctrl + Alt + Shift + H           | Cmd + Alt + Shift + H       |
-| Open Search Dialog   | Workspace                    | Text, Declarations, References | Ctrl + H                       | Cmd + H                     |
-| Show Key Assist      | NA                           | NA                           | Ctrl + Shift + L                 | Cmd + Shift + L             |
+
+![](../img/Latex/tables/useful-shortcut-keys-eclipse.png)
 
 <br>
 
