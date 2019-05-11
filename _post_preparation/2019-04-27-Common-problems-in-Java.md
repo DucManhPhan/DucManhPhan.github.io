@@ -20,6 +20,7 @@ Let's start.
 - [Sort integer values that is appeared in String data type](#sort-integer-values-that-is-appeared-in-String-data-type)
 - [Find max/min value from an array](#find-max/min-from-an-array)
 - [Check whether an object is instance of which class](#check-whether-an-object-is-instance-of-which-class)
+- [Convert Java Date format to Javascript Date format and vice versa](#convert-java-date-format-to-javascript-date-format-and-vice-versa)
 - [Wrapping up](#wrapping-up)
 
 <br>
@@ -282,6 +283,13 @@ Let's start.
 
 
 
+
+<br>
+
+## Convert Java Date format to Javascript Date format and vice versa
+Because Javascript does not have a built in date formatting ability. 
+
+And if we want to pass Date from Java to Javascript, it would be to convert Java Date to milliseconds using ```date.getTime()```, create a Javascript Date initialized with this milliseconds value with ```new Date(milliseconds)```, then format the date with the means of Javascript Date object, like ```date.toLocaleString()```.
 
 <br>
 
