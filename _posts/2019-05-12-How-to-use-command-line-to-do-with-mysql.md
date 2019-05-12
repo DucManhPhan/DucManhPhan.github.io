@@ -297,11 +297,20 @@ We will choose ```Command Line prompt``` to do.
             GRANT ALL ON *.* TO 'dbadmin'@'127.0.0.1' WITH GRANT OPTION;
             ```
 
-        - Grant some specific privileges on specific database.
+        - Grant some specific privileges such as ```CREATE```, ```SELECT```, ```INSERT```, ```UPDATE```, ```DELETE``` and ```DROP``` on specific database.
 
             ```sql
             GRANT SELECT, UPDATE, DELETE ON world.* TO dbadmin@localhost;
             ```
+
+    - Suddenly, we want to revoke given privileges from a user. We can do this by utilizing the command:
+
+        ```sql
+        REVOKE [permission type] ON [database name].[table name] FROM 'non-root'@'localhost';
+        ```
+    - Finally, we want the changes to take effect immediately flush the privileges by typing the following command:
+
+        ```FLUSH PRIVILEGES;```
 
 - Remove user in MySQL
 
@@ -352,3 +361,5 @@ Refer:
 [http://www.mysqltutorial.org/mysql-grant.aspx](http://www.mysqltutorial.org/mysql-grant.aspx)
 
 [http://www.mysqltutorial.org/mysql-show-columns/](http://www.mysqltutorial.org/mysql-show-columns/)
+
+[http://mysqlblog.fivefarmers.com/2015/03/31/command-line-prompt/](http://mysqlblog.fivefarmers.com/2015/03/31/command-line-prompt/)
