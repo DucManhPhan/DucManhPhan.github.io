@@ -9,7 +9,7 @@ When we are working with database, we usually use UI to interact with database s
 
 So, in this article, we will guidle you how to use command line to interact with database. 
 
-Let's start.
+Let's get started.
 
 <br>
 
@@ -58,7 +58,7 @@ We will choose ```Command Line prompt``` to do.
 
 <br>
 
-## Common perations with command line
+## Common operations with command line
 - List all databases
 
     ```sql
