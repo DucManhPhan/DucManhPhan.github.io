@@ -1,6 +1,6 @@
 ---
 layout: post
-title: How to use command line to do with mysql
+title: How to use command line to do with MySQL
 bigimg: /img/image-header/california.jpg
 tags: [MySQL]
 ---
