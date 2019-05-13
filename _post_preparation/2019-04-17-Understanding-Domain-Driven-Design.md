@@ -70,6 +70,8 @@ Thanks for your reading
 
 Refer:
 
+[https://blog.sapiensworks.com/tags.html](https://blog.sapiensworks.com/tags.html)
+
 **Series about Domain Driven Design**
 
 [https://blog.fedecarg.com/2009/03/11/domain-driven-design-and-mvc-architectures/](https://blog.fedecarg.com/2009/03/11/domain-driven-design-and-mvc-architectures/)

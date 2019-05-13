@@ -104,7 +104,7 @@ If we have an anemic domain, the repository will be just a DAO.
 ## Related Patterns
 - Data Mapper
 
-    This pattern describes how to map data to different sachems. It is often used to map between a data store and a domain model.
+    This pattern describes how to map data to different schemas. It is often used to map between a data store and a domain model.
   
 - Unit of Work
     This pattern keeps track of everything that happens during a business transaction that affects the database. At the conclusion of the transaction, it determines how to update the database to conform to the changes.
