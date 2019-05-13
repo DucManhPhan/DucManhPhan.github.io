@@ -92,9 +92,6 @@ Let's start.
     Student[] arr = lst.stream.toArray(Student[]::new);
     ```
 
-
-
-
 <br>
 
 ## Convert List to Set
@@ -279,10 +276,13 @@ Let's start.
 <br>
 
 ## Check whether an object is instance of which class
+Use ```instanceof``` operator to check this condition. An additional benefit of using ```instanceof``` is that when used with a ```null``` reference, ```instanceof``` will return ```false```, while ```a.getClass()``` would throw a ```NullPointerException```.
 
-
-
-
+```java
+if (a instanceof X) {
+    // do something
+}
+```
 
 <br>
 
@@ -294,7 +294,7 @@ And if we want to pass Date from Java to Javascript, it would be to convert Java
 <br>
 
 ## Wrapping up
-- The background of data structure in Java
+- The background of data structure in Java:
 
     ![](../img/Java-Common/data-structure/background-data-structure-java.png)
 

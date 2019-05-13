@@ -155,6 +155,8 @@ Refer:
 
 [https://softwareengineering.stackexchange.com/questions/361251/how-domain-repository-and-service-layers-works-vs-original-dao-pattern](https://softwareengineering.stackexchange.com/questions/361251/how-domain-repository-and-service-layers-works-vs-original-dao-pattern)
 
+**The truth about Repository pattern and DAO pattern**
+
 [https://blog.sapiensworks.com/post/2012/11/01/Repository-vs-DAO.aspx](https://blog.sapiensworks.com/post/2012/11/01/Repository-vs-DAO.aspx)
 
 [https://thinkinginobjects.com/2012/08/26/dont-use-dao-use-repository/](https://thinkinginobjects.com/2012/08/26/dont-use-dao-use-repository/)
