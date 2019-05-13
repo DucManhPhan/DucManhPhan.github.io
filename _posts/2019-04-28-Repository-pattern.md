@@ -88,10 +88,14 @@ But, some people still give some differences between them. Actually, we still wa
 
 |              DAO pattern               |                       Repository pattern                   |
 | -------------------------------------- | ---------------------------------------------------------- |
-| DAO is an abstraction of data persistence. --> So, a DAO will be a per-table object. | Repository is an abstraction of a collection of objects. |
+| DAO is an abstraction of data persistence. --> So, a DAO will be a per-table object. A DAO allows for a simpler way to get data from a storage, hiding the ugly queries. | Repository is an abstraction of a collection of objects. Repository sits at a higher level. It deals with data too and hides the queries and all that but, a repository deals with **Business/Domain objects**. |
 | DAOis more lower level, and it would be considered closer to the database/storage dealing only with data, often table-centric. | Repository is a higher level concept, and it would be considered closer to the Domain, dealing only in Aggregate Roots. |
 | DAO would not be implemented by using Repository pattern. | Repository could be implemented using DAO's. |
 | DAO uses **Read and Write** concept. | Repository uses **Read Only** concept. |
+
+Repository will use a DAO to get the data from the storage and uses that data to restore a business object. Or it will take a business object and extract the data that will be persisted.
+
+If we have an anemic domain, the repository will be just a DAO.
 
 --> The main different between the Repository pattern and the DAO pattern is that the DAO pattern is at a low level of abstraction and does not speak the ubiquitous language of the domain.
 
