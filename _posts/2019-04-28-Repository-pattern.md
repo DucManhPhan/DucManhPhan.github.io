@@ -139,6 +139,8 @@ Thanks for your reading.
 
 Refer: 
 
+[http://www.bradoncode.com/blog/2013/08/repository-vs-domain-model-vs-data.html](http://www.bradoncode.com/blog/2013/08/repository-vs-domain-model-vs-data.html)
+
 [https://www.infoworld.com/article/3117713/design-patterns-that-i-often-avoid-repository-pattern.html](https://www.infoworld.com/article/3117713/design-patterns-that-i-often-avoid-repository-pattern.html)
 
 [https://stackoverflow.com/questions/12846490/what-are-the-advantages-disadvantages-of-making-a-repository-persistence-ignoran](https://stackoverflow.com/questions/12846490/what-are-the-advantages-disadvantages-of-making-a-repository-persistence-ignoran)

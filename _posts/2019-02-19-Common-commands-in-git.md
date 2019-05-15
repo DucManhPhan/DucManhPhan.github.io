@@ -91,6 +91,8 @@ git clone -b Ronaldo --single-branch https://username:password@github.com:1080/m
 
 With Git 1.7.10 and later, add --single-branch to prevent fetching of all branches.
 
+--> We should clone master branch because all other branches is created from master branch. So, we will easily switch to the other branches to work on them.
+
 <br>
 
 ## Pull code from other branch
@@ -197,9 +199,9 @@ You can revert the previous state by using the following way:
 
 Syntax:
 
-```git checkout --the_name_of_folder_or_file```
+```git checkout -- the_name_of_folder_or_file```
 
---> This satement will replace the changes in the working "tree" with the newest data in HEAD (Remote machine).
+--> This statement will replace the changes in the working "tree" with the newest data in HEAD (Remote machine).
 
 If you want to take off the changes and the local commit in "Local Directory", 
 and get the latest history from remote machine, point to the local master branch. 
@@ -250,4 +252,18 @@ or
 
 <br>
 
+## Rewrite the previous commit message
+When we want to rewrite the message in the previous commit, we can do something like that:
+
+```
+git commit -v --amend
+```
+
+
+<br>
+
 Thanks for your reading.
+
+Refer:
+
+[https://github.com/git-tips/tips#list-all-the-conflicted-files](https://github.com/git-tips/tips#list-all-the-conflicted-files)
