@@ -67,8 +67,16 @@ The main reason to use Unit of Work is that be consistency property of database 
 <br>
 
 ## Wrapping up
-- Examples of Unit of Work pattern are: ```ITransaction``` interface in ```NHibernate```, the ```DataContext``` class in ```LINQ to SQL```, and the ```ObjectContext``` class in the ```Entity Framework```.
+- Examples of Unit of Work pattern are: 
+    - ```DbContext``` class represents a combination of the Unit of Work and Repository patterns such that it can be used to query from a database and group together changes that will then be written back to the store as a unit. And ```DbSet``` represents a Repository pattern.
 
+    - ```ITransaction``` interface in ```NHibernate```
+
+    - ```DataContext``` class in ```LINQ to SQL```
+
+    - ```ObjectContext``` class in the ```Entity Framework```.
+
+    - EclipseLink Transactions 
 
 
 <br>
@@ -88,3 +96,5 @@ Refer:
 [https://tedu.com.vn/lap-trinh-aspnet/ket-hop-unit-of-work-va-repository-pattern-trong-aspnet-mvc-37.html](https://tedu.com.vn/lap-trinh-aspnet/ket-hop-unit-of-work-va-repository-pattern-trong-aspnet-mvc-37.html)
 
 [https://coding4food.net/2018/07/10/repository-va-unit-of-work-pattern/](https://coding4food.net/2018/07/10/repository-va-unit-of-work-pattern/)
+
+[https://docs.microsoft.com/en-us/dotnet/api/system.data.entity.dbcontext?redirectedfrom=MSDN&view=entity-framework-6.2.0](https://docs.microsoft.com/en-us/dotnet/api/system.data.entity.dbcontext?redirectedfrom=MSDN&view=entity-framework-6.2.0)
