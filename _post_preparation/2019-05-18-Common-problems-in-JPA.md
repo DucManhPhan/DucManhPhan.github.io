@@ -10,16 +10,20 @@ tags: [Database]
 <br>
 
 ## Table of contents
-
-
+- [The difference between CascadeType.REMOVE and orphanRemoval = true](#the-difference-between-cascadetype.remove-and-orphanRemoval-=-true)
+- [Delete item that do not exists in database](#delete-item-that-do-not-exists-in-database)
+- [Some ways to delete orphans in JPA](#some-ways-to-delete-orphans-in-jpa)
+- [StackOverflowError when merge/persist an object into database](#stackoverflowerror-when-merge/persist-an-object-into-database)
 
 
 <br>
 
 ## The difference between CascadeType.REMOVE and orphanRemoval = true
 
-
-
+|       Action         | ```orphanRemoval = true``` |     ```CascadeType.ALL```    |
+| -------------------- | -------------------- | ---------------------- |
+| Delete parent        | Deletes parent and orphans | Deletes parent and orphans |
+| Change children list | Delete orphans       | Nothing                |
 
 <br>
 
