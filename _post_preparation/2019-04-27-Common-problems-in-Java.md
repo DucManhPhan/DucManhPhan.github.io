@@ -270,7 +270,22 @@ Let's start.
 
 <br>
 
+## Get the earlies date of a list
+In ```java.util.Date```, there is available comparator operation. So, we can get it by the following:
+
+```java
+Date minDate = Collections.min(listOfDates);
+```
+
+<br>
+
 ## Convert String to Int
+
+
+<br>
+
+## Some ways to loop Map
+Refer [link](https://stackoverflow.com/questions/1066589/iterate-through-a-hashmap).
 
 
 <br>
@@ -293,38 +308,10 @@ And if we want to pass Date from Java to Javascript, it would be to convert Java
 
 <br>
 
-## Problem about local variable defined in an enclosing scope must be final or effectively fina
-In Java 8 introduces the new concept of ```effective final``` variable, it means that the compiler checks, if a used variable is final in usage and does not force the developer to explicitly declare it as final.
-
-So if we change your code to: 
-
-```java
-final List<RestaurantOrderBook> itemList = new ArrayList<RestaurantOrderBook>();
-```
-
-We will see that the compiler gives our an error at:
-
-```java
-itemList = mongoTemplate.find(query, RestaurantOrderBook.class);
-```
-
-because we are reasigning ```itemList```. That is why ```itemList``` is not effectivly final as well. If we squash these two lines to
-
-```java
-List<RestaurantOrderBook> itemList = mongoTemplate.find(query, RestaurantOrderBook.class);
-```
-
-We have the definition of ```effective final``` variable:
-
-
-
-<br>
-
 ## Wrapping up
 - The background of data structure in Java:
 
     ![](../img/Java-Common/data-structure/background-data-structure-java.png)
-
 
 <br>
 
