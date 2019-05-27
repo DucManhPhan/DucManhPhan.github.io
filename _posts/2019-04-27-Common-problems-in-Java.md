@@ -12,20 +12,21 @@ Let's start.
 <br>
 
 ## Table of contents
+- [Initialize List/ArrayList](#initialize-list/arraylist)
 - [Convert List to Array](#convert-list-to-array)
 - [Convert List to Set](#convert-list-to-set)
 - [Convert List to Map](#convert-list-to-map)
-- [Convert Map to List](#convert-map-to-list)
-- [Convert String to Int](#convert-string-to-int)
-- [Sort integer values that is appeared in String data type](#sort-integer-values-that-is-appeared-in-String-data-type)
 - [Find max/min value from an array](#find-max/min-from-an-array)
+- [Convert Map to List](#convert-map-to-list)
+- [Get the earlies date of a list](#get-the-earlies-date-of-a-list)
+- [Convert String to Int](#convert-string-to-int)
 - [Check whether an object is instance of which class](#check-whether-an-object-is-instance-of-which-class)
 - [Convert Java Date format to Javascript Date format and vice versa](#convert-java-date-format-to-javascript-date-format-and-vice-versa)
 - [Wrapping up](#wrapping-up)
 
 <br>
 
-## Initialize List / ArrayList
+## Initialize List/ArrayList
 1. Initialization with List interface
 
     - Use the factory methods of Stream.
@@ -96,60 +97,55 @@ Let's start.
 
 ## Convert List to Set
 
-
-
+```java
+Set<Foo> new HashSet<Foo>(list);
+```
 
 <br>
 
 ## Convert List to Map
+Assuming that we have a class Student with two attributes: ```id``` and ```name```.
 
+```java
+@Data
+@AllArgsConstructor
+class Student {
+    private int id;
 
+    private String name;
+}
+```
 
+At the moment, we want to convert list of ```Student``` object to map that contains ```id``` and ```name``` of each ```Student```.
 
-<br>
-
-## Convert Map to List
-- Convert ```Map<String, Double>``` to ```List<Pair<String, Double>>```
-
-    It means that we need to map ```Stream<Map.Entry<String, Double>>``` into a ```Stream<Pair<String, Double>>```.
-
-    ```java
-    List<Pair<String, Double>> mostRelevantTitles = 
-                            implicitDataSum.entrySet()
-                                        .stream()
-                                        .sorted(Comparator.comparing(e -> -e.getValue()))
-                                        .map(e -> new Pair<>(e.getKey(), e.getValue()))
-                                        .collect(Collectors.toList());
-    ```
-
-    We can replace the comparator ```Comparator.comparing(e -> -e.getValue())``` by ```Map.Entry.comparingByValue(Comparator.reverseOrder())```.
-
-- Convert ```Map<String, Double>``` to ```List<String>``` or ```List<Double>```
-
-    There are some ways to convert them such as:
-    
-    ```java
-    Map<String, Double> map = new HashMap<>();
-
-    List<String> lstKeys = new ArrayList(map.keySet());
-    List<Double> lstValues = new ArrayList(map.values);
-    ```
+- Use normal stream in Java 8
 
     ```java
-    List<String> lstKeys = map.keySet().stream().collect(Collectors.toList());
-    List<Double> lstValues = map.values().stream().collect(Collectors.toList());
+    List<Student> students = ...;
+    Map<Integer, String> mp = students.stream()
+                                        .collect(Collectors.toMap(Student::getId(), Student::getName()));
     ```
 
-<br>
+    When our list have many ids that are same, exception ```Duplicate key``` will be thrown.
 
-## Convert String to Int
+- Catch exception ```Duplicate key```
 
+    ```java
+    List<Student> students = ...;
+    Map<Integer, String> mp = students.stream()
+                                        .collect(Collectors.toMap(Student::getId, Student::getName, 
+                                                    (oldValue, newValue) -> oldValue));     // (oldValue, newValue) -> newValue)
+    ```
 
-<br>
+- Keeping order of elements
 
-## Sort integer values that is appeared in String data type
-
-
+    ```java
+    List<Student> students = ...;
+    Map<Integer, String> mp = students.stream()
+                                        .collect(Collectors.toMap(Student::getId, Student::getName, 
+                                                    (oldValue, newValue) -> oldValue),     // (oldValue, newValue) -> newValue)
+                                                    LinkedHashMap::new));
+    ```
 
 <br>
 
@@ -280,7 +276,39 @@ Date minDate = Collections.min(listOfDates);
 <br>
 
 ## Convert String to Int
+- Use ```Integer.parseInt()``` method
 
+    Because ```parseInt()``` method will throw a ```NumberFormatException```, so, we have to handle it.
+
+    ```java
+    int foo;
+    try {
+        foo = Integer.parseInt(str);
+    } catch(NumberFormatException e) {
+        foo = 0;
+        e.printStackTrace();
+    }
+    ```
+
+    ```Integer.parseInt()``` method returns a primitive int.
+
+- Use ```Ints``` method from Guava library
+
+    ```java
+    import com.google.common.primitives.Ints;
+
+    int foo = Optional.ofNullable(myString)
+    .map(Ints::tryParse)
+    .orElse(0)
+    ```
+
+- Use ```Integer.valueOf()``` method
+
+    ```java
+    Integer result = Integer.valueOf(str);
+    ```
+
+    ```Integer.valueOf()``` method returns a new Integer() object.
 
 <br>
 
