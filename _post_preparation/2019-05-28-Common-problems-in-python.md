@@ -32,7 +32,7 @@ or
 t = ((1, 'a'), (2, 'b'))
 map = dict((y, x) for x, y in t)
 
-# Or
+# OR
 
 map = dict(map(reversed, t))
 

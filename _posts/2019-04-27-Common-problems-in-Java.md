@@ -336,6 +336,22 @@ And if we want to pass Date from Java to Javascript, it would be to convert Java
 
 <br>
 
+## How to use equals() method and == operator
+```equals()``` method and ```==``` operator is used to compare objects to check equality.
+
+- To primitive value, ```equals()``` method and ```==``` operator has the same effection.
+- To objects:
+    - ```==``` operator will compare the addresses of two objects. It does not compare values in objects.
+    - Therefore, ```equals()``` method happens to solve this problem. ```equals()``` method is defined in ```Object``` class. So, in our objects, we have to override ```equals()``` method, and ```hashCode()``` method is always to accompany with ```equals()``` method.
+
+        In default implementation of ```equals()``` method that provided in ```Object``` class, ```equals()``` method is as same as ```===``` operator.
+
+So, to compare String objects, we should use ```equals()``` method rather than ```==``` operator.
+
+And, we need to remember about some primitive data types in Java: ```byte```, ```char```, ```short```, ```int```, ```long```, ```float```, ```double```, ```boolean```, ```void```.
+
+<br>
+
 ## Wrapping up
 - The background of data structure in Java:
 
