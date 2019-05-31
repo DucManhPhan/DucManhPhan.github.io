@@ -342,7 +342,7 @@ And if we want to pass Date from Java to Javascript, it would be to convert Java
 - To primitive value, ```equals()``` method and ```==``` operator has the same effection.
 - To objects:
     - ```==``` operator will compare the addresses of two objects. It does not compare values in objects.
-    - Therefore, ```equals()``` method happens to solve this problem. ```equals()``` method is defined in ```Object``` class. So, in our objects, we have to override ```equals()``` method, and ```hashCode()``` method is always to accompany with ```equals()``` method.
+    - Therefore, ```equals()``` method happens to solve this problem. ```equals()``` method is defined in ```Object``` class. So, in our objects, we have to override ```equals()``` method, and ```hashCode()``` method is always to accompany with ```equals()``` method. As per the API, the result returned from the ```hashCode()``` method for two objects must be the same if our ```equals()``` methods show that they are equivalent. The converse is not necessarily true. 
 
         In default implementation of ```equals()``` method that provided in ```Object``` class, ```equals()``` method is as same as ```===``` operator.
 
