@@ -11,9 +11,17 @@ tags: [Java]
 <br>
 
 ## Table of contents
-- [Introduction to Optional concept](#introduction-to-optional-concept)
 - [Why do we need to use Optional in Java](#why-do-we-need-to-use-optional-in-java)
+- [Introduction to Optional concept](#introduction-to-optional-concept)
+- [How to use Optional right way](#how-to-use-optional-right-way)
 - [Wrapping up](#wrapping-up)
+
+
+
+<br>
+
+## Why do we need to use Optional in Java
+
 
 
 
@@ -26,8 +34,7 @@ tags: [Java]
 
 <br>
 
-## Why do we need to use Optional in Java
-
+## How to use Optional right way
 
 
 
