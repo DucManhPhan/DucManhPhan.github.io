@@ -12,7 +12,7 @@ tags: [Python]
 ## Table of contents
 - [Merge two tuples into dictionary](#merge-two-tuples-into-dictionary)
 - [Check list is null](#check-list-is-null)
-- []()
+- [Wrapping up](#wrapping-up)
 
 <br>
 
