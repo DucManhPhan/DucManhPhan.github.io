@@ -5,13 +5,25 @@ bigimg: /img/image-header/california.jpg
 tags: [Python]
 ---
 
+Python is created by Guido van Rossum in 1991 and developed by Python Software Foundation. It was primarily enhanced for emphasis on code readability, and its syntax allows programmers to express concepts in fewer lines of code.
 
+So, nowadays, Python can be programmed in many applications such as:
+- Web development: Web framework Django, Flask.
+- Machine Learning
+- Data Analysis
+- Scripting
+- Game development
+- Embedded applications
+- Desktop applications
+
+Therefore, Utilizing Python will always cope with many common problems, and some tricks. In this article, we will discuss about some problems that we need to know.
 
 <br>
 
 ## Table of contents
 - [Merge two tuples into dictionary](#merge-two-tuples-into-dictionary)
 - [Check list is null](#check-list-is-null)
+- [Swap values of two variables](#swap-values-of-two-variables)
 - [Wrapping up](#wrapping-up)
 
 <br>
@@ -55,8 +67,119 @@ if a == []:
     print('List is empty.\n')
 ```
 
+<br>
 
+## Swap values of two variable
 
+```python
+a, b = b, a
+```
+
+<br>
+
+## Get input from command line
+
+```python
+name = raw_input('What is your name?')
+number = int(raw_input('Number of children: '))
+```
+
+The variable that recieve data from ```raw_input()``` method has string data type. So, we need to convert it to use it.
+
+<br>
+
+## Working with modules
+All information in this section is referred from this [link](https://stackoverflow.com/questions/419163/what-does-if-name-main-do).
+
+```python
+# Suppose this is foo.py.
+
+print("before import")
+import math
+
+print("before functionA")
+def functionA():
+    print("Function A")
+
+print("before functionB")
+def functionB():
+    print("Function B {}".format(math.sqrt(100)))
+
+print("before __name__ guard")
+if __name__ == '__main__':
+    functionA()
+    functionB()
+print("after __name__ guard")
+```
+
+Whenever the Python interpreter reads a source file, it does two things:
+- It sets a few special variables like ```__name__```, and then
+- It executes all of the code found in this file.
+
+1. When your module is the main program
+
+    If you are running your module (the source file) as the main program, e.g.
+
+    ```python
+    python foo.py
+    ```
+
+    The interpreter will assign the hard-coded string ```"__main__"``` to the ```__name__``` variable, i.e.
+
+    ```python
+    # It's as if the interpreter inserts this at the top
+    # of your module when run as the main program.
+    __name__ = "__main__" 
+    ```
+
+2. When your module is imported by another
+
+    On the other hand, suppose some other modules is the main program and it imports your module. This means there's a statement like this in the main program, or in some other module the main program imports:
+
+    ```
+    # Suppose this is in some other main program.
+    import foo
+    ```
+
+    In this case, the interpreter will look at the filename of your module, foo.py, strip off the .py, and assign that string to your module's ```__name__``` variable, i.e.
+
+    ```
+    # It's as if the interpreter inserts this at the top
+    # of your module when it's imported from another module.
+    __name__ = "foo"
+    ```
+
+3. Executing the module's code
+
+    After the special variables are set up, the interpreter executes all the code in the module, one statement at a time. You may want to open another window on the side with the code sample so you can follow along with this explanation.
+
+    - Always
+
+        - In prints the string ```before import``` (without quotes).
+        - It loads the ```math``` module and assigns it to a variable called ```math```. This is equivalent to replacing ```import math``` with the following (note that ```__import``` is a low level function in Python that takes a string and triggers the actual import).
+
+            ```python
+            # Find and load a module given its string name, "math",
+            # then assign it to a local variable called math.
+            math = __import__("math")
+            ```
+        - It prints the string ```before functionA```.
+        - It executes the ```def``` block, creating a function object, then assigning that function object to a variable called ```functionA```.
+        - It prints the string ```before functionB```.
+        - It executes the ```def``` block, creating another function object, then assigning that function object to a variable called ```functionB```.
+        - It prints the string ```before __name__ guard```.
+
+    - Only when your module is the main program
+
+        - If your module is the main program, then it will see that ```__name__``` was indeed set to ```__main__``` and it calls the two functions, printing the strings "Function A" and "Function B 10.0".
+
+    - Only when your module is imported by another
+
+        - If your module is not the main program but was imported by another one, then ```__name__``` will be "foo", not ```__main__```, and it'll skip the body of the if statement.
+
+    - Always
+
+        - It will print the string ```after __name__ guard``` in both situations.
 
 <br>
 
@@ -68,5 +191,3 @@ if a == []:
 <br>
 
 Refer:
-
-[]()
