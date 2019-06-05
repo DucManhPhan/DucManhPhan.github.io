@@ -141,7 +141,7 @@ To replace the usage of Singleton, we can [use a single instance](#replace-singl
         //       before deleted status
     ```
 
-    Version 2: 
+    Version 2:
 
 - Java
 
