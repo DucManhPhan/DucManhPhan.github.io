@@ -24,6 +24,8 @@ Therefore, Utilizing Python will always cope with many common problems, and some
 - [Merge two tuples into dictionary](#merge-two-tuples-into-dictionary)
 - [Check list is null](#check-list-is-null)
 - [Swap values of two variables](#swap-values-of-two-variables)
+- [Get input from command line](#get-input-from-command-line)
+- [Working with modules](#working-with-modules)
 - [Wrapping up](#wrapping-up)
 
 <br>
