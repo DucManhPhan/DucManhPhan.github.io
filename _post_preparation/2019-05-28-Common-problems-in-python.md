@@ -90,6 +90,13 @@ The variable that recieve data from ```raw_input()``` method has string data typ
 
 <br>
 
+## Loops in Python
+
+
+
+
+<br>
+
 ## Working with modules
 All information in this section is referred from this [link](https://stackoverflow.com/questions/419163/what-does-if-name-main-do).
 
@@ -193,3 +200,5 @@ Whenever the Python interpreter reads a source file, it does two things:
 <br>
 
 Refer:
+
+[https://snakify.org/en/lessons/for_loop_range/](https://snakify.org/en/lessons/for_loop_range/)
