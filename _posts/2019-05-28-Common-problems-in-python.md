@@ -91,9 +91,38 @@ The variable that recieve data from ```raw_input()``` method has string data typ
 <br>
 
 ## Loops in Python
+- ```for``` loop
 
+    ```python
+    for x in range(0, 3):
+        print("The value of x is: " + x)
 
+    # OR
+    for x in range(1, 10):
+        for y in range(1, 10):
+            print('%d * %d = ' %(x, y, x * y))
+    ```
 
+- ```while``` loop
+
+    ```python
+    x = 1
+    while True:
+        if x > 10:
+            break
+
+        x += 1
+    ```
+
+Note about ```range``` and ```xrange```: 
+- In Python 2.x, we can use both ```range``` and ```xrange```. But in Python 3, we only use ```range```.
+- In Python 2.x, ```range()``` returns a list of numbers --> So, ```range``` return a ```list``` object. To Python 3, ```range``` returns a range object.
+- ```xrange()``` returns the generator object that can be used to display numbers only by looping. Only particular range is displayed on demand and hence called ```lazy evaluation``` --> So, ```xrange``` returns ```xrange``` object.
+- ```xrange``` use less memory, and should the for loop exit early, there's no need to waste time creating the unused numbers. This effect is tiny in smaller lists, but increases rapidly in larger lists.
+
+--> ```range``` is faster if iterating over the same sequence multiple times.
+
+--> ```xrange``` has to reconstruct the integer object every time, but ```range``` will have real integer objects.
 
 <br>
 
