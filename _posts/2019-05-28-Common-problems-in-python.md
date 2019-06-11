@@ -155,6 +155,14 @@ Note about ```range``` and ```xrange```:
 
 <br>
 
+## Convert dynamic Python object to JSON
+
+```python
+json.dumps(data, default = lambda o: o.__dict__)
+```
+
+<br>
+
 ## Working with modules
 All information in this section is referred from this [link](https://stackoverflow.com/questions/419163/what-does-if-name-main-do).
 
