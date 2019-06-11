@@ -114,6 +114,35 @@ The variable that recieve data from ```raw_input()``` method has string data typ
         x += 1
     ```
 
+- Loop with indexes
+
+    ```python
+    presidents = ["Washington", "Adams", "Jefferson", "Madison", "Monroe", "Jackson"]
+    for i in range(len(presidents)):
+        print("President {}: {}".format(i + 1, presidents[i]))
+
+    # OR using enumerate
+    for num, name in enumerate(presidents, start = 1):
+        print("President {}: {}".format(num, name))
+
+    ```
+
+    The ```enumerate``` function creates an iterable where each element is a tuple that contains the index of the item and the original item value. The ```start = 1``` option to ```enumerate``` is optional. By default, it will start counting at ```0```.
+
+    This function will solve the task of:
+    - Accessing each item in a list (or another iterable).
+    - Getting the index of each item accessed.
+
+- Loop over multiple lists at the same time --> Use zip
+
+    ```python
+    colors = ["red", "green", "blue", "purple"]
+    ratios = [0.2, 0.3, 0.1, 0.4]
+
+    for color, ratio in zip(colors, ratios):
+        print("{}% {}".format(ratio * 100, color))
+    ```
+
 Note about ```range``` and ```xrange```: 
 - In Python 2.x, we can use both ```range``` and ```xrange```. But in Python 3, we only use ```range```.
 - In Python 2.x, ```range()``` returns a list of numbers --> So, ```range``` return a ```list``` object. To Python 3, ```range``` returns a range object.
@@ -231,3 +260,5 @@ Whenever the Python interpreter reads a source file, it does two things:
 Refer:
 
 [https://snakify.org/en/lessons/for_loop_range/](https://snakify.org/en/lessons/for_loop_range/)
+
+[https://treyhunner.com/2016/04/how-to-loop-with-indexes-in-python/](https://treyhunner.com/2016/04/how-to-loop-with-indexes-in-python/)

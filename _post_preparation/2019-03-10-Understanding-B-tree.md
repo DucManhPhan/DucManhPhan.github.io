@@ -45,7 +45,7 @@ tags: [data structure]
 <br>
 
 ## Wrapping up
-
+- B-Trees are primarily used by relational databases to efficiently implement an operation called ```join```. B-Trees have other properties that are also useful for databases including ordering of rows within a table, fast delete capability, and sequential access.
 
 
 

@@ -145,7 +145,7 @@ To replace the usage of Singleton, we can [use a single instance](#replace-singl
 
 - Java
 
-
+    Refer to this [link](https://topdev.vn/blog/singleton-pattern-la-gi/)
 
 <br>
 
