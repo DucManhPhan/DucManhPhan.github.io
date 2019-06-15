@@ -163,6 +163,61 @@ json.dumps(data, default = lambda o: o.__dict__)
 
 <br>
 
+## Reversing string
+
+```python
+str = 'abc'
+str = str[::-1]
+```
+
+<br>
+
+## Get common element in two sets
+
+```python
+s1= {4, 5, 7, 6}
+s2 = {1, 2, 4, 5, 6}
+
+s_common = s1.intersection(s2)
+```
+
+<br>
+
+## Get the differences between two sets
+
+```python
+s1= {4, 5, 7, 6}
+s2 = {1, 2, 4, 5, 6}
+
+s_differ = s1.difference(s2)
+```
+
+<br>
+
+## Get distinct combined set of two sets
+
+```python
+s1= {4, 5, 7, 6}
+s2 = {1, 2, 4, 5, 6}
+
+s_union = s1.union(s2)
+```
+
+<br>
+
+## Pass unknown arguments
+
+```python
+def func(*args):
+    return first_arg
+
+func(first_arg)
+func(first_arg, second_arg)
+func(first_arg, second_arg, third_arg)
+```
+
+<br>
+
 ## Working with modules
 All information in this section is referred from this [link](https://stackoverflow.com/questions/419163/what-does-if-name-main-do).
 
