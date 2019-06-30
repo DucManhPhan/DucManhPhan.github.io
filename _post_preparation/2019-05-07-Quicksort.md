@@ -45,9 +45,11 @@ tags: [computer science]
 <br>
 
 ## Source code
+1. Lomotu's version
 
 
 
+2. Hoare's version
 
 
 
