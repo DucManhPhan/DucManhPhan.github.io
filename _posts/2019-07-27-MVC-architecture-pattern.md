@@ -5,8 +5,9 @@ bigimg: /img/image-header/home-office-1.jpg
 tags: [architecture pattern, design pattern]
 ---
 
+In this article, we will dive into the MVC architectural pattern, to see how it works, ... Because so many frameworks that use it, understanding mvc pattern will help you work them confidently.
 
-
+Let's get started.
 
 <br>
 
@@ -17,7 +18,6 @@ tags: [architecture pattern, design pattern]
 - [When to use](#when-to-use)
 - [Code C++/Javascript](#code-C++/Javascript)
 - [Application & Examples](#application-&-examples)
-
 
 <br>
 
@@ -83,23 +83,42 @@ The Controller has pointers to both the Model and the View, knows the type of bo
 <br>
 
 ## When to use
-
-
+- An application needs asynchronous communication on the back-end.
+- An application has a functionality which results do not need to reload a full page, for example, commenting on a post while using Facebook or scrolling infinitely.
+- Manipulation of data is mostly on the client side rather than server side.
+- Same type of data is being delivered in different ways on a single page.
+- When an application has many insignificant connections that are used to modify data (button, switches).
 
 <br>
 
 ## Benefits & Drawback
 1. Benefits
 
-    - Multiple developers can work simultaneously on the model, controller and views. The application developed by using MVC can be three times faster than application developed using other development patterns.
+    - Faster development process
+        
+        Multiple developers can work simultaneously on the model, controller and views. The application developed by using MVC can be three times faster than application developed using other development patterns.
 
     - MVC enables logical grouping of related actions on a controller together. The views for a specific model are also group together.
 
-    - Models can have multiple views. Code duplication is very limited in MVC because it separates data and business logic from the display.
+    - Ability to provide multiple views
+    
+        Models can have multiple views. Code duplication is very limited in MVC because it separates data and business logic from the display.
 
-    - MVC also supports asynchronous technique, which helps developers to develop an application that loads very fast.
+    - Support for asynchronous technique
+    
+        MVC also supports asynchronous technique, which helps developers to develop an application that loads very fast.
 
-    - NVC pattern returns data without applying any formatting. So the same components can be used and called for use with any interface.
+    - MVC model returns the data without formatting
+
+        MVC pattern returns data without applying any formatting. So the same components can be used and called for use with any interface.
+
+    - In some frameworks that use MVC pattern such as Spring, ..., it will use Front Controller pattern.
+
+        Front Controller pattern will handle multiple incoming requests using single interface (controller). 
+        
+        Front Controller provides centralized control. We need to configure only one controller in web server instead of many. 
+        
+        Front Controller provides support rich communications to design our web application.
 
 2. Drawbacks
 
@@ -109,18 +128,21 @@ The Controller has pointers to both the Model and the View, knows the type of bo
 
 <br>
 
-## Code C++/Javascript
+## Code Python
 
-
+Source code about MVC pattern, we can referrence from this link [https://github.com/DucManhPhan/Design-Pattern/tree/master/Architectural-pattern](https://github.com/DucManhPhan/Design-Pattern/tree/master/Architectural-pattern)
 
 
 <br>
 
 ## Application & Examples
+- Nowadays, MVC pattern mostly is used in web application.
 
+    1. The Model is the module which interacts with the database (in the simplest designs, this could be directly the library which is used to query the database using SQL.)
 
+    2. The View is the module which generates HTML from the data.
 
-
+    3. The Controller contains all the other functionality of the server (E.g: it decides which page to display, generates dynamic contents, handles session and cookie data, ...)
 
 <br>
 
@@ -133,6 +155,16 @@ The Controller has pointers to both the Model and the View, knows the type of bo
 
 Refer:
 
+**The author of MVC pattern explains it**
+
+[http://heim.ifi.uio.no/~trygver/themes/mvc/mvc-index.html](http://heim.ifi.uio.no/~trygver/themes/mvc/mvc-index.html)
+
+<br>
+
+[https://crimsonpublishers.com/prsp/fulltext/PRSP.000505.php](https://crimsonpublishers.com/prsp/fulltext/PRSP.000505.php)
+
+[https://blog.codinghorror.com/understanding-model-view-controller/](https://blog.codinghorror.com/understanding-model-view-controller/)
+
 [https://martinfowler.com/eaaDev/uiArchs.html](https://martinfowler.com/eaaDev/uiArchs.html)
 
 [https://www.oreilly.com/library/view/learning-javascript-design/9781449334840/ch10s04.html](https://www.oreilly.com/library/view/learning-javascript-design/9781449334840/ch10s04.html)
@@ -142,3 +174,5 @@ Refer:
 [https://martinfowler.com/eaaDev/SeparatedPresentation.html](https://martinfowler.com/eaaDev/SeparatedPresentation.html)
 
 [https://docs.roguewave.com/stingray/11.1/html/sflug/8-2.html](https://docs.roguewave.com/stingray/11.1/html/sflug/8-2.html)
+
+[https://www.brainvire.com/six-benefits-of-using-mvc-model-for-effective-web-application-development/](https://www.brainvire.com/six-benefits-of-using-mvc-model-for-effective-web-application-development/)
