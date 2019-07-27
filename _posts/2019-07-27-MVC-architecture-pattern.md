@@ -80,6 +80,12 @@ In contrast, the View knows exactly what kind of model it observers. It has a st
 
 The Controller has pointers to both the Model and the View, knows the type of both. Because the Controller defines the behavior, it needs to know the type of both the Model and the View to translate user input into application response.
 
+All above contents talk about traditional MVC pattern. Now, we will see the present MVC pattern can have any changes when compare to the traditional MVC pattern.
+
+![](../img/Architecture-pattern/MVC-pattern/present-MVC-pattern.jpg)
+
+We can see that View and Model do not relate together. All actions between them must go through Controller.
+
 <br>
 
 ## When to use
@@ -161,6 +167,12 @@ Refer:
 
 <br>
 
+**Create multiple controller in MVC pattern**
+
+[https://stackoverflow.com/questions/20453684/how-to-manage-multiple-forms-in-mvc-pattern](https://stackoverflow.com/questions/20453684/how-to-manage-multiple-forms-in-mvc-pattern)
+
+<br>
+
 [https://crimsonpublishers.com/prsp/fulltext/PRSP.000505.php](https://crimsonpublishers.com/prsp/fulltext/PRSP.000505.php)
 
 [https://blog.codinghorror.com/understanding-model-view-controller/](https://blog.codinghorror.com/understanding-model-view-controller/)
@@ -176,3 +188,5 @@ Refer:
 [https://docs.roguewave.com/stingray/11.1/html/sflug/8-2.html](https://docs.roguewave.com/stingray/11.1/html/sflug/8-2.html)
 
 [https://www.brainvire.com/six-benefits-of-using-mvc-model-for-effective-web-application-development/](https://www.brainvire.com/six-benefits-of-using-mvc-model-for-effective-web-application-development/)
+
+[https://medium.com/@matthewan/traditional-mvc-and-mvc-in-ios-development-2280d353b459](https://medium.com/@matthewan/traditional-mvc-and-mvc-in-ios-development-2280d353b459)
