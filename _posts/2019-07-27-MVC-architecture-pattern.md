@@ -5,7 +5,7 @@ bigimg: /img/image-header/home-office-1.jpg
 tags: [architecture pattern, design pattern]
 ---
 
-In this article, we will dive into the MVC architectural pattern, to see how it works, ... Because so many frameworks that use it, understanding mvc pattern will help you work them confidently.
+In this article, we will dive into the MVC architectural pattern, to see how it works, ... Because so many frameworks that use it, understanding mvc pattern will help you work with them confidently.
 
 Let's get started.
 
