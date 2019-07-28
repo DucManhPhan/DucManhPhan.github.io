@@ -59,7 +59,7 @@ Model
 View
 - The presentation of application that users can interact with it.
 - In some variations of MVC, the View does not directly interact with the Model.
-- But originally, MVC use ```Observer pattern``` to know all changes from the Model to update the View part. So, the View will contain instance of the Model.
+- But originally, MVC use ```Observer pattern``` to know all changes from the Model to update the View part.
 
 Controller
 - The Controller's job is to take the user's input and figure out what to do with it.
@@ -79,6 +79,8 @@ The Model maintains a pointer to the View, which allow it to send the View weakl
 In contrast, the View knows exactly what kind of model it observers. It has a strongly typed pointer to the model that allows it to call any of the Model's functions. The View also has a weakly typed relationship with the controller. The View is not tied to a specific type of controller, which means that different types of controllers can be used with the same View.
 
 The Controller has pointers to both the Model and the View, knows the type of both. Because the Controller defines the behavior, it needs to know the type of both the Model and the View to translate user input into application response.
+
+<br>
 
 All above contents talk about traditional MVC pattern. Now, we will see the present MVC pattern can have any changes when compare to the traditional MVC pattern.
 
@@ -131,6 +133,9 @@ We can see that View and Model do not relate together. All actions between them 
     - Increased complexity.
     - Inefficiency of data access in View.
     - Reduce the security because the Model can be embbeded in View.
+    - In MVC pattern, View and Model can be interacted each other based on Observer pattern. 
+    
+        So, it means that we usually take some data logic into View. So, testing is really difficult when we do not know deeply the data logic.
 
 <br>
 
@@ -155,7 +160,7 @@ Source code about MVC pattern, we can referrence from this link [https://github.
 ## Wrapping up
 - The GoF do not refer to MVC as a design pattern, but rather consider it a set of classes to build a user interface. In their view, it's actually a variation of three classical design pattern: the ```Observer pattern```, ```Strategy pattern```, and ```Composite pattern```. Depending on how MVC has been implemented in a framework, it may also use the ```Factory``` and ```Template patterns```.
 
-- Views and controllers have a slightly different relationship. Controllers facilitate views to respond to different user input and are an example of the Strategy pattern.
+- Views and controllers have a slightly different relationship. Controllers facilitate Views to respond to different user input and are an example of the Strategy pattern.
 
 - Both the relationship between View and Controller, View and Model is many-to-one.
 
@@ -174,6 +179,10 @@ Refer:
 **Create multiple controller in MVC pattern**
 
 [https://stackoverflow.com/questions/20453684/how-to-manage-multiple-forms-in-mvc-pattern](https://stackoverflow.com/questions/20453684/how-to-manage-multiple-forms-in-mvc-pattern)
+
+**MVC Principles and Practice**
+
+[https://docs.roguewave.com/stingray/11.1/html/sflug/8-9.html](https://docs.roguewave.com/stingray/11.1/html/sflug/8-9.html)
 
 <br>
 
@@ -194,3 +203,9 @@ Refer:
 [https://www.brainvire.com/six-benefits-of-using-mvc-model-for-effective-web-application-development/](https://www.brainvire.com/six-benefits-of-using-mvc-model-for-effective-web-application-development/)
 
 [https://medium.com/@matthewan/traditional-mvc-and-mvc-in-ios-development-2280d353b459](https://medium.com/@matthewan/traditional-mvc-and-mvc-in-ios-development-2280d353b459)
+
+<br>
+
+**When MVC pattern not use**
+
+[https://www.raywenderlich.com/7026-getting-started-with-mvp-model-view-presenter-on-android](https://www.raywenderlich.com/7026-getting-started-with-mvp-model-view-presenter-on-android)

@@ -11,19 +11,11 @@ tags: [architecture pattern, design pattern]
 <br>
 
 ## Table of contents
-- [Given Problem](#given-problem)
 - [Analysis Problem](#analysis-problem)
 - [Definition of MVVM Pattern](#definition-of-mvvm-pattern)
 - [When to use](#when-to-use)
 - [Code C++/Javascript](#code-C++/Javascript)
 - [Application & Examples](#application-&-examples)
-
-
-<br>
-
-## Given Problem 
-
-
 
 
 <br>
@@ -37,13 +29,16 @@ tags: [architecture pattern, design pattern]
 ## Definition of MVVM Pattern
 
 
+Below is the image about MVVP pattern.
 
+![](../img/Architecture-pattern/MVVM-pattern/MVVM-Pattern.png)
 
 <br>
 
 ## When to use
+- Our screen holds many Views, at this point, it is easier to make each View subscribe on it's data source in the ViewModel and handle itself when this data source changes.
 
-
+- Our screen has a One-Directional-Flow, it means that the events are coming from the Model, and affecting the View without any user interactions.
 
 <br>
 
@@ -65,24 +60,26 @@ tags: [architecture pattern, design pattern]
 <br>
 
 ## Code C++/Javascript
+You can refer to the following repository:
 
-
-
+[https://github.com/DucManhPhan/AutoCAD/tree/master/Draw_Balloon_NET](https://github.com/DucManhPhan/AutoCAD/tree/master/Draw_Balloon_NET)
 
 <br>
 
 ## Application & Examples
-
-
-
-
+- WPF
+- Silver Light
+- KnockoutJS
+- Angular
 
 <br>
 
 ## Wrapping up
+- View hold a reference to the ViewModel, but ViewModel is not aware of the View. So, one ViewModel can have multiple Views.
 
-
+- Unlike the MVC pattern, MVVM pattern have the Model that is coupled from the View. ViewModel interacts with the Model and push data to the View.
 
 <br>
 
 Refer:
+
