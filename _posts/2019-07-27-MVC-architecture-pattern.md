@@ -157,6 +157,10 @@ Source code about MVC pattern, we can referrence from this link [https://github.
 
 - Views and controllers have a slightly different relationship. Controllers facilitate views to respond to different user input and are an example of the Strategy pattern.
 
+- Both the relationship between View and Controller, View and Model is many-to-one.
+
+- Views are registered to get update or receive notification from Model based on ```Observer pattern```.
+
 <br>
 
 Refer:
