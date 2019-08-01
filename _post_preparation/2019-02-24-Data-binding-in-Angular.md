@@ -1,7 +1,7 @@
 ---
 layout: post
 title: Data binding in Angular
-bigimg: /img/path.jpg
+bigimg: /img/image-header/california.jpg
 tags: [Angular]
 ---
 
