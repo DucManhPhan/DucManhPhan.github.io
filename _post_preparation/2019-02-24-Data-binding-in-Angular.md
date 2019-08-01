@@ -6,10 +6,15 @@ tags: [Angular]
 ---
 
 
+
+
+<br>
+
 ## Table of contents
-
-
-
+- [One Way Binding - From Component to View](#one-way-binding-from-component-to-view)
+- [One Way Binding - From View to Component](#one-way-binding-from-view-to-component)
+- [Two way Binding](#two-way-binding)
+- [Wrapping up](#wrapping-up)
 
 <br>
 
@@ -34,6 +39,11 @@ tags: [Angular]
 
 <br>
 
+## Wrapping up
+
+
+
+<br>
 
 Refer:
 
