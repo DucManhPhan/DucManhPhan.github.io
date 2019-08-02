@@ -50,3 +50,7 @@ Refer:
 [https://www.pluralsight.com/guides/property-binding-angular](https://www.pluralsight.com/guides/property-binding-angular)
 
 [https://www.pluralsight.com/guides/one-and-two-way-data-binding-angular](https://www.pluralsight.com/guides/one-and-two-way-data-binding-angular)
+
+[https://angular-2-training-book.rangle.io/components/app_structure_with_components/two_way_data_binding](https://angular-2-training-book.rangle.io/components/app_structure_with_components/two_way_data_binding)
+
+[https://blog.thoughtram.io/angular/2016/10/13/two-way-data-binding-in-angular-2.html](https://blog.thoughtram.io/angular/2016/10/13/two-way-data-binding-in-angular-2.html)
