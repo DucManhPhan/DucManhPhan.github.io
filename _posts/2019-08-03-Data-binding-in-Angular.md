@@ -409,6 +409,7 @@ With the latest version, we have:
 
     ![](../img/Angular-architecture/data-binding.png)
 
+- ```ngModel``` comes as a built-in directive as part of the ```FormsModule``` to implement two-way binding and should be preferred when building components that serve as custom form controls.
 
 <br>
 
