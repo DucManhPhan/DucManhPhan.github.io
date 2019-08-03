@@ -39,7 +39,10 @@ In one way binding from Component to View, we have many different types such as:
 
     @Component({
         selector: 'app-example',
-        template: `<div>{{authorName}}</div>`
+        template: `
+                    <div>
+                        {{authorName}}
+                    </div>`
     })
     export class AppComponent {
         authorName = 'Dan Brown';
