@@ -41,7 +41,7 @@ In one way binding from Component to View, we have many different types such as:
         selector: 'app-example',
         template: `
                     <div>
-                        {{authorName}}
+                        '{{authorName}}'
                     </div>`
     })
     export class AppComponent {
