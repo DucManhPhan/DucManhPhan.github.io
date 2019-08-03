@@ -63,6 +63,28 @@ In reactive forms, we can not use ```[(ngModel)]```.
 
 <br>
 
+## The difference between #name and [(ngModel)]=name in Angular's Form
+
+
+
+
+<br>
+
+## 
+
+
+
+
+
+<br>
+
+## 
+
+
+
+
+<br>
+
 ## Wrapping up
 - In Angular 2.x or beyond, when we want to update, or set value for some element in html, we have to think of binding ways.
 
@@ -72,3 +94,6 @@ In reactive forms, we can not use ```[(ngModel)]```.
 
 Refer:
 
+[https://angular.io/guide/template-syntax](https://angular.io/guide/template-syntax)
+
+[https://stackoverflow.com/questions/43234559/what-is-the-difference-between-the-name-and-ngmodel-name-in-angular2-form](https://stackoverflow.com/questions/43234559/what-is-the-difference-between-the-name-and-ngmodel-name-in-angular2-form)
