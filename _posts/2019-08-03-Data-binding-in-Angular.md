@@ -414,6 +414,10 @@ With the latest version, we have:
 
 - ```ngModel``` comes as a built-in directive as part of the ```FormsModule``` to implement two-way binding and should be preferred when building components that serve as custom form controls.
 
+- Unlike AngularJS, Angular does not provide two way binding by default, which avoid all the digest cycle and watchers issues that AngularJS dealt with.
+
+- Data binding in Angular works by synchronizing the data in the components with the UI so that it reflects the current value of the data. To achieve the synchronization of the View and the Model, Angular uses change detection.
+
 <br>
 
 Refer:
@@ -431,3 +435,5 @@ Refer:
 [https://stackoverflow.com/questions/6003819/what-is-the-difference-between-properties-and-attributes-in-html](https://stackoverflow.com/questions/6003819/what-is-the-difference-between-properties-and-attributes-in-html)
 
 [https://medium.com/@bartsis/understanding-two-way-data-binding-in-angular-2-a8eafa850637](https://medium.com/@bartsis/understanding-two-way-data-binding-in-angular-2-a8eafa850637)
+
+[https://medium.com/@preethi.s/angular-custom-two-way-data-binding-3e618309d6c7](https://medium.com/@preethi.s/angular-custom-two-way-data-binding-3e618309d6c7)
