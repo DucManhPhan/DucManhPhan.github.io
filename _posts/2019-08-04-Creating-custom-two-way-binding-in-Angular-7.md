@@ -149,35 +149,134 @@ Before delving into the problem of two-way data binding, we have to understand t
 
 - The first thing is to be aware of the Angular tree structure.
 
-    An Angular application can be seen as a component tree.
+    An Angular application can be seen as a component tree. A component has a view and a model. Every component has its own change detection, allowing each one to deal with changes in a different way.
 
-    [https://www.gistia.com/angular-performance-optimization-change-detection/](https://www.gistia.com/angular-performance-optimization-change-detection/)
+    ![](../img/Angular-architecture/angular-architecture/angular-work-flow.png)
+
+    The change detection will traverse from the root of the tree to the leaves. It means the first application root is checked and then its siblings, their children will be processed.
+    
+    So, when we have so many components, the change detection will be work hard. It takes so much time, it means the performance of system will break down when they have to check loop for the creation of change detection, especially the case of two way data binding.
 
 - Some strategies of Change Detection Mechanism
 
     - How does Change Detection Mechanism works?
 
+    - ```ChangeDetectionStrategy.Default```
 
+        Whenever data is mutated or changed, Angular will run the change detection to update the DOM elements.
 
-    - ChangeDetectionStrategy.Default
+    - ```ChangeDetectionStrategy.OnPush```
 
-        Whenever data is mutated or changed, Angular will run the change detector to update the DOM.
+        Angular will only run the change detection when a new reference is passed to ```@Input()``` data, instead of some properties changed in the object.
 
-    - ChangeDetectionStrategy.OnPush
+    - Use Observable
 
-        Angular will only run the change detection when a new reference is passed to ```@Input()``` data.
-
-- 
-
-
-
+        If observable is passed to the ```onPush``` change detection strategy that is in enabled component, then **Angular change detection has to be called manually to update the DOM elements**.
 
 <br>
 
 ## Solution to prevent using two way binding
+- First way, in order to prevent the performance degradation of application, we can use ```ChangeDetectionStrategy.OnPush```
+strategy to only run when the variable is referred to the new reference.
 
+    --> Use an Immutable object with ```onPush``` Change detection to improve performance.
 
+    ```javascript
+    // child.component.ts
+    import { Component, Input, ChangeDetectionStrategy } from '@angular/core';
 
+    @Component({
+        selector: 'app-child',
+        changeDetection: ChangeDetectionStrategy.OnPush,
+        template: "{{course.title}}"
+    })
+    export class ChildComponent {
+      @Input()
+      course: any;
+    }
+
+    // parent.component.ts
+    import { Component } from '@angular/core';
+
+    @Component({
+      selector: 'app-parent',
+      template: '<app-child [course]='data'></app-child>'
+    })
+    export class ParentComponent implements OnInit {
+      course: any;
+
+      ngOnInit() {
+        this.course = {
+          title: 'Learn Angular from scratch',
+          code: "Angular001"
+        }
+      }
+    }
+    ```
+
+- Second way
+
+    We can use RxJS Observable to improve performance of application because they emit new values without changing the reference of the object.
+
+    ```javascript
+    // child.component.ts
+    import { Component, Input } from '@angular/core'
+
+    @Component({
+        selector: 'app-child',
+        template: "{{course.title}}"
+    })
+    export class ChildComponent implements OnInit {
+      @Input()
+      course: Observable<any>;
+
+      _data;
+
+      constructor(private changeDetectorRef: ChangeDetectorRef) {
+        // nothing to do
+      }
+
+      ngOnInit() {
+        this.course.subscribe(data => {
+          this._data = data;
+
+          // Manually call Change Detection mechanism
+          this.changeDetectorRef.markForCheck();
+        });
+      }
+    }
+
+    // parent.component.ts
+    import { Component, OnInit } from '@angular/core';
+    import { BehaviorSubject } from 'rxjs/BehaviorSubject';
+
+    @Component({
+      selector: 'app-parent',
+      template: `<app-child [course]="data"></app-child>
+                  <button type="button" (click)="onClick()">Click me!</button>
+                `
+    })
+    export class ParentComponent implements OnInit {
+      course: any;
+      data: BehaviorSubject;
+
+      ngOnInit() {
+        this.course = {
+          title: 'Learn Angular from scratch',
+          code: "Angular001"
+        };
+        this.data = new BehaviorSubject(this.course);
+      }
+
+      onClick() {
+        this.course = {
+          title: 'C++ programming',
+          code: 'C++001'
+        };
+        this.data.next(this.course);
+      }
+    }
+    ```
 
 <br>
 
@@ -214,3 +313,5 @@ Refer:
 [https://www.gistia.com/angular-performance-optimization-change-detection/](https://www.gistia.com/angular-performance-optimization-change-detection/)
 
 [https://netbasal.com/optimizing-angular-change-detection-triggered-by-dom-events-d2a3b2e11d87](https://netbasal.com/optimizing-angular-change-detection-triggered-by-dom-events-d2a3b2e11d87)
+
+[https://blog.thoughtram.io/angular/2016/02/22/angular-2-change-detection-explained.html](https://blog.thoughtram.io/angular/2016/02/22/angular-2-change-detection-explained.html)
