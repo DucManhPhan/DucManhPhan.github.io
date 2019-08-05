@@ -189,6 +189,10 @@ Before delving into the problem of two-way data binding, we have to understand t
 
 <br>
 
+Thanks for your reading.
+
+<br>
+
 Refer:
 
 [https://www.quora.com/What-technique-AngularJS-uses-for-two-way-binding](https://www.quora.com/What-technique-AngularJS-uses-for-two-way-binding)

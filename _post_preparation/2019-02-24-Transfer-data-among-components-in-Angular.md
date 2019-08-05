@@ -1,7 +1,7 @@
 ---
 layout: post
 title: Transfer data among components in Angular
-bigimg: /img/path.jpg
+bigimg: /img/image-header/california.jpg
 tags: [Angular]
 ---
 
@@ -96,8 +96,7 @@ At ```app.component.html```,
 
 ## Child to Parent: Sharing Data via using local variable
 
-
-
+Refer: [https://angular.io/guide/component-interaction#parent-interacts-with-child-via-local-variable](https://angular.io/guide/component-interaction#parent-interacts-with-child-via-local-variable)
 
 
 <br>
@@ -171,6 +170,8 @@ In ```parent.component.html```, we have:
 ```
 
 Note: In our ```parent.component.html```, we need to insert ```<app-child></app-child>```. 
+
+
 
 <br>
 
