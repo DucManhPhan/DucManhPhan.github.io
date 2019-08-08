@@ -11,18 +11,47 @@ tags: [git]
 <br>
 
 ## Table of contents
-
-
+- [Create patch file](#create-patch-file) 
+- [Clear screen in git bash](#clear-screen-in-git-bash)
 
 
 <br>
 
 ## Create patch file
 
-```git
+```javascript
 git diff > file_name.patch
+
+// push file into specific folder of patch file
+git diff > ./patch_folder/file_name.patch
 ```
 
+<br>
+
+## Clear screen in git bash
+
+```javascript
+// clear Unix or Windows
+clear
+
+// or
+Ctrl + L
+```
+
+<br>
+
+## 
+
+
+
+
+<br>
+
+## Wrapping up
+
+
+
+<br>
 
 Refer:
 
