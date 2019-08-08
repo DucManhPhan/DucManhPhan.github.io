@@ -1,7 +1,7 @@
 ---
 layout: post
 title: The neccessary commands in VIM
-bigimg: /img/path.jpg
+bigimg: /img/image-header/yokohama-tonight.jpeg
 tags: [vim]
 ---
 
@@ -21,7 +21,7 @@ In this article, we will find out the most common commands of VIM, and how to me
 - [Commands in Visual Mode](#commands-in-visual-mode)
 - [Commands in Normal Mode](#commands-in-normal-mode)
 - [Commands with Insert Mode](#commands-with-insert-mode)
-- [Commands with Find operation](commands-with-find-operation)
+- [Commands with Find operation](#commands-with-find-operation)
 - [Commands with file](#commands-with-file)
 - [Commands with tab](#commands-with-tab)
 - [Some interesting commands](#some-interesting-commands)
@@ -136,7 +136,9 @@ In order to push the usage of VIM, we should learn something about command in mo
 - d : delete text specified by motion (!important)
 - c : delete text specified by motion and go to insert mode (!important)
 - y : yank (copy) text specified by motion (!important)
-  
+- Y : yank (copy) the current line.
+- p : put the yanked content. Notice that yanking will move text to a special VIM reserved buffer, and not to your usual clipboard. We can manage two different clipboards. The first way, we can paste from with **Ctrl + Shift + v** in editing mode. The second way, with **p** (in the normal mode).
+
 - x : delete character under the cursor
 - r : replace character under cursor with another character
 - s : delete character under cursor and move to insert mode
@@ -163,8 +165,36 @@ In order to push the usage of VIM, we should learn something about command in mo
 
 
 # Commands with Find operation
+- Type "/" (without double quotes), and then press our word/pattern that we want to search.
 
+    - After that, just hit the Enter key --> Vim will place the cursor on the first line (containing our word).
+    - To move on to the next line that containing the searched word, press **n** character.
+    - If we want to go back to the previous words, press **N** (Shift + n).
 
+        --> Type **ggn** to jump to the first match.
+
+        --> Type **GN** to jump to the last match.
+
+        Example: In Normal mode, we type: **/commands**
+
+    - If we are at the bottom of a file, and search backwards, type **?**, then press our searched words.
+
+        Example: **?file**
+
+- Search highlighting
+
+    ```javascript
+    :set hlsearch
+    ```
+
+- Search case insensitive
+
+    The search in VIM is in case insensitive by default.
+
+    ```javascript
+    :set ignorecase
+    ```
+- ```*``` : find the next occurence of the current word.
 
 # Commands with file
 
@@ -184,7 +214,12 @@ In order to push the usage of VIM, we should learn something about command in mo
 - ctx : change all text tille the 'x'
 - dtx : delete all text till the next 'x'
 - dfx : same, but include the 'x'
+- Yp : duplicate lines 
+- 
 
+
+
+Refer: 
 
 
 

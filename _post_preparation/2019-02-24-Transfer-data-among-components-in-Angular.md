@@ -171,8 +171,6 @@ In ```parent.component.html```, we have:
 
 Note: In our ```parent.component.html```, we need to insert ```<app-child></app-child>```. 
 
-
-
 <br>
 
 ## Child to Parent: Sharing Data via ```@Output``` and EventEmitter
