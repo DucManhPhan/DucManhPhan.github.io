@@ -130,25 +130,22 @@ In order to push the usage of VIM, we should learn something about command in mo
 
 
 # Commands in Visual Mode
+- If we want to switch to visual mode in VIM, we will type **v**.
 
+- 
 
 # Commands in Normal Mode
-- d : delete text specified by motion (!important)
-- c : delete text specified by motion and go to insert mode (!important)
 - y : yank (copy) text specified by motion (!important)
+- yy : yank (copy) the current line
 - Y : yank (copy) the current line.
 - p : put the yanked content. Notice that yanking will move text to a special VIM reserved buffer, and not to your usual clipboard. We can manage two different clipboards. The first way, we can paste from with **Ctrl + Shift + v** in editing mode. The second way, with **p** (in the normal mode).
 
+- d : delete text specified by motion (!important)
+- dd : delete the current line
+- c : delete text specified by motion and go to insert mode (!important)
 - x : delete character under the cursor
 - r : replace character under cursor with another character
 - s : delete character under cursor and move to insert mode
-- yy : yank (copy) the current line
-- dd : delete the current line
-- fx : go to the next occurrence of 'x' on the current line
-- Fx : find the previous 'x' in the current line
-- tC : jump till just before the next 'C' in the line
-- TC : jump till just after the previous the 'C' in the same line
-
 
 # Commands with Insert Mode
 - i : insert at the current location
@@ -196,6 +193,14 @@ In order to push the usage of VIM, we should learn something about command in mo
     ```
 - ```*``` : find the next occurence of the current word.
 
+- fx : go to the next occurrence of 'x' on the current line
+
+- Fx : find the previous 'x' in the current line
+
+- tC : jump till just before the next 'C' in the line
+
+- TC : jump till just after the previous the 'C' in the same line
+
 # Commands with file
 
 
@@ -215,8 +220,8 @@ In order to push the usage of VIM, we should learn something about command in mo
 - dtx : delete all text till the next 'x'
 - dfx : same, but include the 'x'
 - Yp : duplicate lines 
-- 
-
+- 3dk : delete current line and 4 lines in the upward direction.
+- :-3,.d : delete 3 lines above and the current line.
 
 
 Refer: 
