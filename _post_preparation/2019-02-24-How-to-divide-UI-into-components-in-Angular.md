@@ -10,6 +10,8 @@ tags: [Angular]
 
 Refer:
 
+[https://dzone.com/articles/when-to-break-up-a-component-into-multiple-compone?fromrel=true](https://dzone.com/articles/when-to-break-up-a-component-into-multiple-compone?fromrel=true)
+
 [https://malcoded.com/posts/angular-fundamentals-modules](https://malcoded.com/posts/angular-fundamentals-modules)
 
 [https://medium.com/@jtomaszewski/how-to-write-good-composable-and-pure-components-in-angular-2-1756945c0f5b](https://medium.com/@jtomaszewski/how-to-write-good-composable-and-pure-components-in-angular-2-1756945c0f5b)
