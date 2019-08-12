@@ -12,23 +12,32 @@ tags: [Coding patterns]
 
 <br>
 
-## 
+## Given the problem 
 
 
 
+<br>
 
-## 
-
-
-
-
-## 
+## Solution
 
 
+<br>
+
+## Some types of Sliding window technique
+
+
+<br>
+
+## When to use
+
+
+
+<br>
 
 ## Wrapping up
 
 
+<br>
 
 Refer:
 

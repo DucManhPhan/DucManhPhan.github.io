@@ -11,10 +11,12 @@ VIM has so powerful multiple commands, and it helps developers to type keyboard 
 
 In this article, we will find out the most common commands of VIM, and how to memorize the commands quickly.
 
+<br>
 
 ## Table of Contents
 - [Structure of Editing command in VIM](#structure-of-editing-command-in-VIM)
 - [Plaintext Text Objects](#plaintext-text-objects)
+- [Adverbs](#adverbs)
 - [Programming Language Text Objects](#programming-language-text-objects)
 - [Motion - Commands](#motion-commands)
 - [Undo and Redo](#undo-and-redo)
@@ -26,8 +28,9 @@ In this article, we will find out the most common commands of VIM, and how to me
 - [Commands with tab](#commands-with-tab)
 - [Some interesting commands](#some-interesting-commands)
 
+<br>
 
-# Structure of Editing command in VIM
+## Structure of Editing command in VIM
 When we know the structure of commands, means we can use so many commands. We do not remember the detail of each command. 
 
 ```
@@ -48,24 +51,42 @@ The **command** is optional, but without it, you only have a motion command, not
 
 - **text object** or **motion**: can either be a text construct, Ex: a word, a sentence, a paragraph, ... or a motion, Ex: forward a line, back one page, end of the line. 
 
+<br>
 
-# Plaintext Text Objects
+## Plaintext Text Objects
 VIM supplies the three building blocks of text objects: words, sentences, and paragraphs. 
 
-- Words
+- w - Words
     - aw: a word (includes surrounding white space)
     - iw: inner word (does not include  surrounding white space)
 
-- Sentences
+- s - Sentences
     - as: a sentence
     - is: inner sentence
 
-- Paragraphs
+- p - Paragraphs
     - ap: a paragraph
     - ip: inner paragraph
 
+- b - block/parentheses
 
-# Programming Language Text Objects
+- t - tag
+
+<br>
+
+## Adverbs
+- i --> inside
+
+- a --> around
+
+- t --> till
+
+- f --> till (inclusive)
+
+
+<br>
+
+## Programming Language Text Objects
 VIM also provides some text objects based on common programming language constructs. 
 
 - Strings
@@ -100,7 +121,9 @@ Or something will not happen. So we can try to use the other way:
     - ai: the current indentation level and the line above
     - ii: the current indentation level excluding the line above
 
-# Motion Commands
+<br>
+
+## Motion Commands
 In order to push the usage of VIM, we should learn something about command in movement with cursor. 
 - h : move cursor to left by one position, ex: 10h - move to left by 10 character.
 - l : move cursor to right by one position
@@ -115,6 +138,7 @@ In order to push the usage of VIM, we should learn something about command in mo
 - :$ : jump to the end of file
 - gg : move to the first line
 - G : go to the end of file
+- 1G: go the the start of file
 - 123G : move to the line number 123
 - w : move cursor to the beginning of the next word
 - e : move cursor to the end of the current word
@@ -122,19 +146,21 @@ In order to push the usage of VIM, we should learn something about command in mo
 - Ctrl + o : jump back to the previous position
 - Ctrl + i : jump to the next position
 
+<br>
 
-# Undo and Redo
+## Undo and Redo
 - u : undo last change of action, ex: 3u - undo last 3 actions
 - Ctrl + r or :red : redo action 
 - U : return the last line which was modified to its original state (reverse all changes in last modified line). U is seldom useful in practice, but it often accidentally pressed instead of u, so it is good to know about.
 
+<br>
 
-# Commands in Visual Mode
+## Commands in Visual Mode
 - If we want to switch to visual mode in VIM, we will type **v**.
 
-- 
+<br> 
 
-# Commands in Normal Mode
+## Commands in Normal Mode
 - y : yank (copy) text specified by motion (!important)
 - yy : yank (copy) the current line
 - Y : yank (copy) the current line.
@@ -146,8 +172,11 @@ In order to push the usage of VIM, we should learn something about command in mo
 - x : delete character under the cursor
 - r : replace character under cursor with another character
 - s : delete character under cursor and move to insert mode
+- d2w. or d2e. : delete 2 words, and repeat the previous command with **.** character.
 
-# Commands with Insert Mode
+<br>
+
+## Commands with Insert Mode
 - i : insert at the current location
 - a : insert after the current location (append)
 - I : insert at the start of the current line
@@ -160,8 +189,9 @@ In order to push the usage of VIM, we should learn something about command in mo
 - cc : same as S (change line) 
 - C : delete from the cursor to the end of line and start inserting at the cursor position 
 
+<br>
 
-# Commands with Find operation
+## Commands with Find operation
 - Type "/" (without double quotes), and then press our word/pattern that we want to search.
 
     - After that, just hit the Enter key --> Vim will place the cursor on the first line (containing our word).
@@ -201,15 +231,76 @@ In order to push the usage of VIM, we should learn something about command in mo
 
 - TC : jump till just after the previous the 'C' in the same line
 
-# Commands with file
+- Find and replace
+
+    ```javascript
+    // Find and replace normal case
+    :%s/find_text/replace_text/g
+
+    // Find and replace with confirmation
+    :%s/find_text/replace_text/gc
+
+    // Find and replace whole word only
+    :%s/\<find_text\>/replace_text/gc
+
+    // Case insensitive find and replace
+    :%s/find_text/replace_text/gi
+
+    // Case sensitive find and replace
+    :%s/find_text/replace_text/gI
+
+    // Find and replace in the current line only
+    :s/find_text/replace_text/g
+
+    // Replace all lines between start-th line and end-th line
+    :{START-n},{END-n}s/find_text/replace_text/g
+    ```
+
+<br>
+
+## Commands with file
+- Save and close the current file
+
+    ```javascript
+    :wq
+    ```
+
+- Discard all changes in the current file
+
+    ```javascript
+    :q!
+    ```
+
+Below is commands about working with file in VIM editor.
+
+|         Command          |            Description            |
+|------------------------- | --------------------------------- |
+| q                        | Quit                              |
+| q!                       | Quit without saving changes       |
+| r fileName               | Read data from file called fileName |
+| w                        | Save file and continue editing    |
+| wq                       | Write and quit                    |
+| x                        | Same as wq command |
+| w fileName               | Write to file called fileName (save as) |
+| w! fileName              | Overwrite to file called fileName (save as forcefully) |
+
+
+<br>
+
+## Commands with tab
 
 
 
-# Commands with tab
 
+<br>
 
-# Some interesting commands
-- ciw : change the inner word
+## Some interesting commands
+- ciw : change the inside word - delete the whole word under cursor and switches to insert mode, unlike cw which deletes a word from cursor to the end of this word.
+- cis : change inside sentence
+- ci" : change inside " brace - delete all text between " braces.
+- da} : delete around } brace - deletes all text inside curly braces including them.
+- vip : visual inside paragraph - selects all paragraph.
+- ctp : change till p - delete everything from here to letter p.
 - d$ : delete to the end of line
 - yG : copy everything through the end of the file
 - cf) : change through the next closing parentheses or the next other character
@@ -222,11 +313,15 @@ In order to push the usage of VIM, we should learn something about command in mo
 - Yp : duplicate lines 
 - 3dk : delete current line and 4 lines in the upward direction.
 - :-3,.d : delete 3 lines above and the current line.
+- 2iHello <ESC> : insert Hello 2 times.
+
+<br>
+
+## Wrapping up
 
 
-Refer: 
 
-
+<br>
 
 Refer: 
 
