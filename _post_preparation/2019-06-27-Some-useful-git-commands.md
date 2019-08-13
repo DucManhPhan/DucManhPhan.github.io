@@ -40,9 +40,15 @@ Ctrl + L
 
 <br>
 
+## Discard all changes in specific file
+
+```javascript
+git checkout -- <file_name>
+```
+
+<br>
+
 ## 
-
-
 
 
 <br>
