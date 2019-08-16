@@ -23,13 +23,10 @@ In this article, we will delve deeper into the work flows and the relationship b
 ## Introduction to Spring Boot
 Spring Boot is a standalone application which reduces several tedious development steps and boilerplate code and configuration. It helps us to create a web application as a standalone JAR file with zero XML configuration and embedded web server. It also bundles the application with all the necessary dependencies.
 
-
-
-
-
 <br>
 
 ## How Spring Boot works
+
 
 
 <br>
