@@ -70,15 +70,8 @@ In reactive forms, we can not use ```[(ngModel)]```.
 
 <br>
 
-## 
+## Two-way data binding with primitive types causes lost focus when input changes
 
-
-
-
-
-<br>
-
-## 
 
 
 
