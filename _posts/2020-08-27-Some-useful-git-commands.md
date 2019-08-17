@@ -30,7 +30,12 @@ Let's get started.
 - [Delete all untracked files](#delete-all-untracked-files)
 - [Unstage all files](#unstage-all-files)
 - [List all branches that we are utilizing with latest order](#list-all-branches-that-we-are-utilizing-with-latest-order)
-- [Find conflits](#find-conflicts)
+- [Find conflicts](#find-conflicts)
+- [Merge other branch to our specific branch](#merge-other-branch-to-our-specific-branch)
+- [Revert one commit, push it](#revert-one-commit-push-it)
+- [Revert to the moment before one commit](#revert-to-the-moment-before-one-commit)
+- [Undo the last commit, preserving local changes](#undo-the-last-commit-preserving-local-changes)
+- [Undo the last commit, without preserving local changes](#undo-the-last-commit-without-preserving-local-changes)
 - [Wrapping up](#wrapping-up)
 
 
@@ -231,7 +236,7 @@ git for-each-ref --sort=-committerdate refs/heads/ | head
 
 <br>
 
-## Find conflits
+## Find conflicts
 
 ```javascript
 grep -H -r "<<<"
@@ -250,7 +255,7 @@ git merge other_branch             // merge other_branch into our_branch_name
 
 <br>
 
-## Rever one commit, push it
+## Revert one commit, push it
 
 ```javascript
 git revert COMMIT_ID
