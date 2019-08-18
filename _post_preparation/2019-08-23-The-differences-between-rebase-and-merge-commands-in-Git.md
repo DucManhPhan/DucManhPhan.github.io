@@ -18,7 +18,19 @@ tags: [git]
 
 <br>
 
+## Given the problem
+Assuming that we have two branches: feature and master. Of course, feature branch is separate from master branch at a specific commit. feature branch is used to develop some new functionalities.
+
+So, our responsibility is to merge master branch to feature branch. 
+
+![](../img/Git-guide/merge-rebase/summary-rebase-merge.png)
+
+<br>
+
 ## Git rebase
+
+
+![](../img/Git-guide/merge-rebase/git-rebase.png)
 
 
 <br>
@@ -26,7 +38,7 @@ tags: [git]
 ## Git merge
 
 
-
+![](../img/Git-guide/merge-rebase/git-merge.png)
 
 <br>
 
@@ -37,7 +49,7 @@ tags: [git]
 <br>
 
 ## Wrapping up
-
+- Use ```git rebase``` carefully because it can make our source code that is remove completely. Especially, when we use rebase for sub-branch, not master branch or parent branch.
 
 <br>
 
@@ -46,6 +58,10 @@ Thanks for your reading.
 <br>
 
 Refer:
+
+[https://www.atlassian.com/git/tutorials/merging-vs-rebasing](https://www.atlassian.com/git/tutorials/merging-vs-rebasing)
+
+[https://viblo.asia/p/git-merging-vs-rebasing-3P0lPvoGKox](https://viblo.asia/p/git-merging-vs-rebasing-3P0lPvoGKox)
 
 [https://git-scm.com/book/vi/v1/Ph%C3%A2n-Nh%C3%A1nh-Trong-Git-Rebasing](https://git-scm.com/book/vi/v1/Ph%C3%A2n-Nh%C3%A1nh-Trong-Git-Rebasing)
 

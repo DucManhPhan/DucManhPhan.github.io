@@ -304,6 +304,9 @@ git reset --soft HEAD~1
 
 // undo the specify commit by using SHA
 git reset --soft COMMIT_SHA
+
+// finally, call it
+git push -f origin branch_name
 ```
 
 ```git reset``` rewinds your repository's history all the way back to the specified SHA. It’s as if those commits never happened. By default, ```git reset``` preserves the working directory. The commits are gone, but the contents are still on disk. This is the safest option, but often, you'll want to "undo" the commits and the changes in one move—that's what ```--hard``` does
@@ -314,7 +317,10 @@ git reset --soft COMMIT_SHA
 
 ```javascript
 git reset --hard HEAD~1
+git push -f origin branch_name
 ```
+
+Source: [https://superuser.com/questions/523963/how-can-i-revert-back-to-a-git-commit](https://superuser.com/questions/523963/how-can-i-revert-back-to-a-git-commit)
 
 <br>
 
