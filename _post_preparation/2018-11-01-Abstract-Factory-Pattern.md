@@ -18,20 +18,25 @@ In Creational pattern, abstract factory pattern is at higher lever than the othe
 - [Benefits & Drawback](#benefits-&-drawback)
 - [Code C++ /Java / Javascript / Python](#code-c++-java-javascript-python)
 - [Application & Examples](#application-&-examples)
-- [Combination with other design patterns](#combination-with-other-design-patterns)
+- [Relations with other design patterns](#relations-with-other-design-patterns)
 - [Wrapping up](#wrapping-up)
 
 <br>
 
 ## Given Problem 
+Assuming that we have to create application with multiple plugin with it, or application that depends on its configuration such as color theme, operating system version, ... So, in these case, normally, we will create 
+separated code for each case.
 
-
+Is this way effective for creating your application?
 
 <br>
 
 ## Analysis Problem
+When we cope with the above problem, some drawbacks happened if we code for each case:
+- It's difficult to maintain and reuse because when we need to add a products or families of products to our application, we have to change existing code.
+- mock test
 
-
+Therefore, to prevent all these disadvantages, we should use Abstract factory pattern.
 
 <br>
 
@@ -67,7 +72,7 @@ Some notes in this pattern:
 
 ## Benefits & Drawback
 1. Benefits
-- Loose coupling in which object creation can be independent of the class implementation.
+- Loose coupling between concrete products and client code.
 
 - The client need not be aware of the class that creates the object which, in turn, is utilized by the client. It is only necessary to know the interface, methods and parameters that need to be passed to create objects of the desired type. This simplifies implementations for the client.
 
@@ -76,6 +81,9 @@ Some notes in this pattern:
 - The factory can also reuse the existing objects. However, when the client does direct object creation, this always creates a new object.
 
 - Assume that we have an application which contains multiple plugins. So, when use abstract factory pattern for these plugins, we can easily switched easily plugins together, because we can only change concrete plugin that is being use.
+
+2. Drawbacks
+- The code may become more complicated than it should be, since a lot of new interfaces and classes are introduced along with the pattern.
 
 <br>
 
@@ -91,10 +99,12 @@ Some notes in this pattern:
 
 <br>
 
-## Combination with other design patterns
+## Relations with other design patterns
+- Abstract factory and Bridge pattern.
 
+- Abstract factory and Factory Method pattern.
 
-
+- Singleton and abstract factory.
 
 <br>
 
