@@ -78,13 +78,17 @@ To replace the usage of Singleton, we can [use a single instance](#replace-singl
 <br>
 
 ## Benefits & Drawback
-- Benefits
+1. Benefits
+- It is easy to configure an instance of an application that extends the functionality of singleton at run-time.
+
+- Improvement over global variable.
 
 
 
+2. Drawback
+- Singleton permits the creation only one instance of the class, while most pratical applications require multiple instances to be initialized.
 
-- Drawback
-
+- The system threads fight to access the single instance thereby degrading the performance of the applications.
 
 <br>
 
@@ -147,10 +151,25 @@ To replace the usage of Singleton, we can [use a single instance](#replace-singl
 
     Refer to this [link](https://topdev.vn/blog/singleton-pattern-la-gi/)
 
+    Notes:
+    - In multithreading, use ```synchronized``` in ```getInstance()``` method, it can decrease system performance by a factor of 100.
+
+        ```Java
+        public static synchronized getInstance() {
+            ...
+        }
+        ```
+    - Use an Eagerly created instance rather than lazy one.
+
+        Refer [link](https://howtodoinjava.com/design-patterns/creational/singleton-design-pattern-in-java/)
+
+        --> Disadvantage: Memory may be allocated and not used.
+
+
 <br>
 
 ## Relations with other Patterns
-    - 
+- Factory method and Singleton patterns
 
 
 
@@ -184,6 +203,10 @@ To replace the usage of Singleton, we can [use a single instance](#replace-singl
     - single instance
     - global access
 
+- Version of Java earlier that 1.2 automatically clear singletons that are not being accessed as part of garbage collection.
+
+- Singleton pattern has some problem with multithreading.
+
 <br>
 
 Thanks for your reading.
@@ -191,6 +214,8 @@ Thanks for your reading.
 <br>
 
 Refer: 
+
+[https://stackoverflow.com/questions/70689/what-is-an-efficient-way-to-implement-a-singleton-pattern-in-java?rq=1](https://stackoverflow.com/questions/70689/what-is-an-efficient-way-to-implement-a-singleton-pattern-in-java?rq=1)
 
 [http://www.yolinux.com/TUTORIALS/C++Singleton.html](http://www.yolinux.com/TUTORIALS/C++Singleton.html)
 
