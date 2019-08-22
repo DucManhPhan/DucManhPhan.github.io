@@ -5,8 +5,9 @@ bigimg: /img/path.jpg
 tags: [creational pattern, design pattern]
 ---
 
-In Creational pattern, abstract factory pattern is at higher lever than the other pattern such as factory method pattern, ... It usually uses to 
+In Creational pattern, abstract factory pattern is at higher lever than the other pattern such as factory method pattern, ... It is always used in our system, because it makes our system consistency, and loose coupling between our system and concrete something.
 
+Today, we will find something out about this useful pattern. Let's get started.
 
 <br>
 
@@ -99,8 +100,7 @@ By C++, we can refer to this [link](https://github.com/DucManhPhan/Design-Patter
 <br>
 
 ## Application & Examples
-
-
+- Abstract factory pattern is a very central design pattern for Dependency Injection (DI).
 
 <br>
 
@@ -110,8 +110,6 @@ By C++, we can refer to this [link](https://github.com/DucManhPhan/Design-Patter
 - Abstract factory and Factory Method pattern.
 
     If we want to combine Abstract factory pattern and factory method pattern, refer [link](https://github.com/DucManhPhan/Design-Pattern/tree/master/Creational-Pattern).
-
-- Singleton and abstract factory.
 
 <br>
 
@@ -143,9 +141,7 @@ By C++, we can refer to this [link](https://github.com/DucManhPhan/Design-Patter
 <br>
 
 ## Wrapping up
-- Abstract factory pattern is a very central design pattern for Dependency Injection (DI).
-
-
+- Provides an interface for creating families of related or dependent objects without specifying their concrete classes.
 
 
 <br>
