@@ -84,7 +84,6 @@ To replace the usage of Singleton, we can [use a single instance](#replace-singl
 - Improvement over global variable.
 
 
-
 2. Drawback
 - Singleton permits the creation only one instance of the class, while most pratical applications require multiple instances to be initialized.
 
