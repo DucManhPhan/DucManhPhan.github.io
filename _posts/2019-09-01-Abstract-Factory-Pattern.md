@@ -88,8 +88,13 @@ Some notes in this pattern:
 <br>
 
 ## Code C++ /Java / Javascript / Python
+Assumed that we have an application have two light theme and dark theme, we want to switch between them easily depends on the choice of user. 
 
+![](..\img\design-pattern\abstract-factory-pattern\light-dark-theme-example.png)
 
+Utilizing abstract factory pattern for this problem we have:
+
+By C++, we can refer to this [link](https://github.com/DucManhPhan/Design-Pattern/tree/master/Creational-Pattern)
 
 <br>
 
@@ -103,6 +108,8 @@ Some notes in this pattern:
 - Abstract factory and Bridge pattern.
 
 - Abstract factory and Factory Method pattern.
+
+    If we want to combine Abstract factory pattern and factory method pattern, refer [link](https://github.com/DucManhPhan/Design-Pattern/tree/master/Creational-Pattern).
 
 - Singleton and abstract factory.
 
