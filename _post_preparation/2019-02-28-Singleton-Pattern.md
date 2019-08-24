@@ -170,6 +170,8 @@ To replace the usage of Singleton, we can [use a single instance](#replace-singl
 ## Relations with other Patterns
 - Factory method and Singleton patterns
 
+    So, move on an example:
+    - We have 
 
 
 
@@ -261,3 +263,15 @@ Refer:
 [https://stackoverflow.com/questions/367633/what-are-all-the-common-undefined-behaviours-that-a-c-programmer-should-know-a/367690#367690](https://stackoverflow.com/questions/367633/what-are-all-the-common-undefined-behaviours-that-a-c-programmer-should-know-a/367690#367690)
 
 [http://www.drdobbs.com/cpp/c-and-the-perils-of-double-checked-locki/184405726](http://www.drdobbs.com/cpp/c-and-the-perils-of-double-checked-locki/184405726)
+
+<br>
+
+**Combines Singleton and Factory method pattern**
+
+[https://designpatternsinjava.wordpress.com/2012/12/18/factory-method-and-singleton-patterns/](https://designpatternsinjava.wordpress.com/2012/12/18/factory-method-and-singleton-patterns/)
+
+[https://stackoverflow.com/questions/20105914/how-do-you-combine-abstract-factory-with-singleton-pattern](https://stackoverflow.com/questions/20105914/how-do-you-combine-abstract-factory-with-singleton-pattern)
+
+[https://blog.ilardi.com/singleton-and-factories-of-singleton](https://blog.ilardi.com/singleton-and-factories-of-singleton)
+
+[https://softwareengineering.stackexchange.com/questions/280362/factory-for-creating-a-singleton-instance](https://softwareengineering.stackexchange.com/questions/280362/factory-for-creating-a-singleton-instance)
