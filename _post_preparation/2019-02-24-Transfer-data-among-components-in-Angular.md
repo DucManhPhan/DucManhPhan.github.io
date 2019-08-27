@@ -191,7 +191,7 @@ For example:
 <br>
 
 ## Unrelated Components: Sharing Data with a Service
-
+[https://stackoverflow.com/questions/50371582/angular-6-passing-messages-via-service-to-from-component-to-message-component](https://stackoverflow.com/questions/50371582/angular-6-passing-messages-via-service-to-from-component-to-message-component)
 
 
 
@@ -216,3 +216,5 @@ Refer:
 [https://medium.com/@pandukamuditha/angular-5-share-data-between-sibling-components-using-eventemitter-8ebb49b64a0a](https://medium.com/@pandukamuditha/angular-5-share-data-between-sibling-components-using-eventemitter-8ebb49b64a0a)
 
 [https://angular.io/guide/component-interaction](https://angular.io/guide/component-interaction)
+
+[https://stackoverflow.com/questions/50371582/angular-6-passing-messages-via-service-to-from-component-to-message-component](https://stackoverflow.com/questions/50371582/angular-6-passing-messages-via-service-to-from-component-to-message-component)
