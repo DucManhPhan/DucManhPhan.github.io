@@ -11,10 +11,13 @@ tags: [java]
 <br>
 
 ## Table of contents
-
-
-
-
+- [Given problem](#given-problem)
+- [Server Sent Event](#server-sent-event)
+- [Benefits and drawbacks](#benefits-and-drawbacks)
+- [Use SSE in Spring MVC](#use-sse-in-spring-mvc)
+- [Use SSE in Spring Webflux](#use-sse-in-spring-webflux)
+- [Why SSE's connection is limited in browser](#why-sse-connection-is-limited-in-browser)
+- [Wrapping up](#wrapping-up)
 
 
 <br>
@@ -46,7 +49,7 @@ tags: [java]
 
 <br>
 
-## Use SSE in Spring webflux
+## Use SSE in Spring Webflux
 
 
 

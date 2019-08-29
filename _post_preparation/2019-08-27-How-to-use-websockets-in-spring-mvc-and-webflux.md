@@ -11,6 +11,24 @@ tags: [java]
 <br>
 
 ## Table of contents
+- [What is websocket and how it works?](#what-is-websocket-and-how-it-works?)
+- [Benefits and drawbacks](#benefits-and-drawbacks)
+- [Common information about websocket in Spring MVC and Spring Webflux](#common-information-about-websocket-in-spring-mvc-and-spring-webflux)
+- [How to use websocket in Spring MVC](#how-to-use-websocket-in-spring-mvc)
+- [How to use websocket in Spring Webflux](#how-to-use-websocket-in-spring-webflux)
+- [Wrapping up](#wrapping-up)
+
+<br>
+
+## What is websocket and how it works?
+
+
+
+
+
+<br>
+
+## Benefits and drawbacks
 
 
 
@@ -19,25 +37,22 @@ tags: [java]
 
 <br>
 
+## Common information about websocket in Spring MVC and Spring Webflux
 
-
-
-
-<br>
-
-
-
-<br>
 
 
 
 
 <br>
 
+## How to use websocket in Spring MVC
+
 
 
 
 <br>
+
+## How to use websocket in Spring Webflux
 
 
 
@@ -45,6 +60,8 @@ tags: [java]
 <br>
 
 ## Wrapping up
+
+
 
 
 

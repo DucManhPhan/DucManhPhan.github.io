@@ -7,7 +7,42 @@ tags: [design pattern]
 
 
 
+<br>
 
+## Table of contents
+
+
+
+
+<br>
+
+## 
+
+
+
+
+
+<br>
+
+## 
+
+
+
+
+
+<br>
+
+## Wrapping up
+
+
+
+
+
+<br>
+
+Thanks for your reading.
+
+<br>
 
 Refer:
 

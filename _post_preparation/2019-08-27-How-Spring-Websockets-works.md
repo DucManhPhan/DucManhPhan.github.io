@@ -27,7 +27,7 @@ tags: [java]
 <br>
 
 ## STOMP
-STOMP is an acronym of Simple (or Streaming) Text Oriented Messaging Protocol that is similar to the HTTP convention of an uppercase command such as CONNECT, followed by a list of header key/value pairs, and then optional content, which in the case of STOMP is null-terminated. It is also possible and highly recommended too pass content-length as a parameter to any commands, and the server will use that value instead as the length of passed content.
+STOMP is an acronym of ```Simple (or Streaming) Text Oriented Messaging Protocol``` that is similar to the HTTP convention of an uppercase command such as CONNECT, followed by a list of header key/value pairs, and then optional content, which in the case of STOMP is null-terminated. It is also possible and highly recommended too pass content-length as a parameter to any commands, and the server will use that value instead as the length of passed content.
 
 STOMP is a simple interoperable protocol designed for asynchronous message passing between clients via mediating servers. It defines a text based wire-format for messages passed between these clients and servers.
 
