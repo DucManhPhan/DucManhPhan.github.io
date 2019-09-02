@@ -16,6 +16,7 @@ tags: [java]
 - [Common information about websocket in Spring MVC and Spring Webflux](#common-information-about-websocket-in-spring-mvc-and-spring-webflux)
 - [How to use websocket in Spring MVC](#how-to-use-websocket-in-spring-mvc)
 - [How to use websocket in Spring Webflux](#how-to-use-websocket-in-spring-webflux)
+- [How to use STOMP in Spring MVC](#how-to-use-stomp-in-spring-mvc)
 - [Wrapping up](#wrapping-up)
 
 <br>
@@ -38,10 +39,35 @@ tags: [java]
 <br>
 
 ## Common information about websocket in Spring MVC and Spring Webflux
+According to [spring.io](https://docs.spring.io/spring-boot/docs/2.1.0.BUILD-SNAPSHOT/reference/html/boot-features-websockets.html), we have:
 
+```
+Spring Boot provides Websockets auto-configuration for embedded Tomcat, Jetty, and Undertow. If you deploy a war file to a standalone container, Spring Boot assumes that the container is responsible for the configuration of its Websocket support.
 
+Spring framework provides rich Websocket support for MVC web applications that can be easily accessed through the spring-boot-starter-websocket module.
 
+Websocket support is also available for reactive web applications and requires to include the Websocket API alongside spring-boot-starter-webflux.
 
+<dependency>
+    <groupId>javax.websocket</groupId>
+    <artifactId>javax.websocket-api</artifactId>
+</dependency>
+```
+
+So, to use websocket in spring MVC, we can use package ```spring-boot-starter-websocket```.
+
+Then, with spring webflux, there are two way to do it:
+1. ```javax.websocket```
+
+    Using ```javax.websocket``` Websocket API, we can read this following article [Spring Boot WebFlux WebSocket Example](https://howtodoinjava.com/spring-webflux/reactive-websockets/).
+
+2. ```spring-boot-starter-webflux-websocket```
+
+    We can have some links to work with it:
+    - [How to broadcast messages in Spring Reactive Websocket API](https://stackoverflow.com/questions/54962814/how-to-broadcast-messages-in-spring-reactive-websocket-api).
+    - [A Simple Chat App using WebFlux](https://github.com/monkey-codes/java-reactive-chat)
+
+In order to know more information about utilizing websocket, we can refer to this [link](https://github.com/spring-projects/spring-boot/issues/14810).
 
 <br>
 
@@ -53,6 +79,13 @@ tags: [java]
 <br>
 
 ## How to use websocket in Spring Webflux
+
+
+
+
+<br>
+
+## How to use STOMP in Spring MVC
 
 
 
@@ -78,6 +111,10 @@ Refer:
 [https://docs.spring.io/spring/docs/5.1.2.RELEASE/spring-framework-reference/web.html#websocket](https://docs.spring.io/spring/docs/5.1.2.RELEASE/spring-framework-reference/web.html#websocket)
 
 [https://docs.spring.io/spring-boot/docs/2.1.0.BUILD-SNAPSHOT/reference/html/boot-features-websockets.html](https://docs.spring.io/spring-boot/docs/2.1.0.BUILD-SNAPSHOT/reference/html/boot-features-websockets.html)
+
+<br>
+
+**Some reasons that Spring boot starter websocket is not compatible with Spring webflux**
 
 [https://github.com/spring-projects/spring-boot/issues/14810](https://github.com/spring-projects/spring-boot/issues/14810)
 

@@ -2,7 +2,7 @@
 layout: post
 title: Builder Pattern
 bigimg: /img/path.jpg
-tags: [creational pattern, design pattern]
+tags: [creational pattern, design pattern, clean code]
 ---
 
 <br>
