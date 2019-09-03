@@ -5,8 +5,9 @@ bigimg: /img/image-header/home-office-1.jpg
 tags: [java]
 ---
 
+In Java web applications, logging is an important feature that we need to understand and use frequently. Because logging will help us easy to detect bug like at runtime, we do not use debug mode, so, defenitely, we have to use logging functionality to play.
 
-
+In this article, we will introduce to Log4j 2.x with many functionalities that we want to use them. Let's get started.
 
 <br>
 
@@ -20,10 +21,29 @@ tags: [java]
 <br>
 
 ## The structure of Log4j 2.x
+To code quickly with Log4j 2.x, we need to understand about architecture of Log4j 2.x deeply. Below is an image that describe the background of Log4j 2.x:
 
-[https://logging.apache.org/log4j/2.x/manual/architecture.html](https://logging.apache.org/log4j/2.x/manual/architecture.html)
+![](../img/Log4j/2.x/Log4j-2-Architecture.png)
 
-[https://stackify.com/log4j2-java/](https://stackify.com/log4j2-java/)
+In the above image, we need to find something outstanding:
+- LoggerContext
+- Configuration
+- Logger
+
+	In order to get the root logger, we can do like this:
+
+	```java
+	Logger logger = LogManager.getLogger(LogManager.ROOT_LOGGER_NAME);
+
+	// or
+	Logger logger = LogManager.getRootLogger();
+	```
+
+	All other Loggers can be got by using the ```LogManager.getLogger()``` static method with the name of the desired Logger.
+
+- LoggerConfig
+- Appender
+- Layout
 
 <br>
 
@@ -280,6 +300,10 @@ rootLogger.appenderRef.root.ref = consoleLogger
 
 <br>
 
+Thanks for your reading.
+
+<br>
+
 Refer:
 
 [https://dzone.com/articles/log4j-2-configuration-using-properties-file](https://dzone.com/articles/log4j-2-configuration-using-properties-file)
@@ -295,3 +319,11 @@ Refer:
 [https://logging.apache.org/log4j/log4j-2.1/manual/appenders.html#FileAppender](https://logging.apache.org/log4j/log4j-2.1/manual/appenders.html#FileAppender)
 
 [https://stackoverflow.com/questions/39650949/how-to-append-multiple-appender-references-in-log4j2](https://stackoverflow.com/questions/39650949/how-to-append-multiple-appender-references-in-log4j2)
+
+<br>
+
+**Architecture of Log4j 2.x**
+
+[https://logging.apache.org/log4j/2.x/manual/architecture.html](https://logging.apache.org/log4j/2.x/manual/architecture.html)
+
+[https://stackify.com/log4j2-java/](https://stackify.com/log4j2-java/)

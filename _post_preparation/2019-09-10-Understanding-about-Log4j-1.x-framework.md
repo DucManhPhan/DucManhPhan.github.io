@@ -18,6 +18,16 @@ tags: [java]
 
 ## The structure of Log4j
 
+[https://www.roseindia.net/tutorials/log4j/log4-Architecture.shtml](https://www.roseindia.net/tutorials/log4j/log4-Architecture.shtml)
+
+
+
+<br>
+
+## Some packages that need for Log4j 1.x
+
+
+
 ```
 <dependency>
     <groupId>log4j</groupId>
@@ -37,7 +47,8 @@ tags: [java]
 
 <br>
 
-## 
+## Configure Log4j 1.x with properties file
+Below is an log4j.properties file that we need to configure when utilizing Log4j 1.x.
 
 ```python
 # Define the root logger with appender file
@@ -70,6 +81,8 @@ log4j.appender.file.layout.ConversionPattern=%d{yyyy-MM-dd HH:mm:ss,SSS} %-5p - 
 log4j.appender.file.encoding=UTF-8
 
 ```
+
+Then, it is an test file for using log4j.properties file.
 
 ```java
 public class App 

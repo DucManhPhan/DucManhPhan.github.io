@@ -89,6 +89,9 @@ In order to know more information about utilizing websocket, we can refer to thi
 
 [https://spring.io/guides/gs/messaging-stomp-websocket/](https://spring.io/guides/gs/messaging-stomp-websocket/)
 
+[https://docs.spring.io/spring-framework/docs/5.0.0.BUILD-SNAPSHOT/spring-framework-reference/html/websocket.html](https://docs.spring.io/spring-framework/docs/5.0.0.BUILD-SNAPSHOT/spring-framework-reference/html/websocket.html)
+
+[https://www.concretepage.com/spring-4/spring-4-websocket-sockjs-stomp-tomcat-example](https://www.concretepage.com/spring-4/spring-4-websocket-sockjs-stomp-tomcat-example)
 
 <br>
 
@@ -131,8 +134,12 @@ Refer:
 [https://tyrus-project.github.io/documentation/1.13.1/index/websocket-api.html](https://tyrus-project.github.io/
 documentation/1.13.1/index/websocket-api.html)
 
+[https://idodevjobs.wordpress.com/2019/02/07/spring-websocket-client-without-stomp-example/](https://idodevjobs.wordpress.com/2019/02/07/spring-websocket-client-without-stomp-example/)
+
 <br>
 
 **STOMP - Message Broker**
 
 [https://o7planning.org/vi/10719/tao-ung-dung-chat-don-gian-voi-spring-boot-va-websocket](https://o7planning.org/vi/10719/tao-ung-dung-chat-don-gian-voi-spring-boot-va-websocket)
+
+[https://blog.joshmlwood.com/websockets-with-spring-boot/](https://blog.joshmlwood.com/websockets-with-spring-boot/)
