@@ -278,6 +278,8 @@ rootLogger.appenderRefs = root
 rootLogger.appenderRef.root.ref = consoleLogger
 ```
 
+To understand more about Log4j 2.x, we can refer to this [linkLog4J 2 Configuration: Using Properties File](https://springframework.guru/log4j-2-configuration-using-properties-file/).
+
 <br>
 
 
@@ -327,3 +329,11 @@ Refer:
 [https://logging.apache.org/log4j/2.x/manual/architecture.html](https://logging.apache.org/log4j/2.x/manual/architecture.html)
 
 [https://stackify.com/log4j2-java/](https://stackify.com/log4j2-java/)
+
+[https://www.alibabacloud.com/blog/exploring-the-secrets-of-java-logs-log4j-2-log-system_594821](https://www.alibabacloud.com/blog/exploring-the-secrets-of-java-logs-log4j-2-log-system_594821)
+
+<br>
+
+**How to use SL4J with Log4j 2.x**
+
+[https://springframework.guru/using-log4j-2-spring-boot/](https://springframework.guru/using-log4j-2-spring-boot/)

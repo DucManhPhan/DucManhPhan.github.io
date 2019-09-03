@@ -20,7 +20,7 @@ tags: [java]
 
 [https://www.roseindia.net/tutorials/log4j/log4-Architecture.shtml](https://www.roseindia.net/tutorials/log4j/log4-Architecture.shtml)
 
-
+[https://blog.eduonix.com/java-programming-2/learn-architecture-log4j-framework/](https://blog.eduonix.com/java-programming-2/learn-architecture-log4j-framework/)
 
 <br>
 
