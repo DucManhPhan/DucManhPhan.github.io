@@ -87,7 +87,7 @@ In order to know more information about utilizing websocket, we can refer to thi
 
 ## How to use STOMP in Spring MVC
 
-
+[https://spring.io/guides/gs/messaging-stomp-websocket/](https://spring.io/guides/gs/messaging-stomp-websocket/)
 
 
 <br>
@@ -128,4 +128,11 @@ Refer:
 
 [https://www.baeldung.com/rest-vs-websockets](https://www.baeldung.com/rest-vs-websockets)
 
-[https://tyrus-project.github.io/documentation/1.13.1/index/websocket-api.html](https://tyrus-project.github.io/documentation/1.13.1/index/websocket-api.html)
+[https://tyrus-project.github.io/documentation/1.13.1/index/websocket-api.html](https://tyrus-project.github.io/
+documentation/1.13.1/index/websocket-api.html)
+
+<br>
+
+**STOMP - Message Broker**
+
+[https://o7planning.org/vi/10719/tao-ung-dung-chat-don-gian-voi-spring-boot-va-websocket](https://o7planning.org/vi/10719/tao-ung-dung-chat-don-gian-voi-spring-boot-va-websocket)

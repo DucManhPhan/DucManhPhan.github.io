@@ -10,8 +10,9 @@ tags: [java]
 <br>
 
 ## Table of contents
-
-
+- [Reactive architecture](#reactive-architecture)
+- [ReactiveX](#reactivex)
+- [Reactive stream](#reactive-stream)
 
 
 <br>
@@ -91,8 +92,15 @@ tags: [java]
 <br>
 
 ## Wrapping up
+- Before Java 8, asynchronous non-blocking behavior was not obvious to implement for at least two reasons.
 
+    - Callback based API required verbose anonymous classes and are not easy to chain.
+    - ```Future``` type is asynchronous but blocks the current thread until the computation completes when we try to get the result with the ```get()``` method.
 
+- Netty server
+
+    - Monolithic: 200-300 requests/sec/host
+    - Reactive: 10-20k requests/sec/host
 
 <br>
 
