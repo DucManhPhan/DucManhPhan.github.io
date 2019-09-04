@@ -22,6 +22,18 @@ tags: [java]
 
 [https://blog.eduonix.com/java-programming-2/learn-architecture-log4j-framework/](https://blog.eduonix.com/java-programming-2/learn-architecture-log4j-framework/)
 
+- Logging's level 
+
+    FATAL: shows messages at a FATAL level only  
+    ERROR: Shows messages classified as ERROR and FATAL  
+    WARNING: Shows messages classified as WARNING, ERROR, and FATAL  
+    INFO: Shows messages classified as INFO, WARNING, ERROR, and FATAL  
+    DEBUG: Shows messages classified as DEBUG, INFO, WARNING, ERROR, and FATAL  
+    TRACE : Shows messages classified as TRACE,DEBUG, INFO, WARNING, ERROR, and FATAL
+    ALL : Shows messages classified as TRACE,DEBUG, INFO, WARNING, ERROR, and FATAL 
+    OFF : No log messages display
+
+
 <br>
 
 ## Some packages that need for Log4j 1.x
@@ -43,16 +55,21 @@ tags: [java]
 
 ```
 
-
-
 <br>
 
 ## Configure Log4j 1.x with properties file
 Below is an log4j.properties file that we need to configure when utilizing Log4j 1.x.
 
 ```python
-# Define the root logger with appender file
-log4j.rootLogger=INFO, file
+# The following properties set the logging levels and log appender.
+# The log4j.rootCategory variable defines the default log level and one or more appenders.
+# For the console, use 'S'.  For the daily rolling file, use 'R'.
+# For an HTML formatted log, use 'H'.
+# Possible Log Levels : FATAL, ERROR, WARN, INFO, DEBUG
+log4j.rootCategory = INFO, S
+
+# Define the root logger with logging's level and appender files: file, console
+log4j.rootLogger=INFO, file, console
 
 # Define the file appender
 log4j.appender.file=org.apache.log4j.RollingFileAppender
@@ -80,6 +97,12 @@ log4j.appender.file.layout.ConversionPattern=%d{yyyy-MM-dd HH:mm:ss,SSS} %-5p - 
 # Define encoding for output file
 log4j.appender.file.encoding=UTF-8
 
+# Configure logger with name = "com.manhpd". It is also associated with appenders: file, console
+log4j.logger.com.manhpd=DEBUG, console, file
+log4j.additivity.com.manhpd=false
+
+log4j.logger.nameLogger=nameLoggingLevel, appender_1, appender_2
+log4j.additivity.nameLogger=false
 ```
 
 Then, it is an test file for using log4j.properties file.
@@ -113,6 +136,8 @@ public class App
 <br>
 
 Refer:
+
+[https://stackoverflow.com/questions/4933707/what-does-these-properties-in-log4j-properties-mean](https://stackoverflow.com/questions/4933707/what-does-these-properties-in-log4j-properties-mean)
 
 [https://huongdanjava.com/overview-about-log4j-1-x.html](https://huongdanjava.com/overview-about-log4j-1-x.html)
 

@@ -236,6 +236,7 @@ loggers = console, debug, error, trace, perf
 logger.console.name = com.manhpd.app
 logger.console.level = debug
 logger.console.additivity = false
+logger.console.appenderRefs = console
 logger.console.appenderRef.console.ref = consoleLogger
 
 # Configure logger for debug
@@ -243,7 +244,7 @@ logger.debug.name = com.manhpd.app.repository
 logger.debug.level = trace
 logger.debug.additivity = false
 
-# It means: logger."name_logger".appenderRef."name_appender".ref = "name_appender"
+# It means: logger."name_logger".appenderRef."name_appenderRef".ref = "name_appender"
 logger.debug.appenderRef.debug.ref = debugLogger
 
 logger.debug.name = com.manhpd.app
@@ -271,7 +272,6 @@ logger.trace.additivity = false
 logger.trace.appenderRef.trace.ref = perfLogger
 
 
-
 # Configure logger for rootLogger
 rootLogger.level = warn
 rootLogger.appenderRefs = root
@@ -279,6 +279,8 @@ rootLogger.appenderRef.root.ref = consoleLogger
 ```
 
 To understand more about Log4j 2.x, we can refer to this [linkLog4J 2 Configuration: Using Properties File](https://springframework.guru/log4j-2-configuration-using-properties-file/).
+
+AppenderRef: This element defines a reference to an element from the Appenders section. Therefore the attribute ```ref``` is linked with an appenders ```name``` attribute.
 
 <br>
 
