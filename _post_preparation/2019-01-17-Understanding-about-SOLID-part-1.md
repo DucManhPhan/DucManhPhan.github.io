@@ -38,3 +38,5 @@ Thanks for your reading.
 Refer:
 
 [https://gravitymodel.net/core-software-principles/](https://gravitymodel.net/core-software-principles/)
+
+[https://dzone.com/articles/oo-design-is-more-about-doing-than-being-1?fromrel=true](https://dzone.com/articles/oo-design-is-more-about-doing-than-being-1?fromrel=true)
