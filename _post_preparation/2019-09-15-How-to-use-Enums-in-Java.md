@@ -1,5 +1,39 @@
+---
+layout: post
+title: How to use Enums in Java
+bigimg: /img/image-header/california.jpg
+tags: [Java]
+---
 
 
+
+<br>
+
+## Table of contents
+
+
+
+
+<br>
+
+## 
+
+
+
+
+<br>
+
+## Wrapping up
+
+
+
+<br>
+
+Thanks for your reading.
+
+<br>
+
+Refer:
 
 [https://dzone.com/articles/using-java-enums?fromrel=true](https://dzone.com/articles/using-java-enums?fromrel=true)
 

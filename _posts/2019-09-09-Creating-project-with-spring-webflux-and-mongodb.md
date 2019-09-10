@@ -5,15 +5,19 @@ bigimg: /img/image-header/california.jpg
 tags: [Java, Spring webflux]
 ---
 
+Normally, we will use Spring MVC for our project, but Spring webflux was born in 2017, it makes our web application stronger and more elastic. It takes advantage of asynchronous property, non-blocking IO to reduce the number of threads when receiving multiple requests.
 
-
+So, in this article, we will move on Spring Webflux and MongoDB to work. Let's get started.
 
 <br>
 
 ## Table of contents
-
-
-
+- [Why we choose Mongodb for this Spring webflux project](#why-we-choose-Mongodb-for-this-spring-webflux-project)
+- [Some necessary-packages-for-this-project](#some-necessary-packages-for-this-project)
+- [Configure information of MongoDB](#configure-information-of-mongodb)
+- [Create database in MongoDB](#create-database-in-mongodb)
+- [Source code for this project](#source-code-for-this-project)
+- [Wrapping up](#wrapping-up)
 
 <br>
 
@@ -131,14 +135,13 @@ db.employees.insert({"id": "512ad753f4c0b729b259d720", "name": "Clinton", "addre
 
 ## Source code for this project
 
-
-
+We can refer [webflux-webservice](https://github.com/DucManhPhan/J2EE/tree/master/src/Java_Spring/Spring-Boot/webservice-webflux).
 
 <br>
 
 ## Wrapping up
-
-
+- We know about how to use Spring webflux with maven project.
+- To know more about some DBMSs that support asynchronous programming.
 
 <br>
 
@@ -148,4 +151,8 @@ Thanks for your reading.
 
 Refer:
 
-[]()
+[https://www.callicoder.com/reactive-rest-apis-spring-webflux-reactive-mongo/](https://www.callicoder.com/reactive-rest-apis-spring-webflux-reactive-mongo/)
+
+[https://stackoverflow.com/questions/22725143/what-is-the-difference-between-responseentityt-and-responsebody](https://stackoverflow.com/questions/22725143/what-is-the-difference-between-responseentityt-and-responsebody)
+
+[https://stackoverflow.com/questions/26549379/when-use-responseentityt-and-restcontroller-for-spring-restful-applications](https://stackoverflow.com/questions/26549379/when-use-responseentityt-and-restcontroller-for-spring-restful-applications)
