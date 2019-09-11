@@ -35,8 +35,22 @@ tags: [creational pattern, design pattern]
 <br>
 
 # Definition of Factory Method Pattern
+According to [wikipedia.com](https://en.wikipedia.org/wiki/Factory_method_pattern), we have:
 
+```
+The factory method pattern is a creational pattern that uses factory methods to deal with the problem of creating objects without having to specify the exact class of the object that will be created.
 
+This is done by creating objects by calling a factory method—either specified in an interface and implemented by child classes, or implemented in a base class and optionally overridden by derived classes—rather than by calling a constructor.
+```
+
+Some traits in Factory method pattern:
+- Client knows about abstract base class but not concrete class.
+- Client does not know which subclass or concrete class is used to create the object. This creation of its subclass is deferred to runtime.
+- Subclasses create objects.
+
+Below is an image that describe how factory method pattern works
+
+![](../img/design-pattern/factory-method/factory_pattern_uml_diagram.jpg)
 
 <br>
 
@@ -52,7 +66,19 @@ tags: [creational pattern, design pattern]
 
 <br>
 
-# Code C++/Javascript
+# Code C++/Javascript/Java
+
+In this section, we will refer to the Shape class, and some its inherited classes such as Square, Circle, Rectangle. We will use Factory method pattern to do this problem.
+
+![](../img/design-pattern/factory-method/factory_pattern_uml_diagram.jpg)
+
+About sample code, we can refer to [github](https://github.com/DucManhPhan/Design-Pattern/tree/master/Creational-Pattern/factory-method)
+
+
+<br>
+
+## Relations with other design patterns
+- The Factory method pattern is closely related to Abstract factory pattern and Prototype pattern.
 
 
 
@@ -66,3 +92,28 @@ tags: [creational pattern, design pattern]
 
 
 <br>
+
+## Differences between Abstract factory pattern and Factory method pattern
+- The main difference between factory method pattern and abstract factory pattern is that the factory method is a single method, and an abstract factory is an object.
+
+- The factory method is just a method, it can be overriden in a subclass, whereas the abstract factory is an object that has multiple factory methods on it.
+
+- The factory method pattern use inheritance and relies on a subclass to handle the desired object instantiation.
+
+- Abstract factory provides one more level of abstraction.
+
+<br>
+
+## Wrapping up
+
+
+
+
+<br>
+
+Thanks for your reading.
+
+<br>
+
+Refer:
+
