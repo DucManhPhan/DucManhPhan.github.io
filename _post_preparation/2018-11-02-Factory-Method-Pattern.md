@@ -55,8 +55,11 @@ Below is an image that describe how factory method pattern works
 <br>
 
 # When to use
-
-
+- When the client does not know the actual class from which subclass to create the object.
+- When the client wants to delegate the decision of choosing the concrete class to create the object to one of the subclasses.
+- When the client wants the subclass to specify the concrete class name from which to create an object.
+- Factory method pattern is used when subclasses do not need to know how they are created.
+- We can use factory method pattern where we have to create an object of any one of subclasses depending on the data provided.
 
 <br>
 
@@ -105,7 +108,7 @@ About sample code, we can refer to [github](https://github.com/DucManhPhan/Desig
 <br>
 
 ## Wrapping up
-
+- Factory method is called with other name that is Virtual Constructor.
 
 
 
