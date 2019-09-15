@@ -15,13 +15,16 @@ tags: [creational pattern, design pattern]
 - [Analysis Problem](#analysis-problem)
 - [Definition of Factory Method Pattern](#definition-of-factory-method-pattern)
 - [When to use](#when-to-use)
-- [Code C++/Javascript](#code-C++/Javascript)
+- [Benefits & Drawbacks](#benefits-and-drawbacks)
+- [Code C++/Javascript/Java](#code-C++/Javascript/Java)
+- [Relations with other design patterns](#relations-with-other-design-patterns)
 - [Application & Examples](#application-&-examples)
-
+- [Differences between Abstract factory pattern and Factory method pattern](#differences-between-abstract-factory-pattern-and-factory-method-pattern)
+- [Wrapping up](#wrapping-up)
 
 <br>
 
-# Given Problem 
+# Given Problem
 
 
 
@@ -56,14 +59,18 @@ Below is an image that describe how factory method pattern works
 
 # When to use
 - When the client does not know the actual class from which subclass to create the object.
+
 - When the client wants to delegate the decision of choosing the concrete class to create the object to one of the subclasses.
+
 - When the client wants the subclass to specify the concrete class name from which to create an object.
+
 - Factory method pattern is used when subclasses do not need to know how they are created.
+
 - We can use factory method pattern where we have to create an object of any one of subclasses depending on the data provided.
 
 <br>
 
-# Benefits & Drawback
+# Benefits & Drawbacks
 
 
 
@@ -76,7 +83,6 @@ In this section, we will refer to the Shape class, and some its inherited classe
 ![](../img/design-pattern/factory-method/factory_pattern_uml_diagram.jpg)
 
 About sample code, we can refer to [github](https://github.com/DucManhPhan/Design-Pattern/tree/master/Creational-Pattern/factory-method)
-
 
 <br>
 
