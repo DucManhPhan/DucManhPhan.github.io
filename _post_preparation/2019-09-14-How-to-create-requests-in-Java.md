@@ -36,6 +36,16 @@ To support reactive programming between Http access between client and server, S
 
 <br>
 
+## Some problems when using WebClient
+- Only one connection receive subscriber allowed.
+
+    [https://stackoverflow.com/questions/48046238/spring-webflux-only-one-connection-receive-subscriber-allowed?rq=1](https://stackoverflow.com/questions/48046238/spring-webflux-only-one-connection-receive-subscriber-allowed?rq=1)
+
+- 
+
+
+<br>
+
 ## Wrapping up
 
 
