@@ -44,7 +44,7 @@ tags: [Java, Spring]
 
 - RestController/Controller/Service/Component was not called when each controller/service/component in one modules.
 
-
+    [https://stackoverflow.com/questions/33039774/restcontroller-in-other-package-doesnt-work](https://stackoverflow.com/questions/33039774/restcontroller-in-other-package-doesnt-work)
 
 
 <br>
@@ -74,4 +74,6 @@ Refer:
 [http://www.miredot.com/docs/manual/general/project-organization/](http://www.miredot.com/docs/manual/general/project-organization/)
 
 [https://stackoverflow.com/questions/52167511/controller-restcontroller-and-component-not-working-in-child-package-in-spr](https://stackoverflow.com/questions/52167511/controller-restcontroller-and-component-not-working-in-child-package-in-spr)
+
+[https://stackoverflow.com/questions/37133210/springboot-doesnt-recognize-restcontroller-from-another-module-in-multi-module](https://stackoverflow.com/questions/37133210/springboot-doesnt-recognize-restcontroller-from-another-module-in-multi-module)
 

@@ -41,7 +41,9 @@ To support reactive programming between Http access between client and server, S
 
     [https://stackoverflow.com/questions/48046238/spring-webflux-only-one-connection-receive-subscriber-allowed?rq=1](https://stackoverflow.com/questions/48046238/spring-webflux-only-one-connection-receive-subscriber-allowed?rq=1)
 
-- 
+- block()/blockFirst()/blockLast() are blocking, which is not supported in thread reactor-http-nio-3
+
+    https://stackoverflow.com/questions/51449889/block-blockfirst-blocklast-are-blocking-error-when-calling-bodytomono-afte
 
 
 <br>
@@ -62,3 +64,5 @@ Refer:
 [https://docs.spring.io/spring/docs/5.1.9.RELEASE/spring-framework-reference/web-reactive.html#webflux-client-builder](https://docs.spring.io/spring/docs/5.1.9.RELEASE/spring-framework-reference/web-reactive.html#webflux-client-builder)
 
 [https://juejin.im/post/5a62f17cf265da3e51333205](https://juejin.im/post/5a62f17cf265da3e51333205)
+
+[https://github.com/spring-projects/spring-framework/issues/22919](https://github.com/spring-projects/spring-framework/issues/22919)
