@@ -47,6 +47,15 @@ tags: [Java, Spring]
     [https://stackoverflow.com/questions/33039774/restcontroller-in-other-package-doesnt-work](https://stackoverflow.com/questions/33039774/restcontroller-in-other-package-doesnt-work)
 
 
+
+
+<br>
+
+## Deploy multi-module project
+
+
+
+
 <br>
 
 ## Wrapping up
@@ -63,6 +72,8 @@ Thanks for your reading.
 
 Refer:
 
+[https://books.sonatype.com/mvnex-book/reference/multimodule-sect-running-web.html](https://books.sonatype.com/mvnex-book/reference/multimodule-sect-running-web.html)
+
 [https://stackoverflow.com/questions/37133210/springboot-doesnt-recognize-restcontroller-from-another-module-in-multi-module](https://stackoverflow.com/questions/37133210/springboot-doesnt-recognize-restcontroller-from-another-module-in-multi-module)
 
 [https://github.com/NABEEL-AHMED-JAMIL/pdftest/tree/master/multi-mudule](https://github.com/NABEEL-AHMED-JAMIL/pdftest/tree/master/multi-mudule)
@@ -77,3 +88,6 @@ Refer:
 
 [https://stackoverflow.com/questions/37133210/springboot-doesnt-recognize-restcontroller-from-another-module-in-multi-module](https://stackoverflow.com/questions/37133210/springboot-doesnt-recognize-restcontroller-from-another-module-in-multi-module)
 
+[https://www.mkyong.com/maven/maven-how-to-create-a-multi-module-project/](https://www.mkyong.com/maven/maven-how-to-create-a-multi-module-project/)
+
+[http://www.rationaljava.com/2015/02/maven-tip-all-about-executable-jars.html](http://www.rationaljava.com/2015/02/maven-tip-all-about-executable-jars.html)

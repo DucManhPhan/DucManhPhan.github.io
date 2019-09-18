@@ -66,3 +66,8 @@ Refer:
 [https://juejin.im/post/5a62f17cf265da3e51333205](https://juejin.im/post/5a62f17cf265da3e51333205)
 
 [https://github.com/spring-projects/spring-framework/issues/22919](https://github.com/spring-projects/spring-framework/issues/22919)
+
+[https://java-focus.com/pass-header-to-reactive-webclient-spring-webflux/](https://java-focus.com/pass-header-to-reactive-webclient-spring-webflux/)
+
+[https://docs.spring.io/spring/docs/current/javadoc-api/org/springframework/web/reactive/function/client/WebClient.RequestHeadersSpec.html#headers-java.util.function.Consumer-](https://docs.spring.io/spring/docs/current/javadoc-api/org/springframework/web/reactive/function/client/WebClient.RequestHeadersSpec.html#headers-java.util.function.Consumer-)
+
