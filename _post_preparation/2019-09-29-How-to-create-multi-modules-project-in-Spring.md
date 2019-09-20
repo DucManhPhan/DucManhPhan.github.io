@@ -18,10 +18,71 @@ tags: [Java, Spring]
 
 <br>
 
-## Create multi-modules project
+## Create multi-module project
+1. Structure of multi-module project
+
+    - Parent project will configure with ```packing``` tag with ```pom```. It will consist of version for all child projects, dependencies management, plugin management for building project.
+
+    - Child project ```main``` will contain ```static main method```. It will have all dependencies that are child projects, and we will configure it to build jar file.
+
+    - Child project ```configuration``` will contain all configurations of program such as configurations of Spring MVC, or Webflux, and some beans ...
+
+    - Child project ```shared``` will consist of some utility classes such as StringUtils, JsonUtils, CollectionUtils, ...
+
+    - Child project ```webservice``` will contain all interfaces to communicate with client through Restful Api.
+
+    - Child project ```func-employee``` will contain implementation of controller, and other services, or repositories, or dao layer, and entities for mapping between objects and records in database.
+
+2. We will create multi-module project with two ways:
+    - Use command line prompt with maven.
+
+
+    - Use GUI with support of Intellij IDEA or Eclipse.
 
 
 
+3. Deploy multi-module project
+    There are some multiple ways to build multi-modules project into one fat jar file.
+    - Use ```maven-shade-plugin```
+
+        ```xml
+        <properties>
+            <version.root>0.1</version.root>
+            <start-class>com.manhpd.vcs-lol.Application</start-class>
+            <application-name>vcs-lol<application-name>
+        </properties>
+
+        <build>
+            <plugins>
+                <plugin>
+                    <groupId>org.apache.maven.plugins</groupId>
+                    <artifactId>maven-shade-plugin</artifactId>
+                    <version>3.2.1</version>
+                    <executions>
+                        <execution>
+                            <id>create-fat-jar</id>
+                            <phase>package</phase>
+                            <goals>
+                                <goal>shade</goal>
+                            </goals>
+                            <configuration>
+                                <transformers>
+                                    <transformer implementation="org.apache.maven.plugins.shade.resource.ManifestResourceTransformer">
+                                        <mainClass>${start-class}</mainClass>
+                                    </transformer>
+                                </transformers>
+                                <finalName>${application-name}</finalName>
+                            </configuration>
+                        </execution>
+                    </executions>
+                </plugin>
+            </plugins>
+        </build>
+        ```
+
+        We can refer this [link](https://stackoverflow.com/questions/50976412/create-jar-file-as-aggregation-in-maven-multi-module-package).
+
+    - Use ```spring-boot-maven-plugin```
 
 <br>
 
