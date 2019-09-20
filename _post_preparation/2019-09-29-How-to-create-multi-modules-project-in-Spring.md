@@ -14,6 +14,7 @@ tags: [Java, Spring]
 - [Create multi-modules project](#create-multi-modules-project)
 - [Benefits and drawbacks](#benefits-and-drawbacks)
 - [Some problems that we configure multi-modules projec](#some-problems-that-we-configure-multi-modules-project)
+- [Deploy multi-module project](#deploy-multi-module-project)
 - [Wrapping up](#wrapping-up)
 
 <br>
