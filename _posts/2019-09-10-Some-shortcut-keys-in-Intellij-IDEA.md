@@ -119,6 +119,19 @@ Let's get started.
 
 <br>
 
+## Some statements
+
+|       Short keys        |                 Statement                     |            Description           |
+| ----------------------- | --------------------------------------------- | -------------------------------- |
+| Ctrl + J                |                                               | Shows all shortcuts              |
+| sout                    | System.out.println()                          | Prints                           |
+| soutm                   | System.out.println("$CLASS_NAME$.$METHOD_NAME$"); | Prints current class and method names to System.out |
+| soutp                   | System.out.println($FORMAT$);                 | Prints method parameter names and values to System.out |
+| soutv                   | System.out.println("$EXPR_COPY$ = " + $EXPR$); | Prints a value to System.out |
+| variable.sout           | System.out.println(variable);                 | variable exists in our scope     |
+
+<br>
+
 ## Wrapping up
 
 
