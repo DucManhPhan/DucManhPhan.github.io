@@ -132,6 +132,18 @@ Let's get started.
 
 <br>
 
+## Creating something
+
+|       Command           |                            Action                               |
+| ----------------------- | --------------------------------------------------------------- |
+| Alt + F + J             | Close project                                                   |
+| Alt + 1                 | Go to Project View                                              |
+| Alt + Insert            | Create file in the Project View                                 |
+| Ctrl + Alt + Insert     | Create a new file in the same directory as the current one      |
+| 
+
+<br>
+
 ## Wrapping up
 
 
