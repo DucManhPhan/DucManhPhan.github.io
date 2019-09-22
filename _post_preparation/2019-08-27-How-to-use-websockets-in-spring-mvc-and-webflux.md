@@ -81,6 +81,7 @@ In order to know more information about utilizing websocket, we can refer to thi
 ## How to use websocket in Spring Webflux
 
 
+[https://stackoverflow.com/questions/26211248/websockets-is-it-possible-to-add-multiple-endpoints-using-sockjs](https://stackoverflow.com/questions/26211248/websockets-is-it-possible-to-add-multiple-endpoints-using-sockjs)
 
 
 <br>
