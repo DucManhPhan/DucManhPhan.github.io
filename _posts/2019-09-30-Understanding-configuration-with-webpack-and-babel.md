@@ -146,6 +146,7 @@ In this article, we will learn how to configure a project that use Webpack and B
 1. For webpack
 
     To work with Webpack easily, we need to install some additional packages.
+    
     - ```webpack```
 
       ```js
