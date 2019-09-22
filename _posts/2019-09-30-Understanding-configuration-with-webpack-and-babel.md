@@ -146,14 +146,14 @@ In this article, we will learn how to configure a project that use Webpack and B
 1. For webpack
 
     To work with Webpack easily, we need to install some additional packages.
-    
-    - ```webpack```
+
+    - webpack
 
       ```js
       npm install --save-dev webpack webpack-cli webpack-dev-server
       ```
 
-    - ```webpack-dev-server```
+    - webpack-dev-server
 
       Use webpack with a development server that provides live reloading. This should be used for development only.
 
@@ -223,7 +223,7 @@ In this article, we will learn how to configure a project that use Webpack and B
       };
       ```
 
-    - ```clean-webpack-plugin```
+    - clean-webpack-plugin
 
         Because of automatically generating ```dist/index.html``` and ```dist/bundle.js``` files, we can delete the content of our ```/dist``` folder with every Webpack build. So, we need to install ```clean-webpack-plugin```.
 
@@ -231,7 +231,7 @@ In this article, we will learn how to configure a project that use Webpack and B
         npm install --save-dev clean-webpack-plugin
         ```
 
-    - ```react-hot-loader```
+    - react-hot-loader
 
         If we want to use hot loading module when we have changes in our files, we should use ```react-hot-loader```.
 
@@ -268,7 +268,7 @@ In this article, we will learn how to configure a project that use Webpack and B
 
 2. For Babel
 
-    - ```babel-loader```
+    - babel-loader
 
         It is the Webpack loader responsible for taking in the ES6 code and making it understandable by the browser.
 
@@ -276,7 +276,7 @@ In this article, we will learn how to configure a project that use Webpack and B
         npm install --save-dev babel-loader @babel/core
         ```
 
-    - ```@babel/preset-env```
+    - @babel/preset-env
 
         It is used to compile Javascript ES6 down to ES5. And ```babel-preset-es2015``` package is deprecated.
 
@@ -284,7 +284,7 @@ In this article, we will learn how to configure a project that use Webpack and B
         npm install --save-dev @babel/preset-env
         ```
 
-    - ```@babel/preset-react```
+    - @babel/preset-react
 
         Because the syntax of React will be understood by other browsers, so we need Babel to transpile React code ```JSX``` to Javascript.
 
