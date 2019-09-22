@@ -180,6 +180,8 @@ In this article, we will learn how to configure a project that use Webpack and B
 
     - ```html-webpack-plugin``` and ```html-loader```
 
+      ```html-loader``` is used to process html file. And ```html-webpack-plugin``` will inject js, css into html files, and it is reponsible for create output files in ```./dist``` folder
+
       ```js
       npm install --save-dev html-webpack-plugin html-loader
       ```
@@ -275,6 +277,11 @@ In this article, we will learn how to configure a project that use Webpack and B
         ```js
         npm install --save-dev babel-loader @babel/core
         ```
+
+        A loader has basic three parts:
+        - test - use regex to determine the type of files
+        - exclude - the folders that we want Webpack omits
+        - use: loader - the loader that we want to Webpack use to process files.
 
     - @babel/preset-env
 
