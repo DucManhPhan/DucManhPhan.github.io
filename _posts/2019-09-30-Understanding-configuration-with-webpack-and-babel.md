@@ -191,7 +191,7 @@ In this article, we will learn how to configure a project that use Webpack and B
 
     Update some plugins in webpack.config.js file:
 
-    ```
+    ```js
     const HtmlWebPackPlugin = require("html-webpack-plugin");
     module.exports = {
       module: {
@@ -224,123 +224,123 @@ In this article, we will learn how to configure a project that use Webpack and B
 
   - ```clean-webpack-plugin```
 
-    Because of automatically generating ```dist/index.html``` and ```dist/bundle.js``` files, we can delete the content of our ```/dist``` folder with every Webpack build. So, we need to install ```clean-webpack-plugin```.
+      Because of automatically generating ```dist/index.html``` and ```dist/bundle.js``` files, we can delete the content of our ```/dist``` folder with every Webpack build. So, we need to install ```clean-webpack-plugin```.
 
-    ```
-    npm install --save-dev clean-webpack-plugin
-    ```
+      ```
+      npm install --save-dev clean-webpack-plugin
+      ```
 
   - ```react-hot-loader```
 
-    If we want to use hot loading module when we have changes in our files, we should use ```react-hot-loader```.
+      If we want to use hot loading module when we have changes in our files, we should use ```react-hot-loader```.
 
-    ```
-    npm install --save-dev react-hot-loader
-    ```
+      ```
+      npm install --save-dev react-hot-loader
+      ```
 
-    Add this plugin into webpack.config.js file:
+      Add this plugin into webpack.config.js file:
 
-    ```js
-    plugins: [
-      new webpack.HotMoudleReplacementPlugin()
-    ],
-    devServer: {
-      contentBase: './dist',
-      hot: true
-    }
-    ```
+      ```js
+      plugins: [
+        new webpack.HotMoudleReplacementPlugin()
+      ],
+      devServer: {
+        contentBase: './dist',
+        hot: true
+      }
+      ```
 
-    In ```src/index.js``` file, we need to define that hot reloading is available:
+      In ```src/index.js``` file, we need to define that hot reloading is available:
 
-    ```js
-    import React from 'react';
-    import ReactDOM from 'react-dom';
-    const title = 'React with Webpack and Babel';
+      ```js
+      import React from 'react';
+      import ReactDOM from 'react-dom';
+      const title = 'React with Webpack and Babel';
 
-    ReactDOM.render(
-      <div>{title}</div>,
-      document.getElementById('app')
-    );
+      ReactDOM.render(
+        <div>{title}</div>,
+        document.getElementById('app')
+      );
 
-    module.hot.accept();
-    ```
+      module.hot.accept();
+      ```
 
 2. For Babel
 
   - ```babel-loader```
 
-    It is the Webpack loader responsible for taking in the ES6 code and making it understandable by the browser.
+      It is the Webpack loader responsible for taking in the ES6 code and making it understandable by the browser.
 
-    ```
-    npm install --save-dev babel-loader @babel/core
-    ```
+      ```
+      npm install --save-dev babel-loader @babel/core
+      ```
 
   - ```@babel/preset-env```
 
-    It is used to compile Javascript ES6 down to ES5. And ```babel-preset-es2015``` package is deprecated.
+      It is used to compile Javascript ES6 down to ES5. And ```babel-preset-es2015``` package is deprecated.
 
-    ```
-    npm install --save-dev @babel/preset-env
-    ```
+      ```
+      npm install --save-dev @babel/preset-env
+      ```
 
   - ```@babel/preset-react```
 
-    Because the syntax of React will be understood by other browsers, so we need Babel to transpile React code ```JSX``` to Javascript.
+      Because the syntax of React will be understood by other browsers, so we need Babel to transpile React code ```JSX``` to Javascript.
 
-    ```
-    npm install --save-dev @babel/preset-react
-    ```
+      ```
+      npm install --save-dev @babel/preset-react
+      ```
 
-    Then, we will find ```.babelrc``` file to add some configuration lines:
+      Then, we will find ```.babelrc``` file to add some configuration lines:
 
-    ```json
-    {
-      "presets": [
-        "@babel/preset-env",
-        "@babel/preset-react"
-      ]
-    }
-    ```
+      ```json
+      {
+        "presets": [
+          "@babel/preset-env",
+          "@babel/preset-react"
+        ]
+      }
+      ```
 
-    Finally, let's inform Webpack in webpack.config.js file about files with JSX extension to make sure that they run through the transpiling step:
+      Finally, let's inform Webpack in webpack.config.js file about files with JSX extension to make sure that they run through the transpiling step:
+
+      ```js
+      module.exports = {
+        entry: './src/index.js',
+        module: {
+          rules: [
+            {
+              test: /\.(js|jsx)$/,
+              exclude: /node_modules/,
+              use: ['babel-loader']
+            }
+          ]
+        },
+        resolve: {
+          extensions: ['*', '.js', '.jsx']
+        },
+        output: {
+          path: __dirname + '/dist',
+          publicPath: '/',
+          filename: 'bundle.js'
+        },
+        devServer: {
+          contentBase: './dist'
+        }
+      };
+      ```
+
+3. For React.js
+
+    Install some packages for react.js:
 
     ```js
-    module.exports = {
-      entry: './src/index.js',
-      module: {
-        rules: [
-          {
-            test: /\.(js|jsx)$/,
-            exclude: /node_modules/,
-            use: ['babel-loader']
-          }
-        ]
-      },
-      resolve: {
-        extensions: ['*', '.js', '.jsx']
-      },
-      output: {
-        path: __dirname + '/dist',
-        publicPath: '/',
-        filename: 'bundle.js'
-      },
-      devServer: {
-        contentBase: './dist'
-      }
-    };
+    npm install react react-dom
+
+    // use Prop-types to document our React components
+    // https://reactjs.org/docs/typechecking-with-proptypes.html
+    npm install --save-dev prop-types
     ```
-
-- For React.js
-
-  Install some packages for react.js:
-
-  ```js
-  npm install react react-dom
-
-  // use Prop-types to document our React components
-  // https://reactjs.org/docs/typechecking-with-proptypes.html
-  npm install --save-dev prop-types
-  ```
 
 <br>
 
