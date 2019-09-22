@@ -145,190 +145,190 @@ In this article, we will learn how to configure a project that use Webpack and B
 ## Setup some packages Webpack and Babel
 1. For webpack
 
-  To work with Webpack easily, we need to install some additional packages.
-  - ```webpack```
-
-    ```
-    npm install --save-dev webpack webpack-cli webpack-dev-server
-    ```
-
-  - ```webpack-dev-server```
-
-    Use webpack with a development server that provides live reloading. This should be used for development only.
-
-    To run our project with webpack-dev-server, we need to configure in package.json file:
-
-    ```json
-    "script": {
-      "start:dev": "webpack-dev-server --config ./webpack.config.js --mode development",
-      "build": "webpack --config ./webpack.config.js --mode production"
-    }
-    ```
-
-    And run the following command in our terminal/console:
-
-    ```js
-    npm run start:dev
-    ```
-
-  - ```webpack-cli```
-
-    It provides a flexible set of commands for developers to increase speed when setting up a custom webpack project.
-
-    We can refer the [link of Webpack CLI](https://webpack.js.org/api/cli/)
-
-  - ```html-webpack-plugin``` and ```html-loader```
-
-    ```
-    npm install --save-dev html-webpack-plugin html-loader
-    ```
-
-    If we want to remove the ```/dist``` folder with every Webpack build, it means that the automatic generated ```dist/bundle.js``` file should be removed, and ```dist/index.html``` file will be added automatically. We do not want to create ```dist/index.html``` file manually for every Webpack build again, so, we can use ```html-webpack-plugin```.
-
-    It will simplify creation of HTML files to serve our webpack bundles. This is especially useful for webpack bundles that include a hash in the filename which changes every compilation.
-
-    We can refer [link about html-webpack-plugin](https://github.com/jantimon/html-webpack-plugin).
-
-    Update some plugins in webpack.config.js file:
-
-    ```js
-    const HtmlWebPackPlugin = require("html-webpack-plugin");
-    module.exports = {
-      module: {
-        rules: [
-          {
-            test: /\.(js|jsx)$/,
-            exclude: /node_modules/,
-            use: {
-              loader: "babel-loader"
-            }
-          },
-          {
-            test: /\.html$/,
-            use: [
-              {
-                loader: "html-loader"
-              }
-            ]
-          }
-        ]
-      },
-      plugins: [
-        new HtmlWebPackPlugin({
-          template: "./src/index.html",
-          filename: "./index.html"
-        })
-      ]
-    };
-    ```
-
-  - ```clean-webpack-plugin```
-
-      Because of automatically generating ```dist/index.html``` and ```dist/bundle.js``` files, we can delete the content of our ```/dist``` folder with every Webpack build. So, we need to install ```clean-webpack-plugin```.
-
-      ```
-      npm install --save-dev clean-webpack-plugin
-      ```
-
-  - ```react-hot-loader```
-
-      If we want to use hot loading module when we have changes in our files, we should use ```react-hot-loader```.
-
-      ```
-      npm install --save-dev react-hot-loader
-      ```
-
-      Add this plugin into webpack.config.js file:
+    To work with Webpack easily, we need to install some additional packages.
+    - ```webpack```
 
       ```js
-      plugins: [
-        new webpack.HotMoudleReplacementPlugin()
-      ],
-      devServer: {
-        contentBase: './dist',
-        hot: true
-      }
+      npm install --save-dev webpack webpack-cli webpack-dev-server
       ```
 
-      In ```src/index.js``` file, we need to define that hot reloading is available:
+    - ```webpack-dev-server```
 
-      ```js
-      import React from 'react';
-      import ReactDOM from 'react-dom';
-      const title = 'React with Webpack and Babel';
+      Use webpack with a development server that provides live reloading. This should be used for development only.
 
-      ReactDOM.render(
-        <div>{title}</div>,
-        document.getElementById('app')
-      );
-
-      module.hot.accept();
-      ```
-
-2. For Babel
-
-  - ```babel-loader```
-
-      It is the Webpack loader responsible for taking in the ES6 code and making it understandable by the browser.
-
-      ```
-      npm install --save-dev babel-loader @babel/core
-      ```
-
-  - ```@babel/preset-env```
-
-      It is used to compile Javascript ES6 down to ES5. And ```babel-preset-es2015``` package is deprecated.
-
-      ```
-      npm install --save-dev @babel/preset-env
-      ```
-
-  - ```@babel/preset-react```
-
-      Because the syntax of React will be understood by other browsers, so we need Babel to transpile React code ```JSX``` to Javascript.
-
-      ```
-      npm install --save-dev @babel/preset-react
-      ```
-
-      Then, we will find ```.babelrc``` file to add some configuration lines:
+      To run our project with webpack-dev-server, we need to configure in package.json file:
 
       ```json
-      {
-        "presets": [
-          "@babel/preset-env",
-          "@babel/preset-react"
-        ]
+      "script": {
+        "start:dev": "webpack-dev-server --config ./webpack.config.js --mode development",
+        "build": "webpack --config ./webpack.config.js --mode production"
       }
       ```
 
-      Finally, let's inform Webpack in webpack.config.js file about files with JSX extension to make sure that they run through the transpiling step:
+      And run the following command in our terminal/console:
 
       ```js
+      npm run start:dev
+      ```
+
+    - ```webpack-cli```
+
+      It provides a flexible set of commands for developers to increase speed when setting up a custom webpack project.
+
+      We can refer the [link of Webpack CLI](https://webpack.js.org/api/cli/)
+
+    - ```html-webpack-plugin``` and ```html-loader```
+
+      ```js
+      npm install --save-dev html-webpack-plugin html-loader
+      ```
+
+      If we want to remove the ```/dist``` folder with every Webpack build, it means that the automatic generated ```dist/bundle.js``` file should be removed, and ```dist/index.html``` file will be added automatically. We do not want to create ```dist/index.html``` file manually for every Webpack build again, so, we can use ```html-webpack-plugin```.
+
+      It will simplify creation of HTML files to serve our webpack bundles. This is especially useful for webpack bundles that include a hash in the filename which changes every compilation.
+
+      We can refer [link about html-webpack-plugin](https://github.com/jantimon/html-webpack-plugin).
+
+      Update some plugins in webpack.config.js file:
+
+      ```js
+      const HtmlWebPackPlugin = require("html-webpack-plugin");
       module.exports = {
-        entry: './src/index.js',
         module: {
           rules: [
             {
               test: /\.(js|jsx)$/,
               exclude: /node_modules/,
-              use: ['babel-loader']
+              use: {
+                loader: "babel-loader"
+              }
+            },
+            {
+              test: /\.html$/,
+              use: [
+                {
+                  loader: "html-loader"
+                }
+              ]
             }
           ]
         },
-        resolve: {
-          extensions: ['*', '.js', '.jsx']
-        },
-        output: {
-          path: __dirname + '/dist',
-          publicPath: '/',
-          filename: 'bundle.js'
-        },
-        devServer: {
-          contentBase: './dist'
-        }
+        plugins: [
+          new HtmlWebPackPlugin({
+            template: "./src/index.html",
+            filename: "./index.html"
+          })
+        ]
       };
       ```
+
+    - ```clean-webpack-plugin```
+
+        Because of automatically generating ```dist/index.html``` and ```dist/bundle.js``` files, we can delete the content of our ```/dist``` folder with every Webpack build. So, we need to install ```clean-webpack-plugin```.
+
+        ```js
+        npm install --save-dev clean-webpack-plugin
+        ```
+
+    - ```react-hot-loader```
+
+        If we want to use hot loading module when we have changes in our files, we should use ```react-hot-loader```.
+
+        ```
+        npm install --save-dev react-hot-loader
+        ```
+
+        Add this plugin into webpack.config.js file:
+
+        ```js
+        plugins: [
+          new webpack.HotMoudleReplacementPlugin()
+        ],
+        devServer: {
+          contentBase: './dist',
+          hot: true
+        }
+        ```
+
+        In ```src/index.js``` file, we need to define that hot reloading is available:
+
+        ```js
+        import React from 'react';
+        import ReactDOM from 'react-dom';
+        const title = 'React with Webpack and Babel';
+
+        ReactDOM.render(
+          <div>{title}</div>,
+          document.getElementById('app')
+        );
+
+        module.hot.accept();
+        ```
+
+2. For Babel
+
+    - ```babel-loader```
+
+        It is the Webpack loader responsible for taking in the ES6 code and making it understandable by the browser.
+
+        ```js
+        npm install --save-dev babel-loader @babel/core
+        ```
+
+    - ```@babel/preset-env```
+
+        It is used to compile Javascript ES6 down to ES5. And ```babel-preset-es2015``` package is deprecated.
+
+        ```js
+        npm install --save-dev @babel/preset-env
+        ```
+
+    - ```@babel/preset-react```
+
+        Because the syntax of React will be understood by other browsers, so we need Babel to transpile React code ```JSX``` to Javascript.
+
+        ```js
+        npm install --save-dev @babel/preset-react
+        ```
+
+        Then, we will find ```.babelrc``` file to add some configuration lines:
+
+        ```json
+        {
+          "presets": [
+            "@babel/preset-env",
+            "@babel/preset-react"
+          ]
+        }
+        ```
+
+        Finally, let's inform Webpack in webpack.config.js file about files with JSX extension to make sure that they run through the transpiling step:
+
+        ```js
+        module.exports = {
+          entry: './src/index.js',
+          module: {
+            rules: [
+              {
+                test: /\.(js|jsx)$/,
+                exclude: /node_modules/,
+                use: ['babel-loader']
+              }
+            ]
+          },
+          resolve: {
+            extensions: ['*', '.js', '.jsx']
+          },
+          output: {
+            path: __dirname + '/dist',
+            publicPath: '/',
+            filename: 'bundle.js'
+          },
+          devServer: {
+            contentBase: './dist'
+          }
+        };
+        ```
 
 3. For React.js
 
