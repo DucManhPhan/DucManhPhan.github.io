@@ -81,17 +81,26 @@ In this article, we will learn how to configure a project that use Webpack and B
           use: ["style-loader", "css-loader"],
         },
         {
-          test: /\.js$/,
+          test: /\.(js|jsx)$/,
           use: "babel-loader",
           exclude: /node_modules/,
         },
         {
-            test: /\.html$/,
-            use: [
-                {
-                    loader: "html-loader"
-                }
-            ]
+          test: /\.html$/,
+          use: [
+              {
+                  loader: "html-loader"
+              }
+          ]
+        },
+        {
+          test: /\.scss$/,
+          use: [
+            'style-loader',
+            'css-loader',
+            'postcss-loader',
+            'sass-loader'
+          ]
         }
       ],
     },
@@ -99,11 +108,13 @@ In this article, we will learn how to configure a project that use Webpack and B
     // What extra processing to perform
     plugins: [
       new webpack.DefinePlugin({ ... }),
+      new uglifyJsPlugin(),
       new HtmlWebPackPlugin({
           template: "./src/index.html",
           filename: "./index.html"
       }),
-      new CleanWebpackPlugin()
+      new CleanWebpackPlugin(),
+      new webpack.HotModuleReplacementPlugin()
     ],
 
     // Adjust module resolution algorithm
@@ -150,14 +161,22 @@ In this article, we will learn how to configure a project that use Webpack and B
     - webpack
 
       ```js
-      npm install --save-dev webpack webpack-cli webpack-dev-server
+      npm install --save-dev webpack
       ```
+
+      Webpack does not compile anything. It simply bundles all things together.
+
+      ```--save-dev``` will saves these packages to devDependencies of package.json, which means these are development packages and user may avoid installing these packages.
 
     - webpack-dev-server
 
-      Use webpack with a development server that provides live reloading. This should be used for development only.
+      ```js
+      npm install --save-dev webpack-dev-server
+      ```
 
-      To run our project with webpack-dev-server, we need to configure in package.json file:
+      ```webpack-dev-server``` is a localhost server which we will use to preview how our web application works. The server will automatically send reload events to the browser to refresh the pages as soon as we make changes to the code. This should be used for development only.
+
+      To run our project with ```webpack-dev-server```, we need to configure in package.json file:
 
       ```json
       "script": {
@@ -174,13 +193,23 @@ In this article, we will learn how to configure a project that use Webpack and B
 
     - ```webpack-cli```
 
+      ```js
+      npm install --save-dev webpack-cli
+      ```
+
       It provides a flexible set of commands for developers to increase speed when setting up a custom webpack project.
 
       We can refer the [link of Webpack CLI](https://webpack.js.org/api/cli/)
 
+    - uglifyjs-webpack-plugin
+
+      ```npm install --save-dev uglifyjs-webpack-plugin
+
+      It will be used to minify Javascript bundle made by Webpack.
+
     - ```html-webpack-plugin``` and ```html-loader```
 
-      ```html-loader``` is used to process html file. And ```html-webpack-plugin``` will inject js, css into html files, and it is reponsible for create output files in ```./dist``` folder
+      ```html-loader``` is used to process html file. And ```html-webpack-plugin``` will inject js, css into html files, and it is reponsible for create output files in ```./dist``` folder. And ```html-webpack-plugin``` is needed by webpack-dev-server to launch a web preview of our plugin.
 
       ```js
       npm install --save-dev html-webpack-plugin html-loader
@@ -268,11 +297,39 @@ In this article, we will learn how to configure a project that use Webpack and B
         module.hot.accept();
         ```
 
+    - CSS loader
+
+      - sass-loader and node-sass
+
+        ```js
+        npm install --save-dev sass-loader node-sass
+        ```
+
+        To load .scss files into Javascript file using ES6 import syntax and compile them to CSS, we need to install ```sass-loader``` and ```node-sass``` which will do actual compilation.
+
+      - postcss-loader, cssnano, and autoprefixer
+
+        ```js
+        npm install --save-dev postcss-loader cssnano autoprefixer
+        ```
+
+        To minify and add prefixes to CSS (for browser compatibility) we need to use ```postcss-loader``` and some its dependencies such as ```cssnano```, ```autoprefixer``` to do its actual works.
+
+      - css-loader and style-loader
+
+        ```js
+        npm install --save-dev css-loader style-loader
+        ```
+
+        We will use ```css-loader``` and ```style-loader``` to import ```.css``` file into Javascript file (which ```sass-loader``` generates) and finally inject into DOM in ```style``` tag.ss
+
+
+
 2. For Babel
 
     - babel-loader
 
-        It is the Webpack loader responsible for taking in the ES6 code and making it understandable by the browser.
+        It is the Webpack loader responsible for taking in the ES6 code and making it understandable by the browser. It will load ES6 modules in node.js using import syntax (node.js does not support ```import``` syntax). So, we need to install ```babel-loader``` and ```@babel/core```.
 
         ```js
         npm install --save-dev babel-loader @babel/core
@@ -293,7 +350,7 @@ In this article, we will learn how to configure a project that use Webpack and B
 
     - @babel/preset-react
 
-        Because the syntax of React will be understood by other browsers, so we need Babel to transpile React code ```JSX``` to Javascript.
+        In order that the syntax of React will be understood by other browsers, so we need Babel to transpile React code ```JSX``` to Javascript.
 
         ```js
         npm install --save-dev @babel/preset-react
@@ -337,6 +394,14 @@ In this article, we will learn how to configure a project that use Webpack and B
           }
         };
         ```
+
+    - babel-preset-transform-object-rest-spread
+
+      ```js
+      npm install --save-dev babel-preset-transform-object-rest-spread
+      ```
+
+      It is a plugin to support Object rest/spread syntax if our babel preset doesn't support it.
 
 3. For React.js
 
