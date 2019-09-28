@@ -51,80 +51,6 @@ In this article, we will learn how to configure a project that use Webpack and B
 
   ```/dist``` will be used to serve our applicatioin to the browser.
 
-- Below is the content of webpack.config.js file that we need to know:
-
-  ```js
-  const webpack = require("webpack");
-
-  module.exports = {
-    // Where to start bundling
-    entry: {
-      app: "./src/index.js",
-      home: './src/home.js',
-      contact: './src/contact.js'
-    },
-
-    // Where to output
-    output: {
-      // Output to the same directory
-      path: __dirname,    // or path.resolve(__dirname, 'dist'),
-      publicPath: '/',
-      // Capture name from the entry using a pattern
-      filename: "[name].js"
-    },
-
-    // How to resolve encountered imports
-    module: {
-      rules: [
-        {
-          test: /\.css$/,
-          use: ["style-loader", "css-loader"],
-        },
-        {
-          test: /\.(js|jsx)$/,
-          use: "babel-loader",
-          exclude: /node_modules/,
-        },
-        {
-          test: /\.html$/,
-          use: [
-              {
-                  loader: "html-loader"
-              }
-          ]
-        },
-        {
-          test: /\.scss$/,
-          use: [
-            'style-loader',
-            'css-loader',
-            'postcss-loader',
-            'sass-loader'
-          ]
-        }
-      ],
-    },
-
-    // What extra processing to perform
-    plugins: [
-      new webpack.DefinePlugin({ ... }),
-      new uglifyJsPlugin(),
-      new HtmlWebPackPlugin({
-          template: "./src/index.html",
-          filename: "./index.html"
-      }),
-      new CleanWebpackPlugin(),
-      new webpack.HotModuleReplacementPlugin()
-    ],
-
-    // Adjust module resolution algorithm
-    resolve: {
-      alias: { ... },
-    },
-  };
-  ```
-
-
 - Some modes in Webpack
 
   There are two modes:
@@ -201,15 +127,21 @@ In this article, we will learn how to configure a project that use Webpack and B
 
       We can refer the [link of Webpack CLI](https://webpack.js.org/api/cli/)
 
-    - uglifyjs-webpack-plugin
+2. Webpack plugin
 
-      ```npm install --save-dev uglifyjs-webpack-plugin
+    - ```uglifyjs-webpack-plugin```
+
+      ```js
+      npm install --save-dev uglifyjs-webpack-plugin
+      ```
 
       It will be used to minify Javascript bundle made by Webpack.
 
     - ```html-webpack-plugin``` and ```html-loader```
 
-      ```html-loader``` is used to process html file. And ```html-webpack-plugin``` will inject js, css into html files, and it is reponsible for create output files in ```./dist``` folder. And ```html-webpack-plugin``` is needed by webpack-dev-server to launch a web preview of our plugin.
+      ```html-loader``` is used to process ```html``` file.
+      
+      ```html-webpack-plugin``` will inject js, css into html files, and it is reponsible for create output files in ```./dist``` folder. And ```html-webpack-plugin``` is needed by webpack-dev-server to launch a web preview of our plugin.
 
       ```js
       npm install --save-dev html-webpack-plugin html-loader
@@ -225,107 +157,139 @@ In this article, we will learn how to configure a project that use Webpack and B
 
       ```js
       const HtmlWebPackPlugin = require("html-webpack-plugin");
+      
       module.exports = {
         module: {
           rules: [
-            {
-              test: /\.(js|jsx)$/,
-              exclude: /node_modules/,
-              use: {
-                loader: "babel-loader"
-              }
-            },
-            {
-              test: /\.html$/,
-              use: [
-                {
-                  loader: "html-loader"
-                }
-              ]
-            }
+            ...
+          },
+          plugins: [
+            new HtmlWebPackPlugin({
+              template: "./src/index.html",
+              filename: "./index.html"
+            })
           ]
-        },
-        plugins: [
-          new HtmlWebPackPlugin({
-            template: "./src/index.html",
-            filename: "./index.html"
-          })
-        ]
       };
       ```
 
-    - clean-webpack-plugin
+    - ```clean-webpack-plugin```
 
-        Because of automatically generating ```dist/index.html``` and ```dist/bundle.js``` files, we can delete the content of our ```/dist``` folder with every Webpack build. So, we need to install ```clean-webpack-plugin```.
+      Because of automatically generating ```dist/index.html``` and ```dist/bundle.js``` files, we can delete the content of our ```/dist``` folder with every Webpack build. So, we need to install ```clean-webpack-plugin```.
 
-        ```js
-        npm install --save-dev clean-webpack-plugin
-        ```
+      ```js
+      npm install --save-dev clean-webpack-plugin
+      ```
 
-    - react-hot-loader
+3. For hot reload
 
-        If we want to use hot loading module when we have changes in our files, we should use ```react-hot-loader```.
+- ```react-hot-loader```
 
-        ```
-        npm install --save-dev react-hot-loader
-        ```
+  If we want to use hot loading module when we have changes in our files, we should use ```react-hot-loader```.
 
-        Add this plugin into webpack.config.js file:
+  ```js
+  npm install --save-dev react-hot-loader
+  ```
 
-        ```js
-        plugins: [
-          new webpack.HotMoudleReplacementPlugin()
-        ],
-        devServer: {
-          contentBase: './dist',
-          hot: true
-        }
-        ```
+  Add this plugin into webpack.config.js file:
 
-        In ```src/index.js``` file, we need to define that hot reloading is available:
+  ```js
+  plugins: [
+    new webpack.HotMoudleReplacementPlugin()
+  ],
+  devServer: {
+    contentBase: './dist',
+    hot: true
+  }
+  ```
 
-        ```js
-        import React from 'react';
-        import ReactDOM from 'react-dom';
-        const title = 'React with Webpack and Babel';
+  In ```src/index.js``` file, we need to define that hot reloading is available:
 
-        ReactDOM.render(
-          <div>{title}</div>,
-          document.getElementById('app')
-        );
+  ```js
+  import React from 'react';
+  import ReactDOM from 'react-dom';
+  const title = 'React with Webpack and Babel';
 
-        module.hot.accept();
-        ```
+  ReactDOM.render(
+    <div>{title}</div>,
+    document.getElementById('app')
+  );
 
-    - CSS loader
+  module.hot.accept();
+  ```
 
-      - sass-loader and node-sass
+4. For Resource
 
-        ```js
-        npm install --save-dev sass-loader node-sass
-        ```
+  - ```file-loader```
 
-        To load .scss files into Javascript file using ES6 import syntax and compile them to CSS, we need to install ```sass-loader``` and ```node-sass``` which will do actual compilation.
+    ```js
+    npm install --save-dev file-loader
+    ```
 
-      - postcss-loader, cssnano, and autoprefixer
+    The ```file-loader``` resolves ```import / require()``` on a file into a url and emits the file into the output directory.
+    
+    To know more information about ```file-loader```, we can refer [link](https://webpack.js.org/loaders/file-loader/).
 
-        ```js
-        npm install --save-dev postcss-loader cssnano autoprefixer
-        ```
+    For example:
 
-        To minify and add prefixes to CSS (for browser compatibility) we need to use ```postcss-loader``` and some its dependencies such as ```cssnano```, ```autoprefixer``` to do its actual works.
+    In other-file.js, we have:
 
-      - css-loader and style-loader
+    ```js
+    // It means we will import or require the target files in one of the bundle's file
+    import img from './file.png';
+    ```
 
-        ```js
-        npm install --save-dev css-loader style-loader
-        ```
+    Then, we have to add ```file-loader``` into webpack.config.js file.
 
-        We will use ```css-loader``` and ```style-loader``` to import ```.css``` file into Javascript file (which ```sass-loader``` generates) and finally inject into DOM in ```style``` tag.ss
+    ```js
+    rules: [
+      {
+        test: /\.(png|jpe?g|gif)$/i,
+        loader: 'file-loader',
+        options: {
+          name: '[name].[ext],
+          outputPath: 'assets/images'
+        }      
+      }
+    ]
+    ```
+
+    With the above configuration, images will be emitted to ```dist/assets/images/file.png```.
+
+5. CSS loader and plugin
+
+    - ```css-loader``` and ```style-loader```
+
+      ```js
+      npm install --save-dev css-loader style-loader
+      ```
+
+      We will use ```css-loader``` and ```style-loader``` to import ```.css``` file into Javascript file (which ```sass-loader``` generates) and finally inject into DOM in ```style``` tag.
+
+    - ```sass-loader``` and ```node-sass```
+
+      ```js
+      npm install --save-dev sass-loader node-sass
+      ```
+
+      To load ```.scss``` files into Javascript file using ES6 import syntax and compile them to CSS, we need to install ```sass-loader``` and ```node-sass``` which will do actual compilation.
+
+    - ```postcss-loader```, ```cssnano```, and ```autoprefixer```
+
+      ```js
+      npm install --save-dev postcss-loader cssnano autoprefixer
+      ```
+
+      To minify and add prefixes to CSS (for browser compatibility) we need to use ```postcss-loader``` and some its dependencies such as ```cssnano```, ```autoprefixer``` to do its actual works.
+
+    - mini-css-extract-plugin
 
 
 
-2. For Babel
+    - optimize-css-assets-webpack-plugin
+
+
+
+6. For Babel
 
     - babel-loader
 
@@ -403,12 +367,16 @@ In this article, we will learn how to configure a project that use Webpack and B
 
       It is a plugin to support Object rest/spread syntax if our babel preset doesn't support it.
 
-3. For React.js
+7. For React.js
 
     Install some packages for react.js:
 
     ```js
-    npm install react react-dom
+    // Use must-downloaded react, react-dom packages
+    npm install --save react react-dom
+
+    // if we want to use typescript with react
+    npm install --save-dev @types/react @types/react-dom
 
     // use Prop-types to document our React components
     // https://reactjs.org/docs/typechecking-with-proptypes.html
@@ -419,12 +387,140 @@ In this article, we will learn how to configure a project that use Webpack and B
 
 ## Wrapping up
 - Understanding how Webpack works, we can easily configure all project that use Webpack and Babel.
+
 - Remember that all above plugins or loaders that are necessary to work.
 
+- Below is the content of ```webpack.config.js``` file that we need to know:
+
+  ```js
+  const webpack = require("webpack");
+  const path = require('path');
+  const HtmlWebPackPlugin = require('html-webpack-plugin');
+  const FaviconsWebpackPlugin = require('favicons-webpack-plugin');
+  const CopyWebpackPlugin = require('copy-webpack-plugin');
+  
+  const assets = [{
+    from: 'assets',
+    to: 'assets'
+  },
+  {
+    from: 'CNAME',
+    to: './'
+  }
+  ];
+
+  module.exports = {
+    // Where to start bundling
+    entry: {
+      app: "./src/index.js",
+      home: './src/home.js',
+      contact: './src/contact.js'
+    },
+
+    // Where to output
+    output: {
+      // Output to the same directory or use dist child directory
+      path: path.resolve(__dirname, 'dist'),  // __dirname
+      publicPath: '/',
+      // Capture name from the entry using a pattern
+      filename: "bundle.js"
+    },
+
+    // How to resolve encountered imports
+    module: {
+      rules: [
+        {
+          test: /\.css$/,
+          use: ["style-loader", "css-loader"],
+        },
+        {
+          test: /\.(ts|tsx|js|jsx)$/,
+          exclude: /node_modules/,
+          use: "babel-loader" // or we can use awesome-typescript-loader
+        },
+        {
+          test: /\.html$/,
+          use: [
+            {
+              loader: "html-loader",
+              options: {
+                minimize: true
+              }
+            }
+          ]
+        },
+        {
+          test: /\.scss$/,
+          use: [
+            'style-loader',
+            'css-loader',
+            'postcss-loader',
+            'sass-loader'
+          ]
+        },
+        {
+          test: /\.(woff(2)?|ttf|eot|svg)(\?v=\d+\.\d+\.\d+)?$/,
+          use: [{
+              loader: 'file-loader',
+              options: {
+                  name: '[name].[ext]',
+                  outputPath: 'assets/fonts/'
+              }
+          }]
+        },
+        {
+          test: /\.ico?$/,
+          use: [{
+              loader: 'file-loader',
+              options: {
+                  name: '[name].[ext]',
+                  outputPath: './'
+              }
+          }]
+        },
+      ]
+    },
+
+    // What extra processing to perform
+    plugins: [
+      new FaviconsWebpackPlugin('./assets/images/logo.png'),
+      new webpack.DefinePlugin({
+        SUBDIRECTORY: JSON.stringify(require("./package.json").subdirectory)
+      }),
+      new uglifyJsPlugin(),
+      new HtmlWebPackPlugin({
+          template: "./src/index.html",
+          filename: "./index.html"
+      }),
+      new CleanWebpackPlugin(),
+      new webpack.HotModuleReplacementPlugin(),
+      new CopyWebpackPlugin(assets)
+    ],
+
+    // Adjust module resolution algorithm
+    resolve: {
+      extensions: ['.ts', '.tsx', '.js', '.jsx', '.json']
+    },
+    devServer: {
+      colors: true,
+      contentBase: './dist',
+      historyApiFallback: true,
+      hot: true,
+      inline: true,
+      port: 3000,
+      progress: true,
+      stats: {
+        cached: false
+      }
+    }
+  };
+  ```
 
 <br>
 
 Refer:
+
+[https://gaearon.github.io/react-hot-loader/getstarted/](https://gaearon.github.io/react-hot-loader/getstarted/)
 
 [https://www.valentinog.com/blog/babel/](https://www.valentinog.com/blog/babel/)
 
