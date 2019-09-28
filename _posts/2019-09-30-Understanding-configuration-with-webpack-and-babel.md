@@ -100,6 +100,8 @@ In this article, we will learn how to configure a project that use Webpack and B
       npm install --save-dev webpack-dev-server
       ```
 
+      Under the hood, ```webpack-dev-server``` is a mini Node.js Express server. It uses a library called SockJS to emulate a web socket.
+
       ```webpack-dev-server``` is a localhost server which we will use to preview how our web application works. The server will automatically send reload events to the browser to refresh the pages as soon as we make changes to the code. This should be used for development only.
 
       To run our project with ```webpack-dev-server```, we need to configure in package.json file:
@@ -363,6 +365,8 @@ In this article, we will learn how to configure a project that use Webpack and B
 
         It is used to compile Javascript ES6 down to ES5. And ```babel-preset-es2015``` package is deprecated.
 
+        With ES6 arrow function, ```@babel/preset-env``` will convert arrow function to traditional function.
+
         ```js
         npm install --save-dev @babel/preset-env
         ```
@@ -440,7 +444,18 @@ In this article, we will learn how to configure a project that use Webpack and B
 
 8. For Redux
 
-  - 
+We will install some packages for redux, like that:
+
+```js
+// Use redux
+npm install --save redux react-redux react-router-dom
+
+// If we want to program asynchronous with redux, use redux-thunk
+npm install --save redux-thunk
+
+// we can use typescript versions of above packages
+npm install --save-dev @types/react-redux @types/react-router-dom
+```
 
 
 <br>
@@ -575,6 +590,8 @@ In this article, we will learn how to configure a project that use Webpack and B
 <br>
 
 Refer:
+
+[https://blog.linguinecode.com/post/how-to-setup-webpack-dev-server-react-babel](https://blog.linguinecode.com/post/how-to-setup-webpack-dev-server-react-babel)
 
 [https://gaearon.github.io/react-hot-loader/getstarted/](https://gaearon.github.io/react-hot-loader/getstarted/)
 
