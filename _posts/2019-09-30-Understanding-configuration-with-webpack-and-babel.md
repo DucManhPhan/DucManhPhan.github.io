@@ -127,6 +127,14 @@ In this article, we will learn how to configure a project that use Webpack and B
 
       We can refer the [link of Webpack CLI](https://webpack.js.org/api/cli/)
 
+    - ```webpack-merge```
+
+      ```js
+      npm install --save-dev webpack-merge
+      ```
+
+      Assuming that we have two modes such as: production and development, we want that each mode will have corresponding webpack configuration file. So, we need ```webpack-merge``` package to do that.
+
 2. Webpack plugin
 
     - ```uglifyjs-webpack-plugin```
@@ -281,13 +289,60 @@ In this article, we will learn how to configure a project that use Webpack and B
 
       To minify and add prefixes to CSS (for browser compatibility) we need to use ```postcss-loader``` and some its dependencies such as ```cssnano```, ```autoprefixer``` to do its actual works.
 
-    - mini-css-extract-plugin
+      In webpack, we can use postcss-loader with autoprefixer and other PostCSS plugins. So, in webpack.config.js or webpack.prod.js or webpack.dev.js, we have:
 
+      ```js
+      module.exports = {
+        module: {
+          rules: [
+            {
+              test: /\.css$/,
+              use: ["style-loader", "css-loader", "postcss-loader"]
+            }
+          ]
+        }
+      }
+      ```
 
+      Then, we have to ```create postcss.config.js``` file:
+
+      ```js
+      module.exports = {
+        plugins: [
+          require('autoprefixer')
+        ]
+      }
+      ```
+
+      To know more information about configuration of css plugin, we can reference to [link](https://github.com/postcss/autoprefixer).
+
+    - ```mini-css-extract-plugin```
+
+      ```js
+      npm install --save-dev mini-css-extract-plugin
+      ```
+
+      This plugin extracts CSS into separate files. It creates a CSS file per JS file which contains CSS. It supports On-Demand-Loading of CSS and SourceMaps.
+
+      It builds on top of a new webpack v4 feature (module types) and requires webpack 4 to work.
+
+      Compared to the extract-text-webpack-plugin:
+      - Async loading
+      - No duplicate compilation (performance)
+      - Easier to use
+      - Specific to CSS
+
+      Refer to [link](https://github.com/webpack-contrib/mini-css-extract-plugin).
 
     - optimize-css-assets-webpack-plugin
 
+      ```js
+      npm install --save-dev optimize-css-assets-webpack-plugin
+      ```
 
+      This plugin will search for CSS assets during the Webpack build and optimize / minimize the CSS (by default it uses ```cssnano``` package).
+
+      We can refer this [link](https://github.com/NMFR/optimize-css-assets-webpack-plugin).
 
 6. For Babel
 
@@ -383,6 +438,11 @@ In this article, we will learn how to configure a project that use Webpack and B
     npm install --save-dev prop-types
     ```
 
+8. For Redux
+
+  - 
+
+
 <br>
 
 ## Wrapping up
@@ -400,13 +460,9 @@ In this article, we will learn how to configure a project that use Webpack and B
   const CopyWebpackPlugin = require('copy-webpack-plugin');
   
   const assets = [{
-    from: 'assets',
-    to: 'assets'
-  },
-  {
-    from: 'CNAME',
-    to: './'
-  }
+      from: 'assets',
+      to: 'assets'
+    }
   ];
 
   module.exports = {
