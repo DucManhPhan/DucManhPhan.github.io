@@ -59,8 +59,12 @@ To null object pattern, we should implement null objects as Singleton, because w
 
 ## Sampe code with Java/C++/Javascript/Python
 
+In this section, we will consider the problem about abstraction of employee, such as:
+
+![](../img/design-pattern/null-object/Null-Object-Pattern-ex.png)
 
 
+About source code of Null Object Pattern, you can reference to this [link](https://github.com/DucManhPhan/Design-Pattern/tree/master/Behavioral-Pattern/null-object).
 
 <br>
 
