@@ -119,7 +119,7 @@ In this article, we will learn how to configure a project that use Webpack and B
       npm run start:dev
       ```
 
-    - ```webpack-cli```
+    - webpack-cli
 
       ```js
       npm install --save-dev webpack-cli
@@ -129,7 +129,7 @@ In this article, we will learn how to configure a project that use Webpack and B
 
       We can refer the [link of Webpack CLI](https://webpack.js.org/api/cli/)
 
-    - ```webpack-merge```
+    - webpack-merge
 
       ```js
       npm install --save-dev webpack-merge
@@ -139,7 +139,7 @@ In this article, we will learn how to configure a project that use Webpack and B
 
 2. Webpack plugin
 
-    - ```uglifyjs-webpack-plugin```
+    - uglifyjs-webpack-plugin
 
       ```js
       npm install --save-dev uglifyjs-webpack-plugin
@@ -182,7 +182,7 @@ In this article, we will learn how to configure a project that use Webpack and B
       };
       ```
 
-    - ```clean-webpack-plugin```
+    - clean-webpack-plugin
 
       Because of automatically generating ```dist/index.html``` and ```dist/bundle.js``` files, we can delete the content of our ```/dist``` folder with every Webpack build. So, we need to install ```clean-webpack-plugin```.
 
@@ -192,7 +192,7 @@ In this article, we will learn how to configure a project that use Webpack and B
 
 3. For hot reload
 
-- ```react-hot-loader```
+- react-hot-loader
 
   If we want to use hot loading module when we have changes in our files, we should use ```react-hot-loader```.
 
@@ -229,7 +229,7 @@ In this article, we will learn how to configure a project that use Webpack and B
 
 4. For Resource
 
-  - ```file-loader```
+  - file-loader
 
     ```js
     npm install --save-dev file-loader
@@ -318,7 +318,7 @@ In this article, we will learn how to configure a project that use Webpack and B
 
       To know more information about configuration of css plugin, we can reference to [link](https://github.com/postcss/autoprefixer).
 
-    - ```mini-css-extract-plugin```
+    - mini-css-extract-plugin
 
       ```js
       npm install --save-dev mini-css-extract-plugin
