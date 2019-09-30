@@ -94,6 +94,8 @@ In order to know more information about utilizing websocket, we can refer to thi
 
 [https://www.concretepage.com/spring-4/spring-4-websocket-sockjs-stomp-tomcat-example](https://www.concretepage.com/spring-4/spring-4-websocket-sockjs-stomp-tomcat-example)
 
+
+
 <br>
 
 ## Wrapping up

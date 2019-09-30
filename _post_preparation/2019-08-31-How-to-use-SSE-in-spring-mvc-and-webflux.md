@@ -44,12 +44,19 @@ tags: [java]
 
 ## Use SSE in Spring MVC
 
-
+[http://arnaud-nauwynck.github.io/2017/05/15/ServerSentEvent-spring-4-reactive5-to-AngularJS.html](http://arnaud-nauwynck.github.io/2017/05/15/ServerSentEvent-spring-4-reactive5-to-AngularJS.html)
 
 
 <br>
 
 ## Use SSE in Spring Webflux
+
+
+
+
+2. Problem when using SSE with EmitterProcessor
+
+    [https://github.com/spring-projects/spring-framework/issues/19338](https://github.com/spring-projects/spring-framework/issues/19338)
 
 
 
