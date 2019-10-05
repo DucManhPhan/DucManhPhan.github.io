@@ -86,6 +86,28 @@ tags: [Clean code]
 ## Constructor chaining
 1. Given problem
 
+    ```java
+    public class BankAccount {
+
+        private double balance;
+
+        private double interest;
+
+        BankAccount() {}
+
+        BankAccount(double balance) {
+            this.balance = balance;
+        }
+
+        BankAccount(double balance, double interest) {
+            this.balance = balance;
+            this.interest = interest;
+        }
+
+    }
+    ```
+
+    With this above code, we already have some duplication. 
 
 2. Solution
 
