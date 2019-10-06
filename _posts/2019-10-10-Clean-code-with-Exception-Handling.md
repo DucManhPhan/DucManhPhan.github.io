@@ -5,7 +5,9 @@ bigimg: /img/image-header/california.jpg
 tags: [Clean code]
 ---
 
+In this article, we will find something out about Clean code with Exception Handling. It is really useful when to utilize in our program. It helps us quickly to find bug ...
 
+Let's get started.
 
 <br>
 
@@ -13,7 +15,7 @@ tags: [Clean code]
 - [Catch specific exceptions](#catch-specific-exceptions)
 - [Catch block](#catch-block)
 - [Finally block](#finally-block)
-
+- [Wrapping up](#wrapping-up)
  
 <br>
 
@@ -102,31 +104,95 @@ In Java, we have a lot of exceptions,
 
 ## Catch block
 
+Catch block should not:
+- Be empty.
+- Have only comments.
+- Contain unhelpful code.
 
 
+Catch block exists on purpose for a reason. So do not leave it empty and do not add comments saying something like this should never happen.
+
+And do not return null.
+
+Ignoring exceptions is bad, but filling it up with code is not helpful.
+
+```java
+catch {                         }
+catch { 
+    // should never happen  
+}
+catch {         return null;     }
+catch {   e.printStackTrace();   }
+```
+
+Printing the stack trace or the message of the code exception does not do anything extra. We should have that information anyway. What we want to do instead is log the exception using a logging framework.
+
+The useful things to do inside the catch block is:
+- First, log it using a logging framework.
+
+    ```java
+    catch {
+        log.error(e);
+    }
+    ```
+- Second, just rethrow it and pass all useful information to the exception.
+
+    ```java
+    catch {
+        throw new CustomException(e);
+    }
+    ```
 
 <br>
 
 ## Finally block
 
+```
+Avoid exceptions in finally {}
+```
 
+Let's see an example:
+
+```java
+public static void main(String[] args) {
+    try {
+        int result = 1 / 0;     // ArithmeticException (1)
+    } finally {
+        cleanup();
+    }
+}
+
+private static void cleanup() {
+    throw new IllegalStateException();      // (2)
+}
+```
+
+So we can find that we have two exception. First, it is an ```ArithmeticException``` exception. Second, it's in cleanup() method, this method throws ```IllegalStateException``` exception.
+
+When we investigates a bug, it is difficult to know that the cause, because we have two places that leave two exceptions.
+
+Therefore, we need to not throw exception in ```finally``` block.
+
+In Java 7 or higher, we should use try-with-resources statement, which can handle cleanup for us.
+
+```java
+void readFile() {
+    try (Scanner scanner = new Scanner(new File("file.txt"))) {
+        // read file
+    } catch (FileNotFoundException e) {
+        // handle it
+    }
+}
+```
 
 <br>
 
 ## Wrapping up
-
+- We should catch specific exceptions.
+- Proper handling in catch {}.
+- Avoid exceptions in finally block and should use Java 7 try-with-resources.
 
 
 <br>
 
 Thanks for your reading.
-
-<br>
-
-Refer:
-
-[https://dzone.com/articles/using-java-enums?fromrel=true](https://dzone.com/articles/using-java-enums?fromrel=true)
-
-[https://dzone.com/articles/reasons-why-the-constant-interface-pattern-is-disc?fromrel=true](https://dzone.com/articles/reasons-why-the-constant-interface-pattern-is-disc?fromrel=true)
-
-[https://dzone.com/articles/java-enums-how-to-make-much-more-useful?fromrel=true](https://dzone.com/articles/java-enums-how-to-make-much-more-useful?fromrel=true)
