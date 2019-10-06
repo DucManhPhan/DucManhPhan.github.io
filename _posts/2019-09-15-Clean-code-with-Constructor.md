@@ -57,8 +57,6 @@ Let's get started.
 
     So, with the above example, we find it truly difficult to digest.
 
-<br>
-
 2. Solution
 
     Our solution for this problem is to use ```static factory method```. Because ```static factory method``` will hide every difficulty, we only need to focus on creating our object.
