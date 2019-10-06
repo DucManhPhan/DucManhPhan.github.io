@@ -5,8 +5,9 @@ bigimg: /img/image-header/california.jpg
 tags: [creational pattern, design pattern]
 ---
 
+In this article, we will learn about Singleton pattern. This pattern is very common, used in many frameworks such as Spring beans ... 
 
-
+So, let's get started.
 
 <br>
 
@@ -18,6 +19,8 @@ tags: [creational pattern, design pattern]
 - [Benefits & Drawback](#benefits-&-drawback)
 - [Replace singleton pattern with single instance](#replace-singleton-pattern-with-single-instance)
 - [Code C++ /Java / Javascript](#code-c++-java-javascript)
+- [Relations with other Patterns](#relations-with-other-patterns)
+- [Some thoughts about Singleton](#some-thoughts-about-singleton)
 - [Application & Examples](#application-&-examples)
 - [Wrapping up](#wrapping-up)
 
@@ -89,6 +92,14 @@ To replace the usage of Singleton, we can [use a single instance](#replace-singl
 
 - The system threads fight to access the single instance thereby degrading the performance of the applications.
 
+- Often overused --> Although there are not generally performance problems with singletons, if we make everything a singleton, it will slow our application down.
+
+- Difficult to unit test because Singleton does not expose interface and have private constructors as well as private member variables.
+
+- If not careful, not thread-safe.
+
+- Sometimes confused for Factory because oftentimes people start off with a singleton that's static, and it ends up morphing into something else. They start making the getInstance() method take parameters. A rule of thumb is that as soon as it needs an argument in that method, it is not a singleton anymore, but rather a factory.
+
 <br>
 
 ## Replace singleton pattern with single instance
@@ -150,7 +161,7 @@ In order to implement single instance, we can refer to this [link](https://githu
 
 - Java
 
-    Refer to this [link](https://topdev.vn/blog/singleton-pattern-la-gi/)
+    We can see source code in this [link](https://github.com/DucManhPhan/Design-Pattern/tree/master/Creational-Pattern/singleton-pattern/src/Java).
 
     Notes:
     - In multithreading, use ```synchronized``` in ```getInstance()``` method, it can decrease system performance by a factor of 100.
@@ -160,10 +171,8 @@ In order to implement single instance, we can refer to this [link](https://githu
             ...
         }
         ```
+
     - Use an Eagerly created instance rather than lazy one.
-
-        Refer [link](https://howtodoinjava.com/design-patterns/creational/singleton-design-pattern-in-java/)
-
         --> Disadvantage: Memory may be allocated and not used.
 
 <br>
@@ -213,6 +222,8 @@ In order to implement single instance, we can refer to this [link](https://githu
 
 - Singleton pattern has some problem with multithreading.
 
+- Singleton returns same instance, and one constructor method has no arguments. Singleton has no interface.
+
 <br>
 
 Thanks for your reading.
@@ -220,6 +231,8 @@ Thanks for your reading.
 <br>
 
 Refer: 
+
+[https://howtodoinjava.com/design-patterns/creational/singleton-design-pattern-in-java/](https://howtodoinjava.com/design-patterns/creational/singleton-design-pattern-in-java/)
 
 [https://stackoverflow.com/questions/70689/what-is-an-efficient-way-to-implement-a-singleton-pattern-in-java?rq=1](https://stackoverflow.com/questions/70689/what-is-an-efficient-way-to-implement-a-singleton-pattern-in-java?rq=1)
 

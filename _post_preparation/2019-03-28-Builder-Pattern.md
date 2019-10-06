@@ -5,6 +5,10 @@ bigimg: /img/path.jpg
 tags: [creational pattern, design pattern, clean code]
 ---
 
+
+
+
+
 <br>
 
 ## Table of contents
@@ -38,7 +42,11 @@ tags: [creational pattern, design pattern, clean code]
 <br>
 
 ## Benefits & Drawback
+1. Benefits
 
+
+
+2. Drawbacks
 
 
 <br>
@@ -50,7 +58,11 @@ tags: [creational pattern, design pattern, clean code]
 <br>
 
 ## Application & Examples
+- StringBuilder in Java
 
+    The good thing about it is it is really performant, and it gives us a nicer way to build strings rather than using plus sign or the concat operator inside the string object.
+
+    It is also a lot more performant than the StringBuffer object. The StringBuffer object does some locking much like the old vector object did compared to an array list, and this will result in faster performance for our application.
 
 
 <br>
