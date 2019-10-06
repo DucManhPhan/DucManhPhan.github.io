@@ -170,76 +170,76 @@ This could be further refactored. The interest rate could be refactored into a c
 ## Constructor Telescoping
 1. Given problem
 
-Assume that we are building a backend system for a pizza restaurant, so we start off with a single parameter that takes the base size.
+    Assume that we are building a backend system for a pizza restaurant, so we start off with a single parameter that takes the base size.
 
-Then, we also want to add interesting thing into our pizza.
+    Then, we also want to add interesting thing into our pizza.
 
-Therefore, we should create many constructors with different arguments, our constructors have a long list argument. The problem is multiplied by the simple fact that we should mix and match any number of ingredients.
+    Therefore, we should create many constructors with different arguments, our constructors have a long list argument. The problem is multiplied by the simple fact that we should mix and match any number of ingredients.
 
-This is called as telescoping constructor pattern.
+    This is called as telescoping constructor pattern.
 
-```java
-Pizza(int size) { ... }
-Pizza(int size, boolean cheese) { ... }
-Pizza(int size, boolean cheese, boolean ham) { ... }
-Pizza(int size, boolean cheese, boolean ham, boolean mushroom) { ... }
-```
+    ```java
+    Pizza(int size) { ... }
+    Pizza(int size, boolean cheese) { ... }
+    Pizza(int size, boolean cheese, boolean ham) { ... }
+    Pizza(int size, boolean cheese, boolean ham, boolean mushroom) { ... }
+    ```
 
 2. Solution
-To fix this problem, we should use Builder pattern.
+    To fix this problem, we should use Builder pattern.
 
-The downside of this solution is to have boilerplate code such as set properties in Builder class. But it makes our constructor readable, maintainable.
+    The downside of this solution is to have boilerplate code such as set properties in Builder class. But it makes our constructor readable, maintainable.
 
-```java
-class Pizza {
-
-    private final int size;
-
-    private boolean cheese;
-
-    private boolean ham;
-
-    public Pizza(Builder builder) {
-        this.size = builder.size;
-        this.cheese = builder.cheese;
-        this.ham = builder.ham;
-    }
-
-    static class Builder {
+    ```java
+    class Pizza {
 
         private final int size;
+
         private boolean cheese;
+
         private boolean ham;
 
-        Builder (int size) {
-            this.size = size;
+        public Pizza(Builder builder) {
+            this.size = builder.size;
+            this.cheese = builder.cheese;
+            this.ham = builder.ham;
         }
 
-        Builder cheese(boolean value) {
-            this.cheese = value;
-            return this;
-        }
+        static class Builder {
 
-        Builder ham(boolean value) {
-            this.ham = value;
-            return this;
-        }
+            private final int size;
+            private boolean cheese;
+            private boolean ham;
 
-        Pizza build() {
-            return new Pizza(this);
-        }
+            Builder (int size) {
+                this.size = size;
+            }
 
+            Builder cheese(boolean value) {
+                this.cheese = value;
+                return this;
+            }
+
+            Builder ham(boolean value) {
+                this.ham = value;
+                return this;
+            }
+
+            Pizza build() {
+                return new Pizza(this);
+            }
+
+        }
     }
-}
 
-// In main method, we have
-public static void main(String[] args) {
-    Pizza pizza = new Pizza.Builder(12)
-                           .cheese(true)
-                           .ham(true)
-                           .build(); 
-}
-```
+    // In main method, we have
+    public static void main(String[] args) {
+        Pizza pizza = new Pizza.Builder(12)
+                            .cheese(true)
+                            .ham(true)
+                            .build(); 
+    }
+    ```
 
 <br>
 
