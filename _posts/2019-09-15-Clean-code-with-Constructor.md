@@ -130,40 +130,40 @@ Constructor chaining helps adhere to the DRY principle.
 
 2. Solution
 
-```java
-public class BankAccount {
+    ```java
+    public class BankAccount {
 
-    private double balance;
+        private double balance;
 
-    private double interest;
+        private double interest;
 
-    BankAccount() {
-        this(0);
-    }
+        BankAccount() {
+            this(0);
+        }
 
-    BankAccount(double balance) {
-        this(balance, 0.01);
-    }
+        BankAccount(double balance) {
+            this(balance, 0.01);
+        }
 
-    BankAccount(double balance, double interest) {
-        checkArgumentIsValid(interest, "Interest rate can not be less than 0");     // should refactor constant message to the other place.
-        checkArgumentIsValid(balance, "Starting balance can not be less than 0");
+        BankAccount(double balance, double interest) {
+            checkArgumentIsValid(interest, "Interest rate can not be less than 0");     // should refactor constant message to the other place.
+            checkArgumentIsValid(balance, "Starting balance can not be less than 0");
 
-        this.balance = balance;
-        this.interest = interest;
-    }
+            this.balance = balance;
+            this.interest = interest;
+        }
 
-    private void checkArgumentIsValid(double arg, String message) {
-        if (arg < 0) {
-            throw new IllegalArgumentException(message);
+        private void checkArgumentIsValid(double arg, String message) {
+            if (arg < 0) {
+                throw new IllegalArgumentException(message);
+            }
         }
     }
-}
-```
+    ```
 
-In the above code, we have several constructors sorted in a particular order from no arguments to one argument to two arguments. Only the bottom one has validation logic, so it's all in one place, and it also sets the fields. This constructor does all of the heavy lifting. The others just ```this``` keywork and call it. 
+    In the above code, we have several constructors sorted in a particular order from no arguments to one argument to two arguments. Only the bottom one has validation logic, so it's all in one place, and it also sets the fields. This constructor does all of the heavy lifting. The others just ```this``` keywork and call it. 
 
-This could be further refactored. The interest rate could be refactored into a constant since it is a default value, and these argument checks could be wrapped into prettier methods.
+    This could be further refactored. The interest rate could be refactored into a constant since it is a default value, and these argument checks could be wrapped into prettier methods.
 
 <br>
 
