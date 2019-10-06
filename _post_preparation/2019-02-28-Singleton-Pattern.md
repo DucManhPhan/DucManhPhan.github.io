@@ -93,9 +93,11 @@ To replace the usage of Singleton, we can [use a single instance](#replace-singl
 
 ## Replace singleton pattern with single instance
 
+Below is structure of this project. It talks about connections between databases.
 
+![](../img/design-pattern/singleton-pattern/factory-method_singleton.png)
 
-
+In order to implement single instance, we can refer to this [link](https://github.com/DucManhPhan/Design-Pattern/tree/master/2-combination-patterns/factory-method_singleton).
 
 
 <br>
@@ -164,15 +166,18 @@ To replace the usage of Singleton, we can [use a single instance](#replace-singl
 
         --> Disadvantage: Memory may be allocated and not used.
 
-
 <br>
 
 ## Relations with other Patterns
 - Factory method and Singleton patterns
 
-    So, move on an example:
-    - We have 
+    Normally, we only need single instance, instead of utilizing singleton pattern.
 
+- Abstract Factory, Builder, and Prototype can use Singleton in their implementation.
+
+- Facade objects are often Singletons because only one Facade object is required.
+
+- State objects are often Singletons.
 
 
 <br>
