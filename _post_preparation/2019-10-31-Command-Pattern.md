@@ -15,6 +15,7 @@ tags: [Behavirol pattern, design pattern]
 - [Solution with Command Pattern](#solution-with-command-pattern)
 - [When to use](#when-to-use)
 - [Code C++/Javascript](#code-C++/Javascript)
+- [Relations with other patterns](#relations-with-other-patterns)
 - [Application & Examples](#application-&-examples)
 - [Wrapping up](#wrapping-up)
 
@@ -83,6 +84,15 @@ Command pattern has primarily four components:
 <br>
 
 # Code C++/Javascript
+
+
+
+
+
+<br>
+
+## Relations with other patterns
+
 
 
 
