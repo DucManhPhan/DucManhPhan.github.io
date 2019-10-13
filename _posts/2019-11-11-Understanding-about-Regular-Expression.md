@@ -1,24 +1,37 @@
 ---
 layout: post
-title: Understanding Regular Expression
+title: Understanding about Regular Expression
 bigimg: /img/image-header/california.jpg
 tags: [Regex]
 ---
 
+In this article, we will learn about some basic information about regular expression such as character classes, meta sequences, anchor, quantifiers, capturing group, flag and modifiers. ...
 
+It is useful when we want to build complex regex to satisfy our problems.
 
+Let's get started.
 
 <br>
 
 ## Table of contents
-
-
-
+- [What is Regular Expression](#what-is-regular-expression)
+- [Character classes](#character-classes)
+- [Meta sequences](#meta-sequences)
+- [Anchor](#anchor)
+- [Quantifiers](#quantifiers)
+- [Capturing group](#capturing-group)
+- [Flags/Modifiers](#flags-/-modifiers)
+- [Benefits and Drawbacks](#benefits-and-drawbacks)
+- [Wrapping up](#wrapping-up)
 
 <br>
 
 ## What is Regular expression
+According to [wikipedia.com](https://en.wikipedia.org/wiki/Regular_expression), we have:
 
+```
+A regular expression is a sequence of characters that define a search pattern. Usually such patterns are used by string search algorithms for find or find and replace operations on strings, or for input validation.
+```
 
 
 <br>
@@ -249,11 +262,19 @@ Note:
 
 ## Benefits and Drawbacks
 1. Benefits
-
-
+- Very flexible
+- Fast processing
+- Language independent
+- A lot of work in a single line of code
+- Often simpler than "substring + indexes" approach
 
 2. Drawbacks
-Regular expression, if not written well may perform poorly. They may run slowly, and when they are executed frequently in some code, they may be the source of high CPU utilization. So, we have some pitfalls:
+- Hard to read
+- Hard to debug - no information when no match
+- Compilation only at runtime
+- Typos are very easily made (Ex: forget escape character)
+
+Regular expression, if not written well may perform poorly. They may run slowly, and when they are executed frequently in some code, they may be the source of high CPU utilization. So, we have some techniques to reduce pitfalls:
 - Do not forget to escape regex metacharacters outside a character class.
 
     All the special metacharacters such as ```*```, ```+```, ```?```, ```.```, ```|```, ```(```, ```)```, ```[```, ```{```, ```^```, ```$```, and so on, need to be escaped if the intent is to match them literally.
@@ -372,3 +393,6 @@ Refer:
 
 [https://www.logicbig.com/tutorials/core-java-tutorial/java-regular-expressions/regex-possessive-quantifiers.html](https://www.logicbig.com/tutorials/core-java-tutorial/java-regular-expressions/regex-possessive-quantifiers.html)
 
+[https://regex101.com/](https://regex101.com/)
+
+[https://www.slideshare.net/niekschmoller/regex-external](https://www.slideshare.net/niekschmoller/regex-external)
