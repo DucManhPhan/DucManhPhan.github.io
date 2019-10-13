@@ -196,7 +196,11 @@ Note:
     For example, in java, we have:
 
     ```java
+    // Positive lookahead
+    [a-z](?=bc)
 
+    // Positive lookbehind
+    (?<=a>)bc
     ```
 
 - From JDK 7, capturing group can be assigned an explicit name by using the syntax ```(?<name_group>...)```.
