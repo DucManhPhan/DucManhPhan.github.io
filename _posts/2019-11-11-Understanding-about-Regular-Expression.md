@@ -173,10 +173,10 @@ Note:
 |          Regex         |                 Meaning                |
 | ---------------------- | -------------------------------------- |
 | (...)                  | Capture everthing enclosed             |
-| (a|b)                  | Match either a or b                    |
+| (a\|b)                  | Match either a or b                    |
 | (?:...)                | Match everything enclosed (non-capturing) |
 | (?>...)                | Atomic group (non-capturing)           |
-| (?|...)                | Duplicate subpattern group number      |
+| (?\|...)                | Duplicate subpattern group number      |
 | (?'name'...)           | Named capturing group                  |
 | (?<name>...)           | Named capturing group                  |
 | (?P<name>...)          | Named capturing group                  |
