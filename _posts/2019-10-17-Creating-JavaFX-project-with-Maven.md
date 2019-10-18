@@ -144,6 +144,86 @@ Oracle 'Premier Support' for JavaFX is also available, for the current long-term
 
     [!](../img/JavaFX/setup/run-project.png)
 
+5. Common problems when creating JavaFX project
+
+    - ```Location is required```
+
+        Solution: 
+        - First way, we can specify the path of our ```fxml``` file such as:
+
+            ```java
+            URL url = new File("src/main/resources/fxml/calculator.fxml").toURI().toURL();
+            Parent root = FXMLLoader.load(url);
+            ```
+
+        - Second way, we will do the following steps:
+
+            - Assuming that our project have structure and some plugins:
+
+                ![](../img/JavaFX/setup/plugins-in-maven.png)
+
+                ![](../img/JavaFX/structure/calculator-project.png)
+
+                We created ```com.manhpd``` in ```resources``` folder to put all ```.fxml``` files  into the same folder with our source ```.class``` files.
+
+                So, in our code, we only need to use relative path in segment code:
+
+                ```java
+                getClass().getResource("calculator.fxml");
+                ```
+
+            - Run ```mvn compiler:compile```
+
+                It belongs to ```maven-compiler-plugin```.
+
+                After run this command, we have:
+
+                ![](../img/JavaFX/setup/built-folder.png)
+
+                It does not have ```calculator.fxml``` file. So, after run command ```mvn javafx:run```, our program do not find this file, it will throw an exception ```Location is required``` or ```NullPointerException``` in ```getClass().getResource("calculator.fxml");```.
+
+                So, to solve this problem, we will move on the next steps.
+
+            - Run ```mvn resources:resources```
+
+                It belongs to ```maven-resources-plugin```. 
+
+                Refer to this [link](https://maven.apache.org/plugins/maven-resources-plugin/).
+                
+                The Resources Plugin handles the copying of project resources to the output directory. 
+                
+                There are two different kinds of resources: main resources and test resources. The difference is that the main resources are the resources associated to the main source code while the test resources are associated to the test source code.
+
+                ```resources:resources``` copies the resources for the main source code to the main output directory.
+
+                This goal usually executes automatically, because it is bound by default to the process-resources life-cycle phase. It always uses the ```project.build.resources``` element to specify the resources, and by default uses the ```project.build.outputDirectory``` to specify the copy destination.
+
+                After running ```mvn resources:resources```, our built folder can have:
+
+                ![](../img/JavaFX/setup/copy-resources.png)
+
+            - Run ```mvn javafx:run```
+
+                We have result:
+
+                ![](../img/JavaFX/setup/result-calculator.png)
+
+
+        Note:
+        - ```getClass().getClassLoader().getResource(...)``` will load a resource from a path relative to the classpath. Since you placed the FXML file in the ```application``` pacakge, you need:
+
+            ```java
+            Parent root=FXMLLoader.load(getClass().getClassLoader().getResource("application/Main.fxml"));
+            ```
+
+            If you just use ```getClass().getResource(...)```, and do not prefix the path with ```/```, it will load from a path relative to the current class. So,
+
+            ```java
+            Parent root=FXMLLoader.load(getClass().getResource("Main.fxml"));
+            ```
+
+            Make sure that our FXML file is being exported to the build folder, along with the ```.class``` files.
+        
 <br>
 
 ## Wrapping up
