@@ -71,6 +71,11 @@ Below is an image that describe how factory method pattern works
 <br>
 
 # Benefits & Drawbacks
+1. Benefits
+
+
+
+2. Drawbacks
 
 
 
