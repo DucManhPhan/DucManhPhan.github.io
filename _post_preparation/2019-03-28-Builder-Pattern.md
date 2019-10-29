@@ -86,6 +86,20 @@ tags: [creational pattern, design pattern, clean code]
 
 <br>
 
+## Subclasses with Builder pattern
+
+
+
+
+<br>
+
+## Optimize with Builder pattern
+
+
+
+
+<br>
+
 ## Wrapping up
 
 
@@ -98,4 +112,22 @@ Thanks for your reading.
 
 <br>
 
-Refer: 
+Refer:
+
+**Subclass with builder pattern**
+
+[https://community.oracle.com/blogs/emcmanus/2010/10/24/using-builder-pattern-subclasses](https://community.oracle.com/blogs/emcmanus/2010/10/24/using-builder-pattern-subclasses)
+
+[http://egalluzzo.blogspot.com/2010/06/using-inheritance-with-fluent.html](http://egalluzzo.blogspot.com/2010/06/using-inheritance-with-fluent.html)
+
+<br>
+
+**Immutability with builder pattern**
+
+[https://chrononaut.org/2013/06/07/favor-immutability/](https://chrononaut.org/2013/06/07/favor-immutability/)
+
+<br>
+
+[https://stackoverflow.com/questions/44204129/extending-builder-in-typescript](https://stackoverflow.com/questions/44204129/extending-builder-in-typescript)
+
+[https://www.artima.com/weblogs/viewpost.jsp?thread=133275](https://www.artima.com/weblogs/viewpost.jsp?thread=133275)
