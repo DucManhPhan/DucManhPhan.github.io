@@ -90,7 +90,7 @@ In the other article, we will discuss about ```implicit sharing``` mechanism in 
 
     Normally, we will use the below segment code to read .INI file.
 
-    ```
+    ```C++
     QSettings* settings         = new QSettings(path, QSettings::IniFormat);
 
     this->NameUser              = settings->value("NameUser").toString();
@@ -115,7 +115,7 @@ In the other article, we will discuss about ```implicit sharing``` mechanism in 
 
     So, we have to set codec for instance of QSettings class. Therefore, we have solution looks like this:
 
-    ```
+    ```C++
     QSettings* settings         = new QSettings(path, QSettings::IniFormat);
     settings->setIniCodec("UTF-8");
 

@@ -5,42 +5,72 @@ bigimg: /img/image-header/home-office-1.jpg
 tags: [java]
 ---
 
+In our application, logging is a vital functionality that we will import when creating project. It makes us to detect bugs, problems in logging file when program runs at runtime mode.
 
+So, in this article, we will learn how to configure log4j 1.x framework in our project.
 
+Let's get started.
 
 <br>
 
 ## Table of contents
-
-
+- [The structure of Log4j](#the-structure-of-log4j)
+- [Some packages that need for Log4j 1.x](#some-packages-that-need-for-log4j-1.x)
+- [Configure Log4j 1.x with properties file](#configure-log4j-1.x-with-properties-file)
+- [Wrapping up](#wrapping-up)
 
 <br>
 
 ## The structure of Log4j
 
-[https://www.roseindia.net/tutorials/log4j/log4-Architecture.shtml](https://www.roseindia.net/tutorials/log4j/log4-Architecture.shtml)
+Below is an image that describe Log4j 1.x's architecture. It's very important because understanding its architecture will help us to configure correctly.
 
-[https://blog.eduonix.com/java-programming-2/learn-architecture-log4j-framework/](https://blog.eduonix.com/java-programming-2/learn-architecture-log4j-framework/)
+![](../img/Log4j/1.x/Log4j-1-architecture.jpg)
 
-- Logging's level 
+- Logger Object
 
-    FATAL: shows messages at a FATAL level only  
-    ERROR: Shows messages classified as ERROR and FATAL  
-    WARNING: Shows messages classified as WARNING, ERROR, and FATAL  
-    INFO: Shows messages classified as INFO, WARNING, ERROR, and FATAL  
-    DEBUG: Shows messages classified as DEBUG, INFO, WARNING, ERROR, and FATAL  
-    TRACE : Shows messages classified as TRACE,DEBUG, INFO, WARNING, ERROR, and FATAL
-    ALL : Shows messages classified as TRACE,DEBUG, INFO, WARNING, ERROR, and FATAL 
-    OFF : No log messages display
+    It is topmost level layer of Log4j 1.x. It is used to contain logging information to write some places that we want.
 
+- Appender Object
+
+    It is a lower-level layer of Log4j 1.x. It delivers the ```Appender``` objects which is responsible for publishing the logging information to the several desired destinations such as a plain file on a hard disk, a database (i.e. Oracle, MySQL, etc.), and a log management system (LMS), a console, UNIX filesystem, etc.
+
+- Layout Object
+
+    This layer is used to formatting all our logging information what we want.
+
+- Level Object
+
+    - ```FATAL```: shows messages at a FATAL level only.
+
+    - ```ERROR```: Shows messages classified as ERROR and FATAL.
+
+    - ```WARNING```: Shows messages classified as WARNING, ERROR, and FATAL.
+    
+    - ```INFO```: Shows messages classified as INFO, WARNING, ERROR, and FATAL.
+
+    - ```DEBUG```: Shows messages classified as DEBUG, INFO, WARNING, ERROR, and FATAL.
+
+    - ```TRACE``` : Shows messages classified as TRACE,DEBUG, INFO, WARNING, ERROR, and FATAL.
+
+    - ```ALL``` : Shows messages classified as TRACE,DEBUG, INFO, WARNING, ERROR, and FATAL.
+
+    - ```OFF``` : No log messages display.
+
+    In the log4j framework, the following is order of the levels.
+    
+    ALL < DEBUG < INFO < WARN < ERROR < FATAL < OFF
+
+- Log Manager
+
+    LogManager is responsible for managing all information in ```log4j.properties``` by reading it at the first time.
 
 <br>
 
 ## Some packages that need for Log4j 1.x
+Below is some packages of Log4j 1.x that we need to install. All of them is put into ```pom.xml``` file in Maven project.
 
-
-
-```
+```xml
 <dependency>
     <groupId>log4j</groupId>
     <artifactId>log4j</artifactId>
@@ -52,7 +82,6 @@ tags: [java]
     <artifactId>apache-log4j-extras</artifactId>
     <version>1.2.17</version>
 </dependency>
-
 ```
 
 <br>
@@ -120,18 +149,14 @@ public class App
         }
     }
 }
-
 ```
-
 
 <br>
 
 
 ## Wrapping up
-
-
-
-
+- Understanding configurations of Log4j 1.x such as all parts of Log4j, functionality of each part, ...
+- Configure xml or properties file easily.
 
 <br>
 

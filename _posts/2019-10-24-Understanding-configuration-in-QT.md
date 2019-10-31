@@ -193,14 +193,12 @@ CONFIG += c++11
 - QObject: Cannot create children for a parent that is in a different thread
 
 
-
-
 <br>
 
 ## Wrapping up
+- Understanding about >PRO file in Qt.
 
-
-
+<br>
 
 Refer:
 
