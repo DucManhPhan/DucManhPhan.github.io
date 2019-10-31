@@ -24,14 +24,34 @@ tags: [creational pattern, design pattern, clean code]
 <br>
 
 ## Given Problem 
+Assuming that we have to create Employee class that has many constructors with different arguments such as:
 
+```java
+public Employee(String name) {
+    // nothing to do
+}
 
+public Employee(String name, int age) {
+    // nothing to do
+}
+
+public Employee(String name, String birthday, String position) {
+    // nothing to do
+}
+
+// ...
+```
+
+With the above segment code, we have to define multiple constructors that we do not want because it is boilerplate, tedious.
 
 <br>
 
 ## Solution of Builder Pattern
+The main implementations of Builder pattern is to use chainning concepts in functional programming. 
 
+It makes our code easily maintainable, do not repair all our constructor code, when we add an extra field in our class.
 
+![](../img/)
 
 <br>
 
@@ -84,8 +104,6 @@ About source code, we can go to this [link](https://github.com/DucManhPhan/Desig
     | - handles complex constructors | - implemented around a clone             |
     | - no interface required        | - avoid calling complex constructors     |
     | - can be a separate class      | - difficult to implement in legacy code  |
-
-
 
 <br>
 
@@ -293,15 +311,20 @@ Assuming that we have two class Shape and Rectangle, Rectangle is a child class 
 
 ## Optimize with Builder pattern
 
+In order reduce the number of variables in Builder pattern, we can only use variables in Builder class, not define these variables in our Subject class. It means we only need to turn Builder object into our field.
+
+When we want to get which field, we can call get/set properties to do them.
+
+<br>
+
+## The difference between Builder pattern and Template Method pattern
 
 
 
 <br>
 
 ## Wrapping up
-
-
-
+- Dynamically creating object with different arguments. It makes our code easy scalable, maintable.
 
 
 <br>
@@ -333,3 +356,11 @@ Refer:
 [https://www.artima.com/weblogs/viewpost.jsp?thread=133275](https://www.artima.com/weblogs/viewpost.jsp?thread=133275)
 
 [http://egalluzzo.blogspot.com/2010/06/turning-functional-code-into-great-code_27.html](http://egalluzzo.blogspot.com/2010/06/turning-functional-code-into-great-code_27.html)
+
+[https://www.programcreek.com/2013/02/java-design-pattern-builder/](https://www.programcreek.com/2013/02/java-design-pattern-builder/)
+
+[http://markchensblog.blogspot.com/2012/07/builder-pattern-and-template-method.html](http://markchensblog.blogspot.com/2012/07/builder-pattern-and-template-method.html)
+
+[https://softwareengineering.stackexchange.com/questions/345688/what-are-the-advantages-of-builder-pattern-of-gof/345704#345704](https://softwareengineering.stackexchange.com/questions/345688/what-are-the-advantages-of-builder-pattern-of-gof/345704#345704)
+
+[http://benhuang.blogspot.com/2008/12/design-patterns-by-example-strategy-vs.html](http://benhuang.blogspot.com/2008/12/design-patterns-by-example-strategy-vs.html)
