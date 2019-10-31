@@ -5,9 +5,9 @@ bigimg: /img/path.jpg
 tags: [creational pattern, design pattern, clean code]
 ---
 
+In this article, we will introduce about Builder pattern. It's very helpful when we want to create complex objects in our program. 
 
-
-
+Let's get started.
 
 <br>
 
@@ -18,8 +18,10 @@ tags: [creational pattern, design pattern, clean code]
 - [Benefits & Drawback](#benefits-&-drawback)
 - [Code C++ /Java / Javascript](#code-c++-java-javascript)
 - [Application & Examples](#application-&-examples)
+- [Relations with other patterns](#relations-with-other-patterns)
+- [Subclasses with Builder pattern](#subclasses-with-builder-pattern)
+- [Optimize with Builder pattern](#optimize-with-builder-pattern)
 - [Wrapping up](#wrapping-up)
-
 
 <br>
 
@@ -57,14 +59,19 @@ It makes our code easily maintainable, do not repair all our constructor code, w
 
 ## When to use
 - When we have to define multiple constructor with different arguments dynamically.
-- When we create a complex object, so we need to separate large steps into smaller steps
+- When we create a complex object, so we need to separate large steps into smaller steps.
 
 <br>
 
 ## Benefits & Drawback
 1. Benefits
+- The parameters to the constructor are reduced, and are provided in highly readable method calls.
 
+- Builder design pattern also help in minimizing the number of parameters in constructor and thus there is no need to pass  in null of optional parameters to the constructor.
 
+- Object is always instantiated in a complete state.
+
+- Immutable objects can be build without much complex logic in object building process.
 
 2. Drawbacks
 - Objects with the Builder pattern is typically designed to immutable.
@@ -74,6 +81,10 @@ It makes our code easily maintainable, do not repair all our constructor code, w
 - Designed first because unlike Protorype pattern, it is not something that is usually refactored in after the fact.
 
 - It does add a little bit more complexity to our implementing class over what could've been done with just a constructor, but without some of the nice features of the builder patterns.
+
+- The number of lines of code increase at least to double in builder pattern, but the effort pays off in terms of design flexibility and much more readable code.
+
+- Require creating a separate ```ConcreteBuilder``` for each different type of ```Product```.
 
 <br>
 
@@ -89,7 +100,7 @@ About source code, we can go to this [link](https://github.com/DucManhPhan/Desig
 ## Application & Examples
 - StringBuilder in Java
 
-    The good thing about it is it is really performant, and it gives us a nicer way to build strings rather than using plus sign or the concat operator inside the string object.
+    The good thing about it is that it is really performant, and it gives us a nicer way to build strings rather than using plus sign or the concat operator inside the string object.
 
     It is also a lot more performant than the StringBuffer object. The StringBuffer object does some locking much like the old vector object did compared to an array list, and this will result in faster performance for our application.
 
@@ -104,6 +115,8 @@ About source code, we can go to this [link](https://github.com/DucManhPhan/Desig
     | - handles complex constructors | - implemented around a clone             |
     | - no interface required        | - avoid calling complex constructors     |
     | - can be a separate class      | - difficult to implement in legacy code  |
+
+- The difference between Builder pattern and Template Method pattern
 
 <br>
 
@@ -314,12 +327,6 @@ Assuming that we have two class Shape and Rectangle, Rectangle is a child class 
 In order reduce the number of variables in Builder pattern, we can only use variables in Builder class, not define these variables in our Subject class. It means we only need to turn Builder object into our field.
 
 When we want to get which field, we can call get/set properties to do them.
-
-<br>
-
-## The difference between Builder pattern and Template Method pattern
-
-
 
 <br>
 
