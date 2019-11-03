@@ -5,15 +5,21 @@ bigimg: /img/image-header/road-to-solution.jpeg
 tags: [Ubuntu, Linux]
 ---
 
+In this article, we will introduce some basic commands that we need to know when programming with bash script. Practice fluently all this commands makes us to be possible to write scripting in a large project.
 
-
+Let's get started.
 
 <br>
 
 ## Table of contents
 - [Open command line interface](#open-command-line-interface)
 - [Understanding about user's level in Linux](#understanding-about-user's-level-in-linux)
-
+- [Running bash file](#running-bash-file)
+- [Comment something](#comment-something)
+- [Commands with File system](#commands-with-file-system)
+- [Redirecting output](#redirecting-output)
+- [Some useful command-line tricks](#some-useful-command-line-tricks)
+- [Wrapping up](#wrapping-up)
 
 
 <br>
@@ -53,18 +59,96 @@ tags: [Ubuntu, Linux]
 
 <br>
 
-## 
+## Running bash file
+- Open Terminal 
 
+    ```js
+    Ctrl + Alt + T
+    ```
 
+- In Terminal, use nano editor to create the file and file's name.
 
+    ```js
+    nano fist.sh
+    ```
 
+    In bash fist.sh, we type our commands such as:
+
+    ```js
+    #!/bin/bash
+    echo "Hello, world!"
+    ```
+
+- Run ```first.sh``` bash file
+
+    - First way, using bash command
+
+        ```js
+        bash fist.sh
+        ```
+
+    - Second way, setting execute permission to bash file and run this file.
+
+        ```js
+        chmod a+x firsh.sh
+        ./first.sh
+        ```
 
 <br>
 
-## 
+## Comment something
+
+- Single comment
+
+    ```bash
+    #!/bin/bash
+
+    # Use "#" symbol to create single line comment.
+    echo "single line comment"
+    ```
+
+- Multi-line comment
+
+    ```bash
+    #!/bin/bash
+    :'
+    Using multi-line comment in this file
+    testfile.sh
+    '
+    echo 'hello, world'
+    ```
+
+<br>
+
+## Commands with File system
+- List all files in directory
+
+    ```bash
+    ls
+
+    # or
+
+    dir
+    ```
 
 
+- Delete file
 
+    Use ```rm``` command to remove a file with specific path.
+
+    ```bash
+    rm [-f|i|I|q|R|r|v] file
+    ```
+
+    | Options |                   Description                |
+    | ------- | ---------------------------------------------|
+    | ```-f```| deletes read-only files immediately without any confirmation. |
+    | ```-i```| prompts for confirmation before deleting every files before entering a sub-directory if used with ```-R``` or ```-r```. |
+    | ```-q```| suppresses all the warning messages, however error messages are still displayed. |
+    | ```-R```| delete recursively files and folders in parent folder. |
+    | ```-r```| as same as ```-R```. |
+    | ```-v```| display the file names on the output. |
+    | ```-I```| prompts everytime when an attempt is made to delete for than 3 files at a time or while removing recursively. |
 
 
 <br>
@@ -192,10 +276,13 @@ tags: [Ubuntu, Linux]
 <br>
 
 ## Wrapping up
-
-
-
+- Normally, we should use confidently some basic commands such as file system, ...
+- Remember to use some command-line tricks efficiently.
 
 <br>
 
 Refer:
+
+[https://help.ubuntu.com/lts/serverguide/backup-shellscripts.html](https://help.ubuntu.com/lts/serverguide/backup-shellscripts.html)
+
+[https://linuxhint.com/100_essential_linux_commands/](https://linuxhint.com/100_essential_linux_commands/)
