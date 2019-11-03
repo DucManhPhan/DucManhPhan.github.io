@@ -121,6 +121,12 @@ Let's get started.
 <br>
 
 ## Commands with File system
+- Create folder
+
+    ```bash
+    mkdir folder_path_name
+    ```
+
 - List all files in directory
 
     ```bash
@@ -150,6 +156,179 @@ Let's get started.
     | ```-v```| display the file names on the output. |
     | ```-I```| prompts everytime when an attempt is made to delete for than 3 files at a time or while removing recursively. |
 
+- Move files/folder
+
+
+- Copy files/folder
+
+- Rename file
+
+    If we have a file with ```mistake-test.txt```, we want to rename this file to ```test.txt```.
+
+    ```bash
+    mv mistake-text.txt test.txt
+    ```
+
+<br>
+
+## Packages command
+- List all installed packages
+
+    ```bash
+    sudo apt list --installed
+
+    # or
+    dpkg --get-selections > list.txt
+
+    # list a specific installed package
+    dpkg --get-selections | grep postgres
+    ```
+- Set PATH for JDK
+
+    - First, we can install our latest jdk.
+
+        ```bash
+        sudo apt install default-jdk
+        sudo apt install default-jre
+        ```
+
+    - Then, we need to find our jdk path.
+
+        ```bash
+        # update databse of ubuntu
+        sudo updatedb
+
+        # determine whether jdk is installed
+        locate openjdk
+        ```
+
+        So, we have:
+
+        ![](../img/Linux/Ubuntu/jdk-path.png)
+
+        If most of the return outputs are "/usr/lib/jvm/java-11-openjdk-amd64", we would use this path to set the Java_Home path.
+
+        ![](../img/Linux/Ubuntu/selected-jdk-path.png)
+
+    - Update ```.bashrc``` file
+
+        Add the following commands to ```.bashrc``` file:
+
+        ```
+        export JAVA_HOME="usr/lib/jvm/java-11-openjdk-amd64"
+        export PATH=$PATH:$JAVA_HOME/bin
+        ```
+
+        Now, apply all the changes into current running system.
+
+        ```bash
+        source ~/.bashrc
+        ```
+
+
+## Service commands
+- List Ubuntu service with systemctl
+
+    Services are managed by ```systemd``` since Ubuntu 15. In order to list all services, use ```systemctl``` command.
+
+    ```bash
+    systemctl list-units -a
+
+    # list inactive unit
+    systemctl list-units -a --state=inactive
+    ```
+
+- List Ubuntu services with service command
+
+    ```bash
+    service --status-all
+
+    # or
+    service --status-all | grep '\[ + \]'
+
+    # or
+    service --status-all | grep '\[ - \]'
+    ```
+
+- Remove services that have failed status
+
+    ```bash
+    systemctl reset-failed
+
+    # or specific units
+    systemctl reset-failed kafka.service zookeeper.service
+
+    # other ways
+    systemctl stop [service_name]
+    systemctl disable [service_name]
+    rm /etc/systemd/system/[service_name]
+    rm /etc/systemd/system/[service_name] symlinks that might be related
+    systemctl daemon-reload
+    ```
+
+- Start/Stop service
+
+    ```bash
+    # start
+    sudo systemctl start application.service
+
+    # stop
+    sudo systemctl stop application.service
+    ```
+
+- Restarting/Reloading service
+
+    ```bash
+    sudo systemctl restart application.service
+
+    sudo systemctl reload application.service
+
+    sudo systemctl reload-or-restart application.service
+    ```
+
+- Starting automatically service
+
+    ```bash
+    sudo systemctl enable application.service
+    ```
+
+    This will create a ```symbolic link``` from the system's copy of the service file (usually in ```/lib/systemd/system``` or ```/etc/systemd/system```) into the location on disk where ```systemd``` looks for autostart files (usually ```/etc/systemd/system/some_target.target.wants```)
+
+    To disable the service from starting automatically, you can type:
+
+    ```bash
+    sudo systemctl disable application.service
+    ```
+
+    This will remove the symbolic link that indicated that the service should be started automatically.
+
+<br>
+
+## Network commands
+- Check whether process is running on specific port
+
+    ```bash
+    # install net-tools package
+    sudo apt-get install net-tools
+
+    sudo netstat --tulpen | grep 2181
+    ```
+
+
+<br>
+
+## Computer commands
+- Restart Ubuntu
+
+    ```bash
+    sudo reboot
+    ```
+
+- Shutdown Ubuntu
+
+    ```bash
+    sudo poweroff
+    ```
 
 <br>
 
@@ -286,3 +465,8 @@ Refer:
 [https://help.ubuntu.com/lts/serverguide/backup-shellscripts.html](https://help.ubuntu.com/lts/serverguide/backup-shellscripts.html)
 
 [https://linuxhint.com/100_essential_linux_commands/](https://linuxhint.com/100_essential_linux_commands/)
+
+[https://www.digitalocean.com/community/tutorials/how-to-use-systemctl-to-manage-systemd-services-and-units](https://www.digitalocean.com/community/tutorials/how-to-use-systemctl-to-manage-systemd-services-and-units)
+
+[https://vitux.com/how-to-shut-down-ubuntu/](https://vitux.com/how-to-shut-down-ubuntu/)
+
