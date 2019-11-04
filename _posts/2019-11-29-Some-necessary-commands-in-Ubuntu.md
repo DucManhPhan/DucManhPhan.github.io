@@ -192,6 +192,8 @@ Let's get started.
         sudo apt install default-jre
         ```
 
+        If we encounter the problem such as ```E: Could not get lock /var/lib/dpkg/lock-frontend - open (11: Resource temporarily unavailable)```, we can solve the problem with [https://askubuntu.com/questions/1109982/e-could-not-get-lock-var-lib-dpkg-lock-frontend-open-11-resource-temporari](https://askubuntu.com/questions/1109982/e-could-not-get-lock-var-lib-dpkg-lock-frontend-open-11-resource-temporari).
+
     - Then, we need to find our jdk path.
 
         ```bash
