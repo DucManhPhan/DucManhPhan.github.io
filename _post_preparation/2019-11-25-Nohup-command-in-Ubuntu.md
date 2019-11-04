@@ -26,7 +26,14 @@ tags: [Ubuntu, Linux]
 
 <br>
 
-## 
+## Install nohup command
+
+    ```bash
+    # check whether nohup is installed or not
+    nohup --version
+
+    
+    ```
 
 
 
