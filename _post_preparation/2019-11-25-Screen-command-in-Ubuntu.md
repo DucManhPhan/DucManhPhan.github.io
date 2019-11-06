@@ -27,10 +27,26 @@ tags: [Ubuntu, Linux]
 
 <br>
 
-## 
+## Install screen package
+- In Centos
 
+    ```bash
+    # check whether screen command is installed
+    which screen
 
+    # install screen
+    yum install screen
+    ```
 
+- In Ubuntu
+
+    ```bash
+    # check whether screen command is installed
+    which screen
+
+    # install screen
+    sudo apt-get install screen
+    ```
 
 <br>
 
