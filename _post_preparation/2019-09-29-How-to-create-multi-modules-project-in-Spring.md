@@ -38,9 +38,10 @@ tags: [Java, Spring]
     - Use command line prompt with maven.
 
 
+
     - Use GUI with support of Intellij IDEA or Eclipse.
 
-
+        
 
 3. Deploy multi-module project
     There are some multiple ways to build multi-modules project into one fat jar file.
@@ -50,7 +51,7 @@ tags: [Java, Spring]
         <properties>
             <version.root>0.1</version.root>
             <start-class>com.manhpd.vcs-lol.Application</start-class>
-            <application-name>vcs-lol<application-name>
+            <application-name>vcs-lol</application-name>
         </properties>
 
         <build>
@@ -84,6 +85,34 @@ tags: [Java, Spring]
         We can refer this [link](https://stackoverflow.com/questions/50976412/create-jar-file-as-aggregation-in-maven-multi-module-package).
 
     - Use ```spring-boot-maven-plugin```
+
+        ```xml
+        <properties>
+            <version.root>0.1</version.root>
+            <class.main>com.manhpd.vcs-lol.Application</class.main>
+            <name.application>vcs-lol</name.application>
+        </properties>
+
+        <build>
+            <finalName>${vcs-lol}</finalName>
+            <plugins>
+                <plugin>
+                    <groupId>org.springframework.boot</groupId>
+                    <artifactId>spring-boot-maven-plugin</artifactId>
+                    <executions>
+                        <execution>
+                            <goals>
+                                <goal>repackage</goal>
+                            </goals>
+                            <configuration>
+                                <mainClass>${class.main}</mainClass>
+                            </configuration>
+                        </execution>
+                    </executions>
+                </plugin>
+            </plugins>
+        </build>
+        ```
 
 <br>
 
@@ -133,6 +162,8 @@ Thanks for your reading.
 <br>
 
 Refer:
+
+[https://www.baeldung.com/maven-multi-module](https://www.baeldung.com/maven-multi-module)
 
 [https://books.sonatype.com/mvnex-book/reference/multimodule-sect-running-web.html](https://books.sonatype.com/mvnex-book/reference/multimodule-sect-running-web.html)
 

@@ -284,6 +284,23 @@ AppenderRef: This element defines a reference to an element from the Appenders s
 
 <br>
 
+## Understanding some symbol
+
+- ```%d{HH:mm:ss.SSS}``` – Used to output the date of the logging event.
+
+- ```[%thread]```– outputs the name of the thread that generated the logging event
+
+- ```%-5level``` – means the level of the logging event should be left justified to a width of five characters
+
+- ```%logger{36}```  – outputs the name of the logger at the origin of the logging event. It takes an integer as parameter. This specifies the length the converter’s algorithm  will shorten the logger name to.
+
+- ```%msg``` – outputs the application-supplied message associated with the logging event.
+
+- ```%n``` – outputs the platform dependent line separator character or characters.
+
+- ```%relative``` – outputs the number of milliseconds elapsed since the start of the application until the creation of the logging event
+
+<br>
 
 ## Wrapping up
 - Log4j always takes the default path that is the path of project.
