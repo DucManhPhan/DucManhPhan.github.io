@@ -6,13 +6,21 @@ tags: [Coding patterns]
 ---
 
 
-## Table of contents
-
-
 
 <br>
 
-## Given the problem 
+## Table of contents
+- [Given the problem](#given-the-problem)
+- [Solution](#solution)
+- [Some types of Sliding window technique](#some-types-of-sliding-window-technique)
+- [When to use](#when-to-use)
+- [Wrapping up](#wrapping-up)
+
+<br>
+
+## Given the problem
+
+
 
 
 
@@ -21,9 +29,17 @@ tags: [Coding patterns]
 ## Solution
 
 
+
+
+
+
 <br>
 
 ## Some types of Sliding window technique
+
+
+
+
 
 
 <br>
@@ -32,9 +48,15 @@ tags: [Coding patterns]
 
 
 
+
+
+
 <br>
 
 ## Wrapping up
+
+
+
 
 
 <br>
