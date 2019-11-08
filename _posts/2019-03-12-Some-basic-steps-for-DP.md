@@ -35,7 +35,7 @@ For example, Binary Search doesn’t have common subproblems. If we take an exam
 
 ![](../img/Algorithm/dynamic-programming/Fibonacchi-Recursion.png)
 
-We can see that the function fib(2) is being called 2 times. If we would have stored the value of fib(2), then instead of computing it again, we could have reused the old stored value.
+We can see that the function F(2) is being called 2 times. If we would have stored the value of F(2), then instead of computing it again, we could have reused the old stored value.
 
 There are following two different ways to store the values so that these values can be reused:
 - Memoization (Top Down)
