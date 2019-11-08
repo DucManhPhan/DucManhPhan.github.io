@@ -87,7 +87,7 @@ In this section, we will refer to the Shape class, and some its inherited classe
 
 ![](../img/design-pattern/factory-method/factory_pattern_uml_diagram.jpg)
 
-About sample code, we can refer to [github](https://github.com/DucManhPhan/Design-Pattern/tree/master/Creational-Pattern/factory-method)
+About sample code, we can refer to [github](https://github.com/DucManhPhan/Design-Pattern/tree/master/Creational-Pattern/factory-method).
 
 <br>
 
