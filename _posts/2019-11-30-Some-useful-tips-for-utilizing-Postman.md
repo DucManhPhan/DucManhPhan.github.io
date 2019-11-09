@@ -76,7 +76,7 @@ Let's get started.
 
     First, we should select which environment to apply for our collection or requests.
 
-    Second, use symbol ```{{env_variable_name}}``` to get environment's variables. In the above image, we use ```{{local-address}}```
+    Second, use symbol {{env_variable_name}} to get environment's variables. In the above image, we use {{local-address}}.
 
     Also, we can apply environment's variables for ```headers```, ```request body``` of Postman.
 
