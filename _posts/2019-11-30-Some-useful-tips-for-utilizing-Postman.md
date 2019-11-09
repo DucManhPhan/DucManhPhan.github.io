@@ -51,7 +51,7 @@ Let's get started.
 ## Define variables in Environment
 1. Create our own environment.
 
-    ![](../img/Postman/71-create-environment.png)
+    ![](../img/Postman/7-create-environment.png)
 
 2. Then, we have ```Manage Environments``` dialog.
 
