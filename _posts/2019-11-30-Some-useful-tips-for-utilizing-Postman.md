@@ -76,7 +76,7 @@ Let's get started.
 
     First, we should select which environment to apply for our collection or requests.
 
-    Second, use symbol {{env_variable_name}} to get environment's variables. In the above image, we use {{local-address}}.
+    Second, use symbol ```\{\{env_variable_name\}\}``` to get environment's variables. In the above image, we use ```\{\{local-address\}\}```.
 
     Also, we can apply environment's variables for ```headers```, ```request body``` of Postman.
 
@@ -111,9 +111,7 @@ In our login request, we want to use ```post``` method to push json data that co
 - In ```Body``` tab of request, we should type:
 
     ```javascript
-    
-    {{requestBody}}
-    
+    \{\{requestBody\}\}
     ```
 
 - In ```Pre-request Scripts``` tab, define JSON object to be sent in the folder (or collection).
