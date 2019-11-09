@@ -11,8 +11,10 @@ tags: [Java]
 <br>
 
 ## Table of contents
-
-
+- [Communications between client and server in Spring MVC](#communication-between-client-and-server-in-spring-mvc)
+- [Communications between client and server in Spring Webflux](#communication-between-client-and-server-in-spring-webflux)
+- [Some problems when using WebClient](#some-problems-when-using-webclient)
+- [Wrapping up](#wrapping-up)
 
 <br>
 
@@ -20,9 +22,8 @@ tags: [Java]
 In Spring MVC, we have two ways to do it:
 - Using ```RestTemplate```.
 
+
 - Using [Apache Http Client](https://hc.apache.org/httpclient-3.x/).
-
-
 
 
 <br>

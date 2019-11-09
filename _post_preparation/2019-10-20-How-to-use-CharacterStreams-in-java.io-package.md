@@ -12,13 +12,14 @@ tags: [Java]
 <br>
 
 ## Table of contents
-
-
-
-
-
-
-
+- [Background about character stream](#background-about-character-stream)
+- [Benefits of Character streams](#benefits-of-character-streams)
+- [InputStreamReader](#InputStreamReader)
+- [OutputStreamWriter](#OutputStreamWriter)
+- [BufferedReader](#BufferedReader)
+- [BufferedWriter](#BufferedWriter)
+- [FileReader](#FileReader)
+- [FileWriter](#FileWriter)
 
 <br>
 
@@ -87,7 +88,6 @@ For example:
 OutputStreamWriter osw = new OutputStreamWriter(new FileOutputStream("data.txt", "Cp1253"));
 ... 
 ```
-
 
 <br>
 
