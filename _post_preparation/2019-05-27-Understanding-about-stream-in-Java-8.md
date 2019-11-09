@@ -102,6 +102,9 @@ Stream pipeline is the concept of chaining operations together. Stream pipeline 
             // return whether any elements of stream matched the provided predicate
             boolean anyMatch(Predicate<? super T> predicate);
 
+            // Returns whether no elements of this stream match the provided predicate.
+            boolean	noneMatch(Predicate<? super T> predicate);
+
             // Performs a mutable reduction operation on the elements of this stream using a Collector.
             <R, A> R collect(Collector<? super T,A,R> collector);
 
@@ -125,6 +128,18 @@ Stream pipeline is the concept of chaining operations together. Stream pipeline 
 
             // Performs a reduction on the elements of this stream, using an associative accumulation function, and returns an Optional describing the reduced value, if any.   
             Optional<T>	reduce(BinaryOperator<T> accumulator);
+
+            // Performs a reduction on the elements of this stream, using the provided identity value and an associative accumulation function, and returns the reduced value.
+            T reduce(T identity, BinaryOperator<T> accumulator)
+
+            // Performs a reduction on the elements of this stream, using the provided identity, accumulation and combining functions.
+            <U> U reduce(U identity, BiFunction<U,? super T,U> accumulator, BinaryOperator<U> combiner)
+
+            // Returns the maximum element of this stream according to the provided Comparator.
+            Optional<T>	max(Comparator<? super T> comparator);
+
+            // Returns the minimum element of this stream according to the provided Comparator.
+            Optional<T>	min(Comparator<? super T> comparator);
 
             // Returns an array containing the elements of this stream.
             Object[] toArray();
@@ -153,7 +168,6 @@ Stream pipeline is the concept of chaining operations together. Stream pipeline 
 
         // Returns a sequential Stream containing a single element.
         static <T> Stream<T> of(T t);
-        
         ```
 
 <br>
