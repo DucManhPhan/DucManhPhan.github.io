@@ -111,7 +111,9 @@ In our login request, we want to use ```post``` method to push json data that co
 - In ```Body``` tab of request, we should type:
 
     ```javascript
+    
     {{requestBody}}
+    
     ```
 
 - In ```Pre-request Scripts``` tab, define JSON object to be sent in the folder (or collection).
