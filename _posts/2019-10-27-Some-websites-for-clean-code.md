@@ -29,3 +29,33 @@ In order to write readable code, easily maintainable code, we will read about so
     A problem happens when we split our conditionals is that we have to share data context between subclass handlers.
 
 - [https://www.codingdojo.com/blog/clean-code-techniques](https://www.codingdojo.com/blog/clean-code-techniques)
+
+    - Keep it simple.
+
+    - Understand your code.
+
+    - Comments Are Your New Best Friends.
+
+    - Don’t Repeat Yourself (DRY).
+
+    - Indent Your Code.
+
+    - Naming Convention.
+
+    - Explore.
+
+    - Use Your Brain.
+
+    - Test Runs.
+
+    - Practice Your Art.
+
+- [https://www.baeldung.com/java-replace-if-statements](https://www.baeldung.com/java-replace-if-statements)
+
+    - Factory Class
+
+    - Use of Enums
+
+    - Command Pattern
+
+    - Rule Engine
