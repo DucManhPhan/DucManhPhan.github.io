@@ -294,7 +294,7 @@ Stream pipeline is the concept of chaining operations together. Stream pipeline 
         List<List<String>> lst;
         ```
 
-        The return type of ```flatMap()``` method is ```Stream<R>```
+        The return type of ```flatMap()``` method is ```Stream<R>```.
 
 2. 
 
