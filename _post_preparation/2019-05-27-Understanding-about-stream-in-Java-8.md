@@ -16,7 +16,6 @@ tags: [Java]
 - [Stream pipeline](#stream-pipeline)
 - [Some ways to create Stream](#some-ways-to-create-stream)
 - [The differences between Streams and Collection](#the-difference-between-streams-and-collection)
-- [Compared between normal sort() and sorted() methods of stream](#compared-between-normal-sort()-and-sorted()-methods-of-stream)
 - [The difference between map() and flatMap() methods](#the-difference-between-map()-and-flatMap()-methods)
 - [Wrapping up](#wrapping-up)
 
@@ -261,17 +260,8 @@ Stream pipeline is the concept of chaining operations together. Stream pipeline 
 
 <br>
 
-## Compared between normal sort() and sorted() methods of stream
-1. ```sort()``` method
-
-
-2. ```sorted()``` method
-
-
-<br>
-
 ## The difference between map() and flatMap() methods
-1. Declaration of ```map()``` and ```flatMap()``` methods
+1. Signature of ```map()``` and ```flatMap()``` methods
 
     ```java
     <R> Stream<R> map(Function<? super T,? extends R> mapper);
@@ -279,28 +269,30 @@ Stream pipeline is the concept of chaining operations together. Stream pipeline 
     <R> Stream<R> flatMap(Function<? super T,? extends Stream<? extends R>> mapper)
     ```
 
-    So, we can see that:
+2. Intention of each method
+    From the signature of ```map()``` and ```flatMap()``` method:
     - In ```map()``` method, it receives a functional interface generic ```Function``` with two types ```T``` and ```R```. Then it will map each type of T to R type.
 
-        Therefore, the return type of ```map()``` method is Stream<R>.
+        Therefore, the return type of ```map()``` method is ```Stream<R>```.
+
+        For example:
+
+        ```java
+
+        ```
 
     - In ```flatMap()``` method, it receives a functional interface generic ```Function``` with two types ```T``` and ```Stream<? extends R>```. It means that we will map each type of ```T``` to ```Stream<? extends R>```. 
     
         Therefore, T is a collection that can be transform to stream.
+
+
+        The return type of ```flatMap()``` method is ```Stream<R>```.
 
         For example:
 
         ```java
         List<List<String>> lst;
         ```
-
-        The return type of ```flatMap()``` method is ```Stream<R>```.
-
-2. 
-
-
-
-
 <br>
 
 ## Wrapping up
