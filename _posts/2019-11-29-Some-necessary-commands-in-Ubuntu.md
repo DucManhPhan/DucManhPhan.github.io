@@ -310,10 +310,13 @@ Let's get started.
 - Check whether process is running on specific port
 
     ```bash
-    # install net-tools package
+    # 1st - install net-tools package
     sudo apt-get install net-tools
 
     sudo netstat --tulpen | grep 2181
+
+    # 2nd - if we do not have permission, we can check from other computer
+    telnet target_ip_addr port
     ```
 
 
