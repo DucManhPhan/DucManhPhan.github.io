@@ -14,8 +14,6 @@ tags: [Kafka]
 - [The definition of Kafka and Zookeeper](#the-definition-of-kafka-and-zookeeper)
 - [Structure of Kafka](#structure-of-kafka)
 - [Structure of Zookeeper](#structure-of-zookeeper)
-- [Introduction to systemd and systemctl in Ubuntu](#introduction-to-systemd-and-systemctl-in-ubuntu)
-- [Setup Kafka and Zookeeper as service in Ubuntu](#setup-kafka-and-zookeeper-as-service-in-ubuntu)
 - [Wrapping up](#wrapping-up)
 
 <br>
@@ -39,21 +37,6 @@ tags: [Kafka]
 <br>
 
 ## Structure of Zookeeper
-
-
-
-
-<br>
-
-## Introduction to systemd and systemctl in Ubuntu
-
-
-
-
-<br>
-
-## Setup Kafka and Zookeeper as service in Ubuntu
-
 
 
 

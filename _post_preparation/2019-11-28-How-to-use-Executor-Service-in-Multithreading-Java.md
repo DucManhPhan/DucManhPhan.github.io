@@ -12,7 +12,7 @@ tags: [java, Multithreading]
 ## Table of contents
 - [Some ways to create ExecutorService](#some-ways-to-create-executorservice)
 - [Use shutdown() or shutdownNow() methods to terminate thread](#use-shutdown()-or-shutdownNow()-methods-to-terminate-thread)
-- 
+- [Use back-off strategy for running thread forever](#use-back-off-strategy-for-running-thread-forever)
 - [Wrapping up](#wrapping-up)
 
 <br>
@@ -81,7 +81,7 @@ tags: [java, Multithreading]
 
 <br>
 
-## 
+## Use back-off strategy for running thread forever
 
 
 
