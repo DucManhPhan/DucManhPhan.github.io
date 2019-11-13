@@ -18,6 +18,8 @@
 
     Synonyms: detail
 
+    Ex: Japanese always make elaborate things carefully.
+
 - dwell /dwel/ (vt):
 
     - dwell + in/at/near/on: ở, ngụ.
