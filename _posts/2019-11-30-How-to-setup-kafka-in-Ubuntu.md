@@ -301,19 +301,9 @@ tags: [Kafka]
 
 <br>
 
-## Operations for consumer
-
-
-
-
-
-<br>
-
 ## Wrapping up
-
-
-
-
+- Understanding about how many steps to run kafka.
+- Take care of commands about consumer groups, topics, producer.
 
 <br>
 

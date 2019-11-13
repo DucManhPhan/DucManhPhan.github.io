@@ -35,6 +35,36 @@ tags: [Kafka]
 
 <br>
 
+## The meaning of parameters in consumer 
+
+
+
+
+
+<br>
+
+## Rebalancing in kafka
+
+
+
+
+<br>
+
+## Heartbeat thread in Kafka
+
+
+
+
+<br>
+
+## Some problems when running kafka
+1. ```attempt to heartbeat failed since group is rebalancing```
+
+[https://stackoverflow.com/questions/40162370/heartbeat-failed-for-group-because-its-rebalancing](https://stackoverflow.com/questions/40162370/heartbeat-failed-for-group-because-its-rebalancing)
+
+
+<br>
+
 ## Wrapping up
 
 
@@ -51,3 +81,29 @@ Refer:
 [https://kafka.apache.org/quickstart](https://kafka.apache.org/quickstart)
 
 [http://kafka.apache.org/intro](http://kafka.apache.org/intro)
+
+[https://chrzaszcz.dev/2019/05/26/kafka-101/](https://chrzaszcz.dev/2019/05/26/kafka-101/)
+
+<br>
+
+**Hearbeat thread**
+
+[http://javierholguera.com/2018/01/01/timeouts-in-kafka-clients-and-kafka-streams/](http://javierholguera.com/2018/01/01/timeouts-in-kafka-clients-and-kafka-streams/)
+
+[https://stackoverflow.com/questions/39730126/difference-between-session-timeout-ms-and-max-poll-interval-ms-for-kafka-0-10-0/39759329#39759329](https://stackoverflow.com/questions/39730126/difference-between-session-timeout-ms-and-max-poll-interval-ms-for-kafka-0-10-0/39759329#39759329)
+
+[https://devguli.com/heartbeat-thread-in-kafka-consumer/](https://devguli.com/heartbeat-thread-in-kafka-consumer/)
+
+[https://cwiki.apache.org/confluence/display/KAFKA/KIP-62%3A+Allow+consumer+to+send+heartbeats+from+a+background+thread](https://cwiki.apache.org/confluence/display/KAFKA/KIP-62%3A+Allow+consumer+to+send+heartbeats+from+a+background+thread)
+
+[https://chrzaszcz.dev/2019/06/kafka-heartbeat-thread/](https://chrzaszcz.dev/2019/06/kafka-heartbeat-thread/)
+
+[https://stackoverflow.com/questions/40162370/heartbeat-failed-for-group-because-its-rebalancing](https://stackoverflow.com/questions/40162370/heartbeat-failed-for-group-because-its-rebalancing)
+
+<br>
+
+**Rebalancing**
+
+[https://stackoverflow.com/questions/43991845/kafka10-1-heartbeat-interval-ms-session-timeout-ms-and-max-poll-interval-ms](https://stackoverflow.com/questions/43991845/kafka10-1-heartbeat-interval-ms-session-timeout-ms-and-max-poll-interval-ms)
+
+[https://www.slideshare.net/ConfluentInc/everything-you-always-wanted-to-know-about-kafkas-rebalance-protocol-but-were-afraid-to-ask-matthias-j-sax-confluent-kafka-summit-london-2019](https://www.slideshare.net/ConfluentInc/everything-you-always-wanted-to-know-about-kafkas-rebalance-protocol-but-were-afraid-to-ask-matthias-j-sax-confluent-kafka-summit-london-2019)
