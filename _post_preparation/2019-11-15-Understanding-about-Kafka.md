@@ -12,8 +12,7 @@ tags: [Kafka]
 
 ## Table of contents
 - [The definition of Kafka and Zookeeper](#the-definition-of-kafka-and-zookeeper)
-- [Structure of Kafka](#structure-of-kafka)
-- [Structure of Zookeeper](#structure-of-zookeeper)
+- [Structure of Kafka and Zookeeper](#structure-of-kafka-and-zookeeper)
 - [Wrapping up](#wrapping-up)
 
 <br>
@@ -27,16 +26,9 @@ tags: [Kafka]
 
 <br>
 
-## Structure of Kafka
+## Structure of Kafka and Zookeeper
 
 
-
-
-
-
-<br>
-
-## Structure of Zookeeper
 
 
 
@@ -59,14 +51,3 @@ Refer:
 [https://kafka.apache.org/quickstart](https://kafka.apache.org/quickstart)
 
 [http://kafka.apache.org/intro](http://kafka.apache.org/intro)
-
-
-<br>
-
-**Install Kafka for common service in Ubuntu**
-
-[https://www.digitalocean.com/community/tutorials/how-to-use-systemctl-to-manage-systemd-services-and-units](https://www.digitalocean.com/community/tutorials/how-to-use-systemctl-to-manage-systemd-services-and-units)
-
-[https://www.digitalocean.com/community/tutorials/how-to-install-apache-kafka-on-ubuntu-18-04](https://www.digitalocean.com/community/tutorials/how-to-install-apache-kafka-on-ubuntu-18-04)
-
-[https://www.letscloud.io/community/how-install-apache-kafka-ubuntu-18-04](https://www.letscloud.io/community/how-install-apache-kafka-ubuntu-18-04)

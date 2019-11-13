@@ -324,3 +324,11 @@ Refer:
 [https://stackoverflow.com/questions/33537950/how-to-delete-a-topic-in-apache-kafka](https://stackoverflow.com/questions/33537950/how-to-delete-a-topic-in-apache-kafka)
 
 [https://jaceklaskowski.gitbooks.io/apache-kafka/kafka-topic-deletion.html](https://jaceklaskowski.gitbooks.io/apache-kafka/kafka-topic-deletion.html)
+
+**Install Kafka for common service in Ubuntu**
+
+[https://www.digitalocean.com/community/tutorials/how-to-use-systemctl-to-manage-systemd-services-and-units](https://www.digitalocean.com/community/tutorials/how-to-use-systemctl-to-manage-systemd-services-and-units)
+
+[https://www.digitalocean.com/community/tutorials/how-to-install-apache-kafka-on-ubuntu-18-04](https://www.digitalocean.com/community/tutorials/how-to-install-apache-kafka-on-ubuntu-18-04)
+
+[https://www.letscloud.io/community/how-install-apache-kafka-ubuntu-18-04](https://www.letscloud.io/community/how-install-apache-kafka-ubuntu-18-04)
