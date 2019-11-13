@@ -13,16 +13,22 @@ tags: [Kafka]
 ## Table of contents
 - [The definition of Kafka and Zookeeper](#the-definition-of-kafka-and-zookeeper)
 - [Structure of Kafka and Zookeeper](#structure-of-kafka-and-zookeeper)
+- [The meaning of parameters in consumer](#the-meaning-of-parameters-in-consumer)
+- [Coordinator in Kafka](#coordination-in-kafka)
+- [Rebalancing in kafka](#rebalancing-in-kafka)
+- [Heartbeat thread in Kafka](#heartbeat-thread-in-kafka)
+- [Some problems when running kafka](#some-problems-when-using-kafka)
 - [Wrapping up](#wrapping-up)
 
 <br>
 
 ## The definition of Kafka and Zookeeper
+According to [wikipedia.com](https://en.wikipedia.org/wiki/Apache_Kafka), we have:
 
+```
+Apache Kafka is an open-source stream processing software platform developed by Linkedln and donated to the 
 
-
-
-
+```
 
 <br>
 
@@ -39,6 +45,13 @@ tags: [Kafka]
 
 
 
+
+
+<br>
+
+## Coordinator in Kafka
+
+[https://jaceklaskowski.gitbooks.io/apache-kafka/kafka-consumer-internals-ConsumerCoordinator.html](https://jaceklaskowski.gitbooks.io/apache-kafka/kafka-consumer-internals-ConsumerCoordinator.html)
 
 
 <br>
