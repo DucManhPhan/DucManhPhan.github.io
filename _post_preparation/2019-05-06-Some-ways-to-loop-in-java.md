@@ -10,15 +10,36 @@ tags: [Java]
 <br>
 
 ## Table of contents
-- []()
-
+- [For-each loop](#for-each-loop)
+- [Using iterator](#using-iterator)
+- [Utilizing traditional for loop](#utilizing-traditional-for-loop)
+- [Using some methods to loop from Iterable, Stream](#using-some-methods-to-loop-from-iterable,-stream)
 
 
 <br>
 
 ## For-each loop
+1. 
 
 
+
+2. Map data structure
+
+    ```java
+    private static Map<String, Object> propsToMap(Properties properties) {
+        Map<String, Object> map = new HashMap<>(properties.size());
+        for (Map.Entry<Object, Object> entry : properties.entrySet()) {
+            if (entry.getKey() instanceof String) {
+                String k = (String) entry.getKey();
+                map.put(k, properties.get(k));
+            } else {
+                throw new ConfigException(entry.getKey().toString(), entry.getValue(), "Key must be a string.");
+            }
+        }
+
+        return map;
+    }
+    ```
 
 
 <br>
