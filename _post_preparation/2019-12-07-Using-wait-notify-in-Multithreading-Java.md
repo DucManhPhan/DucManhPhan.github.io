@@ -10,9 +10,9 @@ tags: [Multithreading, Java]
 <br>
 
 ## Table of contents
-
-
-
+- []()
+- [What is Object monitor?](#what-is-object-monitor?)
+- [Wrapping up](#wrapping-up)
 
 
 <br>
