@@ -26,7 +26,7 @@ tags: [Multithreading, Java]
 
 <br>
 
-## 
+## What is Object monitor?
 
 
 
