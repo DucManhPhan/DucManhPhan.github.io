@@ -5,8 +5,9 @@ bigimg: /img/image-header/ravashing-beach.jpg
 tags: [Java]
 ---
 
+In this article, we will understanding about what is stream, and how to use stream in Java 8. Usually apply stream in java 8 makes our code understandable, maintainable, ...
 
-
+Let's get started.
 
 <br>
 
