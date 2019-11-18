@@ -1,6 +1,6 @@
 ---
 layout: post
-title: Using wait and notify in Multithreading Java
+title: Using wait, notify in synchronized method/block of Multithreading Java
 bigimg: /img/image-header/factory.jpg
 tags: [Multithreading, Java]
 ---
@@ -13,6 +13,13 @@ tags: [Multithreading, Java]
 - []()
 - [What is Object monitor?](#what-is-object-monitor?)
 - [Wrapping up](#wrapping-up)
+
+
+<br>
+
+## Understanding about synchronized keyword
+
+
 
 
 <br>
@@ -48,7 +55,7 @@ tags: [Multithreading, Java]
     Note:
     - Nothing happends to the current thread that calls notify() method, it continues to run until it's natural end.
 
-        The wait() and notify() methods must be called within a synchronized context. As soon as the synchronized block that contains the notify() call finishes, the lock is then available and the block containing the wait() call in another thread can then continue.
+        The ```wait()``` and ```notify()``` methods must be called within a synchronized context. As soon as the synchronized block that contains the ```notify()``` call finishes, the lock is then available and the block containing the ```wait()``` call in another thread can then continue.
 
         Calling notify simply moves the waiting thread back into the runnable thread pool. That thread can then continue as soon as the lock is available.
 

@@ -70,6 +70,16 @@ Apache Kafka is an open-source stream processing software platform developed by 
 
 <br>
 
+## Thread-safty with consumer
+According to [https://www.oreilly.com/library/view/kafka-the-definitive/9781491936153/ch04.html](https://www.oreilly.com/library/view/kafka-the-definitive/9781491936153/ch04.html), we have:
+
+```
+You can't have multiple consumers that belong to the same group in one thread and you can't have multiple threads safely use the same consumer. One consumer per thread is the rule. To run multiple consumers in the same group in one application, you will need to run each in its own thread. It is useful to wrap the consumer logic in its own object and then use Java's ExecutorService to start multiple threads each with its own consumer. The Confluent blog has a tutorial that shows how to do just that.
+```
+
+
+<br>
+
 ## Some problems when running kafka
 1. ```attempt to heartbeat failed since group is rebalancing```
 
