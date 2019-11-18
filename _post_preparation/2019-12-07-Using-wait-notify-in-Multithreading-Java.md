@@ -17,8 +17,44 @@ tags: [Multithreading, Java]
 
 <br>
 
-## 
+## Understanding wait(), notify() and notifyAll() methods
+1. ```wait()``` method
 
+    The ```wait()``` method is exposed on each Java object. Each java object can act as a condition variable.
+
+    ```java
+
+    ```
+
+    Note:
+    - ```wait()``` method must occur in synchronization.
+    - should occur in loop on the wait condition
+
+        ```java
+        synchronized(lock) {
+            while (!conditional) {
+                lock.wait();
+            }
+        }
+        ```
+
+
+2. ```notify()``` method
+
+    ```java
+
+    ```
+
+    Note:
+    - Nothing happends to the current thread that calls notify() method, it continues to run until it's natural end.
+
+        The wait() and notify() methods must be called within a synchronized context. As soon as the synchronized block that contains the notify() call finishes, the lock is then available and the block containing the wait() call in another thread can then continue.
+
+        Calling notify simply moves the waiting thread back into the runnable thread pool. That thread can then continue as soon as the lock is available.
+
+
+
+3. ```notifyAll()``` method
 
 
 
@@ -50,4 +86,4 @@ tags: [Multithreading, Java]
 
 Refer:
 
-[]()
+[https://javarevisited.blogspot.com/2015/07/how-to-use-wait-notify-and-notifyall-in.html](https://javarevisited.blogspot.com/2015/07/how-to-use-wait-notify-and-notifyall-in.html)
