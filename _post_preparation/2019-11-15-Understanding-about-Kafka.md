@@ -130,3 +130,10 @@ Refer:
 [https://stackoverflow.com/questions/43991845/kafka10-1-heartbeat-interval-ms-session-timeout-ms-and-max-poll-interval-ms](https://stackoverflow.com/questions/43991845/kafka10-1-heartbeat-interval-ms-session-timeout-ms-and-max-poll-interval-ms)
 
 [https://www.slideshare.net/ConfluentInc/everything-you-always-wanted-to-know-about-kafkas-rebalance-protocol-but-were-afraid-to-ask-matthias-j-sax-confluent-kafka-summit-london-2019](https://www.slideshare.net/ConfluentInc/everything-you-always-wanted-to-know-about-kafkas-rebalance-protocol-but-were-afraid-to-ask-matthias-j-sax-confluent-kafka-summit-london-2019)
+
+<br>
+
+**Multithreading with Kafka's consumer**
+
+[https://howtoprogram.xyz/2016/05/29/create-multi-threaded-apache-kafka-consumer/](https://howtoprogram.xyz/2016/05/29/create-multi-threaded-apache-kafka-consumer/)
+
