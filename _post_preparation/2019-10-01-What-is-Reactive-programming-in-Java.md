@@ -33,7 +33,7 @@ So, easily our reactive programming will be using asynchronous approach.
 
 ## Reactive architecture
 
-
+[https://dzone.com/articles/reactive-streams-in-java-9](https://dzone.com/articles/reactive-streams-in-java-9)
 
 
 <br>
@@ -143,9 +143,6 @@ Below is some parts of Reactor library:
 
     - Monolithic: 200-300 requests/sec/host
     - Reactive: 10-20k requests/sec/host
-
-
-
 
 <br>
 
