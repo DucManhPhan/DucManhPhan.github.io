@@ -185,9 +185,6 @@ The parent can now subscribe to this messageEvent that’s outputted by the chil
 For example: 
 
 
-
-
-
 <br>
 
 ## Unrelated Components: Sharing Data with a Service
