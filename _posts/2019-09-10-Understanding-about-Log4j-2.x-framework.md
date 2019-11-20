@@ -356,3 +356,9 @@ Refer:
 **How to use SL4J with Log4j 2.x**
 
 [https://springframework.guru/using-log4j-2-spring-boot/](https://springframework.guru/using-log4j-2-spring-boot/)
+
+<br>
+
+**Mark number line in log file**
+
+[https://stackoverflow.com/questions/53807429/is-there-way-to-specify-current-line-number-in-log4j-pattern](https://stackoverflow.com/questions/53807429/is-there-way-to-specify-current-line-number-in-log4j-pattern)

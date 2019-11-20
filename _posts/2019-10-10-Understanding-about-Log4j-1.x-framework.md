@@ -185,3 +185,9 @@ Refer:
 [https://examples.javacodegeeks.com/enterprise-java/log4j/log4j-date-format-example/](https://examples.javacodegeeks.com/enterprise-java/log4j/log4j-date-format-example/)
 
 [https://logging.apache.org/log4j/2.x/manual/layouts.html](https://logging.apache.org/log4j/2.x/manual/layouts.html)
+
+<br>
+
+**Mark number line in log file**
+
+[https://stackoverflow.com/questions/53807429/is-there-way-to-specify-current-line-number-in-log4j-pattern](https://stackoverflow.com/questions/53807429/is-there-way-to-specify-current-line-number-in-log4j-pattern)
