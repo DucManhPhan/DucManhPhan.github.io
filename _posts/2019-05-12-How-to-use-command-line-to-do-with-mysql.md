@@ -48,13 +48,25 @@ We will choose ```Command Line prompt``` to do.
 
     ![](../img/Database/MySQL/command-line/mysqld-command.png)
 
-- Log in to mysql command line.
+- Log in to mysql command line in localhost.
 
     ```
     mysql -u root -p
     ```
 
     ![](../img/Database/MySQL/command-line/log-in-mysql-command-line.png)
+
+- If we want to log in mysql database in remote database, we can do like these steps
+
+    ```
+    mysql -u <username> -p -h <ip_address> -P <port>
+    ```
+
+    For example:
+
+    ```
+    mysql -u sample -p -h 123.23.45.1 -P 3306
+    ```
 
 <br>
 
