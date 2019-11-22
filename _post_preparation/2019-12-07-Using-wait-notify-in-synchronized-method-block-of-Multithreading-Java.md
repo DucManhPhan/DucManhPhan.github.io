@@ -10,7 +10,8 @@ tags: [Multithreading, Java]
 <br>
 
 ## Table of contents
-- []()
+- [Understanding about synchronized keyword](#understanding-about-synchronized-keyword)
+- [Understanding wait(), notify() and notifyAll() methods](#understanding-wait()-notify()-and-notifyAll()-methods)
 - [What is Object monitor?](#what-is-object-monitor?)
 - [Wrapping up](#wrapping-up)
 
@@ -77,7 +78,16 @@ tags: [Multithreading, Java]
 
 <br>
 
-## 
+## Producer/Consumer pattern using wait/notify
+
+
+
+
+<br>
+
+## Producer/Consumer pattern using BlockingQueue
+
+
 
 
 
