@@ -50,7 +50,9 @@ tags: [java]
 
 Refer: 
 
-[]()
+**Best logging framework for performance**
+
+[https://www.sitepoint.com/which-java-logging-framework-has-the-best-performance/](https://www.sitepoint.com/which-java-logging-framework-has-the-best-performance/)
 
 []()
 

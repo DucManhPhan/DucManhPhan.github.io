@@ -44,7 +44,7 @@ tags: [Java, Exception handling]
 
 ## finally block
 
-```finally``` will be called after the execution of the ```try``` or ```catch``` code blocks.
+```finally``` block will be called after the execution of the ```try``` or ```catch``` code blocks.
 
 The only times ```finally``` won't be called are:
 - If you invoke ```System.exit()```.
