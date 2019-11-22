@@ -77,3 +77,8 @@ Refer:
 
 [https://www.mkyong.com/java/java-custom-exception-examples/?utm_source=mkyong.com&utm_medium=Referral&utm_campaign=afterpost-related&utm_content=link9](https://www.mkyong.com/java/java-custom-exception-examples/?utm_source=mkyong.com&utm_medium=Referral&utm_campaign=afterpost-related&utm_content=link9)
 
+[https://stackoverflow.com/questions/65035/does-a-finally-block-always-get-executed-in-java](https://stackoverflow.com/questions/65035/does-a-finally-block-always-get-executed-in-java)
+
+[https://docs.oracle.com/javase/specs/jls/se8/html/jls-14.html#jls-14.17](https://docs.oracle.com/javase/specs/jls/se8/html/jls-14.html#jls-14.17)
+
+[http://www.informit.com/articles/article.aspx?p=1216151&seqNum=7](http://www.informit.com/articles/article.aspx?p=1216151&seqNum=7)
