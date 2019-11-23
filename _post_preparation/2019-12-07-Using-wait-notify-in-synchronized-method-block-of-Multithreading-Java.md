@@ -78,22 +78,6 @@ tags: [Multithreading, Java]
 
 <br>
 
-## Producer/Consumer pattern using wait/notify
-
-
-
-
-<br>
-
-## Producer/Consumer pattern using BlockingQueue
-
-
-
-
-
-
-<br>
-
 ## Wrapping up
 
 
