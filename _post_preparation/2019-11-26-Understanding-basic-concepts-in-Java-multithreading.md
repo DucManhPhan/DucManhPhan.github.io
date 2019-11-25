@@ -29,7 +29,7 @@ tags: [Multithreading, Java]
 
     Usually, there would be some state associated with the process that is shared among all the threads and in turn each thread would have some state private to itself. The globally shared state amongst the threads of a process is visible and accessible to all the threads, and special attention needs to be paid when any thread tries to read or write to this global shared state.
 
---> Processes do not share any resources amongst themselves whereas threads of a process can share the resources allocated to that particular process, including memory address space.
+--> Processes do not share any resources among themselves whereas threads of a process can share the resources allocated to that particular process, including memory address space.
 
 <br>
 
@@ -42,17 +42,72 @@ tags: [Multithreading, Java]
 
 <br>
 
+## Race condition
+When two different threads are trying to read or write the the same variable or the same field, at the same time, so, this concurrent reading and writing is what is called a race condition.
+
+Several threads can be able to read the same variable at the same time, if the value of this variable does not change, it will not raise an issue. But if they are reading and writing the same variable, then it may raise a problem.
+
+```same time``` does not mean the same thing on a single core and on a multi core CPU.
+
+In order to give an example of race condition, we will go into Singleton pattern in multithreading.
+
+```java
+public class Singleton {
+
+    private static Singeton instance;
+
+    private Single() {}
+
+    public static Singleton getInstance() {
+        if (instance == null) {
+            instance = new Singleton();
+        }
+
+        return instance;
+    }
+}
+```
+
+So, we have a questions about the above code of Singleton pattern - What is happening if two threads are calling ```getInstance()```?
+
+|            Thread T1               |                Thread T2              |
+| ---------------------------------- | ------------------------------------- |
+| Check if instance is null ?        | Waiting                               |
+| The answer is yes                  |                                       |
+| Enters the if block                |                                       |
+| The thread scheduler pauses T1     |                                       |
+|                                    | Check if instance is null ?           |
+|                                    | The answer is yes                     |
+|                                    | Enters if the block                   |
+|                                    | Creates an instance of Singleton      |
+|                                    | The thread scheduler pauses T2        |
+| Create an instance of Singleton*   |                                       |
+
+```*``` --> Because T1 is in the if block, it will not check if the instance field has been initialized one more time. So, it will create another instance of singleton, and copy it in the private static field instance, thus erasing the instance that has beeen created by the thread T2
+
+Solution
+- In order to prevent the race condition, we need to use synchronization.
+
+<br>
+
 ## Characteristic of thread
 - Need its own stack
 - Have some memory overhead
 - Creating and destroying takes time
-- The scheduler will also need to ensure the thread's state is saved before another can execute, thus swapping one to the next takes time
+- The scheduler will also need to ensure the thread's state is saved before another can execute, thus swapping one to the next takes time.
+
+    It means that the scheduler is responsible for the CPU sharing, evenly the CPU timeline, divided into tim slices, to all the tasks that need to be run.
+
+    There are three reasons for the scheduler to pause a thread, and to tell a thread --> now, it is the time to run another thread, so we should stop running.
+    - First, the CPU resource should be share equally among the thread, and there are sometimes very sophisticated priority stuff that are taken into account to share equally the CPU as a resouce.
+    - A thread might be waiting for some more data. Think about a thread that is doing some input output, reading or writing data to a disk or to a network. We know that writing or reading from a disk is a slow process. If the CPU is very fast, it might pause a thread waiting for the data to be available.
+    - A thread might be waiting for another thread to do something. For instance, to release a resource.
 
 <br>
 
 ## Benefits and drawback for using threads
 1. Benefits
-
+- Improve performance of system when we choose the compatible number of threads.
 
 
 2. Drawbacks when using too many threads
@@ -62,10 +117,12 @@ tags: [Multithreading, Java]
 <br>
 
 ## Wrapping up
+- Two points to note about race conditions
+    - It is safe if multiple threads are trying to read a shared resource as long as they are not trying to change it.
 
+    - Multiple threads executing inside a method is not a problem in itself, problem arises when these threads try to access the same resource.
 
-
-
+        For instance, class variables, record in a table, a file.
 
 <br>
 
