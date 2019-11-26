@@ -145,13 +145,11 @@ public class Person {
 
     The ```wait()``` method is exposed on each Java object. Each java object can act as a condition variable.
 
-    ```java
-
-    ```
+    When a thread executes the ```wait()``` method, it releases the monitor for the object and is placed in the wait queue.
 
     Note:
-    - ```wait()``` method must occur in synchronization.
-    - should occur in loop on the wait condition
+    - ```wait()``` method must occur insdie a synchronized block of code, if not, an IllegalMonitor exception is raised.
+    - should occur in loop on the wait condition.
 
         ```java
         synchronized(lock) {
@@ -164,16 +162,18 @@ public class Person {
 
 2. ```notify()``` method
 
-    ```java
+    Like the ```wait()``` method, ```notify()``` method can only be called by the thread which owns the monitor for the object on which ```notify()``` is being called else an illegal monitor exception is thrown.
 
-    ```
+    The ```notify()``` method will awaken one of the threads in the associated wait queue.
+
+    However, this thread will not be scheduled for execution immediately and will compete with other active threads that are trying to synchronize on the same object. The thread which executed notify will also need to give up the object's monitor, before any one of the competing threads can acquire the monitor and proceed forward.
 
     Note:
-    - Nothing happends to the current thread that calls notify() method, it continues to run until it's natural end.
+    - Nothing happends to the current thread that calls ```notify()``` method, it continues to run until it's natural end.
 
         The ```wait()``` and ```notify()``` methods must be called within a synchronized context. As soon as the synchronized block that contains the ```notify()``` call finishes, the lock is then available and the block containing the ```wait()``` call in another thread can then continue.
 
-        Calling notify simply moves the waiting thread back into the runnable thread pool. That thread can then continue as soon as the lock is available.
+        Calling ```notify()``` method simply moves the waiting thread back into the runnable thread pool. That thread can then continue as soon as the lock is available.
 
 
 
@@ -186,8 +186,8 @@ public class Person {
 <br>
 
 ## Wrapping up
-- Understanding how does synchronization work under the hood?
-- Some types of lock object in synchronization
+- Understanding how does synchronization work under the hood.
+- Some types of lock object in synchronization.
 
 <br>
 

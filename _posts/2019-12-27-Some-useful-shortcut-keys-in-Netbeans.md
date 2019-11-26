@@ -1,19 +1,22 @@
 ---
 layout: post
-title: Create SOAP API for Java project in Netbeans
+title: Some useful shortcut kyes in Netbeans
 bigimg: /img/image-header/factory.jpg
-tags: [Java, Soap]
+tags: [Netbeans]
 ---
 
-
+In this article, we will learn about how to use shortcut keys in Netbeans. Let's get started.
 
 <br>
 
 ## Table of contents
-
-
-
-
+- [Operations with lines](#operations-with-lines)
+- [Operations with source code](#operations-with-source-code)
+- [Operations with Window](#operations-with-window)
+- [Search operations](#search-operations)
+- [Run, debug source code](#run-debug-source-code)
+- [Shortcut keys](#shortcut-keys)
+- [Wrapping up](#wrapping-up)
 
 <br>
 
@@ -56,7 +59,7 @@ tags: [Java, Soap]
 | ```Ctrl``` + ```F12```                                  | Inspect members of a class                  |
 | ```Alt``` + ```F12```                                   | Inspect hierarchy of a class                |
 | ```Ctrl``` + ```Shift``` + ```Enter```                  | Toggle maximum/minimum of the current editor|
-Ctrl+Tab (Ctrl+`)	Switch between open documents by order used
+| ```Ctrl``` + ```Tab``` or ```Ctrl``` + `                | Switch between open documents by order used |
 
 <br>
 
@@ -80,25 +83,25 @@ Ctrl+Tab (Ctrl+`)	Switch between open documents by order used
 
 |                       Shortcut keys                     |                  Definition                 |
 | ------------------------------------------------------- | ------------------------------------------- |
-| F11   Build main project
-| Shift+F11	Clean and build main project
-Ctrl+Q	Set request parameters
-Ctrl+Shift+U	Create Unit test
-Ctrl+F6/Alt+F6	Run Unit test on file/project
-F6/Shift+F6	Run main project/file
-Ctrl+F5	Start debugging main project
-Ctrl+Shift+F5	Start debugging current file
-Ctrl+Shift+F6	Start debugging test for file
-Shift+F5/F5	Stop/Continue debugging session
-F4	Run to cursor location in file
-F7/F8	Step into/over
-Ctrl+F7	Step out
-Ctrl+Alt+Up	Go to called method
-Ctrl+Alt+Arrow Down	Go to calling method
-Ctrl+F9	Evaluate expression
-Ctrl+F8	Toggle breakpoint
-Ctrl+Shift+F8	New breakpoint
-Ctrl+Shift+F7	New watch
+| ```F11```                                               | Build main project                          |
+| ```Shift``` + ```F11```	                              | Clean and build main project                |
+| ```Ctrl``` + ```Q```                                    | Set request parameters                      |
+| ```Ctrl``` + ```Shift``` + ```U```                      | Create Unit test                            |
+| ```Ctrl```+ ```F6```/```Alt``` + ```F6```	              | Run Unit test on file/project               |
+| ```F6```/```Shift``` + ```F6```                         |	Run main project/file                       |
+| ```Ctrl``` + ```F5```	                                  | Start debugging main project                |
+| ```Ctrl``` + ```Shift``` + ```F5```	                  | Start debugging current file                |
+| ```Ctrl``` + ```Shift``` + ```F6```	                  | Start debugging test for file               |
+| ```Shift``` + ```F5```/```F5```	                      | Stop/Continue debugging session             |
+| ```F4```	                                              | Run to cursor location in file              |
+| ```F7```/```F8```	                                      | Step into/over                              |
+| ```Ctrl``` + ```F7```                                   |	Step out                                    | 
+| ```Ctrl``` + ```Alt``` + ```Up```	                      | Go to called method                         |
+| ```Ctrl``` + ```Alt``` + ```Down```	                  | Go to calling method                        |
+| ```Ctrl``` + ```F9```	                                  | Evaluate expression                         |
+| ```Ctrl``` + ```F8```	                                  | Toggle breakpoint                           |
+| ```Ctrl``` + ```Shift``` + ```F8```	                  | New breakpoint                              |
+| ```Ctrl``` + ```Shift``` + ```F7```	                  | New watch                                   |
 
 
 <br>
@@ -172,10 +175,7 @@ Ctrl+Shift+F7	New watch
 <br>
 
 ## Wrapping up
-
-
-
-
+- We should use shorcut keys to improve typing code in Netbeans.
 
 
 <br>
