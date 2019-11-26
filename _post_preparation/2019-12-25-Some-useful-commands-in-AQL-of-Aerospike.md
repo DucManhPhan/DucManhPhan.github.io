@@ -26,22 +26,22 @@ tags: [Multithreading, Java]
 
 <br>
 
-## Log in with AQL
-1. 
+## 
+1. Log in with AQL
 
 
 ```java
-
+aql -h <ip_addr> -p <port_number> -U<user_name> -P<password>
 ```
-
 
 
 <br>
 
-## 
+## Data Query Language
 
+```java
 
-
+```
 
 
 
