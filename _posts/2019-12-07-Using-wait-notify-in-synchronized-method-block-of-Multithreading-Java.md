@@ -5,7 +5,9 @@ bigimg: /img/image-header/factory.jpg
 tags: [Multithreading, Java]
 ---
 
+In this article, we will find something about synchronization such as what is synchronization, how to use wait, notify inside a synchronized block code.
 
+Let's get started.
 
 <br>
 
@@ -179,9 +181,7 @@ public class Person {
 
 3. ```notifyAll()``` method
 
-
-
-
+    This method will wake up all the threads that are waiting on the object's monitor.
 
 <br>
 

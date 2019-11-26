@@ -13,8 +13,9 @@ tags: [Multithreading]
 ## Table of contents
 - [Reentrant lock](#reentrant-lock)
 - [Deadlock](#deadlock)
+- [When to use Reentrant lock](#when-to-use-reentrant-lock)
+- [Different between Reentrant lock and synchronized keyword](#different-between-reentrant-lock-and-synchronized-keyword)
 - [Wrapping up](#wrapping-up)
-
 
 <br>
 
@@ -63,7 +64,15 @@ But there is not much we can do if a deadlock situation occurs, beside rebooting
 
 <br>
 
-## 
+## When to use Reentrant lock
+- 
+
+
+
+
+<br>
+
+## Benefits and drawbacks 
 
 
 
@@ -71,10 +80,17 @@ But there is not much we can do if a deadlock situation occurs, beside rebooting
 
 <br>
 
+## Different between Reentrant lock and synchronized keyword
+
+
+
+
+<br>
+
 ## Wrapping up
+- ```ReentrantLock``` is mutual exclusive lock, similar to implicit locking provided by synchronized keyword in Java, with extended feature like fairness, which can be used to provide lock to longest waiting thread.
 
-
-
+- ```ReentrantLock``` is a concrete implementation of Lock interface in concurrency package of Java 1.5.
 
 <br>
 

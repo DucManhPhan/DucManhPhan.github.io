@@ -10,8 +10,13 @@ tags: [Multithreading, Java]
 <br>
 
 ## Table of contents
-
-
+- [Understanding about Producer/Consumer pattern](#understanding-about-producer/consumer-pattern)
+- [When to use](#when-to-use)
+- [Producer/Consumer pattern using wait/notify](#producer/consumer-pattern-using-wait/notify)
+- [Producer/Consumer pattern using BlockingQueue](#producer/consumer-pattern-using-blockingqueue)
+- [Producer/Consumer pattern with Semaphore](#producer/consumer-pattern-with-semaphore)
+- [Common questions with Producer/Consumer](#common-questions-with-producer/consumer)
+- [Wrapping up](#wrapping-up)
 
 
 <br>
@@ -25,7 +30,7 @@ tags: [Multithreading, Java]
 
 <br>
 
-## 
+## When to use
 
 
 
@@ -68,3 +73,14 @@ tags: [Multithreading, Java]
 
 
 <br>
+
+## Wrapping up
+
+
+
+
+<br>
+
+Refer:
+
+[]()
