@@ -64,6 +64,13 @@ But there is not much we can do if a deadlock situation occurs, beside rebooting
 
 <br>
 
+## Some methods of Reentrant lock
+
+
+
+
+<br>
+
 ## When to use Reentrant lock
 - 
 

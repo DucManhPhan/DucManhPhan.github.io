@@ -170,6 +170,8 @@ public class Person {
 
     However, this thread will not be scheduled for execution immediately and will compete with other active threads that are trying to synchronize on the same object. The thread which executed notify will also need to give up the object's monitor, before any one of the competing threads can acquire the monitor and proceed forward.
 
+    It means that the released thread is chosen randomly among those threads.
+
     Note:
     - Nothing happends to the current thread that calls ```notify()``` method, it continues to run until it's natural end.
 
