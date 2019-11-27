@@ -136,6 +136,7 @@ In this article, we will learn about how to use shortcut keys in Netbeans. Let's
 | ```tw```	         | throw                                       |
 
 3. With class
+
 |   Shortcut keys    |                  Definition                 |
 | ------------------ | ------------------------------------------- |
 | ```cl```           | class                                       |
