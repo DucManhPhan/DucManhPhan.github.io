@@ -10,6 +10,16 @@ tags: [Multithreading, Java]
 <br>
 
 ## Table of contents
+- [Some important parts in Aerospike](#some-important-parts-in-aerospike)
+- [Common commands](#common-commands)
+- [Data Query Language](#data-query-language)
+- [Wrapping up](#wrapping-up)
+
+
+<br>
+
+## Some important parts in Aerospike
+
 
 
 
@@ -17,20 +27,11 @@ tags: [Multithreading, Java]
 
 <br>
 
-## 
-
-
-
-
-
-
-<br>
-
-## 
+## Common commands
 1. Log in with AQL
 
 
-```java
+```sql
 aql -h <ip_addr> -p <port_number> -U<user_name> -P<password>
 ```
 
@@ -39,8 +40,8 @@ aql -h <ip_addr> -p <port_number> -U<user_name> -P<password>
 
 ## Data Query Language
 
-```java
-
+```sql
+select * from <namespace>.<table_name>
 ```
 
 
@@ -68,4 +69,6 @@ aql -h <ip_addr> -p <port_number> -U<user_name> -P<password>
 
 Refer:
 
+[https://www.aerospike.com/docs/tools/aql/data_management.html](https://www.aerospike.com/docs/tools/aql/data_management.html)
 
+[https://www.aerospike.com/docs/tools/aql/record_operations.html](https://www.aerospike.com/docs/tools/aql/record_operations.html)

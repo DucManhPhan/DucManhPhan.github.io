@@ -109,68 +109,68 @@ In this article, we will learn about how to use shortcut keys in Netbeans. Let's
 ## Shortcut keys
 1. With data type
 
-|   Shortcut keys    |                  Definition                 |
-| ------------------ | ------------------------------------------- |
-| ```En```           | Enumeration                                 |
-| ```bo```           | boolean                                     |
-| ```St```           | String                                      |
-| ```Ex```           | Exception                                   |
-| ```db```           | double                                      |
-| ```fl```	         | float                                       |
-| ```fa```	         | false                                       |
-| ```sh```	         | short                                       |
-| ```vo```	         | volatile                                    |
-| ```iof```	         | instance of                                 |
-| ```fi```	         | final                                       |
+    |   Shortcut keys    |                  Definition                 |
+    | ------------------ | ------------------------------------------- |
+    | ```En```           | Enumeration                                 |
+    | ```bo```           | boolean                                     |
+    | ```St```           | String                                      |
+    | ```Ex```           | Exception                                   |
+    | ```db```           | double                                      |
+    | ```fl```	         | float                                       |
+    | ```fa```	         | false                                       |
+    | ```sh```	         | short                                       |
+    | ```vo```	         | volatile                                    |
+    | ```iof```	         | instance of                                 |
+    | ```fi```	         | final                                       |
 
 2. With control statements
 
-|   Shortcut keys    |                  Definition                 |
-| ------------------ | ------------------------------------------- |
-| ```br```           | break                                       |
-| ```cn```           | continue                                    |
-| ```df```           | default                                     |
-| ```wh```	         | while                                       |
-| ```th```	         | throws                                      |
-| ```fy```	         | finally                                     |
-| ```tw```	         | throw                                       |
+    |   Shortcut keys    |                  Definition                 |
+    | ------------------ | ------------------------------------------- |
+    | ```br```           | break                                       |
+    | ```cn```           | continue                                    |
+    | ```df```           | default                                     |
+    | ```wh```	         | while                                       |
+    | ```th```	         | throws                                      |
+    | ```fy```	         | finally                                     |
+    | ```tw```	         | throw                                       |
 
 3. With class
 
-|   Shortcut keys    |                  Definition                 |
-| ------------------ | ------------------------------------------- |
-| ```cl```           | class                                       |
-| ```ab```           | abstract                                    |
-| ```ex```           | extends                                     |
-| ```pu```	         | public                                      |
-| ```pr```	         | private                                     |
-| ```pe```	         | protected                                   |
-| ```im```	         | implements                                  |
-| ```ie```	         | interface                                   |
+    |   Shortcut keys    |                  Definition                 |
+    | ------------------ | ------------------------------------------- |
+    | ```cl```           | class                                       |
+    | ```ab```           | abstract                                    |
+    | ```ex```           | extends                                     |
+    | ```pu```	         | public                                      |
+    | ```pr```	         | private                                     |
+    | ```pe```	         | protected                                   |
+    | ```im```	         | implements                                  |
+    | ```ie```	         | interface                                   |
 
 
 4. With methods
 
-|   Shortcut keys    |                  Definition                 |
-| ------------------ | ------------------------------------------- |
-| ```psvm```         | public static void main                     |
-| ```Psf```          | public static final                         |
-| ```Psfb```         | public static final boolean                 |
-| ```Psfi```         | public static final int                     |
-| ```Psfs```         | public static final String                  |
-| ```as```           | assert true                                 |
-| ```ca```           | catch                                       |
-| ```eq```	         | equal                                       |
-| ```psf```	         | private static final                        |
-| ```psfb```	     | private static final boolean                |
-| ```psfi```	     | private static fianl int                    |
-| ```psfs```	     | private static final String                 |
-| ```pst```	         | printStackTrace()                           |
-| ```le```	         | length                                      |
-| ```sout```	     | System.out.println()                        |
-| ```soutv```	     | System.out.println("obj"+obj)               |
-| ```ir```	         | import                                      |
-| ```bcom```	     | /**/                                        |
+    |   Shortcut keys    |                  Definition                 |
+    | ------------------ | ------------------------------------------- |
+    | ```psvm```         | public static void main                     |
+    | ```Psf```          | public static final                         |
+    | ```Psfb```         | public static final boolean                 |
+    | ```Psfi```         | public static final int                     |
+    | ```Psfs```         | public static final String                  |
+    | ```as```           | assert true                                 |
+    | ```ca```           | catch                                       |
+    | ```eq```	         | equal                                       |
+    | ```psf```	         | private static final                        |
+    | ```psfb```	     | private static final boolean                |
+    | ```psfi```	     | private static fianl int                    |
+    | ```psfs```	     | private static final String                 |
+    | ```pst```	         | printStackTrace()                           |
+    | ```le```	         | length                                      |
+    | ```sout```	     | System.out.println()                        |
+    | ```soutv```	     | System.out.println("obj"+obj)               |
+    | ```ir```	         | import                                      |
+    | ```bcom```	     | /**/                                        |
 
 
 <br>
