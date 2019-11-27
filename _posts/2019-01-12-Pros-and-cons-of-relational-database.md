@@ -23,6 +23,8 @@ In this article, we will find out something about relational database.
 - avoid inconsistent records.
 - better security. Tables can be made accessible only to those who need specific information.
 - cater for future requirements.
+- acid
+- familiarity
 
 <br>
 
@@ -35,6 +37,7 @@ In this article, we will find out something about relational database.
 - Lack of support for complex base types such as drawing, ...
 - Locking mechanism defined by RDBMSs do not allow design transactions to be supported. 
 
+- 
 <br>
 
 

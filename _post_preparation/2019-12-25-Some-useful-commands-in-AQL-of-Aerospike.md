@@ -35,6 +35,23 @@ tags: [Multithreading, Java]
 aql -h <ip_addr> -p <port_number> -U<user_name> -P<password>
 ```
 
+2. Show all namespaces or database in Aerospike
+
+```sql
+show namespaces;
+```
+
+3. Show all sets or tables
+
+```sql
+show sets;
+```
+
+4. Show all bins or columns
+
+```sql
+show bins;
+```
 
 <br>
 
