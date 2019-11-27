@@ -198,3 +198,5 @@ Refer:
 [https://javarevisited.blogspot.com/2015/07/how-to-use-wait-notify-and-notifyall-in.html](https://javarevisited.blogspot.com/2015/07/how-to-use-wait-notify-and-notifyall-in.html)
 
 Appying Concurrency and Multithreading to Common Java patterns in [pluralsight.com](pluralsight.com)
+
+[https://javashareclub.online/2016/06/05/bai-hoc-ve-notify-va-notifyall/](https://javashareclub.online/2016/06/05/bai-hoc-ve-notify-va-notifyall/)
