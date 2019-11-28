@@ -264,6 +264,33 @@ Let's get started.
     sudo ./netbeans-8.2-linux.sh
     ```
 
+- Install python
+
+    ```bash
+    # refreshing the repositories
+    sudo apt update
+    # its wise to keep the system up to date!
+    # you can skip the following line if you not
+    # want to update all your software
+    sudo apt upgrade
+    # installing python 2.7 and pip for it
+    sudo apt install python2.7 python-pip
+    # installing python-pip for 3.6
+    sudo apt install python3-pip
+
+    # NOTE: Do not try to remove python 3.6 as it will screw up your system
+    ```
+
+- Install git
+
+    ```bash
+    sudo apt update 
+    sudo apt install git
+
+    # check git's version
+    git --version
+    ```
+
 <br>
 
 ## Service commands
