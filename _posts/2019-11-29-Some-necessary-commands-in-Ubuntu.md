@@ -253,6 +253,19 @@ Let's get started.
         java -version
         ```
 
+- Install Netbeans
+
+    ```bash
+    # download netbeans
+    cd /tmp && wget -c http://download.netbeans.org/netbeans/8.2/final/bundles/netbeans-8.2-linux.sh
+
+    # run netbeans
+    chmod +x netbeans-8.2-linux.sh
+    sudo ./netbeans-8.2-linux.sh
+    ```
+
+<br>
+
 ## Service commands
 - List Ubuntu service with systemctl
 
