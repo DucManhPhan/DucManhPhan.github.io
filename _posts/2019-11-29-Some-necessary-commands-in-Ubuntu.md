@@ -212,6 +212,26 @@ Let's get started.
 
         ![](../img/Linux/Ubuntu/selected-jdk-path.png)
 
+    - Check all version of JDK in our computer
+
+        ```bash
+        sudo update-java-alternatives --list
+        ```
+
+    - Open ```.bashrc``` file
+
+        ```.bashrc``` file is a hidden file inside our home directory.
+
+        ```bash
+        ls -la ~/ | more
+
+        # Then, use cd command to go to our user directory
+        cd <user_name>
+
+        # Finally, use nano to open .bashrc file
+        nano .bashrc
+        ```
+
     - Update ```.bashrc``` file
 
         Add the following commands to ```.bashrc``` file:
@@ -227,6 +247,11 @@ Let's get started.
         source ~/.bashrc
         ```
 
+    - Check current JDK's version
+
+        ```bash
+        java -version
+        ```
 
 ## Service commands
 - List Ubuntu service with systemctl
