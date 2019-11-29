@@ -92,7 +92,7 @@ In Spring Boot, we can use directly its log4j2 that follows:
 <?xml version="1.0" encoding="UTF-8"?>
 <Configuration status="WARN">
 	<Properties>
-		<Property name="LOG_PATTERN"><[%-5level] %d{yyyy-MM-dd HH:mm:ss.SSS} [%t] %c{1} - %msg%n</Property>
+		<Property name="LOG_PATTERN">[%-5level] %d{yyyy-MM-dd HH:mm:ss.SSS} [%t] %L %c{1} - %msg%n</Property>
 		<Property name="APP_LOG_ROOT">./logs</Property>
 	</Properties>
 	<Appenders>
@@ -143,7 +143,7 @@ In Spring Boot, we can use directly its log4j2 that follows:
 	</Appenders>
 	<Loggers>
 		<Root level="warn">
-			<AppenderRef ref="console"/>
+			<AppenderRef ref="consoleLogger"/>
 		</Root>
 
 		<!-- Should have additivity = false for named loggers -->
