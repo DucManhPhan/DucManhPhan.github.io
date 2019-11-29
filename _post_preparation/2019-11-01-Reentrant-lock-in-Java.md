@@ -65,9 +65,101 @@ But there is not much we can do if a deadlock situation occurs, beside rebooting
 <br>
 
 ## Some methods of Reentrant lock
+1. ```lock()``` method
 
+    ```java
+    public void lock()
+    ```
 
+    - Acquires the lock if it is not held by another thread and returns immediately, setting the lock hold count to one.
+    - If the current thread already holds the lock then the hold count is incremented by one and the method returns immediately.
+    - If the lock is held by another thread then the current thread becomes disabled for thread scheduling purposes and lies dormant until the lock has been acquired, at which time the lock hold count is set to one.
 
+2. ```unlock()``` method
+
+    ```java
+    public void unlock()
+    ```
+
+    - Attempts to release this lock.
+    - If the current thread is the holder of this lock then the hold count is decremented. If the hold count is now zero then the lock is released. If the current thread is not the holder of this lock then IllegalMonitorStateException is thrown.
+
+3. ```tryLock()``` method
+
+    ```java
+    public boolean tryLock()
+    ```
+
+    - Acquires the lock if it is not held by another thread and returns immediately with the value true, setting the lock hold count to one. Even when this lock has been set to use a fair ordering policy, a call to ```tryLock()``` will immediately acquire the lock if it is available, whether or not other threads are currently waiting for the lock. This "barging" behavior can be useful in certain circumstances, even though it breaks fairness. If you want to honor the fairness setting for this lock, then use ```tryLock(0, TimeUnit.SECONDS)``` which is almost equivalent (it also detects interruption).
+
+    - If the current thread already holds this lock then the hold count is incremented by one and the method returns ```true```.
+
+    - If the lock is held by another thread then this method will return immediately with the value ```false```.
+
+4. ```tryLock(long timeout, TimeUnit unit)``` method
+
+    ```java
+    public boolean tryLock(long timeout, TimeUnit unit) throws InterruptedException
+    ```
+
+    - The thread waits for a certain time period as defined by arguments of the method to acquire the lock on the resource before exiting.
+
+5. ```lockInterruptibly()``` method
+
+    ```java
+    public void lockInterruptibly() throws InterruptedException
+    ```
+
+    - If the lock is held by another thread then the current thread becomes disabled for thread scheduling purposes and lies dormant until one of two things happens:
+
+        - The lock is acquired by the current thread; or
+        - Some other thread interrupts the current thread.
+
+    - If the current thread:
+
+        - has its interrupted status set on entry to this method; or
+        - is interrupted while acquiring the lock,
+
+        then ```InterruptedException``` is thrown and the current thread's interrupted status is cleared.
+
+    - It means that if the current thread is waiting for lock but some other thread requests the lock, then the current thread will be interrupted and return immediately without acquiring lock.
+
+6. ```getHoldCount()``` method
+
+    ```java
+    public int getHoldCount()
+    ```
+
+    - Queries the number of holds on this lock by the current thread.
+    - A thread has a hold on a lock for each lock action that is not matched by an unlock action.
+    - The hold count information is typically only used for testing and debugging purposes.
+
+7. ```isHeldByCurrentThread()``` method
+
+    ```java
+    public boolean isHeldByCurrentThread()
+    ```
+
+    - Queries if this lock is held by the current thread.
+    - This method is typically used for debugging and testing.
+    - It can also be used to ensure that a reentrant lock is used in a non-reentrant manner, for example:
+
+        ```java
+        class X {
+            ReentrantLock lock = new ReentrantLock();
+            // ...
+
+            public void m() {
+                assert !lock.isHeldByCurrentThread();
+                lock.lock();
+                try {
+                    // ... method body
+                } finally {
+                    lock.unlock();
+                }
+            }
+        }
+        ```
 
 <br>
 
@@ -80,9 +172,18 @@ But there is not much we can do if a deadlock situation occurs, beside rebooting
 <br>
 
 ## Benefits and drawbacks 
+1. Benefits
+- ```Reentrant Lock``` provides explicit locking that is much more granular and powerful than ```synchronized``` keyword.
 
+    For example:
+    - The scope of lock can range from one method to another but scope of ```synchronized``` keyword can not go beyond one method.
 
+- Lock framework also supply Condition variables that are instances of ```Condition``` class, which provides inter thread communication methods similar to wait(), notify() and notifyAll() such as await(), signal() and signalAll().
 
+    So, if one thread is waiting on a condition by calling condition.await(), then once that condition changes, second thread can call condition.signal() or condition.signalAll() method to notify that its time to wake up, condition has been changed.
+
+2. Drawbacks
+- Difficult to use, understand for the novice programmers.
 
 
 <br>
@@ -91,16 +192,48 @@ But there is not much we can do if a deadlock situation occurs, beside rebooting
 
 
 
-
 <br>
 
 ## Wrapping up
+
+- One can forget to call the unlock() method in the finally block leading to bugs in the program. Ensure that the lock is released before the thread exits.
+
+- The fairness parameter used to construct the lock object decreases the throughput of the program.
+
+- There are two implementations of ```Lock``` interface - ```ReentrantLock``` and ```ReentrantReadWriteLock```.
+
+- If a thread already holds the lock on a monitor object, it has access to all blocks synchronized on the same monitor object. This is called reentrant. The thread can reenter any block of code for which it already holds the lock.
+
 - ```ReentrantLock``` is mutual exclusive lock, similar to implicit locking provided by synchronized keyword in Java, with extended feature like fairness, which can be used to provide lock to longest waiting thread.
 
-- ```ReentrantLock``` is a concrete implementation of Lock interface in concurrency package of Java 1.5.
+- ```ReentrantLock``` is a concrete implementation of ```Lock``` interface in concurrency package of Java 1.5.
+
+- A ```ReentrantLock``` is owned by the thread last successfully locking, but not yet unlocking it. A thread invoking lock will return, successfully acquiring the lock, when the lock is not owned by another thread. The method will return immediately if the current thread already owns the lock. This can be checked using methods ```isHeldByCurrentThread()```, and ```getHoldCount()```.
+
+- It is recommended practice to always immediately follow a call to lock with a try block, most typically in a before/after construction such as:
+
+    ```java
+    class X {
+        private final ReentrantLock lock = new ReentrantLock();
+        // ...
+
+        public void m() {
+            lock.lock();  // block until condition holds
+            try {
+                // ... method body
+            } finally {
+                lock.unlock()
+            }
+        }
+    }
+    ```
+
+    This lock supports a maximum of ```2147483647``` recursive locks by the same thread. Attempts to exceed this limit result in Error throws from locking methods.
 
 <br>
 
 Refer:
 
 Appying Concurrency and Multithreading to Common Java patterns in [pluralsight.com](pluralsight.com)
+
+[https://docs.oracle.com/javase/7/docs/api/java/util/concurrent/locks/ReentrantLock.html](https://docs.oracle.com/javase/7/docs/api/java/util/concurrent/locks/ReentrantLock.html)

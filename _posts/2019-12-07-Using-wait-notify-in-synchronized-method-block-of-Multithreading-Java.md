@@ -200,3 +200,13 @@ Refer:
 Appying Concurrency and Multithreading to Common Java patterns in [pluralsight.com](pluralsight.com)
 
 [https://javashareclub.online/2016/06/05/bai-hoc-ve-notify-va-notifyall/](https://javashareclub.online/2016/06/05/bai-hoc-ve-notify-va-notifyall/)
+
+[https://blog.overops.com/5-things-you-didnt-know-about-synchronization-in-java-and-scala/](https://blog.overops.com/5-things-you-didnt-know-about-synchronization-in-java-and-scala/)
+
+[https://javarevisited.blogspot.com/2015/06/java-lock-and-condition-example-producer-consumer.html#axzz66cRUo3Xi](https://javarevisited.blogspot.com/2015/06/java-lock-and-condition-example-producer-consumer.html#axzz66cRUo3Xi)
+
+[https://docs.oracle.com/javase/tutorial/essential/concurrency/locksync.html](https://docs.oracle.com/javase/tutorial/essential/concurrency/locksync.html)
+
+[https://javarevisited.blogspot.com/2012/10/difference-between-notify-and-notifyall-java-example.html](https://javarevisited.blogspot.com/2012/10/difference-between-notify-and-notifyall-java-example.html)
+
+[https://peterwadid.files.wordpress.com/2013/02/packtpub-java-7-concurrency-cookbook-oct-2012.pdf](https://peterwadid.files.wordpress.com/2013/02/packtpub-java-7-concurrency-cookbook-oct-2012.pdf)
