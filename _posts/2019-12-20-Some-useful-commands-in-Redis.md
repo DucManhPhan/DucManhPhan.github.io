@@ -5,7 +5,9 @@ bigimg: /img/image-header/factory.jpg
 tags: [Redis]
 ---
 
+Redis is important component when we want to design scalable system. It is used as cache for our system. So, in this article, we will learn how to use some commands in Redis.
 
+Let's get started.
 
 <br>
 
