@@ -5,14 +5,18 @@ bigimg: /img/image-header/factory.jpg
 tags: [Windows, commands]
 ---
 
+In this article, we will list all interesting, common commands that we use in Windows. It makes us do operations on Windows fastly.
 
+Let's get started.
 
 <br>
 
 ## Table of contents
-
-
-
+- [Search commands](#search-commands)
+- [List commands](#list-commands)
+- [Network Commands](#network-commands)
+- [Process commands](#process-commands)
+- [Wrapping up](#wrapping-up)
 
 
 <br>
@@ -109,27 +113,21 @@ tags: [Windows, commands]
     arp -a
     ```
 
-
-
-
-
 <br>
 
-## 
+## Process commands
+1. List all process
 
-
-
+    ```bash
+    tasklist
+    ```
 
 
 
 <br>
 
 ## Wrapping up
-
-
-
-
-
+- We should always use all above useful commands to improve our performance.
 
 <br>
 
