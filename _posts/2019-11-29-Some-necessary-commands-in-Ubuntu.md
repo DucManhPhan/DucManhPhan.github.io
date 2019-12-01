@@ -402,6 +402,24 @@ Let's get started.
 
 <br>
 
+## File commands
+1. Search for patterns in each file
+
+    ```bash
+    grep "something" file
+    ```
+
+    With some options:
+    - ```-i```: search for a string case-insensitively in the given file.
+    - ```-c```: find the number of lines that matches the given string/pattern with the -c (count) flag.
+    - ```-v```: invert match - find all lines that do not match.
+    - ```-r```: recursive - search all the files in a directory.
+    - ```-l```: only show the file names of the files that matched.
+    - ```-f```: do not treat the match string as a regex.
+    - ```-o```: only print the matching part of the line (not the whole line).
+    - ```-a```: search binaries - treat binary data like it's text instead of ignoring it.
+
+
 ## Redirecting output
 
     It is used to take the output of one command and redirect it into the input of another command.
@@ -540,3 +558,4 @@ Refer:
 
 [https://vitux.com/how-to-shut-down-ubuntu/](https://vitux.com/how-to-shut-down-ubuntu/)
 
+[https://medium.com/better-programming/here-are-11-console-commands-every-developer-should-know-54e348ef22fa](https://medium.com/better-programming/here-are-11-console-commands-every-developer-should-know-54e348ef22fa)

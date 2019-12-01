@@ -113,6 +113,45 @@ Let's get started.
     arp -a
     ```
 
+2. Get all detailed information about our current network adapter connection
+
+    ```bash
+    ipconfig
+    ```
+
+    The result will have summary information:
+    - Current IP Address
+    - Subnet Mask
+    - Default Gateway IP
+    - Current domain
+
+3. Get list of all active TCP connection
+
+    ```bash
+    netstat
+    ```
+
+    This command is used to check whether malware is running on our computer.
+
+4. Check whether our computer can access another computer
+
+    ```bash
+    ping
+
+    telnet
+    ```
+
+5. Get the path of packet from our computer to others
+
+    ```bash
+    tracert google.com
+    ```
+
+    It will have:
+    - Number of hops (intermediate servers) before getting to the destination
+    - Time it takes to get to each hop
+    - The IP and sometimes the name of each hop
+
 <br>
 
 ## Process commands
@@ -123,6 +162,87 @@ Let's get started.
     ```
 
 
+<br>
+
+## Check commands
+1. Check whether windows is activated or not
+
+    ```bash
+    slmgr /xpr
+    ```
+
+    If the content of dialog is ```The machine is permanently activated```, so windows is activated.
+
+2. Check the certain file extension will be opened by which programs
+
+    ```bash
+    assoc
+    ```
+
+3. Compare two text files
+
+    ```bash
+    fc /a /b file1.txt file2.txt
+    ```
+
+    With:
+    - ```/a```: used to compare in ASCII mode
+    - ```/b```: used to compare in Binary mode
+
+4. Check about configuration of power
+
+    ```bash
+    powercfg -energy
+    ```
+
+5. Check the integrity of the core system files in OS
+
+    ```bash
+    sfc /scannow
+    ```
+
+    It is used to check when we find that our OS has virus.
+
+    The SFC command also lets you:
+    - ```/VERIFYONLY```: Check the integrity but don’t repair the files.
+    - ```/SCANFILE```: Scan the integrity of specific files and fix if corrupted.
+    - ```/VERIFYFILE```: Verify the integrity of specific files but don’t repair them.
+    - ```/OFFBOOTDIR```: Use this to do repairs on an offline boot directory.
+    - ```/OFFWINDIR```: Use this to do repairs on an offline Windows directory.
+    - ```/OFFLOGFILE```: Specify a path to save a log file with scan results.
+
+6. Scan entire driver
+
+    ```bash
+    chkdsk C: /f /r /x
+    ```
+
+    This command checks for things like:
+    - File fragmentation
+    - Disk errors
+    - Bad sectors
+
+7. Run scheduled task
+
+    ```bash
+    SCHTASKS /Create /SC HOURLY /MO 12 /TR Example /TN c:\temp\File1.bat
+    ```
+
+    The scheduled switch ```/SC``` accepts arguments like minute, hourly, daily, and monthly. Then you specify the frequency with the ```/MO``` command.
+
+8. Change attributes files/folders
+
+    ```bash
+    ATTRIB +R +H C:\temp\File1.bat
+    ```
+
+8. Search something inside any of ASCII files
+
+    ```bash
+    find
+
+    findstr
+    ```
 
 <br>
 
