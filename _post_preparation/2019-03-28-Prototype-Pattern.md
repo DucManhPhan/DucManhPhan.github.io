@@ -5,6 +5,9 @@ bigimg: /img/path.jpg
 tags: [creational pattern, design pattern]
 ---
 
+
+
+
 <br>
 
 ## Table of contents
@@ -19,7 +22,9 @@ tags: [creational pattern, design pattern]
 
 <br>
 
-## Given Problem 
+## Given Problem
+
+
 
 
 
@@ -29,9 +34,14 @@ tags: [creational pattern, design pattern]
 
 
 
+
+
 <br>
 
 ## When to use
+
+
+
 
 
 
@@ -41,15 +51,24 @@ tags: [creational pattern, design pattern]
 
 
 
+
+
+
 <br>
 
 ## Code C++ /Java / Javascript
 
 
 
+
+
+
 <br>
 
 ## Application & Examples
+
+
+
 
 
 
