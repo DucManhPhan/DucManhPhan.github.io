@@ -187,9 +187,35 @@ public class Person {
 
 <br>
 
+## Benefits and drawbacks
+1. Benefits
+
+
+
+
+2. Drawbacks
+- It does not allow concurrent read, which can potentially limit scalability. By using the concept of lock stripping and using different locks for reading and writing, we can overcome this limitation of synchronized in Java. The ```ReentrantReadWriteLock``` provides ready-made implementation of ```ReadWriteLock``` in Java.
+
+- ```synchronized``` keyword can only used to control access to a shared object within the same JVM. If we have more than one JVM and need to synchronize access to a shared file system or database, the Java ```synchronized``` keyword is not at all sufficient. We need to implement a kind of global lock for that.
+
+- ```synchronized``` keyword incurs a performance cost when using ```synchronized``` method. Because it makes our application slow and degrade performance.
+
+- ```synchronized``` keyword could make deadlock or starvation.
+
+<br>
+
 ## Wrapping up
 - Understanding how does synchronization work under the hood.
 - Some types of lock object in synchronization.
+
+    - Synchronized method
+    - Synchronized block
+    - Static synchronization
+- ```synchronized``` keyword involve locking and unlocking. Before entering into ```synchronized method``` or ```block```, thread need to acquired the lock, at this point it reads data from the main memory than cache. When it releases the lock, it flushes write operation into main memory which eliminates memory inconsistency errors.
+
+- Instead of ```synchronized``` keyword, we have ```volatile``` variable, that JVM threads will read the value of the volatile variable from main memory and do not cache it locally.
+
+- Java synchronized keyword is reentrant in nature. It means that if a java synchronized method calls another synchronized method which requires the same lock then the current thread which is holding lock can enter into that method without acquiring the lock.
 
 <br>
 
@@ -210,3 +236,5 @@ Appying Concurrency and Multithreading to Common Java patterns in [pluralsight.c
 [https://javarevisited.blogspot.com/2012/10/difference-between-notify-and-notifyall-java-example.html](https://javarevisited.blogspot.com/2012/10/difference-between-notify-and-notifyall-java-example.html)
 
 [https://peterwadid.files.wordpress.com/2013/02/packtpub-java-7-concurrency-cookbook-oct-2012.pdf](https://peterwadid.files.wordpress.com/2013/02/packtpub-java-7-concurrency-cookbook-oct-2012.pdf)
+
+[https://javarevisited.blogspot.com/2011/04/synchronization-in-java-synchronized.html](https://javarevisited.blogspot.com/2011/04/synchronization-in-java-synchronized.html)
