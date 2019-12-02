@@ -189,9 +189,7 @@ public class Person {
 
 ## Benefits and drawbacks
 1. Benefits
-
-
-
+- only one thread will access in critical section with ```synchronized``` keyword.
 
 2. Drawbacks
 - It does not allow concurrent read, which can potentially limit scalability. By using the concept of lock stripping and using different locks for reading and writing, we can overcome this limitation of synchronized in Java. The ```ReentrantReadWriteLock``` provides ready-made implementation of ```ReadWriteLock``` in Java.
