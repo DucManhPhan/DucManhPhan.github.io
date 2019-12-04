@@ -12,7 +12,7 @@ tags: [Clean code]
 
 ## Table of contents
 
-
+- [Validating method input](#validating-method-input)
 
 
 
@@ -26,7 +26,7 @@ tags: [Clean code]
 
 <br>
 
-## Validing method input
+## Validating method input
 1. Guard clause - Fail fast and Return early
 
 With the below guard clause, we have:
