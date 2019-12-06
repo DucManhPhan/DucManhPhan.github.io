@@ -37,9 +37,53 @@ tags: [Java, Spring]
 2. We will create multi-module project with two ways:
     - Use command line prompt with maven.
 
+        - First, we have to create parent project with the ```packaging```'s value is ```pom```.
 
+            ```bash
+            mvn archetype:generate -DgroupId=com.manhpd -DartifactId=parent-project
+            ```
 
-    - Use GUI with support of Intellij IDEA or Eclipse.
+            In ```pom.xml``` file of ```parent-project```, we will fill it with ```<packaging>pom</packaging>```. It means that ```parent-project``` will serve as a parent or an aggregator – it will not produce further artifacts.
+
+            In ```parent-project```, we will define all version of our packages for sub-modules.
+
+        - Next, we will ```cd parent-project``` to create sub-modules.
+
+            ```bash
+            mvn archetype:generate -DgroupId=com.manhpd.pdMultiProj  -DartifactId=main
+            mvn archetype:generate -DgroupId=com.manhpd.pdMultiProj  -DartifactId=configuration
+            mvn archetype:generate -DgroupId=com.manhpd.pdMultiProj  -DartifactId=shared
+            mvn archetype:generate -DgroupId=com.manhpd.pdMultiProj  -DartifactId=webservice
+            mvn archetype:generate -DgroupId=com.manhpd.pdMultiProj  -DartifactId=func-employee
+            ```
+
+            Open ```pom.xml``` file of ```parent-project```, we will find that:
+
+            ```xml
+            <modules>
+                <module>main</module>
+                <module>configuration</module>
+                <module>shared</module>
+                <module>webservice</module>
+                <module>func-employee</module>
+            </modules>
+            ```
+
+        - Finally, we will configure for sub-modules with ```pom.xml``` file
+
+            ```xml
+            <parent>
+                <groupId>com.manhpd</groupId>
+                <artifactId>parent-project</artifactId>
+                <version>1.0</version>
+            </parent>
+            ```
+
+        - Note
+
+            - All submodules can have only one parent.
+
+    - Use GUI with support of ```Intellij IDEA``` or ```Eclipse```.
 
         
 
@@ -86,6 +130,8 @@ tags: [Java, Spring]
 
     - Use ```spring-boot-maven-plugin```
 
+        This plugins will be used in main module that in its ```pom.xml``` file, it has all declarations of the rest of modules.
+
         ```xml
         <properties>
             <version.root>0.1</version.root>
@@ -113,6 +159,8 @@ tags: [Java, Spring]
             </plugins>
         </build>
         ```
+
+        This way is working like a charm.
 
 <br>
 

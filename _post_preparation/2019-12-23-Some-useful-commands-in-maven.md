@@ -22,13 +22,22 @@ tags: [Maven]
 1. Generate project in batch mode
 
     A couple of meaningful properties are then required:
-    - The archetypeGroupId, archetypeArtifactId and archetypeVersion defines the archetype to use for project generation.
-    - The groupId, artifactId, version and package are the main properties to be set. Each archetype require these properties. Some archetypes define other properties; refer to the appropriate archetype's documentation if needed.
+    - The ```archetypeGroupId```, ```archetypeArtifactId``` and ```archetypeVersion``` defines the archetype to use for project generation.
+    - The ```groupId```, ```artifactId```, ```version``` and ```package``` are the main properties to be set. Each archetype require these properties. Some archetypes define other properties; refer to the appropriate archetype's documentation if needed.
 
     ```bash
     mvn archetype:generate -B -DarchetypeGroupId=org.apache.maven.archetypes -DarchetypeArtifactId=maven-archetype-quickstart -DarchetypeVersion=1.1 -DgroupId=com.company -DartifactId=project -Dversion=1.0-SNAPSHOT -Dpackage=com.company.project
     ```
 
+    To create war file, we have to use ```-DarchetypeArtifactId=maven-archetype-webapp```.
+
+    The meaning of some above attributes:
+
+    |              Name              |                  Description                  |
+    | ```groupId```                  | Defines a unique base name of the organization or group that created the project. This is normally a reverse domain name. For the generation the groupId also defines the package of the main class. |
+    | ```artifactId```               | Defines the unique name of the project. If you generate a new project via Maven this is also used as root folder for the project. |
+    | ```packaging```                | Defines the packaging method. This could be e.g. a jar, war or ear file. If the packaging type is pom, Maven does not create anything for this project, it is just meta-data. |
+    | ```version```                  | This defines the version of the project. |
 
 <br>
 
@@ -126,6 +135,8 @@ Refer:
 [http://maven.apache.org/archetype/maven-archetype-plugin/examples/create-multi-module-project.html](http://maven.apache.org/archetype/maven-archetype-plugin/examples/create-multi-module-project.html)
 
 [http://maven.apache.org/archetype/maven-archetype-plugin/](http://maven.apache.org/archetype/maven-archetype-plugin/)
+
+[https://loda.me/huong-dan-tao-spring-boot-voi-nhieu-modules-bang-gradle-loda1553919997213/](https://loda.me/huong-dan-tao-spring-boot-voi-nhieu-modules-bang-gradle-loda1553919997213/)
 
 <br>
 
