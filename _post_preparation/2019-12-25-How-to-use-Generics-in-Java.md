@@ -59,8 +59,6 @@ tags: [Java, Generics]
 
         So, static members of a class can not refer to the type parameter of a generic class, and when accessing a static member the class name should not be parameterized.
 
-
-
 <br>
 
 ## How to use subtype in Generics

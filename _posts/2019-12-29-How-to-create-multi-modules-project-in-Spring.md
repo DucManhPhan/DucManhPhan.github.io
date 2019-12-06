@@ -5,8 +5,9 @@ bigimg: /img/image-header/ravashing-beach.jpg
 tags: [Java, Spring]
 ---
 
+In this article, we will learn how to configure multi-modules project in Spring with the support of Maven build tool. Using this approach makes our code better structure, easily maintain.
 
-
+Let's get started.
 
 <br>
 
@@ -85,10 +86,98 @@ tags: [Java, Spring]
 
     - Use GUI with support of ```Intellij IDEA``` or ```Eclipse```.
 
-        
+        - Create parent project
 
-3. Deploy multi-module project
-    There are some multiple ways to build multi-modules project into one fat jar file.
+            Based on Maven, we will create parent project.
+
+            ![](../img/Java/maven/multi-modules/create-maven-project.png)
+
+            Then, we have:
+
+            ![](../img/Java/maven/multi-modules/parent-project.png)
+
+            ![](../img/Java/maven/multi-modules/summary-content-project.png)
+
+            Click Next button, we will have a parent project.
+
+        - Create our submodules
+
+            Similarly, we will continue to create our child modules.
+
+            ![](../img/Java/maven/multi-modules/select-project-structure-for-add-submodules.png)
+
+            Open ```Project Structure``` of current parent-project, we have:
+
+            ![](../img/Java/maven/multi-modules/add-new-submodules.png)
+
+            ![](../img/Java/maven/multi-modules/create-maven-project.png)
+
+            Next, fill some desired information about child modules.
+
+            ![](../img/Java/maven/multi-modules/add-main-module.png)
+
+            ![](../img/Java/maven/multi-modules/summary-content-main-project.png)
+
+            Finally, we have main project with the following structure:
+
+            ![](../img/Java/maven/multi-modules/result-main-project.png)
+
+            As same as with other child modules, we have:
+
+            ![](../img/Java/maven/multi-modules/final-result.png)
+
+        - Refer sample:
+
+            [https://github.com/DucManhPhan/J2EE/tree/master/src/libs/multi-modules-project/parent-project](https://github.com/DucManhPhan/J2EE/tree/master/src/libs/multi-modules-project/parent-project)
+
+<br>
+
+## Benefits and drawbacks
+1. Benefits
+- Reduce duplication.
+- Share a vast amount of configuration with other modules.
+- One single maven command to build all your modules at once.
+- Conveniene to reuse code
+
+2. Drawbacks
+- understanding deeper project to work with it.
+
+
+<br>
+
+## Some problems that we configure multi-modules project
+- In Intellij IDEA, usually cope with the error about "java: packages do not exists"
+
+
+- Create life cycle between dependencies
+
+    We are utilizing two modules that are dependency together. Solution for this problem is to remove uneccessary dependency in another module.
+
+- RestController/Controller/Service/Component was not called when each controller/service/component in one modules.
+
+    We should use ```@ComponentScan``` to solve this problem.
+
+    For example:
+
+    ```java
+    @SpringBootApplication
+    @ComponentScan(basePackages = { "com.manhpd.pdMultiProj.*" })
+    public class MainApplication {
+        
+        private static Logger logger = (Logger) LogManager.getLogger(MainApplication.class);
+        
+        public static void main(String[] args) throws Exception {
+            SpringApplication app = new SpringApplication(MainApplication.class);
+            app.run(args);
+        }
+    }
+    ```
+
+
+<br>
+
+## Deploy multi-module project
+1. There are some multiple ways to build multi-modules project into one fat jar file.
     - Use ```maven-shade-plugin```
 
         ```xml
@@ -162,46 +251,20 @@ tags: [Java, Spring]
 
         This way is working like a charm.
 
-<br>
+2. Running
 
-## Benefits and drawbacks
-
-
-
-
-
-<br>
-
-## Some problems that we configure multi-modules project
-- In Intellij IDEA, usually cope with the error about "java: packages do not exists"
-
-
-
-- Create life cycle between dependencies
-
-
-
-- RestController/Controller/Service/Component was not called when each controller/service/component in one modules.
-
-    [https://stackoverflow.com/questions/33039774/restcontroller-in-other-package-doesnt-work](https://stackoverflow.com/questions/33039774/restcontroller-in-other-package-doesnt-work)
-
-
-
-
-<br>
-
-## Deploy multi-module project
-
-
-
+    ```bash
+    cd parent-project
+    mvn clean install
+    mvn exec:java -pl main -Dexec.mainClass=main.com.manhpd.pdMultiProj.MainApplication
+    ```
 
 <br>
 
 ## Wrapping up
+- Understanding about the POM file and the meaning of them.
 
-
-
-
+- Create hierarchical project with [hierarchical project](https://www.codetab.org/tutorial/apache-maven/multi-module/hierarchical-project/), [inheritance project](https://www.codetab.org/tutorial/apache-maven/multi-module/inheritance/), and [dependency management](https://www.codetab.org/tutorial/apache-maven/multi-module/dependency-management/).
 
 <br>
 
@@ -233,3 +296,4 @@ Refer:
 
 [http://www.rationaljava.com/2015/02/maven-tip-all-about-executable-jars.html](http://www.rationaljava.com/2015/02/maven-tip-all-about-executable-jars.html)
 
+[https://www.codetab.org/tutorial/apache-maven/multi-module/multi-module-project/](https://www.codetab.org/tutorial/apache-maven/multi-module/multi-module-project/)
