@@ -16,6 +16,11 @@ Let's get started.
 - [List commands](#list-commands)
 - [Network Commands](#network-commands)
 - [Process commands](#process-commands)
+- [Computer commands](#computer-commands)
+- [Check commands](#check-commands)
+- [Looping statement](#looping-statement)
+- [Conditional statements](#conditional-statements)
+- [Operators](#operators)
 - [Wrapping up](#wrapping-up)
 
 
@@ -178,11 +183,72 @@ Let's get started.
 ## Process commands
 1. List all process
 
+    Syntax:
+
     ```bash
-    tasklist
+    tasklist [/S system [/U username [/P [password]]]] [/M [module] | /SVC | /V] [/FI filter] [/FO format] [/NH]
     ```
 
+    |               Field           |                      Description                   |
+    | ----------------------------- | -------------------------------------------------- |
+    | ```/S <system>```             | Specifies the remote system to connect to          |
+    | ```/U <username>```           | Specifies the user context under which the command should execute. |
+    | ```/P <password>```           | Specifies the password for the given user context. Prompts for input if omitted. |
+    | ```/M <module>```             | Lists all tasks currently using the given exe/dll name. If the module name is not specified all loaded modules are displayed. |
+    | ```/SVC```                    | Displays services hosted in each process.          |
+    | ```/V```                      | Displays verbose task information.                 |
+    | ```/FI filter```              | Displays a set of tasks that match given criteria specified by the filter. |
+    | ```/FO format```              | Specifies the output format. Valid values: "TABLE," "LIST," and "CSV." |
+    | ```/NH```                     | Specifies that the "Column Header" should not show in the output. Valid only for "TABLE" and "CSV" formats. |
 
+    ```bash
+    # display on command line
+    tasklist
+
+    # save to file
+    tasklist > output.txt
+    ```
+
+2. Filter processes for specific intention
+
+    |               Field           |      Valid operators      |                      Valid values                   |
+    | ----------------------------- | ------------------------- | --------------------------------------------------- |
+    | STATUS                        | eq, ne                    | RUNNING | NOT RESPONDING | UNKNOWN                  |
+    | IMAGENAME	                    | eq, ne	                | Image name                                          | 
+    | PID	                        | eq, ne, gt, lt, ge, le	| PID value                                           |
+    | SESSION	                    | eq, ne, gt, lt, ge, le	| Session number                                      |
+    | SESSIONNAME	                | eq, ne	                | Session name                                        |
+    | CPUTIME	                    | eq, ne, gt, lt, ge, le	| CPU time in the format of hh:mm:ss, and hh - hours, mm - minutes, ss - seconds |
+    | MEMUSAGE	                    | eq, ne, gt, lt, ge, le	| Memory usage in KB                                  |
+    | USERNAME	                    | eq, ne	                | Username in [domain\]user format                    |
+    | SERVICES	                    | eq, ne	                | Service name                                        |
+    | WINDOWTITLE	                | eq, ne	                | Window title                                        |
+    | MODULES	                    | eq, ne	                | DLL name                                            |
+
+    ```bash
+    tasklist /fi "<conditions>"
+    ```
+
+3. Remove processes
+
+    |               Field           |                      Description                   |
+    | ----------------------------- | -------------------------------------------------- |
+    | ```/PID <processID>```        | Specifies the PID of the process to be terminated. Use tasklist to get the PID. |
+    | ```/IM ImageName```           | Specifies the image name of the process to be terminated. Wildcard '*' can be used to specify all tasks or image names. |
+    | ```/T```                      | Terminates the specified process and any child processes which were started by it. |
+    | ```/F```                      | Specifies to forcefully terminate the process(es). |
+
+    ```bash
+    taskkill [/S system [/U username [/P [password]]]]          { [/FI filter] [/PID processid | /IM imagename] } [/T] [/F]
+    ```
+
+    For example:
+
+    ```bash
+    taskkill /pid 2500
+
+    taskkill /f /im chrome.exe
+    ```
 
 <br>
 
@@ -211,8 +277,35 @@ Let's get started.
     shutdown -s -t 60
     ```
 
+2. Operations with PATH environment
 
+    - List all paths
 
+        ```bash
+        # display on command line
+        set
+
+        ## save to a file
+        set > output.txt
+        ```
+
+    - Get an specific application's path
+
+        ```bash
+        set env_name_variable
+        ```
+
+        For example:
+
+        ```bash
+        set JAVA_HOME
+        ```
+
+    -  Add application's path to PATH environment
+
+        ```bash
+        set PATH=%PATH%;<our-path-name>
+        ```
 
 <br>
 

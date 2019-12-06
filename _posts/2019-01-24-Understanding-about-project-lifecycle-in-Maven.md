@@ -5,7 +5,7 @@ bigimg: /img/image-header/home-office-1.jpg
 tags: [java]
 ---
 
-To build the small project, actually, we do a little operations such as typing Ctrl + Shift + B to build project and F5 to run. It is a pieces of cake to implement manually. 
+To build the small project, actually, we do a little operations such as typing ```Ctrl + Shift + B``` to build project and ```F5``` to run. It is a pieces of cake to implement manually. 
 
 But the huge problems will happen when we have to make a big project such as we do not build one by one libraries, or run test of each project. Therefore, Maven will appear as superman to help our automatically do some specific operations in the project.
 
@@ -39,7 +39,7 @@ mvn [options] [<goal(s)>] [<phase(s)>]
 
 ![Built-in lifecycle in Maven](../img/POM-file/project-lifecycle.png)
 
-Each Lifecycle consists of **predefined Phases**.
+Each build lifecycle consists of build phases, and the build phases are divided into build goals.
 
 <br>
 
