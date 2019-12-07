@@ -19,8 +19,6 @@ tags: [Java, Generics]
 
 ## Definition of Generics
 
-
-
 - Declarations
 
     - Constructors
