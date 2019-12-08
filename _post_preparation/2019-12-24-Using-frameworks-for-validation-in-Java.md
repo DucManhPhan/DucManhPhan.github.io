@@ -23,11 +23,46 @@ tags: [Clean code]
 
 - Use Guava & Apache
 
+    To use Google guava and Apache package, we should insert ```dependency``` into pom.xml file.
 
+    ```xml
+    <dependency>
+        <groupId>com.google.guava</groupId>
+        <artifactId>guava</artifactId>
+        <version>28.0-jre</version>
+    </dependency>
 
+    <dependency>
+        <groupId>org.apache.commons</groupId>
+        <artifactId>commons-lang3</artifactId>
+        <version>3.9</version>
+    </dependency>
+    ```
 
 - Use Hamcrest & AssertJ
 
+    ```xml
+    <dependency>
+        <groupId>org.hamcrest</groupId>
+        <artifactId>hamcrest-all</artifactId>
+        <version>1.3</version>
+        <scope>test</scope>
+    </dependency>
+
+    <dependency>
+        <groupId>org.assertj</groupId>
+        <artifactId>assertj-core</artifactId>
+        <version>3.13.2</version>
+        <scope>test</scope>
+    </dependency>
+
+    <dependency>
+        <groupId>org.junit.jupiter</groupId>
+        <artifactId>junit-jupiter-api</artifactId>
+        <version>5.5.1</version>
+        <scope>test</scope>
+    </dependency>
+    ```
 
 <br>
 
@@ -138,25 +173,80 @@ tags: [Clean code]
 
 <br>
 
-## Guava & Apache framework
+## Utility Libraries - Guava & Apache framework
+
+Below is the table to compare between Native Java, Guava and Apache about validation.
+
+|                Java              |                    Guava                 |          Apache Commons      |
+| -------------------------------- | ---------------------------------------- | ---------------------------- |
+| Objects                          | Preconditions                            | Validate                     |
+| requireNotNull()                 | checkNotNull()                           | notNull()                    |
+|                                  | checkArgument()                          | isTrue()                     |
+|                                  | checkState()                             | validState()                 |
+
+1. Google guava 
 
 
+
+2. Apache commons
 
 
 
 <br>
 
-## Hamcrest & AssertJ
+## Test libraries - Hamcrest & AssertJ
+1. Hamcrest
+
+    - ```is()```
+
+    - ```anyOf()```
+
+    - ```greaterThan()```
+
+    - ```startWith()```
 
 
+2. AssertJ
 
+    - ```containsAnyOf()```
 
+    - ```isNotSameAs()```
+
+    - ```isStrictlyBetween()```
+
+    - ```isZero()```
+
+<br>
+
+## How to mange libraries in our project
+
+Assuming that we are working in the project that utilize Spring framework. Spring also has its own verification utils, which is not as powerful as Hamcrest or AssertJ. Furthermore, we can see that the assertion methods are similar to what we have seen.
+
+![](../img/clean-code/defensive-coding/managing-libraries.png)
+
+But this tells us that we should first look up and use those validations instead of importing yet another library. It can actually get a bit out of control. If everyone has their own favorite toy libraries to the project, it can become difficult to manage. This is what some Java project actually look like.
+
+![](../img/clean-code/defensive-coding/messy-libraries-in-project.png)
+
+It costs time and money to learn a new API, and get confused to near identical classes and near identical methods.
+
+So, belows are some notes that we want to manage the consistency of dependencies in our project:
+- Check if you already have something and consider using that.
+
+- If not, do careful research, discuss and implement.
+
+- Use consistency and prevent further dependency creep.
 
 <br>
 
 ## Wrapping up
+- Try not to mix Objects and Preconditions APIs.
 
+- Use libraries whatever your project already has.
 
+- Hamcrest and AssertJ are competing, not complementary libraries.
+
+- Do not reinvent the wheel.
 
 <br>
 
@@ -166,3 +256,4 @@ Thanks for your reading.
 
 Refer:
 
+[Defensive coding in Java](https://app.pluralsight.com/library/courses/defensive-programming-java/table-of-contents)

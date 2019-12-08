@@ -14,6 +14,7 @@ Let's get started.
 ## Table of contents
 - [Validating method input](#validating-method-input)
 - [Choosing right exceptions](#choose-right-exceptions)
+- [Improving method return values](#improving-method-return-values)
 - [Wrapping up](#wrapping-up)
 
 <br>
@@ -381,6 +382,8 @@ Let's get started.
 |                       DONTs                      |                       DOs                        |
 | ------------------------------------------------ | ------------------------------------------------ |
 | Throw top-level Error, Exception, RuntimeException or Throwable | Throw specific exceptions such as ```IllegalArgumentException```, ```IllegalStateException```, ```NullPointerException```, ```UnsupportedOperationException``` |
+| Catch ```NullPointerException```                 | Use Java 7 ```try-with-resources```              |
+| Catch and swallo (do nothing in catch blocks)    | Pass useful and pertinent information to your exception |
 
 About ```NullPointerException``` exception, we have:
 
@@ -391,6 +394,110 @@ If a caller passes null in some parameter for which null values are prohibited, 
 Joshua Bloch, Effective Java
 ```
 
+And we also have:
+
+```
+When used to best advantage, exceptions can improve a program's readability, reliability and maintainability. When used improperly, they can have the opposite effect.
+
+---
+Joshua Bloch, Effective Java
+```
+
+<br>
+
+## Improving method return values
+1. Do not use magic numbers
+
+    In such programming like C#, Java, Python, to indicate success or failure of operations, they had to use primitive numbers.
+
+    For example:
+    - ```0```  for success
+    -```-1``` for failure
+
+    Assuming that we want to code for method with ```write(String txt);```. So, what could this method return?
+    - It could return void, and if it does not blow up, we could assume it was successful.
+    - It could event return boolean, and then we could make a reasonable guess. That true means success and false means failure.
+    - But what if it returns an integer? 
+        
+        - First of all, we do not know what kind of integers, it might return.
+        - Second, we would not know what they mean unless we spend our time reading the documentation. So making people guess is really bad, but it gets worse.
+
+            Magic numbers force others to start writing code like below.
+
+            ```java
+            int write(String txt);
+
+            int result = write(text);
+            if (result == -1) {
+                // do something
+            } else if (result == 0) {
+                // do another thing
+            }
+            ```
+
+            We all want to write simple code, but if we create methods that return magic numbers, then the user of methods have a hard time to writing clean code. 
+
+2. Method return options
+
+    We will have some valid return values:
+    - ```true``` / ```false```
+        - ```true```: success
+        - ```false```: failure
+
+    - void / throw
+
+        - nothing happens: success
+        - exception: failure
+
+        For example:
+
+        ```java
+        public static void write(Path path, String text) {
+            try {
+                Files.write(path, text.getBytes());
+            } catch (IOException e) {
+                System.out.println(e.getMessage());
+            }
+        }
+        ```
+
+    And we also have some bad return values:
+    - Do not mix
+
+        ```true``` / ```false``` (and may be an exception)
+
+    - Null
+
+        - with null value, it's necessary to initialize fields.
+        - And Null value is not necessary to indicate a missing value or result.
+
+        If we do not use return null in method as solution, we will have some alternatives to null value:
+        - throw exception.
+        - return sensible default value.
+
+
+
+        - return empty collection.
+
+            We have correspond collection to each data structure:
+            - ```emptyList()```
+            - ```emptySet()```
+            - ```emptyMap()```
+
+        - return optional
+
+            Optional means a container object which may or may not contain a non-null value.
+            
+            ```Optional<T>``` forces the user to confront the fact that there may be no value.
+            
+            Optional gives us a variety of convenience methods to deal with the emptiness out of the box.
+            - ```orElse()```
+            - ```orElseGet()```
+            - ```ifPresentOrElse()```
+            - ```orElseThrow()```
+
+            Optional are mostly meant to be used as a method return types.
+
 <br>
 
 ## Wrapping up
@@ -398,6 +505,13 @@ Joshua Bloch, Effective Java
 
     An object is immutable if we can not modify its state after creation.
 
+- Side effect happens if a method modifies some state outside its local scope.
+
+    Do not make methods return values and produce side effects.
+
+    To reduce side effects in a method, we should split it into smaller tasks, and to make it better, we should use CQRS - Command Query Responsibility Segregation.
+
+- Should use Static Analysis Tool such as SonarLint
 
 <br>
 
