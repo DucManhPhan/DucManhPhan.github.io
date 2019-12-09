@@ -124,19 +124,19 @@ On the Java side, we have a number of Java classes that define the domain model,
 
 2. XML schema
 
-    JAXB makes use of XML schema, so it's important that we understand what XML schema is. Let's take a quick look at the most important concepts of XML schema.
+    ```JAXB``` makes use of XML schema, so it's important that we understand what XML schema is. Let's take a quick look at the most important concepts of XML schema.
 
-    XML, unlike HTML, does not have a fixed set of tags. When we're going to use XML for our application, we'll be inventing our own set of tags that have meaning in the context of our application. An XML schema describes the data model of an XML file, what elements can appear in the XML, what the content of these elements can be, and what attributes they can have.
+    ```XML```, unlike ```HTML```, does not have a fixed set of tags. When we're going to use ```XML``` for our application, we'll be inventing our own set of tags that have meaning in the context of our application. An ```XML schema``` describes the data model of an XML file, what elements can appear in the XML, what the content of these elements can be, and what attributes they can have.
 
-    XML processing tool can use the schema, for example, to check if an XML document is valid according to the schema.
+    ```XML processing tool``` can use the schema, for example, to check if an XML document is valid according to the schema.
     
-    There are different standard schema languages for XML. The original schema language, which was invented together with XML itself, is DTD, which stands for ```Document Type Definition```, but DTD has limitations. For example, it does not support namespaces and it does not support data types for the content of elements and attributes. So, there is, for example, no way to specify in a DTD that a certain element should contain a number of a date. 
+    There are different standard schema languages for XML. The original schema language, which was invented together with XML itself, is ```DTD```, which stands for ```Document Type Definition```, but DTD has limitations. For example, it does not support namespaces and it does not support data types for the content of elements and attributes. So, there is, for example, no way to specify in a ```DTD``` that a certain element should contain a number of a date. 
     
-    The most widely used standard schema language is XML schema. If we are working with JAXB, it's important to understand the XML schema because JAXB heavily makes use of it. XML schema files are XML files themselves and have the extension XSD, which stands for XML schema Definition.
+    The most widely used standard schema language is ```XML schema```. If we are working with JAXB, it's important to understand the ```XML schema``` because JAXB heavily makes use of it. ```XML schema``` files are XML files themselves and have the extension ```XSD```, which stands for ```XML schema Definition```.
 
-    If we want to know everything about XML schema, we can look up the specifications on the website of the World Wide Web Consortium, the W3C, but be aware that the official specification is a very dry and technical document, which is hard to read. Fortunately, the W3C also has a more easy-to-read tutorial, the XML schema Primer.
+    If we want to know everything about ```XML schema```, we can look up the specifications on the website of the ```World Wide Web Consortium```, the ```W3C```, but be aware that the official specification is a very dry and technical document, which is hard to read. Fortunately, the ```W3C``` also has a more easy-to-read tutorial, the ```XML schema Primer```.
 
-    For example XSD file which defines a small domain model for ```purchaseOrder```:
+    For example ```XSD``` file which defines a small domain model for ```purchaseOrder```:
 
     ```xml
     <?xml version="1.0" encoding="UTF-8" ?>
@@ -236,22 +236,22 @@ On the Java side, we have a number of Java classes that define the domain model,
 <br>
 
 ## Understanding the JAXB API
-The JAXB API is in the package ```javax.xml.bind``` and related packages in Java SE. The entry point into the API is the class JAXBContext. The first thing we need to do if we want to use the JAXB API is to get an instance of class JAXBContext. The JAXBContext object will give us access to everything else in the API. We get an instance of JAXBContext by calling one of the new instance static factory methods in the class itself.
 
-When we have a JAXBContext object, we can call a number of other factory methods on it to create other JAXB objects. The two most important ones are the Marshaller, Unmarshaller objects.
+The ```JAXB``` API is in the package ```javax.xml.bind``` and related packages in Java SE. The entry point into the API is the class ```JAXBContext```. The first thing we need to do if we want to use the JAXB API is to get an instance of class ```JAXBContext```. The ```JAXBContext``` object will give us access to everything else in the API. We get an instance of ```JAXBContext``` by calling one of the new instance static factory methods in the class itself.
 
-In JAXB terminology, converting from Java objects to XML is called marshalling. So when we want to write XML, what we need to do is create a Marshaller object, which has methods that we can call to marshall our Java objects into XML.
+When we have a ```JAXBContext``` object, we can call a number of other factory methods on it to create other JAXB objects. The two most important ones are the ```Marshaller```, ```Unmarshaller``` objects.
 
-Vice versa, converting XML back to Java objects is called unmarshalling. When we want to read XML, we create an Unmarshaller object, which, of course, has methods for unmarshalling XML into Java objects.
+- In JAXB terminology, converting from Java objects to XML is called marshalling. So when we want to write XML, what we need to do is create a Marshaller object, which has methods that we can call to marshall our Java objects into XML.
 
-Besides factory methods to create Marshaller and Unmarshaller objects, class JAXBContext has a few more methods to create Binder, and JAXBIntrospector objects.
+- Vice versa, converting XML back to Java objects is called unmarshalling. When we want to read XML, we create an ```Unmarshaller``` object, which, of course, has methods for unmarshalling XML into Java objects.
 
-The reason that creating all these objects works via factory methods is because the JAXB API was designed to have multiple possible implementations. Besides the default implementation, which is included with Java SE, there are indeed other implementations available, for example, EclipseLink MOXy. Reasons to use a different implementation of JAXB rather than the default are because a different implementation might offer extra features that are not part of the default or because of different implementation might have better performance.
+Besides factory methods to create ```Marshaller``` and ```Unmarshaller``` objects, class ```JAXBContext``` has a few more methods to create ```Binder```, and ```JAXBIntrospector``` objects.
 
-There are one important thing to mention about JAXBContext, Marshaller, Unmarshaller objects. We should normally create a JAXBContext object only once in our application and then reuse the same object whenever we need it. The JAXBContext object is guaranteed to be thread-safe, so it's safe to reuse the same instance for multiple threads. Creating a JAXBContext object is a relatively heavy operation. So if we would do that every time our application needs it, then it will degrade the performance of our application.
+The reason that creating all these objects works via factory methods is because the JAXB API was designed to have multiple possible implementations. Besides the default implementation, which is included with Java SE, there are indeed other implementations available, for example, ```EclipseLink MOXy```. Reasons to use a different implementation of JAXB rather than the default are because a different implementation might offer extra features that are not part of the default or because of different implementation might have better performance.
 
-Marshaller, Unmarshaller objects are not guaranteed to be thread-safe, so we should not use these objects for multiple threads. Creating Marshaller and Unmarshaller objects are not heavy operations, so creating them when needed does not cause a performance problem.
+There are one important thing to mention about ```JAXBContext```, ```Marshaller```, ```Unmarshaller``` objects. We should normally create a ```JAXBContext``` object only once in our application and then reuse the same object whenever we need it. The ```JAXBContext``` object is guaranteed to be thread-safe, so it's safe to reuse the same instance for multiple threads. Creating a ```JAXBContext``` object is a relatively heavy operation. So if we would do that every time our application needs it, then it will degrade the performance of our application.
 
+```Marshaller```, ```Unmarshaller``` objects are not guaranteed to be thread-safe, so we should not use these objects for multiple threads. Creating ```Marshaller``` and ```Unmarshaller``` objects are not heavy operations, so creating them when needed does not cause a performance problem.
 
 <br>
 
@@ -286,4 +286,3 @@ Marshaller, Unmarshaller objects are not guaranteed to be thread-safe, so we sho
 Refer:
 
 [Working with XML in Java using JAXB](https://app.pluralsight.com/library/courses/xml-java-using-jaxb/table-of-contents)
-
