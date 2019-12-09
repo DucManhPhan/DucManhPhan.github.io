@@ -5,16 +5,17 @@ bigimg: /img/image-header/california.jpg
 tags: [Java]
 ---
 
-
+In this article, we will learn how to use JAXB for working with XML, especially when we utilize JAX-WS framework. Let's get started.
 
 <br>
 
 ## Table of contents
 - [Introduction about other tools](#introduction-about-other-tools)
 - [JAXB](#jaxb)
-- [XML and namespaces](#xml-and-namespaces)
-- [Benefits and drawbacks](#benefits-and-drawbacks)
+- [XML structure](#xml-structure)
+- [Understanding the JAXB API](#understanding-the-jaxb-api)
 - [Java code example](#java-code-example)
+- [Benefits and drawbacks](#benefits-and-drawbacks)
 - [Wrapping up](#wrapping-up)
 
 
@@ -257,7 +258,7 @@ There are one important thing to mention about ```JAXBContext```, ```Marshaller`
 
 ## Java code example
 
-
+The sample code in this section will be put in this [link](https://github.com/DucManhPhan/J2EE/tree/master/src/Utils/xml-utils).
 
 
 <br>
@@ -277,7 +278,11 @@ There are one important thing to mention about ```JAXBContext```, ```Marshaller`
 
 
 ## Wrapping up
+- ```JAXB 1.0``` was developed under the Java Community Process as ```JSR 31```. ```JAXB 2.0``` was released under ```JSR 222``` and becomes part of JDK since ```Java 6``` to add support for the ```Web Services stack``` (under package ```javax.xml.bind```). It's still part of standard JDK in ```Java 7``` and ```Java 8```.
 
+    In ```Java 9```, the modules which contain Java EE technologies were deprecated for removal in a future release. The flag --add-modules=java.xml.bind can be used in ```Java 9``` and ```Java 10``` to resolve these modules.
+
+    In ```Java 11```, ```JAXB``` has been removed from ```JDK``` (together with other JEE related modules based on ```JEP 320```) and we need to add it to the project as a separate library via ```Maven``` or ```Gradle```.
 
 
 

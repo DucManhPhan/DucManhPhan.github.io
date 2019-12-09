@@ -157,6 +157,8 @@ public class App
 ## Wrapping up
 - Understanding configurations of Log4j 1.x such as all parts of Log4j, functionality of each part, ...
 - Configure xml or properties file easily.
+- In order to use Log4j 1.x in Spring boot, we can do like this [link](https://stackoverflow.com/questions/29225777/log4j-properties-in-spring-boot).
+
 
 <br>
 
