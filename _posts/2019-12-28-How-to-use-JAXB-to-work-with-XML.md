@@ -260,6 +260,29 @@ There are one important thing to mention about ```JAXBContext```, ```Marshaller`
 
 The sample code in this section will be put in this [link](https://github.com/DucManhPhan/J2EE/tree/master/src/Utils/xml-utils).
 
+With:
+- ```@XmlRootElement```: This annotation is used at the top level class to indicate the root element in the XML document. The ```name``` attribute in the annotation is optional. If not specified, the class name is used as the root XML element in the document.
+
+- ```@XmlAttribute```: This annotation is used to indicate the attribute of the root element.
+
+- ```@XmlElement```: This annotation is used on the properties of the class that will be the sub-elements of the root element.
+
+- ```@XmlElementWrapper```
+
+    - This annotation generates a wrapper element around XML representation.
+    - This is primarily intended to be used to produce a wrapper XML element around collections.
+    - This annotation can be used with the following annotations: ```XmlElement```, ```XmlElements```, ```XmlElementRef```, ```XmlElementRefs```, ```XmlJavaTypeAdapter```.
+    - The ```@XmlElementWrapper``` annotation can be used with the following program elements:
+        - JavaBean property
+        - non static, non transient field
+
+- ```@XmlType```: define the order in which the fields are written in the XML file
+
+- ```@XmlTransient```: annotate fields that we don't want to be included in XML
+
+- ```@XmlElementRef```: Maps a JavaBean property to a XML element derived from property's type.
+
+    Refer some example in this [link](https://docs.oracle.com/javaee/7/api/javax/xml/bind/annotation/XmlElementRef.html).
 
 <br>
 
@@ -284,10 +307,20 @@ The sample code in this section will be put in this [link](https://github.com/Du
 
     In ```Java 11```, ```JAXB``` has been removed from ```JDK``` (together with other JEE related modules based on ```JEP 320```) and we need to add it to the project as a separate library via ```Maven``` or ```Gradle```.
 
-
+- To get schema-to-java mapping in JAXB, refer [link](https://docs.oracle.com/cd/E19316-01/819-3669/bnazf/index.html).
 
 <br>
 
 Refer:
 
 [Working with XML in Java using JAXB](https://app.pluralsight.com/library/courses/xml-java-using-jaxb/table-of-contents)
+
+[https://docs.oracle.com/cd/E19316-01/819-3669/bnazf/index.html](https://docs.oracle.com/cd/E19316-01/819-3669/bnazf/index.html)
+
+[https://dzone.com/articles/writing-and-reading-xml-file?fromrel=true](https://dzone.com/articles/writing-and-reading-xml-file?fromrel=true)
+
+[https://dzone.com/articles/introduction-to-jaxb-20?fromrel=true](https://dzone.com/articles/introduction-to-jaxb-20?fromrel=true)
+
+[https://dzone.com/articles/xml-marshalling-and-unmarshalling-using-spring-and?fromrel=true](https://dzone.com/articles/xml-marshalling-and-unmarshalling-using-spring-and?fromrel=true)
+
+[https://howtodoinjava.com/jaxb/xmlelementwrapper-annotation/](https://howtodoinjava.com/jaxb/xmlelementwrapper-annotation/)
