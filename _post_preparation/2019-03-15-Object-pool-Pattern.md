@@ -19,7 +19,7 @@ tags: [creational pattern, design pattern]
 
 <br>
 
-## Given Problem 
+## Given Problem
 In our program, 
 
 
@@ -32,12 +32,24 @@ In our program,
 <br>
 
 ## When to use
-
+- When create object has too expensive cost.
+- When the frequence to creat objects is high.
+- When the number of objects in use is small.
 
 
 <br>
 
-## Benefits & Drawback
+## Benefits & Drawbacks
+1. Benefits
+- Boot performance of system when we can reuse objects of pool because creating object is too expensive.
+- 
+
+
+
+
+2. Drawbacks
+
+
 
 
 
@@ -50,7 +62,7 @@ In our program,
 <br>
 
 ## Application & Examples
-
+- Use this pattern to manage resources such as connections to database because it is an expensive operation, and when there are too many connections opened, it will takes longer to create a new one, the database server will become overloaded; or threads.
 
 
 <br>
@@ -70,3 +82,8 @@ Thanks for your reading.
 Refer: 
 
 [https://dzone.com/articles/creating-object-pool-java](https://dzone.com/articles/creating-object-pool-java)
+
+[https://medium.com/@sawomirkowalski/design-patterns-object-pool-e8269fd45e10](https://medium.com/@sawomirkowalski/design-patterns-object-pool-e8269fd45e10)
+
+[https://www.geeksforgeeks.org/object-pool-design-pattern/](https://www.geeksforgeeks.org/object-pool-design-pattern/)
+
