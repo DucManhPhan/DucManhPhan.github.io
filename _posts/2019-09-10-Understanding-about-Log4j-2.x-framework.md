@@ -302,6 +302,36 @@ AppenderRef: This element defines a reference to an element from the Appenders s
 
 <br>
 
+## Common problems when using Log4j
+1. Please initialize the log4j system properly warning
+
+	When running our project, we can encounter these messages:
+
+	```
+	log4j:WARN No appenders could be found for logger (com.manhpd...).
+	log4j:WARN Please initialize the log4j system properly.
+	```
+
+	This problem occurs when the default configuration files ```log4j.properties``` and ```log4j.xml``` can not be found and the application performs no explicit configuration. ```log4j``` uses ```Thread.getContextClassLoader().getResource()``` to locate the default configuration files and does not directly check the file system. Knowing the appropriate location to place ```log4j.properties``` or ```log4j.xml``` requires understanding the search strategy of the class loader in use. ```log4j``` does not provide a default configuration since output to the console or to the file system may be prohibited in some environments.
+
+	We can control which file will be used to initialize by setting system properties as the following:
+
+	```bash
+	# Log4j will look for a file called customName on the classpath.
+	java -Dlog4j.configuration=customName
+	```
+
+	If we are having problems I find it helpful to turn on the log4j.debug:
+
+	```bash
+	# It will print to System.out lots of helpful information about which file it used to initialize itself, which loggers / appenders got configured and how etc.
+	-Dlog4j.debug
+	```
+
+	If we want to dig deeper this problem, read this [link](http://logging.apache.org/log4j/1.2/manual.html).
+
+<br>
+
 ## Wrapping up
 - Log4j always takes the default path that is the path of project.
 
