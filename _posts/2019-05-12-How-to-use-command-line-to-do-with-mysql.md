@@ -357,6 +357,40 @@ We will choose ```Command Line prompt``` to do.
 
 <br>
 
+## Import and export sql file
+1. Import sql file
+
+    We will use ```mysql``` command to import the database that are exported and stored as an SQL file.
+
+    - First, login into MySQL
+
+        ```sql
+        mysql -u <username> -p
+        ```
+
+    - Second, create a new database to receive data from that database
+
+        ```sql
+        create database <db-name>
+        ```
+
+    - Finally, import the SQL file in that new database
+
+        ```sql
+        mysqlimport -u <username> -p <db-name> < <name-sql-file>.sql
+        ```
+
+
+2. Export sql file
+
+    Use ```mysqldump``` utility to export database.
+
+    ```sql
+    mysqldump -u <username> -p <db-name> > <name-sql-file>.sql
+    ```
+
+<br>
+
 ## Wrapping up
 - Use command line to improve the speed of implementing with MySQL, and enhace the knowledge about MySQL.
 
@@ -375,3 +409,7 @@ Refer:
 [http://www.mysqltutorial.org/mysql-show-columns/](http://www.mysqltutorial.org/mysql-show-columns/)
 
 [http://mysqlblog.fivefarmers.com/2015/03/31/command-line-prompt/](http://mysqlblog.fivefarmers.com/2015/03/31/command-line-prompt/)
+
+[https://dev.mysql.com/doc/refman/8.0/en/mysqlimport.html](https://dev.mysql.com/doc/refman/8.0/en/mysqlimport.html)
+
+[https://www.digitalocean.com/community/tutorials/how-to-import-and-export-databases-in-mysql-or-mariadb](https://www.digitalocean.com/community/tutorials/how-to-import-and-export-databases-in-mysql-or-mariadb)

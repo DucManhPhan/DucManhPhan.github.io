@@ -75,3 +75,4 @@ Refer:
 
 [https://docs.spring.io/spring/docs/current/javadoc-api/org/springframework/web/reactive/function/client/WebClient.RequestHeadersSpec.html#headers-java.util.function.Consumer-](https://docs.spring.io/spring/docs/current/javadoc-api/org/springframework/web/reactive/function/client/WebClient.RequestHeadersSpec.html#headers-java.util.function.Consumer-)
 
+[https://app.pluralsight.com/library/courses/java-fundamentals-httpclient/table-of-contents](https://app.pluralsight.com/library/courses/java-fundamentals-httpclient/table-of-contents)

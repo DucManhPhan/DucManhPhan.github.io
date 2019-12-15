@@ -5,7 +5,9 @@ bigimg: /img/image-header/factory.jpg
 tags: [Java, Exception handling]
 ---
 
+The old version of date time have many drawbacks, Java 8 provides java.time package to solve them clearly. So, in this article, we will learn how to use Dates and Times in Java 8, especially the way to communication between database and application.
 
+Let's get started.
 
 <br>
 
@@ -21,9 +23,20 @@ tags: [Java, Exception handling]
 <br>
 
 ## Why we need java.time package in Java 8
+In order to understand why we need to use java.time package, we must be aware of consequences of the old version of date time.
+- A long-standing bugbear of Java developers has been the inadequate support for the date and time use cases of ordinary developers.
 
+    For example: the existing classes (such as ```java.util.Date``` and ```SimpleDateFormatter```) aren't thread-safe, leading to potential concurrency issues for users—not something the average developer would expect to deal with when writing date-handling code.
 
+- Some of the date and time classes also exhibit quite poor API design.
 
+    For example, years in ```java.util.Date``` start at 1900, months start at 1, and days start at 0—not very intuitive.
+
+- These issues, and several others, have led to the popularity of third-party date and time libraries, such as Joda-Time.
+
+In order to address these problems and provide better support in the JDK core, a new date and time API, which is free of these problems, has been designed for Java SE 8.
+
+The project has been led jointly by the author of ```Joda-Time``` (```Stephen Colebourne```) and Oracle, under JSR 310, and will appear in the new Java SE 8 package ```java.time```.
 
 <br>
 
@@ -304,7 +317,7 @@ System.out.println(schedule);
     | ISO_INSTANT                          | Date and Time of an Instant                    | '2011-12-03T10:15:30Z'                    |
     | RFC_1123_DATE_TIME                   | RFC 1123 / RFC 822                             | 'Tue, 3 Jun 2008 11:05:30 GMT'            |
 
-- The class Duration 
+- The class ```Duration``` 
 
     It provides some format methods
     - ```toString()``` - fixed format
@@ -343,3 +356,7 @@ System.out.println(schedule);
 Refer:
 
 [Programming with Dates and Times in Java 8](https://app.pluralsight.com/library/courses/java8-dates-times-programming/table-of-contents)
+
+[https://www.oracle.com/technical-resources/articles/java/jf14-date-time.html](https://www.oracle.com/technical-resources/articles/java/jf14-date-time.html)
+
+[https://javarevisited.blogspot.com/2012/04/difference-between-javautildate-and.html#axzz68DGA6Lnd](https://javarevisited.blogspot.com/2012/04/difference-between-javautildate-and.html#axzz68DGA6Lnd)
