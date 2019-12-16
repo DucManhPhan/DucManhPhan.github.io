@@ -5,13 +5,19 @@ bigimg: /img/image-header/california.jpg
 tags: [Clean code]
 ---
 
+In this article, we will focus on using frameworks to validate our input parameters of methods in our project.
 
+Let's get started.
 
 <br>
 
 ## Table of contents
-
-
+- [Summary information about frameworks](#summary-information-about-frameworks)
+- [Native Java](#native-java)
+- [Utility Libraries - Guava & Apache framework](#utility-libraries---guava-&-apache-framework)
+- [Test libraries - Hamcrest & AssertJ](#test-libraries---hamcrest-&-assertj)
+- [How to manage libraries in our project](#how-to-manage-libraries-in-our-project)
+- [Wrapping up](#wrapping-up)
 
 
 <br>
@@ -69,107 +75,109 @@ tags: [Clean code]
 ## Native Java
 ```Objects``` class provides some useful methods for us to validate method's inputs.
 1. For object
-- ```equals()```
 
-    ```java
-    public static boolean equals(Object a, Object b);
-    ```
-
-    - Return true if two arguments are equal, otherwise, return false.
-    - Both arguments are null, return true.
-    - If one of them is null, return false.
-    - Correspond to this code:
+    - ```equals()```
 
         ```java
-        public static boolean equals(Object a, Object b) {
-            // Check conditions
-
-            return a.equals(b);
-        }
+        public static boolean equals(Object a, Object b);
         ```
 
+        - Return true if two arguments are equal, otherwise, return false.
+        - Both arguments are null, return true.
+        - If one of them is null, return false.
+        - Correspond to this code:
 
-- ```deepEquals()```
+            ```java
+            public static boolean equals(Object a, Object b) {
+                // Check conditions
 
-    ```java
-    public static boolean deepEquals(Object a, Object b);
-    ```
+                return a.equals(b);
+            }
+            ```
 
-    - Both arguments are deeply equal, then return true, otherwise false.
-    - Both arguments are arrays, use ```Arrays.deepEquals()``` method to determine quality.
 
-- ```isNull()```
+    - ```deepEquals()```
 
-    ```java
-    // 1.8
-    public static boolean isNull(Object o);
-    ```
+        ```java
+        public static boolean deepEquals(Object a, Object b);
+        ```
 
-    - Return true if the argument is null, otherwise false.
+        - Both arguments are deeply equal, then return true, otherwise false.
+        - Both arguments are arrays, use ```Arrays.deepEquals()``` method to determine quality.
 
-- ```nonNull()```
+    - ```isNull()```
 
-    ```java
-    // 1.8
-    public static boolean nonNull(Object o);
-    ```
+        ```java
+        // 1.8
+        public static boolean isNull(Object o);
+        ```
 
-    - Return true if the argument is non-null, otherwise false.
+        - Return true if the argument is null, otherwise false.
 
-- ```requireNonNull()```
+    - ```nonNull()```
 
-    ```java
-    public static <T> T requireNonNull(T obj);
+        ```java
+        // 1.8
+        public static boolean nonNull(Object o);
+        ```
 
-    public static <T> T requireNonNull(T obj, String message);
-    ```
+        - Return true if the argument is non-null, otherwise false.
 
-    - This method is designed primarily for doing parameter validation in methods and constructors.
-    - Throw ```NullPointerException``` exception when the argument is null.
+    - ```requireNonNull()```
 
-- ```requireNonNullElse()```
+        ```java
+        public static <T> T requireNonNull(T obj);
 
-    ```java
-    // 9
-    public static <T> T requireNonNullElse(T obj, T defaultObj);
+        public static <T> T requireNonNull(T obj, String message);
+        ```
 
-    // 9
-    public static <T> T requireNonNullElseGet(T obj, Supplier<? extends T> supplier);
-    ```
+        - This method is designed primarily for doing parameter validation in methods and constructors.
+        - Throw ```NullPointerException``` exception when the argument is null.
 
-    - Return the first argument if it is non-null.
-    - Otherwise returns ```defaultObj``` or ```supplier``` the non-null second arguement.
-    - Throws ```NullPointerException``` exception when both ```obj``` and ```defaultObj``` or ```suplier``` or ```supplier.get()``` value is null.
+    - ```requireNonNullElse()```
+
+        ```java
+        // 9
+        public static <T> T requireNonNullElse(T obj, T defaultObj);
+
+        // 9
+        public static <T> T requireNonNullElseGet(T obj, Supplier<? extends T> supplier);
+        ```
+
+        - Return the first argument if it is non-null.
+        - Otherwise returns ```defaultObj``` or ```supplier``` the non-null second arguement.
+        - Throws ```NullPointerException``` exception when both ```obj``` and ```defaultObj``` or ```suplier``` or ```supplier.get()``` value is null.
 
 2. For array
-- ```checkIndex()```
 
-    ```java
-    // 9
-    public static int checkIndex(int index, int length);
-    ```
+    - ```checkIndex()```
 
-    - Checks if the ```index``` is within the bounds of the range from 0 (inclusive) to ```length``` (exclusive).
-    - Throws ```IndexOutOfBoundsException``` - if the index is out-of-bounds.
+        ```java
+        // 9
+        public static int checkIndex(int index, int length);
+        ```
 
-- ```checkFromToIndex()```
+        - Checks if the ```index``` is within the bounds of the range from 0 (inclusive) to ```length``` (exclusive).
+        - Throws ```IndexOutOfBoundsException``` - if the index is out-of-bounds.
 
-    ```java
-    // 9
-    public static int checkFromToIndex(int fromIndex, int toIndex, int length);
-    ```
+    - ```checkFromToIndex()```
 
-    - Checks if the sub-range from ```fromIndex``` (inclusive) to ```toIndex``` (exclusive) is within the bounds of range from 0 (inclusive) to ```length``` (exclusive).
-    - Throws ```IndexOutOfBoundsException``` - if the sub-range is out-of-bounds.
+        ```java
+        // 9
+        public static int checkFromToIndex(int fromIndex, int toIndex, int length);
+        ```
 
-- ```checkFromIndexSize()```
+        - Checks if the sub-range from ```fromIndex``` (inclusive) to ```toIndex``` (exclusive) is within the bounds of range from 0 (inclusive) to ```length``` (exclusive).
+        - Throws ```IndexOutOfBoundsException``` - if the sub-range is out-of-bounds.
 
-    ```java
-    public static int checkFromIndexSize(int fromIndex, int size, int length);
-    ```
+    - ```checkFromIndexSize()```
 
-    - Checks if the sub-range from ```fromIndex``` (inclusive) to ```fromIndex + size``` (exclusive) is within the bounds of range from 0 (inclusive) to ```length``` (exclusive).
-    - Throws ```IndexOutOfBoundsException``` - if the sub-range is out-of-bounds.
+        ```java
+        public static int checkFromIndexSize(int fromIndex, int size, int length);
+        ```
+
+        - Checks if the sub-range from ```fromIndex``` (inclusive) to ```fromIndex + size``` (exclusive) is within the bounds of range from 0 (inclusive) to ```length``` (exclusive).
+        - Throws ```IndexOutOfBoundsException``` - if the sub-range is out-of-bounds.
 
 <br>
 
@@ -183,14 +191,6 @@ Below is the table to compare between Native Java, Guava and Apache about valida
 | requireNotNull()                 | checkNotNull()                           | notNull()                    |
 |                                  | checkArgument()                          | isTrue()                     |
 |                                  | checkState()                             | validState()                 |
-
-1. Google guava 
-
-
-
-2. Apache commons
-
-
 
 <br>
 
@@ -218,7 +218,7 @@ Below is the table to compare between Native Java, Guava and Apache about valida
 
 <br>
 
-## How to mange libraries in our project
+## How to manage libraries in our project
 
 Assuming that we are working in the project that utilize Spring framework. Spring also has its own verification utils, which is not as powerful as Hamcrest or AssertJ. Furthermore, we can see that the assertion methods are similar to what we have seen.
 
