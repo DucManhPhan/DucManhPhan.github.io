@@ -13,6 +13,9 @@ tags: [Multithreading, Java]
 - [Some important parts in Aerospike](#some-important-parts-in-aerospike)
 - [Common commands](#common-commands)
 - [Data Query Language](#data-query-language)
+- [Data Definition Language](#data-definition-language)
+- [Data Manipulation Language](#data-manipulation-language)
+- [Data Control Language](#data-control-language)
 - [Wrapping up](#wrapping-up)
 
 
@@ -204,9 +207,7 @@ tags: [Multithreading, Java]
 <br>
 
 ## Wrapping up
-
-
-
+- In order to select all records that satisfy our condition, the bin of record must be indexed.
 
 
 

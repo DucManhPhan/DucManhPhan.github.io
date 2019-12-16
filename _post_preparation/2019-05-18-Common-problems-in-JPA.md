@@ -21,14 +21,14 @@ tags: [Database]
 ## The difference between CascadeType.REMOVE and orphanRemoval = true
 
 |       Action         | ```orphanRemoval = true``` |     ```CascadeType.ALL```    |
-| -------------------- | -------------------- | ---------------------- |
-| Delete parent        | Deletes parent and orphans | Deletes parent and orphans |
-| Change children list | Delete orphans       | Nothing                |
+| -------------------- | -------------------------- | ---------------------------- |
+| Delete parent        | Deletes parent and orphans | Deletes parent and orphans   |
+| Change children list | Delete orphans             | Nothing                      |
 
 <br>
 
 ## Delete item that do not exists in database
-In RDBMS, if we try to delete an non-existing entry from database using SQL, database does not throw any exception/error. This statement succeeds with message that zero records impacted. 
+In RDBMS, if we try to delete an non-existing entry from database using SQL, database does not throw any ```exception/error```. This statement succeeds with message that zero records impacted. 
 
 Hibernate provides just a layer on top of database, and does not create new behaviors.
 
@@ -41,107 +41,110 @@ Hibernate provides just a layer on top of database, and does not create new beha
 
 <br>
 
-## StackOverflowError when merge/persist an object into database
-Assuming that we have two class ```Product``` and ```Category``` that are relevant together by ```@One-to-Many``` annotation.
+## Common errors in JPA when working with project
 
-```java
-@Entity
-@NamedQueries({
-    @NamedQuery(name= "findAllCategory", query="SELECT c FROM Category c")        
-})
-public class Category implements Serializable
-{
-    private static final long serialVersionUID = 1L;
+1. StackOverflowError when merge/persist an object into database
 
-    @Id @GeneratedValue(strategy= GenerationType.AUTO)
-    private int category_id;
+    Assuming that we have two class ```Product``` and ```Category``` that are relevant together by ```@One-to-Many``` annotation.
 
-    ...
+    ```java
+    @Entity
+    @NamedQueries({
+        @NamedQuery(name= "findAllCategory", query="SELECT c FROM Category c")        
+    })
+    public class Category implements Serializable
+    {
+        private static final long serialVersionUID = 1L;
 
-    // Remove this relationship.
-    @OneToMany(mappedBy = "category_fk")
-    private List<Product> product_fk;
-
-    ...
-
-    @Override
-    public boolean equals(Object obj) {
-        if (obj == null) {
-            return false;
-        }
-        if (getClass() != obj.getClass()) {
-            return false;
-        }
-        final Category other = (Category) obj;
-        if (this.category_id != other.category_id) {
-            return false;
-        }
+        @Id @GeneratedValue(strategy= GenerationType.AUTO)
+        private int category_id;
 
         ...
 
-        if (this.product_fk != other.product_fk && (this.product_fk == null || !this.product_fk.equals(other.product_fk))) {
-            return false;
-        }
-        return true;
-    }
-}
+        // Remove this relationship.
+        @OneToMany(mappedBy = "category_fk")
+        private List<Product> product_fk;
 
-public class Product implements Serializable
-{
-    private static final long serialVersionUID = 1L;
-
-    ...
-
-    @ManyToOne
-    private Category category_fk;
-
-    @ManyToOne
-    private SaleDetails saleDetails_fk;
-
-    ...
-
-    @Override
-    public boolean equals(Object obj) {
-        if (obj == null) {
-            return false;
-        }
-        if (getClass() != obj.getClass()) {
-            return false;
-        }
-        final Product other = (Product) obj;
         ...
 
-        if (this.category_fk != other.category_fk && (this.category_fk == null || !this.category_fk.equals(other.category_fk))) {
-            return false;
+        @Override
+        public boolean equals(Object obj) {
+            if (obj == null) {
+                return false;
+            }
+            if (getClass() != obj.getClass()) {
+                return false;
+            }
+            final Category other = (Category) obj;
+            if (this.category_id != other.category_id) {
+                return false;
+            }
+
+            ...
+
+            if (this.product_fk != other.product_fk && (this.product_fk == null || !this.product_fk.equals(other.product_fk))) {
+                return false;
+            }
+            return true;
         }
-        if (this.saleDetails_fk != other.saleDetails_fk && (this.saleDetails_fk == null || !this.saleDetails_fk.equals(other.saleDetails_fk))) {
-            return false;
-        }
-        return true;
     }
-}
-```
 
-We can see that ```Category``` class has list of ```Products``` and in the ```equals()``` method of the ```Category``` class, we are doing like this:
+    public class Product implements Serializable
+    {
+        private static final long serialVersionUID = 1L;
 
-```java
-if (this.product_fk != other.product_fk && (this.product_fk == null || !this.product_fk.equals(other.product_fk))) {
-    return false;
-}
-```
+        ...
 
-which invokes the equals() method on the Product class, the equals() method on the Product class which does:
+        @ManyToOne
+        private Category category_fk;
 
-```java
-if (this.category_fk != other.category_fk && (this.category_fk == null || !this.category_fk.equals(other.category_fk))) {
-    return false;
-}
-```
-which invokes the ```equals()``` method on the ```Category``` once again and the whole process repeats causing an ```Stack overflow```.
+        @ManyToOne
+        private SaleDetails saleDetails_fk;
 
-So, we have solution for this problem:
-- Remove the bi-direction dependency.
-- Fix the ```equals()``` method and ```hashCode()``` method.
+        ...
+
+        @Override
+        public boolean equals(Object obj) {
+            if (obj == null) {
+                return false;
+            }
+            if (getClass() != obj.getClass()) {
+                return false;
+            }
+            final Product other = (Product) obj;
+            ...
+
+            if (this.category_fk != other.category_fk && (this.category_fk == null || !this.category_fk.equals(other.category_fk))) {
+                return false;
+            }
+            if (this.saleDetails_fk != other.saleDetails_fk && (this.saleDetails_fk == null || !this.saleDetails_fk.equals(other.saleDetails_fk))) {
+                return false;
+            }
+            return true;
+        }
+    }
+    ```
+
+    We can see that ```Category``` class has list of ```Products``` and in the ```equals()``` method of the ```Category``` class, we are doing like this:
+
+    ```java
+    if (this.product_fk != other.product_fk && (this.product_fk == null || !this.product_fk.equals(other.product_fk))) {
+        return false;
+    }
+    ```
+
+    which invokes the equals() method on the Product class, the equals() method on the Product class which does:
+
+    ```java
+    if (this.category_fk != other.category_fk && (this.category_fk == null || !this.category_fk.equals(other.category_fk))) {
+        return false;
+    }
+    ```
+    which invokes the ```equals()``` method on the ```Category``` once again and the whole process repeats causing an ```Stack overflow```.
+
+    So, we have solution for this problem:
+    - Remove the bi-direction dependency.
+    - Fix the ```equals()``` method and ```hashCode()``` method.
 
 <br>
 

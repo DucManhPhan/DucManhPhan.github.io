@@ -11,9 +11,9 @@ tags: [Multithreading, Java]
 
 ## Table of contents
 
-
-
-
+- [When to use](#when-to-use)
+- [Comparison between Fork-Join and Executors framework](#comparison-between-fork-join-and-executors-framework)
+- [Wrapping up](#wrapping-up)
 
 <br>
 
@@ -35,7 +35,7 @@ tags: [Multithreading, Java]
 
 <br>
 
-## Comparison between Fork-Join and Executors frameworks
+## Comparison between Fork-Join and Executors framework
 
 [https://stackoverflow.com/questions/9276807/whats-the-advantage-of-a-java-5-threadpoolexecutor-over-a-java-7-forkjoinpool](https://stackoverflow.com/questions/9276807/whats-the-advantage-of-a-java-5-threadpoolexecutor-over-a-java-7-forkjoinpool)
 

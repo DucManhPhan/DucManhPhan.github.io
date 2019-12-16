@@ -53,7 +53,7 @@ Some of these products include:
 <br>
 
 ## Wrapping up
-- In Hibernate, the Session interface follows the Repository pattern. However, by introducing our own repository interfaces, we decouple our domain objects from the hibernate implementation, make the domain model package easy to test and reuse.
+- In Hibernate, the ```Session``` interface follows the ```Repository``` pattern. However, by introducing our own repository interfaces, we decouple our domain objects from the hibernate implementation, make the domain model package easy to test and reuse.
 
 
 <br>
