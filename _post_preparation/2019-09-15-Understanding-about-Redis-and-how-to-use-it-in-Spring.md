@@ -71,3 +71,13 @@ Thanks for your reading.
 Refer:
 
 [https://dzone.com/articles/redis-for-java-developers-tutorial-and-code-exampl?fromrel=true](https://dzone.com/articles/redis-for-java-developers-tutorial-and-code-exampl?fromrel=true)
+
+[https://www.dr-josiah.com/2013/10/multi-column-sql-like-sorting-in-redis.html](https://www.dr-josiah.com/2013/10/multi-column-sql-like-sorting-in-redis.html)
+
+[https://www.dr-josiah.com/2012/01/creating-lock-with-redis.html](https://www.dr-josiah.com/2012/01/creating-lock-with-redis.html)
+
+[https://www.dr-josiah.com/2011/02/some-redis-use-cases.html](https://www.dr-josiah.com/2011/02/some-redis-use-cases.html)
+
+[https://www.dr-josiah.com/2010/07/building-search-engine-using-redis-and.html](https://www.dr-josiah.com/2010/07/building-search-engine-using-redis-and.html)
+
+[https://www.dr-josiah.com/2015/07/transactions-in-redis.html](https://www.dr-josiah.com/2015/07/transactions-in-redis.html)
