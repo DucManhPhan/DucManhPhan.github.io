@@ -49,9 +49,10 @@ tags: [Java, Jax-ws]
 
 |            Annotation           |                                  Description                                    |
 | ------------------------------- | ------------------------------------------------------------------------------- |
-| @WebService                     | |
-| @WebMethod                      | |
-| @OneWay                         | |
+| ```@WebService```               | |
+| ```@WebMethod```                | |
+| ```@WebResult```                | |
+| ```@OneWay```                   | |
 | @
 
 
@@ -85,3 +86,4 @@ Refer:
 
 [https://www.slideshare.net/caroljmcdonald/jaxwsrestcarol](https://www.slideshare.net/caroljmcdonald/jaxwsrestcarol)
 
+[https://www.javacodegeeks.com/jax-ws-tutorials](https://www.javacodegeeks.com/jax-ws-tutorials)

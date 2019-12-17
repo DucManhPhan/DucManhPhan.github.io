@@ -64,6 +64,16 @@ The only times ```finally``` won't be called are:
 
 <br>
 
+## Common problems with exception handling
+
+1. Why is ```exception.printStackTrace()``` considered bad practice?
+
+    [https://stackoverflow.com/questions/7469316/why-is-exception-printstacktrace-considered-bad-practice](https://stackoverflow.com/questions/7469316/why-is-exception-printstacktrace-considered-bad-practice)
+
+    [https://stackoverflow.com/questions/10477607/avoid-printstacktrace-use-a-logger-call-instead](https://stackoverflow.com/questions/10477607/avoid-printstacktrace-use-a-logger-call-instead)
+
+<br>
+
 ## Wrapping up
 
 

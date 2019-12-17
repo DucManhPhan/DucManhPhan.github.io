@@ -11,9 +11,9 @@ tags: [Java, Redis]
 <br>
 
 ## Table of contents
+- [Why we need rate limiting to protect our APIs](#why-we-need-rate-limiting-to-protect-our-APIs)
 
-
-
+- [Wrapping up](#wrapping-up)
 
 
 <br>
@@ -63,5 +63,3 @@ Refer:
 [https://www.dr-josiah.com/2014/11/introduction-to-rate-limiting-with.html](https://www.dr-josiah.com/2014/11/introduction-to-rate-limiting-with.html)
 
 [https://github.com/mokies/ratelimitj/tree/master/ratelimitj-inmemory](https://github.com/mokies/ratelimitj/tree/master/ratelimitj-inmemory)
-
-[]()
