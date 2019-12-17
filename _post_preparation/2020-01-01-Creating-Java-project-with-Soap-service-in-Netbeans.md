@@ -71,3 +71,5 @@ Refer:
 [https://blogs.oracle.com/enterprisetechtips/using-jax-ws-with-maven](https://blogs.oracle.com/enterprisetechtips/using-jax-ws-with-maven)
 
 [https://examples.javacodegeeks.com/enterprise-java/jws/jax-ws-tutorial-beginners/](https://examples.javacodegeeks.com/enterprise-java/jws/jax-ws-tutorial-beginners/)
+
+[https://www.roytuts.com/creating-jax-ws-webservice-using-maven/](https://www.roytuts.com/creating-jax-ws-webservice-using-maven/)
