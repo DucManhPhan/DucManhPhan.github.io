@@ -53,7 +53,23 @@ tags: [Java, Jax-ws]
 | ```@WebMethod```                | |
 | ```@WebResult```                | |
 | ```@OneWay```                   | |
-| @
+| ```@WebParam```                 | |
+| ```@HandlerChain```             | |
+| ```@SOAPBinding```              | |
+| ```@RequestWrapper```           | |
+| ```@ResponseWrapper```          | |
+| ```@ServiceMode```              | |
+| ```@WebEndpoint```              | |
+| ```@WebFault```                 | |
+| ```@WebServiceClient```         | |
+| ```@WebServiceProvider```       | |
+| ```@XmlRootElement```           | |
+| ```@XmlAccessorType```          | |
+| ```@XmlType```                  | |
+| ```@XmlElement```               | |
+| ```@Resource```                 | |
+| ```@PostConstruct```            | |
+| ```@PreDestruct```              | |
 
 
 

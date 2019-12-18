@@ -49,13 +49,13 @@ tags: [Java, Jax-ws]
 
 |            Annotation           |                                  Description                                    |
 | ------------------------------- | ------------------------------------------------------------------------------- |
-| @WebService                     | |
-| @WebMethod                      | |
-| @OneWay                         | |
+|                      | |
+|                       | |
+|                          | |
 | @
 
 
-
+[https://www.slideshare.net/hernanvid/java-webservices-jaxws-jaxrs](https://www.slideshare.net/hernanvid/java-webservices-jaxws-jaxrs)
 
 
 <br>
