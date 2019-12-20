@@ -137,3 +137,6 @@ Refer:
 
 [https://howtoprogram.xyz/2016/05/29/create-multi-threaded-apache-kafka-consumer/](https://howtoprogram.xyz/2016/05/29/create-multi-threaded-apache-kafka-consumer/)
 
+[https://www.reactiveprogramming.be/an-introduction-to-apache-kafka/](https://www.reactiveprogramming.be/an-introduction-to-apache-kafka/)
+
+[https://www.reactiveprogramming.be/an-introduction-to-reactor-kafka/](https://www.reactiveprogramming.be/an-introduction-to-reactor-kafka/)

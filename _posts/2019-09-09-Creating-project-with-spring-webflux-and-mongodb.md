@@ -22,11 +22,11 @@ So, in this article, we will move on Spring Webflux and MongoDB to work. Let's g
 <br>
 
 ## Why we choose Mongodb for this Spring webflux project
-Actually, we want to choose MySQL for spring webflux, because MySQL is popular, and its document is really helpful, and some interesting tutorials about it.
+Actually, we want to choose ```MySQL``` for spring webflux, because ```MySQL``` is popular, and its document is really helpful, and some interesting tutorials about it.
 
-But the reason that we do not select MySQL is that there is no reactive driver for MySQL.
+But the reason that we do not select ```MySQL``` is that there is no reactive driver for ```MySQL```.
 
-It has reactive driver for PostgreSQL, Mongodb. So, we will choose Mongodb to do with Spring webflux.
+It has reactive driver for ```PostgreSQL```, ```Mongodb```. So, we will choose ```Mongodb``` to do with Spring webflux.
 
 <br>
 

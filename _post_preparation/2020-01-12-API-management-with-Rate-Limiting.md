@@ -35,8 +35,12 @@ tags: [Java, Redis]
 
 <br>
 
-## 
+## Use RateLimitJ library
+1. Use in-memory version
 
+
+
+2. Use redis version
 
 
 

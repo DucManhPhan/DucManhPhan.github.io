@@ -22,6 +22,14 @@ tags: [java]
 <br>
 
 ## What is websocket and how it works?
+1. Definition
+    According to [wikipedia.com](), we have:
+    
+    ```
+
+    ```
+
+2. How websocket works
 
 
 
@@ -79,9 +87,34 @@ In order to know more information about utilizing websocket, we can refer to thi
 <br>
 
 ## How to use websocket in Spring Webflux
+1. Architecture of websocket in Webflux
+
+
+
+2. Understanding about the steps of websocket in Webflux
+
+    - Configure Webflux to handle Websockets
+
+
+    - Connecting Websocket sessions
+
+
+
+    [https://fossies.org/linux/spring-framework/src/docs/asciidoc/web/webflux-websocket.adoc](https://fossies.org/linux/spring-framework/src/docs/asciidoc/web/webflux-websocket.adoc)
+
+3. Source code
 
 
 [https://stackoverflow.com/questions/26211248/websockets-is-it-possible-to-add-multiple-endpoints-using-sockjs](https://stackoverflow.com/questions/26211248/websockets-is-it-possible-to-add-multiple-endpoints-using-sockjs)
+
+
+[https://developer.okta.com/blog/2018/09/24/reactive-apis-with-spring-webflux](https://developer.okta.com/blog/2018/09/24/reactive-apis-with-spring-webflux)
+
+[http://kojotdev.com/2019/08/spring-webflux-websocket-with-vue-js/](http://kojotdev.com/2019/08/spring-webflux-websocket-with-vue-js/)
+
+
+[http://kojotdev.com/2019/08/spring-webflux-websocket-with-vue-js/](http://kojotdev.com/2019/08/spring-webflux-websocket-with-vue-js/)
+
 
 
 <br>
@@ -93,6 +126,13 @@ In order to know more information about utilizing websocket, we can refer to thi
 [https://docs.spring.io/spring-framework/docs/5.0.0.BUILD-SNAPSHOT/spring-framework-reference/html/websocket.html](https://docs.spring.io/spring-framework/docs/5.0.0.BUILD-SNAPSHOT/spring-framework-reference/html/websocket.html)
 
 [https://www.concretepage.com/spring-4/spring-4-websocket-sockjs-stomp-tomcat-example](https://www.concretepage.com/spring-4/spring-4-websocket-sockjs-stomp-tomcat-example)
+
+[https://allandequeiroz.com/a-very-small-taste-of-websockets-with-webflux-reactive-mongodb-data-on-spring-5-2/](https://allandequeiroz.com/a-very-small-taste-of-websockets-with-webflux-reactive-mongodb-data-on-spring-5-2/)
+
+<br>
+
+## When to use websocket
+
 
 
 
