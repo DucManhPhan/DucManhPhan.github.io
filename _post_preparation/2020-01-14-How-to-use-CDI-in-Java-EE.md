@@ -66,7 +66,7 @@ In the above diagram, ```BookService``` depends on an ```IsbnGenerator``` to cre
 
     ![](../img/Java/cdi/cdi-example-loose-coupling.png)
 
-    In terms of code, it's quite easy. Everything starts with a Number Generator interface that defines a generateNumber() method. This interface is implemented by the IsbnGenerator, which defines its own NumberGenerator algorithm, here a random number with a prefix starting with 13. To have a different implementation, we create a new class that implements a same NumberGenerator interface and redefines a different NumberGenerator algorithm, this time a number starting with 8.
+    In terms of code, it's quite easy. Everything starts with a Number Generator interface that defines a ```generateNumber()``` method. This interface is implemented by the ```IsbnGenerator```, which defines its own ```NumberGenerator``` algorithm, here a random number with a prefix starting with 13. To have a different implementation, we create a new class that implements a same ```NumberGenerator``` interface and redefines a different ```NumberGenerator``` algorithm, this time a number starting with 8.
 
     ```java
     public interface NumberGenerator {
@@ -86,7 +86,7 @@ In the above diagram, ```BookService``` depends on an ```IsbnGenerator``` to cre
     }
     ```
 
-    Now that the classes are not directly coupled, how would we connect a BookService to either an ISBN or ISSN implementation? One solution is to pass the implementation to the constructor and leave an external class to choose which implementation is wants to use. So let's refactor our BookService.
+    Now that the classes are not directly coupled, how would we connect a ```BookService``` to either an ISBN or ISSN implementation? One solution is to pass the implementation to the constructor and leave an external class to choose which implementation is wants to use. So let's refactor our ```BookService```.
 
     ```java
     public class BookService {
@@ -104,13 +104,13 @@ In the above diagram, ```BookService``` depends on an ```IsbnGenerator``` to cre
     BookService service = new BookService(new IsbnGenerator());
     ```
 
-    The BookService depends on an interface, not implementation. The implementation is passed as parameter of the constructor. So if we need a BookService that generates an ISBN number, we just pass the IsbnGenerator implementation to the constructor. If we need to generate an ISSN number, we just change the implementation to be IssnGenerator. This is what's called ```Inversion of Control```. The control of choosing the dependency is inverted because it's giving to an external class, not the class itself. But we ends up connecting the dependencies ourselves using the constructor to choose implementation. This is called Constructor injection. Our techniques can be used, but all-in-all is just constructing dependency programmatically by hand, which is not flexible. Instead of constructing depedencies by hand, we can leave an injector to do it, and that's CDI. 
+    The ```BookService``` depends on an interface, not implementation. The implementation is passed as parameter of the constructor. So if we need a ```BookService``` that generates an ISBN number, we just pass the ```IsbnGenerator``` implementation to the constructor. If we need to generate an ISSN number, we just change the implementation to be ```IssnGenerator```. This is what's called ```Inversion of Control```. The control of choosing the dependency is inverted because it's giving to an external class, not the class itself. But we ends up connecting the dependencies ourselves using the constructor to choose implementation. This is called Constructor injection. Our techniques can be used, but all-in-all is just constructing dependency programmatically by hand, which is not flexible. Instead of constructing depedencies by hand, we can leave an injector to do it, and that's CDI. 
 
 3. Injecting with CDI
 
     Context independency injection is a standard solution that manages dependency between classes. Injection is made using strongly type annotations, as well as XML configuration if needed. CDI removes boilerplate code by using a very simple API, so we do not have to use construction of dependencies by hand, and CDI brings many other features to dependency injection. To see how this works, let's take back our example.
 
-    Nothing has changed in the above code. What changes is the way BookServices manages its dependencies. Basically it use ```@Injection``` annotation from CDI to inject the implementation of the ```NumberGenerator```. This leaves the constructor useless, and we can just get rid of it. That means that the way of instantiating ```BookService``` has also changed. Instead of calling its constructor, we also need to inject it with CDI. Then to switch implementations, we use annotations and this way get a ```ThirteenDigits``` NumberGenerator, an ```EightDigits``` NumberGenerator or any other one.
+    Nothing has changed in the above code. What changes is the way ```BookServices``` manages its dependencies. Basically it use ```@Inject``` annotation from CDI to inject the implementation of the ```NumberGenerator```. This leaves the constructor useless, and we can just get rid of it. That means that the way of instantiating ```BookService``` has also changed. Instead of calling its constructor, we also need to inject it with CDI. Then to switch implementations, we use annotations and this way get a ```ThirteenDigits``` NumberGenerator, an ```EightDigits``` NumberGenerator or any other one.
 
     ```java
     @Qualifier
@@ -190,7 +190,7 @@ In the above diagram, ```BookService``` depends on an ```IsbnGenerator``` to cre
     - expression language name
     - interceptor bindings
 
-    In fact, with a few exceptions, potentially every Java class that has a default constructor is a CDI bean. For example, this IsbnGenerator class does not extend anything, is not annotated, but is a CDI bean when the CDI container manages it. Then, we can add optional CDI annotations to bring a type-safe dependency injection, interception, decoration, or to use a CDI bean in expression language. CDI beans have another particularity, their lifecycle. The lifecycle of a POJO is pretty simple. As Java developers, we create an instance of a class using the new keyword and wait for the garbage collector to get rid of it and free some memory. It is slightly different with CDI beans though. CDI beans run inside a container and are managed by this container. The container is the one creating the instance with a new keyword, not us. It also gets rid of this instance. 
+    In fact, with a few exceptions, potentially every Java class that has a default constructor is a CDI bean. For example, this ```IsbnGenerator``` class does not extend anything, is not annotated, but is a CDI bean when the CDI container manages it. Then, we can add optional CDI annotations to bring a type-safe dependency injection, interception, decoration, or to use a CDI bean in expression language. CDI beans have another particularity, their lifecycle. The lifecycle of a POJO is pretty simple. As Java developers, we create an instance of a class using the new keyword and wait for the garbage collector to get rid of it and free some memory. It is slightly different with CDI beans though. CDI beans run inside a container and are managed by this container. The container is the one creating the instance with a ```new``` keyword, not us. It also gets rid of this instance. 
 
     The container manages the lifecycle of the CDI bean and gives us a handle after constructing an instance and before destroying it.
 
@@ -202,7 +202,7 @@ In the above diagram, ```BookService``` depends on an ```IsbnGenerator``` to cre
 
     - Callback annotations
 
-        CDI beans may use the PostConstruct and PreDestroy annotations to identify methods to be called back by the container at the appropriate points in the bean's lifecycle. These annotations can be added to public, private, protected, or package-level access method, but must not be static or final. If something goes wrong while executing the business logic, these methods can throw unchecked exceptions, but not checked exceptions.
+        CDI beans may use the ```@PostConstruct``` and ```@PreDestroy``` annotations to identify methods to be called back by the container at the appropriate points in the bean's lifecycle. These annotations can be added to public, private, protected, or package-level access method, but must not be static or final. If something goes wrong while executing the business logic, these methods can throw unchecked exceptions, but not checked exceptions.
 
         ```java
         public class IsbnGenerator {
@@ -221,9 +221,9 @@ In the above diagram, ```BookService``` depends on an ```IsbnGenerator``` to cre
         }
         ```
 
-        With above code, we have init() method is annotated with @PostConstruct, it means that the init() method will get called just after the container has constructed a bean and before the generateNumber() method is invoked.
+        With above code, we have ```init()``` method is annotated with ```@PostConstruct```, it means that the ```init()``` method will get called just after the container has constructed a bean and before the ```generateNumber()``` method is invoked.
 
-        Now that we have a CDI bean, how do we inject it into another one? That's pretty easy. Take any other CDI bean, like a BookService, whose job is to create a book. BookService needs an implemenation of a NumberGenerator interface to generate a number. Because both classes are treated as CDI beans, we can just use the annotation @Inject to inject a reference of NumberGenerator. The attribute annotated with @Inject becomes an injection point. The CDI runtime will then do all the plumbing of dependency injection, but the NumberGenerator is just an interface. To inject a reference of IsbnGenerator, we might think that @Inject would take a string to differentiate between the ISBN or ISSN implementations. This is not the case. Instead of using strings, CDI prefers a more type-safe approach using annotations, also called qualifiers.
+        Now that we have a CDI bean, how do we inject it into another one? That's pretty easy. Take any other CDI bean, like a ```BookService```, whose job is to create a book. ```BookService``` needs an implemenation of a ```NumberGenerator``` interface to generate a number. Because both classes are treated as CDI beans, we can just use the annotation ```@Inject``` to inject a reference of ```NumberGenerator```. The attribute annotated with ```@Inject``` becomes an injection point. The CDI runtime will then do all the plumbing of dependency injection, but the ```NumberGenerator``` is just an interface. To inject a reference of IsbnGenerator, we might think that ```@Inject``` would take a string to differentiate between the ```ISBN``` or ```ISSN``` implementations. This is not the case. Instead of using strings, CDI prefers a more type-safe approach using annotations, also called qualifiers.
         
         ```java
         @Qualifier
@@ -262,9 +262,817 @@ In the above diagram, ```BookService``` depends on an ```IsbnGenerator``` to cre
 
 4. Where can we use CDI
 
+    ![](../img/Java/cdi/where-we-can-use-cdi.png)
+
+    An above image is used to describe a typical tiered application.
+
+    - In the business model layer, it's usually where we find our persistence object, for example, ```Book```.
+
+        ```java
+        @Entity
+        @EntityListener(Validation.class)
+        public class Book {
+            
+            @Id
+            @GeneratedValue
+            private Long id;
+
+            private String title;
+        }
+        ```
+
+        This is where our JPA entities leave and get mapped to a relations database. Because JPA entities cannot be treated as CDI beans, entities are the only place in our architecture where CDI cannot be directly applied. But an entity can have a set of entity listeners, and these listeners are considered CDI beans and therefore can use all the CDI APIs. Same with bean validation constraints that can use CDI. 
+        
+    - The Business Logic layer orchestrates the calls to our internal and external services and also to our domain model, so the Business Logic layer is the typical place where CDI will be used for injection, interception, decoration, event handling, and so on.
+
+        ```java
+        public class BookService {
+            @Inject NumberGenerator generator;
+
+            public Book createBook(String title) { ... }
+        }
+        ```
+
+    - In Java EE, the presentation layer would typically be deadlocked with JSF, Java Server Faces. JSF is a backend technology that binds these graphical components to backend beans and renders HTML pages. JSF backend beans will be bound to JSF pages using the CDI-named annotation and a CDI scope.
+
+        ```java
+        @Named
+        @SessionScoped
+        public class BookBean {
+            private BookService bookService;
+
+            private String createBook(String title) { ... }
+        }
+        ```
+
+        Then inside this backend bean dependency injection can be used like any other bean. CDI can not be used in web browsers because they run HTML, Javascript, and not Java. That's why JSF is needed to invoke a Java backend and render HTML. But if our application uses a Java client, such as Swing or Native Android Application, then CDI and CDI runtime can be used to inject objects.
+        
+        ```java
+        public class BookComponent {
+            @Inject
+            private BookService service;
+
+            public void displayBook() { ... }
+        }
+        ```
+        
+        Often, enterprise applications need to exchange data with external partners and external systems. These business-to-business applications receive data, process them, store them, and send them back to their partner often in XML or JSON format. That's where we'll find SOAP web services or REST web services. Both we can use CDI APIs and dependency injection.
+
+        ```java
+        @Path("/book")
+        public class BookEndpoint {
+
+            @Inject
+            private BookService service;
+
+            @GET
+            public List<Book> getAllBook() { ... }
+        }
+        ```
+
+    So, as a recap, in an n-tier application CDI is used in the Business Model tier, in EntityListeners, and bean validation constraints. The Business Logic tier manipulates a CDI extensively, as well as a JSF backend beans and web services.
+
+    In fact, context and dependency injection is becoming a common ground for several specifications in Java EE. It gives more coercion to the platform, kneads together the web tier and transactional tier, brings dependency injection to every component.
+
 <br>
 
-## 
+## Injection with CDI
+1. Basic Dependency Injection
+
+    CDI gives us the ability to inject objects into an application in a type-safe way bringing loose-coupling and strong typing. Let's see the below example.
+
+    ![](../img/Java/cdi/dependency-injection-bookservice.png)
+
+    ```java
+    public class BookService {
+
+        // field injecion point
+        @Inject
+        private IsbnGenerator generator;
+
+        // constructor injection point
+        @Inject
+        public BookService(IsbnGenerator generator) {
+            this.generator = generator;
+        }
+
+        // setter property injection point
+        @Inject
+        public void setGenerator(IsbnGenerator generator) {
+            this.generator = generator;
+        }
+    }
+    ```
+
+    The ```@Inject``` annotation defines an injection point that is injected during bean instantiation. Injection can occur via three different mechanisms, property, setter, and constructor.
+
+    With injection for field, CDI can access and injected field directly, event if it's private. With constructor, the rule is that we can only have one constructor injection point. 
+
+    Remember that in a managed environment like CDI, the container is the one doing all the injections work. It just needs the right injection points.
+
+    And for injection to work, there is still a piece of information missing, a deployment descriptor. For those of you know Java EE, you are aware of each specification has an optional XML deployment descriptor. It usually describes how a component, module, or application should be configured. With CDI, the deployment descriptor is called ```beans.xml``` and is also optional. It can be used to configure alternatives, interceptors, decorators.
+
+    ```xml
+    <?xml version="1.0" encoding="UTF-8"?>
+    <beans xmlns="http://xmlns.jcp.org/xml/ns/javaee"
+        xmlns:xsi="http://www.w3.org/2001/XMLSchema-instance"
+        xsi:schemaLocation="http://xmlns.jcp.org/xml/ns/javaee 
+                            http://xmlns.jcp.org/xml/ns/javaee/beans_1_1.xsd"
+        version="1.1" bean-discovery-mode="all">
+        ...
+    </beans>
+    ```
+
+    Bean discovery is basically CDI looking for all the beans it needs to manage. If the ```bean-discovery-mode```'s value is ```all```, CDI will turn all the POJO it finds into CDI beans. If the value is ```none```, then no bean will be found and, therefore, will not be injectable. The default ```bean-discovery-mode``` for bean archive is ```annotated```. This means that any POJO annotated with the CDI annotation is a CDI bean.
+
+    We can refer to this [link](https://docs.oracle.com/javaee/7/tutorial/cdi-adv001.htm) to understand more about how to configure CDI beans by deployment descriptor.
+
+    If we are using interface and one implementation, like that:
+
+    ```java
+    public interface NumberGenerator {
+        String generateNumber();
+    }
+
+    public class IsbnGenerator implements NumberGenerator {
+        public String generateNumber() {
+            return "13-84356-" + Math.abs(new Random().nextInt());
+        }
+    }
+
+    public class BookService {
+
+        @Inject
+        private NumberGenerator generator;
+
+        public Book createBook(String title) {
+            return new Book(title, generator.generateNumber());
+        }
+
+    }
+    ```
+
+    Now, we find that BookService class depends on the interface NumberGenerator, not the implementation. A simple @Inject will inject the right dependency. CDI quite clever as it needs to find out which implementation it should inject instead of the interface.
+
+2. Qualifiers
+
+    ![](../img/Java/cdi/ambiguous-injection.png)
+
+    In the previous sections, we have the NumberGenerator interface that has two implementations, IsbnGenerator that generates a 13-digit ISBN number and IssnGenerator that generates an 8-digit ISSN number. So, which implementation will the BookService get injected?  None, actually. CDI will consider this injection as ambiguous, will not deploy the application, and will throw an exception.
+
+    At system initialization, the CDI runtime must validate that exactly one bean satisfies each injection point meaning that if two implementation of NumberGenerator were valuable the container would inform of an unsatisfied dependency and will not deploy the application. The only way to solve this problem is by using qualifiers.
+
+    - Default qualifier
+
+        ![](../img/Java/cdi/default-qualifier.png)
+
+        Whenever bean or injection point does not explicitly declare a qualifier, CDI assumes that qualifier default. In fact, this class diagram is similar as having the ```IsbnGenerator``` implementation annotated with ```@Default```, the IssnGenerator as well, as well as the injection point. Default is a built-in qualifier that informs CDI to inject the default bean implementation. If we define a bean with no qualifier, the bean automatically has the qualifier default.
+
+        In the above diagram, both implementations has the same qualifier @Default. That's why the dependency is ambiguous. So how could the BookService choose between these two implementations? Most injection frameworks heavily rely on external XML configuration to declare and inject beans, but not CDI.
+
+        To solve this ambiguous dependency, the idea is to have different qualifiers, a different one on each implementation. That's when we need to create our own qualifier and give them a specific name that suits our business. In this case, we've chosen to create a qualifier called ```@ThirteenDigits``` to qualify the IsbnGenerator implementation and ```@EightDigits``` for IsbnGenerator. Then, if we need to inject the IsbnGenerator, we qualify the injection point. 
+
+        ![](../img/Java/cdi/solving-ambiguous-dependency.png)
+
+        A CDI qualifier is basically a Java annotation. This annotation defines a ```Target``` - ```METHOD```, ```FIELD```, ```PARAMETER```, and ```TYPE```, and ```Retention``` that needs to be ```RUNTIME```.
+
+        The only difference between an annotation and a CDI qualifier is the extra Qualifier annotation. A qualifier represents some semantics associated with a type that is satisfied by some implementation of that type. It is a user-defined annotation and can be called whatever we want. We could introduce a qualifier to represent a ThirteenDigits generator or EightDigits generator.
+
+        ```java
+        @Target({ TYPE, METHOD, PARAMETER, FIELD })
+        @Retention(RUNTIME)
+        @Qualifier
+        public @interface ThirteenDigits {
+        }
+
+        @Target({ TYPE, METHOD, PARAMETER, FIELD })
+        @Retention(RUNTIME)
+        @Qualifier
+        public @interface EightDigits {
+        }
+        ```
+
+        The idea is that we can create as many qualifiers as our application needs. Once we have defined the needed qualifiers, they must be applied on the appropriate implementation and injection point.
+
+        ```java
+        public interface NumberGenerator {
+        String generateNumber();
+        }
+
+        @ThirteenDigits
+        public class IsbnGenerator implements NumberGenerator {
+            public String generateNumber() {
+                return "13-84356-" + Math.abs(new Random().nextInt());
+            }
+        }
+
+        @EightDigits
+        public class IssnGenerator implements NumberGenerator {
+            public String generateNumber() {
+                return "8-" + Math.abs(new Random().nextInt());
+            }
+        }
+        ```
+
+        We use qualifiers to provide various implementation over particular bean type. Then these qualifiers are applied to injection points to distinguish which implementation is required by the client.
+
+        ```java
+        public class BookService {
+
+            @Inject
+            @ThirteenDigits
+            private NumberGenerator generator;
+
+            public Book createBook(String title) {
+                return new Book(title, generator.generateNumber());
+            }
+
+        }
+        ```
+
+        For this to work, we do not need any external configuration or XML. That's why CDI is said to be strongly typed. CDI never relies on string-based identifiers to determine how objects fit together. Instead, CDI uses qualifiers or strongly typed annotation to wire beans together. That's strong typing. 
+
+3. Advanced qualifiers
+
+    In this section, we will assume that we have many implementations of NumberGenerator interface.
+
+    ![](../img/Java/cdi/many-implementations-ex.png)
+
+    From an above image, we could just create as many different qualifiers as we have implementations. But if we start creating a qualifier each time we need to inject something, our application will end up being with very verbose with lots of empty qualifiers. That's when qualifiers with members can help us. A qualifier is an annotation, so it can have as many members of any type as needed.
+
+    We will get rid of the ```@ThirteenDigits``` and ```@EightDigits``` qualifiers and replace them with a more generic one called ```@Generator```.
+
+    ```java
+    @Target({ FIELD, TYPE, METHOD})
+    @Retention(RUNTIME)
+    @Qualifier
+    public @interface Generator {
+
+        NumberOfDigits numberOfDigits();
+
+        boolean printed();
+
+        public enum NumberOfDigits {
+            EIGHT,
+            THIRTEEN
+        }
+
+    }
+    ```
+
+    This ```@Generator``` qualifier has a first member of type ```NumberOfDigits``` that is an enumeration. This allows us to differentiate beans that generate THIRTEEN, or EIGHT digits. The second member is called printed of type boolean. It is set to true to represent a number of printed documents, set to false for electronic ones.
+
+    ```java
+    @Generator(numberOfDigits = THIRTEEN, printed = false)
+    public class EIsbnGenerator implements NumberGenerator {
+        ...
+    }
+
+    @Generator(numberOfDigits = EIGHT, printed = false)
+    public class EIssnGenerator implements NumberGenerator {
+        ...
+    }
+
+    @Generator(numberOfDigits = THIRTEEN, printed = true)
+    public class PIsbnGenerator implements NumberGenerator {
+        ...
+    }
+
+    @Generator(numberOfDigits = EIGHT, printed = true)
+    public class PIssnGenerator implements NumberGenerator {
+        ...
+    }
+    ```
+
+    Each implementation is uniquely defined to the values of the qualifer. The way we use qualifiers with members on injection points does not change. The injection point will qualify the needed implementation by setting the annotation members.
+
+    ```java
+    public class BookService {
+        @Inject
+        @Generator(numberOfDigits = EIGHT, printed = true)
+        private NumberGenerator generator;
+
+        public Book createBook(String title) {
+            return new Book(title, generator.generateNumber());
+        }
+    }
+    ```
+
+    Another way of qualifying a bean and an injection point when there are many implementations is to specify multiple qualifiers. So we could keep ```ThirteenDigits``` to qualify a 13-digits NumberGenerator and ```EightDigits```, but because this is ambiguous we could create other qualifiers for electronic and printed documents. Again, the idea is that each implementation is uniquely identified so CDI can wire dependencies.
+
+    ![](../img/Java/cdi/other-way-multiple-implementations.png)
+
+
+    So, we can look at the following code:
+
+    ```java
+    @Target({ TYPE, METHOD, PARAMETER, FIELD })
+    @Retention(RUNTIME)
+    @Qualifier
+    public @interface ThirteenDigits {
+    }
+
+    @Target({ TYPE, METHOD, PARAMETER, FIELD })
+    @Retention(RUNTIME)
+    @Qualifier
+    public @interface EightDigits {
+    }
+
+    @Target({ TYPE, METHOD, PARAMETER, FIELD })
+    @Retention(RUNTIME)
+    @Qualifier
+    public @interface Electronic {
+    }
+
+    @Target({ TYPE, METHOD, PARAMETER, FIELD })
+    @Retention(RUNTIME)
+    @Qualifier
+    public @interface Print {
+    }
+    ```
+
+    Remember that qualifiers should be meaningful. Having the right names and granularity of qualifiers is important for the understanding of an application. As for our four implementations, they all get annotated with a pair of qualifiers. Then only a bean that has both qualifiers annotations will be eligible for injection.
+
+    ```java
+    @ThirteenDigits
+    @Electronic
+    public class EIsbnGenerator implements NumberGenerator {
+        ...
+    }
+
+    @EightDigits
+    @Electronic
+    public class EIssnGenerator implements NumberGenerator {
+        ...
+    }
+
+    @ThirteenDigits
+    @Electronic
+    public class PIsbnGenerator implements NumberGenerator {
+        ...
+    }
+
+    @EightDigits
+    @Electronic
+    public class PIssnGenerator implements NumberGenerator {
+        ...
+    }
+    ```
+
+    So, in BookService class, we will use ```@Inject``` annotation and some qualifiers to identify exactly our bean.
+
+    ```java
+    public class BookService {
+        @Inject
+        @ThirteenDigits
+        @Electronic
+        private NumberGenerator generator;
+
+        public Book createBook(String title) {
+            return new Book(title, generator.generateNumber());
+        }
+    }
+    ```
+
+
+4. Veto
+
+    Depending on the beans.xml deployment descriptor, CDI processes:
+    - all the annotated beans with ```beans-discovery-mode="annotated"```
+    - all the beans with ```beans-discovery-mode="all"```
+    - none of them with ```beans-discovery-mode="none"```
+
+    This all or none policy is fine, but sometimes we need a finer grain of tuning. From CDI 1.1, we can now veto a bean on entire package.
+
+    With a simple ```@Vetoed``` annotation, we can prevent the processing of a single class or the classes in a package. Now to understand how we use veto, we go back to the previous example of ambiguous dependency.
+
+    The IsbnGenerator and IssnGenerator have no specific qualifers, so they are both annotated with a qualifier ```@Default```. CDI doesn't know which implementation to inject. The dependency is ambiguous. CDI does not even deploy the code. That's because in the beans.xml, we asked CDI to discover all the beans. 
+    
+    ```java
+    beans-discovery-mode="all"
+    ```
+
+    It introspects our bean archive, discovers both IsbnGenerator and IssnGenerator, and find it's ambiguous. But what if CDI could only discover one bean? That's the role of veto.
+
+    It we take one implementation, let's say IsbnGenerator, and mark it with ```@Vetoed```, then CDI doesn't discover it. There's no more ambiguous dependency because there is only one implementation that can be injected now, IssnGenerator.
+
+    ```java
+    @Vetoed
+    public class IsbnGenerator implements NumberGenerator {
+        public String generateNumber() { ... }
+    }
+
+    public class IssnGenerator implements NumberGenerator {
+        public String generateNumber() { ... }
+    }
+    ```
+
+    So, in BookService class, we does not specify any qualifier.
+
+    If we want to hide an entire package, we use the special Java package-info class. Here it's in our package, jut by adding ```@Vetoed``` to this class, CDI will not try to discover the beans under this package.
+
+    ```java
+    @Vetoed
+    package com.manhpd.demo;
+
+    import javax.enterprise.inject.Vetoed;
+    ```
+
+5. Alternatives
+
+    In the previous section, we've learn about qualifier that let us choose between multiple implementations of an interface at deployment time in a type-safe manner, but sometimes we want to inject an implementation depending on a particular deployment scenario. For example, we may want to use a mock NumberGenerator, but only in a testing environment. That's when we can use alternatives.
+
+    Alternatives are bean annotated with a special qualifier ```@Alternative```, which are by default disabled. We need to enable alternatives in the beans.xml descriptor to make them invaluable for instantiation and injection.
+
+    ![](../img/Java/cdi/alternative-mock.png)
+
+    In this diagram, the NumberGenerator interface only has one implementation, the IsbnGenerator. A simple ```@Inject``` with no qualifier will inject a reference of the IsbnGenerator into the BookService. If we add a MockGenerator implementation, this dependency would be ambiguous as both implementations use the implicit ```@Default``` qualifier. But what we really want is to use IsbnGenerator and only in testing environment use the MockGenerator.
+
+    For that we just annotate MockGenerator with ```@Alternative``` and enable it in the beans.xml file.
+
+    In terms of code, we still have our NumberGenerator interface, the IsbnGenerator implemenation, and the new MockGenerator implemenation. They both implement the same interface, so nothing new here. In face, we now know that this code is similar to having the ```@Default``` qualifier on both implementations, so we can get rid of it. The novelty is that MockGenerator is annotated with the ```@Alternative``` qualifier meaning that CDI treats it as the default alternative of the NumberGenerator.
+
+    ```java
+    public interface NumberGenerator {
+        String generateNumber();
+    }
+
+    public class IsbnGenerator implements NumberGenerator {
+        public String generateNumber() { ... }
+    }
+
+    @Alternative
+    public class MockGenerator implements NumberGenerator {
+        public String generateNumber() { ... }
+    }
+    ```
+
+    In terms of injection point, nothing changes. Our BookService is not impacted at all. This code injects the default implementation of a NumberGenerator, which is IsbnGenerator because alternatives are disabled by default, so until this point CDI would not inject the Mock implementation.
+    
+    To enable the Alternative, we need to add it to the beans.xml deployment descriptor.
+
+    It's just a matter of adding the fully-qualified class name of the MockGenerator inside an ```alternatives``` element. We can have several beans.xml files declaring several alternatives depending on our environment, for example, one beans.xml for testing with all the mock alternatives, one for production without any mocks and so on.
+
+    ```xml
+    <?xml version="1.0" encoding="UTF-8"?>
+    <beans xmlns="http://xmlns.jcp.org/xml/ns/javaee"
+        xmlns:xsi="http://www.w3.org/2001/XMLSchema-instance"
+        xsi:schemaLocation="http://xmlns.jcp.org/xml/ns/javaee 
+                            http://xmlns.jcp.org/xml/ns/javaee/beans_1_1.xsd"
+        version="1.1" bean-discovery-mode="all">
+        
+        <alternatives>
+            <class>com.manhpd.injection.MockGenerator</class>
+        <salternatives>
+    </beans>
+    ```
+
+<br>
+
+## Producers and Disposers
+
+Until now we've seen how CDI can inject bean into other beans that are valuable in the bean archive. The problem is that when we integrate third-party frameworks, their classes are not packaged in bean archives and, therefore, are not discovered by CDI, and can't be injected.
+
+In this section, we will learn how CDI can be used to inject third-party frameworks. Through producers, CDI is able to create any data type, so it can be managed. And CDI allows us to create any Java class and turn it into a CDI bean, so it becomes managed by the container. Once managed, we can use alternatives.
+
+Then, alternatives can also be used with perusers. 
+
+With disposers, we will learn how a produced bean can be destroyed.
+
+
+1. Producers
+
+    - Problems
+
+        Let's assume that we package our web application in war file. This war file contains two bean archives, a.jar, which contains CDI annotated beans, and b.jar containing a beans.xml with ```bean-discovery-mode="all"```.
+
+        ![](../img/Java/cdi/problems-producers.png)
+
+        Both are bean archives. CDI can then discover, manage, and inject those beans. But what's common in a web application is to bundle third-party frameworks that are not bean archives.
+
+        For example, this web application needs log4j, a third-party logging framework and, of course, the Java APIs such as String, Date, or Integer, which packaged in the rt.jar. This rt.jar contains the Java runtime environment classes and does not have a beans.xml deployment descriptor. These classes can not be discovered nor managed by CDI, therefore cannot be injected as they are. They need to be produced.
+
+    - Solution
+
+        Basically a Producer is used to provide CDI capabilities to any POJO or any data type, or better said turn a POJO or data type into a CDI bean.
+
+        What would we do that for?
+
+        Because there are plenty of cases where we need additional control. What if we need to decide at runtime which implementation of type to instantiate and inject? That's why producers are beneficial to enable third-party frameworks to be used with CDI by exposing their objects as CDI beans. For that we can declare a field or a method to be produced by annotating it with ```@Produces```. 
+
+        For example:
+
+        ```java
+        public class BookService {
+
+            private String prefix;
+
+            private String random;
+
+            private long postfix;
+
+            public Book createBook(String title) {
+                String number = prefix + "-" + random + "-" + postfix;
+                return new Book(title, number);
+            }
+
+        }
+        ```
+
+        These attributes such as prefix, random, postfix are part of the BookService class, and are not initiliazed. The idea is to ask CDI to inject the values of these attributes. But String, int, long data types are part of the Java runtime environment and therefore cannot be injected.
+
+        The only way for this to work is to produce them.
+
+        ```java
+        public class NumberProducer {
+
+            @Produces
+            private String pre = "7";
+
+            @Produces
+            private int random = Math.abs(new Random().nextInt());
+
+            @Produces
+            private long post = Math.abs(new Random().nextLong());
+            
+        }
+        ```
+
+        We declared some attributes in NumberProducer, initialize them with some values, and ask CDI to produce them with the ```@Produces``` annotation. This means that all produced data types can now be injected with ```@Inject``` anywhere in our application. Notice that the name of the class and the name of the attributes are not used by CDI to do the binding.
+        
+        CDI does not use the name, but the type. CDI knows that one attribute is of type String, the other long, and the other int. That's why CDI is said to be strongly type.
+
+        Coming back to the BookService class, the important information for CDI is the data type. Being strongly typed, CDI will inject the right value to the right data type. This eliminates lookup using string-based names or XML for wiring so that compiler will detect any errors.
+
+        But as we might have guessed, data types are not enough. What if we need to inject another attribute of type long with a completely different value in ```private long millis```. If we just inject a long like this, the same value will be injected in ```postfix``` and ```millis``` because they both have the same data type, same qualifier.
+
+        ```java
+        public class BookService {
+
+            @Inject
+            private String prefix;
+
+            @Inject
+            private int random;
+
+            @Inject
+            @Default
+            private long postfix;
+
+            @Inject
+            @Default
+            private long millis;
+
+            ...
+        }
+        ```
+
+        If we need different values to be injected for the same data type, we use qualifiers. We qualify postfix and ask CDI to inject a ThirteenDigits postfix, and with a different qualifier, CurrentTime, tell CDI to inject the current time in millisecond.
+
+        ```java
+        public class BookService {
+
+            @Inject
+            private String prefix;
+
+            @Inject
+            private int random;
+
+            @Inject
+            @ThirteenDigits
+            private long postfix;
+
+            @Inject
+            @CurrentTime
+            private long millis;
+
+            ...
+        }
+        ```
+
+        For this to work, we need to go back to the ```NumberProducer``` class and add the right qualifier on the ```@Produces```.
+
+        ```java
+        public class NumberProducer {
+
+            @Produces
+            private String pre = "7";
+
+            @Produces
+            private int random = Math.abs(new Random().nextInt());
+
+            @Produces
+            @ThirteenDigits
+            private long post = Math.abs(new Random().nextInt());
+
+            @Produces
+            @CurrentTime
+            private long millis = new Date().getTime();
+
+            ...
+        }
+        ```
+
+2. Producer Methods
+
+    In the previous section, we've just seen field producers. The idea behind field producers is that we produce a field that becomes an injectable object. But fields are limited as we can just initialize them with simple values. What if we need to produce a more complex object? That's where we can use method producers instead.
+
+    Method producers have the same idea. Take a method, do whatever we need to od, simple or complex, and produce the return value. This return value becomes managed by CDI. Another difference between producer methods and field is that methods can have an injection point API as a parameter. This API provides access to Metadata about an injection point.
+
+    ```java
+    public class NumberProducer {
+
+        @Produces
+        public String getPrefix() {
+            return "7";
+        }
+
+        @Produces
+        public int random() {
+            return Math.abs(new Random().nextInt());
+        }
+
+        @Produces
+        @ThirteenDigits
+        public long postfix() {
+            return Math.abs(new Random().nextLong());
+        }
+    }
+    ```
+
+    Notice that the postfix() method is qualified with ThirteenDigits. A producer method is declared by annotating a method with producers annotation and can be qualified. This means that all the produce return values can now be injected with @Inject, so on the client side, the BookService class, we can inject the prefix of type String, the random number of type int, and the postfix number of type long called ThirteenDigits.
+
+    ```java
+    public class BookService {
+
+        @Inject
+        private String prefix;
+
+        @Inject
+        private int random;
+
+        @Inject
+        @ThirteenDigits
+        private long postfix;
+
+        public Book createBook(String title) {
+            String number = prefix + "-" + random + "-" + postfix;
+            return new Book(title, number);
+        }
+    }
+    ```
+
+    Let's take a complex producer methods.
+
+    ```java
+    public class FileProducer {
+
+        @Produces
+        public Path produceFile() throws IOException {
+            Path directory = FileSystems.getDefault().getPath("store");
+
+            if (Files.notExists(directory)) {
+                Files.createDirectory(directory);
+            }
+
+            Path file = directory = directory.resolve("file.txt");
+
+            if (Files.notExists(file)) {
+                Files.createFile(file);
+            }
+
+            return file;
+        }
+    }
+    ```
+
+    An above producer method lets the application take full control of the bean instantiation process. It acts as a factory. The return file can now be injected anywhere.
+    
+    Take this FileService bean. It has a single method that writes some UTF-8 text to a given file. Instead of going through the long process of creating a file, we just inject it. The injected file has already been created by a producer and just needs to be injected so it can be used.
+
+    ```java
+    public class FileService {
+
+        @Inject
+        //@Temp
+        //@BLOB
+        private Path file;
+
+        public void write() throws Exception {
+            Files.write(file, "Text to write".getBytes("utf-8"));
+        }
+
+    }
+    ```
+
+    Our system could then produce several files just by using qualifiers. For example, we could create temporary files by qualifying the injection point with ```@Temp``` or injecting files used to store large binary objects.
+
+    With an above example, we can see that producer methods are very valuable, but producers are themselves CDI beans in their own right, so producers can use injection and other CDI features.
+
+    Let's go back to the FileProducer bean and slightly change the file creation algorithm.
+
+    ```java
+    public class FileProducer {
+
+        @Inject
+        @Root
+        private Path directory;
+
+        @Inject
+        @CurrentTime
+        private long millis;
+
+        @Produces
+        public Path produceFile() throws IOException {
+            if (Files.notExists(directory)) {
+                Files.createDirectory(directory);
+            }
+
+            Path file = directory.resolve("file-" + millis + ".txt");
+
+            if (Files.notExists(file)) {
+                Files.createFile(file);
+            }
+
+            return file;
+        }
+
+    }
+    ```
+
+3. Injection point API
+
+    Until now, the produced attributes and return values that we've seen did not need any information about where they were injected, but there are certain cases where produced objects need to know something about the injection point into which they are injected. This can be a way of configuring or changing the producers's behavior, or depdending on the injection point.
+
+    CDI has an injection point API that provides access to metadata about an injection point. Thus we can create a producer method that has an injection point as a parameter. Let's take the creation of a Logger with external Log4j library.
+
+    ```java
+    public class BookService {
+
+        private Logger logger = LogManager.getLogger(BookService.class.getName());
+
+    }
+    ```
+
+    If instead we wanted to inject the Logger, we would need to produce it. For that we take a separate LoggingProducer class, add a producer method that returns a Logger. Now we can inject it simple as that.
+    
+    ```java
+    public class BookService {
+        @Inject
+        private Logger logger;
+
+        ...
+    }
+
+    public class LoggingProducer {
+        @Produces
+        public Logger produceLogger() {
+            return LogManager.getLogger(BookService.class.getName());
+        }
+    }
+    ```
+    
+    But what if we need to reuse this Logger in other classes? All the Loggers will be named BookService, and that's not what we want. Because if BookService needs a Logger called BookService, that means that FileService needs its own Logger, as well as ItemService. The only parameter that changes is the name of the Logger.
+
+    How would we produce a Logger that needs to know the class name of the injection point? By using the injection point API, we can solve this issue.
+
+    ```java
+    public class LoggingProducer {
+
+        @Produces
+        public Logger produceLogger(InjectionPoint ip) {
+            return LogManager.getLogger(ip.getMember().getDeclaringClass().getName());
+        }
+    }
+    ```
+
+    The injection point API has several methods to return the bean type of the injection point, its qualifiers, or the object itself. To use this produced parameterized Logger in any bean is very simple. We just inject it and use it as usual.
+
+    The Logger's category class name will then be automatically set to the InjectionPoint API.
+
+    ```java
+    public class BookService {
+        @Inject
+        private Logger logger;
+    }
+
+    public class FileService {
+        @Inject
+        private Logger logger;
+    }
+    ```
+
+    Writing that simple parameterized producer has saved us a lot of time. We do not need to retrieve the class name to set it on the Logger in every class that we want to use it.
+
+
+4. Disposers
+
+    In the some previous section, we use producers to create data types or POJOs, so they could be managed by CDI. Producers has @Factories. They create manageable objects. With created objects, we did not destroy or close them because we didn't need to, but some producers's method can return objects that require explicit destruction such as a JDBC connection, a JMS session, or an entity manager.
+
+    For creation, CDI uses producers, and for destruction, use disposers.
+
+
+5. Alternatives and Producers
 
 
 
@@ -307,3 +1115,4 @@ In the above diagram, ```BookService``` depends on an ```IsbnGenerator``` to cre
 
 Refer:
 
+[Context and Dependency Injection (CDI 1.1)](https://app.pluralsight.com/library/courses/context-dependency-injection-1-1/table-of-contents)
