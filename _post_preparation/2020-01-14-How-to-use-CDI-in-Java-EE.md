@@ -1594,6 +1594,8 @@ A stateful EJB is also treated like a CDI bean. The difference is that it can ho
     }
     ```
 
+    Transaction management is a technical crosscutting concern that has been isolated into a separate interceptor binding. It can now be applied in most of the Java EE components. 
+
 <br>
 
 ## Benefits and Drawbacks
@@ -1618,6 +1620,27 @@ A stateful EJB is also treated like a CDI bean. The difference is that it can ho
     - CDI 1.1 in 2013 (Java EE 7)
     - CDI 1.2 in 2014
     - CDI 2.0 in Java EE 8
+
+- Some design patterns that use in CDI
+    
+    - Dependency Injection
+    - Bridge (with alternatives)
+    - Factory (with producers)
+    - Interceptor
+    - Decorator
+    - Observer/observable (with events) 
+
+- References
+
+    - CDI 1.1 specification
+
+        - JSR 346
+        - [http://jcp.org/en/jsr/detail?id=346](http://jcp.org/en/jsr/detail?id=346)
+
+    - Java EE 7 specification
+
+        - JSR 342
+        - [http://jcp.org/en/jsr/detail?id=342](http://jcp.org/en/jsr/detail?id=342)
 
 <br>
 
