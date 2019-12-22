@@ -1067,15 +1067,532 @@ With disposers, we will learn how a produced bean can be destroyed.
 
 4. Disposers
 
-    In the some previous section, we use producers to create data types or POJOs, so they could be managed by CDI. Producers has @Factories. They create manageable objects. With created objects, we did not destroy or close them because we didn't need to, but some producers's method can return objects that require explicit destruction such as a JDBC connection, a JMS session, or an entity manager.
+    In the some previous section, we use producers to create data types or POJOs, so they could be managed by CDI. Producers has @Factories. They create manageable objects. With created objects, we did not destroy or close them because we didn't need to, but some producers's method can return objects that require explicit destruction such as:
+    - JDBC connection
+    - JMS session
+    - Entity manager.
 
-    For creation, CDI uses producers, and for destruction, use disposers.
+    For creation, CDI uses producers, and for destruction, use disposers. A disposer method allows the application to perform customized cleanup of an object returned by a producer method. Let's take the example of a JDBC connection.
 
+    ```java
+    public class JDBCConnectionProducer {
+
+        @Produces
+        @UserDatabase
+        private Connection createConnection() {
+            Class.forName("apache.derby.Driver").newInstance();
+            Connection conn = DriverManager.getConnection("jdbc:derby:memory:db");
+
+            return conn;
+        }
+
+        private void closeConnection(@Disposers @UserDatabase Connection conn) {
+            conn.close();
+        }
+    }
+
+    public class JDBCPingService {
+
+        @Inject
+        @UserDatabase
+        private Connection conn;
+
+        public ping() throws SQLException {
+            conn.createStatement().executeQuery(
+                "SELECT 1 FROM SYSIBM.SYSDUMMY1");
+        }
+    }
+    ```
+
+    Note that JDBCConnectionProducer class have two private methods and can't be invoked by other classes. Only CDI can manage them. 
+
+    So to be able to automatically invoke this method, it has to be annotated with ```@Disposes```. Destruction is performed by a matching disposer method. **Each disposer method must have exactly one dispose parameter of the same type as the corresponding producer method**. The disposer method, closeConnection(), is called automatically when the client context ends.
+
+    On the above example, we qualify the JDBCConnection by specifying that it's the UserDatabase. If we want this UserDatabase connection to be disposed, we also need to qualify the disposer method. For a given producer method, there can only be one disposer method that matches the bean type and the qualifier.
+
+    Notice that a disposer method must be declared within the same class as the producer.
 
 5. Alternatives and Producers
 
+    In the previous section, we talked about the benefits of alternatives, which is mostly changing the behavior of an application at deployment time.
+
+    Let's take example to illustrate alternatives on producers.
+
+    ```java
+    public class NumberProducer {
+        @Produces
+        @Vat
+        private Float vatRate = 0.055F;
+
+        @Produces
+        @Discount
+        private Float discountRate = 0.0225f;
+    }
+
+    public class PurchaseOrderService {
+
+        @Inject
+        @Vat
+        private Float vatRate;
+
+        @Inject
+        @Discount
+        private Float discountRate;
+
+        public PurchaseOrder createOrder(Float subTotal) {
+            PurchaseOrder order = new PurchaseOrder(subTotal);
+            order.setVatRate(vatRate);
+            order.setDiscountRate(discountRate);
+            order.setTotal(subTotal + (subTotal * vatRate)
+                                    - (subTotal * discountRate));
+
+            return order;
+        }
+
+    }
+    ```
+
+    If we have to deploy the application in a different environment or country, and we need to change the values of both rates. The idea is produce another vatRate and make sure it's annotated with ```@Alternative```. We do the same for the discountRate. We end up with a single class, NumberProducer, producing a vatRate and an altVatRate within the same bean.
+
+    ```java
+    public class NumberProducer {
+        @Produces
+        @Vat
+        private Float vatRate = 0.055F;
+
+        @Alternative
+        @Produces @Vat
+        private Float altVatRate = 0.078F;
+
+        @Produces
+        @Discount
+        private Float discountRate = 0.0225f;
+
+        @Alternative
+        @Produces @Discount
+        private Float discountRateAlt = 0.125f;
+    }
+    ```
+
+    To enable this produced alternative, we just need to add the  NumberProducer to the beans.xml deployment descriptor.
+
+    ```xml
+    <?xml version="1.0" encoding="UTF-8"?>
+    <beans xmlns="http://xmlns.jcp.org/xml/ns/javaee"
+        xmlns:xsi="http://www.w3.org/2001/XMLSchema-instance"
+        xsi:schemaLocation="http://xmlns.jcp.org/xml/ns/javaee 
+                            http://xmlns.jcp.org/xml/ns/javaee/beans_1_1.xsd"
+        version="1.1" bean-discovery-mode="all">
+        <alternatives>
+            <class>com.manhpd.cdi.NumberProducer</class>
+        </alternatives>
+    </beans>
+    ```
+
+<br>
+
+## Interceptors, Decorators, and Events
+1. Interception
 
 
+
+
+
+2. Method interceptors
+
+
+
+
+3. Advanced Interceptor Bindings
+
+
+
+
+4. Ordering Interceptors
+
+
+
+
+5. Life cycle Interceptors
+
+
+
+6. Decorators
+
+
+
+
+7. Events
+
+
+
+
+<br>
+
+## Bringing the Web Tier and Service Tier together
+1. Java EE Tiered architecture
+
+    Java EE bundles several technologies allowing us to create any kind of architecture from web application, REST interfaces, batch processing, asynchronous messaging, persistence, and so on. All these applications can be organized in several tiers, Presentation, Business Logic, Business Model are interoperating with external services.
+    
+    ![](../img/Java/cdi/where-we-can-use-cdi.png)
+    
+    Depending on our needs, any kind of architecture is possible from stateful to stateless, from flat-layering to multi-tier except that the web-tier and service-tier are their own paradigm, their own language. That's why CDI is important to bring them together. Except for the HTML on the web client and the database definition language for the database, most of Java EE uses Java as its primary language, and therefore, we find Java in most application tiers.
+    
+    JPA entities in the business model are a simple bean on the Business Logic tier.
+    
+    We even use Java as part of our Presentation tier. JSF backing beans are written in Java.
+
+    ![](../img/Java/cdi/cdi-to-manage-state.png)
+
+    Java is the primary language it's because JSF pages are written using Facelets, an Expression Language. Expression Language, also referred to as EL, provides an important mechanism for enabling the presentation layer to communicate with the application logic. It is used by both JavaServer Faces and JavaServer Pages. Its syntax uses the hash symbol. Expression Language uses simple expressions to dynamically access data from components.  
+
+    To bind both, Java and Expression Language, CDI comes to the rescue with a ```@Named``` annotation. It basically gives a name to a CDI bean so it can be bound in Expression Language. Binding is the minimum required for the Presentation tier to access the service tier. CDI goes further by managing the state of a bean for us.
+
+    On the top right corner of our web application, we need to display the login of the user. We want this information to remain until the session of the user ends. For that, CDI uses scopes. We just annotate UserBean with ```@SessionScoped``` and CDI will manage the state by destroying the bean only when the session ends.
+
+    ```java
+    @SessionScoped
+    @Named
+    public class UserBean {
+        public String login;
+    }
+
+    @RequestScoped
+    @Named
+    public class PurchaseOrderBean {
+        private Float subTotal;
+
+        public void compute() { ... }
+    }
+    ```
+
+    On the other hand, computing and displaying the total of a purchase order should be done each time the page is refreshed, so the scope of the PurchaseOrderBean must be shorter than the session. We can annotate it with ```@RequestScoped```. CDI will maintain the state of the bean only on a per request basis meaning that the bean is stateless.
+
+    With just a few annotations, CDI unifies the web tier and service tier eliminating glue code and letting the developer think about the business problem. CDI defines a uniform model to all our tiers, bringing well-defined context, which is preserved across multiple requests in a user interaction.
+
+2. Binding
+
+    The basic service to bring the web tier and the service tier together is binding. If we want to reference a bean in non-Java code that supports Expression Language such as a JSF page, we must assign the bean an EL name. The EL name is specified using the ```@Named``` built-in qualifier. Then we can easily use the bean in any JSF page through an EL expression.
+    
+    Expression Language was originally inspired by both ECMAScript and XPath Expression Languages. It was introduced in Java EE to make it easy for web page developers to access and manipulate Java in the backend without having to use Javascript. Expression Language has a very simple syntax. It uses the hash symbol and curly brackets. This evaluates an expression. This expression can be more or less complex, use arrhymthmic operators, lambda expression, and so on.
+
+    ```javascript
+    #{expression}
+
+    // Value Expression
+    #{purchaseOrderBean.subTotal}
+    #{purchaseOrderBean.customer.name}
+
+    // Array Expression
+    #{purchaseOrderBean.orders[2]}
+
+    // Method Expression
+    #{purchaseOrderBean.compute}
+
+    // Parameterized Method calls
+    #{purchaseOrderBean.compute('5')}
+    ```
+
+    Without using ```@Named``` annotation, the bean would not have an EL name and, therefore, would not be able to be bound to the page. The ```@Named``` annotation makes it possible to reference the bean from the Expression Language, and its attributes, methods.
+
+    We can let CDI choose a name for us by leaving off the value of the ```@Named``` annotation. The name defaults to the unqualified name decapitalized. But we can specify an argument to the ```@Named``` qualifier to use a non-default name.
+
+    ```java
+    @Named("order")
+    @ViewScoped
+    public class PurchaseOrderBean {
+        private Float subTotal = 0F;
+
+        private Float vatRate = 5.5F;
+
+        public String compute() { ... }
+    }
+
+    <h:inputText value="#{order.subTotal}" />
+    <h:inputText value="#{order.vatRate}" />
+    <h:commandLink action="#{order.compute}" />
+    ```
+
+3. Producers and Alternatives
+
+    In the previous section, the ```@Named``` annotation allows the binding between an expression and a bean, but coupled with a producer anything can then be referenced in EL.
+
+    For example, we produce an integer, we name it. It can then be referenced in an expression.
+
+    ```@Alternative``` can also be used to switch implementation, not only in Java, but also in Expression Language.
+
+    ```java
+    public class NumberProducer {
+
+        @Produces @Vat @Named("vat")
+        private Float vatRate = 5.5F;
+
+        @Produces @Vat @Named("vat") @Alternative
+        private Float vatRateAlt = 19.6F;
+
+        @Produces @Discount @Named("discount")
+        private Float discountRate = 2.25F;
+
+        @Produces @Discount @Named("discount") @Alternative
+        private Float discountRateAlt = 4.75F;
+    }
+
+    <!-- <h:inputText value="#{vatRate} /> -->
+    <h:inputText value="#{vat} />
+    <!-- <h:inputText value="#{discountRate} /> -->
+    <h:inputText value="#{discount} />
+    ```
+
+    If we want to access the vatRate and discountRate bean in EL, we annotate them with ```@Named``` annotation. Be default the EL name is vatRate, so the JSF page just references the vatRate directly without having to prefix the name of the bean.
+
+    Remember that ```@Named``` uses a default name that we can override.
+
+    Now let's say we have a different use case. vatRate and discountRate need to change depending on external configuration. For example, the vatRate is 5.5 in certain countries and 19.6 in others, or the discountRate is usually 2.25 but for Christmas it is said to fall 75%. This is typical use case where alternatives can be used. So, in the above example, we annotate vatRateAlt, discountRateAlt with ```@Alternative``` annotation.
+
+4. State manangement
+
+    We're all used to the concept of HttpSession or HttpRequests. These are two examples of a broader problem of managing state that is associated with a particular context. This has to ensure that all the needed cleanup occurs when the context ends meaning that when the HttpSession ends it needs to be cleaned up.
+
+    Traditionally, the state management is implemented manually by getting and setting servlet session and request attributes. CDI takes the concepts of state management much further as it applies it to the entire application, not just to the HTTP layer. Plus, it does this in a declarative way. A single annotation and the state of the bean is managed by the container. No more memory leaks when the application fails to clean up. The CDI container does it automatically. CDI extends the context modelling defined by the server specification, application, session, request, conversation. It then applies it to the entire business logic, not just the web tier.
+
+    ![](../img/Java/cdi/ex-built-in-scopes.png)
+
+    For example, let's say we have an application, which life spans for several months. We boot the server, leave it up and running for a few months before we shut it down. In this case, the application scope lasts for a very long time. One user logs on and remains logged in a few minutes. The session scopes spans for the moment it logs in until the moment he logs out.
+     
+    A second user logs in, but her session stays active for a bit longer. Each session is independent, belongs to a single user, and the lifespan can be totally different. In the meantime, both users click at their own pace. Each click creates requests that is handled on the server. The last scope is the Conversation, and it's slightly different because it can span for as long as needed. It's just a matter of beginning a conversation, which can span several requests and end it. Each user will have his own conversation.
+    
+    - ```@ApplicationScoped```
+        
+        Each of those scopes is represented by an annotation. When a bean scope is defined as ```@ApplicationScoped```, this means that only one instance of the bean will exists in the entire application. After bean initialization, every time a client requests an instance of this bean, the container will always provide the same bean instance.
+
+        ```java
+        @ApplicationScoped
+        public class Cache implements Serializable {
+
+            private Map<Object, Object> cache = new HashMap<>();
+
+            public void addToCache(Object key, Object value) { ... }
+
+            public Object getFromCache(Object key) { ... }
+
+            public void removeFromCache(Object key) { ... }
+
+        }
+        ```
+
+        We want this cache to be shared across all users interaction within the application. For that, we just annotate the bean with ```@ApplicationScoped```. This cache will be automatically created by the CDI container when it is needed and automatically destroyed when the context in which it was created ends, that is when the server is shutdown. And if we want this cache to be referenced directly from a JSF page, we just add the ```@Named``` annotation.
+
+        So, ```@ApplicationScoped``` beans live the time of the application and are shared to all users.
+    
+    - ```@SessionScoped```
+        
+        When a bean is configured as SessionScoped, this means that an instance of this bean will exist per HttpSession and belong only to the current user. This scope is useful, for example, for modelling a ShoppingCart. Each user has his own list of items, and while he's logged on can add items to the shopping cart and check it out at the end. This instance of ShoppingCart will be automatically created the first time the session is created and automatically destroyed when the session ends. This instance is bound to the user session and is shared by all requests that execute in the context of that session.
+
+        ```java
+        @SessionScoped
+        public class ShoppingCart implements Serializable {
+
+            private List<Item> cartItems = new ArrayList<>();
+
+            public String addItemToCart() { ... }
+
+            public String checkout() { ... }
+
+        }
+        ```
+
+    - ```@RequestScoped```
+
+        When a bean is configured as RequestScoped, this means that an instance of this bean will exist per HttpRequest. These beans usually model services of controllers that have no states and a set of stateless methods. For example, creating a book, retrieving all the book cover images, or the list of books, ... Usually they have a ```@Named``` annotation because they are invoked when pressing a button or a link on a page.
+        
+        ```java
+        @Named
+        @RequestScoped
+        public class BookService {
+            public Book persist(Book book) { ... }
+
+            public List<String> findAllImages() { ... }
+
+            public List<Book> findByCategory(long categoryId) { ... }
+        } 
+        ```
+        
+        An object, which is defined as RequestScoped, is created once for every request and do not have to be serializable.
+
+    - ```@ConversationScoped```
+
+        As the name states, ConversationScoped beans are used to represent a conversation between the client and the server. They are used to keep state between multiple requests. CDI beans that are able to live for longer periods of time, such as ```@SessionScoped``` and ```@ConversationScoped```, must implement the ```Serializable``` interface. This is because the container may need to free resources, and it may decide to persist a bean into physical storage.
+
+        Unlike the SessionScoped, the ConversationScoped is demarked explictly by the application.
+
+        For example, let's say we have several web pages that create a wizard to allow a customer to create his profile. For controlling a lifecycle of a conversation, CDI gives us a Conversation API that may be obtained by injection. So when the user starts to create his profile, the conversation is started by calling the begin() method. The user can then go from page to page, go back to the previous page, go to the next page until the conversation ends.
+        
+        ```java
+        @Named
+        @ConversationScoped
+        public class CustomerWizard implements Serializable {
+
+            @Inject
+            private Conversation conversation;
+
+            private Customer customer = new Customer();
+
+            public void initProfile() {
+                conversation.begin();
+                // ...
+            }
+
+            public void endProfile() {
+                // ...
+                conversation.end();
+            }
+        }
+        ```
+
+        ConversationScoped is the only one that need explictly demarcation. All the other scoped beans are cleaned up by the CDI container. Conversations need to be explictly started and ended or their time out.
+        
+    - ```@Dependent```
+
+        All the scopes we've just seen are contextual scopes. This means their lifecycle is managed by a container, and any injected reference to the beans are also contextually aware. The CDI container ensures that the objects are created and injected at the correct time. The Dependent scope is not a contextual scope an is actually called a Pseudo scope. Dependent scope is the default CDI bean scope. If a bean does not declare a specific scope, it will be injected as a Dependent scope. This means that it will have the same scope as the bean where it's being injected.
+
+        CDI also provides an additional sort of scope, Dependent. Dependent beans can be annotated with dependent or have no annotation at all, as it's the default. In fact, all the beans that we've seen so far are all dependent because they do not explicitly define a scope. Dependent scope beans will be assigned the same scope as the bean they are being injected into.
+
+        For example, if a Dependent scoped bean is injected into a SessionScoped bean, the injected bean will also be configured as SessionScoped.
+
+        Or if a RequestScoped service injects this IsbnGenerator, then the injected IsbnGenerator will be of RequestScoped. An instance of a dependent bean is strictly dependent on some other object. IsbnGenerator is instantiated when BookService is created and destroyed when BookService is destroyed. We can always use the ```@Dependent``` annotation, but we do not have to as it's the default scope.
+
+        ```java
+        @Named  // Use for EL
+        @Dependent
+        public class IsbnGenerator {
+            public String generateNumber() { ... }
+        }
+
+        @RequestScoped
+        public class BookService {
+
+            @Inject
+            private IsbnGenerator generator;
+        }
+        ```
+
+<br>
+
+## Integration CDI with EJB
+EJB - Enterprise Java Beans are server-side components that are mostly used to process business logic in a multi-threaded, transactional, and secure manner. They mostly define methods that are used by other layers.
+
+EJB's can either be:
+- stateless
+
+    - Request scope
+
+- stateful
+
+    - Choose from application, session, conversation scope.
+
+EJB's and CDI beans's programming model is very closed. We can use most of the CDI services inside an EJB and just inject an EJB with ```@Inject``` like any other CDI bean.
+
+A stateless EJB is just a Java class with a ```@Stateless``` annotation. Being transactional, this EJB can get an entity manager and use it in the createBook() method to persist a book into a relational database.
+
+```java
+@Stateless
+@SessionScoped
+public class BookService {
+
+    @PersistenceContext(unitName = "myPU")
+    private EntityManager em;
+
+    @Inject @Paper(SECOND_HAND)
+    private Event<Book> bookEvent;
+
+    @PostConstruct
+    private void init() { .. }
+
+    public Book createBook(Book book) {
+        bookEvent.fire(book);
+        em.persist(book);
+        return book;
+    }
+}
+```
+
+Like a CDI bean, an EJB can use lifecycle callback's annotation to process any logic after construction or before destruction. It can also use interception, decoration, or even event handling. As for EntityManager, it's just a matter of producing it, so it can be injected with ```@Inject``` instead of persistence context.
+
+A stateful EJB is also treated like a CDI bean. The difference is that it can hold state. Because of that, stateful EJB's can have a scope. 
+
+- @Transactional
+
+    EJB's are transactional by default, and they used to be the only transactional component in Java EE. But since Java EE 7, transaction management has been implemented using a CDI interceptor binding. So this means that technically the transactional annotation is a CDI interceptor that belongs to the JTA specification. The Java Transaction API is developed under the JSR 907, and we can find more information about it on the jcp.org website. This annotation can be added on a class or on a method, and it provides the application with the ability to control transaction boundaries. And this can be done on any Java EE managed bean meaning a CDI bean, a REST endpoint, a JSF backing bean, or Servlet.
+
+    ```java
+    @Transactional
+    public class BookService {
+
+        @PersistenceContext(unitName = "myPU")
+        private EntityManager em;
+
+        @Inject @Paper(SECOND_HAND)
+        private Event<Book> bookEvent;
+
+        public Book createBook(Book book) {
+            bookEvent.fire(book);
+            em.persist(book);
+            return book;
+        }
+    }
+    ```
+
+    If we get rid of Stateless and change it to Transactional, then we get the same behavior. We just lose the extra EJB services.
+
+- Transactional REST Endpoint
+
+    To design RESTful webservice in Java EE, we use the JAX-RS specification, and we just need to add a Path annotation to the class. Then, to insert a book into the database, we need a POST annotation on the createBook() method and choose which MIME pipe will be consumed.
+
+    ```java
+    @Transactional
+    @Path("book")
+    public class BookService {
+
+        @PersistenceContext(unitName = "myPU")
+        private EntityManager em;
+
+        @Inject @Paper(SECOND_HAND)
+        private Event<Book> bookEvent;
+
+        @POST
+        @Consumes(MediaType.APPLICATION_XML)
+        public Book createBook(Book book) {
+            bookEvent.fire(book);
+            em.persist(book);
+            return book;
+        }
+    }
+    ```
+
+- Transactional Servlet
+
+    As for a transactional servlet, the class needs to extend HttpServlet and be annotated with WebServlet.
+
+    ```java
+    @Transactional
+    @WebServlet(urlPatterns = {"/TxServlet"})
+    public class BookService extends HttpServlet {
+
+        @PersistenceContext(unitName = "myPU")
+        private EntityManager em;
+
+        @Inject @Paper(SECOND_HAND)
+        private Event<Book> bookEvent;
+
+        @POST
+        @Consumes(MediaType.APPLICATION_XML)
+        public Book createBook(Book book) {
+            bookEvent.fire(book);
+            em.persist(book);
+            return book;
+        }
+    }
+    ```
 
 <br>
 
@@ -1088,15 +1605,6 @@ With disposers, we will learn how a produced bean can be destroyed.
 - A simple @Inject annotation on the property informs the container that it has to inject a reference.
 - CDI is very powerful.
 - More features.
-
-
-<br>
-
-## 
-
-
-
-
 
 
 <br>
