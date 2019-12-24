@@ -1,8 +1,8 @@
 ---
 layout: post
-title: CountDownLatch in Java's Multithreading
+title: How to use JPA in Java's project
 bigimg: /img/image-header/yourself.jpeg
-tags: [Multithreading, Java]
+tags: [Jpa, Java]
 ---
 
 
