@@ -303,6 +303,16 @@ In the above diagram, ```BookService``` depends on an ```IsbnGenerator``` to cre
     - CDI 1.2 in 2014
     - CDI 2.0 in Java EE 8
 
+- ```@Named``` has only one usage, expose our bean to the UI. Other usages are for bad practice or compatibility with legacy framework.
+
+- In Java EE 7, the default scanning for JARs/WARs is annotated, meaning that if you don't have a beans.xml that specifies the scan mode, it will default to annotated based scanning.
+
+- CDI is a Java EE specification. It specifies how things should be done but itself provides not functionality.
+
+    Weld is the reference implementation of the CDI spec. An alternative implementation of the CDI is for example Apache OpenWebBeans. Either of these implementations will be able to give you the features of CDI.
+
+    But be careful because due to my experience Weld SE consumes a lot of memory and needs some time to scan the class-path for (bigger) SE-Applications.
+
 <br>
 
 Refer:
