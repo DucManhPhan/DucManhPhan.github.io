@@ -12,7 +12,7 @@ tags: [Java, Redis]
 
 ## Table of contents
 - [Why we need rate limiting to protect our APIs](#why-we-need-rate-limiting-to-protect-our-APIs)
-
+- [Use RateLimitJ library](#use-ratelimitj-library)
 - [Wrapping up](#wrapping-up)
 
 
