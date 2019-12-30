@@ -1,6 +1,6 @@
 ---
 layout: post
-title: Understanding about SOLID - Dependency Injection and Inversion of Control
+title: Understanding about SOLID - Dependency Inversion Principle
 bigimg: /img/image-header/home-office-1.jpg
 tags: [design pattern, SOLID]
 ---
@@ -323,8 +323,21 @@ In the above diagram, ```BookService``` depends on an ```IsbnGenerator``` to cre
 
 <br>
 
+## Benefits of SOLID code
+This is the last section of SOLID principles. So, we will conclude benefits when using SOLID in our code.
+
+- Easy to understand and reason about.
+
+- Changes are faster and have a minimal risk level.
+
+- Highly maintainable over long periods of time.
+
+- Cost effective.
+
+<br>
+
 ## Wrapping up
-- 
+
 
 
 

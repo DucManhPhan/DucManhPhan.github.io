@@ -71,8 +71,6 @@ tags: [Multithreading, Java]
     ```
 
 
-
-
 <br>
 
 ## Data Definition Language
@@ -151,7 +149,7 @@ tags: [Multithreading, Java]
             INSERT INTO test.testset(PK, a,b) VALUES ('xyz12', 'abc12', CAST('{"type": "Point", "coordinates": [123.4, -456.7]}' as GEOJSON))
             ```
 
-3. Delete
+2. Delete
 
     ```sql
     DELETE FROM <ns>[.<set>] WHERE PK=<key>
@@ -198,9 +196,7 @@ tags: [Multithreading, Java]
 
 
 
-
 2. Revoke
-
 
 
 
@@ -208,7 +204,6 @@ tags: [Multithreading, Java]
 
 ## Wrapping up
 - In order to select all records that satisfy our condition, the bin of record must be indexed.
-
 
 
 <br>

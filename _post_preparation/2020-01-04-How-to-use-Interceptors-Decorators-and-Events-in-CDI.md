@@ -17,7 +17,37 @@ tags: [Cdi, Java]
 
 <br>
 
-## 
+## Interception
+
+
+
+
+
+## Method interceptors
+
+
+
+
+## Advanced Interceptor Bindings
+
+
+
+
+## Ordering Interceptors
+
+
+
+
+## Life cycle Interceptors
+
+
+
+## Decorators
+
+
+
+
+## Events
 
 
 
@@ -37,3 +67,4 @@ Thanks for your reading.
 
 Refer:
 
+[]()
