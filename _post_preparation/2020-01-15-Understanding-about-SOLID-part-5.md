@@ -356,3 +356,5 @@ Refer:
 [http://olivergierke.de/2013/11/why-field-injection-is-evil/](http://olivergierke.de/2013/11/why-field-injection-is-evil/)
 
 [https://www.baeldung.com/java-ee-cdi](https://www.baeldung.com/java-ee-cdi)
+
+[SOLID Software Design Principles in Java](https://app.pluralsight.com/library/courses/solid-software-design-principles-java/table-of-contents)
