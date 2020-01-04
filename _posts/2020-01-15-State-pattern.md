@@ -26,6 +26,30 @@ Let's get started.
 
 Assuming that we have a process or an object that depends so much on internal states of it, with each state, we will do corresponded ways. Normally, we will use some boolean flags and if-else statements within our methods.
 
+For example,
+
+```java
+// In Context class
+switch(state) {
+    case state-specific-1:
+        // do something
+        break;
+
+    case state-specific-2:
+        // do something
+        break;
+
+    ...
+
+    default:
+        // do default thing.
+}
+```
+
+When we see above code in Context class, we can find some flaws:
+- It violates Single Responsibility Principle, because it has multiple reasons to change.
+- Once we have a new state, we need to change the above existing code. So, it violates Open Closed Principle to make our project difficult to maintain.
+
 But if we have multiple states, it will be complicate, difficult to maintain all of our code. So, what is our solution to tackle this problems?
 
 <br>
