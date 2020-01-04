@@ -28,12 +28,6 @@ tags: [structural pattern, design pattern]
 
 <br>
 
-# Analysis Problem
-
-
-
-<br>
-
 # Definition of Bridge Pattern
 
 

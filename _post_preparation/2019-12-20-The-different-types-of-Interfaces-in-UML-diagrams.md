@@ -14,6 +14,10 @@ tags: [Uml diagram]
 - [Definition of interface in diagram](#definition-of-interface-in-diagram)
 - [Provided interface](#provided-interface)
 - [Required interface](#required-interface)
+- [When to use](#when-to-use)
+- [Example about interfaces](#example-about-interfaces)
+- [Wrapping up](#wrapping-up)
+
 
 <br>
 
