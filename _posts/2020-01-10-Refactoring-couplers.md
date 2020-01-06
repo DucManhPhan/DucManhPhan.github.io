@@ -5,8 +5,7 @@ bigimg: /img/image-header/yourself.jpeg
 tags: [Java, Refactoring]
 ---
 
-
-
+In this article, we will continue in refactoring series with couplers. Let's get started.
 
 <br>
 
@@ -201,25 +200,188 @@ Excessive exposure, also called indecent exposure, happens when a class or a mod
 | When we have public fields instead of getters and setters, when they should be private, and there are too many links (E.g. method calls) between any two classes. | When a class forces us to care and think about a lot of low level details. |
 | " You are with each other too much " | "You make me care too much" |
 
+For example, if we're working with the old Java Calendar API, then we can very easily get a calendar instance in a single line. It's easy because the authors of the Java language have made a lot of effort to hide the low-level details that we need to know in order to work with time.
 
+```java
+// good example of encapsulation and minimum exposure
+Calendar call = Calendar.getInstance();
+System.out.println(call.getTime());
+```
 
+If we did not do the above thing, they would be a DIY nightmare. In order to construct a calendar object, we would need provide a lot of details related to time zones, locales, daylight savings time, and other things.
 
+```java
+Calendar cal2 = new GregorianCalendar(new TimeZone() {
+    @Override
+    public int getOffset(int era, int year, int month, int day, int dayOfWeek, int milliseconds) {
+        return 0;
+    }
+
+    @Override
+    public void setRawOffset(int offsetMillis) {
+    }
+
+    @Override
+    public int getRawOffset() {
+        return 0;
+    }
+
+    @Override
+    public boolean useDaylightTime() {
+        return false;
+    }
+})
+```
+
+In the book Refactoring to Patterns, Joshua Kerievsky gives another example of this code smell, and how to solve it. 
+
+![](../img/refactoring/couplers/excessive-exposure/example-joshua-refactoring-to-patterns.png)
+
+Instead of allowing client code access methods directly from several classes, he hides those classes by making the package private and behind the common abstract class or an interface and forcing the client to go through this abstract class.
+
+![](../img/refactoring/couplers/excessive-exposure/solution-joshua.png)
+
+As we can see, the problem and the solution are different from what we have seen, but the general idea is still there. Don't force the client class know too much, and make them go through some interface or a well-encapsulated public method.
 
 <br>
 
 ## Message chain
 
+A message chain is a chain of method calls that eventually takes us to the data that we ultimately need.
 
+For example, 
 
+```java
+customer.getAddress().getCountry().toString();
+```
 
+The above code is a message chain. We start with an object, call a method, then another method, an so on and so forth until we get to the piece of data we want.
+
+A lot of interconnected classes is not a bad thing in itself. That's just what happens in big and complex software.
+
+![](../img/refactoring/couplers/message-chain/complex-message-chain.png)
+
+But this kind of code has two problems.
+- First, if we want to get a piece of data, we are forced to know the entire chain, so it forces us to learn and remember the entire class organization.
+- Second, if we have this chain in 10 different places, and then we decide to somehow change the relationship between these classes, we will break this chain and then we have to go and fix it in all the places.
+
+```java
+if (!customer.getAddress().getCountry().toString().equalsIgnoreCase("US")) {
+    System.out.println("Hard-coded in EUR: " + converter.convert(total));
+    // ...
+}
+```
+
+We can find that we have a simple if statement, and inside we produce a long message chain, from customer, to address, to country, and then on top of that calling the toString() method. This works, but it's fragile. To fix this, we simply have to do what we have been doing throughout this module - encapsulated.
+
+```java
+public class Customer {
+    private Membership membership;
+
+    private Adress address;
+
+    private int age;
+
+    public String getCountry() {
+        return this.getAddress().getCountry().toString();
+    }
+}
+
+public static void main(String[] args) {
+    // ...
+
+    if (!customer.getCountry().equalsIgnoreCase("US")) {
+        // ...
+    }
+}
+```
+
+With the refactored code, we just moved this chain to a different place and the problem of fragility remains. This chain will still break if we change the composition of our classes, but it's encapsulated in a single spot, so, we would fix it in this one place. Whereas before, we would need to work through the entire code base and change all the places where it occurs.
 
 <br>
 
 ## Middle Man
 
+The middle man code smell happens when we have a class that seems to do some work, but in reality, the only thing it does is delegating actual work to other classes.
 
+For example,
 
+```java
+class SomeClass {
+    OtherClass c;
 
+    void doThing() {
+        c.doTheThing();
+    }
+
+    void doAnotherThing() {
+        // implementation
+    }
+}
+```
+
+SomeClass class has some methods, and in some cases it delegates. And in other cases, it has its own functionality. So this is a mix, and that's fine, but in the case of this ```SomeClass``` class, all of its method delegate to other classes. It has no unique functionality. If that's the case, then why does it exist at all?
+
+```java
+public class CheckoutHandler {
+
+    private DiscountManager discountManager;
+
+    private DeliveryManager deliveryManager;
+
+    public double calculateTotal(Order order) {
+        double baseTotal = sumItemPrices(order.getItems());
+        baseTotal = discountManager.applyVoucher(order.getVoucher(), baseTotal);
+        basetotal = deliveryManager.addDeliveryFee(order.getCustomer(), baseTotal);
+
+        return baseTotal;
+    }
+
+    // own functionality
+    public double sumItemPrices(List<Item> items) {
+        double sum = 0;
+        for (Item item : items) {
+            sum += item.price();
+        }
+
+        return sum;
+    }
+}
+```
+
+In the above code, we don't have a middle man. We have a CheckoutHandler class that delegates some things to other classes. We refactor this in order to adhere to the single responsibility principle. But it also has itw own functionality.
+
+```java
+public class OrderManager {
+    private DiscountManager discountManager;
+
+    private DeliveryManager deliveryManager;
+
+    public double applyVoucher(String voucher, double price) {
+        return discountManager.applyVoucher(voucher, price);
+    }
+
+    public double addDeliveryFee(Customer customer, double total) {
+        return deliveryManager.addDeliveryFee(customer, toatal);
+    }
+}
+```
+
+However, one day, an ```OrderManager``` class could appear, and the only thing it could do is delegate validattions and calculations to other classes.
+
+Middle man issues:
+- Every class has a cost, we need to know about it and how it fits in the overall structure. So if a class doesn't do anything useful by itself, then that's a cost for which we get no value. So to fix the middle man code smell, we simply remove it. We make client code invoke the real classes with actual functionality directly and we delete the middle man class.
+
+Middle man patterns:
+- Note that purely delegating classes can exist with a purpose, and this is the case with several patterns, such as the facade, proxy, or adapter patterns.
+
+    ![](../img/refactoring/couplers/middle-man/solution-middle-man.png)
+
+    Simplifying the interface, controlling access to things, or making it possible to connect two incompatible modules, these are all the things that we might need to do. And that's when we might want to actually use a middle man. Buf if this is not the case and no one on our team knows why on earth some delegating-only class exist at all, then consider removing that class. It can be argued that the middle man code smell actually belongs to another group.
+
+    ![](../img/refactoring/couplers/middle-man/types-middle-man.png)
+
+    If a class turns out to be useless and we just delete it, then it can also be categorized as a dispensable. And that is the last group of code smells.
 
 <br>
 
@@ -232,3 +394,4 @@ Excessive exposure, also called indecent exposure, happens when a class or a mod
 
 Refer:
 
+[Java Refactoring: Best Practices](https://app.pluralsight.com/library/courses/java-refactoring-best-practices/table-of-contents)
