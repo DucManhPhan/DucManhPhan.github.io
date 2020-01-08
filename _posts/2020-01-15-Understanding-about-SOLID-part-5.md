@@ -1,25 +1,28 @@
 ---
 layout: post
-title: Understanding about SOLID - Dependency Injection and Inversion of Control
+title: Understanding about SOLID - Dependency Inversion Principle
 bigimg: /img/image-header/home-office-1.jpg
 tags: [design pattern, SOLID]
 ---
 
-
+In this article, we will find something out about Dependency Inversion Principle. Let's get started.
 
 <br>
 
 ## Table of contents
 - [What is Dependency](#what-is-dependency)
+- [Dependency Inversion Principle](#dependency-inversion-principle)
 - [Introduction to Dependency Injection](#introduction-to-dependency-injection)
-- [Some techniques to implement Dependency Injection](#some-techniques-to-implement-dependency-injection)
+- [Inversion of Control](#inversion-of-control)
 - [Dependency Injection with CDI of Java EE](#dependency-injection-with-cdi-of-java-ee)
 - [Advantages](#advantages)
+- [Benefits of SOLID code](#benefits-of-SOLID-code)
 - [Wrapping up](#wrapping-up)
 
 <br>
 
 ## What is Dependency
+
 In fact, in object-oriented programming all this can be summarized by classes depending on other classes. Whenever class A uses another class B, then it is said that A depends on B. A can not work without B, and A can not be reused without also reusing B. In such a situtation, the class A is called a ```dependent```, and the class B is called a ```dependency```.
 
 ![](../img/Java/cdi/A-depends-B.png)
@@ -110,10 +113,129 @@ In the above diagram, ```BookService``` depends on an ```IsbnGenerator``` to cre
 
 <br>
 
+## Dependency Inversion Principle
+
+The dependency Inversion Principle states that:
+
+```
+1. High level modules should not depend on low level modules; both should depend on abstractions.
+
+2. Abstractions should not depend on details. Details should depend upon abstraction.
+```
+
+With the definitions of DIP, we have some questions such as What is high-level module or a low-level module?
+
+1. High level modules
+
+    High level modules are the part of our application that bring real value. They are the modules written to solve real problems and use cases.
+
+    They are more abstract and map to the business domain. Most of us call this business logic. Each time we hear the words business logic, we are referring to those high-level modules that provide the features of our application. High level modules tell us what the software should do, not how it should do, but what the software should do.
+
+2. Low level modules
+
+    Low level modules are implementation details that are required to execute the business policies. Because high-level modules tend to be more abstract in nature, at some point in time, we will need some concrete features that help us to get our business implementation ready. They are the plumbing for the internals of a system. And they tell us how the software should do various tasks. So, high level modules tell us what the software should do, and low level modules tell us how the software should do various takss.
+
+    For example, logging, data access, network communication, and IO.
+
+3. Abstraction
+
+    Something that is not concrete.
+
+    Something that we can not "new" up. In Java applications, we tend to model abstractions using interfaces and abstract classes.
+
+Let's take a look at how this principle actually works. Traditionally, when we depend on details, our components tend to look like this. We have high level components, which directly depend upon low level components. Of course, this violates the dependency inversion principle because both should depend on abstractions.
+
+![](../img/solid/dip/dip-1.png)
+
+Component A, which is a high level component, no longer depends directly on component B. It depends upon an abstraction. And component B, which is low level, also depends upon that abstraction. 
+
+For example,
+
+```java
+// low level class
+// It's a concrete class that use SQL to return products from the database.
+class SqlProductRepo {
+    public Product getById(String productId) {
+        // grab product from SQL database
+    }
+}
+
+// High level class
+class PaymentProcessor {
+    public void pay(String productId) {
+        SqlProductRepo repo = new SqlProductRepo();
+        Product product = repo.getById(productId);
+        this.processPayment(product);
+    }
+}
+```
+
+We can easily find that PaymentProcessor has a direct dependency with the SqlProductRepo. Because in pay() method, we actually instantiate the repo of SqlProductRepo. We are newing up a new instance of the SqlProductRepo class. This clearly violates the dependency inversion principle. We will refactor to make this code better.
+
+```java
+interface ProductRepo {
+    Product getById(String productId);
+}
+
+// low level class depends on abstraction
+class SqlProductRepo implements ProductRepo {
+    @Override
+    public Product getById(String productId) {
+        // concrete details for fetching a product
+    }
+}
+
+class PaymentProcessor {
+    public void pay(String productId) {
+        ProductRepo repo = ProductRepoFactory.create();
+        Product product = repo.getById(productId);
+        this.processPayment(product);
+    }
+}
+
+class ProductRepoFactory {
+    public static ProductRepo create(String type) {
+        if (type.equals("mongo")) {
+            return new MongoProductRepo();
+        }
+
+        return new SqlProductRepo();
+    }
+}
+```
+
+Now, our pay() method does not directly depend on a concrete implementation of the ProductRepo. We depend on the abstraction. We depen upon the ProductRepo interface. The factory will give us a concrete instance. It can be a SqlProductRepo, a MongoProductRepo, or an ExcelProductRepo. It doesn't really matter, and this high level component doesn't care what instance is served at runtime as long as it respects the contract. The factory is pretty simple. It has a static method that returns an instance of a ProductRepo abstraction.
+
+<br>
+
 ## Introduction to Dependency Injection
 
+Dependency Injection is very used in conjunction with the Dependency Inversion Principle. However, they are not the same thing. Let's look at how we left the PaymentProcessor class.
 
+We have the pay() method, and the ProductRepo abstraction is now produced by the ProductRepoFactory. Although we have eliminated the coupling with the concrete SqlProductRepo class, we still have a small coupling with the ProductRepoFactory. We have more flexibility after applying the dependency inversion principle, but we can do a better design than this. Let's come up with a better solution. This is where our dependency injection comes in.
 
+1. Dependency Injection
+
+    Dependency injection is a technique that allows the creation of dependent objects outside of a class and provides those objects to a class.
+
+    We have various methods of doing this. One of them is by using public setters to set those dependencies. However, this is not a good approach because it might leave objects in an uninitialized state. A better approach is to declare all the dependencies in the component's constructor like we are doing like the following.
+
+    ```java
+    class PaymentProcessor {
+        public PaymentProcessor(ProductRepo repo) {
+            this.repo = repo;
+        }
+
+        public void pay(String productId) {
+            Product product = this.repo.getById(productId);
+            this.processPayment(product);
+        }
+    }
+
+    ProductRepo repo = ProductRepoFactory.create();
+    PaymentProcessor paymentProc = new PaymentProcessor(repo);
+    paymentProc.pay("123");
+    ```
 
 2. Types of Dependency Injection
 
@@ -174,12 +296,44 @@ In the above diagram, ```BookService``` depends on an ```IsbnGenerator``` to cre
 
 <br>
 
-## Some techniques to implement Dependency Injection
+## Inversion of Control
 
+Inversion of Control can help us create large system by taking away the reponsibility of creating objects.
 
+Inversion of control is a design principle in which the control of object creation, configuration, and lifecycle is passed to a container or framework.
 
+The control of creating and managing objects is inversed from the programmer to this container. We do not have to new up objects anymore. Something else creates them for us, and that something else is usually called an IoC container or DI container. The control of object creation is inverted. It's not the programmer but the container that controls those objects. It makes sense to use it for some objects in an application like services, data access, or controllers.
 
+However, for entities, data transfer objects, or value objects, it doesn't make sense to use an IoC container. We can simply new up those objects, and it's perfectly OK from architectural point of view.
 
+There are many benefits in using an IoC container for our system.
+- First of all, it makes it easy to switch between different implementations of a particular class at runtime.
+- Then, it increases the programs modularity.
+- Last but not least, it manages the lifecycle of objects and their configuration.
+
+For example, at the core of the Spring framework is the Spring IoC container. Spring beans are objects used by our application and that are managed by the Spring IoC container. They are created with the configuration that we supply to the container.
+
+There are many ways to configure an IoC container in Spring. XML is one example.Creating configuration classes is another. Or simply by annotating classes with special annotations like @Service, @Component, @Repository, ...
+
+```java
+@Configuration
+public class DependencyConfig {
+    @Bean
+    public A a() {
+        return new A();
+    }
+
+    @Bean
+    public B b() {
+        return new B();
+    }
+
+    @Bean
+    public C c(A a, B b) {
+        return new C(a, b);
+    }
+}
+```
 
 <br>
 
@@ -323,8 +477,21 @@ In the above diagram, ```BookService``` depends on an ```IsbnGenerator``` to cre
 
 <br>
 
+## Benefits of SOLID code
+This is the last section of SOLID principles. So, we will conclude benefits when using SOLID in our code.
+
+- Easy to understand and reason about.
+
+- Changes are faster and have a minimal risk level.
+
+- Highly maintainable over long periods of time.
+
+- Cost effective.
+
+<br>
+
 ## Wrapping up
-- 
+
 
 
 
@@ -336,9 +503,9 @@ Thanks for your reading.
 
 Refer:
 
-[https://keyholesoftware.com/2014/02/17/dependency-injection-options-for-java/](https://keyholesoftware.com/2014/02/17/dependency-injection-options-for-java/)
+[SOLID Software Design Principles in Java](https://app.pluralsight.com/library/courses/1d999aa8-870b-4b5e-a2d6-5c9ca24c8526/table-of-contents)
 
-[https://app.pluralsight.com/library/courses/context-dependency-injection-1-1/table-of-contents](https://app.pluralsight.com/library/courses/context-dependency-injection-1-1/table-of-contents)
+[https://keyholesoftware.com/2014/02/17/dependency-injection-options-for-java/](https://keyholesoftware.com/2014/02/17/dependency-injection-options-for-java/)
 
 [http://olivergierke.de/2013/11/why-field-injection-is-evil/](http://olivergierke.de/2013/11/why-field-injection-is-evil/)
 

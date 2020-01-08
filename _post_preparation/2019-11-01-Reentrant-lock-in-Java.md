@@ -13,7 +13,9 @@ tags: [Multithreading]
 ## Table of contents
 - [Reentrant lock](#reentrant-lock)
 - [Deadlock](#deadlock)
+- [Some methods of Reentrant lock](#some-methods-of-reentrant-lock)
 - [When to use Reentrant lock](#when-to-use-reentrant-lock)
+- [Benefits and drawbacks](#benefits-and-drawbacks)
 - [Different between Reentrant lock and synchronized keyword](#different-between-reentrant-lock-and-synchronized-keyword)
 - [Wrapping up](#wrapping-up)
 
@@ -170,7 +172,7 @@ But there is not much we can do if a deadlock situation occurs, beside rebooting
 
 <br>
 
-## Benefits and drawbacks 
+## Benefits and drawbacks
 1. Benefits
 - ```Reentrant Lock``` provides explicit locking that is much more granular and powerful than ```synchronized``` keyword.
 
