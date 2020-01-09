@@ -43,7 +43,6 @@ The API allows us to send both text, and binary data. It also allows us to use J
 We simply use the built-in Java types. It also supports something called URI templates, which allow us to configure the URI the server can receive, and then change the root of those request depending on the incoming URI. So to see how to use Websockets, we'll build a demo application.
 
 
-
 <br>
 
 ## When to use
@@ -73,5 +72,3 @@ We simply use the built-in Java types. It also supports something called URI tem
 <br>
 
 Refer:
-
-[http://www.mastertheboss.com/javaee/websockets/websocket-helloworld-example](http://www.mastertheboss.com/javaee/websockets/websocket-helloworld-example)

@@ -17,7 +17,7 @@ tags: [Java, Exception handling]
 
 <br>
 
-## 
+## Introduction to Exception Handling
 
 
 
@@ -60,6 +60,15 @@ The only times ```finally``` won't be called are:
 - If the host system dies; e.g., power failure, hardware error, OS panic, et cetera.
 
 - If the ``finally`` block is going to be executed by a daemon thread and all other non-daemon threads exit before ```finally``` is called.
+
+
+<br>
+
+## Advantages of Exception handling
+
+
+
+
 
 
 <br>
