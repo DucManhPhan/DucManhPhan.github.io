@@ -1,8 +1,8 @@
 ---
 layout: post
-title: How to use exception handling in Java
+title: The comparison between MySQL and PostgreSQL
 bigimg: /img/image-header/factory.jpg
-tags: [Java, Exception handling]
+tags: [Database]
 ---
 
 

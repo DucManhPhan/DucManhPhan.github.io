@@ -167,13 +167,13 @@ private static void cleanup() {
 }
 ```
 
-So we can find that we have two exception. First, it is an ```ArithmeticException``` exception. Second, it's in cleanup() method, this method throws ```IllegalStateException``` exception.
+So we can find that we have two exception. First, it is an ```ArithmeticException``` exception. Second, it's in ```cleanup()``` method, this method throws ```IllegalStateException``` exception.
 
 When we investigates a bug, it is difficult to know that the cause, because we have two places that leave two exceptions.
 
 Therefore, we need to not throw exception in ```finally``` block.
 
-In Java 7 or higher, we should use try-with-resources statement, which can handle cleanup for us.
+In Java 7 or higher, we should use ```try-with-resources``` statement, which can handle cleanup for us.
 
 ```java
 void readFile() {
