@@ -5,13 +5,15 @@ bigimg: /img/image-header/factory.jpg
 tags: [Java, Jax-ws]
 ---
 
-
+In this article, we will learn how to use CDI in JavaEE. Let's get started.
 
 <br>
 
 ## Table of contents
 - [Understanding Context and Dependency Injection](#understanding-context-and-dependency-injection)
 - [Injection with CDI](#injection-with-cdi)
+- [Bringing the Web Tier and Service Tier together](#bringing-the-web-tier-and-service-tier-together)
+- [Integration CDI with EJB](#integration-CDI-with-EJB)
 - [Information about CDI's version](#information-about-cdi's-version)
 - [Benefits and Drawbacks](#benefits-and-drawbacks)
 - [Wrapping up](#wrapping-up)
@@ -1094,3 +1096,5 @@ Refer:
 [http://www.mastertheboss.com/jboss-frameworks/cdi/introduction-to-cdi-2-0-api](http://www.mastertheboss.com/jboss-frameworks/cdi/introduction-to-cdi-2-0-api)
 
 [https://deltaspike.apache.org/documentation/cdiimp.html](https://deltaspike.apache.org/documentation/cdiimp.html)
+
+[https://docs.jboss.org/weld/reference/3.0.4.Final/en-US/html_single/#_a_note_about_naming_and_nomenclature](https://docs.jboss.org/weld/reference/3.0.4.Final/en-US/html_single/#_a_note_about_naming_and_nomenclature)

@@ -50,9 +50,15 @@ tags: [Java, Cdi]
 <br>
 
 ## Wrapping up
+- For ```EJB``` and ```JAR``` packaging you should place the beans.xml in ```src/main/resources/META-INF/```.
 
+    For ```WAR``` packaging you should place the beans.xml in ```src/main/webapp/WEB-INF/```.
 
+    Remember that only ```.java``` files should be put in the ```src/main/java``` and ```src/test/java``` directories. Resources like ```.xml``` files should be in ```src/main/resources```.
 
+    An application that uses CDI must have a file named ```beans.xml```. The file can be completely empty (it has content only in certain limited situations), but it must be present. For a web application, the beans.xml file must be in the ```WEB-INF``` directory. For EJB modules or JAR files, the ```beans.xml``` file must be in the ```META-INF``` directory.
+
+    In Java EE 7 beans.xml is no longer mandatory. Refer [23.13 Configuring a CDI Application](https://docs.oracle.com/javaee/7/tutorial/cdi-basic013.htm).
 
 <br>
 

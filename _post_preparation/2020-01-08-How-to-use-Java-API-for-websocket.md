@@ -73,3 +73,5 @@ We simply use the built-in Java types. It also supports something called URI tem
 <br>
 
 Refer:
+
+[http://www.mastertheboss.com/javaee/websockets/websocket-helloworld-example](http://www.mastertheboss.com/javaee/websockets/websocket-helloworld-example)
