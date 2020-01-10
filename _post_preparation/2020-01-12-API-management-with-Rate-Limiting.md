@@ -12,6 +12,8 @@ tags: [Java, Redis]
 
 ## Table of contents
 - [Why we need rate limiting to protect our APIs](#why-we-need-rate-limiting-to-protect-our-APIs)
+- [Rate Limit sliding window algorithm](#rate-limit-sliding-window-algorithm)
+- [How to implement sliding window algorithm myself](#how-to-implement-sliding-window-algorithm-myself)
 - [Use RateLimitJ library](#use-ratelimitj-library)
 - [Wrapping up](#wrapping-up)
 
@@ -26,9 +28,16 @@ tags: [Java, Redis]
 
 <br>
 
-## 
+## Rate Limit sliding window algorithm
 
 
+
+
+
+
+<br>
+
+## How to implement sliding window algorithm myself
 
 
 
@@ -46,14 +55,8 @@ tags: [Java, Redis]
 
 <br>
 
-## 
-
-
-
-
-<br>
-
 ## Wrapping up
+
 
 
 
@@ -75,3 +78,10 @@ Refer:
 [https://dzone.com/articles/basic-api-rate-limiting](https://dzone.com/articles/basic-api-rate-limiting)
 
 [https://medium.com/figma-design/an-alternative-approach-to-rate-limiting-f8a06cf7c94c](https://medium.com/figma-design/an-alternative-approach-to-rate-limiting-f8a06cf7c94c)
+
+[https://stripe.com/fr/blog/rate-limiters](https://stripe.com/fr/blog/rate-limiters)
+
+[https://subscription.packtpub.com/book/application_development/9781783287963/5/ch05lvl1sec36/rate-limiting-patterns](https://subscription.packtpub.com/book/application_development/9781783287963/5/ch05lvl1sec36/rate-limiting-patterns)
+
+[https://konghq.com/blog/how-to-design-a-scalable-rate-limiting-algorithm/](https://konghq.com/blog/how-to-design-a-scalable-rate-limiting-algorithm/)
+
