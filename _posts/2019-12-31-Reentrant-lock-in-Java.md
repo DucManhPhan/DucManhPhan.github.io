@@ -5,7 +5,7 @@ bigimg: /img/image-header/yourself.jpeg
 tags: [Multithreading]
 ---
 
-
+In this article, we will understand how to use reentrant lock in Java. Let's get started.
 
 
 <br>
@@ -223,8 +223,6 @@ public void bar() {
     In general, the ```ReentrantLock``` does not.
 
     In the case of reentrant locking (i.e. in the case where a thread attempts to acquire ```lock A``` while holding ```lock A```), the ```ReentrantLock``` implementation notices that the thread holding the lock is the thread acquiring the lock. A counter is incremented, so that the implementation knows that the lock must be released twice.
-
-
 
 2. How can we avoid deadlock in this situation using ```ReentrantLock```?
 
