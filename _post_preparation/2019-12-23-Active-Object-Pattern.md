@@ -64,7 +64,7 @@ tags: [Concurrency pattern, Design pattern]
 <br>
 
 ## Wrapping up
-
+- The active object design pattern decouples method execution from method invocation for objects that each live in their own thread of control. The goal is to introduce concurrency, by using asynchronous method invocation and a scheduler for handling requests.
 
 
 
