@@ -83,7 +83,7 @@ tags: [Java]
 
         In this way, there's no extra benefits, but some people prefer it.
 
-    - java.util.Objects class
+    - ```java.util.Objects``` class
 
         ```java
         public boolean isBookReadyForPublication(Book book) {
@@ -98,7 +98,7 @@ tags: [Java]
         }
         ```
 
-        These methods are concise, readble, standard and prevent any kind of typos. However, something to consider is that the ```Objects.requireNonNull()``` method throws a NullPointerException is the object is null. So everything seems to lead us to exception, if we do nothing and try to call a method on a Null reference, Java will throw NullPointerException.
+        These methods are concise, readble, standard and prevent any kind of typos. However, something to consider is that the ```Objects.requireNonNull()``` method throws a ```NullPointerException``` is the object is ```null```. So everything seems to lead us to exception, if we do nothing and try to call a method on a Null reference, Java will throw ```NullPointerException```.
 
     - Try/Catch
 
