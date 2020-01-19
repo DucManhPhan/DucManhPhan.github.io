@@ -76,6 +76,8 @@ Refer:
 
 [https://en.wikipedia.org/wiki/Active_object](https://en.wikipedia.org/wiki/Active_object)
 
+[https://devmethodologies.blogspot.com/2017/11/active-object.html](https://devmethodologies.blogspot.com/2017/11/active-object.html)
+
 [https://stackoverflow.com/questions/41676343/explain-active-object-pattern](https://stackoverflow.com/questions/41676343/explain-active-object-pattern)
 
 [http://www.laputan.org/pub/sag/act-obj.pdf](http://www.laputan.org/pub/sag/act-obj.pdf)
