@@ -18,7 +18,7 @@ tags: [Multithreading, Java]
 
 <br>
 
-## 
+## Introduction to CountDownLatch
 
 
 
@@ -26,7 +26,7 @@ tags: [Multithreading, Java]
 
 <br>
 
-## 
+## When to use
 
 
 
@@ -35,14 +35,22 @@ tags: [Multithreading, Java]
 
 <br>
 
-## 
+## Benefits and Drawbacks
+
 
 
 
 
 <br>
 
-## 
+## Some useful methods in CountDownLatch
+
+
+
+
+<br>
+
+## Source code
 
 
 
