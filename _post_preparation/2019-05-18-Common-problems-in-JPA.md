@@ -43,7 +43,7 @@ Hibernate provides just a layer on top of database, and does not create new beha
 
 ## Common errors in JPA when working with project
 
-1. StackOverflowError when merge/persist an object into database
+1. ```StackOverflowError``` when merge/persist an object into database
 
     Assuming that we have two class ```Product``` and ```Category``` that are relevant together by ```@One-to-Many``` annotation.
 

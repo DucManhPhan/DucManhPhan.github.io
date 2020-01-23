@@ -44,9 +44,9 @@ public class Singleton {
 
 So, to move on about synchronization, we need to answer a question - How does synchronization work under the hood?
 
-Our Singleton class is a class with a ```getInstance()``` method that we want to synchronize. If it is not, any thread can run this method freely. Synchronizing means protecting this method by a fence, declared with the synchronized keyword.
+Our Singleton class is a class with a ```getInstance()``` method that we want to synchronize. If it is not, any thread can run this method freely. Synchronizing means protecting this method by a fence, declared with the ```synchronized``` keyword.
 
-Under the hood, the Java machine uses a special object, called a lock object, that has a key. In fact, every object in the Java language, has this key, that is used for synchronization. So, what does it change our code?
+Under the hood, the Java virtual machine uses a special object, called a ```lock object```, that has a key. In fact, every object in the Java language, has this key, that is used for ```synchronization```. So, what does it change our code?
 
 When a thread - T1 want to enter this protected method - ```getInstance()``` method, this protected method or block of code, it will make a request on this lock object, give me your key. If the lock object has the key available, it will give it to this thread, and this thread will be able to run the ```getInstance()``` method freely. If another thread - T2 wants to enter this synchronized block of code, it will make the same request on the lock object, but this time, the lock object has no key available for him. Why? Just because the lock object gave its key to the T1 thread. The lock object has only one single key. So the T2 thread has to wait for the key to be available.
 
@@ -54,7 +54,7 @@ At some point, the T1 thread will finish to run the ```getInstance()``` method, 
 
 So, for synchronization to work, we need a special, technical object that will hold the key.
 
-In fact, every Java object can play this role. This key is defined internally in the objet class, thus making it available for all the Java objects we define in our applications. It is worth noting that sometimes this key is also called a monitor in books and articles.
+In fact, every Java object can play this role. This key is defined internally in the objet class, thus making it available for all the Java objects we define in our applications. It is worth noting that sometimes this key is also called a ```monitor```.
 
 How do we know which object has been chosen to hold this key?
 - A synchronized static method uses the class as a synchronization object.
@@ -93,16 +93,14 @@ How do we know which object has been chosen to hold this key?
     }
     ```
 
-    So, instead of synchronizing the init() method, we can create the synchronized block inside this method, and pass this key object as a parameter of this synchronized keyword. 
-
-
+    So, instead of synchronizing the ```init()``` method, we can create the synchronized block inside this method, and pass this key object as a parameter of this ```synchronized``` keyword. 
 
 <br>
 
 ## Synchrozing more than one method
-Suppose we have a Person class with two methods in this class, getName() and getAge(). And we added synchronized keyword on the declaration of those methods. The lock object used by the JVM is the object itself, it means that it is an instance of the class we are in.
+Suppose we have a ```Person``` class with two methods in this class, ```getName()``` and ```getAge()```. And we added ```synchronized``` keyword on the declaration of those methods. The ```lock object``` used by the JVM is the object itself, it means that it is an instance of the class we are in.
 
-So, what is going to happen if a T1 thread wants to execute ```getName()```. It will take the key from the lock object, thus preventing a T2 thread from executing ```getAge()``` at the same time. Why? because since we did not declare any explicit object on the synchronization of our methods, the same key is used to synchronized both methods. This might not be what we need. If we need to synchronize ```getName()``` independently of ```getAge()```, then we need to create two lock objects in the Person class, and synchronize the block of codes inside the methods on those two different objects.
+So, what is going to happen if a T1 thread wants to execute ```getName()```. It will take the key from the lock object, thus preventing a T2 thread from executing ```getAge()``` at the same time. Why? because since we did not declare any explicit object on the synchronization of our methods, the same key is used to synchronized both methods. This might not be what we need. If we need to synchronize ```getName()``` independently of ```getAge()```, then we need to create two lock objects in the ```Person``` class, and synchronize the block of codes inside the methods on those two different objects.
 
 But now suppose that we have two instances of our Person class like the below:
 
@@ -113,9 +111,9 @@ But now suppose that we have two instances of our Person class like the below:
 
 Once again, the ```getName()``` and ```getAge()``` methods are synchronized using the ```synchronized``` keyword on the method declaration. It means that the instances Mary and John are used to synchronize those methods. So we have two lock objects with two key. The thread executing the ```getName()``` of the Mary instance object, does not prevent a thread from executing the ```getAge()``` from the John instance object. And it will not prevent another thread to execute this same ```getName()``` method on another object. We really need to keep in mind that, to understand how synchronization works, we need to identify which object is used as a lock and what are the keys used in our application.
 
-Remember that using the synchronized keyword on a method declaration, uses an implicit lock object, which is the class object in the case of a static method, or the instance object itself in the case of a non-static method.
+Remember that using the ```synchronized``` keyword on a method declaration, uses an ```implicit lock object```, which is the class object in the case of a static method, or the instance object itself in the case of a non-static method.
 
-If we really want to prevent two threads to execute the ```getName()``` method at the same time, in all the instances of the Person class, then we need our lock object to be bound not to each instance of our class, but to the class itself. So, it has to be the static field of the Person class.
+If we really want to prevent two threads to execute the ```getName()``` method at the same time, in all the instances of the ```Person``` class, then we need our lock object to be bound not to each instance of our class, but to the class itself. So, it has to be the ```static``` field of the ```Person``` class.
 
 ```Java
 public class Person {
@@ -147,11 +145,11 @@ public class Person {
 
     The ```wait()``` method is exposed on each Java object. Each java object can act as a condition variable.
 
-    When a thread executes the ```wait()``` method, it releases the monitor for the object and is placed in the wait queue.
+    When a thread executes the ```wait()``` method, ```it releases the monitor for the object and is placed in the wait queue```.
 
     Note:
-    - ```wait()``` method must occur insdie a synchronized block of code, if not, an IllegalMonitor exception is raised.
-    - should occur in loop on the wait condition.
+    - ```wait()``` method must occur insdie a synchronized block of code, if not, an ```IllegalMonitor``` exception is raised.
+    - should occur in loop on the ```wait condition```.
 
         ```java
         synchronized(lock) {
@@ -161,10 +159,9 @@ public class Person {
         }
         ```
 
-
 2. ```notify()``` method
 
-    Like the ```wait()``` method, ```notify()``` method can only be called by the thread which owns the monitor for the object on which ```notify()``` is being called else an illegal monitor exception is thrown.
+    Like the ```wait()``` method, ```notify()``` method can only be called by the thread which owns the monitor for the object on which ```notify()``` is being called else an ```IllegalMonitor``` exception is thrown.
 
     The ```notify()``` method will awaken one of the threads in the associated wait queue.
 
@@ -175,11 +172,9 @@ public class Person {
     Note:
     - Nothing happends to the current thread that calls ```notify()``` method, it continues to run until it's natural end.
 
-        The ```wait()``` and ```notify()``` methods must be called within a synchronized context. As soon as the synchronized block that contains the ```notify()``` call finishes, the lock is then available and the block containing the ```wait()``` call in another thread can then continue.
+        The ```wait()``` and ```notify()``` methods must be called within a synchronized context. As soon as the ```synchronized``` block that contains the ```notify()``` call finishes, the lock is then available and the block containing the ```wait()``` call in another thread can then continue.
 
         Calling ```notify()``` method simply moves the waiting thread back into the runnable thread pool. That thread can then continue as soon as the lock is available.
-
-
 
 3. ```notifyAll()``` method
 
@@ -189,16 +184,79 @@ public class Person {
 
 ## Benefits and drawbacks
 1. Benefits
-- only one thread will access in critical section with ```synchronized``` keyword.
+
+    - only one thread will access in critical section with ```synchronized``` keyword.
 
 2. Drawbacks
-- It does not allow concurrent read, which can potentially limit scalability. By using the concept of lock stripping and using different locks for reading and writing, we can overcome this limitation of synchronized in Java. The ```ReentrantReadWriteLock``` provides ready-made implementation of ```ReadWriteLock``` in Java.
 
-- ```synchronized``` keyword can only used to control access to a shared object within the same JVM. If we have more than one JVM and need to synchronize access to a shared file system or database, the Java ```synchronized``` keyword is not at all sufficient. We need to implement a kind of global lock for that.
+    - It does not allow concurrent read, which can potentially limit scalability. By using the concept of lock stripping and using different locks for reading and writing, we can overcome this limitation of synchronized in Java. 
+        
+        The ```ReentrantReadWriteLock``` provides ready-made implementation of ```ReadWriteLock``` in Java.
 
-- ```synchronized``` keyword incurs a performance cost when using ```synchronized``` method. Because it makes our application slow and degrade performance.
+    - ```synchronized``` keyword can only used to control access to a shared object within the same JVM. If we have more than one JVM and need to synchronize access to a shared file system or database, the Java ```synchronized``` keyword is not at all sufficient. We need to implement a kind of global lock for that.
 
-- ```synchronized``` keyword could make deadlock or starvation.
+    - ```synchronized``` keyword incurs a performance cost when using ```synchronized``` method. Because it makes our application slow and degrade performance.
+
+    - ```synchronized``` keyword could make deadlock or starvation.
+
+<br>
+
+## Common questions for synchronized block
+
+1. When working with ```wait()``` method, we known that ```wait()``` method releases lock that is relevant to the current thread, and push the current thread into wait queue. But after reading some post that had content - **Invoking wait() inside a synchronized method is a simple way to acquire the intrinsic lock**.
+
+    We can find that the above content of the posts that is false, an error in documentation.
+
+    Thread acquires the intrinsic lock when it enters a ```synchronized``` method. Thread inside the ```synchronized``` method is set as the owner of the lock and is in ```RUNNABLE``` state. Any thread that attempts to enter the locked method becomes ```BLOCKED```.
+
+    When thread calls ```wait()```, it releases the current object lock (it keeps all locks from other objects) and than goes to ```WAITING``` state.
+
+    When some other thread calls ```notify()``` or ```notifyAll()``` on that same object, the first thread changes state from ```WAITING``` to ```BLOCKED```, Notified thread does NOT automatically reacquire the lock or become ```RUNNABLE```, in fact it must fight for the lock with all other blocked threads.
+
+    ```WAITING``` and ```BLOCKED``` states both prevent thread from running, but they are very different.
+
+    ```WAITING``` threads must be explicitly transformed to ```BLOCKED``` threads by a notify from some other thread.
+
+    ```WAITING``` never goes directly to ```RUNNABLE```.
+
+    When ```RUNNABLE``` thread releases the lock (by leaving monitor or by waiting) one of ```BLOCKED``` threads automatically takes its place.
+
+    So to summarize, thread acquires the lock when it enters synchronized method or when it reenters the synchronized method after the wait.
+
+    ```java
+    public synchronized guardedJoy() {
+        // must get lock before entering here
+        while(!joy) {
+            try {
+                wait(); // releases lock here
+                // must regain the lock to reentering here
+            } catch (InterruptedException e) {}
+        }
+
+        System.out.println("Joy and efficiency have been achieved!");
+    }
+    ```
+
+2. What does a thread do after calling ```wait()``` in Java?
+
+    The ```wait()``` method has two purposes:
+    - It will tell the currently executing thread go to sleep (not use any cpu).
+    - It will release the lock so other threads can wake up and take the lock.
+
+    Whenever a method does something inside a ```synchronized``` block, whatever is in the block must wait for the locked object to be released.
+
+    ```java
+    synchronized (lockObject) {
+        // someone called notify() after taking the lock on
+        // lockObject or entered wait() so now it's my turn
+
+        while ( whatineedisnotready) {
+            wait(); // release the lock so others can enter their check
+            // now, if there are others waiting to run, they 
+            // will have a chance at doing so.
+        }
+    }
+    ```
 
 <br>
 
