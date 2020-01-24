@@ -193,18 +193,21 @@ In order to implement single instance, we can refer to this [link](https://githu
 
 ## Some thoughts about Singleton
 - In defense of Singleton:
+
     - **They are not as bad as globals** because globals have no standard-enforced initialization order, and you could easily see non-deterministic bugs due to naive or unexpected dependency orders. Singleton (assuming they're allocated on the heap) are created after all globals, and in a very predictable place in the code.
 
     - **They're very useful for resource-lazy / -caching systems** such as an interface to a slow I/O device. If you intelligently build a singleton interface to a slow device, and no one ever calls it, you won't waste any time. If another piece of code calls it from multiple places, your singleton can optimize caching for both simultaneously, and avoid any double look-ups. You can also easily avoid any deadlock condition on the singleton-controlled resource.
 
 - Against singletons:
+
     - **In C++, there's no nice way to auto-clean-up after singletons.** There are work-arounds, and slightly hacky ways to do it, but there's just no simple, universal way to make sure your singleton's destructor is always called. This isn't so terrible memory-wise -- just think of it as more global variables, for this purpose. But it can be bad if your singleton allocates other resources (e.g. locks some files) and doesn't release them.
 
 <br>
 
 ## Application & Examples
 - Good situations to use Singleton:
-    - Logging framework
+
+    - Logging framework.
     - Thread recycling pools.
 
 <br>
