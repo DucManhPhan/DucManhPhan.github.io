@@ -104,7 +104,6 @@ Command pattern has primarily four components:
 To refer this pattern's code, we can read this [link](https://github.com/DucManhPhan/Design-Pattern/tree/master/Behavioral-Pattern/command-pattern/src/Java).
 
 
-
 <br>
 
 ## Relations with other patterns
@@ -156,3 +155,5 @@ Refer:
 [https://www.baeldung.com/java-command-pattern](https://www.baeldung.com/java-command-pattern)
 
 [Learn Python Design Patterns, Second Editor, By Chetan Giridhar](http://file.allitebooks.com/20160913/Learning%20Python%20Design%20Patterns,%202nd%20Edition.pdf)
+
+[Design patterns and best practices in Java]()
