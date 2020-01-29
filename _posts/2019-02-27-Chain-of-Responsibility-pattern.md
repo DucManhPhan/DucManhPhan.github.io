@@ -26,7 +26,7 @@ Assuming that when we are working at a factory, we need to check products that a
 
 We have to arrange all sequence functions to conduct all of our standards. It means that we are using hard-wiring handler relationships.
 
- When our project is bigger than original, split into some small modules is difficult. It makes our own software tightly couple to each other, difficult maintain.
+When our project is bigger than original, split into some small modules is difficult. It makes our own software tightly couple to each other, difficult maintain.
 
 <br>
 
@@ -61,7 +61,8 @@ Note: A request no handled at all by any handler is a valid use case.
 <br>
 
 ## Benefits & Drawback
-- Benefits 
+1. Benefits
+
     - avoid coupling the sender of a request to its receiver by giving more than one object a chance to handle the request.
     - simplified object. The object does not need to know the chain structure.
     - enhance flexibility of object assigned duties. By changing the members within the chain or change their order, allow dynamic adding or deleting responsibility.
@@ -72,7 +73,7 @@ Note: A request no handled at all by any handler is a valid use case.
 	- If new operations need to be added to the Handler, modifying the source code is required.
 	- Do not use Chain of Responsibility when each request is only handled by one handler, or, when the client object knows which service object should handle the request.
 
-- Drawback
+2. Drawback
     - Mostly, it can get broken easily
         - if a handler fails to call the next handler, the request gets dropped. 
         - if a handler calls the wrong handler, it can lead to a cycle. So, the request must be received not guarantee.
@@ -273,6 +274,18 @@ Handler with 0 is called: 0
 	.NET framework implements COR pattern for HttpModule.
 
 	In JavaEE, the concept of Servlet filters implements the COR pattern, and may also decorate the request to add extra information before the request is handled by a servlet.
+
+- ```Event handlers```
+	
+	For example, most GUI frameworks use the chain-of-responsibility pattern to handle events. Let's say, for example, a window contains a panel that contains some buttons. We have to write the event handler of the button. If we decide to skip it and pass it on, the next one in the chain will be able to handle the request: the panel. If the panel skips it, it will go to the window.
+
+- ```Log handlers```
+
+	Similar to the event handlers, each log handler will log a specific request based on its status, or it will pass it on to the next handler.
+
+- ```Servlets```
+	
+	In Java, [javax.servlet.Filter](http://docs.oracle.com/javaee/7/api/javax/servlet/Filter.html) is used to filter requests or responses. The ```doFilter()``` method also receives the filter chain as a parameter, and it can pass the request on.
 
 <br>
 

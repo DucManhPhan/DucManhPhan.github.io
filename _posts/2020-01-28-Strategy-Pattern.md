@@ -5,8 +5,7 @@ bigimg: /img/path.jpg
 tags: [behavioral pattern, design pattern]
 ---
 
-
-
+In this article, we will understand about Strategy pattern. Let's get started.
 
 <br>
 
@@ -37,6 +36,8 @@ At the moment, the Context class is coupling with particular algorithm at compil
 So, we have some problems:
 - How can a class be configured with an algorithm at run-time instead of implementing an algorithm directly?
 - How can an alogrithm be selected an exchanged at run-time?
+- We can be difficult to test, because we need to cover all execution paths, and each condition require us to write at least one more test. Then, when we need to modify some algorithms, we need to test all algorithms again.
+- By using if-else or switch statement, all of the implementations are tied to that implementation, making them harder to change in the future.
 
 <br>
 
@@ -88,7 +89,10 @@ To refer this pattern's code, we can read this [link](https://github.com/DucManh
 <br>
 
 ## Application & Examples
-
+- Refactoring if-else or switch statement in our code.
+- Use with sorting.
+- Layout Managers in UI toolkits
+- Appenders, Layouts, and Filters in [Log4Net](http://logging.apache.org/log4net/release/manual/introduction.html) and [Log4j](http://logging.apache.org/log4j/1.2/manual.html).
 
 
 <br>
@@ -106,3 +110,11 @@ Thanks for your reading.
 <br>
 
 Refer: 
+
+[https://www.martinfowler.com/ieeeSoftware/protectedVariation.pdf](https://www.martinfowler.com/ieeeSoftware/protectedVariation.pdf)
+
+[https://softwareengineering.stackexchange.com/questions/302612/advantages-of-strategy-pattern](https://softwareengineering.stackexchange.com/questions/302612/advantages-of-strategy-pattern)
+
+[https://en.wikipedia.org/wiki/Cyclomatic_complexity](https://en.wikipedia.org/wiki/Cyclomatic_complexity)
+
+[https://blog.bitsrc.io/keep-it-simple-with-the-strategy-design-pattern-c36a14c985e9](https://blog.bitsrc.io/keep-it-simple-with-the-strategy-design-pattern-c36a14c985e9)

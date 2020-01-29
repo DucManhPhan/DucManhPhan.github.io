@@ -150,6 +150,8 @@ Thanks for your reading.
 
 Refer:
 
+[https://www.javacodegeeks.com/2019/03/new-life-old-visitor-design-pattern.html](https://www.javacodegeeks.com/2019/03/new-life-old-visitor-design-pattern.html)
+
 [https://softwareengineering.stackexchange.com/questions/333692/understanding-the-need-of-visitor-pattern](https://softwareengineering.stackexchange.com/questions/333692/understanding-the-need-of-visitor-pattern)
 
 [https://en.wikipedia.org/wiki/Visitor_pattern](https://en.wikipedia.org/wiki/Visitor_pattern)
