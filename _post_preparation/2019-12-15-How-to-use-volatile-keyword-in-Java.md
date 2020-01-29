@@ -28,13 +28,6 @@ tags: [Multithreading, Java]
 
 <br>
 
-## 
-
-
-
-
-<br>
-
 ## When to use
 - ```volatile``` keyword is used in creating thread-safe ```Singleton``` by double-checking the singleton instance.
 
