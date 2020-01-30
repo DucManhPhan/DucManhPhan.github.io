@@ -5,6 +5,9 @@ bigimg: /img/path.jpg
 tags: [structural pattern, design pattern]
 ---
 
+
+
+
 <br>
 
 ## Table of contents
