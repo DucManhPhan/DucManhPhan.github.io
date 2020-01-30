@@ -134,6 +134,13 @@ To refer this pattern's code, we can read this [link](https://github.com/DucManh
 
 - The asynchronous method invocation: The command pattern is used in multithreading applications. Command objects can be executed in the background in separate threads. The java.lang.Runnable is a command interface.
 
+- Java 8 adds lambda expressions.
+
+    So, we do not need an object wrapper. All we need is to pick a functional interface. ```Runnable``` is frequently a good choice.
+
+- In Apache struts 2 framework
+
+    Controllers are classes that extend ```Action```. ```Action``` has a single method called ```execute()```. Framework collected ```Action``` instances and invoked ```execute()``` method as needed.
 
 <br>
 

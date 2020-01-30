@@ -287,6 +287,12 @@ Handler with 0 is called: 0
 	
 	In Java, [javax.servlet.Filter](http://docs.oracle.com/javaee/7/api/javax/servlet/Filter.html) is used to filter requests or responses. The ```doFilter()``` method also receives the filter chain as a parameter, and it can pass the request on.
 
+- In Java 8, we can use lambda to do with it.
+
+	Decisions using ```filter(Predicate)```. Handle using ```map(Function)```.
+
+	Java 9 adds ```stream``` method to ```Optional```.
+
 <br>
 
 Thanks for your reading.

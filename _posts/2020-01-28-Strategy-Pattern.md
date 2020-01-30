@@ -93,7 +93,9 @@ To refer this pattern's code, we can read this [link](https://github.com/DucManh
 - Use with sorting.
 - Layout Managers in UI toolkits
 - Appenders, Layouts, and Filters in [Log4Net](http://logging.apache.org/log4net/release/manual/introduction.html) and [Log4j](http://logging.apache.org/log4j/1.2/manual.html).
+- In Java 8, we can easily apply strategy pattern with lambdas.
 
+    Each strategy implements a functional interface. Container methods take lambdas as arguments.
 
 <br>
 

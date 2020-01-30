@@ -73,6 +73,26 @@ To refer this pattern's code, we can read this [link](https://github.com/DucManh
 
 <br>
 
+## Benefits & Drawbacks
+1. Benefits
+
+    - The decorator pattern can be used to make it possible to extend (decorate) the functionality of a certain object at run time.
+
+    - The decorator pattern is an alternative to subclassing. Subclassing adds behavior at compile time, and the change affects all instances of the origin class.
+
+        Decorating can provide new behavior at run time for inidividual objects.
+
+    - Decorator offers a  pay-as-you-go approach to add responsibilities. Instead of trying to support all foreseeable features in a complex, customizable class, we can define a simple class and add functionality incrementally with Decorator object.
+
+
+2. Drawbacks
+
+    - Decorator can complicate the process of instantiating the component because we not only have to instantiate the component, but wrap it in a number of decorators.
+
+    - It can be complicated to have decorators keep track of other decorators, because to look back into multiple layers of the decorator chain starts to push the decorator pattern beyond its true intent.
+
+<br>
+
 ## Relations with other patterns
 - Composite pattern composes objects into a tree structure.
 - Adapter pattern provides an alternative interface for an class or object.
@@ -92,6 +112,13 @@ To refer this pattern's code, we can read this [link](https://github.com/DucManh
     ```
 
 - Java stream.
+
+- In Java 8, we can use lambda to make it. And we have some funtional interface that supports for this pattern.
+
+    - Predicate: and, or, negate.
+    - Consumer: andThen.
+    - Function: andThen, compose.
+    - reduce(BinaryOperator) method builds complete closure.
 
 <br>
 
