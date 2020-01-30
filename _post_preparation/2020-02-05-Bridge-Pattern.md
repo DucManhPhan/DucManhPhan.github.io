@@ -2,7 +2,7 @@
 layout: post
 title: Bridge pattern
 bigimg: /img/image-header/yourself.jpeg
-tags: [structural pattern, design pattern]
+tags: [Structural pattern, Design pattern]
 ---
 
  
@@ -21,7 +21,7 @@ tags: [structural pattern, design pattern]
 
 <br>
 
-# Given Problem 
+# Given Problem
 
 
 
