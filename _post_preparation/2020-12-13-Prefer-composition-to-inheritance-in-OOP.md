@@ -18,3 +18,5 @@ tags: [OOP, composition, inheritance]
 [https://www.javaworld.com/article/3409071/java-challenger-7-debugging-java-inheritance.html](https://www.javaworld.com/article/3409071/java-challenger-7-debugging-java-inheritance.html)
 
 [https://www.javaworld.com/article/2073649/why-extends-is-evil.html](https://www.javaworld.com/article/2073649/why-extends-is-evil.html)
+
+[https://www.thoughtworks.com/de/insights/blog/composition-vs-inheritance-how-choose](https://www.thoughtworks.com/de/insights/blog/composition-vs-inheritance-how-choose)
