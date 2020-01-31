@@ -2,7 +2,7 @@
 layout: post
 title: Proxy Pattern
 bigimg: /img/path.jpg
-tags: [structural pattern, design pattern]
+tags: [Structural pattern, Design pattern]
 ---
 
 <br>
@@ -20,6 +20,10 @@ tags: [structural pattern, design pattern]
 <br>
 
 ## Given Problem 
+
+![]()
+
+
 
 
 
@@ -68,3 +72,4 @@ Thanks for your reading.
 <br>
 
 Refer: 
+
