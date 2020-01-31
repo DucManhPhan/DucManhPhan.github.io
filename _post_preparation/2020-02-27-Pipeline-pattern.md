@@ -2,7 +2,7 @@
 layout: post
 title: Pipeline pattern
 bigimg: /img/path.jpg
-tags: [behavioral pattern, design pattern]
+tags: [Behavioral pattern, Design pattern]
 ---
 
 In this article, we will talk about Pipeline pattern, and some interesting information about it such as applying it in which real problems, when to use, how to use, the disadvantages and advantages.

@@ -1,8 +1,8 @@
 ---
 layout: post
-title: Facade Pattern
+title: AOP Pattern
 bigimg: /img/path.jpg
-tags: [Structural pattern, Design pattern]
+tags: [Design pattern]
 ---
 
 
@@ -12,7 +12,7 @@ tags: [Structural pattern, Design pattern]
 
 ## Table of contents
 - [Given Problem](#given-problem)
-- [Solution of Facade Pattern](#solution-of-facade-pattern)
+- [Solution of AOP Pattern](#solution-of-aop-pattern)
 - [When to use](#when-to-use)
 - [Benefits & Drawback](#benefits-&-drawback)
 - [Code C++ /Java / Javascript](#code-c++-java-javascript)
@@ -28,7 +28,7 @@ tags: [Structural pattern, Design pattern]
 
 <br>
 
-## Solution of Facade Pattern
+## Solution of AOP Pattern
 
 
 
