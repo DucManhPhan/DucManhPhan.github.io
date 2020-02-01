@@ -10,10 +10,14 @@ tags: [Multithreading, Java]
 <br>
 
 ## Table of contents
-
-
-
-
+- [The Fire-and-Forget pattern](#the-fire-and-forget-pattern)
+- [Introducing ThreadPoolExecutor](#introducing-threadpoolexecutor)
+- [Implementing Fire-and-Forget using ThreadPoolExecutor](#implementing-fire-and-forget-using-threadpoolexecutor)
+- [Introducing ForkJoinPool](#introducing-forkjoinpool)
+- [Implementing Fire-and-Forget using ForkJoinPool](#implementing-fire-and-forget-using-forkjoinpool)
+- [Introducing Threaded Recursion with ForkJoinPool and BlockingQueue](#introducing-threaded-recursion-with-forkjoinpool-and-blockingqueue)
+- [Implementing Fire-and-Forget using Thread Recursion](#implementing-fire-and-forget-using-thread-recursion)
+- [Wrapping up](#wrapping-up)
 
 <br>
 
@@ -188,4 +192,4 @@ ForkJoinPool, also known as a work stealing pool, addresses this concern.
 
 Refer:
 
-[https://app.pluralsight.com/library/courses/scaling-java-applications-through-concurrency/table-of-contents](https://app.pluralsight.com/library/courses/scaling-java-applications-through-concurrency/table-of-contents)
+[Scaling Java applications through concurrency](https://app.pluralsight.com/library/courses/scaling-java-applications-through-concurrency/table-of-contents)

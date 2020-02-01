@@ -146,7 +146,7 @@ Some paradigms are concerned mainly with implications for the execution model of
 
 3. Benefits
 
-    - 
+    - It makes our code flexible, easy to test.
 
 <br>
 
