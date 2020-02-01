@@ -1,6 +1,6 @@
 ---
 layout: post
-title: Understanding about important properties in system design
+title: Key characteristics of Distributed system
 bigimg: /img/image-header/factory.jpg
 tags: [System design]
 ---
