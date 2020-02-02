@@ -130,13 +130,41 @@ So, picking between ```Availability``` and ```Consistency``` largely depends on 
 
 3. Bandwidth is infinite.
 
-    
+    When we pass parameter to a method, the entire parameter makes it to the other side. Even if the parameter is a long list or a big XML document, the parameter that's actually passed is really just a pointer to some shared memory, and the method can access that shared memory just as easily as the caller could.
+
+    But in a distributed system, there is no shared memory, so we just have to send the contents of that long list or that big XML document, and a common mistake that developers will make is to simply copy the whole thing into a single request. Unfortunately, the bigger the request is the more likely that it is to fail.
+
+    In a distributed system, messages need to be broken down into chunks, but we have to be aware when we're doing this that each chunk is going to be individually subject to latency, and so these latencies are going to add up. So, it's kind of a balancing act between latency and bandwidth, and we have to choose the right balance in order make our system the most reliable.
 
 4. The network is secure.
+
+    Our distributed application will be attacked in ways that an object-oriented system just never would. There are many more attack vetors available to a hacker when a message is on the wire. An application developer has to get every detail right, but an attacker only has to find one thing wrong.
+    
+    A lot of enterprise applications are built with the assumption that parts of it, if not all of it, are running on an internal secure network. But that internal network is not secure, most of the attacks actually occur from the inside.
+
 5. Topology doesn't change.
+
+    It's pretty easy to build assumptions about topology into our code. Topology includes things like the platforms and the tools upon which our code is built, as well as which machines have access to which other machines. But rather than build those assumptions into the code, it's much better to construct the system in pieces that can be reconfigured to match the topology into which it's deployed.
+
 6. There is one administrator.
+
+    When we're building a distributed application, the developer are the administrator, but once it's out into production then that's going to be somebody else. In fact, it probably won't be just one person. We will probably have to give up the reins to somebody that runs the network, somebody else runs the machines, and then somebody else that runs the applications. And furthermore, with cloud hosting becoming more prevalent, the administrator of the box is probably not even aware of what the applications are that are running on it, so we have to build our applications so that each different type of administrator can manage just the part of the system that they need.
+
 7. Transport cost is zero.
+
+    In object-oriented coding, creating a new object is free. All it costs is a little bit of memory, and memory is cheap, but in a distributed system, sending a message costs real money. There's first of all the cost of keeping the network running so that's paying for people, electricity, and space, but then there's also the cost per message, so that's the actual bandwidth cost. It can be easy to forget while we're working in a test environment that each of these messages that we're sending is going to translate into real dollars.
+
 8. The network is homogeneous.
+
+    There are actually two fallacies in this one statement.
+    
+    The first is about the stacks that the applications are written on. So if all components are written on one stacks, then we've got a homogeneous network. And this may be under our control for a small distributed system, but large ones, especially those that integrate across company boundaries, are going to be written by different teams, and so we have to write each component with the knowledge that we're going to be using different vendors for different pieces of the system. But the not the worst of the assumptions.
+
+    The second one is that all of the components will be on the same version. When we roll out a distributed system, this is probably going to be true, and this is going to lure us into a false sense of security, but when we reach version 2, we'll find ourselves, if only temporarily, in a heterogeneous network. We'll still have version 1 components running, but then we'll also want to deploy version 2 on top of them.
+
+    Now, we might solve this problem in the beginning by just simply taking down the whole system, upgrading it all, and then bringing it back up. That's only going to work for a short period, and maybe not even ever. As more and more versions are deployed and more and more components are added, the window of time during which we can have multiple versions is going to grow. And once we have two or more project team or two or more companies involved, then that window is basically going to stay open forever. We will never again have all the components on the same version, and it will be impossible to bring down the whole system to do an upgrade. So, we have to build our systems with the assumption that we're going to have a heterogeneous system. We're going to have some older versions of components interoperating with newer versions of components, and we have to build our systems to be resilient and tolerant of this.
+
+    The most dangerous part of this fallacy is the fact that only chance to combat it has already come and gone before we're deployed the first version. Once we have version 1 in production, then we have already sealed our fate. If we didn't build the system with the ability to be heterogeneous from the outset, then it's very rare that we'll ever get it back.
 
 <br>
 
