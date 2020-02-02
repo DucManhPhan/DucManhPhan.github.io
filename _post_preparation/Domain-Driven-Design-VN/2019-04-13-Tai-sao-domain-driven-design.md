@@ -6,7 +6,6 @@ tags: [Architecture Pattern]
 ---
 
 
-
 Vốn dĩ chưa có ý định viết về Domain Driven Design nhưng hôm nay vớ phải cái dự án làm outsource cho khách hàng có dùng cái này nên viết cái bài này để dọn đường cho anh em trước khi triển khai dự án.
 
 Mặc dù outsource là việc làm bất đắc dĩ trong thời điểm khó khăn hiện nay, nhưng tinh thần tiến công của startup là không thay đổi. Mà đã làm startup thì  đối diện với bất cứ điều gì suy nghĩ đầu tiên bật ra trong đầu cũng là “Start with why?”.  Vậy thì Domain Driven Design là cái quái gì và tại sao lại cần phải dùng đến nó?  Nó  có phải là thứ bổ béo gì không mà phải mất công lằng nhằng tìm hiểu?
