@@ -15,6 +15,7 @@ In this article, we will find something out about CAP theorem. Let's get started
 - [Availability](#Availability)
 - [Partition Tolerance](#Partition-Tolerance)
 - [Example with CAP theorem](#example-with-cap-theorem)
+- [Fallacies of Distributed Computing](#fallacies-of-distributed-computing)
 - [Wrapping up](#wrapping-up)
 
 <br>
@@ -108,6 +109,37 @@ So, picking between ```Availability``` and ```Consistency``` largely depends on 
 
 <br>
 
+## Fallacies of Distributed Computing
+1. The network is reliable.
+
+    Many of the technologies will hide the fact that we're using a network at all to send requests to different machines. For example, if we're every used WCF then we've seen how it can quickly turn a web service call into a method call on an object.
+    
+    Methods call are completely reliable. When we make one call, we know for certain that the object that we're calling will receive its parameters and it will execute the method. And when that method call returns, we know beyond a shadow of a doubt that the caller will receive the return value, and then the caller will continue executing at the next line. If the method throws an exeception, then we can be absolutely sure that the caller will catch the exeception and will take the appropriate action. But the same can not be said about web service calls or indeed any communication over a network.
+
+    When we make a web service call there's no guarantee that the service will receive the request, and when it returns a value, we can't be sure that the caller will actually get the result. And when an exeception is thrown, it can sometimes be hard to tell whether it was the result of a problem in the web service itself or simply some kind of a network failure.
+
+    So when coding for network communication, we have to understand that the call might fail in ways that simply are not possible in regular object-oriented in memory programming. We have to code for failures at every point in the communication. The request may fail on its way to the server or worse yet the response may fail on its way back to the client. If a failure happens, then the client generally can't tell which side failed. They can't tell whether the message failed on its way to the service or the response back to the client, so that leaves the system in an indeterminate state. These kinds of states don't occur in regular object-oriented coding, so we typically don't think about them, but when the network is unreliable then we have to.
+
+2. Latency is zero.
+
+    In most object-oriented code, time isn't an issue. The code just tends to be procedural just moving from one statement to the next as quickly as the machine will allow, so we don't even think about the dimension of time.
+    
+    But when we're sending our requests to a remote machine, we have to be aware of the passage of time. Until that response comes, we're in a state of limbo where we don't know whether the request got through or not, and we have to timeouts for these requests. If the timeout elapses, then we don't know whether the request would have actually succeed had we just waited a little bit longer.
+    
+    We have two different machines, each keeping tracking of its own state separated by the time and space, and somehow we need to choreograph a dance between these two machines, even though neither one really knows the state of the other. A lot of systems that we've built work fine on localhost, but then they don't work when deployed to real networks, and it's because we've fallen victim to one of these two fallacies.
+
+3. Bandwidth is infinite.
+
+    
+
+4. The network is secure.
+5. Topology doesn't change.
+6. There is one administrator.
+7. Transport cost is zero.
+8. The network is homogeneous.
+
+<br>
+
 ## Wrapping up
 - To summarize this CAP theorem, it can be described in the below image.
 
@@ -117,6 +149,8 @@ So, picking between ```Availability``` and ```Consistency``` largely depends on 
 <br>
 
 Refer:
+
+[Patterns for Building Distributed systems for The Enterprise - Michael Perry](https://app.pluralsight.com/library/courses/cqrs-theory-practice/table-of-contents)
 
 [https://en.wikipedia.org/wiki/CAP_theorem](https://en.wikipedia.org/wiki/CAP_theorem)
 
