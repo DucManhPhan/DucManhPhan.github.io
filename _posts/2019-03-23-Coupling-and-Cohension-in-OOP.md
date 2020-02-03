@@ -18,7 +18,7 @@ In this article, we will discuss about coupling and cohesion in OOP, mainly beca
 <br>
 
 ## Cohesion
-- Definition of cohesion
+1. Definition of cohesion
 
     According to [wikipedia.org](https://en.wikipedia.org/wiki/Cohesion_(computer_science)), we have definition of cohesion:
 
@@ -32,7 +32,7 @@ In this article, we will discuss about coupling and cohesion in OOP, mainly beca
     Cohesion represents the clarity of the responsibilities of a module.
     ```
 
-    --> So, cohesion focuses on how single class is designed. Higher the cohensiveness of the class, better is the OO design.
+    --> So, cohesion focuses on how single module/class is designed. Higher the cohensiveness of the module/class, better is the OO design.
 
     If our module performs one task and nothing else or has a clear purpose, our module has high cohesion. On the other hand, if our module tries to encapsulate more than one purpose or has an unclear purpose, our module has low cohesion.
 
@@ -48,19 +48,19 @@ In this article, we will discuss about coupling and cohesion in OOP, mainly beca
     - The functionalities embedded in a class, accessed through its methods, have much in common.
     - Methods carry out a small number of related activities, by avoiding coarsely grained or unrelated sets of data.
 
-- The history of Cohesion concept
+2. The history of Cohesion concept
 
     The coupling and cohesion were invented by **Larry Constantine** in the late **1960s** as part of Structured Design, based on characteristics of good programming practices that reduced maintainenance and modification costs. 
     
     Structured Design, cohesion and coupling were published in the article Stevens, Myers & Constantine (1974) and the book Yourdon & Constantine (1979), the latter two subsequently became standard terms in software engineering.
 
-- Advantages of high cohesion
+3. Advantages of high cohesion
 
     - Reduced module complexity (they are simpler, having fewer operations).
     - Increased system maintainability, because logical changes in the domain affect fewer modules, and because changes in one module require fewer changes in other modules.
     - Increased module reusability, because application developers will find the component they need more easily among the cohesive set of operations provided by the module.
 
-- For example about cohesion
+4. For example about cohesion
 
     ![](../img/design-pattern/core-oop/cohension-coupling/high-low-cohesion.png)
 
@@ -90,7 +90,7 @@ In this article, we will discuss about coupling and cohesion in OOP, mainly beca
 
     The ```Person``` class has tightly cohesion, simply because Person's responsibilities is relevant to save information about people. It do not relate to functionalities about read/write to file. So, to reduce tightly cohension, we should separate the implementation about read/write file into other class such as File, ...
 
-- Types of cohesion
+5. Types of cohesion
 
     There are some types of cohesion that we need to know:
     - Coincidental cohesion (worst)
@@ -179,74 +179,76 @@ In this article, we will discuss about coupling and cohesion in OOP, mainly beca
 <br>
 
 ## Coupling
-### Definition
+1. Definition
 
-According to [wikipedia.org](https://en.wikipedia.org/wiki/Coupling_(computer_programming)), we have a definition of coupling:
+    According to [wikipedia.org](https://en.wikipedia.org/wiki/Coupling_(computer_programming)), we have a definition of coupling:
 
-```
-Coupling is the degree of interdependence between software modules; a measure of how closely connected two routines or modules are; the strength of the relationships between modules.
-```
+    ```
+    Coupling is the degree of interdependence between software modules; a measure of how closely connected two routines or modules are; the strength of the relationships between modules.
+    ```
 
-Coupling increases between two classes A and B if:
-- A has an attribute that refers to (is of type) B.
-- A calls on services of an object B.
-- A has a method that reference B (via return type or parameter).
-- A is a subclass of (or implements) class B.
+    Coupling increases between two classes A and B if:
+    - A has an attribute that refers to (is of type) B.
+    - A calls on services of an object B.
+    - A has a method that reference B (via return type or parameter).
+    - A is a subclass of (or implements) class B.
 
-Low coupling refers to a relationship in which one module interacts with another module through a simple and stable interface and does not need to be concerned with the other module's internal implementation
+    Low coupling refers to a relationship in which one module interacts with another module through a simple and stable interface and does not need to be concerned with the other module's internal implementation
 
-![](../img/design-pattern/core-oop/cohension-coupling/Loosely-couple-and-tightly-couple.png)
+    ![](../img/design-pattern/core-oop/cohension-coupling/Loosely-couple-and-tightly-couple.png)
 
-### Some properties that need to consider in coupling
-In Coupling, we need to consider some properties:
-- Degree 
+2.  Some properties that need to consider in coupling
 
-    Degree is the number of connections between the module and others. With coupling, we want to keep the degree small. For instance, if the module needed to connect to other modules through a few parameters or narrow interfaces, then the degree would be small, and coupling would be loose. 
+    In Coupling, we need to consider some properties:
+    - Degree 
 
-- Ease
+        Degree is the number of connections between the module and others. With coupling, we want to keep the degree small. For instance, if the module needed to connect to other modules through a few parameters or narrow interfaces, then the degree would be small, and coupling would be loose. 
 
-    Ease is how obvious are the connections between the module and others. With coupling, we want the connections to be easy to make without needing to understand the implementations of the other modules.
+    - Ease
 
-- Flexibility
+        Ease is how obvious are the connections between the module and others. With coupling, we want the connections to be easy to make without needing to understand the implementations of the other modules.
 
-    Flexibility is how interchangeable the other modules are for this module. With coupling, we want the other modules easily replaceable for something better in the future.
+    - Flexibility
 
-### Disadvantages of tightly coupling
-- A change in one module usually forces a ripple effect of changes in other modules.
+        Flexibility is how interchangeable the other modules are for this module. With coupling, we want the other modules easily replaceable for something better in the future.
 
-- Assembly of modules might require more effort or time due to the increased inter-module dependency.
+3. Disadvantages of tightly coupling
 
-- A particular module might be harder to reuse or test because dependent modules must be included.
+    - A change in one module usually forces a ripple effect of changes in other modules.
 
-### Types of coupling
-In procedural programming, we have:
-- Content coupling (high)
+    - Assembly of modules might require more effort or time due to the increased inter-module dependency.
 
-    Content coupling is said to occur when one module uses the code of other module, for instance a branch. This violates information hiding - a basic design concept.
+    - A particular module might be harder to reuse or test because dependent modules must be included.
 
-- Common coupling
+4. Types of coupling
+    In procedural programming, we have:
+    - Content coupling (high)
 
-    Common coupling is said to occur when several modules have access to the same global data. But it can lead to uncontrolled error propagation and unforeseen side-effects when changes are made.
+        Content coupling is said to occur when one module uses the code of other module, for instance a branch. This violates information hiding - a basic design concept.
 
-- External coupling
+    - Common coupling
 
-    External coupling occurs when two modules share an externally imposed data format, communication protocol, or device interface. This is basically related to the communication to external tools and devices.
+        Common coupling is said to occur when several modules have access to the same global data. But it can lead to uncontrolled error propagation and unforeseen side-effects when changes are made.
 
-- Control coupling
+    - External coupling
 
-    Control coupling is one module controlling the flow of another, by passing it information on what to do
+        External coupling occurs when two modules share an externally imposed data format, communication protocol, or device interface. This is basically related to the communication to external tools and devices.
 
-    For example: passing a what-to-do flag.
+    - Control coupling
 
-- Stamp coupling (data-structured coupling)
+        Control coupling is one module controlling the flow of another, by passing it information on what to do
 
-    Stamp coupling occurs when modules share a composite data structure and use only parts of it, possibly different parts(E.g: passing a whole record to a function that needs only one field of it).
+        For example: passing a what-to-do flag.
 
-    In this situation, a modification in a field that a module does not need may lead to changing the way the module reads the record.
+    - Stamp coupling (data-structured coupling)
 
-- Data coupling
+        Stamp coupling occurs when modules share a composite data structure and use only parts of it, possibly different parts(E.g: passing a whole record to a function that needs only one field of it).
 
-    Data coupling occurs when modules share data through, for example, parameters. Each datum is an elementary piece, and these are the only data shared (Ex: passing an integer to a function that computes a square root).
+        In this situation, a modification in a field that a module does not need may lead to changing the way the module reads the record.
+
+    - Data coupling
+
+        Data coupling occurs when modules share data through, for example, parameters. Each datum is an elementary piece, and these are the only data shared (Ex: passing an integer to a function that computes a square root).
 
 <br>
 
@@ -278,6 +280,7 @@ In OOP, we have:
 <br>
 
 ## Difference between cohesion and coupling
+
 Below is a table that depict about difference between cohesion and coupling
 
 |           Cohesion          |                  Coupling                |
@@ -303,6 +306,8 @@ Thanks for your reading.
 <br>
 
 Refer:
+
+[Object-Oriented Analysis, Design and Implementation, 2nd Edition]()
 
 [https://gravitymodel.net/core-software-principles/](https://gravitymodel.net/core-software-principles/)
 

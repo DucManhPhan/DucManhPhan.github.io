@@ -16,6 +16,10 @@ tags: [OOP]
 - [Encapsulation](#encapsulation)
 - [Abstraction](#abstraction)
 - [Polymorphism](#polymorphism)
+- [Cohesion and Coupling](#cohesion-and-coupling)
+- [Relationships between classes](#relationships-between-classes)
+- [Association, Aggregation, Composition](#association,-aggregation,-composition)
+- [Symptoms of Bad Design](#symptoms-of-bad-design)
 - [Wrapping up](#wrapping-up)
 
 <br>
@@ -32,8 +36,6 @@ Programming paradigms are a way to classify programming languages based on their
 Some paradigms are concerned mainly with implications for the execution model of the language, such as allowing side effects, or whether the sequence of operations is defined by the execution model. Other paradigms are concerned mainly with the way that code is organized, such as grouping a code into units along with the state that is modified by the code. Yet others are concerned mainly with the style of syntax and grammar.
 ```
 
-
-
 <br>
 
 ## Introduction to Object oriented programming
@@ -47,9 +49,15 @@ Some paradigms are concerned mainly with implications for the execution model of
 
 ## History of OOP
 
+History of the object-oriented programming approach could be traced to the idea of ADTs and the concept of objects in Simula 67 programming language, which was developed in the 1960s for performing simulations. The first true object-oriented programming language that appeared before the larger software development community was Smalltalk in 1980, developed at Xerox PARC. Smalltalk used objects and messages as the basis for computation. Classes could be created and modified dynamically.Most of the vocabulary in object-oriented paradigm has originated from this language.
 
+Toward the end of the 1970s, Bjarne Stroustrup, who was doing doctoral work in England, needed a language for doing simulation of distributed systems. He developed a language based on the class concept in Simula, but this language was not particularly efficient. However, he pursued his attempt and developed an objectoriented language at Bell Laboratories as a derivative of C, which would blossom into one of the most successful programming languages, C++. The language was standardised in 1997 by the American National Standards Institute (ANSI).
 
+The 1980s saw the development of several other languages such as ObjectLisp, CommonLisp, Common Lisp Object System (CLOS), and Eiffel. The rising popularity of the object-oriented model also propelled changes to the language Ada, originally sponsored by the U.S. Department of Defense in 1983. This resulted in Ada 9x, an extension to Ada 83, with object-oriented concepts including inheritance, polymorphism, and dynamic binding.
 
+The 1990s saw two major events. One was the development of the Java programming language in 1996. Java appeared to be a derivative of C++, but many of the controversial and troublesome concepts in C++ were deleted in it. Although it was a relatively simple language when it was originally proposed, Java has undergone substantial additions in later versions making it amoderately difficult language. Java also comes with an impressive collection of libraries (called packages) to support application development. A second watershed event was the publication of the book Design Patterns by Gamma et al. in 1994. The book considered specific design questions (23 of them) and provided general approaches to solving them using object-oriented constructs. The book (as also the approach it advocated) was a huge success as both practitioners and academicians soon recognised its significance.
+
+The last fewyears saw the acceptance of some dynamic object-oriented languages that were developed in the 1990s. Dynamic languages allow users more flexibility, for example the ability to dynamically add a method to an object at execution time. One such language is Python, which can be used for solving a variety of applications including web programming, databases, scientific and numeric computations and networking. Another dynamic language, Ruby, is even more object-oriented in that everything in the language, including numbers and primitive types, is an object.
 
 <br>
 
@@ -150,6 +158,113 @@ Some paradigms are concerned mainly with implications for the execution model of
 
 <br>
 
+## Cohesion and Coupling
+1. Cohesion
+
+    Each module provides certain functionality; cohesion of a module tells us how well the entities within amodule work together to provide this functionality. Cohesion is a measure of how focused the responsibilities of a module are. If the responsibilities of a module are unrelated or varied and use different sets of data, cohesion is reduced.
+    
+    Highly cohesive modules tend to be more reliable, reusable, and understandable than less cohesive ones. To increase cohesion, we would like that all the constituents contribute to some well-defined responsibility of the module. This may be quite a challenging task. In contrast, theworst approachwould be to arbitrarily assign entities to modules, resulting in a module whose constituents have no obvious relationship.
+
+2. Coupling
+
+    Coupling refers to how dependent modules are on each other. The very fact that we split a program into multiple modules introduces some coupling into the system. Coupling could result because of several factors: a module may refer to variables defined in another module or a module may call methods of another module and use the return values. The amount of coupling between modules can vary. In general, if modules do not depend on each others implementation, i.e., modules depend only on the published interfaces of other modules and not on their internals, we say that the coupling is low. In such cases, changes in one module will not necessitate changes in other modules as long as the interfaces themselves do not change.
+
+    Low coupling allows us to modify amodulewithoutworrying about the ramifications of the changes on the rest of the system. By contrast, high couplingmeans that changes in one module would necessitate changes in other modules, which may have a domino effect and also make it harder to understand the code.
+
+<br>
+
+## Relationships between classes
+1. ```Association```
+
+    ```Association``` is the relationship between two or more classes. They are represented by a solid line between classes. ```Associations``` are typically named using a verb or verb phrase which reflects the real world problem domain.
+
+    ![](../img/design-pattern/core-oop/oop/Association.jpg)
+
+    **The normal kind of association is bidirectional by default**. This means that if an association exists between two classes, then both objects know about each other. However, when creating a class diagram it is possible to use a navigable association between two classes.  This is shown by adding an arrowhead at one end of the association.  If **A** is the source class and **B** is the target class, the arrowhead would be placed on the **B** side of the association. A navigable association of this type means that at runtime object **A** knows about object **B**, but object **B** has no knowledge of or visibility into object **A**.
+
+    ![](../img/design-pattern/core-oop/oop/Association.jpg)
+
+    There are some types of Association:
+
+    - ```Dependency```
+
+        ```Dependency``` is a weaker form of relationship and in code terms indicates that a class uses another by **parameter** or **return type**.
+
+        ```Dependency``` is a form of association.
+
+    - ```Aggregation```
+
+        ```Aggregation``` is another form of ```Association```, implies a realtionship where the child can exist independently of the parent.
+
+        For example, with Java code, we have:
+
+        ```java
+        public class ClassRoom {
+            private List<Student> students;
+
+            public ClassRoom(List<Student> students) {
+                this.students = students;
+            }
+
+            // ...
+
+        }
+
+        public class Student {
+            ...
+        }
+        ```
+
+    - ```Composition```
+
+        ```Composition``` is another form of Association, implies a relationship where the child cannot exist independent of the parent. When the parent is destroyed, the child object will be immediately destroyed.
+
+        ```java
+        public class Room {
+            // ...
+        }
+
+        public class House {
+            private List<Room> rooms;
+
+            public House() {
+                this.rooms = new ArrayList<>();
+            }
+
+            // ...
+        }
+        ```
+
+    So, we have UML notation for association, aggregation and composition.
+
+    ![](../img/design-pattern/core-oop/oop/association-aggregation-composition-dependency-notation.png)
+
+2. Inheritance
+
+    With this relationship, we can refer a section [Inheritance](#inheritance)
+
+<br>
+
+## Symptoms of Bad Design
+
+https://www.slideshare.net/ashokguduru/symptoms-of-bad-quality-software-65452530
+
+https://www.excella.com/insights/top-4-symptoms-of-bad-code
+
+1. Rigidity
+
+
+
+2. Fragility
+
+
+
+3. Unportability
+
+
+
+<br>
+
 ## Wrapping up
 
 
@@ -163,6 +278,8 @@ Refer:
 
 [Object-Oriented Analysis, Design and Implementation, 2nd Edition]()
 
+[https://tomassetti.me/oops-concepts/#delegation](https://tomassetti.me/oops-concepts/#delegation)
+
 [https://www.guru99.com/java-data-abstraction.html](https://www.guru99.com/java-data-abstraction.html)
 
 [https://www.cs.rit.edu/~afb/20012/cs4/slides/contract-08.html](https://www.cs.rit.edu/~afb/20012/cs4/slides/contract-08.html)
@@ -174,3 +291,5 @@ Refer:
 [http://erpbasic.blogspot.com/2012/01/inheritance-advantages-and.html](http://erpbasic.blogspot.com/2012/01/inheritance-advantages-and.html)
 
 [https://javarevisited.blogspot.com/2012/03/what-is-encapsulation-in-java-and-oops.html](https://javarevisited.blogspot.com/2012/03/what-is-encapsulation-in-java-and-oops.html)
+
+[https://www.modernanalyst.com/Careers/InterviewQuestions/tabid/128/ID/1807/What-is-a-navigable-association-in-UML.aspx](https://www.modernanalyst.com/Careers/InterviewQuestions/tabid/128/ID/1807/What-is-a-navigable-association-in-UML.aspx)
