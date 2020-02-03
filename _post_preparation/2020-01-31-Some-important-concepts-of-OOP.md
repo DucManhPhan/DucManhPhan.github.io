@@ -5,7 +5,9 @@ bigimg: /img/image-header/factory.jpg
 tags: [OOP]
 ---
 
+In this article, we will read up on some important concepts of Object oriented programming. Understanding deeper these concepts make us confidently when utilizing OOAD.
 
+Let's get started.
 
 <br>
 
@@ -18,8 +20,6 @@ tags: [OOP]
 - [Polymorphism](#polymorphism)
 - [Cohesion and Coupling](#cohesion-and-coupling)
 - [Relationships between classes](#relationships-between-classes)
-- [Association, Aggregation, Composition](#association,-aggregation,-composition)
-- [Symptoms of Bad Design](#symptoms-of-bad-design)
 - [Wrapping up](#wrapping-up)
 
 <br>
@@ -245,29 +245,7 @@ The last fewyears saw the acceptance of some dynamic object-oriented languages t
 
 <br>
 
-## Symptoms of Bad Design
-
-https://www.slideshare.net/ashokguduru/symptoms-of-bad-quality-software-65452530
-
-https://www.excella.com/insights/top-4-symptoms-of-bad-code
-
-1. Rigidity
-
-
-
-2. Fragility
-
-
-
-3. Unportability
-
-
-
-<br>
-
 ## Wrapping up
-
-
 
 
 
