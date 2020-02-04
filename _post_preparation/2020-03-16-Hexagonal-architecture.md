@@ -41,7 +41,7 @@ tags: [Architecture pattern]
 
 ## History of Hexagonal
 
-
+The hexagonal architecture was invented by ```Alistair Cockburn``` in an attempt to avoid known structural pitfalls in object-oriented software design, such as undesired dependencies between layers and contamination of user interface code with business logic, and published in **2005**.
 
 
 
@@ -94,7 +94,7 @@ Refer:
 
 **Author Alistair Cockburn**
 
-[http://alistair.cockburn.us/Hexagonal+architecture](http://alistair.cockburn.us/Hexagonal+architecture)
+[https://alistair.cockburn.us/hexagonal-architecture/](https://alistair.cockburn.us/hexagonal-architecture/)
 
 <br>
 
@@ -102,11 +102,17 @@ Refer:
 
 [https://hackernoon.com/hexagonal-architecture-introduction-part-i-e51h36id](https://hackernoon.com/hexagonal-architecture-introduction-part-i-e51h36id)
 
+[https://culttt.com/2014/12/31/hexagonal-architecture/](https://culttt.com/2014/12/31/hexagonal-architecture/)
+
+[https://herbertograca.com/2017/09/14/ports-adapters-architecture/](https://herbertograca.com/2017/09/14/ports-adapters-architecture/)
+
 [https://silkandspinach.net/2005/03/22/the-middle-hexagon-should-be-independent-of-the-adapters/](https://silkandspinach.net/2005/03/22/the-middle-hexagon-should-be-independent-of-the-adapters/)
 
 [https://blog.ndepend.com/hexagonal-architecture/](https://blog.ndepend.com/hexagonal-architecture/)
 
 [https://blog.octo.com/en/hexagonal-architecture-three-principles-and-an-implementation-example/](https://blog.octo.com/en/hexagonal-architecture-three-principles-and-an-implementation-example/)
+
+[https://blog.ploeh.dk/2016/03/18/functional-architecture-is-ports-and-adapters/](https://blog.ploeh.dk/2016/03/18/functional-architecture-is-ports-and-adapters/)
 
 [https://dzone.com/articles/hexagonal-architecture-what-is-it-and-how-does-it](https://dzone.com/articles/hexagonal-architecture-what-is-it-and-how-does-it)
 
@@ -114,9 +120,21 @@ Refer:
 
 [https://culttt.com/2014/12/31/hexagonal-architecture/](https://culttt.com/2014/12/31/hexagonal-architecture/)
 
+[https://www.infoq.com/news/2014/10/exploring-hexagonal-architecture/](https://www.infoq.com/news/2014/10/exploring-hexagonal-architecture/)
+
+[https://java-design-patterns.com/patterns/hexagonal/](https://java-design-patterns.com/patterns/hexagonal/)
+
+[https://java-design-patterns.com/blog/build-maintainable-systems-with-hexagonal-architecture/](https://java-design-patterns.com/blog/build-maintainable-systems-with-hexagonal-architecture/)
+
+[https://www.freecodecamp.org/news/implementing-a-hexagonal-architecture/](https://www.freecodecamp.org/news/implementing-a-hexagonal-architecture/)
+
+[https://herbertograca.com/2017/08/24/ebi-architecture/](https://herbertograca.com/2017/08/24/ebi-architecture/)
+
 <br>
 
 **Sample of Hexagonal architecture**
+
+[https://github.com/thombergs/buckpal](https://github.com/thombergs/buckpal)
 
 [https://medium.com/codefountain/a-quick-introduction-to-hexagonal-architecture-484358c038b8](https://medium.com/codefountain/a-quick-introduction-to-hexagonal-architecture-484358c038b8)
 
@@ -125,3 +143,5 @@ Refer:
 [https://github.com/hirannor/spring-boot-hexagonal-architecture](https://github.com/hirannor/spring-boot-hexagonal-architecture)
 
 [https://vaadin.com/learn/tutorials/ddd/ddd_and_hexagonal](https://vaadin.com/learn/tutorials/ddd/ddd_and_hexagonal)
+
+[https://github.com/hirannor/spring-boot-hexagonal-architecture](https://github.com/hirannor/spring-boot-hexagonal-architecture)
