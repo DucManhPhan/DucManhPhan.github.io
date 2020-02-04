@@ -88,36 +88,36 @@ In this article, we will discuss about coupling and cohesion in OOP, mainly beca
     }
     ```
 
-    The ```Person``` class has tightly cohesion, simply because Person's responsibilities is relevant to save information about people. It do not relate to functionalities about read/write to file. So, to reduce tightly cohension, we should separate the implementation about read/write file into other class such as File, ...
+    The ```Person``` class has low cohesion, simply because Person's responsibilities is relevant to save information about people. It do not relate to functionalities about read/write to file. So, to reduce low cohension, we should separate the implementation about read/write file into other class such as File, ...
 
 5. Types of cohesion
 
     There are some types of cohesion that we need to know:
-    - Coincidental cohesion (worst)
+    - ```Coincidental cohesion``` (worst)
 
         Coincidental cohesion is when parts of a module are grouped arbitrarily; the only relationship between the parts is that they have been grouped together.
 
         For example: **Utilities** class.
 
-    - Logical cohesion
+    - ```Logical cohesion```
 
         Logical cohesion is when parts of a module are grouped because they are logically categorized to do the same thing even though they are different by nature.
 
         For example: grouping all mouse and keyboard input handling routines.
 
-    - Temporal cohesion
+    - ```Temporal cohesion```
 
         Temporal cohesion is when parts of a module are grouped by when they are processed - the parts at a particular time in program execution.
 
         For example: A function which is called after catching an exception which closes open files, creates an error log, and notifies the user.
 
-    - Procedural cohesion
+    - ```Procedural cohesion```
 
         Procedural cohesion is when parts of a module are grouped because they always follow a certain sequence of execution.
 
         For example: a function which checks file permissions and then opens the file.
 
-    - Communicational / Informal cohesion
+    - ```Communicational / Informal cohesion```
 
         Communicational cohesion is when parts of a module are grouped because they operate on the same data.
 
@@ -125,13 +125,13 @@ In this article, we will discuss about coupling and cohesion in OOP, mainly beca
 
         For example: a module which operates on the same record of information.
 
-    - Sequential cohesion
+    - ```Sequential cohesion```
 
         Sequential cohesion is when parts of a module are grouped because the output from one part is the input to another part like an assembly line.
 
         For example: a function which reads data from a file and processes the data.
 
-    - Functional cohesion (best)
+    - ```Functional cohesion``` (best)
 
         Functional cohesion is when parts of a module are grouped because they all contribute to a single well-defined task of the module.
 
@@ -222,31 +222,31 @@ In this article, we will discuss about coupling and cohesion in OOP, mainly beca
 
 4. Types of coupling
     In procedural programming, we have:
-    - Content coupling (high)
+    - ```Content coupling``` (high)
 
         Content coupling is said to occur when one module uses the code of other module, for instance a branch. This violates information hiding - a basic design concept.
 
-    - Common coupling
+    - ```Common coupling```
 
         Common coupling is said to occur when several modules have access to the same global data. But it can lead to uncontrolled error propagation and unforeseen side-effects when changes are made.
 
-    - External coupling
+    - ```External coupling```
 
         External coupling occurs when two modules share an externally imposed data format, communication protocol, or device interface. This is basically related to the communication to external tools and devices.
 
-    - Control coupling
+    - ```Control coupling```
 
         Control coupling is one module controlling the flow of another, by passing it information on what to do
 
         For example: passing a what-to-do flag.
 
-    - Stamp coupling (data-structured coupling)
+    - ```Stamp coupling``` (data-structured coupling)
 
         Stamp coupling occurs when modules share a composite data structure and use only parts of it, possibly different parts(E.g: passing a whole record to a function that needs only one field of it).
 
         In this situation, a modification in a field that a module does not need may lead to changing the way the module reads the record.
 
-    - Data coupling
+    - ```Data coupling```
 
         Data coupling occurs when modules share data through, for example, parameters. Each datum is an elementary piece, and these are the only data shared (Ex: passing an integer to a function that computes a square root).
 

@@ -245,6 +245,14 @@ The last fewyears saw the acceptance of some dynamic object-oriented languages t
 
 <br>
 
+## Granularity
+
+
+
+
+
+<br>
+
 ## Wrapping up
 
 
@@ -255,6 +263,8 @@ The last fewyears saw the acceptance of some dynamic object-oriented languages t
 Refer:
 
 [Object-Oriented Analysis, Design and Implementation, 2nd Edition]()
+
+[Practical Object Oriented Design]()
 
 [https://tomassetti.me/oops-concepts/#delegation](https://tomassetti.me/oops-concepts/#delegation)
 

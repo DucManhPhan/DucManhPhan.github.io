@@ -18,7 +18,7 @@ tags: [Design pattern]
 
 <br>
 
-## 
+## Big Ball of Mud
 
 
 
@@ -26,7 +26,7 @@ tags: [Design pattern]
 
 <br>
 
-## 
+## Lasagna architecture
 
 
 
@@ -47,7 +47,7 @@ tags: [Design pattern]
 
 1. Rigidity
 
-
+    
 
 2. Fragility
 

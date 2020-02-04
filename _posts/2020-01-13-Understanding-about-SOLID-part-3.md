@@ -33,6 +33,12 @@ or
 Any object of a type must be substitutable by objects of a derived typed without altering the correctness of that program.
 ```
 
+or 
+
+```
+Subclass objects must always be substitutable for superclass objects
+```
+
 --> The LSP is all about relationships between types.
 
 As human, we have a tendency to think about relationships as **is a**. We say that square is a kind of rectangle or an ostrich is a bird.

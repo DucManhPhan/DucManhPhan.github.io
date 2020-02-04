@@ -136,3 +136,5 @@ tags: [Java, Jvm]
 
 Refer:
 
+[MapReduce Design pattern book]()
+

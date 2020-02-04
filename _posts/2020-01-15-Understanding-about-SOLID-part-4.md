@@ -1,6 +1,6 @@
 ---
 layout: post
-title: Understanding about SOLID - Liskov Substitution Principle
+title: Understanding about SOLID - Interface Segregation Principle
 bigimg: /img/image-header/home-office-1.jpg
 tags: [design pattern, SOLID]
 ---
@@ -26,7 +26,7 @@ Let's get started.
 The Interface Segregation Principle states that:
 
 ```
-Clients should not be forced to depend on methods that they do not use.
+Clients should not be forced to depend on methods (inherit from or implement) that they do not use.
 ```
 
 We have to split interfaces that are very large into smaller, more focused interfaces so that clients that use them will not be forced to depend on things that they do not need. In the interface segregation principle, the word **interface** does not necessarily mean a Java interface. Most of the time, this is the case. However, the interface segregation principle also applies for abstract classes or, in fact, any public method that our own class depends upon.
