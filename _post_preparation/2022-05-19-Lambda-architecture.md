@@ -1,6 +1,6 @@
 ---
 layout: post
-title: Layer architecture pattern
+title: Lambda architecture pattern
 bigimg: /img/image-header/yourself.jpeg
 tags: [Architecture pattern]
 ---
@@ -18,7 +18,7 @@ tags: [Architecture pattern]
 
 <br>
 
-## Given problem
+## 
 
 
 
@@ -27,7 +27,7 @@ tags: [Architecture pattern]
 
 <br>
 
-## Solution of Layer architecture pattern
+## 
 
 
 
@@ -52,6 +52,4 @@ tags: [Architecture pattern]
 <br>
 
 Refer:
-
-[Software architecture pattern]()
 

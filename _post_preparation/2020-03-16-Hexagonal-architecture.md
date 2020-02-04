@@ -11,7 +11,7 @@ tags: [Architecture pattern]
 <br>
 
 ## Table of contents
-- [Given problem](#given-problem)
+- [Problem of Layered architecture](#problem-of-layered-architecture)
 - [Solution of Hexagonal architecture](#solution-of-hexagonal-architecture)
 - [History of Hexagonal](#history-of-hexagonal)
 - [Benefis and Drawbacks](#benefits-and-drawbacks)
@@ -21,7 +21,7 @@ tags: [Architecture pattern]
 
 <br>
 
-## Given problem
+## Problem of Layered architecture
 
 
 
@@ -91,6 +91,12 @@ tags: [Architecture pattern]
 <br>
 
 Refer:
+
+**Author Alistair Cockburn**
+
+[http://alistair.cockburn.us/Hexagonal+architecture](http://alistair.cockburn.us/Hexagonal+architecture)
+
+<br>
 
 [https://en.wikipedia.org/wiki/Hexagonal_architecture_(software)](https://en.wikipedia.org/wiki/Hexagonal_architecture_(software))
 
