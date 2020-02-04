@@ -130,6 +130,8 @@ Refer:
 
 [https://herbertograca.com/2017/08/24/ebi-architecture/](https://herbertograca.com/2017/08/24/ebi-architecture/)
 
+[https://softwarecampament.wordpress.com/portsadapters/](https://softwarecampament.wordpress.com/portsadapters/)
+
 <br>
 
 **Sample of Hexagonal architecture**
