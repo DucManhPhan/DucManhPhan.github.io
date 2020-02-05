@@ -11,9 +11,9 @@ tags: [Hadoop, Big data]
 <br>
 
 ## Table of contents
-- [Introduction to Hadoop]
-- [History of Hadoop]
-- [Architecture of Hadoop]
+- [Introduction to Hadoop](#introduction-to-hadoop)
+- [History of Hadoop](#history-of-hadoop)
+- [Architecture of Hadoop](#architecture-of-hadoop)
 - [Wrapping up](#wrapping-up)
 
 <br>
