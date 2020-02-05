@@ -1,8 +1,8 @@
 ---
 layout: post
-title: MapReduce
+title: MapReduce in Hadoop
 bigimg: /img/image-header/factory.jpg
-tags: [Java, Jvm]
+tags: [Big Data, Hadoop]
 ---
 
 
