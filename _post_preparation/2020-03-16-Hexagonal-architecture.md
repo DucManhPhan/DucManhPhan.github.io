@@ -14,6 +14,9 @@ tags: [Architecture pattern]
 - [Problem of Layered architecture](#problem-of-layered-architecture)
 - [Solution of Hexagonal architecture](#solution-of-hexagonal-architecture)
 - [History of Hexagonal](#history-of-hexagonal)
+- [Ports and Adapters](#ports-and-adapters)
+- [How to create Domain Model](#how-to-create-domain-model)
+- [When to use](#when-to-use)
 - [Benefis and Drawbacks](#benefits-and-drawbacks)
 - [Source code Java](#source-code-java)
 - [Wrapping up](#wrapping-up)
@@ -59,6 +62,15 @@ The hexagonal architecture was invented by ```Alistair Cockburn``` in an attempt
 <br>
 
 ## How to create Domain Model
+
+
+
+
+
+<br>
+
+## When to use
+
 
 
 
