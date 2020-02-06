@@ -132,6 +132,10 @@ In order to learn about architecture pattern, we should note about some interest
 
         One book is as same as this book that is [Software architecture in practice - second edition]()
 
+    - [Practical Object-Oriented Design with UML]()
+
+        This book give us some examples to practice OOAD.
+
     - [Concurrent programming in Java - Second Edition - Design Principles and Patterns]()
 
     - [Pattern-Oriented Software Architecture, Patterns for Concurrent]()
@@ -145,3 +149,7 @@ In order to learn about architecture pattern, we should note about some interest
     - [Patterns of Enterprise Application Architecture - Martin Fowler]()
 
         It's very nice. Martin Fowler is a famous author in this marjor. So we can read up on it when coping with problems in our projects.
+
+    - [System Analysis and Design_An Object Oriented Approach with UML]()
+
+        This book provides how to design each layer of architecture pattern. Especially, it shows us that how to optimize persistence layer for RDBMS.
