@@ -5,8 +5,11 @@ bigimg: /img/path.jpg
 tags: [Hadoop, Big data]
 ---
 
+All information of this article we get from the [The Ultimate Hands-On Hadoop]() course in Udemy website.
 
+After learned completely about Hadoop ecosystem's concepts, we can understand the sequence steps that we want to do with Big Data.
 
+Let's get started.
 
 <br>
 
@@ -163,11 +166,40 @@ Next, we will go to External Data Storage. Our data might be exposed or stored i
 
 Finally, we will come in several query engines that sit on top of our cluster.
 
+![](../img/hadoop/architecture/query-engines.png)
+
+- Apache Drill
+
+    It actually allows us to write SQL queries that will work across a wide range of NoSQL databases potentially. So they can actually talk to our HBase database, maybe our Cassandra, MongoDB db as well and tie those results all together and allow us to write queries across all those disparate data stores, bring them all back together when we're done.
+
+- Hue
+
+    It's also a way of interactively creating queries that works well with Hive and HBase. Actually for Cloudera, it kind of takes the role of Ambari as sort of the thing that sits on top of everything and lets us visualize, execute queries on the Hadoop cluster as a whole.
+
+- Apache Phoenix
+
+    It's kind of similar to Apache Drill. It lets us do SQL style queries across the entire range of data storage technologies we might have but it takes it one step further. It actually gives us ACID guarantees and OLTP.
+
+    So we can actually make us not SQL Hadoop data store look a lot like a relational data store in a relational database with all the guarantees that come with that.
+
+- Presto
+
+    It's another way to execute queries across our entire cluster.
+
+- Zeppelin
+
+    It's just another angle on it that takes more of a notebook type approach to the UI and how we actually interact with the cluster.
+
 <br>
 
 ## Wrapping up
+- Understand the basic parts of Hadoop framework:
 
+    - HDFS
+    - YARN
+    - MapReduce
 
+- In the next article, we will delve into how Hadoop's parts works and how they communicate together.
 
 
 <br>

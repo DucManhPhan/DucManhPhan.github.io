@@ -10,10 +10,10 @@ tags: [Big Data]
 <br>
 
 ## Table of contents
-
-
-
-
+- [Given problem](#given-problem)
+- [Introduction to Big Data](#introduction-to-big-data)
+- []()
+- [Wrapping up](#wrapping-up)
 
 <br>
 
@@ -25,7 +25,9 @@ We can get an example about how the data is large at the moment. We easily know 
 
 It's very huge numbers on statistics. So the challenge is the traditional tools are poorly equipped to deal with the scale and complexity of much of this data.
 
-If we use vertical scalability, we do not process all that data in limited time. Then, easily we need to use horizonal scalability 
+If we use vertical scalability, we do not process all that data in limited time. Then, easily we need to use horizonal scalability means that we should combine multiple commodity computers to process that data.
+
+So, the large distributed system was born.
 
 <br>
 
@@ -64,3 +66,4 @@ If we use vertical scalability, we do not process all that data in limited time.
 <br>
 
 Refer:
+
