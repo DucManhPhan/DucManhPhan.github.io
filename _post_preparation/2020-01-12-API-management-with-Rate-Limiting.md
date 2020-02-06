@@ -15,6 +15,7 @@ tags: [Java, Redis]
 - [Rate Limit sliding window algorithm](#rate-limit-sliding-window-algorithm)
 - [How to implement sliding window algorithm myself](#how-to-implement-sliding-window-algorithm-myself)
 - [Use RateLimitJ library](#use-ratelimitj-library)
+- [Use Guava Rate Limiter](#use-guava-rate-limiter)
 - [Wrapping up](#wrapping-up)
 
 
@@ -50,6 +51,13 @@ tags: [Java, Redis]
 
 
 2. Use redis version
+
+
+
+<br>
+
+## Use Guava Rate Limiter
+
 
 
 

@@ -2,12 +2,53 @@
 layout: post
 title: Microservices architectural pattern
 bigimg: /img/image-header/california.jpg
-tags: [architecture pattern, design pattern]
+tags: [Architecture pattern]
 ---
 
 
 
+<br>
 
+## Table of contents
+
+
+
+
+
+<br>
+
+## 
+
+
+
+
+
+
+<br>
+
+## 
+
+
+
+
+
+
+<br>
+
+## 
+
+
+
+
+
+<br>
+
+## Wrapping up
+
+
+
+
+<br>
 
 Refer:
 
