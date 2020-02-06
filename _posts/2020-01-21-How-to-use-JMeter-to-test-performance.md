@@ -26,7 +26,7 @@ In this article, we will learn how to use JMeter to perform testing in our proje
 
 ![](../img/testing/jmeter/background-jmeter.png)
 
-
+The Apache JMeter is pure Java open source software, which was first developed by **Stefano Mazzocchi** of the Apache Software Foundation, designed to load test functional behavior and measure performance. JMeter originally is used for testing Web Application or FTP application. Nowadays, it is used for a functional test, database server test etc.
 
 - Some testing types
 
@@ -207,24 +207,41 @@ In this article, we will learn how to use JMeter to perform testing in our proje
 
     ![](../img/testing/jmeter/steps/add-listeners.png)
 
-    Then, we have:
+    - Use **View Results in Table**
 
-    ![](../img/testing/jmeter/steps/view-results-in-table.png)
+        Choose **View Results in Table** in **Listener**. Then, we have:
 
-    If we want to have a report about this testing, we can choose functionality **Summary Report** of **Listener**.
+        ![](../img/testing/jmeter/steps/view-results-in-table.png)
 
-    ![](../img/testing/jmeter/steps/summary-report.png)
+        The columns that you are probably most interest in are the Sample Time (ms) and Latency (not displayed in example) columns.
+        - **Latency**: The number of milliseconds that elapsed between when JMeter sent the request and when an initial response was received.
 
-    This ```Summary Report``` will contains some specific notices:
-    - Label: the name of request
-    - Sample: the number of requests
-    - Average: the average time to process request.
-    - Min: the minimum time to process request.
-    - Max: the maximum time to process request.
-    - Std. Dev: the standard deviation of requests.
-    - Throughput: the number of request per seconds of Average.
-    - bytes: The average bytes of requests.
-    - responseKB/sec = (avg.bytes*thoughput)/1024
+        - **Sample Time**: The number of milliseconds that the server took to fully serve the request (response + latency).
+
+        Assuming that we have data of **View Results in Table** like the below image:
+
+        ![](../img/testing/jmeter/view_results_in_table_ex.png)
+
+        Based on data from the above table, we can find that the range of Sample Time was 128-164 ms. This is a reasonable response time for a basic homepage (which was about 55 KB). If our web application server is not struggling for resources, as demonstrated in the example, our Sample Time will be influenced primarily by geographical distance (which generally increases latency) and the size of the requested item (which increases transfer time).
+
+        So, our server survived our simulation of 50 users accessing our 55 KB WordPress homepage over 10 seconds (5 every second), with an acceptable response.
+
+    - Use **Summary Report**
+
+        If we want to have a report about this testing, we can choose functionality **Summary Report** of **Listener**.
+
+        ![](../img/testing/jmeter/steps/summary-report.png)
+
+        This ```Summary Report``` will contains some specific notices:
+        - Label: the name of request
+        - Sample: the number of requests
+        - Average: the average time to process request.
+        - Min: the minimum time to process request.
+        - Max: the maximum time to process request.
+        - Std. Dev: the standard deviation of requests.
+        - Throughput: the number of request per seconds of Average.
+        - bytes: The average bytes of requests.
+        - responseKB/sec = (avg.bytes*thoughput)/1024
 
 <br>
 
@@ -314,6 +331,18 @@ We may also need to modify **HTTP Header Manager** to select the correct **Conte
 
     - Deviation: It is used to compare with the average index. The lower the index, the better the performance of system.
 
+- In order to utilize the maximum of JMeter, we should combine with checking the working of CPU and RAM.
+
+- Following are the list of protocols supported by JMeter:
+
+    - Web – HTTP, HTTPS sites ‘web 1.0’ web 2.0 (ajax, flex and flex-ws-amf).
+    - Web Services – SOAP / XML-RPC
+    - Database via JDBC drivers
+    - Directory – LDAP
+    - Messaging Oriented service via JMS
+    - Service – POP3, IMAP, SMTP
+    - FTP Service
+
 <br>
 
 Refer:
@@ -326,6 +355,16 @@ Refer:
 
 [https://www.bravebits.co/load-testing-su-dung-tool-jmeter/](https://www.bravebits.co/load-testing-su-dung-tool-jmeter/)
 
+[https://www.digitalocean.com/community/tutorials/how-to-use-apache-jmeter-to-perform-load-testing-on-a-web-server](https://www.digitalocean.com/community/tutorials/how-to-use-apache-jmeter-to-perform-load-testing-on-a-web-server)
+
+[https://flood.io/blog/jmeter-tutorial-how-to-use-jmeter-functions/](https://flood.io/blog/jmeter-tutorial-how-to-use-jmeter-functions/)
+
+<br>
+
+**Introduce the basic elements of JMeter**
+
+[https://www.guru99.com/jmeter-element-reference.html](https://www.guru99.com/jmeter-element-reference.html)
+
 <br>
 
 **SOAP with JMeter**
@@ -333,3 +372,9 @@ Refer:
 [https://jmeter.apache.org/usermanual/build-ws-test-plan.html](https://jmeter.apache.org/usermanual/build-ws-test-plan.html)
 
 [https://jmetervietnam.wordpress.com/2019/04/14/bai-5-config-api-web-service-tren-jmeter-soap/](https://jmetervietnam.wordpress.com/2019/04/14/bai-5-config-api-web-service-tren-jmeter-soap/)
+
+<br>
+
+**Create test script Web application by using Recording in JMeter**
+
+[https://jmetervietnam.wordpress.com/2019/07/02/bai-7-huong-dan-tao-test-script-web-application-bang-cach-recording-tren-jmeter/](https://jmetervietnam.wordpress.com/2019/07/02/bai-7-huong-dan-tao-test-script-web-application-bang-cach-recording-tren-jmeter/)
