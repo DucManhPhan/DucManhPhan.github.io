@@ -47,6 +47,14 @@ tags: [Multithreading, Java]
 
 <br>
 
+## Producer/Consumer pattern using Lock framework
+
+
+
+
+
+<br>
+
 ## Producer/Consumer pattern using BlockingQueue
 
 
