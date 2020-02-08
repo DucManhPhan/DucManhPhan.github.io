@@ -111,11 +111,11 @@ public class IdentityPipeline {
 }
 ```
 
-With the above code, we will apply the fire-and-forget pattern to send requests to the error queue. The original interface is ```MalformedIdentityRepository```, and an instance of it is invoked at the end of while loop, in catch block.
+With the above code, we will apply the **fire-and-forget pattern** to send requests to the error queue. The original interface is ```MalformedIdentityRepository```, and an instance of it is invoked at the end of while loop, in catch block.
 
 To keep the code focused on concurrency, the actual implementation of this interface is just a step that waits for a configurable amount of time. In the unit test that executes this code, the wait time for each call to the repository is 1 second in order to make the concurrency gains obvious over very small data sets.
 
-Below we will use ThreadPoolExecutor to implement the fire-and-forget pattern.
+Below we will use **ThreadPoolExecutor** to implement the **fire-and-forget pattern**.
 
 ```java
 public class ThreadPoolExecutorMalformedIdentityRepository implements MalformedIdentityRepository {
@@ -149,27 +149,70 @@ public class ThreadPoolExecutorMalformedIdentityRepository implements MalformedI
 
 ## Introducing ForkJoinPool
 
-ForkJoinPool is new implementation that was introduced in Java 7 to address the concern of unscheduled idle threads. A common misconception in the threading world is that launching something in a separate thread implies that there's no blocking happening. Indeed, a parent process may block on the results of an asynchronous tasked launched in some descended process. In this situtation, the thread that is executing the parent process is idle, which is suboptional since technically it could keep itself busy doing other work while it waits.
+**ForkJoinPool** is new implementation that was introduced in Java 7 to address the concern of unscheduled idle threads. A common misconception in the threading world is that launching something in a separate thread implies that there's no blocking happening. Indeed, a parent process may block on the results of an asynchronous tasked launched in some descended process. In this situtation, the thread that is executing the parent process is idle, which is suboptional since technically it could keep itself busy doing other work while it waits.
 
 ![](../img/concurrency/java/fire-and-forget-pattern/what-to-do-about-idling-threads.png)
 
-ForkJoinPool, also known as a work stealing pool, addresses this concern.
+**ForkJoinPool**, also known as a work stealing pool, addresses this concern. Some features of ForkJoinPool that we need to know:
+- **ForkJoinPool** provides the same design and orchestration benefits as **ThreadPoolExecutor**.
 
+- What makes this implementation different is that by default threads are daemond threads, meaning that the main execution thread will not wait for them to complete when the JVM shuts down.
 
+- More importantly though, processes launched via ForkJoinPool may steal work from one another, which is nice for threaded recursion, or any scenario where one thread may be blocked by the execution of another thread and could keep itself busy doing something else in the meantime.
 
+    E.g: in the case of Divide and Conquer algorithms.
+
+- An instance of ForkJoinPool can be obtained in the same way as ThreadPoolExecutor, through the executors static factory. Also, there is a ForkJoinPool that is common across the JVM, this pool is used by the Java Stream API in Java 8. Because the ForkJoinPool is mostly intended for divide and conquer algorithms, if we end up using the ForkJoinPool constructor directly, remember that the Java documentation recommends that the concurrency level is provided in a constructor's parameter should be a power of two.
+
+    ```java
+    // each returns an appropriately configured instance of ForkJoinPool
+    ExecutorService pool = Executors.newWorkStealingPool();
+
+    ExecutorService pool = ForkJoinPool.common();
+
+    // in pool should be a power of two
+    ExecutorService single = new ForkJoinPool(16);
+    ```
 
 <br>
 
 ## Implementing Fire-and-Forget using ForkJoinPool
 
+To appy ForkJoinPool, we should come back our problem in [Implementing Fire-and-Forget using ThreadPoolExecutor](#implementing-fire-and-forget-using-threadpoolexecutor) section.
 
+Firstly, we create a **ForkJoinPoolMalformedIdentityRepository** that implements **MalformedIdentityRepository** interface to perform concurrency our task.
+
+```java
+public class ForkJoinPoolMalformedIdentityRepository implements MalformedIdentityRepository {
+
+    private ExecutorService pool = Executors.newWorkStealingPool();
+
+    private MalformedIdentityRepository delegate;
+
+    public ForkJoinPoolMalformedIdentityRepository(MalformedIdentityRepository delegate) {
+        this.delegate = delegate;
+    }
+
+    @Override
+    public void addIdentity(Identity identity, String reason) {
+        pool.submit(() -> delegate.addIdentity(identity, reason));
+    }
+
+    @Override
+    public void addIdentity(InputStream message, String reason) {
+        pool.submit(() -> delegate.addIdentity(message, reason));
+    }
+}
+```
+
+Secondly, we create an instance of ExecutorService by calling **Executors.newWorkStealingPool()**. Invoking it with no parameters will return a new ForkJoinPool with a concurrency level equal to the number of CPUs available to the JVM. While switching to ForkJoinPool may offer some performance benefits, the driving reasons for using it are nested concurrency, recursion, ...
 
 
 <br>
 
 ## Introducing Threaded Recursion with ForkJoinPool and BlockingQueue
 
-
+In this section, we continuously talk about ForkJoinPool. Like other classes that implement ExecutorService, ForkJoinPool can accept Runnable as a representation of the body of work, but the native representation of work for ForkJoinPool is the ForkJoinTask class. When a Runnable is passed into a ForkJoinPool, it's adapted into a ForkJoinTask before being added to the queue. ForkJoinTask is the first class citizen in ForkJoinPool. A ForkJoinTask 
 
 
 
