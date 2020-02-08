@@ -151,6 +151,8 @@ public class ThreadPoolExecutorMalformedIdentityRepository implements MalformedI
 
 ForkJoinPool is new implementation that was introduced in Java 7 to address the concern of unscheduled idle threads. A common misconception in the threading world is that launching something in a separate thread implies that there's no blocking happening. Indeed, a parent process may block on the results of an asynchronous tasked launched in some descended process. In this situtation, the thread that is executing the parent process is idle, which is suboptional since technically it could keep itself busy doing other work while it waits.
 
+![](../img/concurrency/java/fire-and-forget-pattern/what-to-do-about-idling-threads.png)
+
 ForkJoinPool, also known as a work stealing pool, addresses this concern.
 
 

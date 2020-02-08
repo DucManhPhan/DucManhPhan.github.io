@@ -13,6 +13,7 @@ tags: [Multithreading, Java]
 - [Understanding about Producer/Consumer pattern](#understanding-about-producer/consumer-pattern)
 - [When to use](#when-to-use)
 - [Producer/Consumer pattern using wait/notify](#producer/consumer-pattern-using-wait/notify)
+- [Producer/Consumer pattern using Lock framework](#producer/consumer-pattern-using-lock-framework)
 - [Producer/Consumer pattern using BlockingQueue](#producer/consumer-pattern-using-blockingqueue)
 - [Producer/Consumer pattern with Semaphore](#producer/consumer-pattern-with-semaphore)
 - [Common questions with Producer/Consumer](#common-questions-with-producer/consumer)

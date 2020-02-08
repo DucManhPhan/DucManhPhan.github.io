@@ -24,7 +24,7 @@ In this article, we will learn how to use JMeter to perform testing in our proje
 
 ## Introduction to JMeter
 
-![](../img/testing/jmeter/background-jmeter.png)
+![](../img/Testing/jmeter/background-jmeter.png)
 
 The Apache JMeter is pure Java open source software, which was first developed by **Stefano Mazzocchi** of the Apache Software Foundation, designed to load test functional behavior and measure performance. JMeter originally is used for testing Web Application or FTP application. Nowadays, it is used for a functional test, database server test etc.
 
@@ -48,7 +48,7 @@ The Apache JMeter is pure Java open source software, which was first developed b
 
 - How JMeter works
 
-    ![](../img/testing/jmeter/how-jmeter-works.png)
+    ![](../img/Testing/jmeter/how-jmeter-works.png)
 
 <br>
 
@@ -60,11 +60,11 @@ The Apache JMeter is pure Java open source software, which was first developed b
 3. Unzip Apache JMeter rar file. At **bin** folder of **apache-jmeter-5.2.1**, double click in ```ApacheJMeter.jar``` file.
 
 
-    ![](../img/testing/jmeter/run-apache-jmeter.png)
+    ![](../img/Testing/jmeter/run-apache-jmeter.png)
 
     Then, we have result:
 
-    ![](../img/testing/jmeter/jmeter-application.png)
+    ![](../img/Testing/jmeter/jmeter-application.png)
 
 <br>
 
@@ -141,11 +141,11 @@ The Apache JMeter is pure Java open source software, which was first developed b
 ## Common steps in JMeter
 1. Add thread groups
 
-    ![](../img/testing/jmeter/steps/add-thread-groups.png)
+    ![](../img/Testing/jmeter/steps/add-thread-groups.png)
 
     Then, we have:
 
-    ![](../img/testing/jmeter/steps/config-thread-groups.png)
+    ![](../img/Testing/jmeter/steps/config-thread-groups.png)
 
     - Number of Threads (users): the number of concurrent users that will be run on each node.
     - Ram-up period (seconds): This is the amount of time (in seconds) that we would like the concurrent users to be injected. This is the overall time taken to get from 0 to **the number of users**.
@@ -157,16 +157,16 @@ The Apache JMeter is pure Java open source software, which was first developed b
 
     Below is the difference between Thread count and loop count.
 
-    ![](../img/testing/jmeter/Thread-count-and-loop-count.png)
+    ![](../img/Testing/jmeter/Thread-count-and-loop-count.png)
 
 
 2. Add Http Header
 
-    ![](../img/testing/jmeter/steps/add-http-header.png)
+    ![](../img/Testing/jmeter/steps/add-http-header.png)
 
     Then, we have a screen of the Http Header Manager:
 
-    ![](../img/testing/jmeter/steps/http-header-manager.png)
+    ![](../img/Testing/jmeter/steps/http-header-manager.png)
 
     In HTTP Header Manager, we can have some notices:
     - Header Stored in the Header Manager: the List view will contain all key-values of header such as token, content-type, ...
@@ -178,11 +178,11 @@ The Apache JMeter is pure Java open source software, which was first developed b
 
 3. Add Http Request or Http Request Default
 
-    ![](../img/testing/jmeter/steps/add-http-request.png)
+    ![](../img/Testing/jmeter/steps/add-http-request.png)
 
     Then, we have:
 
-    ![](../img/testing/jmeter/steps/http-request.png)
+    ![](../img/Testing/jmeter/steps/http-request.png)
 
     In the screen of Http Request, we need to remember some weird things:
     - In Web Server
@@ -205,13 +205,13 @@ The Apache JMeter is pure Java open source software, which was first developed b
 
 4. Add some **Listeners** to view the results
 
-    ![](../img/testing/jmeter/steps/add-listeners.png)
+    ![](../img/Testing/jmeter/steps/add-listeners.png)
 
     - Use **View Results in Table**
 
         Choose **View Results in Table** in **Listener**. Then, we have:
 
-        ![](../img/testing/jmeter/steps/view-results-in-table.png)
+        ![](../img/Testing/jmeter/steps/view-results-in-table.png)
 
         The columns that you are probably most interest in are the Sample Time (ms) and Latency (not displayed in example) columns.
         - **Latency**: The number of milliseconds that elapsed between when JMeter sent the request and when an initial response was received.
@@ -220,7 +220,7 @@ The Apache JMeter is pure Java open source software, which was first developed b
 
         Assuming that we have data of **View Results in Table** like the below image:
 
-        ![](../img/testing/jmeter/view_results_in_table_ex.png)
+        ![](../img/Testing/jmeter/view_results_in_table_ex.png)
 
         Based on data from the above table, we can find that the range of Sample Time was 128-164 ms. This is a reasonable response time for a basic homepage (which was about 55 KB). If our web application server is not struggling for resources, as demonstrated in the example, our Sample Time will be influenced primarily by geographical distance (which generally increases latency) and the size of the requested item (which increases transfer time).
 
@@ -230,7 +230,7 @@ The Apache JMeter is pure Java open source software, which was first developed b
 
         If we want to have a report about this testing, we can choose functionality **Summary Report** of **Listener**.
 
-        ![](../img/testing/jmeter/steps/summary-report.png)
+        ![](../img/Testing/jmeter/steps/summary-report.png)
 
         This ```Summary Report``` will contains some specific notices:
         - Label: the name of request
@@ -262,19 +262,19 @@ We may also need to modify **HTTP Header Manager** to select the correct **Conte
 
     In Apache JMeter's screen, we will choose File --> Templates.
 
-    ![](../img/testing/jmeter/steps/add-soap-request-1.png)
+    ![](../img/Testing/jmeter/steps/add-soap-request-1.png)
 
     Then, we have a Templates dialog.
 
-    ![](../img/testing/jmeter/steps/add-soap-request-2.png)
+    ![](../img/Testing/jmeter/steps/add-soap-request-2.png)
 
     After choosing **Building SOAP Web Service Test Plan**, click **Create** Button, then we have result is:
 
-    ![](../img/testing/jmeter/steps/add-soap-request-3.png)
+    ![](../img/Testing/jmeter/steps/add-soap-request-3.png)
 
 2. Fill information of SOAP request
 
-    ![](../img/testing/jmeter/steps/soap-http-request-default.png)
+    ![](../img/Testing/jmeter/steps/soap-http-request-default.png)
 
     In **HTTP Request Defaults**, we have to change some features:
     - Protocol [http]: use protocol that we use to test such as http, https, ftp, ...
@@ -284,22 +284,22 @@ We may also need to modify **HTTP Header Manager** to select the correct **Conte
 
     After that, we will fill SOAP Message into **Body Data** text area.
 
-    ![](../img/testing/jmeter/steps/fill-soap-message.png)
+    ![](../img/Testing/jmeter/steps/fill-soap-message.png)
 
 
 3. Add **HTTP Header Manager** into SOAP request
 
     Right click Test Plan, then choose Add -> Config Element --> HTTP Header Manager.
 
-    ![](../img/testing/jmeter/steps/soap-add-http-header-manager.png)
+    ![](../img/Testing/jmeter/steps/soap-add-http-header-manager.png)
 
     Then, we have:
 
-    ![](../img/testing/jmeter/steps/soap-http-header-manager.png)
+    ![](../img/Testing/jmeter/steps/soap-http-header-manager.png)
 
     Next, we will update values for this HTTP Header Manager. Some webservices may not use SOAPAction in this case remove it.
 
-    ![](../img/testing/jmeter/steps/update-values-http-header-manager.png)
+    ![](../img/Testing/jmeter/steps/update-values-http-header-manager.png)
 
 
 
@@ -347,9 +347,9 @@ We may also need to modify **HTTP Header Manager** to select the correct **Conte
 
 Refer:
 
-[https://itnext.io/load-testing-using-apache-jmeter-af189dd6f805](https://itnext.io/load-testing-using-apache-jmeter-af189dd6f805)
+[https://itnext.io/load-testing-using-apache-jmeter-af189dd6f805](https://itnext.io/load-Testing-using-apache-jmeter-af189dd6f805)
 
-[https://viblo.asia/p/cach-su-dung-jmeter-cho-performance-va-load-testing-1VgZvpx95Aw](https://viblo.asia/p/cach-su-dung-jmeter-cho-performance-va-load-testing-1VgZvpx95Aw)
+[https://viblo.asia/p/cach-su-dung-jmeter-cho-performance-va-load-testing-1VgZvpx95Aw](https://viblo.asia/p/cach-su-dung-jmeter-cho-performance-va-load-Testing-1VgZvpx95Aw)
 
 [https://www.edureka.co/blog/load-testing-using-jmeter/](https://www.edureka.co/blog/load-testing-using-jmeter/)
 
