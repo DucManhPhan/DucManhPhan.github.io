@@ -10,8 +10,8 @@ tags: [Design pattern]
 <br>
 
 ## Table of contents
-- []()
-- []()
+- [Big Ball of Mud](#big-ball-of-mud)
+- [Lasagna architecture](#lasagna-architecture)
 - [Symptoms of Bad Design](#symptoms-of-bad-design)
 - [Wrapping up](#wrapping-up)
 
