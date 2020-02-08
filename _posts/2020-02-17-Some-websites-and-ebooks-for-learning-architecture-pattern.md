@@ -153,3 +153,37 @@ In order to learn about architecture pattern, we should note about some interest
     - [System Analysis and Design_An Object Oriented Approach with UML]()
 
         This book provides how to design each layer of architecture pattern. Especially, it shows us that how to optimize persistence layer for RDBMS.
+
+3. Courses
+
+    - Microservices Architectural Design Patterns Playbook by Rag Dhiman
+
+        To learn this course, we can refer this [link](https://app.pluralsight.com/library/courses/microservices-architectural-design-patterns-playbook/table-of-contents)
+
+    - Microservices Architecture by Rag Dhiman
+
+        To learn this course, we can refer this [link](https://app.pluralsight.com/library/courses/microservices-architecture/table-of-contents)
+
+    - Picturing Architecture: UML (The Good Bits) and More by Allen Holub
+
+        To learn this course, we can refer this [link](https://app.pluralsight.com/library/courses/picturing-architecture-uml/table-of-contents)
+
+    - Clean Architecture: Patterns, Practices, and Principles by Matthew Renze
+
+        To learn this course, we can refer this [link](https://app.pluralsight.com/library/courses/clean-architecture-patterns-practices-principles/table-of-contents)
+
+    - Domain-Driven Design path
+
+        To learn this course, we can refer this [link](https://app.pluralsight.com/paths/skills/domain-driven-design)
+
+    - Security Architecture
+
+        To learn this course, we can refer this [link](https://app.pluralsight.com/library/courses/security-architecture/table-of-contents)
+
+    - Security Architecture and Design: The Big Picture by Christopher Rees
+
+        To learn this course, we can refer this [link](https://app.pluralsight.com/library/courses/security-architecture-design-big-picture/table-of-contents)
+
+    - Designing Event-driven Applications Using Apache Kafka Ecosystem by Bogdan Sucaciu
+
+        To learn this course, we can refer this [link](https://app.pluralsight.com/library/courses/designing-event-driven-applications-apache-kafka-ecosystem/table-of-contents)
