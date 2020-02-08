@@ -1,11 +1,13 @@
 ---
 layout: post
-title: Running processes in the background with Java's multithreading
+title: Improving performance of application by running processes in the background
 bigimg: /img/image-header/factory.jpg
 tags: [Multithreading, Java]
 ---
 
+In this article, we will learn how to use the fire-and-forget pattern to improve performance of system with its implementations.
 
+Let's get started.
 
 <br>
 
@@ -212,26 +214,73 @@ Secondly, we create an instance of ExecutorService by calling **Executors.newWor
 
 ## Introducing Threaded Recursion with ForkJoinPool and BlockingQueue
 
-In this section, we continuously talk about ForkJoinPool. Like other classes that implement ExecutorService, ForkJoinPool can accept Runnable as a representation of the body of work, but the native representation of work for ForkJoinPool is the ForkJoinTask class. When a Runnable is passed into a ForkJoinPool, it's adapted into a ForkJoinTask before being added to the queue. ForkJoinTask is the first class citizen in ForkJoinPool. A ForkJoinTask 
+In this section, we continuously talk about ForkJoinPool. Like other classes that implement ExecutorService, ForkJoinPool can accept Runnable as a representation of the body of work, but the native representation of work for ForkJoinPool is the ForkJoinTask class. When a Runnable is passed into a ForkJoinPool, it's adapted into a ForkJoinTask before being added to the queue. ForkJoinTask is the first class citizen in ForkJoinPool. A ForkJoinTask can be created in one of two ways, by extending RecursiveTask when the recursive segment as a return value, or extending RecursiveAction otherwise.
 
+|      If parallelizing ...      |      ... then extend ...      |
+| ------------------------------ | ----------------------------- |
+| recursion with results (E.g: sorting, searching) | RecursiveTask |
+| recursion with no result (E.g. fire-and-forget) | RecursiveAction |
 
+- **BlockingQueue**
+
+    Queues are how these pools are able to do several tasks even when workers are not available. When a task is sent to a pool for execution, it's added to a queue, then workers take tasks off the queue as they have cycles to do so.
+
+    **BlockingQueue** is one of the data structures in the Java Concurrency API that can be used to hold on to available tasks. This problem of adding and removing tasks to a queue reduces to the classic producer/consumer algorithm, and it may seem trivial at first glance, however if we elected to use the notify and wait primitives to accomplish our design, we would quickly be faced with classic difficulties of the correctly synchronizing access to the queue, and avoiding low-level pitfalls like waiting on a monitor outside of a loop.
+
+    **BlockingQueue** is a thread safe queue that removes these challenges by correctly synchronizing internally, and offering a full component of produce and consume methods that can block like **take()** method, or do not block like **offer()** method, or throw exceptions.
 
 <br>
 
 ## Implementing Fire-and-Forget using Thread Recursion
 
+It's similar some above section, we will go straight forward to our implementation that uses **ThreadRecursion** with **MalformedIdentityRepository**.
 
+```java
+public class ProducerMalformedIdentityRepository implements MalformedIdentityRepository {
+    private MalformedIdentityRepository delegate;
 
+    private BlockingQueue<Runnable> todo = new LinkedBlockingQueue<>();
 
+    public ProducerMalformedIdentityRepository(MalformedIdentityRepository delegate) {
+        this.delegate = delegate;
+
+        // Typically, the consumer would be a separate process not under the control
+        // of this class. It is included here as an inner class for simplicity
+        new ForkJoinPool(4).execute(new Consumer());
+    }
+
+    @Override
+    public void addIdentity(Identity identity, String reason) {
+        todo.offer(() -> delegate.addIdentity(identity, reason));
+    }
+
+    @Override
+    public void addIdentity(InputStream message, String reason) {
+        todo.offer(() -> delegate.addIdentity(message, reason));
+    }
+
+    private class Consumer extends RecursiveAction {
+
+        @Override
+        protected void compute() {
+            try {
+                Runnable r = todo.take();
+                new Consumer().fork();
+
+                r.run();
+            } catch (InterruptedException ex) {
+                Thread.currentThread().interrupt();
+            }
+        }
+
+    }
+}
+```
 
 <br>
 
 ## Wrapping up
-
-
-
-
-
+- Understanding about the fire-and-forget pattern and how to apply solutions for improve the performance of system.
 
 <br>
 
