@@ -1,8 +1,8 @@
 ---
 layout: post
-title: Some interview questions about CountDownLatch
+title: Consumer in Kafka
 bigimg: /img/path.jpg
-tags: [Multithreading, Java, Interview question]
+tags: [Kafka]
 ---
 
 
@@ -17,7 +17,7 @@ tags: [Multithreading, Java, Interview question]
 
 <br>
 
-## 
+## What is Kafka Consumer
 
 
 
@@ -25,7 +25,7 @@ tags: [Multithreading, Java, Interview question]
 
 <br>
 
-## 
+## Source code Java for Kafka consumer
 
 
 
@@ -33,7 +33,7 @@ tags: [Multithreading, Java, Interview question]
 
 <br>
 
-## 
+## The meaning of parameters in consumer client
 
 
 

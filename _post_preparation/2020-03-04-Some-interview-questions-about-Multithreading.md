@@ -2,7 +2,7 @@
 layout: post
 title: Some interview questions about Multithreading
 bigimg: /img/path.jpg
-tags: [Multithreading, Java]
+tags: [Multithreading, Java, Interview question]
 ---
 
 

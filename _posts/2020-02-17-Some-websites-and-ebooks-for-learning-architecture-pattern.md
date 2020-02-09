@@ -12,6 +12,8 @@ In order to learn about architecture pattern, we should note about some interest
     - [https://martinfowler.com/](https://martinfowler.com/)
     - [http://blog.cleancoder.com/](http://blog.cleancoder.com/)
 
+    - [https://sookocheff.com/](https://sookocheff.com/)
+
 2. Books
 
     - [Pattern-oriented Software Architecture for Dummies]()

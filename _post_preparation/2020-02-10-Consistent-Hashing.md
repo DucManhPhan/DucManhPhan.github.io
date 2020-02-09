@@ -11,10 +11,10 @@ tags: [System design]
 <br>
 
 ## Table of contents
-
-
-
-
+- [Given problem](#given-problem)
+- [Solution of Consistent Hashing](#solution-of-content-hashing)
+- []()
+- [Wrapping up](#wrapping-up)
 
 <br>
 

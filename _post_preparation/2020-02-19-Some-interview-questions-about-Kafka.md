@@ -1,8 +1,8 @@
 ---
 layout: post
-title: Some interview questions about CountDownLatch
+title: Some interview questions about Kafka
 bigimg: /img/path.jpg
-tags: [Multithreading, Java, Interview question]
+tags: [Kafka, Interview question]
 ---
 
 
