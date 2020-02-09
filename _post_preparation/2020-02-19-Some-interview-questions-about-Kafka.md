@@ -25,7 +25,7 @@ tags: [Kafka, Interview question]
 
 <br>
 
-## 
+## How to choose the number of topics/partitions in a Kafka cluster
 
 
 
