@@ -66,3 +66,7 @@ Refer:
 [https://www.interviewcake.com/concept/java/consistent-hashing](https://www.interviewcake.com/concept/java/consistent-hashing)
 
 [https://www.akamai.com/us/en/multimedia/documents/technical-publication/consistent-hashing-and-random-trees-distributed-caching-protocols-for-relieving-hot-spots-on-the-world-wide-web-technical-publication.pdf])(https://www.akamai.com/us/en/multimedia/documents/technical-publication/consistent-hashing-and-random-trees-distributed-caching-protocols-for-relieving-hot-spots-on-the-world-wide-web-technical-publication.pdf)
+
+[https://www.dropbox.com/developers/reference/content-hash](https://www.dropbox.com/developers/reference/content-hash)
+
+[https://blog.jscrambler.com/hashing-algorithms/](https://blog.jscrambler.com/hashing-algorithms/)
