@@ -17,8 +17,15 @@ tags: [Kafka]
 
 <br>
 
-## What is Kafka Consumer
+## The definition of Kafka Consumer
 
+
+
+
+
+<br>
+
+## How Kafka Consumer works
 
 
 
