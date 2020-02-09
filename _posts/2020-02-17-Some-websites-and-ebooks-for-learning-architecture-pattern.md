@@ -10,9 +10,14 @@ In order to learn about architecture pattern, we should note about some interest
 1. Websites
 
     - [https://martinfowler.com/](https://martinfowler.com/)
+
     - [http://blog.cleancoder.com/](http://blog.cleancoder.com/)
 
     - [https://sookocheff.com/](https://sookocheff.com/)
+
+    - [https://www.enterpriseintegrationpatterns.com/](https://www.enterpriseintegrationpatterns.com/)
+
+    - [https://en.wikipedia.org/wiki/Enterprise_Integration_Patterns](https://en.wikipedia.org/wiki/Enterprise_Integration_Patterns)
 
 2. Books
 

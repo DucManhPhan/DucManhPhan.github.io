@@ -53,3 +53,5 @@ tags: [Kafka, Interview question]
 <br>
 
 Refer:
+
+[https://www.confluent.io/blog/how-choose-number-topics-partitions-kafka-cluster/](https://www.confluent.io/blog/how-choose-number-topics-partitions-kafka-cluster/)
