@@ -26,7 +26,7 @@ tags: [Multithreading, Java]
 
 <br>
 
-## 
+## How to detect and resolve deadlock in Java
 
 
 

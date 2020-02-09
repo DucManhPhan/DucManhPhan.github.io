@@ -80,6 +80,36 @@ tags: [Multithreading, Java]
 
 <br>
 
+## What are spinlocks?
+
+
+
+
+<br>
+
+## What is Striped Lock in Java's Guava library?
+
+
+
+
+
+<br>
+
+## What is Phaser?
+
+
+
+
+<br>
+
+## How to timeout a thread?
+
+
+
+
+
+<br>
+
 ## Wrapping up
 
 
