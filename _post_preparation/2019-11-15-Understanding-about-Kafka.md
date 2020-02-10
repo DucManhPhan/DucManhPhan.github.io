@@ -5,8 +5,9 @@ bigimg: /img/path.jpg
 tags: [Kafka]
 ---
 
+In this article, we will find something out about Kafka. Understanding about the architecture of Kafka makes us coding better, reduce the number of bugs.
 
-
+Let's get started.
 
 <br>
 
