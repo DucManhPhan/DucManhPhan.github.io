@@ -86,7 +86,7 @@ Apache Kafka is an open-source stream processing software platform developed by 
 
     Producers create new messages. By default, the producer does not care what partition a specific message is written to and will balance messages over all partitions of a topic evenly. In some cases, the producer will direct messages to specific partitions. This is typically done using the message key and a partitioner that will generate a hash of the key and map it to a specific partition. This assures that all messages produced with a given key will get written to the same partition. The producer could also use a custom partitioner that follows other business rules for mapping messages to partitions.
 
-    When the new broker is started, all the producers search it and automatically sends a message to that new broker. Kafka producer doesn’t wait for acknowledgments from the broker and sends messages as fast as the broker can handle.
+    When the new broker is started, all the producers search it and automatically sends a message to that new broker. Kafka producer doesn't wait for acknowledgments from the broker and sends messages as fast as the broker can handle.
 
     Consumers read messages. The consumer subscribes to one or more topics and reads the messages in the order in which they were produced. Consumers work as a part of a *Consumer Group*, which is one or more consumers that work together to consume a topic. The group assures that each partition is only consumed by one member. In this way, consumers can horizontally scale to consume topics with a large number of messages. Additionally, **if a single consumer fails, the remaining members of the group will rebalance the partitions being consumed to take over for the missing member**.
 
@@ -114,6 +114,9 @@ Apache Kafka is an open-source stream processing software platform developed by 
                             --partitions <num_partitions_per_topic>
                             --topic <name_topic>
         ```
+
+        Benefits of having multiple partitions in a topic:
+        - allows for multiple consumers to read from a topic in parallel.
 
     - Offset
 
@@ -156,6 +159,8 @@ Refer:
 [Learning Apache Kafka, 2nd Edition](https://www.amazon.com/Learning-Apache-Kafka-Nishant-Garg-ebook/dp/B00U2MI8MI)
 
 [Apache Kafka - Packpub]()
+
+[https://blog.scottlogic.com/2018/04/17/comparing-big-data-messaging.html](https://blog.scottlogic.com/2018/04/17/comparing-big-data-messaging.html)
 
 [https://sookocheff.com/post/kafka/kafka-in-a-nutshell/](https://sookocheff.com/post/kafka/kafka-in-a-nutshell/)
 
