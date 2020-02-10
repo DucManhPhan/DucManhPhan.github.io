@@ -15,10 +15,6 @@ tags: [Kafka]
 - [Solution of using Kafka](#solution-of-using-kafka)
 - [Concepts in Kafka](#concepts-in-kafka)
 - [The architecture of Kafka](#the-architecture-of-kafka)
-- [Coordinator in Kafka](#coordination-in-kafka)
-- [Rebalancing in kafka](#rebalancing-in-kafka)
-- [Heartbeat thread in Kafka](#heartbeat-thread-in-kafka)
-- [Some problems when running kafka](#some-problems-when-using-kafka)
 - [Wrapping up](#wrapping-up)
 
 <br>
@@ -77,26 +73,61 @@ Apache Kafka is an open-source stream processing software platform developed by 
 
 2. Cluster and Broker
 
+    A single Kafka server is called a *broker*. The broker receives messages from producers, assigns *offsets* to them, and commits the messages to storage on disk. It also services consumers, responding to fetch requests for partitions and responding with the messages that have been committed to disk. Depending on the specific hardware and its performance characteristics, a single broker can easily handle thousands of partitions and millions of messages per second.
 
+    Kafka broker leader election can be done by Zookeeper. Means in case of data loss, Zookeeper decide which broker to make a master and which broker to make a slave.
+
+    Kafka brokers are designed to operate as a part of a *cluster*. Within a cluster of brokers, one broker will also function as the cluster controller (elected automatically from the live members of the cluster). The controller is responsible for administrative operations, including assigning partitions to brokers and and monitoring for broker failures. A partition is owned by a single broker in the cluster, and that broker is called the leader of the partition. A partition may be assigned to multiple brokers, which will result in the partition being replicated as seen in the below image. This provides redundancy of messages in the partition, such that another broker can take over leadership if there is a broker failure. However, all consumers and producers operating on that partition must connect to the leader.
+
+    ![](../img/hadoop/kafka/brokers-and-clusters/brokers-and-clusters.png)
 
 
 3. Producer and Consumer
 
+    Producers create new messages. By default, the producer does not care what partition a specific message is written to and will balance messages over all partitions of a topic evenly. In some cases, the producer will direct messages to specific partitions. This is typically done using the message key and a partitioner that will generate a hash of the key and map it to a specific partition. This assures that all messages produced with a given key will get written to the same partition. The producer could also use a custom partitioner that follows other business rules for mapping messages to partitions.
 
+    When the new broker is started, all the producers search it and automatically sends a message to that new broker. Kafka producer doesn’t wait for acknowledgments from the broker and sends messages as fast as the broker can handle.
 
+    Consumers read messages. The consumer subscribes to one or more topics and reads the messages in the order in which they were produced. Consumers work as a part of a *Consumer Group*, which is one or more consumers that work together to consume a topic. The group assures that each partition is only consumed by one member. In this way, consumers can horizontally scale to consume topics with a large number of messages. Additionally, **if a single consumer fails, the remaining members of the group will rebalance the partitions being consumed to take over for the missing member**.
 
-4. Topic and Partition
+4. Topic, Partition and Offset
 
-    ![](../img/hadoop/kafka/topics-and-partitions/a-topic-with-partitions.png)
+    - Topic
 
-    Messages in Kafka are categorized into *topics*. We can think of topic as database table or a folder in a filesystem.
-    
-    Topics are additional broken down into a number of *partitions*. Partitions allow us to parallelize a topic by splitting the data in a particular topic across multiple brokers — each partition can be placed on a separate machine to allow for multiple consumers to read from a topic in parallel. Consumers can also be parallelized so that multiple consumers can read from multiple partitions in a topic allowing for very high message processing throughput.
+        ![](../img/hadoop/kafka/topics-and-partitions/a-topic-with-partitions.png)
 
-    Each message within a partition has an identifier called its *offset*. The *offset* the ordering of messages as an immutable sequence. Kafka maintains this message ordering for us. Consumers can read messages starting from a specific offset and are allowed to read from any offset point they choose, allowing consumers to join the cluster at any point in time they see fit. Given these constraints, each specific message in a Kafka cluster can be uniquely identified by a tuple consisting of the message's topic, partition, and offset within the partition.
+        Messages in Kafka are categorized into *topics*. We can think of topic as database table or a folder in a filesystem.
 
-    Partitions are the way that Kafka provides redundancy and scalability. Each partition can be hosted on the different server, which means that a single topic can be scaled horizontally across multiple servers to provide performance far beyond the ability of a single server.
+    - Partition
 
+        Topics are additional broken down into a number of *partitions*. Partitions allow us to parallelize a topic by splitting the data in a particular topic across multiple brokers — each partition can be placed on a separate machine to allow for multiple consumers to read from a topic in parallel. Consumers can also be parallelized so that multiple consumers can read from multiple partitions in a topic allowing for very high message processing throughput.
+
+        Partitions are the way that Kafka provides redundancy and scalability. Each partition can be hosted on the different server, which means that a single topic can be scaled horizontally across multiple servers to provide performance far beyond the ability of a single server.
+
+        The number of partitions can be configured when we create a new topic.
+
+        ```python
+        # create test topic
+        bin/kafka-topics.sh --create
+                            --zookeeper localhost:2181
+                            --replication-factor <num_brokers_replicate>
+                            --partitions <num_partitions_per_topic>
+                            --topic <name_topic>
+        ```
+
+    - Offset
+
+        Each message within a partition has an identifier called its *offset*. The *offset* is another bit of metadata, an integer value that continually increases - that Kafka adds to each message as it is produced. So, we can find that Kafka brokers are stateless.
+        
+        The *offset* the ordering of messages as an immutable sequence. Kafka maintains this message ordering for us. Consumers can read messages starting from a specific offset and are allowed to read from any offset point they choose, allowing consumers to join the cluster at any point in time they see fit. Given these constraints, each specific message in a Kafka cluster can be uniquely identified by a tuple consisting of the message's topic, partition, and offset within the partition. By storing the offset of the last consumed message for each partition, either in Zookeeper or in Kafka itself, a consumer can stop and restart without losing its place.
+
+        Why we need offset in partitions for each consumer?
+
+        --> Because we have multiple producers, consumers on one topic, each producer push messages into topic's partition. Then each consumer need to keep track which messages it has already consumed by keeping track of the offset of messages.
+
+5. Zookeeper
+
+    It's used to manage and coordinate with the broker. *ZooKeeper* service is mainly used to notify producer and consumer about the presence or failure of any new broker in the Kafka system. As per the notification received by the Zookeeper regarding presence or failure of the broker then producer and consumer take a decision and starts coordinating their task with some other broker.
 
 <br>
 
@@ -105,45 +136,6 @@ Apache Kafka is an open-source stream processing software platform developed by 
 
 
 
-
-
-<br>
-
-## Coordinator in Kafka
-
-[https://jaceklaskowski.gitbooks.io/apache-kafka/kafka-consumer-internals-ConsumerCoordinator.html](https://jaceklaskowski.gitbooks.io/apache-kafka/kafka-consumer-internals-ConsumerCoordinator.html)
-
-
-<br>
-
-## Rebalancing in kafka
-
-
-
-
-<br>
-
-## Heartbeat thread in Kafka
-
-
-
-
-<br>
-
-## Thread-safty with consumer
-According to [https://www.oreilly.com/library/view/kafka-the-definitive/9781491936153/ch04.html](https://www.oreilly.com/library/view/kafka-the-definitive/9781491936153/ch04.html), we have:
-
-```
-You can't have multiple consumers that belong to the same group in one thread and you can't have multiple threads safely use the same consumer. One consumer per thread is the rule. To run multiple consumers in the same group in one application, you will need to run each in its own thread. It is useful to wrap the consumer logic in its own object and then use Java's ExecutorService to start multiple threads each with its own consumer. The Confluent blog has a tutorial that shows how to do just that.
-```
-
-
-<br>
-
-## Some problems when running kafka
-1. ```attempt to heartbeat failed since group is rebalancing```
-
-[https://stackoverflow.com/questions/40162370/heartbeat-failed-for-group-because-its-rebalancing](https://stackoverflow.com/questions/40162370/heartbeat-failed-for-group-because-its-rebalancing)
 
 
 <br>
@@ -157,7 +149,13 @@ You can't have multiple consumers that belong to the same group in one thread an
 
 Refer:
 
-[Kafka: The definitive guide book]()
+[Kafka: The definitive guide book](https://www.amazon.com/Kafka-Definitive-Real-Time-Stream-Processing/dp/1491936169)
+
+[Apache Kafka cookbook](https://www.amazon.com/Apache-Kafka-Cookbook-Saurabh-Minni-ebook/dp/B015EHCTES)
+
+[Learning Apache Kafka, 2nd Edition](https://www.amazon.com/Learning-Apache-Kafka-Nishant-Garg-ebook/dp/B00U2MI8MI)
+
+[Apache Kafka - Packpub]()
 
 [https://sookocheff.com/post/kafka/kafka-in-a-nutshell/](https://sookocheff.com/post/kafka/kafka-in-a-nutshell/)
 
@@ -173,36 +171,10 @@ Refer:
 
 [https://chrzaszcz.dev/2019/05/26/kafka-101/](https://chrzaszcz.dev/2019/05/26/kafka-101/)
 
-<br>
-
-**Hearbeat thread**
-
-[http://javierholguera.com/2018/01/01/timeouts-in-kafka-clients-and-kafka-streams/](http://javierholguera.com/2018/01/01/timeouts-in-kafka-clients-and-kafka-streams/)
-
-[https://stackoverflow.com/questions/39730126/difference-between-session-timeout-ms-and-max-poll-interval-ms-for-kafka-0-10-0/39759329#39759329](https://stackoverflow.com/questions/39730126/difference-between-session-timeout-ms-and-max-poll-interval-ms-for-kafka-0-10-0/39759329#39759329)
-
-[https://devguli.com/heartbeat-thread-in-kafka-consumer/](https://devguli.com/heartbeat-thread-in-kafka-consumer/)
-
-[https://cwiki.apache.org/confluence/display/KAFKA/KIP-62%3A+Allow+consumer+to+send+heartbeats+from+a+background+thread](https://cwiki.apache.org/confluence/display/KAFKA/KIP-62%3A+Allow+consumer+to+send+heartbeats+from+a+background+thread)
-
-[https://chrzaszcz.dev/2019/06/kafka-heartbeat-thread/](https://chrzaszcz.dev/2019/06/kafka-heartbeat-thread/)
-
-[https://stackoverflow.com/questions/40162370/heartbeat-failed-for-group-because-its-rebalancing](https://stackoverflow.com/questions/40162370/heartbeat-failed-for-group-because-its-rebalancing)
+[https://blog.scottlogic.com/2018/04/17/comparing-big-data-messaging.html](https://blog.scottlogic.com/2018/04/17/comparing-big-data-messaging.html)
 
 <br>
 
-**Rebalancing**
+**Architecture of Kafka**
 
-[https://stackoverflow.com/questions/43991845/kafka10-1-heartbeat-interval-ms-session-timeout-ms-and-max-poll-interval-ms](https://stackoverflow.com/questions/43991845/kafka10-1-heartbeat-interval-ms-session-timeout-ms-and-max-poll-interval-ms)
-
-[https://www.slideshare.net/ConfluentInc/everything-you-always-wanted-to-know-about-kafkas-rebalance-protocol-but-were-afraid-to-ask-matthias-j-sax-confluent-kafka-summit-london-2019](https://www.slideshare.net/ConfluentInc/everything-you-always-wanted-to-know-about-kafkas-rebalance-protocol-but-were-afraid-to-ask-matthias-j-sax-confluent-kafka-summit-london-2019)
-
-<br>
-
-**Multithreading with Kafka's consumer**
-
-[https://howtoprogram.xyz/2016/05/29/create-multi-threaded-apache-kafka-consumer/](https://howtoprogram.xyz/2016/05/29/create-multi-threaded-apache-kafka-consumer/)
-
-[https://www.reactiveprogramming.be/an-introduction-to-apache-kafka/](https://www.reactiveprogramming.be/an-introduction-to-apache-kafka/)
-
-[https://www.reactiveprogramming.be/an-introduction-to-reactor-kafka/](https://www.reactiveprogramming.be/an-introduction-to-reactor-kafka/)
+[https://blog.usejournal.com/understanding-apache-kafka-the-messaging-technology-for-modern-applications-4fbc18f220d3](https://blog.usejournal.com/understanding-apache-kafka-the-messaging-technology-for-modern-applications-4fbc18f220d3)
