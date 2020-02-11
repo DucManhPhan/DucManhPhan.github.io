@@ -10,7 +10,14 @@ In order to learn about architecture pattern, we should note about some interest
 1. Websites
 
     - [https://martinfowler.com/](https://martinfowler.com/)
+
     - [http://blog.cleancoder.com/](http://blog.cleancoder.com/)
+
+    - [https://sookocheff.com/](https://sookocheff.com/)
+
+    - [https://www.enterpriseintegrationpatterns.com/](https://www.enterpriseintegrationpatterns.com/)
+
+    - [https://en.wikipedia.org/wiki/Enterprise_Integration_Patterns](https://en.wikipedia.org/wiki/Enterprise_Integration_Patterns)
 
 2. Books
 
@@ -154,36 +161,30 @@ In order to learn about architecture pattern, we should note about some interest
 
         This book provides how to design each layer of architecture pattern. Especially, it shows us that how to optimize persistence layer for RDBMS.
 
+    - [Software Engineering at Google: Lessons Learned from Programming Over Time](https://www.amazon.com/Software-Engineering-Google-Lessons-Programming/dp/1492082791)
+
 3. Courses
 
-    - Microservices Architectural Design Patterns Playbook by Rag Dhiman
+    - [Microservices Architectural Design Patterns Playbook by Rag Dhiman](https://app.pluralsight.com/library/courses/microservices-architectural-design-patterns-playbook/table-of-contents)
 
-        To learn this course, we can refer this [link](https://app.pluralsight.com/library/courses/microservices-architectural-design-patterns-playbook/table-of-contents)
+    - [Microservices Architecture by Rag Dhiman](https://app.pluralsight.com/library/courses/microservices-architecture/table-of-contents)
 
-    - Microservices Architecture by Rag Dhiman
+    - [Picturing Architecture: UML (The Good Bits) and More by Allen Holub](https://app.pluralsight.com/library/courses/picturing-architecture-uml/table-of-contents)
 
-        To learn this course, we can refer this [link](https://app.pluralsight.com/library/courses/microservices-architecture/table-of-contents)
+    - [Clean Architecture: Patterns, Practices, and Principles by Matthew Renze](https://app.pluralsight.com/library/courses/clean-architecture-patterns-practices-principles/table-of-contents)
 
-    - Picturing Architecture: UML (The Good Bits) and More by Allen Holub
+    - [Domain-Driven Design path](https://app.pluralsight.com/paths/skills/domain-driven-design)
 
-        To learn this course, we can refer this [link](https://app.pluralsight.com/library/courses/picturing-architecture-uml/table-of-contents)
+    - [Security Architecture](https://app.pluralsight.com/library/courses/security-architecture/table-of-contents)
 
-    - Clean Architecture: Patterns, Practices, and Principles by Matthew Renze
+    - [Security Architecture and Design: The Big Picture by Christopher Rees](https://app.pluralsight.com/library/courses/security-architecture-design-big-picture/table-of-contents)
 
-        To learn this course, we can refer this [link](https://app.pluralsight.com/library/courses/clean-architecture-patterns-practices-principles/table-of-contents)
+    - [Designing Event-driven Applications Using Apache Kafka Ecosystem by Bogdan Sucaciu](https://app.pluralsight.com/library/courses/designing-event-driven-applications-apache-kafka-ecosystem/table-of-contents)
 
-    - Domain-Driven Design path
+3. Books for distributed system
 
-        To learn this course, we can refer this [link](https://app.pluralsight.com/paths/skills/domain-driven-design)
+    - [Distributed Systems](https://www.amazon.com/Distributed-Systems-Maarten-van-Steen/dp/1543057381)
 
-    - Security Architecture
+    - [Database Internals: A Deep Dive into How Distributed Data Systems Work](https://www.amazon.com/Database-Internals-Deep-Distributed-Systems/dp/1492040347)
 
-        To learn this course, we can refer this [link](https://app.pluralsight.com/library/courses/security-architecture/table-of-contents)
-
-    - Security Architecture and Design: The Big Picture by Christopher Rees
-
-        To learn this course, we can refer this [link](https://app.pluralsight.com/library/courses/security-architecture-design-big-picture/table-of-contents)
-
-    - Designing Event-driven Applications Using Apache Kafka Ecosystem by Bogdan Sucaciu
-
-        To learn this course, we can refer this [link](https://app.pluralsight.com/library/courses/designing-event-driven-applications-apache-kafka-ecosystem/table-of-contents)
+    - [Distributed System](http://file.allitebooks.com/20150528/Distibuted%20Systems.pdf)
