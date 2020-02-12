@@ -145,6 +145,15 @@ When having problems, it takes so much time to resolve them. So, in this article
 
 <br>
 
+## Reconfigure URL of git in local repository
+
+
+```
+git remote set-url origin <link_git_project>
+```
+
+<br>
+
 ## Wrapping up
 
 
