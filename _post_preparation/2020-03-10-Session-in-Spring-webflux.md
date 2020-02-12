@@ -124,3 +124,9 @@ Refer:
 [http://pwp.stevecassidy.net/bottle/sessions.html](http://pwp.stevecassidy.net/bottle/sessions.html)
 
 [https://stackoverflow.com/questions/59511622/how-to-implement-multiple-authentication-methods-in-spring-webflux-security](https://stackoverflow.com/questions/59511622/how-to-implement-multiple-authentication-methods-in-spring-webflux-security)
+
+<br>
+
+**Spring Session with Redis**
+
+[https://blog.jayway.com/2015/05/31/scaling-out-with-spring-session/](https://blog.jayway.com/2015/05/31/scaling-out-with-spring-session/)
