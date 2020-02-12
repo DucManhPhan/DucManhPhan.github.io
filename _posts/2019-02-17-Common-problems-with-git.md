@@ -14,6 +14,9 @@ When having problems, it takes so much time to resolve them. So, in this article
 ## Table of contents
 - [There is no tracking information for the current branch](#there-is-no-tracking-information-for-the-current-branch)
 - [The following untracked working tree files would be overwritten by merge](#the-following-untracked-working-tree-files-would-be-overwritten-by-merge)
+- [Updates were rejected because the tip of your current branch is behind its remote counter part](#updates-were-rejected-because-the-tip-of-your-current-branch-is-behind-its-remote-counter-part)
+- [The file exceeds Github's file size limit of 100.00 MB](#the-file-exceeds-github's-file-size-limit-of-100.00-MB)
+- [Reconfigure URL of git in local repository](#reconfigure-url-of-git-in-local-repository)
 - [Wrapping up](#wrapping-up)
 
 
