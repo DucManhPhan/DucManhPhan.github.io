@@ -119,6 +119,8 @@ share-links-active:
 # Remove this if you don't want a link in the footer
 url-pretty: "https://ducmanhphan.github.io/"  # eg. "deanattali.com/beautiful-jekyll"
 
+mathjax: true
+
 # --- Web Statistics Section --- #
 
 # Fill in your Google Analytics gtag.js ID to track your website using gtag
