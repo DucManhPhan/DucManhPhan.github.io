@@ -42,12 +42,15 @@ If a leader partition goes down, then another in-sync replicated partition becom
 
 
 
+
 <br>
 
 ## The meaning of parameters in consumer client
 
 
 
+
+- Why we need group.id when configuring some fields for creating consumer
 
 
 
