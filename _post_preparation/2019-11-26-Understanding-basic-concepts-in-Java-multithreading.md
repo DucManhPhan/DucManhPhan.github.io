@@ -116,6 +116,18 @@ Solution
 
 <br>
 
+## Some consequences of multithreading when using it improperly
+
+Depending on the consequences, the problems caused by concurrency can be categorized into three types:
+- **race conditions**: the program ends with an undesired output, resulting from the sequence of execution among the processes.
+
+- **deadlocks**: the concurrent processes wait for some necessary resources from each other. As a result, none of them can make progress.
+
+- **resource starvation**: a process is perpetually denied necessary resources to progress its works.
+
+
+<br>
+
 ## Wrapping up
 - Two points to note about race conditions
     - It is safe if multiple threads are trying to read a shared resource as long as they are not trying to change it.
