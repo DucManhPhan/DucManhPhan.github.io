@@ -54,6 +54,21 @@ tags: [Machine learning]
 
 <br>
 
+## The comparison between Normal Equation and Gradient Descent
+
+|        Gradient Descent        |         Normal Equation          |
+| ------------------------------ | -------------------------------- |
+| Need to choose alpha           | No need to choose alpha          |
+| Needs many iterations          | No need to iterate               |
+| O(kn^2)                        | O(n^3), need to calculate inverse of X^T.X |
+| Works well when n is large     | Slow if n is very large          |
+
+In practice, when the number of traning samples exceeds 10000, it might be a good time to go from a normal solution to an iterative process.
+
+There is no need to do feature scaling with the normal equation.
+
+<br>
+
 ## Benefits and Drawbacks
 
 
