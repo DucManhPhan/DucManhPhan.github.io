@@ -1,10 +1,8 @@
 ---
-layout: _post
-mathjax: true
-comments: true
+layout: post
 title:  "Adding MathJax to a GitHub Pages Jekyll Blog"
-date:   2016-08-21 23:41:54 +0000
-categories: github jekyll
+bigimg: /img/path.jpg
+mathjax: true
 ---
 
 In N-dimensional simplex noise, the squared kernel summation radius $r^2$ is $\frac 1 2$
