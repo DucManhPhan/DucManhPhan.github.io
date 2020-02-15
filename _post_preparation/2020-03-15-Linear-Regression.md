@@ -1,6 +1,6 @@
 ---
 layout: post
-title:  "Adding MathJax to a GitHub Pages Jekyll Blog"
+title:  Linear Regression
 bigimg: /img/path.jpg
 mathjax: true
 ---

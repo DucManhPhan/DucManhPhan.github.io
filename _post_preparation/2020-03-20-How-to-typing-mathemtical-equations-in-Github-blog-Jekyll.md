@@ -60,3 +60,8 @@ Refer:
 
 [https://stackoverflow.com/questions/10987992/using-mathjax-with-jekyll](https://stackoverflow.com/questions/10987992/using-mathjax-with-jekyll)
 
+[https://github.com/daattali/beautiful-jekyll/issues/195](https://github.com/daattali/beautiful-jekyll/issues/195)
+
+[https://github.com/daattali/beautiful-jekyll#yaml-front-matter-parameters](https://github.com/daattali/beautiful-jekyll#yaml-front-matter-parameters)
+
+[https://github.com/mathjax/MathJax/blob/39c61f62a9a8196e6caa189ff5771ea31b7f7379/test/sample-tex.html#L10-L15](https://github.com/mathjax/MathJax/blob/39c61f62a9a8196e6caa189ff5771ea31b7f7379/test/sample-tex.html#L10-L15)
