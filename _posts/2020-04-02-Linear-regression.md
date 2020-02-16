@@ -105,7 +105,7 @@ Note:
 
     Firstly, with $x_0 = 1$, we can use a transpose of column vector  that is $\mathbf{x} = \begin{bmatrix}x_0; \ x_1; \ \dots; \ x_n \end{bmatrix}$ or
 
-    $\mathbf{x} = \begin{bmatrix}x_0 \\ x_1 \\ \vdots \\ x_n \end{bmatrix}$
+    $$\mathbf{x} = \begin{bmatrix}x_0 \\ x_1 \\ \vdots \\ x_n \end{bmatrix}$$
 
     Or we can use xbar notation - $\mathbf{\bar{x}}$ that is a row vector that is added with $x_0 = 1$ such as $\mathbf{\bar{x}} = [x_0, x_1, ... , x_n]$
 
