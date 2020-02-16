@@ -3,6 +3,7 @@ layout: post
 title: Linear Regression
 bigimg: /img/image-header/yourself.jpeg
 tags: [Machine learning]
+mathjax: true
 ---
 
 In this article, we will learn how to use Normal Equation in Linear Regression model. Let's get started.
