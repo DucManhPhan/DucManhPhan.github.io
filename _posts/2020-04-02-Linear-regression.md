@@ -136,6 +136,15 @@ Note:
 
     $$\mathbf{\theta}=(\mathbf{\bar{X}}^T\mathbf{\bar{X}})^{-1}\mathbf{\bar{X}}^T\mathbf{y}$$
 
+    If $\mathbf{X}^T\mathbf{X}$ is non-invertible, the common causes might be having:
+    - Redundant features, where two features are very closely related (Ex: they are linearly dependent.)
+
+    - Too many features (Ex: $m \leq n$). In this case, delete some features or use regularization.
+
+    So solutions for the non-invertible of matrix is:
+    - deleting a feature that is linearly dependent with another.
+    - deleting one or more features when there are too many features.
+
 
 <br>
 
@@ -165,7 +174,7 @@ Note:
 <br>
 
 ## Wrapping up
-
+- Understanding how to expand to formula of Normal Equation.
 
 
 
