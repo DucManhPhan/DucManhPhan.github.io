@@ -148,7 +148,6 @@ Note:
     - deleting a feature that is linearly dependent with another.
     - deleting one or more features when there are too many features.
 
-
 <br>
 
 ## Source code
@@ -159,6 +158,16 @@ Note:
 2. Using scikit-learn
 
 
+
+<br>
+
+## Drawbacks of Linear Regression
+
+- It's sensitive to noise. If we have a few of data points that is abnormal, our result will be bad.
+
+    --> Solution is that we have to clean some outliers.
+
+- It is not represented the complited model.
 
 <br>
 
