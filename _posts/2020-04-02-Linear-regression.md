@@ -117,7 +117,7 @@ Note:
 
     Expanding our above equation, we have:
 
-    $$J(\mathbf{\theta}) = \frac{1}{2m} (\mathbf{\bar{X}}\mathbf{\theta})^T - \mathbf{y}^T)(\mathbf{\bar{X}}\mathbf{\theta} - \mathbf{y})$$
+    $$J(\mathbf{\theta}) = \frac{1}{2m} ((\mathbf{\bar{X}}\mathbf{\theta})^T - \mathbf{y}^T)(\mathbf{\bar{X}}\mathbf{\theta} - \mathbf{y})$$
 
     Continue with it, we have:
 
