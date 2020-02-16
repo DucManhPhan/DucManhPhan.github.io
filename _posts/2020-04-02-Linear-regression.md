@@ -103,9 +103,9 @@ Note:
 
     $$\mathbf{\bar{X}} = \begin{bmatrix} (\mathbf{x}^{(1)})^T \\ (\mathbf{x}^{(2)})^T \\ \vdots \\(\mathbf{x}^{(n)})^T \end{bmatrix}$$
 
-    Firstly, we can use a transpose of column vector that is $\mathbf{x} = \begin{bmatrix}x_0; \ x_1; \ \dots; \ x_n \end{bmatrix}$ or
+    Firstly, with $x_0 = 1$, we can use a transpose of column vector  that is $\mathbf{x} = \begin{bmatrix}x_0; \ x_1; \ \dots; \ x_n \end{bmatrix}$ or
 
-    $\mathbf{x} = \begin{bmatrix}x_0 \\ x_1 \\ \vdots \\ x_n \end{bmatrix}$ with $x_0 = 1$
+    $\mathbf{x} = \begin{bmatrix}x_0 \\ x_1 \\ \vdots \\ x_n \end{bmatrix}$
 
     Or we can use xbar notation - $\mathbf{\bar{x}}$ that is a row vector that is added with $x_0 = 1$ such as $\mathbf{\bar{x}} = [x_0, x_1, ... , x_n]$
 
