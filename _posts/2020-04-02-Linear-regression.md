@@ -180,7 +180,7 @@ Note:
 
 2. Disadvantage
 
-    - The algorithm complexity for multiplication matrix is $O(n^3)$. So, it takes so much time when we have the large input features.
+    - The algorithm complexity for inversing matrix is $O(n^3)$. So, it takes so much time when we have the large input features.
 
 
 <br>

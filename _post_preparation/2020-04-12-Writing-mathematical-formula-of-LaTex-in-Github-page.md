@@ -54,3 +54,5 @@ tags: [Latex]
 Refer:
 
 [https://csrgxtu.github.io/2015/03/20/Writing-Mathematic-Fomulars-in-Markdown/](https://csrgxtu.github.io/2015/03/20/Writing-Mathematic-Fomulars-in-Markdown/)
+
+[https://en.wikibooks.org/wiki/LaTeX/Mathematics](https://en.wikibooks.org/wiki/LaTeX/Mathematics)
