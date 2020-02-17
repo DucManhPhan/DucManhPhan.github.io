@@ -17,7 +17,7 @@ tags: [Java, Jvm]
 
 <br>
 
-## Understanding about RSocket 
+## Understanding about Java memory model 
 
 
 

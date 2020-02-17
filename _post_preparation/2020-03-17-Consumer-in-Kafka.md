@@ -27,7 +27,6 @@ tags: [Kafka]
 
 ## How Kafka Consumer works
 
-
 Every time a consumer polls new messages, a heart-beat is sent to the group co-ordinator (A group co-ordinator is the first broker reporting its availability to Zookeeper). If the heart-beat is not received by the group coordinator then it assumes that the consumer is down and re-assigns its partition to other available consumer – process called rebalancing.
 
 After a consumer reads and processes a message it needs to commit the offset of that message. This keeps a consumer and last read message in sync.
@@ -125,6 +124,16 @@ By using one thread per consumer, we have some benefits and drawbacks:
 
 <br>
 
+## Consumer groups
+
+https://dzone.com/articles/dont-use-apache-kafka-consumer-groups-the-wrong-wa
+
+https://kafka.apache.org/0100/javadoc/index.html?org/apache/kafka/clients/consumer/KafkaConsumer.html
+
+https://www.oreilly.com/library/view/kafka-the-definitive/9781491936153/ch04.html
+
+<br>
+
 ## Some problems when running Kafka
 1. ```attempt to heartbeat failed since group is rebalancing```
 
@@ -152,6 +161,14 @@ Refer:
 [https://blog.newrelic.com/engineering/kafka-consumer-config-auto-commit-data-loss/](https://blog.newrelic.com/engineering/kafka-consumer-config-auto-commit-data-loss/)
 
 [https://www.cloudkarafka.com/blog/2016-11-30-part1-kafka-for-beginners-what-is-apache-kafka.html](https://www.cloudkarafka.com/blog/2016-11-30-part1-kafka-for-beginners-what-is-apache-kafka.html)
+
+<br>
+
+**Consumer configurations**
+
+[https://docs.confluent.io/current/installation/configuration/consumer-configs.html](https://docs.confluent.io/current/installation/configuration/consumer-configs.html)
+
+[https://docs.spring.io/spring-kafka/reference/html](https://docs.spring.io/spring-kafka/reference/html)
 
 <br>
 

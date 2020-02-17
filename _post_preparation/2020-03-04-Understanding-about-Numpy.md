@@ -99,13 +99,34 @@ tags: [Numpy, Python]
     X = np.concatenate((X0, ones), axis=1)
     ```
 
+3. Some element wise operations with matrix
 
-3. Create new matrix with change its dimensions
+    - Square for each element
 
-    ```
+        ```python
+        import numpy as np
 
-    ```
+        arr = [1, 2, 4, 6]
+        print("Square values of arr: ", np.square(arr))
+        ```
+    
+    - Multiply each element of matrixes with other
 
+        ```python
+        import numpy as np
+        a = np.array([[1,2],[3,4]])
+        b = np.array([[5,6],[7,8]])
+        np.multiply(a,b)
+        ```
+
+        We should use **array** instead of **matrix**. **matrix** objects have all sorts of horrible incompatibilities with regular ndarrays. With **ndarrays**, you can just use * for elementwise multiplication:
+
+        ```Python
+        a * b
+
+        # In Python 3.5, we can use @ operator to do matrix multiplication
+        a @ b
+        ```
 
 <br>
 

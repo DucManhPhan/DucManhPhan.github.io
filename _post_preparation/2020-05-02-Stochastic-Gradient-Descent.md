@@ -3,6 +3,7 @@ layout: post
 title: Stochastic Gradient Descent
 bigimg: /img/image-header/yourself.jpeg
 tags: [Machine learning]
+mathjax: true
 ---
 
 

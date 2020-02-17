@@ -69,3 +69,4 @@ Refer:
 
 [https://stomp.github.io/stomp-specification-1.2.html#Abstract](https://stomp.github.io/stomp-specification-1.2.html#Abstract)
 
+[https://github.com/netgloo/spring-boot-samples/tree/master/spring-boot-web-socket-user-notifications](https://github.com/netgloo/spring-boot-samples/tree/master/spring-boot-web-socket-user-notifications)
