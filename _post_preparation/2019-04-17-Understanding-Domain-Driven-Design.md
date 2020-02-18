@@ -219,6 +219,8 @@ Thanks for your reading
 
 Refer:
 
+[Practical Domain-Driven Design in Enterprise Java](http://file.allitebooks.com/20200217/Practical%20Domain-Driven%20Design%20in%20Enterprise%20Java.pdf)
+
 [https://blog.sapiensworks.com/tags.html](https://blog.sapiensworks.com/tags.html)
 
 **Series about Domain Driven Design**
