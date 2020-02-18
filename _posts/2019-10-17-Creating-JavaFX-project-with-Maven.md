@@ -142,7 +142,7 @@ Oracle 'Premier Support' for JavaFX is also available, for the current long-term
 
     After compiling , we need to run ```Plugins -> javafx -> javafx:run```.
 
-    [!](../img/JavaFX/setup/run-project.png)
+    ![](../img/JavaFX/setup/run-project.png)
 
 5. Common problems when creating JavaFX project
 
@@ -208,21 +208,48 @@ Oracle 'Premier Support' for JavaFX is also available, for the current long-term
 
                 ![](../img/JavaFX/setup/result-calculator.png)
 
+    - ```Command execution failed.```
 
-        Note:
-        - ```getClass().getClassLoader().getResource(...)``` will load a resource from a path relative to the classpath. Since you placed the FXML file in the ```application``` pacakge, you need:
+        After run all above steps, we can encounter error like a below image:
 
-            ```java
-            Parent root=FXMLLoader.load(getClass().getClassLoader().getResource("application/Main.fxml"));
-            ```
+        ```
+        Error: Could not create the Java Virtual Machine.
+        Error: A fatal exception has occurred. Program will exit.
+        Unrecognized option: --module-path
+        [ERROR] Command execution failed.
+        ```
 
-            If you just use ```getClass().getResource(...)```, and do not prefix the path with ```/```, it will load from a path relative to the current class. So,
+        ```Unrecognized option: --module-path``` means that you are running with **Java 1.8**. We need to set JDK 11/12 before running ```mvn javafx:run```.
 
-            ```java
-            Parent root=FXMLLoader.load(getClass().getResource("Main.fxml"));
-            ```
+        To fix this problem, we should insert ```<configuration><executable>/path/to/jdk-11-12/bin/java</executable></configuration>``` into **javafx-maven-plugin** of **pom.xml** file.
 
-            Make sure that our FXML file is being exported to the build folder, along with the ```.class``` files.
+        ```xml
+        <plugin>
+            <groupId>org.openjfx</groupId>
+            <artifactId>javafx-maven-plugin</artifactId>
+            <version>0.0.3</version>
+            <configuration>
+                <mainClass>org.openjfx.App</mainClass>
+                <executable>C:\Program Files\Java\jdk-11.0.4\bin\java</executable>
+            </configuration>
+        </plugin>
+        ```
+
+
+    Note:
+    - ```getClass().getClassLoader().getResource(...)``` will load a resource from a path relative to the classpath. Since you placed the FXML file in the ```application``` pacakge, you need:
+
+        ```java
+        Parent root=FXMLLoader.load(getClass().getClassLoader().getResource("application/Main.fxml"));
+        ```
+
+        If you just use ```getClass().getResource(...)```, and do not prefix the path with ```/```, it will load from a path relative to the current class. So,
+
+        ```java
+        Parent root=FXMLLoader.load(getClass().getResource("Main.fxml"));
+        ```
+
+        Make sure that our FXML file is being exported to the build folder, along with the ```.class``` files.
         
 <br>
 

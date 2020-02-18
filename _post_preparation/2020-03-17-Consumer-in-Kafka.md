@@ -10,10 +10,17 @@ tags: [Kafka]
 <br>
 
 ## Table of contents
-
-
-
-
+- [The definition of Kafka Consumer](#the-definition-of-kafka-consumer)
+- [How Kafka Consumer works](#how-kafka-consumer-works)
+- [Source code Java for Kafka consumer](#source-code-java-for-kafka-consumer)
+- [The meaning of parameters in consumer client](#the-meaning-of-parameters-in-consumer-client)
+- [Coordinator in Kafka](#coordinator-in-kafka)
+- [Rebalancing in Kafka](#rebalancing-in-kafka)
+- [Heartbeat thread in Kafka](#heartbeat-thread-in-kafka)
+- [Thread-safe with consumer](#thread-safe-with-consumer)
+- [Consumer groups](#consumer-groups)
+- [Some problems when running Kafka](#some-problems-when-running-kafka)
+- [Wrapping up](#wrapping-up)
 
 <br>
 
