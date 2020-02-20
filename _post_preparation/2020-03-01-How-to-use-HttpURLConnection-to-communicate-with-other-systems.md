@@ -13,7 +13,11 @@ tags: [Java]
 
 ## Table of contents
 - [Introduction to HttpURLConnection](#introduction-to-httpurlconnection)
-- 
+- [Preparing parameter headers for HttpURLConnection](#preparing-parameter-headers-for-httpurlconnection)
+- [Implementing with Post request](#implementing-with-post-request)
+- [Implementing with Get request](#implementing-with-get-request)
+- [Implementing with Put request](#implementing-with-put-request)
+- [Implementing with Delete request](#implementing-with-delete-request)
 - [Benefits and Drawbacks](#benefits-and-drawbacks)
 - [Wrapping up](#wrapping-up)
 
@@ -309,5 +313,9 @@ public void deleteRequest(String path) throws IOException {
 <br>
 
 Refer:
+
+**Drawbacks of HttpURLConnection**
+
+[[https://docs.oracle.com/javase/1.5.0/docs/guide/net/http-keepalive.html](https://docs.oracle.com/javase/1.5.0/docs/guide/net/http-keepalive.html)
 
 [https://www.javacodegeeks.com/2014/09/caveats-of-httpurlconnection.html](https://www.javacodegeeks.com/2014/09/caveats-of-httpurlconnection.html)

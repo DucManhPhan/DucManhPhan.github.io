@@ -123,3 +123,4 @@ By default, the HttpRequest builder will construct a GET request to the server.
 
 Refer:
 
+[Java Fundamentals: HttpClient](https://app.pluralsight.com/library/courses/java-fundamentals-httpclient/table-of-contents)
