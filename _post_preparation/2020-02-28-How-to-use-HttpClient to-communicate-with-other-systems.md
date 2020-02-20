@@ -1,6 +1,6 @@
 ---
 layout: post
-title: How to use Http request with Spring
+title: How to use HttpClient to communicate with other systems
 bigimg: /img/path.jpg
 tags: [Java]
 ---

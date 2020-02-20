@@ -1,8 +1,8 @@
 ---
 layout: post
-title: How to use Http request with WebClient in Spring Webflux
+title: How to use WebClient of Spring Webflux to communicate with other systems
 bigimg: /img/path.jpg
-tags: [Java]
+tags: [Java, Reactive programming]
 ---
 
 
@@ -19,7 +19,7 @@ tags: [Java]
 
 <br>
 
-## 
+## Introduction to WebClient
 
 
 
