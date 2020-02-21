@@ -35,6 +35,20 @@ tags: [Java]
 
 In our requests, we have so many parameters of Http Header, RequestBody. So, in this section, we will create some methods to take on the parameters of Http Header.
 
+Firstly, we need to create RequestContent class that saves all information of HttpHeader, RequestBody.
+
+```java
+@Data
+@Builder
+public class RequestContent {
+
+    private Map<String, String> keyValueHeaders;
+    private String token;
+    private FilePart file;
+    private String bodyData;
+}
+```
+
 ```java
 public void createParamHeaders(String param1, String param2) {
     Map<String, String> keyValueHeaders = new HashMap<String, String>();
@@ -183,15 +197,15 @@ public void setAuthorizationForRequest(HttpURLConnection conn, String token) {
 ## Implementing with Get request
 
 ```java
-public void getRequest(String path, String requestBody) {
+public void getRequest(String path, RequestContent requestContent) {
     URL url = new URL(host + path);
     HttpURLConnection conn = (HttpURLConnection) url.openConnection();
     conn.setDoOutput(true);
     conn.setRequestMethod("GET");
     conn.setRequestProperty("Content-Type", "application/json");
 
-    setParamHeadersForRequest(conn, createParamHeaders());
-    setAuthorizationForRequest(conn, token);
+    setParamHeadersForRequest(conn, requestContent.getKeyValueHeaders());
+    setAuthorizationForRequest(conn, requestContent.getToken());
 
     if (StringUtils.isNotEmpty(requestBody)) {
         OutputStream os = conn.getOutputStream();
@@ -220,12 +234,12 @@ public void putRequest(String path, String requestBody) {
     conn.setRequestMethod("PUT");
     conn.setRequestProperty("Content-Type", "application/json");
 
-    setParamHeadersForRequest(conn, createParamHeaders());
-    setAuthorizationForRequest(conn, token);
+    setParamHeadersForRequest(conn, requestContent.getKeyValueHeaders());
+    setAuthorizationForRequest(conn, requestContent.getToken());
 
-    if (StringUtils.isNotEmpty(valueInput)) {
+    if (StringUtils.isNotEmpty(requestBody.getBodyData())) {
         OutputStream os = conn.getOutputStream();
-        os.write(valueInput.getBytes());
+        os.write(requestBody.getBodyData().getBytes());
         os.flush();
         os.close();
     }
@@ -240,21 +254,20 @@ public void putRequest(String path, String requestBody) {
 ## Implementing with Delete request
 
 ```java
-public void deleteRequest(String path) throws IOException {
+public void deleteRequest(String path, RequestContent requestContent) throws IOException {
     URL url = new URL(host + path);
     HttpURLConnection conn = (HttpURLConnection) url.openConnection();
     conn.setDoOutput(true);
     conn.setRequestMethod("DELETE");
     conn.setRequestProperty("Content-Type", "application/json");
 
-    setParamHeadersForRequest(conn, createParamHeaders());
-    setAuthorizationForRequest(conn, token);
+    setParamHeadersForRequest(conn, requestContent.getKeyValueHeaders());
+    setAuthorizationForRequest(conn, requestContent.getToken());
 
     int responseCode = conn.getResponseCode();
     System.out.println("Response code is: " + responseCode);
 }
 ```
-
 
 <br>
 
@@ -303,11 +316,6 @@ public void deleteRequest(String path) throws IOException {
 
 ## Wrapping up
 - If our project do not use JDK 11, to communicate with other systems, we can use other third-party libraries such as the Apache HttpComponents project, which also offers an HttpClient API, and OkHttp from Square, which is another opensource HttpClient for Java, and there's also even higher-level libraries like the JAX-RS Rest client. This REST client doesn't only perform HTTP requests, but it also knows about REST principles, and can, for example, automatically map JSON responses to Java objects. 
-
-
-
-
-
 
 
 <br>
