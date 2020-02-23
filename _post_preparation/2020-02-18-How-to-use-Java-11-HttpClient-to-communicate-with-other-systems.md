@@ -12,7 +12,7 @@ tags: [Java]
 ## Table of contents
 - [Introduction to Java 11's HttpClient](#introduction-to-java-11's-httpclient)
 - []()
-
+- [Wrapping up](#wrapping-up)
 
 
 <br>
@@ -60,57 +60,6 @@ By default, the HttpRequest builder will construct a GET request to the server.
 
 <br>
 
-## Implementing with Get request
-
-
-
-
-
-
-<br>
-
-## Implementing with Post request
-
-
-
-
-
-<br>
-
-## Implementing with Put request
-
-
-
-
-<br>
-
-## Implementing with Patch request
-
-
-
-<br>
-
-## Implementing with Delete request
-
-
-
-
-<br>
-
-## Implementing with upload file
-
-
-
-
-<br>
-
-## Implementing with download file
-
-
-
-
-<br>
-
 ## Wrapping up
 
 
@@ -124,3 +73,5 @@ By default, the HttpRequest builder will construct a GET request to the server.
 Refer:
 
 [Java Fundamentals: HttpClient](https://app.pluralsight.com/library/courses/java-fundamentals-httpclient/table-of-contents)
+
+[https://www.baeldung.com/java-9-http-clients](https://www.baeldung.com/java-9-http-client)

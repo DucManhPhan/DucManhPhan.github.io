@@ -13,11 +13,10 @@ tags: [Java]
 
 ## Table of contents
 - [Introduction to HttpURLConnection](#introduction-to-httpurlconnection)
+- [Some steps to work with HttpURLConnection]()
+- [Source code]()
+- [Some problem when using HttpURLConnection]()
 - [Preparing parameter headers for HttpURLConnection](#preparing-parameter-headers-for-httpurlconnection)
-- [Implementing with Post request](#implementing-with-post-request)
-- [Implementing with Get request](#implementing-with-get-request)
-- [Implementing with Put request](#implementing-with-put-request)
-- [Implementing with Delete request](#implementing-with-delete-request)
 - [Benefits and Drawbacks](#benefits-and-drawbacks)
 - [Wrapping up](#wrapping-up)
 
@@ -31,243 +30,54 @@ tags: [Java]
 
 <br>
 
-## Preparing parameter headers for HttpURLConnection
+## Some steps to work with HttpURLConnection
 
-In our requests, we have so many parameters of Http Header, RequestBody. So, in this section, we will create some methods to take on the parameters of Http Header.
 
-Firstly, we need to create RequestContent class that saves all information of HttpHeader, RequestBody.
-
-```java
-@Data
-@Builder
-public class RequestContent {
-
-    private Map<String, String> keyValueHeaders;
-    private String token;
-    private FilePart file;
-    private String bodyData;
-}
-```
-
-```java
-public void createParamHeaders(String param1, String param2) {
-    Map<String, String> keyValueHeaders = new HashMap<String, String>();
-    keyValueHeaders.put("param1", param1);
-    keyValueHeaders.put("param2", param2);
-
-    return keyValueHeaders;
-}
-
-public void setParamHeadersForRequest(HttpURLConnection conn,
-                                      Map<String, String> keyValueHeaders) {
-    for (Map.Entry<String, String> me : keyValueHeaders.entrySet()) {
-        conn.setRequestProperty(me.getKey().toString(), me.getValue().toString());
-    }
-}
-
-public void setAuthorizationForRequest(HttpURLConnection conn, String token) {
-    if (StringUtils.isNotEmpty(token)) {
-        conn.setRequestProperty("Authorization", token);
-    }
-}
-```
 
 <br>
 
-## Implementing with Post request
+## Source code
 
-- With request body that is formatted in json
+
+
+
+<br>
+
+## Some problem when using HttpURLConnection
+1. Using PUT request with JSON data but it does not work.
 
     ```java
-    public static final String host = "";
+    url = new URL("...");
+    HttpURLConnection hurl = (HttpURLConnection) url.openConnection();
+    hurl.setRequestMethod("PUT");
+    hurl.setDoOutput(true);
+    hurl.setRequestProperty("Content-Type", "application/json");
+    hurl.setRequestProperty("Accept", "application/json");
 
-    public void postRequest(String path, String requestBody) {
-        URL url = new URL(host + path);
-        HttpURLConnection conn = (HttpURLConnection) url.openConnection();
-        conn.setDoOutput(true);
-        conn.setRequestMethod("POST");
-        conn.setRequestProperty("Content-Type", "application/json");
+    String payload = "{'pos':{'left':45,'top':45}}";
 
-        setParamHeadersForRequest(conn, createParamHeaders());
-        setAuthorizationForRequest(conn, token);
-
-        if (StringUtils.isNotEmpty(requestBody)) {
-            OutputStream os = conn.getOutputStream();
-            os.write(requestBody.getBytes());
-            os.flush();
-            os.close();
-        }
-
-        // To work with response
-        // (1) - we only get response code
-        // int responseCode = conn.getResponseCode();
-        // System.out.println("Response code is: " + responseCode);
-
-        // (2) - we can get all information of response
-        BufferedReader br = new BufferedReader(new InputStreamReader((conn.getInputStream())));
-        String output, response = "";
-        System.out.println("Output from Server .... \n");
-        while ((output = br.readLine()) != null) {
-            response += output;
-        }
-        JSONObject js = XML.toJSONObject(response);
-    }
+    OutputStreamWriter osw = new OutputStreamWriter(hurl.getOutputStream());
+    osw.write(payload);
+    osw.flush();
+    osw.close();
     ```
 
-- With request body that is formatted xml (use SOAP)
+    Solution:
+    - With an above problem, we can find that we only open connection, then set parameters for request. Finally, we do not send it to our server.
 
-    ```java
-    public static List<DataPackageDto> postRequest(InvitationDto dto) {
-        ResourceBundle resource = ResourceBundle.getBundle("config/globalConfig");
-        String test = resource.getString("test");
-        if ("1".equals(test)) {
-            return CallApiDataPackage_87(dto);
-        }
-        
-        List<DataPackageDto> list = new ArrayList<>();
-        String URL_DATAPACKAGE = resource.getString("URL_DATAPACKAGE");
-        try {
-            URL obj = new URL(URL_DATAPACKAGE);
-            HttpURLConnection con = (HttpURLConnection) obj.openConnection();
-            con.setRequestMethod("POST");
-            con.setRequestProperty("Content-Type", "text/xml;charset=UTF-8");
-            String xml
-                    = //"<?xml version=\"1.0\" encoding=\"utf-8\"?>"
-                    //+ " <?xml version=\"1.0\" encoding=\"utf-8\"?>\n"
-                    "<soapenv:Envelope xmlns:soapenv=\"http://schemas.xmlsoap.org/soap/envelope/\" xmlns:ws=\"http://ws.ussd098.viettel.com/\">"
-                    + " <soapenv:Header/>"
-                    + " <soapenv:Body>"
-                    + " <ws:getUssdMenu>"
-                    + " <!--Optional:-->"
-                    + " <user>" + new SecurityUtil().decrypt(Config.getInstance().getUserWs()) + "</user>"
-                    + " <!--Optional:-->"
-                    + " <password>" + new SecurityUtil().decrypt(Config.getInstance().getPassWs()) + "</password>"
-                    + " <!--Optional:-->"
-                    + " <msisdn>" + "84" + DataUtil.FormatIsdn(dto.getIsdnB()) + "</msisdn>"
-                    + " <!--Optional:-->"
-                    + " <type>INTERNET,COMBO,HOT,DATAPLUS,EVENT</type>"
-                    + " </ws:getUssdMenu>"
-                    + " </soapenv:Body>"
-                    + "</soapenv:Envelope>";
-            
-            con.setDoOutput(true);
-            String encoded = Base64.getEncoder().encodeToString((new SecurityUtil().decrypt(Config.getInstance().getUserAuth())
-                    + ":" + new SecurityUtil().decrypt(Config.getInstance().getPasswsAuth())).getBytes(StandardCharsets.UTF_8));  //Java 8
-            con.setRequestProperty("Authorization", "Basic " + encoded);
-            logger.info("CallApiDataPackage Authorization info: " + encoded);
-            //formart user, pass ve ***
-            String requestCallDataPackageHideUser = hideSensitiveInfo(xml, "user");
-            String requestCallDataPackage = hideSensitiveInfo(requestCallDataPackageHideUser,"password");
-            logger.info("CallApiDataPackage request " + "isdnB :" + dto.getIsdnB() + requestCallDataPackage);
-            
-            DataOutputStream wr = new DataOutputStream(con.getOutputStream());
-            wr.writeBytes(xml);
-            wr.flush();
-            wr.close();
-            BufferedReader in = new BufferedReader(new InputStreamReader(
-                    con.getInputStream()));
-            String inputLine;
-            StringBuffer response = new StringBuffer();
-            while ((inputLine = in.readLine()) != null) {
-                response.append(inputLine);
-            }
-            String jsonxml = response.toString();
-            logger.info("CallApiDataPackage response " + "isdnB : "+ dto.getIsdnB() + " " + jsonxml);
-            
-            JSONObject jsonObject = XML.toJSONObject(jsonxml);
-            JSONArray jsonArray = jsonObject.getJSONObject("S:Envelope").getJSONObject("S:Body")
-                    .getJSONObject("ns2:getUssdMenuResponse")
-                    .getJSONObject("return").getJSONArray("product");
-            for (int i = 0; jsonArray != null && i < jsonArray.length(); i++) {
-                JSONObject json = jsonArray.getJSONObject(i);
-                DataPackageDto tmp = new DataPackageDto();
-                JsonUtil.fillObject(json.toString(), tmp);
-                list.add(tmp);
-            }
-            con.disconnect();
-        } catch (Exception e) {
-            logger.error("CallApiDataPackage Error IsdnB : " + dto.getIsdnB() + " ", e);
-        }
-        return list;
-    }
-    ```
+        To send our content, we need to call:
 
-<br>
+        ```java
+        int responseCode = hurl.getResponseCode();
+        ```
 
-## Implementing with Get request
+        Because the Oracle implementation of **HttpURLConnection** caches our post's content unless we tell it to be in streaming mode. The content will be sent if we start interaction with **getResponseCode()** method of **HttpURLConnection**'s instance.
 
-```java
-public void getRequest(String path, RequestContent requestContent) {
-    URL url = new URL(host + path);
-    HttpURLConnection conn = (HttpURLConnection) url.openConnection();
-    conn.setDoOutput(true);
-    conn.setRequestMethod("GET");
-    conn.setRequestProperty("Content-Type", "application/json");
+    - According to RFC 4627, we can not use single quotes in our JSON (although some implementations seem to not care). So, we need to change our json string with the below format:
 
-    setParamHeadersForRequest(conn, requestContent.getKeyValueHeaders());
-    setAuthorizationForRequest(conn, requestContent.getToken());
-
-    if (StringUtils.isNotEmpty(requestBody)) {
-        OutputStream os = conn.getOutputStream();
-        os.write(requestBody.getBytes());
-        os.flush();
-        os.close();
-    }
-
-    int responseCode = conn.getResponseCode();
-    System.out.println("Response code is: " + responseCode);
-}
-```
-
-
-<br>
-
-## Implementing with Put request
-
-First, we will use put request for object.
-
-```java
-public void putRequest(String path, String requestBody) {
-    URL url = new URL(host + path);
-    HttpURLConnection conn = (HttpURLConnection) url.openConnection();
-    conn.setDoOutput(true);
-    conn.setRequestMethod("PUT");
-    conn.setRequestProperty("Content-Type", "application/json");
-
-    setParamHeadersForRequest(conn, requestContent.getKeyValueHeaders());
-    setAuthorizationForRequest(conn, requestContent.getToken());
-
-    if (StringUtils.isNotEmpty(requestBody.getBodyData())) {
-        OutputStream os = conn.getOutputStream();
-        os.write(requestBody.getBodyData().getBytes());
-        os.flush();
-        os.close();
-    }
-
-    int responseCode = conn.getResponseCode();
-    System.out.println("Response code is: " + responseCode);
-}
-```
-
-<br>
-
-## Implementing with Delete request
-
-```java
-public void deleteRequest(String path, RequestContent requestContent) throws IOException {
-    URL url = new URL(host + path);
-    HttpURLConnection conn = (HttpURLConnection) url.openConnection();
-    conn.setDoOutput(true);
-    conn.setRequestMethod("DELETE");
-    conn.setRequestProperty("Content-Type", "application/json");
-
-    setParamHeadersForRequest(conn, requestContent.getKeyValueHeaders());
-    setAuthorizationForRequest(conn, requestContent.getToken());
-
-    int responseCode = conn.getResponseCode();
-    System.out.println("Response code is: " + responseCode);
-}
-```
+        ```java
+        String payload = "{\"pos\":{\"left\":45,\"top\":45}}";
+        ```
 
 <br>
 
@@ -302,9 +112,9 @@ public void deleteRequest(String path, RequestContent requestContent) throws IOE
         }
         ```
 
-        At (1) line, when we call openConnection() method on the URL, we get back a URL connection. However, we know the URL points to an HTTP server, so we want to configure it as such. Therefore, we need to first cast it to HttpURLConnection.
+        At (1) line, when we call **openConnection()** method on the URL, we get back a URL connection. However, we know the URL points to an HTTP server, so we want to configure it as such. Therefore, we need to first cast it to HttpURLConnection.
         
-        At (2) line, when configuring the HTTP RequestMethod pass in a string because there were no enums when this API was designed. However, we could easily pass in a malformed string.
+        At (2) line, when configuring the HTTP **RequestMethod** pass in a string because there were no enums when this API was designed. However, we could easily pass in a malformed string.
 
         At (3) line, it's difficult to realize that it's the actual handling of the response body. There we see that we can ask the connection for the input stream. But that's a raw input stream. Therefore, we need to write a helper method, in this case, readInputStream() to take that raw input stream and turn it into something useful. That's pretty low-level code that we have to write there with lots of possibilities.for subtle errors.
 
@@ -327,3 +137,19 @@ Refer:
 [[https://docs.oracle.com/javase/1.5.0/docs/guide/net/http-keepalive.html](https://docs.oracle.com/javase/1.5.0/docs/guide/net/http-keepalive.html)
 
 [https://www.javacodegeeks.com/2014/09/caveats-of-httpurlconnection.html](https://www.javacodegeeks.com/2014/09/caveats-of-httpurlconnection.html)
+
+[https://www.baeldung.com/httpurlconnection-post](https://www.baeldung.com/httpurlconnection-post)
+
+[https://www.baeldung.com/java-http-request](https://www.baeldung.com/java-http-request)
+
+[https://www.programming-books.io/essential/android/use-httpurlconnection-for-multipartform-data-1448a66f16754d7d925f8a4804526afe](https://www.programming-books.io/essential/android/use-httpurlconnection-for-multipartform-data-1448a66f16754d7d925f8a4804526afe)
+
+[https://www.codejava.net/java-se/networking/use-httpurlconnection-to-download-file-from-an-http-url](https://www.codejava.net/java-se/networking/use-httpurlconnection-to-download-file-from-an-http-url)
+
+[https://www.codejava.net/java-se/networking/upload-files-by-sending-multipart-request-programmatically](https://www.codejava.net/java-se/networking/upload-files-by-sending-multipart-request-programmatically)
+
+<br>
+
+**Download file with URL**
+
+[https://www.baeldung.com/java-download-file](https://www.baeldung.com/java-download-file)

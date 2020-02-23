@@ -35,18 +35,11 @@ In order to use Apache HttpClient APIs, we can add depedency into pom.xml file:
 </dependency>
 ```
 
-<br>
-
-## 
-
-
-
 
 
 <br>
 
-## Implementing with Get request
-
+## Source code
 
 
 
@@ -54,42 +47,11 @@ In order to use Apache HttpClient APIs, we can add depedency into pom.xml file:
 
 <br>
 
-## Implementing with Post request
-
-
-
-
-
-<br>
-
-## Implementing with Put request
-
+## Benefits and Drawbacks
 
 
 
 <br>
-
-## Implementing with Patch request
-
-
-
-<br>
-
-## Implementing with Delete request
-
-
-
-
-<br>
-
-## Implementing with upload file
-
-
-
-
-<br>
-
-## Implementing with download file
 
 ## Wrapping up
 
@@ -109,3 +71,4 @@ Refer:
 
 [https://springframework.guru/using-resttemplate-with-apaches-httpclient/](https://springframework.guru/using-resttemplate-with-apaches-httpclient/)
 
+[https://www.journaldev.com/7146/apache-httpclient-example-closeablehttpclient](https://www.journaldev.com/7146/apache-httpclient-example-closeablehttpclient)
