@@ -66,6 +66,8 @@ In order to use Apache HttpClient APIs, we can add depedency into pom.xml file:
 
 Refer:
 
+[https://hc.apache.org/httpcomponents-client-4.5.x/examples.html](https://hc.apache.org/httpcomponents-client-4.5.x/examples.html)
+
 [https://www.baeldung.com/httpclient-multipart-upload](https://www.baeldung.com/httpclient-multipart-upload)
 
 [https://www.baeldung.com/httpclient-connection-management](https://www.baeldung.com/httpclient-connection-management)

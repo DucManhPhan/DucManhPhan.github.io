@@ -35,11 +35,12 @@ tags: [Java, Reactive programming]
 
 <br>
 
-## 
+## The comparison of WebClient with RestTemplate
 
-
-
-
+- non-blocking, reactive, and supports higher concurrency with less hardware resources.
+- provides a functional API that takes advantage of Java 8 lambdas.
+- supports both synchronous and asynchronous scenarios.
+- supports streaming up or down from a server.
 
 
 <br>
