@@ -11,8 +11,9 @@ tags: [Java]
 
 ## Table of contents
 - [Introduction to Apache HttpClient](#introduction-to-apache-httpclient)
-- []()
-
+- [Source code](#source-code)
+- [Benefits and Drawbacks](#benefits-and-drawbacks)
+- [Wrapping up](#wrapping-up)
 
 
 <br>
@@ -67,8 +68,14 @@ Refer:
 
 [https://www.baeldung.com/httpclient-multipart-upload](https://www.baeldung.com/httpclient-multipart-upload)
 
+[https://www.baeldung.com/httpclient-connection-management](https://www.baeldung.com/httpclient-connection-management)
+
+[https://www.baeldung.com/httpclient-post-http-request](https://www.baeldung.com/httpclient-post-http-request)
+
 [https://www.baeldung.com/httpclient-guide](https://www.baeldung.com/httpclient-guide)
 
 [https://springframework.guru/using-resttemplate-with-apaches-httpclient/](https://springframework.guru/using-resttemplate-with-apaches-httpclient/)
 
 [https://www.journaldev.com/7146/apache-httpclient-example-closeablehttpclient](https://www.journaldev.com/7146/apache-httpclient-example-closeablehttpclient)
+
+[https://www.javaguides.net/2018/10/apache-httpclient-get-post-put-and-delete-methods-example.html](https://www.javaguides.net/2018/10/apache-httpclient-get-post-put-and-delete-methods-example.html)
