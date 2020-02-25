@@ -144,6 +144,27 @@ RestTemplate simplifies communication with HTTP services, and program code can p
 
 <br>
 
+## Some problems when using Spring RestTemplate
+1. Error while extracting response for type [class java.lang.String] and content type [application/json]
+
+    The main problem here is content type [text/html;charset=iso-8859-1] received from the service, however the real content type should be application/json;charset=iso-8859-1
+
+    In order to overcome this you can introduce custom message converter. and register it for all kind of responses (i.e. ignore the response content type header). Just like this:
+
+    ```java
+    List<HttpMessageConverter<?>> messageConverters = new ArrayList<HttpMessageConverter<?>>();        
+    //Add the Jackson Message converter
+    MappingJackson2HttpMessageConverter converter = new MappingJackson2HttpMessageConverter();
+
+    // Note: here we are making this converter to process any kind of response, 
+    // not only application/*json, which is the default behaviour
+    converter.setSupportedMediaTypes(Collections.singletonList(MediaType.ALL));        
+    messageConverters.add(converter);  
+    restTemplate.setMessageConverters(messageConverters); 
+    ```
+
+<br>
+
 ## Wrapping up
 - Spring RestTemplate that uses **MessageConverter** internally. So we need to set this property in the RestTemplate bean.
 
@@ -165,6 +186,8 @@ Refer:
 
 [https://springframework.guru/using-resttemplate-in-spring/](https://springframework.guru/using-resttemplate-in-spring/)
 
+[https://stackoverflow.com/questions/44176335/restclientexception-could-not-extract-response-no-suitable-httpmessageconverte](https://stackoverflow.com/questions/44176335/restclientexception-could-not-extract-response-no-suitable-httpmessageconverte)
+
 <br>
 
 **Error Handling in RestTemplate**
@@ -174,6 +197,8 @@ Refer:
 <br>
 
 **Some ways to download file in Spring boot**
+
+[https://www.devglan.com/spring-boot/spring-boot-file-upload-download](https://www.devglan.com/spring-boot/spring-boot-file-upload-download)
 
 [https://javausecase.com/2017/07/20/asyncresttemplate-rest-call-with-responseextractor-asyncrequestcallback/](https://javausecase.com/2017/07/20/asyncresttemplate-rest-call-with-responseextractor-asyncrequestcallback/)
 
