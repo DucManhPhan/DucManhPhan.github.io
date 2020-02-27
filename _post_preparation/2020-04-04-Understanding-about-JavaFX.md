@@ -12,22 +12,19 @@ tags: [JavaFx]
 <br>
 
 ## Table of contents
-
-
-
+- [Structure of application in JavaFX](#structure-of-application-in-javafx)
+- [Create ComboBox](#create-combobox)
+- [Create TreeView](#create-treeview)
+- [Create ListView](#create-listview)
+- [Create TableView](#create-tableview)
+- [Creat FileChooser and DirectoryChooser](#create-filechooser-and-directorychooser)
+- [Create new Window](#create-new-window)
+- [Wrapping up](#wrapping-up)
 
 
 <br>
 
 ## Structure of application in JavaFX
-
-
-
-
-
-<br>
-
-## 
 
 
 
