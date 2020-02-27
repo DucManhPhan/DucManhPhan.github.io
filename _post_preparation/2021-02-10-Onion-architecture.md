@@ -1,6 +1,6 @@
 ---
 layout: post
-title: Service oriented architecture
+title: Onion architecture pattern
 bigimg: /img/image-header/yourself.jpeg
 tags: [Architecture pattern]
 ---
@@ -53,4 +53,4 @@ tags: [Architecture pattern]
 
 Refer:
 
-[https://herbertograca.com/2017/11/09/service-oriented-architecture-soa/](https://herbertograca.com/2017/11/09/service-oriented-architecture-soa/)
+[https://herbertograca.com/2017/09/21/onion-architecture/](https://herbertograca.com/2017/09/21/onion-architecture/)

@@ -343,3 +343,11 @@ Refer:
 [https://dzone.com/articles/singleton-patterns-20-years-later](https://dzone.com/articles/singleton-patterns-20-years-later)
 
 [https://www.journaldev.com/171/thread-safety-in-java-singleton-classes-with-example-code](https://www.journaldev.com/171/thread-safety-in-java-singleton-classes-with-example-code)
+
+<br>
+
+**Double checked locking**
+
+[https://javarevisited.blogspot.com/2014/05/double-checked-locking-on-singleton-in-java.html](https://javarevisited.blogspot.com/2014/05/double-checked-locking-on-singleton-in-java.html)
+
+[http://www.cs.umd.edu/~pugh/java/memoryModel/DoubleCheckedLocking.html](http://www.cs.umd.edu/~pugh/java/memoryModel/DoubleCheckedLocking.html)

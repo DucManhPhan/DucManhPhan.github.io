@@ -110,6 +110,10 @@ Refer:
 
 <br>
 
+[https://fideloper.com/hexagonal-architecture](https://fideloper.com/hexagonal-architecture)
+
+[https://reflectoring.io/spring-hexagonal/](https://reflectoring.io/spring-hexagonal/)
+
 [https://en.wikipedia.org/wiki/Hexagonal_architecture_(software)](https://en.wikipedia.org/wiki/Hexagonal_architecture_(software))
 
 [https://hackernoon.com/hexagonal-architecture-introduction-part-i-e51h36id](https://hackernoon.com/hexagonal-architecture-introduction-part-i-e51h36id)

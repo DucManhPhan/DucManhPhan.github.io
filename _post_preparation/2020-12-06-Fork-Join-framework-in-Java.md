@@ -53,3 +53,7 @@ tags: [Multithreading, Java]
 Refer: 
 
 [https://www.javaworld.com/article/2078440/java-tip-when-to-use-forkjoinpool-vs-executorservice.html](https://www.javaworld.com/article/2078440/java-tip-when-to-use-forkjoinpool-vs-executorservice.html)
+
+[https://www.pluralsight.com/guides/introduction-to-the-fork-join-framework](https://www.pluralsight.com/guides/introduction-to-the-fork-join-framework)
+
+[https://docs.oracle.com/javase/tutorial/displayCode.html?code=https://docs.oracle.com/javase/tutorial/essential/concurrency/examples/ForkBlur.java](https://docs.oracle.com/javase/tutorial/displayCode.html?code=https://docs.oracle.com/javase/tutorial/essential/concurrency/examples/ForkBlur.java)

@@ -1,6 +1,6 @@
 ---
 layout: post
-title: Layer architecture pattern
+title: Layered architecture pattern
 bigimg: /img/image-header/yourself.jpeg
 tags: [Architecture pattern]
 ---
@@ -56,3 +56,5 @@ Refer:
 [Software architecture pattern]()
 
 [Learning modular programming](http://file.allitebooks.com/20170627/Learning%20Modular%20Java%20Programming.pdf)
+
+[https://herbertograca.com/2017/08/03/layered-architecture/](https://herbertograca.com/2017/08/03/layered-architecture/)

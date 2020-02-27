@@ -7,8 +7,6 @@ tags: [Java, Multithreading]
 
 
 
-
-
 <br>
 
 ## Table of contents
@@ -65,8 +63,6 @@ tags: [Java, Multithreading]
     If we use the option with no parameters, the await() method will block forever. So if the operation we are waiting on has crashed, and will never return, our application will never progress.
 
     Whenever we are waiting on a parallel operation to complete, whether that is in another thread, or, for instance, on a web service to return us some data, we should consider how to react if that operation never return.
-
-
 
 
 <br>
