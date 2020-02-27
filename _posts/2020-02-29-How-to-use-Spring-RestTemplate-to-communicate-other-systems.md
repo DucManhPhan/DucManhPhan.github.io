@@ -115,6 +115,13 @@ In order to understand how to implement code by using Spring RestTemplate, we ca
 
 2. Drawbacks
 
+    - It takes so much time when we have multiple user access.
+    
+        Under the hood, RestTemplate uses the Java Servlet API, which is based on the thread-per-request model. The thread will block until the web client receives the response.
+        
+        When we have multiple user, our application will create multiple threads, which will exhaust the thread pool or occupy all the available memory.
+
+    - Degrade our application's performance.
 
 <br>
 
@@ -209,6 +216,8 @@ In order to understand how to implement code by using Spring RestTemplate, we ca
 <br>
 
 Refer:
+
+[https://www.baeldung.com/spring-webclient-resttemplate](https://www.baeldung.com/spring-webclient-resttemplate)
 
 [https://github.com/spring-framework-guru/sfg-blog-posts/tree/master/resttemplate](https://github.com/spring-framework-guru/sfg-blog-posts/tree/master/resttemplate)
 
