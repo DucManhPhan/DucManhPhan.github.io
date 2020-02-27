@@ -85,7 +85,7 @@ There are just two sub folders: **src** and **target**. The **target** directory
 ## POM file in Maven project
 A POM - Project Object Model is an xml files that contains all informations about project and configuration details used by Maven to build the project. 
 
-All our informations will be contained in **project** tag. To be default, some parameters of project will be inserted in pom.xml.
+All our information will be contained in **project** tag. To be default, some parameters of project will be inserted in pom.xml.
 
 ![Parameters in POM file](../img/POM-file/POM-file.png)
 

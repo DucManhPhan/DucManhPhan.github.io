@@ -12,8 +12,8 @@ Let's get started.
 <br>
 
 ## Table of contents
-- [What is Stream in Java 8 ?](#what-is-stream-in-java-8-?)
-- [How is Stream implemented ?](#how-is-stream-implemented-?)
+- [What is Stream in Java 8?](#what-is-stream-in-java-8?)
+- [How Stream works](#how-stream-works)
 - [Stream pipeline](#stream-pipeline)
 - [Some ways to create Stream](#some-ways-to-create-stream)
 - [The differences between Streams and Collection](#the-difference-between-streams-and-collection)
@@ -23,7 +23,7 @@ Let's get started.
 
 <br>
 
-## What is Stream in Java 8 ?
+## What is Stream in Java 8?
 Normally, we will use Collections framework to handle data. Though this framework enables a user to handle data quite efficiently, the main complexity lies in using loops and performing repeating checks. It also does not facilitate the use of multi-core system efficiently. So, Stream will deal with this problem.
 
 A Stream is a series of different elements that have been emitted over a time period. Streams are like an array, but not an array. They do have distinct differences. The elements of an array are sequentially arranged in memory, while the elements in a Stream are not. Every Stream has a beginning as well as an end.
@@ -34,9 +34,54 @@ Have you ever sat on the banks of a river or flowing water and put your legs in 
 
 <br>
 
-## How is Stream implemented ?
+## How Stream works
 
+![](../img/Java/Streams/stream-lazy-evaluation.png)
 
+From an above image, we can have some conclusion about the way that Stream works.
+- Intermediate operations are lazy because when we call a terminal operation, our intermediate operations will be evaluated.
+
+- Each intermediate operation creates a new stream, stores the provided operation/function and return the new stream.
+
+- The time when terminal operation is called, traversal of streams begins and the associated function is performed one by one.
+
+To understand deeper about Stream, we can get an example.
+
+```java
+public void checkLaziLoadOfIntermediateOperations() {
+    List<String> list = Arrays.asList("abc1", "abc2", "abc3", "abc21", "abc32", "abc13");
+    Stream<String> strStream = list.stream().filter(element -> {
+        System.out.println("filter() was called " + element);
+        return element.contains("2");
+    }).map(element -> {
+        System.out.println("map() was called " + element);
+        return element.toUpperCase();
+    });
+
+    System.out.println("Starting with terminal operation");
+    List<String> lst = strStream.collect(Collectors.toList());
+}
+```
+
+Then, we have a result of the above example.
+
+```yaml
+Starting with terminal operation
+filter() was called abc1
+
+filter() was called abc2
+map() was called abc2
+
+filter() was called abc3
+
+filter() was called abc21
+map() was called abc21
+
+filter() was called abc32
+map() was called abc32
+
+filter() was called abc13
+```
 
 
 <br>
@@ -222,7 +267,6 @@ Stream pipeline is the concept of chaining operations together. Stream pipeline 
     lineStream.forEach(line -> System.out.println(line));
     ```
 
-
 5. Streams of file paths can be obtained from methods in ```Files```.
 
     ```java
@@ -243,6 +287,35 @@ Stream pipeline is the concept of chaining operations together. Stream pipeline 
 
 7. Numerous other stream-bearing methods in the ```JDK```, including ```BitSet.stream()```, ```Pattern.splitAsStream(java.lang.CharSequence)```, and ```JarFile.stream()```.
 
+8. Use Stream.builder() method
+
+    ```java
+    Stream.Builder<Employee> empStreamBuilder = Stream.builder();
+
+    empStreamBuilder.accept(arrayOfEmps[0]);
+    empStreamBuilder.accept(arrayOfEmps[1]);
+    empStreamBuilder.accept(arrayOfEmps[2]);
+
+    Stream<Employee> empStream = empStreamBuilder.build();
+    ```
+
+9. Use Stream.generate() method
+
+    ```java
+    Stream<String> streamGenerated =
+                Stream.generate(() -> "element").limit(10);
+    ```
+
+10. Use lines() static method of Java NIO class Files
+
+    ```java
+    String pathFile = "...";
+    Path path = Paths.get(pathFile);
+    Stream<String> streamOfStrings = Files.lines(path);
+    Stream<String> streamWithCharset = 
+                Files.lines(path, Charset.forName("UTF-8"));
+    ```
+
 <br>
 
 ## The differences between Streams and Collection
@@ -258,6 +331,12 @@ Stream pipeline is the concept of chaining operations together. Stream pipeline 
 
 - While computation the elements of stream are visited only once during life. The elements can be revisited in another instance of stream which will be the output of computation on previous stream instance.
 
+
+<br>
+
+## Source code
+
+In order to understand deeper about how stream runs in Java 8, check source code out on [Stream-java-8](https://github.com/DucManhPhan/J2EE/tree/master/src/Java_Core/Java%208/Stream).
 
 <br>
 
@@ -279,20 +358,29 @@ Stream pipeline is the concept of chaining operations together. Stream pipeline 
         For example:
 
         ```java
-
+        List<Integer> numbers = {2, 5, 7};
+        List<Integer> doubleNumbers = numbers.stream()
+                                             .map(i -> i * 2)
+                                             .collect(Collectors.toList());
         ```
 
     - In ```flatMap()``` method, it receives a functional interface generic ```Function``` with two types ```T``` and ```Stream<? extends R>```. It means that we will map each type of ```T``` to ```Stream<? extends R>```. 
     
         Therefore, T is a collection that can be transform to stream.
 
-
         The return type of ```flatMap()``` method is ```Stream<R>```.
 
         For example:
 
         ```java
-        List<List<String>> lst;
+        List<List<String>> lst = Arrays.asList( 
+            Arrays.asList("Bezos", "Jeff"),
+            Arrays.asList("Gates", "Bill"),
+            Arrays.asList("Ma", "Jack"));
+        
+        List<String> namesFlatStream = lst.stream()
+            .flatMap(Collection::stream)
+            .collect(Collectors.toList());
         ```
 <br>
 
@@ -303,8 +391,24 @@ Stream pipeline is the concept of chaining operations together. Stream pipeline 
 
 Refer:
 
+**Stream Java 8 under the hood**
+
+[https://developer.ibm.com/series/java-streams/](https://developer.ibm.com/series/java-streams/)
+
+[https://developer.ibm.com/articles/j-java-streams-3-brian-goetz/](https://developer.ibm.com/articles/j-java-streams-3-brian-goetz/)
+
+<br>
+
 [Reactive programming with Java 9](https://subscription.packtpub.com/book/application_development/9781787124233/1/ch01lvl1sec8/asynchronous-programming)
 
 [https://docs.oracle.com/javase/8/docs/api/java/util/stream/package-summary.html#StreamSources](https://docs.oracle.com/javase/8/docs/api/java/util/stream/package-summary.html#StreamSources)
 
 [https://stackoverflow.com/questions/26684562/whats-the-difference-between-map-and-flatmap-methods-in-java-8](https://stackoverflow.com/questions/26684562/whats-the-difference-between-map-and-flatmap-methods-in-java-8)
+
+[https://www.logicbig.com/tutorials/core-java-tutorial/java-util-stream/lazy-evaluation.html](https://www.logicbig.com/tutorials/core-java-tutorial/java-util-stream/lazy-evaluation.html)
+
+<br>
+
+**Some interesting ways to use Stream Java 8**
+
+[https://www.baeldung.com/java-8-streams](https://www.baeldung.com/java-8-streams)

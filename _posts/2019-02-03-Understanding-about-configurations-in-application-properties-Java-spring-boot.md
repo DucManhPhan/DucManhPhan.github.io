@@ -5,11 +5,7 @@ bigimg: /img/image-header/home-office-1.jpg
 tags: [java]
 ---
 
-
-
-
-
-```html
+```yaml
 # ===================================================================
 # COMMON SPRING BOOT PROPERTIES
 #

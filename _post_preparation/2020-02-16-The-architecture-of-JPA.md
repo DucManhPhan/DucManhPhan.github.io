@@ -39,7 +39,7 @@ JPA is an open source API, therefore various enterprise vendors such as Oracle, 
 Some of these products include: 
 - Hibernate
 - EclipseLink
-- TopLink 
+- TopLink
 - Spring Data JPA
 - ...
 

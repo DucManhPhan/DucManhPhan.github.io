@@ -5,7 +5,7 @@ bigimg: /img/path.jpg
 tags: [Java]
 ---
 
-
+In this article, we learn how to use Apache HttpClient. Let's get started.
 
 <br>
 
@@ -20,10 +20,14 @@ tags: [Java]
 
 ## Introduction to Apache HttpClient
 
-Spring RestTemplate and Apache HttpClient API work at different levels of abstraction.
-- Spring RestTemplate is superior to the HttpClient and take care of the tranformation from JSON or XML to Java objects.
+The first version of Apache HttpClient is 4.0-alpha1, it was released at Jul 18, 2007. And nowadays, this library is still supported by Apache with the newest version - 4.5.11.
 
-- The Apache HttpClient takes care of all low level details of communication via Http.
+Apache HttpClient has the same functionality with HttpURLConnection is to communicate with other system based on HTTP protocol.
+
+Spring RestTemplate and Apache HttpClient API work at different levels of abstraction.
+- **Spring RestTemplate** is superior to the HttpClient and take care of the tranformation from JSON or XML to Java objects.
+
+- The **Apache HttpClient** takes care of all low level details of communication via Http.
 
 But we also can use some other http client libraries such as OkHttp, Netty.
 
@@ -37,27 +41,34 @@ In order to use Apache HttpClient APIs, we can add depedency into pom.xml file:
 ```
 
 
-
 <br>
 
 ## Source code
 
-
-
+In order to understand how to implement code by using Apache HttpClient, we can check out source code in [Apache HttpClient Utils](https://github.com/DucManhPhan/J2EE/tree/master/src/Utils/apache-httpclient-utils).
 
 
 <br>
 
 ## Benefits and Drawbacks
+1. Benefits
+
+    - Large and extensive APIs
+
+    - Supports cookie handling, authentication and connection management
+
+    - More suitable for web browser and other web applications, because of its large size
 
 
+2. Drawbacks
+
+    - When using in Android app, Google blog lists few bugs, we can reference to [this link](https://www.rapidvaluesolutions.com/tech_blog/introduction-to-httpurlconnection-http-client-for-performing-efficient-network-operations/).
+
+    - Does not support **HttpResponseCache** mechanism, hence leading to increased network usage and battery consumption
 
 <br>
 
 ## Wrapping up
-
-
-
 
 
 

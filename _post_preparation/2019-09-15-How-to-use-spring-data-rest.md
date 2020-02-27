@@ -1,6 +1,6 @@
 ---
 layout: post
-title: Some reasons that Spring WebFlux does not support Spring Data Rest
+title: How to use Spring Data Rest
 bigimg: /img/image-header/yourself.jpg
 tags: [java]
 ---
@@ -16,7 +16,7 @@ tags: [java]
 
 <br>
 
-## Spring Data Rest
+## Introduction to Spring Data Rest
 
 
 

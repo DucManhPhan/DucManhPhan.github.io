@@ -5,19 +5,19 @@ bigimg: /img/path.jpg
 tags: [Java, Spring]
 ---
 
-
-
-
+In this article, we will learn how to use Spring RestTemplate. Let's get started.
 
 <br>
 
 ## Table of contents
-- [Introduction to Spring RestTemplate]()
-- [Some useful methods that RestTemplate supports]()
-- [Some steps use for utilizing Spring RestTemplate]()
-- [Source code]()
-- [Benefits and Drawbacks]()
-- [Wrapping up]()
+- [Introduction to Spring RestTemplate](#introduction-to-spring-resttemplate)
+- [Some useful methods that RestTemplate supports](#some-useful-methods-that-RestTemplate-supports)
+- [Some steps use for utilizing Spring RestTemplate](#some-steps-use-for-utilizing-spring-resttemplate)
+- [Source code](#source-code)
+- [Benefits and Drawbacks](#benefits-and-drawbacks)
+- [Understanding about some useful classes for utilizing RestTemplate](#understanding-about-some-useful-classes-for-utilizing-resttemplate)
+- [Some problems when using Spring RestTemplate](#some-problems-when-using-spring-resttemplate)
+- [Wrapping up](#wrapping-up)
 
 
 <br>
@@ -63,26 +63,62 @@ RestTemplate simplifies communication with HTTP services, and program code can p
 <br>
 
 ## Some steps use for utilizing Spring RestTemplate
+1. We use HttpHeaders class to fill some key-values into our http header.
 
+    ```java
+    HttpHeaders headers = new HttpHeaders();
+    headers.setContentType(MediaType.APPLICATION_JSON);
+    headers.set("Authorization", "Bearer ...");
+    // include the other parameters of header.
+    ```
 
+2. Normally, we will use **HttpEntity** to wrap all request body and all parameters of http header.
 
+    ```java
+    HttpEntity <String> entity = new HttpEntity<String>(headers);
+
+    // or
+    String bodyData = "";
+    HttpEntity<String> httpEntity = new HttpEntity<String>(bodyData, headers);
+    ```
+
+3. Send request.
+
+    - The common way to send request is to use **exchange()** method and use **HttpMethod** class that define all request methods we need.
+
+    - With get request, we can use **getForEntity()** method or getForObject() method.
+
+    - With post request, use **postForObject()**, **postForEntity()**, **postForLocation()** methods.
+
+    - With put request, use **put()** method.
+
+    - With delete request, use **delete()** method.
+
+    - To get all headers information, use **headForHeaders()** method.
 
 <br>
 
 ## Source code
 
-
+In order to understand how to implement code by using Spring RestTemplate, we can check out source code in [Spring RestTemplate Utils](https://github.com/DucManhPhan/J2EE/tree/master/src/Utils/spring-resttemplate-utils).
 
 <br>
 
 ## Benefits and Drawbacks
+1. Benefits
 
+    - Spring RestTemplate provides many functionality for interact with Rest client. It deals with JSON/XML transformation of entities, ...
 
+    - Spring RestTemplate is a higher-level abstraction than Apache HttpClient. By default, Spring RestTemplate uses Apache HttpClient internally. We can use other implementation with configuring ClientHttpRequestFactory class.
+
+    - RestTemplate is thread-safe once constructed, and that we can use callbacks to customize its operations.
+
+2. Drawbacks
 
 
 <br>
 
-## Understanding about some useful class for utilizing RestTemplate
+## Understanding about some useful classes for utilizing RestTemplate
 
 1. RequestCallback class
 
@@ -197,6 +233,10 @@ Refer:
 <br>
 
 **Some ways to download file in Spring boot**
+
+[https://memorynotfound.com/spring-mvc-download-file-examples/](https://memorynotfound.com/spring-mvc-download-file-examples/)
+
+[https://memorynotfound.com/spring-mvc-file-upload-example-validator/](https://memorynotfound.com/spring-mvc-file-upload-example-validator/)
 
 [https://www.devglan.com/spring-boot/spring-boot-file-upload-download](https://www.devglan.com/spring-boot/spring-boot-file-upload-download)
 

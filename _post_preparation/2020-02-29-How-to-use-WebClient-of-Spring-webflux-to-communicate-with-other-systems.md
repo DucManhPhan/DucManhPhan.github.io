@@ -2,7 +2,7 @@
 layout: post
 title: How to use WebClient of Spring Webflux to communicate with other systems
 bigimg: /img/path.jpg
-tags: [Java, Reactive programming]
+tags: [Java, Reactive programming, Spring]
 ---
 
 
@@ -12,9 +12,11 @@ tags: [Java, Reactive programming]
 <br>
 
 ## Table of contents
-
-
-
+- [Introduction to WebClient](#introduction-to-webclient)
+- [Source code](#source-code)
+- [Benefits and Drawbacks](#benefits-and-drawbacks)
+- [The comparison of WebClient with RestTemplate](#the-comparison-of-webclient-with-resttemplate)
+- [Wrapping up](#wrapping-up)
 
 
 <br>
@@ -27,9 +29,15 @@ tags: [Java, Reactive programming]
 
 <br>
 
-## 
+## Source code
 
 
+
+
+
+<br>
+
+## Benefits and Drawbacks
 
 
 

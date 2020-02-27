@@ -56,7 +56,8 @@ Hibernate provides just a layer on top of database, and does not create new beha
     {
         private static final long serialVersionUID = 1L;
 
-        @Id @GeneratedValue(strategy= GenerationType.AUTO)
+        @Id
+        @GeneratedValue(strategy= GenerationType.AUTO)
         private int category_id;
 
         ...
@@ -133,7 +134,7 @@ Hibernate provides just a layer on top of database, and does not create new beha
     }
     ```
 
-    which invokes the equals() method on the Product class, the equals() method on the Product class which does:
+    which invokes the ```equals()``` method on the **Product** class, the ```equals()``` method on the **Product** class which does:
 
     ```java
     if (this.category_fk != other.category_fk && (this.category_fk == null || !this.category_fk.equals(other.category_fk))) {
