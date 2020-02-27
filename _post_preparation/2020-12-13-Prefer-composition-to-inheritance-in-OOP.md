@@ -8,8 +8,47 @@ tags: [OOP, composition, inheritance]
 
 
 
+<br>
+
+## Table of contents
 
 
+
+
+
+<br>
+
+## 
+
+
+
+
+
+<br>
+
+## 
+
+
+
+
+<br>
+
+## 
+
+
+
+
+
+<br>
+
+## Wrapping up
+
+
+
+
+<br>
+
+Refer:
 
 [https://javarevisited.blogspot.com/2013/06/why-favor-composition-over-inheritance-java-oops-design.html](https://javarevisited.blogspot.com/2013/06/why-favor-composition-over-inheritance-java-oops-design.html)
 

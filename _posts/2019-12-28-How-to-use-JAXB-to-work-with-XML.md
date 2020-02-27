@@ -299,7 +299,6 @@ With:
 
 <br>
 
-
 ## Wrapping up
 - ```JAXB 1.0``` was developed under the Java Community Process as ```JSR 31```. ```JAXB 2.0``` was released under ```JSR 222``` and becomes part of JDK since ```Java 6``` to add support for the ```Web Services stack``` (under package ```javax.xml.bind```). It's still part of standard JDK in ```Java 7``` and ```Java 8```.
 

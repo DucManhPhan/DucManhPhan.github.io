@@ -26,8 +26,6 @@ Let's get started.
 
 **HttpURLConnection** was introduced to Java in JDK 1.1. **HttpURLConnection** class is http specific URLConnection. **HttpURLConnection** is a subclass of **URLConnection** which provides support for HTTP connections. **HttpsURLConnection** is another class which is used for the more secured HTTPS protocol.
 
-
-
 <br>
 
 ## Some steps to work with HttpURLConnection
@@ -216,6 +214,8 @@ In order to get some examples of utilizing HttpURLConnection, we can check out [
 
 Refer:
 
+
+
 [https://www.rapidvaluesolutions.com/tech_blog/introduction-to-httpurlconnection-http-client-for-performing-efficient-network-operations/](https://www.rapidvaluesolutions.com/tech_blog/introduction-to-httpurlconnection-http-client-for-performing-efficient-network-operations/)
 
 **Drawbacks of HttpURLConnection**
@@ -241,3 +241,9 @@ Refer:
 **Download file with URL**
 
 [https://www.baeldung.com/java-download-file](https://www.baeldung.com/java-download-file)
+
+<br>
+
+**HttpURLConnection with SOAP**
+
+[https://www.blackbaud.com/files/support/infinitydevguidemobile/Advanced/Subsystems/inwebapi-developer-help/Content/Java/coCreateAConnectionWithURLConnection.htm](https://www.blackbaud.com/files/support/infinitydevguidemobile/Advanced/Subsystems/inwebapi-developer-help/Content/Java/coCreateAConnectionWithURLConnection.htm)

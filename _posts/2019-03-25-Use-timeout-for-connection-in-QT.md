@@ -21,7 +21,7 @@ In this article, we will try to understand about using timeout for our common pr
 Normally, when we want to get data from server based on SOAP or RESTful API, in QT, we will use some classes to do this such as ```QNetworkRequest```, ```QNetworkReply```, and ```QEventLoop```.
 
 ```C++
-QNetworkRequest req(QUrl(“http://www.google.com“));
+QNetworkRequest req(QUrl("http://www.google.com"));
 QNetworkReply *reply = nam.get(req);
 QEventLoop loop;
 connect(reply, SIGNAL(finished()), &loop, SLOT(quit()));
