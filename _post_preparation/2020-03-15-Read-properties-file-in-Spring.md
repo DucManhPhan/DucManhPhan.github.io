@@ -12,8 +12,8 @@ In this article, we will find something out about reading properties in file wit
 ## Table of contents
 - [How to use @ConfigurationProperties annotation](#how-to-use-@configurationproperties-annotation)
 - [How to use @PropertySource with @Value](#how-to-use-@propertysource-with-@value)
+- [Use Properties class](#use-properties-class)
 - [The order that Spring boot setup for properties](#the-order-that-spring-boot-setup-for-properties)
-- [Benefits and drawbacks](#benefits-and-drawbacks)
 - [Wrapping up](#wrapping-up)
 
 <br>
@@ -33,15 +33,47 @@ In this article, we will find something out about reading properties in file wit
 @RestController
 @PropertySource(value = "classpath:/authentication.properties", ignoreResourceNotFound = true)
 public class AuthenticationController {
-
     @Value("${session.expiration}")
 	private String expirationTime;
 
+    // ...
 }
 ```
 
 
 
+<br>
+
+## Use Properties class
+
+If we do not want to use annotation to read properties file, we can use Properties class to read file directly. But it's not recommeded way to deal with it.
+
+```java
+public static void main(String args[]) throws IOException {
+    Properties prop = readPropertiesFile("credentials.properties");
+    System.out.println("username: "+ prop.getProperty("username"));
+    System.out.println("password: "+ prop.getProperty("password"));
+}
+
+public static Properties readPropertiesFile(String fileName) throws IOException {
+    FileInputStream fis = null;
+    Properties prop = null;
+
+    try {
+        fis = new FileInputStream(fileName);
+        prop = new Properties();
+        prop.load(fis);
+    } catch(FileNotFoundException fnfe) {
+        fnfe.printStackTrace();
+    } catch(IOException ioe) {
+        ioe.printStackTrace();
+    } finally {
+        fis.close();
+    }
+
+    return prop;
+}
+```
 
 
 <br>
@@ -122,22 +154,7 @@ public class PropertiesConfiguration {
 
 <br>
 
-## Benefits and drawbacks
-1. Benefits
-
-
-
-2. Drawbacks
-
-
-
-
-<br>
-
 ## Wrapping up
-
-
-
 
 
 
