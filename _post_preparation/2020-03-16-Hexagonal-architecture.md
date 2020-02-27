@@ -110,6 +110,8 @@ Refer:
 
 <br>
 
+[http://wiki.c2.com/?HexagonalArchitecture](http://wiki.c2.com/?HexagonalArchitecture)
+
 [https://fideloper.com/hexagonal-architecture](https://fideloper.com/hexagonal-architecture)
 
 [https://reflectoring.io/spring-hexagonal/](https://reflectoring.io/spring-hexagonal/)
@@ -131,6 +133,10 @@ Refer:
 [https://blog.ploeh.dk/2016/03/18/functional-architecture-is-ports-and-adapters/](https://blog.ploeh.dk/2016/03/18/functional-architecture-is-ports-and-adapters/)
 
 [https://dzone.com/articles/hexagonal-architecture-what-is-it-and-how-does-it](https://dzone.com/articles/hexagonal-architecture-what-is-it-and-how-does-it)
+
+[https://dzone.com/articles/hello-hexagonal-architecture-1](https://dzone.com/articles/hello-hexagonal-architecture-1)
+
+[https://dzone.com/articles/hexagonal-architecture-is-powerful](https://dzone.com/articles/hexagonal-architecture-is-powerful)
 
 [https://marcus-biel.com/hexagonal-architecture/?cn-reloaded=1](https://marcus-biel.com/hexagonal-architecture/?cn-reloaded=1)
 
