@@ -11,8 +11,8 @@ tags: [Numpy, Python]
 <br>
 
 ## Table of contents
-
-
+- [Introduction to Numpy](#introduction-to-numpy)
+- 
 
 
 

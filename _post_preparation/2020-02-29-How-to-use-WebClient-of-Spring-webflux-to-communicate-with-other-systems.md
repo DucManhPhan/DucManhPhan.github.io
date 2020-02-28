@@ -53,6 +53,18 @@ tags: [Java, Reactive programming, Spring]
 
 <br>
 
+## Some problems when using WebClient
+- Only one connection receive subscriber allowed.
+
+    [https://stackoverflow.com/questions/48046238/spring-webflux-only-one-connection-receive-subscriber-allowed?rq=1](https://stackoverflow.com/questions/48046238/spring-webflux-only-one-connection-receive-subscriber-allowed?rq=1)
+
+- block()/blockFirst()/blockLast() are blocking, which is not supported in thread reactor-http-nio-3
+
+    https://stackoverflow.com/questions/51449889/block-blockfirst-blocklast-are-blocking-error-when-calling-bodytomono-afte
+
+
+<br>
+
 ## Wrapping up
 
 
@@ -67,3 +79,19 @@ tags: [Java, Reactive programming, Spring]
 Refer:
 
 [https://o7planning.org/en/10303/customize-java-compiler-processing-your-annotation-annotation-processing-tool](https://o7planning.org/en/10303/customize-java-compiler-processing-your-annotation-annotation-processing-tool)
+
+[https://docs.spring.io/spring/docs/current/javadoc-api/org/springframework/web/reactive/function/client/WebClient.html](https://docs.spring.io/spring/docs/current/javadoc-api/org/springframework/web/reactive/function/client/WebClient.html)
+
+[https://stackoverflow.com/questions/53778890/how-to-upload-multiple-files-using-webflux](https://stackoverflow.com/questions/53778890/how-to-upload-multiple-files-using-webflux)
+
+[https://ddcode.net/2019/06/21/spring-webflux-file-upload-and-download/](https://ddcode.net/2019/06/21/spring-webflux-file-upload-and-download/)
+
+[https://juejin.im/post/5a62f17cf265da3e51333205](https://juejin.im/post/5a62f17cf265da3e51333205)
+
+[https://github.com/spring-projects/spring-framework/issues/22919](https://github.com/spring-projects/spring-framework/issues/22919)
+
+[https://java-focus.com/pass-header-to-reactive-webclient-spring-webflux/](https://java-focus.com/pass-header-to-reactive-webclient-spring-webflux/)
+
+[https://docs.spring.io/spring/docs/current/javadoc-api/org/springframework/web/reactive/function/client/WebClient.RequestHeadersSpec.html#headers-java.util.function.Consumer-](https://docs.spring.io/spring/docs/current/javadoc-api/org/springframework/web/reactive/function/client/WebClient.RequestHeadersSpec.html#headers-java.util.function.Consumer-)
+
+[https://app.pluralsight.com/library/courses/java-fundamentals-httpclient/table-of-contents](https://app.pluralsight.com/library/courses/java-fundamentals-httpclient/table-of-contents)
