@@ -56,7 +56,7 @@ If a leader partition goes down, then another in-sync replicated partition becom
 
 
 
-- Why we need group.id when configuring some fields for creating consumer
+- Why we need **group.id** when configuring some fields for creating consumer
 
 
 
@@ -95,23 +95,23 @@ If a leader partition goes down, then another in-sync replicated partition becom
 ## Thread-safe with consumer
 1. One Consumer per Thread
 
-According to [https://www.oreilly.com/library/view/kafka-the-definitive/9781491936153/ch04.html](https://www.oreilly.com/library/view/kafka-the-definitive/9781491936153/ch04.html), we have:
+    According to [https://www.oreilly.com/library/view/kafka-the-definitive/9781491936153/ch04.html](https://www.oreilly.com/library/view/kafka-the-definitive/9781491936153/ch04.html), we have:
 
-```
-You can't have multiple consumers that belong to the same group in one thread and you can't have multiple threads safely use the same consumer. One consumer per thread is the rule. To run multiple consumers in the same group in one application, you will need to run each in its own thread. It is useful to wrap the consumer logic in its own object and then use Java's ExecutorService to start multiple threads each with its own consumer.
-```
+    ```
+    You can't have multiple consumers that belong to the same group in one thread and you can't have multiple threads safely use the same consumer. One consumer per thread is the rule. To run multiple consumers in the same group in one application, you will need to run each in its own thread. It is useful to wrap the consumer logic in its own object and then use Java's ExecutorService to start multiple threads each with its own consumer.
+    ```
 
-By using one thread per consumer, we have some benefits and drawbacks:
-- Benefits
+    By using one thread per consumer, we have some benefits and drawbacks:
+    - Benefits
 
-    - It is the easiest to implement.
-    - It is often the fastest as no inter-thread co-ordination is needed.
-    - It makes in-order processing on a per-partition basis very easy to implement (each thread just processes messages in the order it receives them).
+        - It is the easiest to implement.
+        - It is often the fastest as no inter-thread co-ordination is needed.
+        - It makes in-order processing on a per-partition basis very easy to implement (each thread just processes messages in the order it receives them).
 
-- Drawbacks
+    - Drawbacks
 
-    - More consumers means more TCP connections to the cluster (one per thread). In general Kafka handles connections very efficiently so this is generally a small cost.
-    - Multiple consumers means more requests being sent to the server and slightly less batching of data which can cause some drop in I/O throughput.The number of total threads across all processes will be limited by the total number of partitions.
+        - More consumers means more TCP connections to the cluster (one per thread). In general Kafka handles connections very efficiently so this is generally a small cost.
+        - Multiple consumers means more requests being sent to the server and slightly less batching of data which can cause some drop in I/O throughput.The number of total threads across all processes will be limited by the total number of partitions.
 
 2. Decouple consumption and processing
 

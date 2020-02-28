@@ -13,6 +13,7 @@ tags: [Java, Reactive programming, Spring]
 
 ## Table of contents
 - [Introduction to WebClient](#introduction-to-webclient)
+- [Some steps for utilizing WebClient](#some-steps-for-utilizing-webclient)
 - [Source code](#source-code)
 - [Benefits and Drawbacks](#benefits-and-drawbacks)
 - [The comparison of WebClient with RestTemplate](#the-comparison-of-webclient-with-resttemplate)
@@ -29,6 +30,15 @@ tags: [Java, Reactive programming, Spring]
 
 <br>
 
+## Some steps for utilizing WebClient
+
+
+
+
+
+
+<br>
+
 ## Source code
 
 
@@ -38,6 +48,13 @@ tags: [Java, Reactive programming, Spring]
 <br>
 
 ## Benefits and Drawbacks
+1. Benefits
+
+
+
+
+2. Drawbacks
+
 
 
 
