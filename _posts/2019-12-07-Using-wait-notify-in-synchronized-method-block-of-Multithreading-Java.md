@@ -13,7 +13,7 @@ Let's get started.
 
 ## Table of contents
 - [Understanding about synchronization](#understanding-about-synchronization)
-- [Synchrozing more than one method](#synchronizing-more-than-one-method)
+- [Synchronizing more than one method](#synchronizing-more-than-one-method)
 - [Understanding wait(), notify() and notifyAll() methods](#understanding-wait()-notify()-and-notifyAll()-methods)
 - [Wrapping up](#wrapping-up)
 
@@ -97,7 +97,7 @@ How do we know which object has been chosen to hold this key?
 
 <br>
 
-## Synchrozing more than one method
+## Synchronizing more than one method
 Suppose we have a ```Person``` class with two methods in this class, ```getName()``` and ```getAge()```. And we added ```synchronized``` keyword on the declaration of those methods. The ```lock object``` used by the JVM is the object itself, it means that it is an instance of the class we are in.
 
 So, what is going to happen if a T1 thread wants to execute ```getName()```. It will take the key from the lock object, thus preventing a T2 thread from executing ```getAge()``` at the same time. Why? because since we did not declare any explicit object on the synchronization of our methods, the same key is used to synchronized both methods. This might not be what we need. If we need to synchronize ```getName()``` independently of ```getAge()```, then we need to create two lock objects in the ```Person``` class, and synchronize the block of codes inside the methods on those two different objects.
@@ -158,6 +158,8 @@ public class Person {
             }
         }
         ```
+
+        Because we will encounter the Spurious Wakeups problem. It means that a thread is woken up even though no signal has been received. Spurious wakeups are a reality and are one of the reasons why the pattern for waiting on a condition variable happens in a while loop.
 
 2. ```notify()``` method
 

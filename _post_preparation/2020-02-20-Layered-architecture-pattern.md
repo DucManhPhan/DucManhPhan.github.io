@@ -11,9 +11,10 @@ tags: [Architecture pattern]
 <br>
 
 ## Table of contents
-
-
-
+- [Given problem](#given-problem)
+- [Solution of Layered architecture pattern](#solution-of-layered-architecture-pattern)
+- []()
+- [Wrapping up](#wrapping-up)
 
 
 <br>
@@ -27,7 +28,7 @@ tags: [Architecture pattern]
 
 <br>
 
-## Solution of Layer architecture pattern
+## Solution of Layered architecture pattern
 
 
 
