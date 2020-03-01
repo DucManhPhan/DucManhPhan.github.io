@@ -15,16 +15,7 @@ tags: [Multithreading, Java]
 
 <br>
 
-## 
-
-
-
-
-
-
-<br>
-
-## When to use
+## Understanding about happens-before link
 
 
 
@@ -34,6 +25,21 @@ tags: [Multithreading, Java]
 <br>
 
 ## 
+
+
+
+
+
+
+<br>
+
+## LongWrapper example
+
+
+
+<br>
+
+## Double-check locking Singleton pattern example
 
 
 
