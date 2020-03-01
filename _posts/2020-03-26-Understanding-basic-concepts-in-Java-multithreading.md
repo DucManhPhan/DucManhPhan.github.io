@@ -5,16 +5,21 @@ bigimg: /img/image-header/yourself.jpeg
 tags: [Multithreading, Java]
 ---
 
+In this article, we will learn about some basic concepts of multithreading, how to differenciate between them, and how to use it correctly.
 
+Let's get started.
 
 <br>
 
 ## Table of contents
 - [Program, Thread, Process](#program-thread-process)
 - [Multithreading, Concurrency, Parallel](#multithreading-concurrency-parallel)
+- [Race condition](#race-condition)
 - [Characteristic of thread](#characteristic-of-thread)
+- [How to use correct concurrent code](#how-to-use-correct-concurrent-code)
 - [Benefits and drawback for using threads](#benefits-and-drawback-for-using-threads)
-
+- [Some consequences of multithreading when using it improperly](#some-consequences-of-multithreading-when-using-it-improperly)
+- [Wrapping up](#wrapping-up)
 
 <br>
 
@@ -38,7 +43,7 @@ tags: [Multithreading, Java]
 
 - Concurrency means when a task is broken down into smaller pieces and run simultaneously.
 
-- Parallel 
+- Parallel
 
 <br>
 
@@ -83,7 +88,7 @@ So, we have a questions about the above code of Singleton pattern - What is happ
 |                                    | The thread scheduler pauses T2        |
 | Create an instance of Singleton*   |                                       |
 
-```*``` --> Because T1 is in the if block, it will not check if the instance field has been initialized one more time. So, it will create another instance of singleton, and copy it in the private static field instance, thus erasing the instance that has beeen created by the thread T2
+```*``` --> Because T1 is in the **if** block, it will not check if the instance field has been initialized one more time. So, it will create another instance of singleton, and copy it in the **private static field instance**, thus erasing the instance that has beeen created by the thread T2.
 
 Solution
 - In order to prevent the race condition, we need to use synchronization.
@@ -105,31 +110,65 @@ Solution
 
 <br>
 
+## How to use correct concurrent code
+1. Check for race conditions
+
+    - We need to have a look at our code and especially what is happening to the fields of our classes because race conditions cannot occur on variables inside methods nor parameters.
+
+    - If we have more than one thread trying to read or write a given field, then it means that we have a race condition on that field.
+
+2. Check for happens-before link
+
+    On the given field, if we want things to be correct, we need to have a happens-before link between our read operations and our write operations. It is quite easy, in fact, to check for these points. They have two questions we need to answer for that.
+    - Are the read / write operations volatile?
+    - Are they synchronized?
+
+    If the field we are checking has been declared volatile, they are synchronized if they occur inside the boundary of a synchronized block, so it is very simple to check for that.
+
+    If it is not the case we must probably have a bug.
+
+3. Synchronized or Volatile
+
+    - Synchronized = atomicity
+
+        With synchronization, we need to answer the question, do we need atomicity on a certain portion of code? If we have a portion of code that should not be interrupted between threads, then we need to have a synchronized block to protect our portion of code.
+
+    - Volatile = visibility
+
+        If it is not the case that using synchronization, then volatility is enough. It will ensure visibility and correct concurrent code.
+
+
+<br>
+
 ## Benefits and drawback for using threads
 1. Benefits
-- Improve performance of system when we choose the compatible number of threads.
+
+    - Improve performance of system when we choose the compatible number of threads.
 
 
 2. Drawbacks when using too many threads
-- Creating too many threads can easily run the machine out of memory.
-- Prevent other threads getting enough time on the CPU, which is starvation.
+
+    - Creating too many threads can easily run the machine out of memory.
+
+    - Prevent other threads getting enough time on the CPU, which is starvation.
 
 <br>
 
 ## Some consequences of multithreading when using it improperly
 
 Depending on the consequences, the problems caused by concurrency can be categorized into three types:
-- **race conditions**: the program ends with an undesired output, resulting from the sequence of execution among the processes.
+1. **race conditions**: the program ends with an undesired output, resulting from the sequence of execution among the processes.
 
-- **deadlocks**: the concurrent processes wait for some necessary resources from each other. As a result, none of them can make progress.
+2. **deadlocks**: the concurrent processes wait for some necessary resources from each other. As a result, none of them can make progress.
 
-- **resource starvation**: a process is perpetually denied necessary resources to progress its works.
+3. **resource starvation**: a process is perpetually denied necessary resources to progress its works.
 
 
 <br>
 
 ## Wrapping up
 - Two points to note about race conditions
+
     - It is safe if multiple threads are trying to read a shared resource as long as they are not trying to change it.
 
     - Multiple threads executing inside a method is not a problem in itself, problem arises when these threads try to access the same resource.
@@ -140,6 +179,5 @@ Depending on the consequences, the problems caused by concurrency can be categor
 
 Refer:
 
-[]()
+[https://takuti.me/note/parallel-vs-concurrent/](https://takuti.me/note/parallel-vs-concurrent/)
 
-[]()

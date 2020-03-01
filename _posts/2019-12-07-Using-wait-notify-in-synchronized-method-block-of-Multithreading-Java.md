@@ -159,7 +159,7 @@ public class Person {
         }
         ```
 
-        Because we will encounter the Spurious Wakeups problem. It means that a thread is woken up even though no signal has been received. Spurious wakeups are a reality and are one of the reasons why the pattern for waiting on a condition variable happens in a while loop.
+        Because we will encounter the **Spurious Wakeups** problem. It means that a thread is woken up even though no signal has been received. **Spurious wakeups** are a reality and are one of the reasons why the pattern for waiting on a condition variable happens in a while loop.
 
 2. ```notify()``` method
 
@@ -167,16 +167,16 @@ public class Person {
 
     The ```notify()``` method will awaken one of the threads in the associated wait queue.
 
-    However, this thread will not be scheduled for execution immediately and will compete with other active threads that are trying to synchronize on the same object. The thread which executed notify will also need to give up the object's monitor, before any one of the competing threads can acquire the monitor and proceed forward.
+    However, this thread will not be scheduled for execution immediately and will compete with other active threads that are trying to synchronize on the same object. **The thread which executed notify will also need to give up the object's monitor, before any one of the competing threads can acquire the monitor and proceed forward**.
 
     It means that the released thread is chosen randomly among those threads.
 
     Note:
-    - Nothing happends to the current thread that calls ```notify()``` method, it continues to run until it's natural end.
+    - Nothing happens to the current thread that calls ```notify()``` method, it continues to run until it's natural end.
 
         The ```wait()``` and ```notify()``` methods must be called within a synchronized context. As soon as the ```synchronized``` block that contains the ```notify()``` call finishes, the lock is then available and the block containing the ```wait()``` call in another thread can then continue.
 
-        Calling ```notify()``` method simply moves the waiting thread back into the runnable thread pool. That thread can then continue as soon as the lock is available.
+        Calling ```notify()``` method simply **moves the waiting thread back into the runnable thread pool**. That thread can then continue as soon as the lock is available.
 
 3. ```notifyAll()``` method
 
@@ -187,7 +187,9 @@ public class Person {
 ## Benefits and drawbacks
 1. Benefits
 
-    - only one thread will access in critical section with ```synchronized``` keyword.
+    - Prevent race condition in critical section or shared resources.
+    
+        Because of only one thread will access in critical section with ```synchronized``` keyword.
 
 2. Drawbacks
 

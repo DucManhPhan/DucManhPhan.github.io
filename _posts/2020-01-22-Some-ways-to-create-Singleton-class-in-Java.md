@@ -178,6 +178,27 @@ Let's get started.
 
     This way will improve the ```Lazy Initialization Singleton class```'s version when it can use in multi-threaded environment.
 
+    Let's have a closer look at Singleton pattern on single core and two cores CPU.
+    - Singleton on a Single core CPU
+
+        ![](../img/Java/Multithreading/singleton-pattern/on-single-core-cpu.png)
+
+    - Singleton on a two cores CPU
+
+        ![](../img/Java/Multithreading/singleton-pattern/on-two-cores-cpu.png)
+
+    - Singleton on a multiple cores CPU
+
+        Let's suppose we have four cores.
+
+        ![](../img/Java/Multithreading/singleton-pattern/on-multi-cores-cpu.png)
+
+        T1 thread is running first, then T2 needs to wait for T1 to leave the synchronized method to be able to read instance. And if on our two other cores, we have two other threads, T3 and T4, who also want to read our instance variable, well those threads will have to wait for T2 to leave the getInstance() method.
+        
+        ![](../img/Java/Multithreading/singleton-pattern/read-parallel-on-multi-cores-cpu.png)
+
+        At this point, instance has been created, so all the reads could happen at the same time, but since our getInstance() method is synchronized, no more than one thread can enter it at a given time. So no more than one thread can read instance at the same time, and this is really a performance hit because the more cores we have, the more time we're going to lose since the reads cannot be made in parallel. Of course, all the reads could be made in parallel in a correct way, but the synchronization of the method does not allow that.
+
 2. Benefits and Drawbacks
 
     - Benefits
@@ -199,7 +220,7 @@ Let's get started.
     ```java
     public class Singleton {
 
-        private volatile static final Singleton instance = null;
+        private volatile static final Singleton instance;
 
         private Singleton() {}
 
@@ -207,12 +228,12 @@ Let's get started.
             if (Objects.isNull(instance)) {     // Use Objects with Java 7 or later version
                 synchronized (Singleton.class) {
                     if (Objects.isNull(instance)) {
-                        singleton = new Singleton();
+                        instance = new Singleton();
                     }
                 }
             }
 
-            return singleton;
+            return instance;
         }
     }
     ```
@@ -222,6 +243,21 @@ Let's get started.
     After the first moment, the performance for using Singleton class do not affected by the first null checked condition.
 
     Note that using ```volatile``` keyword for ```instance``` variable, it will tell the compiler that always to read / write from the main memory, not use CPU cache or local thread stack.
+
+    - Some possible issues with Double-Checking Singleton
+
+        - Singleton on a Multiple Cores CPU
+
+            ![](../img/Java/Multithreading/singleton-pattern/new-operator-singleton-object.png)
+
+            In our Singleton class, we have a private static field called **instance** of type Singleton. It is just a pointer that will point to our only instance of the Singleton class. But the creation of this object is, in fact, a two step process.
+            - Memory Allocation     (a)
+            - The copy of the pointer that points to the newly allocated memory into the Singleton field, which is called **instance**.     (b)
+            - The construction process of the Singleton object. This allocated memory belongs to the Singleton class, it has a certain number of fields, certain number of methods, ...     (c)
+
+            Between the **b** step and the **c** step, we do not know which one is going to be executed first. If the construction process is executed first, then the copy of the pointer, everything will be fine because we cannot observe a non null instance pointer that points to a non fully built piece of memory.
+            
+            But if the copy of the pointer occurs first, and that we read this instance field in another thread, then we will have visibility on a portion of memory that has been allocated but is not fully initialized yet, and this weird case could happen in the double-check locking. We do not have the guarantee that this second case will not happen, and if it does then very bad things can happen to our applications because basically what we can do is call methods on an object that is not fully built, that is completely corrupted at this step.
 
 2. Benefits and Drawbacks
 
@@ -234,6 +270,44 @@ Let's get started.
     - Drawbacks
 
         - At the first time, it can affect performance.
+
+        - It does not have happens-before link when we do forget to use **volatile** keyword with **instance** variable.
+
+            ```java
+            private static final Singleton instance;
+            public static Singleton getInstance() {
+                if (Objects.isNull(instance)) {     // Use Objects with Java 7 or later version
+                    synchronized (Singleton.class) {
+                        if (Objects.isNull(instance)) {
+                            instance = new Singleton();
+                        }
+                    }
+                }
+
+                return instance;
+            }
+            ```
+
+            Based on the above our code, we will consider some cases:
+            - If **instance** is not null, we read it and return it.
+
+                Here we have the read operation on the **instance** field of the Singleton class. Is it a synchronized or volatile read?
+
+                It is no, because **instance** is not a volatile variable, and this test is not a synchronized block. We have written it outside of the synchronized block on purpose, so it is not inside this synchronized block, then it is not a synchronized read neither.
+
+            - If **instance** is null, we create it and return it.
+
+                Obviously there is a write operation. Is it a synchronized or volatile write?
+
+                It is not a volatile write because **instance** is not a volatile variable, but it takes place in a synchronized block, so it is a synchronized write.
+
+            So we have a non synchronized read that is supposed to return the value set by a synchronized write. Do we have the guarantee that the read will get the value set by the write? For that we need a **happens-before** link.
+
+            For that to have this guarantee, we have a **happens-before** link between read and write operation. The read operation is outside of the synchronized block, and the fact is we do not have this **happens-before** link because **happens-before** link are created between synchronized or volatile writes and synchronized or volatile reads.
+            
+            So this code is buggy because there is no **happens-before** link between the read returning the value and the write that sets it.
+
+            This is very subtle bug indeed, it is not very obvious to see this bug.
 
 <br>
 
@@ -303,11 +377,15 @@ Let's get started.
         - Do not have lazy initialization.
         - Do not inherit from another base class, because enums can not extends another class. If we want to mimic inheritance, we might want to consider the interface mixin pattern in this [New Java 8 "Object Support Mixin Pattern" for overriding Object.equals(), hashCode(), toString() and compareTo()](http://minborgsjavapot.blogspot.com/2014/10/new-java-8-object-support-mixin-pattern.html).
 
+3. Examples
+
+    - Comparator interface
+
+        ![](../img/Java/Multithreading/singleton-pattern/example-enum-singleton-comparator-interface.png)
+
 <br>
 
 ## Wrapping up
-
-
 
 
 
