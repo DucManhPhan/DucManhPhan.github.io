@@ -2,19 +2,21 @@
 layout: post
 title: Ordering Read and Writes operations on a multiple core CPU
 bigimg: /img/path.jpg
-tags: [Multithreading, Java, Interview question]
+tags: [Multithreading, Java]
 ---
 
+In this article, we will learn about the organization of physical memory that impacts to our multithreaded application. And some concepts such as synchronization, visibility, volatility, happens-before link that will be used to deal with it.
 
+Let's get started.
 
 <br>
 
 ## Table of contents
 - [Organization of Caches on Multicore CPUs](#organization-of-caches-on-multicore-cpus)
 - [Synchronization and Visibility on Multicore CPUs](#synchronization-and-visibility-on-multicore-cpus)
-- [Understanding happen-before link]()
-- [Synchronization and volatility on shared variables]()
-- [Understanding false sharing on Multicore CPUs]()
+- [Understanding happen-before link](#understanding-happens-before-link)
+- [Synchronization and volatility on shared variables](#synchronization-and-volatility-on-shared-variables)
+- [Understanding false sharing on Multicore CPUs](#understanding-false-sharing-on-multicore-cpus)
 - [Wrapping up](#wrapping-upxas)
 
 <br>
@@ -243,8 +245,31 @@ If we see a variable in a piece of code that is read or written by more than one
 
 ## Understanding false sharing on Multicore CPUs
 
+In this section, we will talk about false sharing because this structure of caches inside the modern CPU has a drawback which is precisely called false sharing. False sharing happens because of the way the CPU caches work. It is a side effect, unfortunately it can have a tremendous effect on performance, so it is good to understand what it is and to have that in mind when designing applications.
 
+In fact, the cache of a CPU is organized in lines of data. Each line can hold 8 longs, which is 64 bytes. And when a visible variable is modified in an L1 cache, all the line is marked **dirty** for the other caches. A read on a dirty line triggers a refresh on this line, not just on the variable that has been modified.
 
+Suppose we have a simple code, a class with two fields, volatile longs a and b, and a **firstMethod()** that is incrementing **a** and a **secondMethod()** incrementing **b**.
+
+![](../img/Java/Multithreading/cpu-architecture/false-sharing.png)
+
+The first thread is running **firstMethod()** method and a second thread running **secondMethod()** method. So the first method is only interested in variable **a** and the second thread only in variable **b**. The first thread is running in Core 1, and since it needs the variable **a**, it loaded a line of cache from the main memory with this variable in this line.
+
+And the second thread did the same, loaded a line of cache from the main memory with the **b** variable in it. Now, because of the way the memory is organized in our applicaton, organized by the compiler and the JVM, it turns out that **a** and **b** are written in two contiguous areas of the main memory. So, while loading this line of cache T1, also loaded the **b** variable and T2 also loaded the **a** variable.
+
+So, what is going to happen now? The thread T1 is going to increment the **a** variable, thus marking this line of cache as dirty, and this mark as dirty will be broadcasted to other caches of the CPU, including the cache of Core 2.
+
+![](../img/Java/Multithreading/cpu-architecture/false-sharing-increment-a-variable.png)
+
+Then, Core 2 wants to increment the **b** variable, but unfortunately the line of cache it loaded from the main memory has been marked as dirty by Core 1, so when it tries to read the variable **b**, it is a cache miss, it has to go back to the main memory to fetch the value of **b**, it is going to increment. Which is really bad luck because the variable **b** has not been touched by Core 1, the variable **b** has been made dirty by the side effect of the fact that the CPU cache is organized in lines. This is a very well-known drawback of the cache organization called false sharing.
+
+![](../img/Java/Multithreading/cpu-architecture/false-sharing-increment-b-variable.png)
+
+False sharing happens in an invisible way beause when we write some code and when we write a class, we have no idea of how the class and its fields are laid out in memory.
+
+It is hard to predict but it is with no doubt hitting the performance of our applications.
+
+There are workarounds to prevent false sharing from happening in very simple cases, then we will going to see how false sharing can really kill the performance of an application and how variable padding can fix this problem.
 
 <br>
 
