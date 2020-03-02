@@ -11,9 +11,11 @@ tags: [Vert.x]
 <br>
 
 ## Table of contents
-
-
-
+- [Introduction to Vert.x framework]()
+- [The architecture of Vert.x framework]()
+- [Source code]()
+- [Benefits and Drawbacks]()
+- [Wrapping up]()
 
 
 <br>
@@ -77,3 +79,9 @@ Refer:
 [https://www.javaworld.com/article/2078838/open-source-java-projects-vert-x.html](https://www.javaworld.com/article/2078838/open-source-java-projects-vert-x.html)
 
 [https://dzone.com/articles/introduce-to-eclicpse-vertx](https://dzone.com/articles/introduce-to-eclicpse-vertx)
+
+[https://medium.com/javarevisited/vert-x-understanding-core-concepts-1529917658b3](https://medium.com/javarevisited/vert-x-understanding-core-concepts-1529917658b3)
+
+[https://blog.invivoo.com/what-is-vert-x/](https://blog.invivoo.com/what-is-vert-x/)
+
+[https://www.cubrid.org/blog/understanding-vertx-architecture-part-2](https://www.cubrid.org/blog/understanding-vertx-architecture-part-2)
