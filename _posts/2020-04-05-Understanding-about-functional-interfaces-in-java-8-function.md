@@ -13,6 +13,7 @@ In this article, we will learn how to use Function functional interface. Let's g
 - [Introduction to Function functional interface](#introduction-to-function-functional-interface)
 - [Chaining with Function interface](#chaining-with-function-interface)
 - [Chaining with BiFunction interface](#chaining-with-bifunction-interface)
+- [High-order function](#high-order-function)
 - [Source code](#source-code)
 - [Some useful examples for applying Function and BiFunction interface](#some-useful-examples-for-applying-function-and-bifunction-interface)
 - [Benefits and Drawbacks](#benefits-and-drawbacks)
@@ -106,6 +107,73 @@ Just like classes are first-class citizens in object-oriented programming, funct
 
 ![](../img/Java/functional-programming/function/high-order-function.png)
 
+We can compare high-order functions with one of the most popular design patterns in OOP, strategy pattern. This pattern allows us to encapsulate the behavior that varies in a supertype, making different behaviors, the subclasses, interchangeable. In Java, this pattern is usually implemented using an interface, creating different implementations for different behaviors.
+
+For example, we can have an interface, **RewardPointsGenerator**, with a method to calculate their reward from a customer order.
+
+```java
+Order processOrder(Order order, RewardPointsGenerator rewardPointGenerator) {
+    // ...
+    RewardPoints rp = rewardPointGenerator.calculate(order);
+    // ...
+}
+```
+
+The method that **processOrder()** can take one of its argument as an implementation of this interface. This way, when calling **processOrder()**, we can pass different implementations to calculate the reward in different ways.
+
+```java
+RewardPointsGenerator totalBaseRP = order -> { /* ... */ }
+RewardPointsGenerator numProductsBaseRP = order -> { /* ... */ }
+
+Order processOrder1 = processOrder(order, totalBaseRP);
+Order processOrder2 = processOrder(order, numProductsBaseRP);
+```
+
+We can see the **processOrder()** as a high-order function, accepting a function with the algorithm to calculate the reward points as one of its inputs. But we do not need **RewardPointsGenerator**. We can use the function interface to implement a function from order to RewardPoints in this way. And to avoid the clutter of a lambda expression with a body, we can move the code to a method and use a method reference.
+
+```java
+Order processOrder1 = processOrder(order, this::totalBaseRewardPoints);
+Order processOrder2 = processOrder(order, this::numProductsBaseRewardPoints);
+```
+
+In any case, object oriented, or functional programming, having simple units of code that are easy to read and test is a good practice, and that's exactly what high-order functions can be small, concise units of code that are easy to test and make the core more readable.
+
+This benefit comes from the design process, in particular, from the ability to abstract behavior that can be implemented with high-order functions and compose these high-order functions. This can also give us the ability to reuse the functions we create.
+
+Both object-oriented and functional programming seek the same goals, in this case, abstraction, composition, and reusability, but they do it in a different way. Object-oriented programming uses classes as its main tool. We can compose new classes from existing ones. We can abstract behavior into classes for reusing.
+
+In functional programming, it's the same, but using functions as the main tool. However, with high-order functions, functional programming tends to use a more declarative style for programming.
+
+```java
+List<Integer> filteredList = new ArrayList<>();
+for (int n : listOfNumbers) {
+    if (n % 3 == 0) {
+        filteredList.add(n);
+    }
+}
+```
+
+So instead of having a loop where we explicitly tell how to iterate and filter a list, in functional programming, we have the below piece of code.
+
+```java
+List<Integer> filteredList = listOfNumbers.stream()
+                                          .filter(n -> n % 3 == 0)
+                                          .collect(Collectors.toList());
+```
+
+The filter function does not expose how it works. It simply asks for another function to declare the intention of what we want to do.
+
+```java
+// use point-free style and method reference
+Predicate<Integer> divisibleBy3 = n -> n % 3 == 0;
+List<Integer> filteredList = listOfNumbers.stream()
+                                          .filter(divisibleBy3)
+                                          .map(IntegerUtils::intToString)
+                                          .collect(Collectors.toList());
+
+```
+
+There's a style of programming called point-free programming, that is about passing a named function as an argument to avoid writing an inline lambda expression and its parameters. We can also use method reference. The idea of using point-free style is to improve the clarity and readability of the code, and by chaining two or more of these high-order functions, we can create pipelines to transform collections.
 
 <br>
 
