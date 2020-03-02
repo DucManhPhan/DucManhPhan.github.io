@@ -60,6 +60,8 @@ Some of these products include:
 
 Refer:
 
+[Spring with JPA and Hibernate](https://app.pluralsight.com/library/courses/spring-jpa-hibernate/table-of-contents)
+
 [http://www.javaguides.net/2018/12/jpa-architecture.html](http://www.javaguides.net/2018/12/jpa-architecture.html)
 
 [https://en.wikibooks.org/wiki/Java_Persistence/What_is_Java_persistence%3F](https://en.wikibooks.org/wiki/Java_Persistence/What_is_Java_persistence%3F)
