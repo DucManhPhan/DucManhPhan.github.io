@@ -10,9 +10,9 @@ tags: [Java, Spring]
 <br>
 
 ## Table of contents
-
-
-
+- [Introduction to Scheduling in Spring boot](#introduction-to-scheduling-in-spring-boot)
+- [How to use Scheduling](#how-to-use-scheduling)
+- [Wrapping up](#wrapping-up)
 
 
 <br>

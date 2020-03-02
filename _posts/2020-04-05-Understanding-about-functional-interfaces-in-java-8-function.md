@@ -100,6 +100,15 @@ For example:
 
 <br>
 
+## High-order function
+
+Just like classes are first-class citizens in object-oriented programming, functions are first-class citizens in functional programming. In this context, a function becomes a high-order function when it takes a function as its input, or argument. It returns a function as its output, or both.
+
+![](../img/Java/functional-programming/function/high-order-function.png)
+
+
+<br>
+
 ## Source code
 
 In order to see how Predicate functional interface works, we can reference to [Function functional interface](https://github.com/DucManhPhan/J2EE/tree/master/src/Java_Core/Java%208/Functional%20Interfaces/function).
