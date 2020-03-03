@@ -47,7 +47,12 @@ tags: [Concurrency pattern, Design pattern]
 <br>
 
 ## Benefits and drawbacks
+1. Benefits
 
+
+
+
+2. Drawbacks
 
 
 

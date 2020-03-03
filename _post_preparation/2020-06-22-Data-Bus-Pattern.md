@@ -1,8 +1,8 @@
 ---
 layout: post
-title: Event Bus pattern
+title: Data bus pattern
 bigimg: /img/image-header/yourself.jpeg
-tags: [Architecture pattern]
+tags: [Design pattern]
 ---
 
 
@@ -12,7 +12,7 @@ tags: [Architecture pattern]
 
 ## Table of contents
 - [Given problem](#given-problem)
-- [Solution with Event bus pattern](#solution-with-event-bus-pattern)
+- [Solution with Data bus pattern](#solution-with-data-bus-pattern)
 - [Source code](#source-code)
 - [Benefits and Drawbacks](#benefits-and-drawbacks)
 - [The relationship with other patterns](#the-relationship-with-other-patterns)
@@ -30,7 +30,7 @@ tags: [Architecture pattern]
 
 <br>
 
-## Solution with Event bus pattern
+## Solution with Data bus pattern
 
 
 
@@ -69,3 +69,4 @@ tags: [Architecture pattern]
 
 Refer:
 
+[http://wiki.c2.com/?DataBusPattern](http://wiki.c2.com/?DataBusPattern)
