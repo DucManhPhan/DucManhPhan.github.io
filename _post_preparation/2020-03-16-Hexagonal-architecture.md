@@ -167,5 +167,3 @@ Refer:
 [https://github.com/hirannor/spring-boot-hexagonal-architecture](https://github.com/hirannor/spring-boot-hexagonal-architecture)
 
 [https://vaadin.com/learn/tutorials/ddd/ddd_and_hexagonal](https://vaadin.com/learn/tutorials/ddd/ddd_and_hexagonal)
-
-[https://github.com/hirannor/spring-boot-hexagonal-architecture](https://github.com/hirannor/spring-boot-hexagonal-architecture)

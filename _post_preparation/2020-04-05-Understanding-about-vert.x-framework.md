@@ -223,6 +223,8 @@ Refer:
 
 [https://www.cubrid.org/blog/inside-vertx-comparison-with-nodejs/](https://www.cubrid.org/blog/inside-vertx-comparison-with-nodejs/)
 
+[https://www.mednikov.net/vertx-app-strategies/](https://www.mednikov.net/vertx-app-strategies/)
+
 <br>
 
 **Integrate Vert.x and Spring**
