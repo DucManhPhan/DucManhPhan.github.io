@@ -235,6 +235,8 @@ Refer:
 
 [https://medium.com/@alexey.soshin/understanding-vert-x-event-loop-46373115fb3e](https://medium.com/@alexey.soshin/understanding-vert-x-event-loop-46373115fb3e)
 
+[https://medium.com/@charith.code/vert-x-for-high-volume-architectures-7b1956a9bbd](https://medium.com/@charith.code/vert-x-for-high-volume-architectures-7b1956a9bbd)
+
 <br>
 
 **Integrate Vert.x and Spring**
@@ -252,3 +254,5 @@ Refer:
 [https://medium.com/pharos-production/vert-x-restful-services-on-java-6a4ed8a30489](https://medium.com/pharos-production/vert-x-restful-services-on-java-6a4ed8a30489)
 
 [https://vertx.io/docs/vertx-hazelcast/java/](https://vertx.io/docs/vertx-hazelcast/java/)
+
+[https://medium.com/halofina-techology/high-performance-vert-x-cluster-c205a809e231](https://medium.com/halofina-techology/high-performance-vert-x-cluster-c205a809e231)
