@@ -199,8 +199,6 @@ Refer:
 
 [https://www.baeldung.com/vertx](https://www.baeldung.com/vertx)
 
-[https://github.com/vert-x3/vertx-examples](https://github.com/vert-x3/vertx-examples)
-
 [https://vertx.io/docs/guide-for-java-devs/](https://vertx.io/docs/guide-for-java-devs/)
 
 [https://vertx.io/docs/](https://vertx.io/docs/)
@@ -217,6 +215,14 @@ Refer:
 
 <br>
 
+**Examples about Vert.x**
+
+[https://github.com/hakdogan/IntroduceToEclicpseVert.x](https://github.com/hakdogan/IntroduceToEclicpseVert.x)
+
+[https://github.com/vert-x3/vertx-examples](https://github.com/vert-x3/vertx-examples)
+
+<br>
+
 **Architecture of Vert.x**
 
 [https://www.cubrid.org/blog/understanding-vertx-architecture-part-2](https://www.cubrid.org/blog/understanding-vertx-architecture-part-2)
@@ -225,6 +231,10 @@ Refer:
 
 [https://www.mednikov.net/vertx-app-strategies/](https://www.mednikov.net/vertx-app-strategies/)
 
+[https://medium.com/@hakdogan/introduce-to-eclicpse-vert-x-1d24c97643c7](https://medium.com/@hakdogan/introduce-to-eclicpse-vert-x-1d24c97643c7)
+
+[https://medium.com/@alexey.soshin/understanding-vert-x-event-loop-46373115fb3e](https://medium.com/@alexey.soshin/understanding-vert-x-event-loop-46373115fb3e)
+
 <br>
 
 **Integrate Vert.x and Spring**
@@ -232,3 +242,13 @@ Refer:
 [https://www.baeldung.com/spring-vertx](https://www.baeldung.com/spring-vertx)
 
 [https://github.com/eugenp/tutorials/tree/master/spring-vertx](https://github.com/eugenp/tutorials/tree/master/spring-vertx)
+
+[https://medium.com/@hakdogan/how-to-share-data-between-threads-in-vert-x-afdf26dcc684](https://medium.com/@hakdogan/how-to-share-data-between-threads-in-vert-x-afdf26dcc684)
+
+[https://medium.com/@hakdogan/how-to-run-a-vert-x-cluster-with-broadcasting-messaging-fc79ff113c9c](https://medium.com/@hakdogan/how-to-run-a-vert-x-cluster-with-broadcasting-messaging-fc79ff113c9c)
+
+[https://medium.com/@hakdogan/working-with-multiple-verticles-and-communication-between-them-in-vert-x-2ed07e8e6425](https://medium.com/@hakdogan/working-with-multiple-verticles-and-communication-between-them-in-vert-x-2ed07e8e6425)
+
+[https://medium.com/pharos-production/vert-x-restful-services-on-java-6a4ed8a30489](https://medium.com/pharos-production/vert-x-restful-services-on-java-6a4ed8a30489)
+
+[https://vertx.io/docs/vertx-hazelcast/java/](https://vertx.io/docs/vertx-hazelcast/java/)
