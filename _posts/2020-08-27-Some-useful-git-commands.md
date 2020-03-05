@@ -38,7 +38,7 @@ Let's get started.
 - [Undo the last commit, without preserving local changes](#undo-the-last-commit-without-preserving-local-changes)
 - [Stop tracking a tracked file](#stop-tracking-a-tracked-file)
 - [Update origin/master branch with our branch that is separated from local/master branch](#update-originmaster-branch-with-our-branch-that-is-separated-from-localmaster-branch)
-- 
+- [Show URL of the remote repository](#show-url-of-the-remote-repository)
 - [Wrapping up](#wrapping-up)
 
 
@@ -371,7 +371,6 @@ git config --get remote.origin.url
 # 2nd way
 git remote show origin
 ```
-
 
 <br>
 
