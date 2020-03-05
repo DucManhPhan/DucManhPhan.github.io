@@ -38,6 +38,7 @@ Let's get started.
 - [Undo the last commit, without preserving local changes](#undo-the-last-commit-without-preserving-local-changes)
 - [Stop tracking a tracked file](#stop-tracking-a-tracked-file)
 - [Update origin/master branch with our branch that is separated from local/master branch](#update-originmaster-branch-with-our-branch-that-is-separated-from-localmaster-branch)
+- 
 - [Wrapping up](#wrapping-up)
 
 
@@ -357,6 +358,20 @@ You could have done this with git reset (no ```--hard```, intentionally preservi
 - First it locates the common ancestor between your currently-checked-out branch and master.
 - Then it resets the currently-checked-out branch to that ancestor, holding all later commits in a temporary holding area.
 - Then it advances the currently-checked-out-branch to the end of master and replays the commits from the holding area after master's last commit.
+
+<br>
+
+## Show URL of the remote repository
+Problem: We want to check URL of our remote repository.
+
+```python
+# first way
+git config --get remote.origin.url
+
+# 2nd way
+git remote show origin
+```
+
 
 <br>
 
