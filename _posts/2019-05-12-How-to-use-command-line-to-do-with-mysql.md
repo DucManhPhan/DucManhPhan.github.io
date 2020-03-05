@@ -16,6 +16,7 @@ Let's get started.
 ## Table of contents
 - [Connect to MySQL through command line](#connect-to-mysql-through-command-line)
 - [Common perations with command line](#common-operations-with-command-line)
+- [Import and export sql file](#import-and-export-sql-file)
 - [Wrapping up](#wrapping-up)
 
 <br>
@@ -59,7 +60,7 @@ We will choose ```Command Line prompt``` to do.
 - If we want to log in mysql database in remote database, we can do like these steps
 
     ```
-    mysql -u <username> -p -h <ip_address> -P <port>
+    mysql -u <username> -p -h <ip_address> -P <port> -D <db_name>
     ```
 
     For example:
