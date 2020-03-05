@@ -55,7 +55,7 @@ tags: [Vert.x, Java]
 
     Verticles are chunks of code that get deployed and run by Vert.x. An application typically be composed of many verticle instances running in the same Vert.x instance at the same time. It's an execution unit of Vert.x.
 
-    Verticle instances communicate with each other by sending messages on the event bus. Default verticles are executed on the Vert.x **event loop** and must never block. Vert.x ensures that each verticle is always executed by the same thread (never concurrently, hence avoiding synchronization constructs).
+    Verticles can be run independently of each other. Verticles communicate with each other by sending messages on the event bus. Default verticles are executed on the Vert.x **event loop** and must never block. Vert.x ensures that each verticle is always executed by the same thread (never concurrently, hence avoiding synchronization constructs).
 
     If we have multiple verticle instances, how to run or manage them. Simple answer for this problem is that we will use the main verticle to start running all verticle instances.
 
@@ -64,10 +64,9 @@ tags: [Vert.x, Java]
 
         @Override
         public void start(Future<Void> future) {
-            Vertx vertx = Vertx.vertx();
-            vertx.deployVerticle(new HttpServerVerticle());
-            vertx.deployVerticle(new ProxyVerticle());
-            vertx.deployVerticle(new WebsocketVerticle());
+            this.vertx.deployVerticle(new HttpServerVerticle());
+            this.vertx.deployVerticle(new ProxyVerticle());
+            this.vertx.deployVerticle(new WebsocketVerticle());
         }
     }
     ```
@@ -221,6 +220,8 @@ Refer:
 
 [https://github.com/vert-x3/vertx-examples](https://github.com/vert-x3/vertx-examples)
 
+[https://github.com/ltamrazov/vertx-starter-guide/tree/part-1](https://github.com/ltamrazov/vertx-starter-guide/tree/part-1) -- Should read this post
+
 <br>
 
 **Architecture of Vert.x**
@@ -236,6 +237,8 @@ Refer:
 [https://medium.com/@alexey.soshin/understanding-vert-x-event-loop-46373115fb3e](https://medium.com/@alexey.soshin/understanding-vert-x-event-loop-46373115fb3e)
 
 [https://medium.com/@charith.code/vert-x-for-high-volume-architectures-7b1956a9bbd](https://medium.com/@charith.code/vert-x-for-high-volume-architectures-7b1956a9bbd)
+
+[https://github.com/vietj/advanced-vertx-guide/blob/master/src/main/asciidoc/Demystifying_the_event_loop.adoc](https://github.com/vietj/advanced-vertx-guide/blob/master/src/main/asciidoc/Demystifying_the_event_loop.adoc)
 
 <br>
 
