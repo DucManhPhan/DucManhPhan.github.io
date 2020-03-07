@@ -76,10 +76,127 @@ tags: [Java, Spring]
 
 ## Using transaction with Spring
 
+1. The advantages of the Spring framework
+
+    Transaction management is a useful feature that the Spring framework makes available out of box. Spring provides support for automatically committing or rolling back transactions when they fail.
+    
+    ![](../img/Spring-Boot/transaction/transactions-features.png)
+
+    There are several different APIs that help developer manage transactions.
+    - Java Transaction API
+    - Java Database Connectivity
+    - Hibernate
+    - Java Persistence API
+    - Java Data Objects
+    - Java Message Service
+    
+    The advantages of using Spring to manage transactions is that it provides a consistent programming model across all of the APIs. For example, we are currently using JDO to help manage our transactions, and one day down the road we want to change to Hibernate. Well, if we are not using Spring, we'd have to make coding changes to support the migration because JDO and Hibernate have different APIs for transaction management.
+
+    If we're using Spring, then coding changes aren't required. Spring provides a uniform API that is simpler for programmatic transaction management than other complex APIs.
+
+    ![](../img/Spring-Boot/transaction/exchange-other-technologies-with-spring.png)
+
+    Let's have a closer look at an example for this problem:
+
+    ```java
+    public void saveTicket(Ticket ticket) {
+        Session session = sessionFactory.getCurrentSession();
+        session.getTransaction().begin();
+        session.save(ticket);
+        session.getTransaction().commit();
+    }
+    ```
+
+    In the above code, we can find that we're responsible for beginning the transaction, and commit the transaction. It is very manual. Then, we will see the code that's using the Spring transaction management.
+
+    ```java
+    @Transactional
+    public void saveTicket(Ticket ticket) {
+        sessionFactory.getCurrentSession().save(ticket);
+    }
+    ```
+
+    Using the Spring transaction management, the piece of code is lightweight and flexible and lets Spring handle the transaction.
+
+    Let's say we needed to execute **saveTicket()** as a part of complex transactions.
+
+    ```java
+    @Transactional
+    public void scheduleRelease(Ticket ticket, Release release) {
+        ticketDao.saveTicket(ticket);
+        assignToRelease(ticket);
+        doOtherStuff(ticket);
+    }
+    ```
+
+    In this example where we have to first save a ticket, assign it to a release, and do other stuff, the automatic rollback happens in the case of exception.
+
+    Spring makes all of this possible by providing support for programmatic and declarative transaction management. The above code of **scheduleRelease()** method is considered declarative transaction management. The underlying transaction manager should intercept resource manager requests made by the application and perform the necessary transaction management such as **begin**, **suspend**, **commit** and **rollback**. Declarative transaction management can also include **the specification of transactional parameters** such as **isolation levels**.
+
+    The advantages of declarative transactions:
+    - The declarative transactions allow container to manage the transaction for us.
+    - This saves us from having to put transaction management calls into our application code.
+    - Declarative transactional management can lead to much cleaner separation of business logic and transaction code. And application written to depend on declarative transaction management can be much easier to maintain and evolve.
+
+2. Programmatic transaction management
+
+    In this section, we will see some tools for the programmatic transaction management.
+    - **Transaction Template**, is similar to Spring templates like JdbcTemplate and other available templates.
+    
+    - **Platform transaction manager**, Spring makes available several implementations of the platform transaction manager interface for handling transactions across Hibernate, JDBC, JPA, JMS, etc such as Platform transaction manager, the Jta transaction manager, the Hibernate transaction manager, the DataSource transaction manager, and the JPA transaction manager, etc.
+
+    In our article, we will use Hibernate transaction manager because it's a uniform API that uses the features of Hibernate's transactions, while maintaining the advantage of Spring's unified transaction abstractions.
 
 
+3. Declarative transaction management
+
+    In the declarative transaction management, we usually use **@Transactional** annotation. It allows us to easily work with database transactions. The **@Transactional** annotation is convenient because developers don't need to think about direct transaction management and exception handling.
+    
+    - All of this is done automatically in a proxy class that Spring creates to hold the transaction management code.
+
+    - The **@Transactional** annotation can either be used at the class, interface, or method level. When placed on the class or interface, all methods within it become transactional.
+
+    - By using **@Transactional**, many important aspects such as transaction propagation are handled automatically. There are specific attributes that we can set that will determine propagation behavior.
 
 
+4. Spring boot and Transaction manager
+
+    The **@EnableTransactionManagement** annotation enables Spring's annotation-driven transaction management capability. However, when using Spring Boot, transaction management is automatically configured for us.
+
+    When looking at the sample code, we will see that the **@Transactional** annotation works without having to include the **@EnableTransactionManagement** annotation and declarative transaction management works, although we haven't defined or configured a platform transaction manager.
+
+    The case study for the project uses Spring Boot, and we have added Spring Data JPA in our class path via pom.xml.
+
+    ```xml
+    <dependency>
+        <groupId>org.springframework.boot</groupId>
+        <artifactId>spring-boot-starter-data-jpa</artifactId>
+    </dependency>
+    ```
+
+    Due to this dependency, Spring Boot does a lot for us behind the scenes.
+    - Spring registers a transaction manager for us, in this case a JPA transaction manager.
+    
+    - It also takes care of the **DataSource**, **EntityManager**, repositories, etc. And calls on Spring Data repositories are by default surrounded by transaction.
+    
+    - If Spring Data finds an existing transaction, the existing transaction will be reused. Otherwise, a new transaction is created.
+    
+    Just remember when we're not using Spring Boot, the **@Transactional** annotation within our code will be evaluated when we use the **@EnableTransactionManagement** annotation.
+
+    We can easily trace transaction behavior by adding the following property to our application.properties file.
+
+    ```yaml
+    logging.level.org.springframework.transaction.interceptor=TRACE
+    ```
+
+    We can easily get access to the transaction manager by autowiring it with the following code.
+
+    ```java
+    @Autowired
+    private PlatformTransactionManager transactionManager;
+    ```
+
+5. Entity Manager and Database transactions
 
 <br>
 

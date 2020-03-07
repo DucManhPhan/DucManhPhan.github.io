@@ -15,6 +15,8 @@ tags: [Java, Multithreading]
 - [Using shutdown(), isTerminated() methods of Executors](#using-shutdown()-isTerminated()-methods-of-executors)
 - [Using invokeAll() method of ExecutorService](#using-invokeAll()-method-of-executorservice)
 - [Using invokeAll() method of ExecutorCompletionService](#using-invokeAll()-method-of-executorcompletionservice)
+- [Wrapping up](#wrapping-up)
+
 
 <br>
 
@@ -58,9 +60,9 @@ tags: [Java, Multithreading]
 ## Wrapping up
 - Whenever we want to block a thread until another unit of work completes, we should never block infinitely.
 
-    The await() method, like the Future.get() method, is overloaded to take either no parameters, or a pair of parameters to determine how long to wait. If we use the option of waiting for a specific time, an InterruptedException will be thrown if no response has come in the specific time.
+    The **await()** method, like the **Future.get()** method, is overloaded to take either no parameters, or a pair of parameters to determine how long to wait. If we use the option of waiting for a specific time, an InterruptedException will be thrown if no response has come in the specific time.
 
-    If we use the option with no parameters, the await() method will block forever. So if the operation we are waiting on has crashed, and will never return, our application will never progress.
+    If we use the option with no parameters, the **await()** method will block forever. So if the operation we are waiting on has crashed, and will never return, our application will never progress.
 
     Whenever we are waiting on a parallel operation to complete, whether that is in another thread, or, for instance, on a web service to return us some data, we should consider how to react if that operation never return.
 
