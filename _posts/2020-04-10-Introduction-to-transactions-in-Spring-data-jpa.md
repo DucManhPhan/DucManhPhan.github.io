@@ -5,14 +5,16 @@ bigimg: /img/image-header/yourself.jpeg
 tags: [Java, Spring]
 ---
 
+In this article, we will introduce to transaction with Spring Data JPA, how many ways to implement it in our project.
 
-
+Let's get started.
 
 <br>
 
 ## Table of contents
 - [Introduction to Transaction](#introduction-to-transaction)
 - [Using transaction with Spring](#using-transaction-with-spring)
+- [Benefits and Drawbacks](#benefits-and-drawbacks)
 - [Wrapping up](#wrapping-up)
 
 
