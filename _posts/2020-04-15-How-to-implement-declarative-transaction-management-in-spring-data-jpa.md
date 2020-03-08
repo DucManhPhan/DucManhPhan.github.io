@@ -290,6 +290,23 @@ public class ReleaseService implements IReleaseService {
 
 <br>
 
+## Benefits and drawbacks
+1. Benefits
+
+    - allows developer manage transactions via configuration and annotations, and it's less flexible.
+
+    - It does allow developers to separate transaction logic from business logic.
+
+    - easy to maintain. Boilerplate code is kept away from the business logic.
+
+    - it's preferred when a lot of transaction logic.
+
+2. Drawbacks
+
+
+
+<br>
+
 ## Wrapping up
 - How to use @Transactional annotation with specific attributes such as propagation, isolation, timeout, readOnly, and rollback rules.
 
