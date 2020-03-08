@@ -1,6 +1,6 @@
 ---
 layout: post
-title: Data transaction with Spring
+title: Introduction to transaction in Spring Data JPA
 bigimg: /img/image-header/yourself.jpeg
 tags: [Java, Spring]
 ---
@@ -13,9 +13,6 @@ tags: [Java, Spring]
 ## Table of contents
 - [Introduction to Transaction](#introduction-to-transaction)
 - [Using transaction with Spring](#using-transaction-with-spring)
-- [Implementing declarative transaction management](#implementing-declarative-transaction-management)
-- [Implementing programmatic transaction management](#implementing-programmatic-transaction-management)
-- [Understanding programmatic transaction management and declarative transaction management](#understanding-programmatic-transaction-management-and-declarative-transaction-management)
 - [Wrapping up](#wrapping-up)
 
 
@@ -63,14 +60,6 @@ tags: [Java, Spring]
     In a typical environment, there are two types of transactions, global and local.
     - Global transactions are used when multiple resources manage the transactions and are typically managed by the application server, allowing for access to multiple resources like message queues, relational databases, ...
     - Local transactions are typically associated with a specific resource like a JDBC connection, and this resource manages the transaction. Local transactions do not typcially run in a global environment.
-
-3. The advantage of Spring framework
-
-    The Spring framework allows transactions to be managed seamlessly by offering a consistent programming model across global and local transactions. Essentially code is written once benefitting from different transaction management strategies within different environement.
-
-    Spring provides supports for programmatic transaction management. Now this is where the developer writes custom code to manage the transaction and set boundaries. Spring also provides support for declarative transaction management, which allows developers to seperate transaction management from the business code.
-
-    Spring supports isolation levels that help developers avoid problems that may arise when multiple transactions in the application are operating concurrently on the same data.
 
 <br>
 
@@ -198,28 +187,66 @@ tags: [Java, Spring]
 
 5. Entity Manager and Database transactions
 
+    ![](../img/Spring-Boot/transaction/entity-manager.png)
+
+    When we review the project code, we will see the use of an entity manager. So how does the entity manager fit in with the database transaction? In an ideal scenario, we will fully gain the benefit of Spring Data JPA, and remove the DAO completely and leave only the DAO interface.
+
+    Now, we will talk about persistence context and a database transaction. Each has its own lifecycle and scope.
+    - Database transaction
+    
+        When the **@Transactional** annotation is used, it is only defining a single database transaction, in the scope of a persistence context.
+
+    - Persistence context
+
+        The persistence context comes from JPA, as does the entity manager, and is implemented internally using a Hibernate session when we're using Hibernate as our persistence provider.
+
+    For example:
+
+    ```java
+    @Entity
+    public class Release {
+        @Id
+        @GeneratedValue(strategy = GenerationType.AUTO)
+        private Integer id;
+
+        private String name;
+
+        private String description;
+
+        @OneToMany(cascade = PERSIST)
+        private List<Ticket> tickets;
+
+        @JsonFormat(shape = JsonFormat.Shape.STRING, pattern = "yyyy-MM-dd")
+        private LocalDate releaseDate;
+    }
+
+    @Repository
+    public class ReleaseDAO implements IReleaseDAO {
+        @PersistenceContext
+        private EntityManager entityManager;
+
+        @Override
+        public void addRelease(Release release) {
+            this.entityManager.persist(release);
+        }
+
+        @Override
+        public Release getReleaseId(int releaseId) {
+            return this.entityManager.find(Release.class, releaseId);
+        }
+    }
+    ```
+
 <br>
 
-## Implementing declarative transaction management
+## Benefits and Drawbacks
+1. Benefits
 
+    The Spring framework allows transactions to be managed seamlessly by offering a consistent programming model across global and local transactions. Essentially code is written once benefitting from different transaction management strategies within different environement.
 
+    Spring provides supports for programmatic transaction management. Now this is where the developer writes custom code to manage the transaction and set boundaries. Spring also provides support for declarative transaction management, which allows developers to seperate transaction management from the business code.
 
-
-
-<br>
-
-## Implementing programmatic transaction management
-
-
-
-
-
-<br>
-
-## Understanding programmatic transaction management and declarative transaction management
-
-
-
+    Spring supports isolation levels that help developers avoid problems that may arise when multiple transactions in the application are operating concurrently on the same data.
 
 <br>
 
