@@ -13,7 +13,7 @@ tags: [Architecture pattern]
 ## Table of contents
 - [Given problem](#given-problem)
 - [Solution of Layered architecture pattern](#solution-of-layered-architecture-pattern)
-- []()
+- [Benefits and Drawbacks](#benefits-and-drawbacks)
 - [Wrapping up](#wrapping-up)
 
 
@@ -21,8 +21,17 @@ tags: [Architecture pattern]
 
 ## Given problem
 
+Normally, when we want to make our website, in back-end, we use layer architecture to separate our project into components that each component will be taken on one responsibility.
 
+Below is an commom layer architecture that we usually use in our projects.
 
+![](../img/Architecture-pattern/layered-architecture/common-layers.png)
+
+- At the top rectangle, we have a **Web layer**, or sometimes, it called as **Ws layer**, which receives requests.
+
+- The second thing that is **Domain layer**, or **Business layer**, requests from **Web layer** will be routed to a service in the **Domain layer**. The service does some business logic and calls components from the **Persistence layer** to implement some queries such as get, update, create, ... with records in database.
+
+- The third thing is **Persistence layer**, that manages the communication between our application and other external devices such as database, redis, elastic search, file, ... Usually, we will use **Repository pattern** (used in Domain Drive Design) and DAO - **Data Access Object pattern**.
 
 
 
@@ -37,8 +46,13 @@ tags: [Architecture pattern]
 
 <br>
 
-## 
+## Benefits and Drawbacks
+1. Benefits
 
+
+
+
+2. Drawbacks
 
 
 

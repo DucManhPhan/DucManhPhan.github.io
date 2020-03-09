@@ -26,10 +26,36 @@ tags: [Architecture pattern]
 
 ## Problem of Layered architecture
 
+Normally, when we want to make our website, in back-end, we use layer architecture to separate our project into components that each component will be taken on one responsibility.
 
+Below is an commom layer architecture that we usually use in our projects.
 
+![](../img/Architecture-pattern/layered-architecture/common-layers.png)
 
+- At the top rectangle, we have a **Web layer**, or sometimes, it called as **Ws layer**, which receives requests.
 
+- The second thing that is **Domain layer**, or **Business layer**, requests from **Web layer** will be routed to a service in the **Domain layer**. The service does some business logic and calls components from the **Persistence layer** to implement some queries such as get, update, create, ... with records in database.
+
+- The third thing is **Persistence layer**, that manages the communication between our application and other external devices such as database, redis, elastic search, file, ... Usually, we will use **Repository pattern** (used in Domain Drive Design) and DAO - **Data Access Object pattern**.
+
+But the first thought that we have in mind is that we need to analysis and create our database. Then, we will create entities to map tables in database. Then, create services in **Domain layer** that can be used in **Web layer**.
+
+So, the web layer depends on the **Domain layer**, which in turn depends on the **Persistence layer**, and thus the database.
+
+It's called Database-driven design. Then we have some disadvantages when we design our project driven by database.
+- The Domain layer is allowed to access those entities in the Persistence layer. If we do not want to use directly entities, we convert entities to dto - data transfer object. But it still creates a strong coupling between the Persistence layer and the Domain layer.
+
+    Our services use entities as their business model and not only have to deal with the domain logic but also eager lazy loading, database transactions, flushing caches, and similar housekeeping tasks.
+
+    So, it's hard to change one without the other.
+
+- It's prone to shortcuts
+
+    The rule of layered architecture is the above layer can be access its components or components in the beneath layers.
+
+    So, if we want to access the above layer's components, we need to put its components to the beneath layer. So, the bottom-most layer will grow fat as we push components down through the layers.
+
+How to deal with it?
 
 <br>
 
