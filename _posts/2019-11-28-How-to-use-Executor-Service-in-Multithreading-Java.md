@@ -198,11 +198,11 @@ Let's get started.
     ```
 
     The description about the above code segment:
-    - with ```shutdown()```, the output is ```Still waiting after 100ms: calling System.exit(0)...``` because the running task is not interrupted and continues to run.
+    - with ```shutdown()```, the output is ```still waiting after 100ms: calling System.exit(0)...``` because the running task is not interrupted and continues to run.
 
     - with ```shutdownNow()```, the output is ```interrupted``` and ```Exiting normally...``` because the running task is interrupted, catches the interruption and then stops what it is doing (breaks the while loop).
 
-    - with ```shutdownNow()```, if you comment out the lines within the while loop, you will get ```Still waiting after 100ms: calling System.exit(0)...``` because the interruption is not handled by the running task any longer.
+    - with ```shutdownNow()```, if you comment out the lines within the while loop, you will get ```still waiting after 100ms: calling System.exit(0)...``` because the interruption is not handled by the running task any longer.
 
 <br>
 
@@ -224,17 +224,17 @@ class Test1 implements Runnable {
         Thread.sleep (TIME_FOR_LONGER_BREAK);
         backoff = false;
       }
+
       System.out.println("I'm test class 1");
       try {
         // do important stuff here, use database and other critical resources
-      }
-      catch (SqlException se) {
+      } catch (SqlException se) {
        // code to delay the next loop
        backoff = true;
-      }
-      catch (Exception e) {
-      }
-      catch (Throwable t) {
+      } catch (Exception e) {
+          // nothing to do
+      } catch (Throwable t) {
+          // nothing to do
       }
     }
   }
@@ -244,13 +244,19 @@ class Test1 implements Runnable {
 <br>
 
 ## Benefits of Executors framework
-- abstracts away many of the complexities associated with the lower-level abstsractions like raw ```Thread```.
+1. It's easier to program concurrent applications because we do not have to worry to create threads.
 
-- It provides mechanism for safely starting, submitting, executing, and blocking on the successful or abrupt termination of tasks.
+2. It's easier to control the resources used by the executor and your application. You can create an executor that only uses a predefined number of threads. If you send more tasks, the executor stores them in a queue until a thread is available.
 
-- Help us focus on structring tasks, dependencies, potential parallelism.
+3. Executors reduce the overhead introduced by thread creation reusing the threads. Internally, it manages a pool of threads that reuses threads to execute multiple tasks.
 
-- Developers are likely to already understand the standard library classes, so there is no need to learn the API and behavior of ad-hoc concurrent components. Additionally, concurrent applications are far simpler to debug when they are built on reliable, well-tested components.
+4. abstracts away many of the complexities associated with the lower-level abstsractions like raw ```Thread```.
+
+5. It provides mechanism for safely starting, submitting, executing, and blocking on the successful or abrupt termination of tasks.
+
+6. Help us focus on structring tasks, dependencies, potential parallelism.
+
+7. Developers are likely to already understand the standard library classes, so there is no need to learn the API and behavior of ad-hoc concurrent components. Additionally, concurrent applications are far simpler to debug when they are built on reliable, well-tested components.
 
 <br>
 
