@@ -240,6 +240,8 @@ Refer:
 
 [https://github.com/vietj/advanced-vertx-guide/blob/master/src/main/asciidoc/Demystifying_the_event_loop.adoc](https://github.com/vietj/advanced-vertx-guide/blob/master/src/main/asciidoc/Demystifying_the_event_loop.adoc)
 
+[https://piotrminkowski.com/2017/08/24/asynchronous-microservices-with-vert-x/](https://piotrminkowski.com/2017/08/24/asynchronous-microservices-with-vert-x/)
+
 <br>
 
 **Integrate Vert.x and Spring**
