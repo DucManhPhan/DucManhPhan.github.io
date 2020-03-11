@@ -12,6 +12,7 @@ In this article, we will find something out about reading properties in file wit
 ## Table of contents
 - [How to use @ConfigurationProperties annotation](#how-to-use-@configurationproperties-annotation)
 - [How to use @PropertySource with @Value](#how-to-use-@propertysource-with-@value)
+- [Combine settings into object](#combine-settings-into-object)
 - [Use Properties class](#use-properties-class)
 - [The order that Spring boot setup for properties](#the-order-that-spring-boot-setup-for-properties)
 - [Wrapping up](#wrapping-up)
@@ -20,9 +21,72 @@ In this article, we will find something out about reading properties in file wit
 
 ## How to use @ConfigurationProperties annotation
 
+We have the content of properties file.
 
+```yaml
+logging:
+  level:
+    org.springframework.web: ERROR
+    com.mkyong: DEBUG
+email: test@mkyong.com
+thread-pool: 10
+app:
+  menus:
+    - title: Home
+      name: Home
+      path: /
+    - title: Login
+      name: Login
+      path: /login
+  compiler:
+    timeout: 5
+    output-folder: /temp/
+  error: /error/
+```
 
+```java
+@Component
+@ConfigurationProperties("app") // prefix app, find app.* values
+public class AppProperties {
+    private String error;
+    private List<Menu> menus = new ArrayList<>();
+    private Compiler compiler = new Compiler();
 
+    public static class Menu {
+        private String name;
+        private String path;
+        private String title;
+
+        //getters and setters
+
+        @Override
+        public String toString() {
+            return "Menu{" +
+                    "name='" + name + '\'' +
+                    ", path='" + path + '\'' +
+                    ", title='" + title + '\'' +
+                    '}';
+        }
+    }
+
+    public static class Compiler {
+        private String timeout;
+        private String outputFolder;
+
+        //getters and setters
+
+        @Override
+        public String toString() {
+            return "Compiler{" +
+                    "timeout='" + timeout + '\'' +
+                    ", outputFolder='" + outputFolder + '\'' +
+                    '}';
+        }
+    }
+
+    //getters and setters
+}
+```
 
 <br>
 
@@ -40,6 +104,40 @@ public class AuthenticationController {
 }
 ```
 
+<br>
+
+## Combine settings into object
+1. Use **@ConfigurationProperties** annotation
+
+    By default, **application.properties** file is read from Spring Boot. If we want to specify another properties file, we can use **@PropertySource** annotation.
+
+    ```java
+    @Component
+    @PropertySource(value = "classpath:config.properties", ignoreResourceNotFound = true)
+    @ConfigurationProperties(prefix="app")
+    public class AppConfig {
+
+        private String username;
+
+        private String password;
+    }
+    ```
+
+2. Use **@Value** annotation
+
+    ```java
+    @Component
+    @PropertySource(value = "classpath:config.properties", ignoreResourceNotFound = true)
+    public class AppConfig {
+
+        @Value("${app.username}")
+        private String username;
+
+        @Value("$app.password")
+        private String password;
+
+    }
+    ```
 
 
 <br>
@@ -155,9 +253,9 @@ public class PropertiesConfiguration {
 <br>
 
 ## Wrapping up
+- Understanding about how to use **@ConfigurationProperties**, **@PropertySource**, and **@Value**.
 
-
-
+- **@ConfigurationProperties** supports both **.properties** and **.yml** file.
 
 <br>
 
@@ -173,8 +271,12 @@ Refer:
 
 [https://www.baeldung.com/configuration-properties-in-spring-boot](https://www.baeldung.com/configuration-properties-in-spring-boot)
 
+[https://www.baeldung.com/properties-with-spring](https://www.baeldung.com/properties-with-spring)
+
 [https://memorynotfound.com/spring-boot-configurationproperties-annotation-example/](https://memorynotfound.com/spring-boot-configurationproperties-annotation-example/)
 
 [https://docs.spring.io/spring-boot/docs/current-SNAPSHOT/reference/htmlsingle/#boot-features-external-config-typesafe-configuration-properties](https://docs.spring.io/spring-boot/docs/current-SNAPSHOT/reference/htmlsingle/#boot-features-external-config-typesafe-configuration-properties)
 
 [https://memorynotfound.com/import-multiple-spring-xml-configuration-files/](https://memorynotfound.com/import-multiple-spring-xml-configuration-files/)
+
+[https://mkyong.com/spring-boot/spring-boot-configurationproperties-example/](https://mkyong.com/spring-boot/spring-boot-configurationproperties-example/)

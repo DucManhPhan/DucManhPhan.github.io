@@ -29,7 +29,7 @@ Although a Java-based server, key pieces of Resin's core networking are written 
 ## Directory layout of Resin home folder
 The below is the standard layout and locations for Resin files in Unix.
 
-```html
+```yaml
 /var/resin/            # Resin root-directory
   app-inf/             # custom app-tier cluster configuration and jars
   doc/                 # Resin documentation
@@ -80,7 +80,7 @@ When Resin is deployed in a Unix environment, the resin-data will typically be i
 
 Directory structure of ```resin-data``` folder is:
 
-```
+```yaml
 resin-data/
   app-0/          # each named server gets its own section
     .git/         # web-app deployment .git repository
