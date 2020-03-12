@@ -280,3 +280,5 @@ Refer:
 [https://memorynotfound.com/import-multiple-spring-xml-configuration-files/](https://memorynotfound.com/import-multiple-spring-xml-configuration-files/)
 
 [https://mkyong.com/spring-boot/spring-boot-configurationproperties-example/](https://mkyong.com/spring-boot/spring-boot-configurationproperties-example/)
+
+[https://javapapers.com/spring/spring-properties-with-propertysource-annotation/](https://javapapers.com/spring/spring-properties-with-propertysource-annotation/)

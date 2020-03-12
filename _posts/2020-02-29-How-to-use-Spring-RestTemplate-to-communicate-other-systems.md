@@ -211,7 +211,13 @@ In order to understand how to implement code by using Spring RestTemplate, we ca
 ## Wrapping up
 - Spring RestTemplate that uses **MessageConverter** internally. So we need to set this property in the RestTemplate bean.
 
+- Spring supports multiple http client libraries through its [ClientHttpRequestFactory](https://docs.spring.io/spring-framework/docs/current/javadoc-api/org/springframework/http/client/ClientHttpRequestFactory.html) abstraction:
 
+    - Apache HttpComponents HttpClient
+    - Netty4
+    - OkHttp
+    - OkHttp3
+    - Standard JDK calls
 
 <br>
 

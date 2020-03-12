@@ -60,3 +60,5 @@ Refer:
 **Configure Apache HttpClient in Spring RestTemplate**
 
 [https://howtodoinjava.com/spring-boot2/resttemplate/resttemplate-httpclient-java-config/](https://howtodoinjava.com/spring-boot2/resttemplate/resttemplate-httpclient-java-config/)
+
+[https://springframework.guru/using-resttemplate-with-apaches-httpclient/](https://springframework.guru/using-resttemplate-with-apaches-httpclient/)

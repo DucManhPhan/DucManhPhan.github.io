@@ -72,3 +72,9 @@ Refer:
 [https://www.baeldung.com/httpclient-timeout](https://www.baeldung.com/httpclient-timeout)
 
 [https://danlebrero.com/2019/12/11/apache-http-client-timeouts-config-production-asynchronous-http-client-pictures/][https://danlebrero.com/2019/12/11/apache-http-client-timeouts-config-production-asynchronous-http-client-pictures/]
+
+<br>
+
+**Timeout Handling in Spring**
+
+[https://docs.spring.io/autorepo/docs/spring-integration/4.0.0.M1/reference/html/http.html](https://docs.spring.io/autorepo/docs/spring-integration/4.0.0.M1/reference/html/http.html)

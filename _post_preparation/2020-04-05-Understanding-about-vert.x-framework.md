@@ -222,6 +222,8 @@ Refer:
 
 [https://github.com/ltamrazov/vertx-starter-guide/tree/part-1](https://github.com/ltamrazov/vertx-starter-guide/tree/part-1) -- Should read this post
 
+[https://github.com/jponge/vertx-in-action?files=1](https://github.com/jponge/vertx-in-action?files=1)
+
 <br>
 
 **Architecture of Vert.x**
