@@ -76,3 +76,8 @@ Refer:
 
 [https://www.baeldung.com/java-9-http-clients](https://www.baeldung.com/java-9-http-client)
 
+[https://openjdk.java.net/groups/net/httpclient/intro.html](https://openjdk.java.net/groups/net/httpclient/intro.html)
+
+[https://blog.codefx.org/java/http-2-api-tutorial/](https://blog.codefx.org/java/http-2-api-tutorial/)
+
+[https://blog.codefx.org/java/switch-expressions/](https://blog.codefx.org/java/switch-expressions/)
