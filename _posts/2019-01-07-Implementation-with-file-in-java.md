@@ -198,6 +198,52 @@ To read/write with Object streams, use **readObject()** method and **writeObject
 
 <br>
 
+## The difference between FileInputStream and FileReader
+1. **FileInputStream** reads data from Byte stream, **FileReader** reads data from Character stream.
+
+    - The **read()** method of **FileReader** will read one character at a time.
+
+        ```java
+        try {
+            String path = "...";
+            FileReader fileReader = new FileReader(path);
+            int i = fileReader.read();
+
+            while (i != -1) {
+                System.out.print((char) i);
+                i = fileReader.read();
+            }
+        } catch(FileNotFoundException ex) {
+            // log exception
+        }
+        ```
+
+    - The **read()** method of **FileInputStream** will read one byte at a time.
+
+        ```java
+        try {
+            String path = "...";
+            FileInputStream fis = new FileInputStream(path);
+            int b = fis.read();
+            
+            while(b != -1) {
+                System.out.print(b);
+                b = fis.read();
+            }
+        } catch (FileNotFoundException ex) {
+            // ... log
+        }
+        ```
+
+2. **FileReader** automatically converts the raw bytes into characters by using platform's default character encoding.
+
+    So, we will use **FileReader** to read file that has same character encoding with platform's default character encoding.
+
+    If that file is encoded in a different character encoding, we should use **InputStreamReader** that we can configure character encoding. Also, we can use FileInputStream as a source for **InputStreamReader**. **InputStreamReader** caches the character encoding which means we cannot change the encoding scheme programmatically.
+
+
+<br>
+
 ## Important note
 - Names of character streams typically end with Reader/Writer and names of byte streams end with InputStream/OutputStream.
 - Should use Buffer streams with Byte streams (BufferInputStream / BufferOutputStream) and Character streams (BufferReader / BufferWriter).
