@@ -21,7 +21,8 @@ But in Java, it supports so many classes, methods for reading/writing file. It w
   - [Object streams](#object-streams)
 - [When to use Byte streams](#when-to-use-byte-streams)
 - [When to use Character streams](#when-to-use-character-streams)
-- [Important note](#important-note)
+- [The difference between FileInputStream and FileReader](#the-difference-between-fileinputstream-and-filereader)
+- [Wrapping up](#wrapping-up)
 
 <br>
 
@@ -191,6 +192,8 @@ To read/write with Object streams, use **readObject()** method and **writeObject
 ## When to use Byte streams
 - When you want to process raw data like binary files.
 
+    For example, we can use FileInputStream to read byte-oriented data such as image data, audio, video, ...
+
 <br>
 
 ## When to use Character streams
@@ -235,16 +238,47 @@ To read/write with Object streams, use **readObject()** method and **writeObject
         }
         ```
 
+        Each time **FileInputStream.read()** is called, a call is made to read a system file. This **read()** method will read 1 byte (8-bit) at a time.
+
 2. **FileReader** automatically converts the raw bytes into characters by using platform's default character encoding.
 
     So, we will use **FileReader** to read file that has same character encoding with platform's default character encoding.
 
     If that file is encoded in a different character encoding, we should use **InputStreamReader** that we can configure character encoding. Also, we can use FileInputStream as a source for **InputStreamReader**. **InputStreamReader** caches the character encoding which means we cannot change the encoding scheme programmatically.
 
+<br>
+
+## The difference between ByteArrayInputStream and BufferedInputStream
+
+- The **ByteArrayInputStream** and **BufferedInputStream** are extended from **InputStream** class.
+
+    - About **ByteArrayInputStream**
+
+        A **ByteArrayInputStream** contains an internal buffer that contains bytes that may be read from the stream. An internal counter keeps track of the next byte to be supplied by the read method.
+
+        Closing a **ByteArrayInputStream** has no effect. The methods in **ByteArrayInputStream**'s classes can be called after the stream has been closed without generating an **IOException**.
+
+        **ByteArrayInputStream** is like wrapper which protects underlying array from external modification.
+
+        If our input is always a byte[], then we should use ByteArrayInputStream. Because the constructor of **ByteArrayInputStream** that reads through a byte[], does no actual I/O operation.
+
+    - About **BufferedInputStream**
+
+        BufferedInputStream reads bytes from another InputStream such as FileInputStream, ... So, we can wrap another InputStream into BufferedInputStream.
+
+        ```java
+        // FileInputStream reads bytes from a file
+        FileInputStream fis = new FileInputStream("...");
+        BufferedInputStream bis = new BufferedInputStream(fis);
+        ```
+
+        When **BufferedInputStream.read()** is called mostly data is read from the buffer. When data is not available in buffer, a call is made to read system file and lot of bytes, maybe 128 bytes, are kept in buffer.
+
+        **BufferedInputStream.readLine()** method reads whole line and keep it in buffer.
 
 <br>
 
-## Important note
+## Wrapping up
 - Names of character streams typically end with Reader/Writer and names of byte streams end with InputStream/OutputStream.
 - Should use Buffer streams with Byte streams (BufferInputStream / BufferOutputStream) and Character streams (BufferReader / BufferWriter).
 - It is highly recommended to close the stream when it is no longer in use. This ensures that the streams won't be affected if any error occurs. 
@@ -267,3 +301,9 @@ Refer:
 [https://www.developer.com/java/data/understanding-byte-streams-and-character-streams-in-java.html](https://www.developer.com/java/data/understanding-byte-streams-and-character-streams-in-java.html)
 
 [https://docs.oracle.com/javase/tutorial/essential/io/index.html](https://docs.oracle.com/javase/tutorial/essential/io/index.html)
+
+<br>
+
+**BufferedInputStream**
+
+[https://www.javamadesoeasy.com/2015/08/difference-between-fileinputstream-and.html](https://www.javamadesoeasy.com/2015/08/difference-between-fileinputstream-and.html)
