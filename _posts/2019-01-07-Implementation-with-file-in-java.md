@@ -31,10 +31,8 @@ In order to use classes, methods that perform I/O, especially reading, writing f
 IO streams are flows of data that you can read, write.
 
 There are two kinds of stream in Java. 
-- InputStream : used to read file
-- OutputStream : used to write file
-
-<br>
+- **InputStream** : used to read file
+- **OutputStream** : used to write file
 
 Similiarity with C++, when implementing with files, it has two mode: binary mode, text mode, Java also supports Byte stream and Character stream. But these classes can used in a larger context when comparing with C++.
 
@@ -60,64 +58,95 @@ Belows are the image about a hierachy of classes in Input/Output stream.
 
 ![Input/output stream classes](../img/file-in-java.png)
 
-### The Byte stream classes
+<br>
+
+## The Byte stream classes
 The hierarchical layout is as follows:
 - InputStream: Top level abstract class for byte-oriented input stream.
+
     - ByteArrayInputStream: An instance of this class contains an internal buffer to read bytes stream.
+
     - FilterInputStream: An instance of this class contains some other input stream as a basic source of data for further manipulation.
         - BufferInputStream: This enables a *FilterInputStream* instance to make use of a buffer for input data.
         - DataInputStream: An instance of this class enables reading primitive Java types from an underlying input stream in a machine-independent manner.
         - LineNumberInputStream: An instance of this class aids in keeping track of the current line number of the input stream.
         - PushbackInputStream: This provides the ability to push back, or "unread," a data byte after reading it.
+
     - FileInputStream: An instance of this class is used to obtain input bytes from a file in a file system.
+
     - ObjectInputStream: An instance of this class is used to deserialize an object after it has been serialized by ObjectOutputSteam.
+
     - PipedInputStream: An instance of this class provides a pipe or buffer for an input byte that works in the FIFO manner.
+
     - SequenceInputStream: An instance of this class represents a logical concatenation of two or more input streams which are read in sequence, one after another.
+
 - OutputStream: Top-level abstract class for byte-oriented input stream.
+
     - ByteArrayOutputStream: An instance of this class contains an internal buffer to write a bytes stream.
+
     - FilterOutputStream: An instance of this class contains some other output stream as a basic source of data for further manipulation.
         - BufferedOutputStream: This enables a FilterOutputStream instance to make use of a buffer for output data.
         - DataOutputStream: An instance of this class enables writing primitive Java types to an underlying output stream in a machine-independent manner.
         - PrintStream: This empowers the OutputStream objects with the ability to print representations of various data values conveniently.
+
     - FileOutputStream: An instance of this class is used to output a stream for writing data to a file or to a file descriptor.
+
     - ObjectOutputStream: An instance of this class is used to serialize an object which can be deserialized with ObjectInputStream.
+
     - PipedOutputStream: An instance of this class provides a pipe or buffer for output byte that works in the FIFO manner.
 
+<br>
 
-### The Character stream classes
+## The Character stream classes
 Belows are the hierachy of classes in Character streams.
 
 - Reader: Top-level abstract class to read to character streams.
+
     - BufferedReader: Provides an in-between buffer for efficiency while reading text from character input stream.
         - LineNumberReader: Uses a buffered character input stream that keeps track of line numbers.
+
     - CharArrayReader: Implements an auto-increasing character buffer that may be used as a reader.
+
     - FilterReader: An instance of this class is used for reading character files.
         - PushbackReader: This enables a character to be pushed back into the stream after reading.
+
     - InputStreamReader: An instance of this class provides a bridge from byte streams to character streams. Bytes are decoded into characters using a specified character set.
         - FileReader: An instance of this class is used for reading character files.
+
     - PipedReader: Uses a pipe for character input stream.
+
     - StringReader: Character output stream reader from source string.
+
 - Writer: Top-level abstract class to write to character streams.
+
     - BufferedWriter: Provides an in-between buffer for efficiency while writing text to a character output stream.
+
     - CharArrayWriter: Implements an auto-increasing character buffer that may be used as a writer.
+
     - FilterWriter: Abstract class for writing filtered character streams.
+
     - OutputStreamWriter: An instance of this class provides a bridge between character streams and byte streams. Characters are encoded into bytes using a specified character set.
         - FileWriter: An instance of this class is used for writing character files.
+
     - PipedWriter: Uses a pipe for character output stream.
+
     - PrintWriter: Prints a formatted representation of an object to a test-output stream.
+
     - StringWriter: Character output stream is collected in a string buffer and may be used for constructing a string.
 
+<br>
 
-### Data streams
+## Data streams
+
 Data streams support binary I/O of primitive data type values (boolean, char, byte, short, int, long, float and double) as well as String values. 
 
-All data streams implement either the DataOutput interface or the DataInput interface. 
+All data streams implement either the **DataOutput** interface or the **DataInput** interface. 
 
 To read/write numeric data, use **readXXX()** method or **writeXXX()** method. XXX can be something like Int, Double, Short, ...
 
 To read/write string data type, use **readUTF()** method or **writeUTF()** method with encoding UTF8.
 
-For example: To make the DataOutputStream, DataInputStream, follow the below way:
+For example: To make the **DataOutputStream**, **DataInputStream**, follow the below way:
 
 ```Java
 DataOutputStream out = new DataOutputStream(new BufferedOutputStream(new FileOutputStream(dataFile)));
@@ -138,24 +167,26 @@ try {
     ...
 }
 ```
-DataStreams detects an end-of-file condition by catching EOFException, instead of testing for an invalid return value.
+
+DataStreams detects an end-of-file condition by catching **EOFException**, instead of testing for an invalid return value.
 
 DataStreams uses one very bad programming technique: it uses floating point numbers to represent monetary values. In general, floating point is bad for precise values. It's particularly bad for decimal fractions,because common values (such as 0.1) do not have a binary representation.
 
-The correct type to use for currency values is java.math.BigDecimal. Unfortunately, BigDecimal is an object type, so it won't work with data streams. However, BigDecimal will work with object streams, which are covered in the next section.
+The correct type to use for currency values is **java.math.BigDecimal**. Unfortunately, **BigDecimal** is an object type, so it won't work with data streams. However, **BigDecimal** will work with object streams, which are covered in the next section.
 
+<br>
 
-### Object streams
+## Object streams
+
 Object streams support I/O of objects. Most standard classes support serialization of their objects. They implement interface Serializable.
 
-The object stream classes are ObjectInputStream and ObjectOutputStream. These classes implement ObjectInput and ObjectOutput, which are subinterfaces of DataInput and DataOutput. 
+The object stream classes are **ObjectInputStream** and **ObjectOutputStream**. These classes implement **ObjectInput** and **ObjectOutput**, which are subinterfaces of **DataInput** and **DataOutput**. 
 
 That means that all the primitive data I/O methods covered in Data Streams are also implemented in object streams. So an object stream can contain a mixture of primitive and object values.
 
 To read/write with Object streams, use **readObject()** method and **writeObject()** method.
 
 <br>
-
 
 ## When to use Byte streams
 - When you want to process raw data like binary files.
