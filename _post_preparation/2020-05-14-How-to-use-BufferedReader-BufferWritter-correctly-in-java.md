@@ -18,7 +18,7 @@ tags: [Java]
 
 <br>
 
-## How 
+## Given problem 
 
 
 
@@ -26,7 +26,7 @@ tags: [Java]
 
 <br>
 
-## 
+## Solution of BufferWriter/BufferReader
 
 
 
@@ -49,4 +49,20 @@ tags: [Java]
 <br>
 
 Refer:
+
+[https://www.boraji.com/java-linenumberreader-example](https://www.boraji.com/java-linenumberreader-example)
+
+[https://www.guru99.com/buffered-reader-in-java.html](https://www.guru99.com/buffered-reader-in-java.html)
+
+[https://www.javatpoint.com/how-to-read-file-line-by-line-in-java](https://www.javatpoint.com/how-to-read-file-line-by-line-in-java)
+
+[https://www.codejava.net/java-se/file-io/how-to-read-and-write-text-file-in-java](https://www.codejava.net/java-se/file-io/how-to-read-and-write-text-file-in-java)
+
+[https://www.journaldev.com/20601/java-bufferedwriter](https://www.journaldev.com/20601/java-bufferedwriter)
+
+[https://stackoverflow.com/questions/14462705/how-does-bufferedwriter-work-in-java](https://stackoverflow.com/questions/14462705/how-does-bufferedwriter-work-in-java)
+
+[https://medium.com/@isaacjumba/why-use-bufferedreader-and-bufferedwriter-classses-in-java-39074ee1a966](https://medium.com/@isaacjumba/why-use-bufferedreader-and-bufferedwriter-classses-in-java-39074ee1a966)
+
+[http://tutorials.jenkov.com/java-io/bufferedwriter.html](http://tutorials.jenkov.com/java-io/bufferedwriter.html)
 
