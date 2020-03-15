@@ -250,3 +250,5 @@ Thanks for your reading.
 Refer:
 
 [Java Core Libraries: JDBC](https://app.pluralsight.com/library/courses/java-core-libraries-jdbc/table-of-contents)
+
+[https://www.javatpoint.com/java-jdbc](https://www.javatpoint.com/java-jdbc)
