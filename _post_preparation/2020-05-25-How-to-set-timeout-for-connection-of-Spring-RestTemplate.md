@@ -62,3 +62,10 @@ Refer:
 [https://howtodoinjava.com/spring-boot2/resttemplate/resttemplate-httpclient-java-config/](https://howtodoinjava.com/spring-boot2/resttemplate/resttemplate-httpclient-java-config/)
 
 [https://springframework.guru/using-resttemplate-with-apaches-httpclient/](https://springframework.guru/using-resttemplate-with-apaches-httpclient/)
+
+<br>
+
+**Check timeout in Spring RestTemplate**
+
+[stackoverflow.com/questions/35808577/using-spings-resttemplate-with-a-timeout-how-do-i-detect-a-timeout](stackoverflow.com/questions/35808577/using-spings-resttemplate-with-a-timeout-how-do-i-detect-a-timeout)
+
