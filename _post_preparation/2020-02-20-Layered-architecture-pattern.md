@@ -23,6 +23,8 @@ tags: [Architecture pattern]
 
 
 
+
+
 <br>
 
 ## Solution of Layered architecture pattern
