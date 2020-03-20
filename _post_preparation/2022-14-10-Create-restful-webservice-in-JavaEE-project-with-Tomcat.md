@@ -1,6 +1,6 @@
 ---
 layout: post
-title: Creat Restful web service in JavaEE project with Tomcat
+title: Create Restful web service in JavaEE project with Tomcat
 bigimg: /img/image-header/yourself.jpeg
 tags: [JavaEE]
 ---
