@@ -5,7 +5,7 @@ bigimg: /img/path.jpg
 tags: [java]
 ---
 
-This question is always appeared in my mind, simply because when I work Java web, especially JPA or Hibernate to implement with database. And why do we use it?
+This question is always appeared in my mind, simply because when I've worked with Java web, especially Hibernate to implement with database. And why do we use it?
 
 So, in this article, we will answer these question to remove our concern.
 
