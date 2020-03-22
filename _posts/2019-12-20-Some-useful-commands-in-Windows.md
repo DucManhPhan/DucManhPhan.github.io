@@ -157,6 +157,8 @@ Let's get started.
     netstat -aon | find /i "listening"
 
     netstat -aon | find "8080"
+
+    netstat -aon | findstr 8080
     ```
 
 4. Check whether our computer can access another computer
