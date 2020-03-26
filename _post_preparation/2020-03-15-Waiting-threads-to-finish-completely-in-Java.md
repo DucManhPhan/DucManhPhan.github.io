@@ -5,7 +5,7 @@ bigimg: /img/path.jpg
 tags: [Java, Multithreading]
 ---
 
-
+In this article, we will learn how to wait our threads to finish completely. Let's get started.
 
 <br>
 
@@ -22,8 +22,11 @@ tags: [Java, Multithreading]
 
 ## Using join() method of Thread class
 
+The easiest way to deal with our problem is to use **join()** method of Thread class.
 
+```java
 
+```
 
 <br>
 
