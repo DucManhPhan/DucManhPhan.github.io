@@ -64,13 +64,13 @@ For example:
 ```
 
 With this block of XML we are declaring a servlet that:
-- Is named “dispatcher“
-- Is an instance of org.springframework.web.servlet.DispatcherServlet
-- Will be initialized with a parameter named contextConfigLocation which contains the path to the configuration XML
+- Is named ```dispatcher```.
+- Is an instance of ```org.springframework.web.servlet.DispatcherServlet```.
+- Will be initialized with a parameter named ```contextConfigLocation``` which contains the path to the configuration XML
 
 ```load-on-startup``` is an integer value that specifies the order for multiple servlets to be loaded. So if you need to declare more than one servlet you can define in which order they will be initialized. Servlets marked with lower integers are loaded before servlets marked with higher integers.
 
-Now our servlet is configured. The second step is declaring a servlet-mapping:
+Now our servlet is configured. The second step is declaring a ```servlet-mapping```:
 
 ```xml
 <servlet-mapping>
@@ -488,7 +488,7 @@ The below is a common content of web.xml file.
 <br>
 
 ## Servlets and URLs paths
-```web.xml``` defines mappings between URL paths and the servlets that handle requests with those paths. The web server uses this configuration to identify the servlet to handle a given request and call the class method that corresponds to the request method. For example: the doGet() method for HTTP GET requests.
+```web.xml``` defines mappings between URL paths and the servlets that handle requests with those paths. The web server uses this configuration to identify the servlet to handle a given request and call the class method that corresponds to the request method. For example: the ```doGet()``` method for HTTP **GET** requests.
 
 To map a URL to a servlet, you declare the servlet with the ```<servlet>``` element, then define a mapping from a URL path to a servlet declaration with the ```<servlet-mapping>``` element.
 
@@ -546,7 +546,7 @@ public class SimpleServlet extends GenericServlet {
 }
 ```
 
-A servlets init() method is called when the servlet container loads the servlet for the first time. No one can access the servlet until the servlet has been loaded, and the init() method has been called successfully. 
+A servlets **init()** method is called when the servlet container loads the servlet for the first time. No one can access the servlet until the servlet has been loaded, and the **init()** method has been called successfully. 
 
 The ```<servlet-mapping>``` element specifies a URL pattern and the name of a declared servlet to use for requests whose URL matches the pattern. The URL pattern can use an asterisk (*) at the beginning or end of the pattern to indicate zero or more of any character. The standard does not support wildcards in the middle of a string, and does not allow multiple wildcards in one pattern. The pattern matches the full path of the URL, starting with and including the forward slash (/) following the domain name. The URL path cannot start with a period (.).
 
@@ -578,7 +578,7 @@ String teamColor = getServletConfig().getInitParameter("teamColor");
 ## JSPs
 An app can use JavaServer Pages (JSPs) to implement web pages. JSPs are servlets defined using static content, such as HTML, mixed with Java code.
 
-App Engine supports automatic compilation and URL mapping for JSPs. A JSP file in the application's WAR (outside of WEB-INF/) whose filename ends in .jsp is compiled into a servlet class automatically, and mapped to the URL path equivalent to the path to the JSP file from the WAR root. For example, if an app has a JSP file named start.jsp in a subdirectory named register/ in its WAR, App Engine compiles it and maps it to the URL path /register/start.jsp.
+App Engine supports automatic compilation and URL mapping for JSPs. A JSP file in the application's WAR (outside of **WEB-INF/**) whose filename ends in **.jsp** is compiled into a servlet class automatically, and mapped to the URL path equivalent to the path to the JSP file from the WAR root. For example, if an app has a JSP file named **start.jsp** in a subdirectory named **register/** in its WAR, App Engine compiles it and maps it to the URL path **/register/start.jsp**.
 
 If you want more control over how the JSP is mapped to a URL, you can specify the mapping explicitly by declaring it with a ```<servlet>``` element in the deployment descriptor. Instead of a ```<servlet-class>``` element, you specify a ```<jsp-file>``` element with the path to the JSP file from the WAR root. The ```<servlet>``` element for the JSP can contain initialization parameters.
 

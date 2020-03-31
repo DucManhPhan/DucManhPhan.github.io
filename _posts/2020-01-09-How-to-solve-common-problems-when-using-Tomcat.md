@@ -5,7 +5,9 @@ bigimg: /img/image-header/yourself.jpeg
 tags: [JavaEE]
 ---
 
-In this article, we will learn how to solve common problems when using Tomcat. Let's get started.
+In this article, we will encounter some problems when we use Tomcat to deploy or debug our application. Belows are some solutions to fix them.
+
+Let's get started.
 
 <br>
 
@@ -13,6 +15,15 @@ In this article, we will learn how to solve common problems when using Tomcat. L
 - [Error with module-info](#error-with-module-info)
 - [Error about pointing main resource incorrectly](#error-about-pointing-main-resource-incorrectly)
 - [Wrapping up](#wrapping-up)
+
+
+<br>
+
+## Understanding about the Tomcat deployment
+
+
+
+
 
 
 <br>
@@ -37,7 +48,6 @@ In this article, we will learn how to solve common problems when using Tomcat. L
         ![](../img/tomcat/fixed-problems/module-info-jar-file.png)
 
     - Then, we will add our jar file that Tomcat makes errors such as lombok-1.18.8.jar, ... at the bottom line that is as same as the above figure.
-
 
 <br>
 

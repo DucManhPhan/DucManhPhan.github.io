@@ -204,7 +204,7 @@ The meaning of some directories in ```resin-data```:
 </cluster>
 ```
 
-The most important thing we need to note in this app-default.xml is that it configures for using servlet such as:
+The most important thing we need to note in this ```app-default.xml``` is that it configures for using servlet such as:
 
 ```xml
 <servlet servlet-name="resin-file"
