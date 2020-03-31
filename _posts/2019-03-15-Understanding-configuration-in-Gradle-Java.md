@@ -5,7 +5,7 @@ bigimg: /img/image-header/california.jpg
 tags: [Java]
 ---
 
-In this tutorial, we will discuss about Gradle to understand how to build our project with it and make our work easier to do.
+In this tutorial, we will discuss about Gradle to understand how to build our project with it and make our work easier to do. Let's get started.
 
 <br>
 

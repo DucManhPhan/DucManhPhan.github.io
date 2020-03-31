@@ -14,16 +14,8 @@ Let's get started.
 ## Table of contents
 - [Error with module-info](#error-with-module-info)
 - [Error about pointing main resource incorrectly](#error-about-pointing-main-resource-incorrectly)
+- [How to deploy our project as context root](#how-to-deploy-our-project-as-context-root)
 - [Wrapping up](#wrapping-up)
-
-
-<br>
-
-## Understanding about the Tomcat deployment
-
-
-
-
 
 
 <br>
@@ -69,6 +61,42 @@ Let's get started.
 
     So, our solution is to remove the ```docBase``` property.
 
+
+<br>
+
+## How to deploy our project as context root
+
+1. The simple way is that we only need to delete the ROOT folder in ```%CATALINA_HOME%/webapps```. Then, rename our war file to ```ROOT.war```, and deploy it.
+
+2. Another way is that we need to create **ROOT.xml** context file in ```%CATALINA_HOME%/conf/Catalina/localhost```.
+
+    The content of ROOT.xml file is:
+
+    ```xml
+    <Context docBase="../deploy/project-name.war" />
+    ```
+
+    This ROOT.xml will override the default settings for the root context of the Tomcat installation for the engine and host (**Catalina** and **localhost**).
+
+    According to website of [tomcat.apache.org](https://tomcat.apache.org/tomcat-8.0-doc/config/context.html), we have the definition of **docBase** property.
+
+    ```
+    The Document Base (also known as the Context Root) directory for this web application, or the pathname to the web application archive file (if this web application is being executed directly from the WAR file). You may specify an absolute pathname for this directory or WAR file, or a pathname that is relative to the appBase directory of the owning Host.
+
+    The value of this field must not be set unless the Context element is defined in server.xml or the docBase is not located under the Host's appBase.
+
+    If a symbolic link is used for docBase then changes to the symbolic link will only be effective after a Tomcat restart or by undeploying and redeploying the context. A context reload is not sufficient.
+    ```
+
+    When configuring our project in ROOT.xml context file, there is one side effect, our application will be loaded twice. Once for **localhost:8080** and once for **localhost:8080/project-name**. To fix it, we can put our application outside **%CATALINA_HOME%/webapps**, and use a relative or absolute path in the ROOT.xml's **docBase** tag. 
+
+    ```xml
+    <Context 
+        docBase="/opt/mywebapps/<yourApp>" 
+        path="" 
+        reloadable="true" 
+    />
+    ```
 
 <br>
 

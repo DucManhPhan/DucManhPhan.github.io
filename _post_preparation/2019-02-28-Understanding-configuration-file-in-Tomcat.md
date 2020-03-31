@@ -124,7 +124,7 @@ This properties provides some important class loader paths, security package lis
 
 - Jar Scanner component
 
-    The **Jar Scanner** element represents the component that is used to scan the web application for JAR files and directories of class files. It is typically used during web application start to identify configuration files such as TLDs or web-fragment.xml files that must be processed as part of the web application initialisation.
+    The **Jar Scanner** element represents the component that is used to scan the web application for JAR files and directories of class files. It is typically used during web application start to identify configuration files such as TLDs or web-fragment.xml files that must be processed as part of the web application initialization.
 
     If a **Jar Scanner** element is not included, a default Jar Scanner configuration will be created automatically, which is sufficient for most requirements.
 
@@ -153,11 +153,17 @@ This properties provides some important class loader paths, security package lis
 
     Excluding a JAR from the pluggability scan will prevent a **ServletContainerInitializer** from being loaded from a web application JAR (i.e. one located in **/WEB-INF/lib**) but it will not prevent a **ServletContainerInitializer** from being loaded from the container (Tomcat). To prevent a **ServletContainerInitializer** provided by container from being loaded, use the **containerSciFilter** property of the **Context**.
 
+    So, Jar Scanner is used to identity configuration files such as TLDs, ... What is TLDs file? A tag library descriptor is an XML document that contains information about a library as a whole and about each tag contained in the library. TLDs are used by a web container to validate the tags and by JSP page development tools. Normally, TLD files are used with JSP files.
+
+    Then, if Jar Scanner do not find the TLD file in jar file, it will throw an exception about it. Finally, we can skip these JARs file to improve startup time and JSP compilation time. 
+
 <br>
 
 ## Understanding context file of our project
 
+Before going to the content of context.xml file of Tomcat, we need to understand context path concept.
 
+Context path refers to the location which is relative to the server's address and represent the name of the web application. For example, if our web application is put under the **%CATALINA_HOME%\webapps\myapp** directory, it will be accessed by the URL **http://localhost/myapp**, and its context path will be **/myapp**.
 
 
 <br>
@@ -189,6 +195,20 @@ Refer:
 
 <br>
 
+**TLD - Tag Library Descriptor**
+
+[https://www.javatpoint.com/example-of-jsp-custom-tag](https://www.javatpoint.com/example-of-jsp-custom-tag)
+
+[https://docs.oracle.com/javaee/5/tutorial/doc/bnamu.html](https://docs.oracle.com/javaee/5/tutorial/doc/bnamu.html)
+
+<br>
+
 **Performance with Tomcat**
 
 [http://www.skybert.net/java/improve-tomcat-startup-time/](http://www.skybert.net/java/improve-tomcat-startup-time/)
+
+<br>
+
+**Context of Tomcat**
+
+[https://tomcat.apache.org/tomcat-8.0-doc/config/context.html](https://tomcat.apache.org/tomcat-8.0-doc/config/context.html)
