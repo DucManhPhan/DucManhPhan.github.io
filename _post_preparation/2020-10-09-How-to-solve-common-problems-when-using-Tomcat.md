@@ -5,12 +5,22 @@ bigimg: /img/image-header/yourself.jpeg
 tags: [JavaEE]
 ---
 
+In this article, we will encounter some problems when we use Tomcat to deploy or debug our application. Belows are some solutions to fix them.
 
-
+Let's get started.
 
 <br>
 
 ## Table of contents
+- [Error with module-info](#error-with-module-info)
+- [Error about pointing main resource incorrectly](#error-about-pointing-main-resource-incorrectly)
+- [Wrapping up](#wrapping-up)
+
+
+<br>
+
+## Understanding about the Tomcat deployment
+
 
 
 
@@ -30,8 +40,6 @@ tags: [JavaEE]
 
 2. Solution
 
-
-
     We will do the following steps to solve our problem:
     - Open ```catalina.properties``` file in our Tomcat installation folder.
 
@@ -40,7 +48,6 @@ tags: [JavaEE]
         ![](../img/tomcat/fixed-problems/module-info-jar-file.png)
 
     - Then, we will add our jar file that Tomcat makes errors such as lombok-1.18.8.jar, ... at the bottom line that is as same as the above figure.
-
 
 <br>
 
@@ -61,14 +68,6 @@ tags: [JavaEE]
     Then, if ```docBase``` property do not exist, it will go to our ```our_context_path_name.xml``` to read it. Our context path here is the project's name.
 
     So, our solution is to remove the ```docBase``` property.
-
-
-<br>
-
-## 
-
-
-
 
 
 <br>

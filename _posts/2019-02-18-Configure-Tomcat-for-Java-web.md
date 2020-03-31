@@ -22,17 +22,16 @@ In this turorial, we will find out about how to configure Tomcat in eclipse, and
 
 ## Introduction to Tomcat
 
-
 Tomcat is actually composed of a number of components, including a Tomcat JSP engine and other connectors, but the main component is Catalina, which provides the implementation of the servlet specification. When starting the Tomcat server, it's Catalina that is actually starting. The variable ```CATALINA_HOME``` is a configuration property that stores the location of the Catalina files.
 
-These are the configuration files in Tomcat's "CATALINA_BASE/conf" directory:
-- catalina.policy
-- catalina.properties
-- logging.properties
-- content.xml
-- server.xml
-- tomcat-users.xml
-- web.xml
+These are the configuration files in Tomcat's ```CATALINA_BASE/conf``` directory:
+- **catalina.policy**
+- **catalina.properties**
+- **logging.properties**
+- **content.xml**
+- **server.xml**
+- **tomcat-users.xml**
+- **web.xml**
 
 
 <br>
@@ -58,8 +57,8 @@ These are the configuration files in Tomcat's "CATALINA_BASE/conf" directory:
 
 <br>
 
-##  Configure Tomcat server to deploy web application
-After we unzip Tomcat file, we will do somethind like: 
+## Configure Tomcat server to deploy web application
+After we unzip Tomcat file, we will do something like: 
 - specify JDK for Tomcat.
 - Open ```startup.bat``` file in ```bin``` folder of Tomcat. (With Linux/Ubuntu OS, we have ```startup.sh``` file).
 
@@ -168,7 +167,11 @@ After we unzip Tomcat file, we will do somethind like:
 
 <br>
 
+## Wrapping up
 
+
+
+<br>
 
 Refer:
 
