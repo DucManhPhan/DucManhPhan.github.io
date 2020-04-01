@@ -15,7 +15,7 @@ Let's get started.
 - [Starting, Stopping and Restarting Tomcat](#starting,-stopping-and-restarting-tomcat)
 - [Configuration files of Catalina](#configuration-files-of-catalina)
 - [Understanding about catalina.properties file](#understanding-about-catalina.properties-file)
-- [Understanding context file of our project](#understanding-context-file-of-our-project)
+- [Understanding context.xml file](#understanding-context.xml-file)
 - [Wrapping up](#wrapping-up)
 
 
@@ -159,20 +159,46 @@ This properties provides some important class loader paths, security package lis
 
 <br>
 
-## Understanding context file of our project
+## Understanding context.xml file
 
-Before going to the content of context.xml file of Tomcat, we need to understand context path concept.
+Before going to the content of **context.xml** file of Tomcat, we need to understand context path concept.
 
 Context path refers to the location which is relative to the server's address and represent the name of the web application. For example, if our web application is put under the **%CATALINA_HOME%\webapps\myapp** directory, it will be accessed by the URL **http://localhost/myapp**, and its context path will be **/myapp**.
 
+Then, below is the content of **context.xml** file in **%CATALINA_HOME%\conf**.
 
-<br>
+```xml
+<?xml version="1.0" encoding="UTF-8"?>
+<!-- The contents of this file will be loaded for each web application -->
+<Context>
+    <!-- Default set of monitored resources. If one of these changes, the    -->
+    <!-- web application will be reloaded.                                   -->
+    <WatchedResource>WEB-INF/web.xml</WatchedResource>
+    <WatchedResource>${catalina.base}/conf/web.xml</WatchedResource>
 
-## 
+    <!-- Uncomment this to disable session persistence across Tomcat restarts -->
+    <!--
+    <Manager pathname="" />
+    -->
+</Context>
+```
 
+In this file, the **WatchedResource** property contains the **web.xml** file's path of our project and **%CATALINA_HOME%\conf**.
 
+In the **%CATALINA_BASE%/conf/context.xml** file, the Context element information will be loaded by all web applications.
 
+In the **%CATALINA_BASE%/conf/[enginename]/[hostname]/context.xml.default** file, the Context element information will be loaded by all web applications of that host.
 
+After loading the content of context.xml file in global or default configuration file, configuration of individual web application will override anything configured in one of these defaults.
+
+Then, we have:
+- In an individual file at **/META-INF/context.xml** inside the application files. Optionally (based on the **Host**'s **copyXML** attribute) this may be copied to **%CATALINA_BASE%/conf/[enginename]/[hostname]/** and renamed to application's base file name plus a **.xml** extension.
+
+    **enginename** can be Catalina or someone else, ...
+
+- In individual files (with a **.xml** extension) in the **%CATALINA_BASE%/conf/[enginename]/[hostname]/** directory. The context path and version will be derived from the base name of the file (the file name less the **.xml** extension). This file will always ***take precedence over*** any **context.xml** file packaged in the web application's **META-INF** directory.
+
+- Inside a Host element in the main **conf/server.xml**.
 
 <br>
 
