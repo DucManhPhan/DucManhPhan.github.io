@@ -211,15 +211,20 @@ When we want to connect with the other RDBMSs, we will have some values of ```hi
 We will generate entity that is mapped to data types of ```employee``` table in MySQL.
 
 ```java
+import lombok.Data;
+
+import javax.persistence.*;
+import java.io.Serializable;
+
 @Entity
-@Table|(name = "employee")
+@Table(name = "employee")
 @Data
 public class Employee implements Serializable {
 
     private static final long serialVersionUID = 1L;
 
     @Id
-    @GeneratedValue(strategy = GenerationType.IDENTIFY)
+    @GeneratedValue(strategy = GenerationType.IDENTITY)
     @Column(name = "ID")
     private int id;
 
