@@ -5,26 +5,18 @@ bigimg: /img/image-header/yourself.jpeg
 tags: [Java, Spring]
 ---
 
+In this article, we will learn how to configure Hibernate in our normal project or Spring boot project in production environement.
 
-
+Let's get started.
 
 <br>
 
 ## Table of contents
-- [Understanding about configuration of Hibernate](#understanding-about-configuration-of-hibernate)
 - [Configure common properties of Hibernate](#configure-common-properties-of-hibernate)
 - [Given problems of project in production environment](#given-problems-of-project-in-production-environment)
 - [Some dialects of Hibernate for other databases](#some-dialects-of-Hibernate-for-other-databases)
 - [Some driver of other databases](#some-driver-of-other-databases)
 - [Wrapping up](#wrapping-up)
-
-
-<br>
-
-## Understanding about configuration of Hibernate
-
-
-
 
 
 <br>
@@ -133,7 +125,20 @@ tags: [Java, Spring]
 
     - Configuration in properties file
 
+        When we create an instance of the Configuration class, it will look for hibernate.cfg.xml or hibernate.properties in our classpath. If we use a .properties file, it will get all of the property defined in a file, rather than create a Configuration object.
+        
+        The difference between an XML and properties file is that, in an XML file, you can directly map classes using the <Mapping> tag, but there is no way to configure it in a properties file. So, you can use this methodology when you use a programmatic configuration.
 
+        So, we have the content of hibernate.properties file.
+
+        ```PHP
+        hibernate.connection.driver_class=com.mysql.jdbc.Driver
+        hibernate.connection.url=jdbc:mysql://localhost:3306/common?useUnicode=true&characterEncoding=utf8
+        hibernate.connection.username=root
+        hibernate.connection.password=root
+        hibernate.dialect=org.hibernate.dialect.MySQL5Dialect
+        hibernate.show_sql=false
+        ```
 
     - Configuration in xml file
 
@@ -158,15 +163,50 @@ tags: [Java, Spring]
         </hibernate-configuration>
         ```
 
-    - Configuration by programming.
-
 <br>
 
 ## Given problems of project in production environment
 
 1. Configure timeout for each query
 
+    In the production environment, accessing database takes so much time. It's longer than sending request to other system. So, we need to configure the timeout parameter.
 
+    In Hibernate, we have some ways to deal with it.
+    - First way, JPA 2 defines the **javax.persistence.query.timeout** hint to specify default timeout in **milliseconds**. Hibernate 3.5 (currently still in beta) will support this hint that uses for **EntityManager**.
+
+        For example:
+
+        ```java
+        String sqlQuery = ...
+        Query query = this.entityManager.createQuery(sqlQuery)
+                                        .setParameter(...)
+                                        .setHint("javax.persistence.query.timeout", 50)     // miliseconds
+                                        .getResultList();
+        ```
+
+    - Second way, we can use **org.hibernate.timeout** that is similar in the first way.
+
+        For example:
+
+        ```java
+        String sqlQuery = ...
+        Query query = this.entityManager.createQuery(sqlQuery)
+                                        .setParameter(...)
+                                        .setHint("org.hibernate.timeout", 1)    // seconds
+                                        .getResultList();
+        ```
+    
+    - Third way, we can use **setTimeout()** method.
+
+        For example:
+
+        ```java
+        String sqlQuery = ...
+        Query query = this.entityManager.createQuery(sqlQuery)
+                                        .setParameter(...)
+                                        .setTimeout(1)    // seconds
+                                        .getResultList();
+        ```
 
 2. Use connection pool to improve performance of application
 
@@ -176,12 +216,16 @@ tags: [Java, Spring]
 
     If we use application server such as Wildfly, Oracle WebLogic, JBoss, Websphere, we can use built-in connection pool (typically a connection is obtain using JNDI). Otherwise, Hibernate supports some other connection pools.
 
+    Hibernate is designed to use a connection pool by default, an internal implementation. However, Hibernate's built-in connection pooling isn't designed for production use. Below is a table that lists some external connection pools.
+
     | Library     |             Link                        | Vendor                     |
     | ----------- | --------------------------------------- | -------------------------- |                      
     | c3p0        | http://sourceforge.net/projects/c3p0    | Distributed with Hibernate |
     | Apache DBCP | http://jakarta.apache.org/commons/dbcp/ | Apache Pool                |
     | Proxool     | http://proxool.sourceforge.net/         | JDBC Pooling Wrapper       |
+    | HikariCP    |                                         |                            |
 
+    In order to configure some external connection pools in our Hibernate project, we can reference to [our project](https://github.com/DucManhPhan/J2EE/tree/master/src/Java_Spring/Hibernate/connection-pool-hibernate).
 
 <br>
 
@@ -252,13 +296,15 @@ Below is a table that list all drivers that Hibernate supports.
 <br>
 
 ## Wrapping up
+- Understand how configure Hibernate in properties file or xml file.
 
-
-
+- How to apply some features in the production environment.
 
 <br>
 
 Refer:
+
+[Java Hibernate cook book](https://www.amazon.com/Java-Hibernate-Cookbook-Yogesh-Prajapati-ebook/dp/B012B1H8J6)
 
 [https://stackoverflow.com/questions/10684244/dbcp-validationquery-for-different-databases](https://stackoverflow.com/questions/10684244/dbcp-validationquery-for-different-databases)
 
@@ -285,3 +331,11 @@ Refer:
 [https://stackoverflow.com/questions/50367279/connection-timeout-spring-boot-application-and-mysql](https://stackoverflow.com/questions/50367279/connection-timeout-spring-boot-application-and-mysql)
 
 [https://docs.jboss.org/hibernate/orm/3.3/reference/en/html/session-configuration.html](https://docs.jboss.org/hibernate/orm/3.3/reference/en/html/session-configuration.html)
+
+<br>
+
+**Configure connection pool**
+
+[https://www.mchange.com/projects/c3p0/#configuration](https://www.mchange.com/projects/c3p0/#configuration)
+
+[https://developer.jboss.org/wiki/HowToConfigureTheC3P0ConnectionPool](https://developer.jboss.org/wiki/HowToConfigureTheC3P0ConnectionPool)
