@@ -202,11 +202,58 @@ tags: [Java]
 
 <br>
 
-## 
+## Manipulating files on a File System using the Java NIO API
 
+1. Moving files around
 
+    It uses the Files factory methods:
+    - create: file, directory, symbolic link.
+    - delete 
+    - copy: can copy an input/output stream
+    - move
 
+2. Finding a File in a set of Directories
 
+    Now supposed that we're looking for a specific file or a specific set of files, category of files in a given hierarchy of directories, we have thousand of files under directory and we want to find special files among them. We have one pattern for that, a static factory method. From this Files factory class which is called the **find()** method.
+
+    The find() method has some parameters:
+    - a path which is the root of the directory under which we want to look for information.
+    - an integer that is the depth of exploration under this route.
+    - an element which is a Predicate, takes a Path under set of attributes.
+    
+        This path represents every elements. This API is going to visit under this hierarchy of directory. So this Path can represent a file or it can represent a directory. The set of attributes will give us information of this path. Is it a file or directory? created date, modification date, owner, the last person modified it, ...
+
+    For example, find all images in a specific folder.
+
+    ```java
+    Path dir = Paths.get("E:/images");
+    Path image = Paths.get("image.jpg");
+
+    Files.find(dir, 3, (path, attributes) -> path.endsWith(image));
+    ```
+
+    For example, find images that have been created between two hours ago and now.
+
+    ```java
+    Path dir = Path.of("E:/images");
+    Instant twoHoursAgo = Instant.now().minus(Duration.ofHours(2));
+    Files.find(dir, 3, (path, attributes) -> {
+        attributes.creationTime().toInstant().isAfter(twoHoursAgo);
+    });
+    ```
+
+3. Walking through a set of Directories
+
+    Being able to find a specific file in a set of directories is nice, but it's not neccessarily what we want to do. Sometimes, we want to visit a set of directories, gathering some information, something like counting all JPG files that we have under the directories, for instance, this could be a use case. And for that we need to visit a set of directories.
+
+    There are two patterns to visit directories:
+    - walkFileTree
+
+        It takes a root directory as a parameter and uses a FileVisitor which is a callback that is going to be called for any elements found in this hierarchy of directory.
+
+    - walk
+
+        It starts with a path and returns a **Stream<Path>** of all the files and directories. Instead of visiting every element using a callback, it will provide all the elements in a streamer lazily computer so that we don't lose any kind of performance, and we're going to process the content of these directory with the map, filter, reduce approach.
 
 <br>
 
@@ -225,3 +272,4 @@ tags: [Java]
 
 Refer:
 
+[Working with Files in Java Using the Java NIO API]()
