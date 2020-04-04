@@ -19,9 +19,13 @@ tags: [Java, Exception handling]
 
 ## Introduction to Exception Handling
 
+1. Definition of Exception handling
 
 
 
+2. The hierarchy of Exception handling
+
+    ![](../img/Java/exception-handling/hierarchy-exceptions.png)
 
 
 <br>
@@ -91,6 +95,8 @@ The only times ```finally``` won't be called are:
 <br>
 
 Refer:
+
+[Data structure and Algorithms in Java, 6th Edition]()
 
 [https://stackoverflow.com/questions/2190161/difference-between-java-lang-runtimeexception-and-java-lang-exception](https://stackoverflow.com/questions/2190161/difference-between-java-lang-runtimeexception-and-java-lang-exception)
 

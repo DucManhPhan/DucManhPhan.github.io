@@ -158,6 +158,11 @@ In this article, we will learn some courses about java. Let's get started.
 
     To learn this course, we can refer this [link](https://app.pluralsight.com/library/courses/java-fundamentals-collections/table-of-contents)
 
+6. Working with Files in Java Using the Java NIO API by Jose Paumard
+
+    To learn this course, we can refer this [link](https://app.pluralsight.com/library/courses/files-java-nio-api/table-of-contents)
+
+
 <br>
 
 ## Communication between applications
