@@ -5,16 +5,17 @@ bigimg: /img/image-header/yourself.jpeg
 tags: [Java]
 ---
 
+In this article, we will learn how to use Java NIO API such as accessing files and directories, reading and writing text files, ... They may be useful to improve performance in our project.
 
-
+Let's get started.
 
 <br>
 
 ## Table of contents
 - [How Java NIO works](#how-java-nio-works)
 - [Accessing Files and Directories using Java NIO Path](#accessing-files-and-directories-using-java-nio-path)
-- []()
-- [The difference between Java IO and Java NIO](#the-difference-between-java-io-and-java-nio)
+- [Reading and Writing Text files using Java NIO API](#reading-and-writing-text-files-using-java-nio-api)
+- [Manipulating files on a File System using the Java NIO API](#manipulating-files-on-a-file-system-using-the-java-nio-api)
 - [Wrapping up](#wrapping-up)
 
 
@@ -254,12 +255,6 @@ tags: [Java]
     - walk
 
         It starts with a path and returns a **Stream<Path>** of all the files and directories. Instead of visiting every element using a callback, it will provide all the elements in a streamer lazily computer so that we don't lose any kind of performance, and we're going to process the content of these directory with the map, filter, reduce approach.
-
-<br>
-
-## The difference between Java IO and Java NIO
-
-
 
 <br>
 
