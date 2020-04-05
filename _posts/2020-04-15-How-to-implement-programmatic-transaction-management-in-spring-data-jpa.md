@@ -23,7 +23,7 @@ Let's get started.
 
 ## Introduction to programmatic transaction management
 
-With programmatic transaction management, the Spring framework provides two means of of programmatic transaction management.
+With programmatic transaction management, the Spring framework provides two means of programmatic transaction management.
 - Using the transaction template, which is similar to Spring templates, like JdbcTemplate and other available templates.
 
 - Using a platform transaction manager, which handles transactions across Hibernate, JDBC, JPA, JMS, etc.
