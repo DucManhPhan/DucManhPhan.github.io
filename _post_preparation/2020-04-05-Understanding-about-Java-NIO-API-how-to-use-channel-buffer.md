@@ -15,10 +15,11 @@ Let's get started.
 - [Given problem](#given-problem)
 - [Introduction to Java NIO](#introduction-to-java-nio)
 - [Understanding channels and in-memory file channels](#understanding-channels-and-in-memory-file-channels)
-- [Understanding buffers and their main properties]()
-- [Writing content to a file using Buffers and Channels]()
-- [Reading content from a file using a flip operation]()
-- [Reading and writing to multiple buffers]()
+- [Understanding buffers and their main properties](#understanding-buffers-and-their-main-properties)
+- [Writing content to a file using Buffers and Channels](#writing-content-to-a-file-using-buffers-and-channels)
+- [Reading content from a file using a flip operation](#reading-content-from-a-file-using-a-flip-operation)
+- [Reading and writing to multiple buffers](#reading-and-writing-to-multiple-buffers)
+- [Using MappedByteBuffers to map large files in memory](#using-mappedbytebuffers-to-map-large-files-in-memory)
 - [Wrapping up](#wrapping-up)
 
 
@@ -283,9 +284,29 @@ Remember to properly rewind the buffers when using it.
 
 ## Using MappedByteBuffers to map large files in memory
 
+Java NIO introduces the notion of MappedByteBuffer. MappedByteBuffer is a buffer that maps a file to memory. Think of a buffer that is able to load a file in memory thus all the paths of our application that are reading our same file again and again will be much more efficient since the readings will take place in memory instead of taking place on the disk.
 
+There are three modes for those MappedByteBuffer:
+- READ
+- READ_WRITE
+- PRIVATE
 
+The way the MappedByteBuffer is created also allows for the buffering of a portion of a file instead of the whole file itself.
 
+For example:
+
+```java
+// first, create a FileChannel on a path
+FileChannel fileChannel = FileChannel.open(Paths.get("files/ints.bin"), READ);
+
+// then, map the corresponding file to this mapped buffer
+MappedByteBuffer mappedBuffer = fileChannel.map(FileChannel.MapMode.READ_ONLY, 0, fileChannel.size());
+
+// then, we can decode it to a char buffer if it is a text file
+CharBuffer charBuffer = StandardCharsets.UTF_8.decode(mappedBuffer);
+```
+
+Remember that this ByteBuffer is created in the main memory of the JVM. So if the file is too big, we will come across and out of memory error most probably.
 
 <br>
 
