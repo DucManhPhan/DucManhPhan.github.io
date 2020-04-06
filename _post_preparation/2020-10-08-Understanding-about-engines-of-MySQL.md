@@ -1,6 +1,6 @@
 ---
 layout: post
-title: Understanding about the architecture of MySQL
+title: Understanding about engines of MySQL
 bigimg: /img/image-header/yourself.jpeg
 tags: [MySQL, Database]
 ---
@@ -53,6 +53,5 @@ tags: [MySQL, Database]
 
 Refer:
 
-[MySQL Internals ebooks]()
+[Introducing InnoDB Cluster ebook]()
 
-[The Database Hacker's Handbook: Defending Database servers]()
