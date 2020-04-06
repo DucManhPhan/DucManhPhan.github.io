@@ -12,18 +12,10 @@ Let's get started.
 <br>
 
 ## Table of contents
-- [How Java NIO works](#how-java-nio-works)
 - [Accessing Files and Directories using Java NIO Path](#accessing-files-and-directories-using-java-nio-path)
 - [Reading and Writing Text files using Java NIO API](#reading-and-writing-text-files-using-java-nio-api)
 - [Manipulating files on a File System using the Java NIO API](#manipulating-files-on-a-file-system-using-the-java-nio-api)
 - [Wrapping up](#wrapping-up)
-
-
-<br>
-
-## How Java NIO works
-
-
 
 
 <br>

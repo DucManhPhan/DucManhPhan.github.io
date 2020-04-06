@@ -312,37 +312,61 @@ Remember that this ByteBuffer is created in the main memory of the JVM. So if th
 
 ## Introducing ByteBuffer to CharBuffer conversion using Charsets
 
+Java NIO defines two types of buffer, ByteBuffer and CharBuffer. To convert a ByteBuffer into a CharBuffer and vice versa, we need to specify a charset. This conversion is based on the use of a decorder and encoder.
 
+We have standard charsets supported in Java.
+- US_ASCII, ISO_8859_1 (aka latin1)
+- UTF_8
+- UTF_16, UTF_16BE, UTF_16LE
 
+A charset object has two methods:
+- encode() method: takes a CharBuffer, returns a ByteBuffer.
+- decode() method: takes a ByteBuffer, returns a CharBuffer.
 
+Using these methods is the only way to convert a CharBuffer to a ByteBuffer and vice versa. This is what we need to read and write text files using Java NIO.
 
+For example:
 
+```java
+// read operation
+FileChannel channel = FileChannel.open(Paths.get("files/text-latin1.txt"), StandardOperation.READ);
+ByteBuffer buffer = ByteBuffer.allocate(1024);
+channel.read(buffer);
 
-<br>
+CharSet latin1 = StandardCharsets.ISO_8859_1;
+CharBuffer utf8Buffer = latin1.decode(buffer);
 
-## Understanding patterns to convert bytes using charsets
+String result = new String(utf8Buffer.array());
 
+// write operation
+CharSet utf8 = StandardCharsets.UTF_8;
+ByteBuffer byteBuffer = utf8.encode(buffer);
+anotherFileChannel.write(byteBuffer);
+```
 
+Some notes about Buffers and Charsets
+- Channels can only read and write ByteBuffers. If we are reading a text file, it will thus be read in a ByteBuffer.
 
+- Using the encoding and decoding operation, we can convert a ByteBuffer to a CharBuffer using the right encoding and this is the only way to do it.
 
-
+Encoding and Decoding are only available through the charsets object provided by the JDK.
 
 
 <br>
 
 ## Convert NIO objects to I/O objects using the Channels factory
 
-
-
-
-
+Java NIO API provides bridges to the Java I/O API through the use of the **Channels** factory class. In fact, we have ten factory methods:
+- to create channels from InputStream and OutputStream.
+- to create InputStream and OutputStream from a channel, whether it is asynchronous or not.
+- to create readers and writers from a channel, providing a charset because a channel holds bytes and to decode bytes in characters, we need a charset.
 
 <br>
 
 ## Wrapping up
-
-
-
+- Understanding about buffers and channels.
+- resetting, rewinding, and flipping operation.
+- How to use charset to encode/decode characters.
 
 <br>
 
