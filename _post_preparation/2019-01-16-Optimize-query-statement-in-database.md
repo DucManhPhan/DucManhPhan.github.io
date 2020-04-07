@@ -8,9 +8,18 @@ tags: [database]
 In database management tool, especially MySQL, we will have some basic commands with common structures.
 
 ```sql
-SELECT ... FROM ... [INNER JOIN | LEFT JOIN | RIGHT JOIN ...][WHERE ...][GROUP BY ...] [ORDER BY ...][LIMIT ...]
+SELECT [DISTINCT] ... FROM ... [INNER JOIN | LEFT JOIN | RIGHT JOIN ...]
+[WHERE ...]
+[GROUP BY ... [ASC | DESC]]
+[HAVING ...]
+[ORDER BY ... [ASC | DESC]]
+[LIMIT row_count OFFSET offset]
+[INTO OUTFILE 'file_name']
+
 INSERT INTO ... VALUES ...
+
 UPDATE ... SET ... WHERE ...
+
 DELETE FROM ... WHERE ...
 ```
 
@@ -24,12 +33,44 @@ So, in this article, we will list some ways to optimize query database.
 
 
 
+
+<br>
+
 ## 
 
 
 
 
-Refer: 
+
+
+<br>
+
+## 
+
+
+
+
+
+<br>
+
+## 
+
+
+
+
+
+
+<br>
+
+## Wrapping up
+
+
+
+<br>
+
+Refer:
+
+[MySQL Query Optimization and Performance tuning]()
 
 [https://www.hungred.com/useful-information/ways-optimize-sql-queries/](https://www.hungred.com/useful-information/ways-optimize-sql-queries/)
 
