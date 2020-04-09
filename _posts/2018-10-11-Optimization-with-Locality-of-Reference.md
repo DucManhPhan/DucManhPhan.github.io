@@ -2,7 +2,7 @@
 layout: post
 title: Optimization with Locality of Reference
 bigimg: /img/path.jpg
-tags: [optimization, locality of reference]
+tags: [Optimization, Memory management]
 ---
 
 In the previous article, we had learnt about [Cache memory with Locality of Reference](https://ducmanhphan.github.io/2018-09-20-Locality-of-Reference/). Now, we will utilize the concept of locality to optimize some code in reality.

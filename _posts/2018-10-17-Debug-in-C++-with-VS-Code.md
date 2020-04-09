@@ -2,7 +2,7 @@
 layout: post
 title: Debugging with C++ in Visual Studio Code
 bigimg: /img/path.jpg
-tags: [C++, vs code, debug]
+tags: [C++, VsCode]
 ---
 
 When you have competitive programming on LeetCode, Hackerrank, ... the first thing you want is the IDE has some interesting features such as light-weight, the fast configuration, ... But before, I find it difficult to have the marvelous IDE. 
