@@ -2,7 +2,7 @@
 layout: post
 title: Coupling and cohesion in OOP
 bigimg: /img/image-header/home-office-1.jpg
-tags: [Design Pattern, OOP]
+tags: [OOP]
 ---
 
 In this article, we will discuss about coupling and cohesion in OOP, mainly because understanding about them is really useful to improve coding skill and some skills about designing architecture.
