@@ -2,7 +2,7 @@
 layout: post
 title: How do vector work in STL/C++?
 bigimg: /img/path.jpg
-tags: [C++, STL]
+tags: [C++]
 ---
 
 ## Table of Contents
