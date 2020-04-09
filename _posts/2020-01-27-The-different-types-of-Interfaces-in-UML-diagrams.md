@@ -2,7 +2,7 @@
 layout: post
 title: The different types of interfaces in UML diagram
 bigimg: /img/image-header/ravashing-beach.jpg
-tags: [Uml diagram]
+tags: [UML Diagram]
 ---
 
 In this article, we will find something out about some types of interfaces in UML diagram. We still use these types in some architecture pattern such as Hexagonal architecture, ...

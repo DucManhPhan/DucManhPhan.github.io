@@ -2,7 +2,7 @@
 layout: post
 title: Problem when using push_back() function of vector in v8 or NAN
 bigimg: /img/path.jpg
-tags: [C++, V8, Node.js]
+tags: [C++, Node.js]
 ---
 
 

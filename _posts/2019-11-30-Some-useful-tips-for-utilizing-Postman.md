@@ -2,7 +2,7 @@
 layout: post
 title: Some useful tips for utilizing Postman
 bigimg: /img/image-header/california.jpg
-tags: [Test, Postman]
+tags: [Testing, Postman]
 ---
 
 In this article, we will introduce about some useful tips for testing with postman. It will help us automatically testing for much data.
