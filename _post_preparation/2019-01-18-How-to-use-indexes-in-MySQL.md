@@ -83,7 +83,61 @@ Belows are some common things that we will use in MySQL to interact with our dat
 
     ![](../img/Database/MySQL/index/example/show-indexes.png)
 
+2. Create index
 
+    ```sql
+    -- Create index
+    CREATE INDEX idx_film_length ON film(length);
+
+    -- Query using index
+    SELECT film_id, length FROM film WHERE length = 100;
+
+    -- Explain index usage
+    EXPLAIN SELECT film_id, length FROM film WHERE length = 100;
+    ```
+
+    When using explain command, we have:
+
+    ![](../img/Database/MySQL/index/example/explain-command.png)
+
+    - The 1st column is **id**. It's just a select identifier.
+    - The 2nd column is **select_type**. There can be various different select types.
+
+        For example:
+        - SIMPLE, a simple query of SELECT command.
+        - UNION, indicates there is a UNION used in the SELECT query.
+        - If there is a sub-query used in our SELECT statment, the select_type would SUB_QUERY.
+
+    - The 3rd column is **table**. It indicates the table for output row.
+    - The 4th column is **type**, that indicates the type of join.
+
+        In this case, the type of join is ref. It means that all rows with a matching index value are read from this table for each combination of rows from the previous table. That means all the rows with matching index values are returned in this query.
+
+    - The 5th column is **possible_keys**. It indicates which indexes MySQL can choose from to find the rows in the table.
+
+        This column is totally independent of the order of the tables as displayed in the output from EXPLAIN. This means that some of the keys in **possible_keys** might not be usable in practice with generated table order. If this column is null, there are no relevant index.
+
+    - The 6th column is **key**. It's a very important column. That **key** that MySQL actually decided to use, the **possible_keys**, was just an indication. However, the key column is the actual key used to retrieve the results. In other words, if MySQL decides to use one of the possible keys indexes to look up rows, that index is listed as the key value.
+
+        In some of the cases, it's quite possible key will name an index that is not present in the possible key values. This can happen if none of the possible keys indexes are suitable for lookup rows, but all the columns selected by query are columns of the other index.
+
+    - The 7th column is **key_len**. It indicates the length of the key that MySQL decided to use.
+
+    - The 8th column is **ref** that shows which columns or constants are compared to the index named in the key column to select rows from the table.
+
+    - The 9th column is **rows** that indicates the number of rows MySQL believes it must examine to execute the query.
+
+        Remember, in InnoDB engine, this number is an estimate and may not be the exact number of the rows written by the query.
+
+    - The final column is **Extra** that contains additional information about how MySQL resolves the query. In our case, it suggests using index. That means the column information is retrieved from the table using only information in the index tree without having to do an additional seek to read the actual row.
+
+    In InnoDB storage engine, when we create a primary key on any column, InnoDB storage engine will automatically create clustered indexes on that column. Hence, there is a clustered index on column film_id. It means that a column film_id will be included as a pointer in all the other secondary indexes.
+
+3. Delete index
+
+    ```sql
+    DROP INDEX idx_film_length ON film;
+    ```
 
 <br>
 
