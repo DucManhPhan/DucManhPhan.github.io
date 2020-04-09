@@ -2,7 +2,7 @@
 layout: post
 title: Understanding about KnockoutJS
 bigimg: /img/image-header/california.jpg
-tags: [Front-End, KnockoutJs]
+tags: [Front-End, KnockoutJs, Javascript]
 ---
 
 In this article, we will discuss about KnockoutJS, a open source library in front-end. There are many interesting information around KnockoutJS such as data binding, data template, ... 
