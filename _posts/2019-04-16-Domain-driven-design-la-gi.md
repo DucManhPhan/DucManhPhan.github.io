@@ -2,8 +2,10 @@
 layout: post
 title: What is Domain Driven Design ?
 bigimg: /img/image-header/california.jpg
-tags: [Architecture Pattern]
+tags: [Architecture Pattern, DDD]
 ---
+
+Bài viết đươc cung cấp bởi Mr Thành Nguyễn -  [http://bit.ly/2e8siZX](http://bit.ly/2e8siZX).
 
 Ở BÀI TRƯỚC ( http://bit.ly/why-ddd ) sau khi Start with why thì chúng ta đã có lý do cho việc tìm hiểu về Domain Driven Design rồi nên sang tới bài này chúng ta sẽ tiếp tục với câu hỏi Domain Driven Design là cái gì? Câu trả lời thì cũng không quá đơn giản và dễ dàng nhưng cũng không đến mức quá cao siêu và phức tạp như cách mà những chuyên gia trình bày trong các quyển sách viết về Domain Driven Design.
 
@@ -73,6 +75,4 @@ Và để cho dễ nhớ về đám gạch đá ( bulding block ) để xây nh�
 
 ![](../../img/Architecture-pattern/Domain-driven-design/Model-driven-design.png)
 
-Viết nhiều chữ quá cũng không hiệu quả, nên phần kết của cái bài đi tìm câu trả lời cho câu hỏi What Design Driven Domain là cái gì mình sử dụng cái hình này, nhìn vào đó ta có thể thấy được thought process ( tư duy thiết kế tổng quan ) của DDD được triển khai như thế nào. Có một số khái niệm chưa được giải thích sẽ bổng sung thêm khi có thời gian. 
-
-Bài viết đươc cung cấp bởi Mr Thành Nguyễn -  http://bit.ly/2e8siZX 
+Viết nhiều chữ quá cũng không hiệu quả, nên phần kết của cái bài đi tìm câu trả lời cho câu hỏi What Design Driven Domain là cái gì mình sử dụng cái hình này, nhìn vào đó ta có thể thấy được thought process ( tư duy thiết kế tổng quan ) của DDD được triển khai như thế nào. Có một số khái niệm chưa được giải thích sẽ bổng sung thêm khi có thời gian.

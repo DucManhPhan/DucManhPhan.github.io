@@ -2,9 +2,10 @@
 layout: post
 title: Tại sao - Domain Driven Design ?
 bigimg: /img/image-header/california.jpg
-tags: [Architecture Pattern]
+tags: [Architecture Pattern, DDD]
 ---
 
+Bài viết đươc cung cấp bởi Mr Thành Nguyễn -  [http://bit.ly/2e8siZX](http://bit.ly/2e8siZX).
 
 Vốn dĩ chưa có ý định viết về Domain Driven Design nhưng hôm nay vớ phải cái dự án làm outsource cho khách hàng có dùng cái này nên viết cái bài này để dọn đường cho anh em trước khi triển khai dự án.
 
@@ -55,5 +56,3 @@ Riêng phần Domain Model sẽ là phần core logic, trái tim của ứng d�
 
 Tóm lại vai trò của 2 hướng tiếp cận trong việc thiết kế ứng dụng là khá rõ ràng. Data Driven Design sẽ chiếm ưu thế đối với các ứng dụng cỡ vừa và nhỏ còn Domain Driven Design là kẻ chiến thắng đối với các hệ thống lớn. Domain Driven Design sẽ làm phức tạp hóa các giải pháp khi đưa nó vào áp dụng trong các hệ thống nhỏ và yêu cầu nhiều về resource ( con người ) hơn trong việc phát triển và làm chậm time to market của sản phẩm. Vì vậy cần rất thận trọng khi lựa chọn Domain Driven Desgin cho hệ thống của mình. 
 
-Bài viết đươc cung cấp bởi Mr Thành Nguyễn -  http://bit.ly/2e8siZX 
-Bạn muốn tham gia vào chia sẻ và học hỏi sâu hơn về DDD ? Hãy join cùng chúng tôi: http://bit.ly/itec-ddd-fbevent
