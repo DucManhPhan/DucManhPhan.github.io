@@ -1,6 +1,6 @@
 ---
 layout: post
-title: Some useful shortcut kyes in Netbeans
+title: Some useful shortcut keys in Netbeans
 bigimg: /img/image-header/factory.jpg
 tags: [Netbeans]
 ---
