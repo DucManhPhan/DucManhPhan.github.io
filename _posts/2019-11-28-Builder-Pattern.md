@@ -2,7 +2,7 @@
 layout: post
 title: Builder Pattern
 bigimg: /img/path.jpg
-tags: [creational pattern, design pattern, clean code]
+tags: [Creational Pattern, Design Pattern]
 ---
 
 In this article, we will introduce about Builder pattern. It's very helpful when we want to create complex objects in our program. 

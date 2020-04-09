@@ -2,7 +2,7 @@
 layout: post
 title: Some websites for clean code
 bigimg: /img/image-header/california.jpg
-tags: [Clean code]
+tags: [Clean Code]
 ---
 
 

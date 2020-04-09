@@ -2,7 +2,7 @@
 layout: post
 title: Fixing Object oriented abusers
 bigimg: /img/image-header/yourself.jpeg
-tags: [Refactoring, Java]
+tags: [Refactoring, Java, Clean Code]
 ---
 
 In this article, we will learn how to fix object oriented abusers. Let's get started.

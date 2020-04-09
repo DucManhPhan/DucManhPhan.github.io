@@ -2,7 +2,7 @@
 layout: post
 title: Use timeout for connection in QT
 bigimg: /img/image-header/california.jpg
-tags: [QT]
+tags: [Qt, C++]
 ---
 
 In this article, we will try to understand about using timeout for our common problem in communicating between client and server. In QT, this bug will not resolve. So, we always look forward solution in a next update of QT.

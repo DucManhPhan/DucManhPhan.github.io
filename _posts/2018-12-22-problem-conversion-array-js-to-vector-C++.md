@@ -2,26 +2,26 @@
 layout: post
 title: Problem when using push_back() function of vector in v8 or NAN
 bigimg: /img/path.jpg
-tags: [C++, v8, native module, NAN]
+tags: [C++, V8, Node.js]
 ---
 
 
 When using the v8 library or NAN for C++ addon modules, you want to convert the array in Node.js to the std::vector in C++. 
 
 ## Table of Contents
-- [Problem](#1-problem)
+- [Given problem](#1-given-problem)
 - [Solution](#2-solution)
 
 <br>
 
-## 1. Problem
-You will have wrong result in std::vector when using the push_back() function. 
+## 1. Given problem
+You will have wrong result in **std::vector** when using the **push_back()** function. 
 
 For example: 
 
-In Javascript, arr = [1, 2, 3, 4, 5]
+In Javascript, ```arr = [1, 2, 3, 4, 5]```
 
-But the below v8, or NAN, you will have: std::vector<int> vect = {0, 0, 0, 0, 0, 1, 2, 3, 4, 5}
+But the below v8, or NAN, you will have: ```std::vector<int> vect = {0, 0, 0, 0, 0, 1, 2, 3, 4, 5};```
 
 I think that the problem can be caused by the asynchronous of Javascript.
 

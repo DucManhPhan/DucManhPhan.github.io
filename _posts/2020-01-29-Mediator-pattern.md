@@ -2,7 +2,7 @@
 layout: post
 title: Mediator Pattern
 bigimg: /img/path.jpg
-tags: [Behavioral pattern, design pattern]
+tags: [Behavioral Pattern, design pattern]
 ---
 
 In this article, we will find something out about mediator pattern and some application of its pattern.

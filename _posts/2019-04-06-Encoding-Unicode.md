@@ -2,7 +2,7 @@
 layout: post
 title: Dive into Encoding with Unicode
 bigimg: /img/image-header/california.jpg
-tags: [unicode]
+tags: [Unicode]
 ---
 
 When we work with foreign companies such as Japan, China, ..., we always encourter some problems about character encoding. So, in this article, we will discuss about encoding with Unicode to clear some hides in this problem.

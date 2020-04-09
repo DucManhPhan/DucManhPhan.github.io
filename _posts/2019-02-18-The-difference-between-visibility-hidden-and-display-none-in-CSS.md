@@ -2,12 +2,22 @@
 layout: post
 title: The difference between visibility:hidden and display:none in CSS
 bigimg: /img/path.jpg
-tags: [front-end]
+tags: [Front-End, CSS]
 ---
 
 When we work on web development, we will cope with some case about hiding elements in our layout. Then, there are two most common ways to hide elements which include using ```display: none``` and ```visibility: hidden```.
 
-## ```display: none``` property
+<br>
+
+## Table of Contents
+- [display: none property](#display:-none-property)
+- [visibility: hidden property](#visibility:-hidden-property)
+- [Interesting information about visibility: hidden and display: none properties](#interesting-information-about-visibility:-hidden-and-display:-none-properties)
+- [Some other ways to hide elements](#some-other-ways-to-hide-elements)
+
+<br>
+
+## display: none property
 It will remove the element from the normal flow of the page, allowing other elements to fill in.
 
 It has two specific traits:
@@ -16,7 +26,7 @@ It has two specific traits:
 
 <br>
 
-## ```visibility: hidden``` property
+## visibility: hidden property
 It will leave the element in the normal flow of the page such that is still occupies space.
 
 It has two specific traits:
@@ -25,7 +35,8 @@ It has two specific traits:
 
 <br>
 
-## Interesting information about ```visibility: hidden``` and ```display: none``` properties
+## Interesting information about visibility: hidden and display: none properties
+
 When reading about this [link](https://stackoverflow.com/questions/133051/what-is-the-difference-between-visibilityhidden-and-displaynone), we will have a question about performance of the ways to disappear elements in browser.
 
 ```visibility: hidden``` and ```display: none``` will be equally performant since they both re-trigger layout, paint and composite. However, ```opacity: 0``` is functionality equivalent to ```visibility: hidden``` and does not re-trigger the layout step.

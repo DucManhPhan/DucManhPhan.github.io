@@ -2,7 +2,7 @@
 layout: post
 title: Reentrant lock in Java
 bigimg: /img/image-header/yourself.jpeg
-tags: [Multithreading]
+tags: [Multithreading, Java]
 ---
 
 In this article, we will understand how to use reentrant lock in Java. Let's get started.

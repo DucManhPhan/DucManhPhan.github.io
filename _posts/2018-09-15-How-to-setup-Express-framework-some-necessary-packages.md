@@ -2,7 +2,7 @@
 layout: post
 title: How to setup Express framework and some necessary packages
 bigimg: /img/path.jpg
-tags: [Express, node.js] 
+tags: [Express, Node.js] 
 ---
 
 Hi, everyone. Today, I will guide you some information about setting Express framework.

@@ -2,7 +2,7 @@
 layout: post
 title: How Servlets work in Java
 bigimg: /img/image-header/home-office-1.jpg
-tags: [java]
+tags: [Java, Servlet]
 ---
 
 Beside understanding [how JSP works](https://DucManhPhan.github.io/2019-01-25-How-jsp-works), we will still need to understand how Servlet works in the server-side. It also helps you delve deeper into Java web programming, especially Spring MVC, Boot.

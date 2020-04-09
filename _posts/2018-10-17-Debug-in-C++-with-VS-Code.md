@@ -11,6 +11,7 @@ After spending so much time to search information about debuging, I think the Vi
 
 First of all, Visual Studio Code supports the compiler, debugger, intellisence mode. In this article, we will find out all of information about compiler, debugger in Vs Code. 
 
+<br>
 
 ## Table of Contents
 - [1. Debugger Extension](#1-debugger-extension)
@@ -29,6 +30,7 @@ The first thing to do is to install the Microsoft C/C++ extension. It is used to
 
 ![Install C++ debugger extension](/img/C++-debugger-extension.png)
 
+<br>
 
 ## 2. Build source code 
 
@@ -126,6 +128,7 @@ vcvarsall.bat is Visual Studio Command Prompt tool in Visual Studio. It's the to
 
 More information about vcvarall.bat: [Using vcvarall.bat in a Command Prompt window](https://msdn.microsoft.com/en-us/library/f2ccy3wt.aspx)
 
+<br>
 
 ## 3. Debug source code 
 
@@ -176,6 +179,7 @@ Here are the meaning of some options for the launch.json file.
 
 If you want to know about the options in launch.json file, you can read the site: [Configuring launch.json for C/C++ debugging](https://github.com/Microsoft/vscode-cpptools/blob/master/launch.md)
 
+<br>
 
 ## 4. Summarize 
 

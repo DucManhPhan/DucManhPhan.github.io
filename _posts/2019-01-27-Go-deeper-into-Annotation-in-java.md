@@ -2,12 +2,14 @@
 layout: post
 title: Go deeper into Annotation - @Configuration
 bigimg: /img/image-header/home-office-1.jpg
-tags: [java]
+tags: [Java, Spring, Annotation]
 ---
 
 Before you read about this article, I think that you should reference to the previous [article](https://ducmanhphan.github.io/2019-01-09-Annotations-in-java/).
 
 So, in this article, we will find out the inside part of the way ```@Configuration``` annotation works.
+
+<br>
 
 ## Table of Contents
 - [How @Configuration annotation work](#how-@configuration-annotation-work)

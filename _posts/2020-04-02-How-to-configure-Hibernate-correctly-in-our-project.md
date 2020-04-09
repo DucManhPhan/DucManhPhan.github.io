@@ -2,7 +2,7 @@
 layout: post
 title: Howt to configure Hibernate correctly in our project
 bigimg: /img/image-header/yourself.jpeg
-tags: [Java, Spring]
+tags: [Java, Spring, Hibernate]
 ---
 
 In this article, we will learn how to configure Hibernate in our normal project or Spring boot project in production environement.

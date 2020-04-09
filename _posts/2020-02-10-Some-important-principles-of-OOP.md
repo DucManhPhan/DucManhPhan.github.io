@@ -2,7 +2,7 @@
 layout: post
 title: Some important principles of OOP
 bigimg: /img/image-header/factory.jpg
-tags: [Principle, Design pattern]
+tags: [OOP, Design Pattern]
 ---
 
 In this article, we want to find something out about important principles of OOP. It's really crucial for us because it influences what we think about object oriented analysis and design.

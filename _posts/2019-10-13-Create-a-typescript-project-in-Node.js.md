@@ -1,6 +1,6 @@
 ---
 layout: post
-title: Create a typescript project in Node.js
+title: Create a Typescript project in Node.js
 bigimg: /img/image-header/yourself.jpeg
 tags: [Node.js, Typescript]
 ---

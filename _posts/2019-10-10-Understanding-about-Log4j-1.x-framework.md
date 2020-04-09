@@ -2,7 +2,7 @@
 layout: post
 title: Understanding about Log4j 1.x framework
 bigimg: /img/image-header/home-office-1.jpg
-tags: [java]
+tags: [Java, Logging framework]
 ---
 
 In our application, logging is a vital functionality that we will import when creating project. It makes us to detect bugs, problems in logging file when program runs at runtime mode.

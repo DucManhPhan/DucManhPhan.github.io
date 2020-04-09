@@ -2,7 +2,7 @@
 layout: post
 title: Understanding about functional programming in Java
 bigimg: /img/image-header/factory.jpg
-tags: [Functional programming, Java]
+tags: [Functional Programming, Java]
 ---
 
 In this article, we will learn about functional programming. Let's get started.

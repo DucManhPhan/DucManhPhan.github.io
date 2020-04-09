@@ -2,7 +2,7 @@
 layout: post
 title: Understanding about project lifecycle in Java
 bigimg: /img/image-header/home-office-1.jpg
-tags: [java]
+tags: [Java]
 ---
 
 To build the small project, actually, we do a little operations such as typing ```Ctrl + Shift + B``` to build project and ```F5``` to run. It is a pieces of cake to implement manually. 

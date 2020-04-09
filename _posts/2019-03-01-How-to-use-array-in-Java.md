@@ -5,6 +5,9 @@ bigimg: /img/image-header/california.jpg
 tags: [Java]
 ---
 
+In this article, we will find something out about array in Java Core. This is a fundamental knowldege that we need to know when working with Java.
+
+Let's get started.
 
 <br>
 

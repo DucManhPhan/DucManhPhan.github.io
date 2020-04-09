@@ -2,7 +2,7 @@
 layout: post
 title: How to center things in CSS
 bigimg: /img/path.jpg
-tags: [front-end]
+tags: [Front-End, CSS]
 ---
 
 Sometimes, in CSS, we want to center everthing rapidly. But to do this, we have to think about it slowly, simply because, we must choose some properties such as postion, top, left, right, bottom, vertical align, text align, ...

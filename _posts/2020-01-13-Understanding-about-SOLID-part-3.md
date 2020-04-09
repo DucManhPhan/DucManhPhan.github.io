@@ -2,7 +2,7 @@
 layout: post
 title: Understanding about SOLID - Liskov Substitution Principle
 bigimg: /img/image-header/home-office-1.jpg
-tags: [design pattern, SOLID]
+tags: [SOLID]
 ---
 
 In this article, we will learn how to use Liskov Substitution Principle for declaring correctly relationships between types, without using is-a relationship.

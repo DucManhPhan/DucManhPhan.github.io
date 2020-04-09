@@ -2,7 +2,7 @@
 layout: post
 title: Configure Tomcat for Java web
 bigimg: /img/image-header/california.jpg
-tags: [Java]
+tags: [Java, Tomcat]
 ---
 
 In this turorial, we will find out about how to configure Tomcat in eclipse, and how to configure Tomcat to deploy web application.

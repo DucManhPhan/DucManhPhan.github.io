@@ -2,7 +2,7 @@
 layout: post
 title: Problem about role name in Spring security
 bigimg: /img/path.jpg
-tags: [java]
+tags: [Java, Spring]
 ---
 
 When using Spring security, I always cope with problem about permision of account, regardless of right my account. It's annoyed for me. After digging into this problem, I have some interesting information.

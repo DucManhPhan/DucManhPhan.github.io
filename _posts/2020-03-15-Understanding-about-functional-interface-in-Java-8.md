@@ -2,7 +2,7 @@
 layout: post
 title: Understanding about functional interface in Java 8
 bigimg: /img/path.jpg
-tags: [Java]
+tags: [Java, Functional Programming]
 ---
 
 In this article, we will learn how to use functional interface. Let's get started.

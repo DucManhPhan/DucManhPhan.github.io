@@ -11,11 +11,14 @@ At this stage, you will create the database in MySQL that use statements, not us
 
 In this article, we will get the schema on the [MySQL Tutorial](http://www.mysqltutorial.org) to practice about using statements.
 
+<br>
 
 ## Table of Contents
 - [Database Schema](#database-schema)
 - [Implement with statements in MySQL](#implement-with-statements-in-MySQL)
-- [Note](#note)
+- [Wrapping up](#wrapping-up)
+
+<br>
 
 ## Database Schema
 The following is the image about schema that you need to do.
@@ -215,11 +218,11 @@ The meaning of each table in this database:
     To implement [self-join](http://www.mysqltutorial.org/mysql-self-join/) query statements in **employees** table, you can use a table alias to help MySQL distinguish the left table from the right table of the same table in a single query. 
 
 
-## Note 
+## Wrapping up 
 - Write all these queries into one file .sql, but you have to arrange the query statements. Query statement has no or a few constraint first. 
 - Continuously, find knowledge about join, filter in MySQL.
 
-
+<br>
 
 Refer: 
 

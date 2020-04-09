@@ -2,7 +2,7 @@
 layout: post
 title: Understanding configuration in QT
 bigimg: /img/image-header/california.jpg
-tags: [QT]
+tags: [Qt, C++]
 ---
 
 When I'm working with QT, the most difficult thing is to configure ```.PRO``` file. I do not understand about structure of this file and it makes me confused. 

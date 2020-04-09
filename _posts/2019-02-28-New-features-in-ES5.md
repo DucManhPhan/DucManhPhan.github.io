@@ -2,7 +2,7 @@
 layout: post
 title: New features in ES5
 bigimg: /img/path.jpg
-tags: [front-end]
+tags: [Front-End, Javascript]
 ---
 
 In this article, we will discuss about some new features in ECMAScript 5. All browsers support some properties in ES5. So, we need to practice all things smoothly.

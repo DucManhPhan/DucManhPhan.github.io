@@ -2,7 +2,7 @@
 layout: post
 title: Optimize the query statement in database
 bigimg: /img/image-header/home-office-2.jpg
-tags: [database]
+tags: [Database]
 ---
 
 In database management tool, especially MySQL, we will have some basic commands with common structures.

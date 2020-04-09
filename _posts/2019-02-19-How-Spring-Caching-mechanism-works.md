@@ -2,7 +2,7 @@
 layout: post
 title: How Spring Caching mechanism works
 bigimg: /img/path.jpg
-tags: [java]
+tags: [Java, Spring]
 ---
 
 In this article, we will learn how to manage application cache from Spring framework caching support. Spring has nice features around caching and the abstraction on the Spring cache API is very much simple to use.

@@ -2,7 +2,7 @@
 layout: post
 title: Understanding about scaling in system design
 bigimg: /img/image-header/factory.jpg
-tags: [System design]
+tags: [System Design]
 ---
 
 

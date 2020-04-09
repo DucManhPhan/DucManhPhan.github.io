@@ -2,7 +2,7 @@
 layout: post
 title: Understanding configuration with Webpack and Babel
 bigimg: /img/image-header/ravashing-beach.jpg
-tags: [Java, Spring]
+tags: [Java, Webpack]
 ---
 
 In this article, we will learn how to configure a project that use Webpack and Babel in front-end. It is a first step to work with larger project in the future. So, let's get started.

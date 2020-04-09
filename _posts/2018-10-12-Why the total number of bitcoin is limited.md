@@ -2,23 +2,27 @@
 layout: post
 title: Why the total number of bitcoin is limited?
 bigimg: /img/path.jpg
-tags: [blockchain, bitcoin]
+tags: [Blockchain, Bitcoin]
 ---
 
 When I have just began to find out something in blockchain, especially bitcoin, I read the way that bitcoin works. Looking at the information 'There are approximately only 21 millions bitcoin that is mined in the world.", I'm always curious about why they can calculate this number. 
 
 After arduous days, I have dig into the bitcoin. I think I know about why to have the number of bitcoin.
 
+<br>
 
 ## Table of Contents
-- [The Problem](#the-problem)
+- [Given Problem](#given-problem)
 - [Solution](#solution)
 
-## The Problem
+## Given Problem
+
 With bitcoin, each 10 minutes, there is a block mined from miners all over the world. The origin value of bitcoin is 50 bitcoin. After each 4 years, the value of bitcoin will reduce two times. So, calculate the total number of bitcoin?
 
+<br>
 
 ## Solution
+
 Because in 10 minutes, one block will be mined. So in 1 hour, there will be 6 blocks to be mined. 
 
 In addition, after each 4 years, the value of bitcoin will be reduce 2 times. The below we have the mathematic: 

@@ -2,7 +2,7 @@
 layout: post
 title: The architecture of Angular
 bigimg: /img/image-header/ravashing-beach.jpg
-tags: [front-end, angular]
+tags: [Front-End, Angular]
 ---
 
 Before, we has only one version that is AngularJs, or Angular 1.x. The architecture of AngularJS is very different with the version of Angular at the moment. Because AngularJS is utilizing MVC architecture pattern, then, Angular 2.x or above uses MVVM pattern, Dependency Injection, ...

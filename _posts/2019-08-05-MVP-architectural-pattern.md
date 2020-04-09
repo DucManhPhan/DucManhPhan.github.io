@@ -2,7 +2,7 @@
 layout: post
 title: MVP architectural pattern
 bigimg: /img/image-header/california.jpg
-tags: [architecture pattern, design pattern]
+tags: [Architecture Pattern]
 ---
 
 In this article, we will find something out about MVP pattern, it is inherited from MVC pattern. But definitely, it has some changes when compared to MVC pattern. So, we will understand how to use it, how to differentiate between MVC pattern and MVP pattern.

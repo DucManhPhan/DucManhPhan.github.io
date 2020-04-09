@@ -2,7 +2,7 @@
 layout: post
 title: Introduction to Intra mart Accel platform
 bigimg: /img/image-header/california.jpg
-tags: [Java]
+tags: [Java, Intra-mart]
 ---
 
 In this article, we will talk about common information about Intra mart Accel platform. 

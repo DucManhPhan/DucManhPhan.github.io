@@ -2,7 +2,7 @@
 layout: post
 title: What is Reactive programming in Java
 bigimg: /img/image-header/yourself.jpg
-tags: [Java]
+tags: [Java, Reactive Programming]
 ---
 
 In this article, we will dive into Reactive programming in Java, especially we have to understand about its architecture. Based on it, we can easily apply them into utilizing some frameworks such as RxJava, Reactor, ...

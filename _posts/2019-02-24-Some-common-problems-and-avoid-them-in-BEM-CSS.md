@@ -2,7 +2,7 @@
 layout: post
 title: Some common problems and avoid them in BEM/CSS
 bigimg: /img/image-header/ravashing-beach.jpg
-tags: [front-end]
+tags: [Front-End, CSS]
 ---
 
 When we work with BEM methodology in CSS, we have some problems about nesting elements in blocks, changing the states of some elements ... It makes our code difficult to read, the code is longer than before.

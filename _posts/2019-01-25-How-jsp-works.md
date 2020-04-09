@@ -2,7 +2,7 @@
 layout: post
 title: How JSP works in Java
 bigimg: /img/image-header/home-office-1.jpg
-tags: [java]
+tags: [Java, Servlet]
 ---
 
 When we, assumed as novice programmer, work with Java web, there are so many things to understand, or to be curious. I can list something such as annotations, jsp, servlet, spring framework, hibernate, JDBC, ... 
@@ -15,7 +15,6 @@ The most important thing to find out is how JSP works. Because we have to be awa
 - [Introduction about JSP](#introduction-about-JSP)
 - [How JSP works](#how-jsp-works)
 - [Important note](#important-note)
-
 
 <br>
 
@@ -50,15 +49,12 @@ The above item we had introduced about JSP's concept. In this item, we will dig 
 
 Typically, the JSP engine checks to see whether a servlet for a JSP file already exists and whether the modification date on the JSP is older than the servlet. If the JSP is older than its generated servlet, the JSP container assumes that the JSP hasn't changed and that the generated servlet still matches the JSP's contents. This makes the process more efficient than with the other scripting languages (such as PHP) and therefore faster.
 
-
 <br>
 
 ## Important note
 - In Web Container or Servlet Container or Servlet engine, we have some steps such as converting codes in jsp file into two parts, the first part contains static html code, the second part contains java code. Then translate/build the second part into the executable code. The converting code step will be responsible by JSP engine.
 
-
 <br>
-
 
 Refer: 
 

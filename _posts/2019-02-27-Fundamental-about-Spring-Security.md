@@ -2,7 +2,7 @@
 layout: post
 title: Fundamental about Spring Security
 bigimg: /img/path.jpg
-tags: [Java]
+tags: [Java, Spring]
 ---
 
 Security for website is very essential simply because we can be robbed all user information such as credit card, address, email, password, ... So, Spring Security will appear to help us to reduce our attempt.
@@ -13,6 +13,7 @@ In this article, we will find out about basic knowledge about Spring Security, a
 
 ## Table of contents
 - [Introduction to Spring Security](#introduction-to-spring-security)
+- [Filter Chains](#filter-chains)
 - [Authentication in Spring Security](#authentication-in-spring-security)
 - [Authorization in Spring Security](#authorization-in-spring-security)
 - [Wrapping up](#wrapping-up)

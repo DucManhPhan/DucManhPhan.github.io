@@ -2,7 +2,7 @@
 layout: post
 title: Some useful short keys in Eclipse
 bigimg: /img/image-header/california.jpg
-tags: [Java]
+tags: [Eclipse]
 ---
 
 When I'm newbie to work with Eclipse, it is really bored to work with it, mainly because I do not know about shortcut keys in Eclipse. It takes me a long time to search text, files, ... in my project. It reduces my speed to code.

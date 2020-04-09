@@ -2,7 +2,7 @@
 layout: post
 title: Setup C++ Boost Library
 bigimg: /img/path.jpg
-tags: [boost library, C++]
+tags: [Boost library, C++]
 ---
 
 Boost contains over 80 libraries for C++ programming language that supports for task and structures such as Linear Algebra, **Image Processing**, **Pseudo random number generation**, multithreading, regular expression and **unit testing**. 

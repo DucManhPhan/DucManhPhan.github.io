@@ -2,7 +2,7 @@
 layout: post
 title: The history of Javascript
 bigimg: /img/image-header/ravashing-beach.jpg
-tags: [front-end]
+tags: [Front-End, Javascript]
 ---
 
 When we worked with Javascript, we always face the keyword ECMAScript 2015 or ES6 or JS6. We usually have some question about What is ECMAScript or JS6? 

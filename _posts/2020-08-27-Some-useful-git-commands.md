@@ -2,7 +2,7 @@
 layout: post
 title: Some useful git commands
 bigimg: /img/image-header/california.jpg
-tags: [git]
+tags: [Git]
 ---
 
 Git is the popular source control system in Software development. Mastering it will make our life easier to live. So, we can completely concentrate on programming software.

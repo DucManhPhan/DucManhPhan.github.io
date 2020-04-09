@@ -2,12 +2,14 @@
 layout: post
 title: Use BEM with CSS
 bigimg: /img/path.jpg
-tags: [front-end]
+tags: [Front-End, CSS]
 ---
 
 To the software development, naming convention is very important for maintaining code easily, reducing time to read code, ... So, when we work on web development, naming convention in css is needed to know. 
 
 In this article, we will find out about BEM methodology for CSS. All this information is referenced from [www.toptal.com](https://www.toptal.com/css/introduction-to-bem-methodology).
+
+<br>
 
 ## Table of contents
 - [Introduction to BEM](#introduction-to-bem)

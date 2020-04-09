@@ -2,7 +2,7 @@
 layout: post
 title: How to use ExecutorService framework in Multithreading Java
 bigimg: /img/image-header/home-office-1.jpg
-tags: [java, Multithreading]
+tags: [Java, Multithreading]
 ---
 
 In this article, we will learn how to create ExecutorService, advantages and disadvantages of it. It provides a simple way to do some operations with Thread.

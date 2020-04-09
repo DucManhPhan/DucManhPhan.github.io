@@ -2,7 +2,7 @@
 layout: post
 title: Adapter Pattern
 bigimg: /img/path.jpg
-tags: [structural pattern, design pattern]
+tags: [Structural Pattern, Design Pattern]
 ---
 
 In this article, we will learn how to use adapter pattern. Let's get started.

@@ -2,7 +2,7 @@
 layout: post
 title: How to integrate Typescript into Node.js
 bigimg: /img/image-header/california.jpg
-tags: [Node.js]
+tags: [Node.js, Typescript]
 ---
 
 In this article, we will discuss about how to integrate Typescript into Node.js project such as web project, talk about disadvantages of Typescript that is compared with Javascript.

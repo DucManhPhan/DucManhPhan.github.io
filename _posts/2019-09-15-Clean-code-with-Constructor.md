@@ -2,7 +2,7 @@
 layout: post
 title: Clean code with Constructor
 bigimg: /img/image-header/yourself.jpeg
-tags: [Clean code]
+tags: [Clean Code]
 ---
 
 In this article, we will go to clean code with constructor. This is common techniques to solve our problems when we want to create object.

@@ -2,7 +2,7 @@
 layout: post
 title: Command syntax in thymeleaf engine 
 bigimg: /img/image-header/home-office-1.jpg
-tags: [java]
+tags: [Java, Thymeleaf]
 ---
 
 In the previous [article](https://ducmanhphan.github.io/2019-02-07-Implementation-with-layout-in-thymeleaf), we have understood a few about utilizing layout with Thymeleaf. But it is not enough knowledege to write front-end easily.

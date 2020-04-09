@@ -2,7 +2,7 @@
 layout: post
 title: Multithreading in Qt
 bigimg: /img/image-header/california.jpg
-tags: [Qt]
+tags: [Qt, Multithreading, C++]
 ---
 
 When I work with multithreading in Qt at the first time, I feel it really confused with the concepts Signal/Slot. I always have some error about that it can not create threads in QtNetworkManager thread. 

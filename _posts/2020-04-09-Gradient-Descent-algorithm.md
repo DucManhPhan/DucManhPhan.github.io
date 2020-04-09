@@ -2,7 +2,7 @@
 layout: post
 title: Gradient Descent algorithm
 bigimg: /img/image-header/yourself.jpeg
-tags: [Machine learning]
+tags: [Machine Learning]
 mathjax: true
 ---
 

@@ -2,13 +2,14 @@
 layout: post
 title: Pros and cons of Relational Database
 bigimg: /img/image-header/ravashing-beach.jpg
-tags: [database]
+tags: [Database]
 ---
 
 There are two management ways about database such as using NoSQL or Relational database. Each way has advantages and disadvantages, but we have to know detail about pros and cons of them. 
 
 In this article, we will find out something about relational database. 
 
+<br>
 
 ## Table of Contents
 - [Advantages of Relational database](#advantages-of-relational-database)

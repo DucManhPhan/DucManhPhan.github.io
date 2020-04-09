@@ -2,7 +2,7 @@
 layout: post
 title: Implementation with layout in thymeleaf
 bigimg: /img/image-header/home-office-1.jpg
-tags: [java]
+tags: [Thymeleaf]
 ---
 
 Thymeleaf is an engine that used to interactive with HTML in View. It supported the functionalities that is relevant with splitting web page into common page components like the header, footer, menu, ... These page components can be used by the same or different layouts. This action improves the reusability of front-end and helps coder to reduce time in designer. 
@@ -24,25 +24,27 @@ There are two main styles of organizing layouts:
 - include style
 - hierarchical style
 
-### Inclue-style layouts
-In this style, we can directly imbue all common page components into our appropriate view. In order to achieve its style, we will use **Thymeleaf Standard Layout System** such as ```th:insert```, ```th:replace``` and ```th:fragment```.
+1. Inclue-style layouts
 
-- Advantage
-    - provide the flexibility in developing view.
+    In this style, we can directly imbue all common page components into our appropriate view. In order to achieve its style, we will use **Thymeleaf Standard Layout System** such as ```th:insert```, ```th:replace``` and ```th:fragment```.
 
-- Disadvantage
-    - when having so many common page component is used in enormous place, so modifying a specific component, it makes our views to control hard.
+    - Advantage
+        - provide the flexibility in developing view.
+
+    - Disadvantage
+        - when having so many common page component is used in enormous place, so modifying a specific component, it makes our views to control hard.
 
 <br>
 
-### Hierarchical-style layouts
-In this style, the templates are usually created with a parent-child relation, from the more general part (layout) to the most specific ones (subview --> page content). Each component of the template may be included dynamically based on the inclusion and substitution of template fragments. This can be done using **Thymeleaf Layout Dialect**.
+2. Hierarchical-style layouts
 
-- Advantage
-    - the reuse of atomic portions of the view and modular design.
+    In this style, the templates are usually created with a parent-child relation, from the more general part (layout) to the most specific ones (subview --> page content). Each component of the template may be included dynamically based on the inclusion and substitution of template fragments. This can be done using **Thymeleaf Layout Dialect**.
 
-- Disadvantage
-    - Much more configuration is needed to use them, so the complexity of the views is bigger than with **Include-style layouts** which are more nature to use.
+    - Advantage
+        - the reuse of atomic portions of the view and modular design.
+
+    - Disadvantage
+        - Much more configuration is needed to use them, so the complexity of the views is bigger than with **Include-style layouts** which are more nature to use.
 
 <br>
 
@@ -190,8 +192,6 @@ In this style, the templates are usually created with a parent-child relation, f
 
 ## Wrapping up
 - To use Thymeleaf in SpringMVC, we have to configure for Template Resolver. We can reference this [link](https://www.thymeleaf.org/doc/tutorials/3.0/usingthymeleaf.html#the-template-resolver).
-
-
 
 <br>
 

@@ -2,7 +2,7 @@
 layout: post
 title: Introduction to Hadoop ecosystem
 bigimg: /img/path.jpg
-tags: [Hadoop, Big data]
+tags: [Hadoop, Big Data]
 ---
 
 All information of this article we get from the [The Ultimate Hands-On Hadoop]() course in Udemy website.

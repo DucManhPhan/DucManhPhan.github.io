@@ -2,13 +2,16 @@
 layout: post
 title: Learn basic bootstrap - part 2
 bigimg: /img/image-header/ravashing-beach.jpg
-tags: [bootstrap]
+tags: [Bootstrap, Front-End]
 ---
 
 In this article, we will continue finding out something about bootstrap 4. 
 
-## Table of Contents
+Let's get started.
 
+<br>
+
+## Table of Contents
 - [Menu](#menu)
 - [Jumbotron](#jumbotron)
 - [Collapse with button and anchor](#collapse-with-button-and-anchor)

@@ -2,7 +2,7 @@
 layout: post
 title: Understanding about SOLID - Interface Segregation Principle
 bigimg: /img/image-header/home-office-1.jpg
-tags: [design pattern, SOLID]
+tags: [SOLID]
 ---
 
 In this article, we will introduce about the Liskov Substitution Principle.

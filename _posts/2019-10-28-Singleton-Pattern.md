@@ -2,7 +2,7 @@
 layout: post
 title: Singleton Pattern
 bigimg: /img/image-header/california.jpg
-tags: [creational pattern, design pattern]
+tags: [Creational Pattern, Design Pattern]
 ---
 
 In this article, we will learn about Singleton pattern. This pattern is very common, used in many frameworks such as Spring beans ... 

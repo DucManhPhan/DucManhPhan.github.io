@@ -2,7 +2,7 @@
 layout: post
 title: Annotations in Spring Caching
 bigimg: /img/image-header/california.jpg
-tags: [java]
+tags: [Java, Spring]
 ---
 
 In the previous article, we has understood about [How Spring Caching works](https://ducmanhphan.github.io/2019-02-19-How-Spring-Caching-mechanism-works). So in this article, we will discuss about annotations in Spring caching, and how to use it in our source code.
@@ -110,7 +110,7 @@ condition=”#supportUser == false” provides the condition to trigger the cach
 
     |          Attributes         |                     Description                    |
     | --------------------------- | -------------------------------------------------- |
-    | cacheManager                | The bean name ò the cache manager                  |
+    | cacheManager                | The bean name of the cache manager                  |
     | cacheNames                  | The list of cache store names where the method cache has to be stored. This should be any array of strings.|
     | cacheResolver               | The name of the custom cache resolver. |
     | condition                   | This is [Spring Expression Language (SPeL)](https://javabeat.net/introduction-to-spring-expression-language-spel/) for the conditional caching for the method. |
@@ -257,7 +257,7 @@ condition=”#supportUser == false” provides the condition to trigger the cach
 <br>
 
 ## JCache(JSR - 107)
-Since Spring framework 4.1, Spring’s caching abstraction completely supports the JCache specification and we can use JCache annotations without any special configurations. 
+Since Spring framework 4.1, Spring's caching abstraction completely supports the JCache specification and we can use JCache annotations without any special configurations. 
 
 All annotations in Jcache is used in packge ```org.springframework.cache.jcache```. We can use Java based configuration by adding some code in our configuration class. 
 

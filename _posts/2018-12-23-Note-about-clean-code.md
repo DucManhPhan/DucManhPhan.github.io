@@ -2,12 +2,12 @@
 layout: post
 title: Clean code - Surface level
 bigimg: /img/image-header/ravashing-beach.jpg
-tags: [clean code]
+tags: [Clean Code]
 ---
 
 Hi, everyone. Clean code is the way that you learn to write code clearly, understandably, and easily maintain. 
 
-So, in this article, I will notes some tips about clean code in book "The art of readable code" of the two author - Dustin Boswell and Trevor Foucher.
+So, in this article, I will notes some tips about clean code in book **The art of readable code** of the two author - **Dustin Boswell** and **Trevor Foucher**.
 
 <br>
 
@@ -20,7 +20,9 @@ So, in this article, I will notes some tips about clean code in book "The art of
 <br>
 
 ## 1. Must-remember key idea
+
 - Code should be easy to understand.
+
 - Code should be written to minimize the time it would take for someone else to understand it. 
 
 I think the two idea is above, you have to always remember, because the performance of computer is greater than before, so the size of RAM is bigger, the speed of CPU is faster. So you should not worry about the hardware of computer.

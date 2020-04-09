@@ -2,7 +2,7 @@
 layout: post
 title: Data binding in KnockoutJS
 bigimg: /img/image-header/california.jpg
-tags: [front-end]
+tags: [Front-End, KnockoutJs]
 ---
 
 In this article, we will introduce about data binding in KnockoutJS and some important properties that is used frequently and it is relavant to data binding.

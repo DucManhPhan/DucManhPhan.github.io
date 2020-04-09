@@ -2,7 +2,7 @@
 layout: post
 title: Strategy Pattern
 bigimg: /img/path.jpg
-tags: [behavioral pattern, design pattern]
+tags: [Behavioral Pattern, Design Pattern]
 ---
 
 In this article, we will understand about Strategy pattern. Let's get started.

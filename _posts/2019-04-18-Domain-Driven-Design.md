@@ -2,7 +2,7 @@
 layout: post
 title: Domain Driven Design
 bigimg: /img/image-header/home-office-1.jpg
-tags: [Architecture Pattern]
+tags: [Architecture Pattern, DDD]
 ---
 
 

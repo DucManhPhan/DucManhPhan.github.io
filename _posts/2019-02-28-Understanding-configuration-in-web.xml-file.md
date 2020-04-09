@@ -2,7 +2,7 @@
 layout: post
 title: Understanding configuration in web.xml file
 bigimg: /img/image-header/california.jpg
-tags: [Java]
+tags: [Java, Servlet]
 ---
 
 In this article, we will discuss about configuration in web.xml file, especially in Servlet programming for maintaining project, simply because nowadays, we normally use annotations to configure our application.

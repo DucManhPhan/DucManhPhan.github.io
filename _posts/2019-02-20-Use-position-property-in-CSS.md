@@ -2,7 +2,7 @@
 layout: post
 title: Use position property in CSS
 bigimg: /img/image-header/ravashing-beach.jpg
-tags: [front-end]
+tags: [Front-End, CSS]
 ---
 
 When we want to change the position of element in css, we have to use ```position``` property. It make us easy to set a new position of element to follow many conditions such as parent element, browser window, ...
@@ -14,6 +14,10 @@ So, in this article, we will find out some basic information about ```position``
 ## Table of contents
 - [Introduction to position property](#introduction-to-position-property)
 - [Properties accompany with position property](#properties-accompany-with-position-property)
+- [Static value](#static-value)
+- [Relative value](#relative-value)
+- [Absolute value](#absolute-value)
+- [Fixed value](#fixed-value)
 - [Wrapping up](#wrapping-up)
 
 

@@ -2,7 +2,7 @@
 layout: post
 title: Bridge pattern
 bigimg: /img/image-header/yourself.jpeg
-tags: [Structural pattern, Design pattern]
+tags: [Structural Pattern, Design Pattern]
 ---
 
 In this article, we will find something out about Bridge pattern. Let's get started.

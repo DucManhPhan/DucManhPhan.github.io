@@ -2,7 +2,7 @@
 layout: post
 title: State pattern
 bigimg: /img/image-header/california.jpg
-tags: [design pattern]
+tags: [Design Pattern, Behavioral Pattern]
 ---
 
 In this article, we will find something out about State pattern. Based on knowledge of it, we should apply its pattern to our real project.

@@ -2,7 +2,7 @@
 layout: post
 title: Why extends is evil
 bigimg: /img/image-header/california.jpg
-tags: [Java]
+tags: [Java, OOP]
 ---
 
 In this article, we will talk about the extends in inheritance property of OOP. It will make us to write better code, make our architecture design clearly and loose coupling among modules.

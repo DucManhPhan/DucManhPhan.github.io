@@ -2,7 +2,7 @@
 layout: post
 title: Understanding configuration in Gradle - Java
 bigimg: /img/image-header/california.jpg
-tags: [Java]
+tags: [Java, Gradle]
 ---
 
 In this tutorial, we will discuss about Gradle to understand how to build our project with it and make our work easier to do. Let's get started.

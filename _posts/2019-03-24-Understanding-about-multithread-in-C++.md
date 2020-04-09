@@ -2,7 +2,7 @@
 layout: post
 title: Understanding about multithread in C++
 bigimg: /img/image-header/california.jpg
-tags: [C++, Multithread]
+tags: [C++, Multithreading]
 ---
 
 When we want to improve the performance of system, there are many ways to enhance performance such as architecture design, optimization algorithms, ... But we can immediately think about multithread at first. 

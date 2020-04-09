@@ -2,7 +2,7 @@
 layout: post
 title: Uploading files with AWS S3 in Spring Boot
 bigimg: /img/path.jpg
-tags: [java]
+tags: [Java, Spring, AWS]
 ---
 
 Nowadays, knowledge about cloud is essential for us, mainly because, to business, optimize all the operation cost affect to the business's living. So, use cloud help them to focus on business logic of software, but do not take care of the storage's problem, and expand their server when the amount of user raise rapidly.

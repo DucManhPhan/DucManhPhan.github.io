@@ -2,7 +2,7 @@
 layout: post
 title: Copy object in Javascript
 bigimg: /img/path.jpg
-tags: [javascript]
+tags: [Javascript]
 ---
 
 Everything in Javascript is object. So, the need to copy the object is enomorous. But the copy is really hard work, and it has so many problems in the copy. There are two types in copying object, it includes shadow copy and deep copy.
@@ -12,6 +12,8 @@ Everything in Javascript is object. So, the need to copy the object is enomorous
 
 In this article, we will look at some ways the real copy object.
 
+<br>
+
 ## Table of contents
 - [Use Object.assign](#use-object.assign)
 - [Use JSON.parse and JSON.stringify](#use-json.parse-and-json.stringify)
@@ -19,7 +21,7 @@ In this article, we will look at some ways the real copy object.
 
 <br>
 
-# Use Object.assign
+## Use Object.assign
 Consider this below code: 
 
 ```Javascript
@@ -76,7 +78,9 @@ Run this code. We can see the drawback of this method Object.assign().
 
 So, if our object do not contain nested object, you can use this way. 
 
-# Use JSON.parse and JSON.stringify
+<br>
+
+## Use JSON.parse and JSON.stringify
 
 ```Javascript
 let nestedObj = {
@@ -109,8 +113,9 @@ In order to check the speed of the way: "Using JSON.parse and JSON.stringify", y
 
 When working with the function of JSON, we need to take care of structure of string that is represented as JSON file. Because when JSON string contains the commas, it will make the error, and we need to handle this exception. 
 
+<br>
 
-# Use for loop to copy
+## Use for loop to copy
 
 ```Javascript
 function clone(obj) {

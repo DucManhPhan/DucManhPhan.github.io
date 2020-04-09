@@ -2,7 +2,7 @@
 layout: post
 title: Understanding this keyword in Javascript
 bigimg: /img/image-header/ravashing-beach.jpg
-tags: [front-end]
+tags: [Front-End, Javascript]
 ---
 
 In C++, ```this``` keyword usually refer to the object ifself. It always uses in the method of class. And there are no any tricks with ```this``` keyword. But in Javascript, ```this``` keyword is affected by many things such as context of object, the usage of functions, ...

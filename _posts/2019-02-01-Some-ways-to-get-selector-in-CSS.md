@@ -2,7 +2,7 @@
 layout: post
 title: Some ways to get selector in CSS
 bigimg: /img/image-header/home-office-1.jpg
-tags: [front-end]
+tags: [Front-End]
 ---
 
 The following table will contains all selectors in CSS that we need.

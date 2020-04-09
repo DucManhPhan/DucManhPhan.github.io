@@ -2,7 +2,7 @@
 layout: post
 title: Clean code with class
 bigimg: /img/image-header/california.jpg
-tags: [Clean code]
+tags: [Clean Code]
 ---
 
 In this article, we will learn about cohesion and coupling in OOP. It completely help us to write readable, maintainable code.

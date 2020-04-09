@@ -2,7 +2,7 @@
 layout: post
 title: Clean code with Method
 bigimg: /img/image-header/yourself.jpeg
-tags: [Clean code]
+tags: [Clean Code]
 ---
 
 In this article, we will go with Clean code for method. It's very useful to apply knowledges into our projects. It makes our code easily maintainable, readable, ...

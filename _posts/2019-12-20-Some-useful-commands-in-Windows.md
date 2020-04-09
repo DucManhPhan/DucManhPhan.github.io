@@ -2,7 +2,7 @@
 layout: post
 title: Some useful commands in Windows
 bigimg: /img/image-header/factory.jpg
-tags: [Windows, commands]
+tags: [Windows]
 ---
 
 In this article, we will list all interesting, common commands that we use in Windows. It makes us do operations on Windows fastly.

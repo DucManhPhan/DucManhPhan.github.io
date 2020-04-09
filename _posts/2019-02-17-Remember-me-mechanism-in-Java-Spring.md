@@ -2,7 +2,7 @@
 layout: post
 title: Remember-me mechanism in Java Spring
 bigimg: /img/path.jpg
-tags: [java]
+tags: [Java, Spring]
 ---
 
 Before discussing about Remember-Me mechanism in Spring, we should read about [The mechanism of Spring Security](https://ducmanhphan.github.io/2019-02-09-The-mechanism-of-spring-security) to understand the way that Spring Security does. 

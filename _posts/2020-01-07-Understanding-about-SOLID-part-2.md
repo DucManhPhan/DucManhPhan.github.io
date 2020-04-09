@@ -2,7 +2,7 @@
 layout: post
 title: Understanding about SOLID - Open Closed Principle
 bigimg: /img/image-header/home-office-1.jpg
-tags: [design pattern, SOLID]
+tags: [Design Pattern, SOLID]
 ---
 
 In this article, we will continously learn with the Open Closed Principle. Let's get started.

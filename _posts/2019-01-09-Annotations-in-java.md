@@ -2,7 +2,7 @@
 layout: post
 title: Annotations in Java
 bigimg: /img/image-header/ravashing-beach.jpg
-tags: [java]
+tags: [Java, Annotation]
 ---
 
 I were a beginner in programming with Java web, especially Spring MVC, Spring Boot. When I saw about **@Configuration**, **@PropertySource**, **@Component**, ..., it makes me confused to understand what it is doing here.
@@ -19,6 +19,7 @@ All of informations in this article it will refer from the website [developer.co
 - [Annotation Types](#annotation-types)
 - [Rule of thumbs for defining annotation type](#rule-of-thumbs-for-defining-annotation-type)
 - [Common annotation in Spring MVC](#common-annotation-in-spring-mvc)
+- [Wrapping up](#wrapping-up)
 
 <br>
 
@@ -336,7 +337,7 @@ There are 3 annotation types:
 
 <br>
 
-## Important note
+## Wrapping up
 - An annotation is a mechanism for associating a meta-tag with program elements and allowing the compiler or the VM to extract program behaviors from these annotated elements and generate interdependent code when necessary.
 - It helps us avoid writing boilerplate code under many circumstances by enabling tools to generate it from annotations in the source code.
 - Annotations do not directly affect the semantics of a program.

@@ -2,7 +2,7 @@
 layout: post
 title: Understanding about Functional Interfaces in Java 8 - Predicate
 bigimg: /img/image-header/factory.jpg
-tags: [Functional programming, Java]
+tags: [Functional Programming, Java]
 ---
 
 In this article, we will learn how to use Predicate functional interface in Java 8. Let's get started.

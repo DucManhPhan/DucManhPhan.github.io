@@ -2,7 +2,7 @@
 layout: post
 title: New features in ES6
 bigimg: /img/path.jpg
-tags: [front-end]
+tags: [Front-End, Javascript]
 ---
 
 In this article, we will talk about some new features in ES6, and how to apply this new traits into our project.

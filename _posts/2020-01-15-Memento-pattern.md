@@ -2,7 +2,7 @@
 layout: post
 title: Mememto pattern
 bigimg: /img/image-header/california.jpg
-tags: [design pattern]
+tags: [Design Pattern, Behavioral Pattern]
 ---
 
 In this article, we will learn how to use Memento pattern in our project. Let's get started.

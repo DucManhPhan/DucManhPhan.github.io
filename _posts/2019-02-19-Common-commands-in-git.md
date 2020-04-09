@@ -2,10 +2,12 @@
 layout: post
 title: Common commands in git
 bigimg: /img/image-header/home-office-1.jpg
-tags: [git]
+tags: [Git]
 ---
 
 Assumed that we have a Football repository with three branches, it includes master, Ronaldo and Messi branches. So, in this article, we will learn how to implement with Football repository; master, Ronaldo and Messi branches.
+
+<br>
 
 ## Table of Contents
 - [Get Football repository for firt time](#get-football-repository-for-first-time)

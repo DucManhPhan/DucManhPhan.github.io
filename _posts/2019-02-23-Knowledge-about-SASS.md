@@ -2,7 +2,7 @@
 layout: post
 title: Knowledge about SASS
 bigimg: /img/path.jpg
-tags: [front-end]
+tags: [Front-End, SASS]
 ---
 
 To write CSS professionally, we have to learn one of the CSS preprocessor like SASS, SCSS, LESS, ... Because when using one of them, we do not repeat code, easily maintain CSS code, ...

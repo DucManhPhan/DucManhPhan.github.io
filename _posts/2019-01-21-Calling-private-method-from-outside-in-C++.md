@@ -154,12 +154,14 @@ The third way is to read the PE file in **.code** segment. And this private meth
 
 This way do not depend the compiler, but it's really arduous, because actually we only have classes in static library, shared library or header files.
 
+<br>
 
 ## Important note
 - If our private method is an virtual method, use the way - vtable in oop.
 - Use asm code is extremly difficult because of depending on the compiler and version of compiler.
 - With method that do not have virtual keyword, C++ compiler will make machine code as same as the other functions, and push the address of **this** pointer through **ecx** pointer. 
 
+<br>
 
 Refer: 
 

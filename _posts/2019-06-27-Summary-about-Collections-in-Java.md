@@ -2,7 +2,7 @@
 layout: post
 title: Summary about Collections in Java
 bigimg: /img/image-header/california.jpg
-tags: [Java]
+tags: [Java, Collections]
 ---
 
 In this article, we will find something out about the complexity of List, Set, Queue and Map in Java collections. It is useful because it helps us improve our program's time. 

@@ -2,7 +2,7 @@
 layout: post
 title: Common commands in Angular CLI
 bigimg: /img/path.jpg
-tags: [front-end]
+tags: [Front-End, Angular]
 ---
 
 When we work with Aungular, we usually have to create some componenets, build, run project, ... So, to reduce our time considering to do wasted thing, we must use Angular CLI.

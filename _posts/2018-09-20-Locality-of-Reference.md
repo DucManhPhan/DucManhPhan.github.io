@@ -9,6 +9,8 @@ In order to optimize source code, there are so many ways to do it. But using loc
 
 In this article, we will find something about Locality of Reference.
 
+<br>
+
 ## Table of contents
 - [Cache memory](#cache-memory)
 - [The types of memory in computer](#the-types-of-memory-in-computer)

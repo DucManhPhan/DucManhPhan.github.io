@@ -2,7 +2,7 @@
 layout: post
 title: Use Scanner in Java correctly
 bigimg: /img/image-header/ravashing-beach.jpg
-tags: [java]
+tags: [Java]
 ---
 
 There are so many ways to process with standard I/O or files. But using scanner is useful for breaking down input into tokens and translating token according to their data type. 

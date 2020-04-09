@@ -2,7 +2,7 @@
 layout: post
 title: Clean code with Exception Handling
 bigimg: /img/image-header/california.jpg
-tags: [Clean code]
+tags: [Clean Code]
 ---
 
 In this article, we will find something out about Clean code with Exception Handling. It is really useful when to utilize in our program. It helps us quickly to find bug ...

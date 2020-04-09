@@ -2,7 +2,7 @@
 layout: post
 title: Learn basic bootstrap - part 1
 bigimg: /img/image-header/ravashing-beach.jpg
-tags: [bootstrap]
+tags: [Bootstrap, Front-End]
 ---
 
 In order to improve the speed of making the website, I think that I have to learn about Bootstrap framework immediately. Because with bootstrap, you can easily make the website fast.
@@ -11,12 +11,11 @@ The belows is some basic titles about Bootstrap.
 
 <br>
 
-# Table of Contents
-
-  - [Use bootstrap framework](#use-bootstrap-framework)
-  - [Container](#container)
-  - [Grid system](#grid-system)
-  - [Naviagtion bar](#naviagtion-bar)
+## Table of Contents
+- [Use bootstrap framework](#use-bootstrap-framework)
+- [Container](#container)
+- [Grid system](#grid-system)
+- [Naviagtion bar](#naviagtion-bar)
 
 <br>
 
@@ -62,7 +61,8 @@ In order to download all necessary files in bootstrap 4, you can get from the li
 
 <br>
 
-## Container 
+## Container
+
 There are two container classes to choose from: 
 - .container class provides a responsive fixed width container.
 - .container-fluid class provides a full width container, spanning the entire width of the viewport.
@@ -193,7 +193,6 @@ You can use some class that is related to the collapse state:
 - navbar-collapse
 - navbar-toggler
 
-
 Ex: 
 
 ```html
@@ -243,4 +242,4 @@ Ex:
 </li>
 ```
 
-This is the end of part 1 - Basic Bootstrap.
+Thanks for our reading.

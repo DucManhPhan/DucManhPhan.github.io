@@ -2,7 +2,7 @@
 layout: post
 title: Debug Node.js using AVA framework
 bigimg: /img/image-header/ravashing-beach.jpg
-tags: [ava testing, node.js]
+tags: [Ava Testing, Node.js]
 ---
 
 Before you go into debugging test case that use ava in Node.js, you can read up on knowledge about AVA framework at the following link: [Ava test](https://ducmanhphan.github.io/2018-12-17-ava-test-framework/)

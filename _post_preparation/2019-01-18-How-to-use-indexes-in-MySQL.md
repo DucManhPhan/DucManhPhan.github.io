@@ -13,6 +13,7 @@ Using too many indexes is to make your database that is accessed data slow down 
 ## Table of Contents
 - [Types of Indexes in MySQL](#types-of-indexes-in-mysql)
 - [Some operations that we need to use index](#some-operations-that-we-need-to-use-index)
+- [Benefits and Drawbacks](#benefits-and-drawbacks)
 - [Wrapping up](#wrapping-up)
 
 <br>
@@ -36,12 +37,51 @@ Belows are some types of indexes that we need to know.
 
 - Other index types
 
+    - Spatial Indexes
+
+        - MyISAM supports spatial indexes. However, MySQL GIS support is not exhaustive, hence, there is not much of the interruption of spatial indexes in MySQL.
+
+    - Full text indexes
+
+        - Just like search engines, they find key words in our texts. They use different kinds of operators to search any data.
+        - Full text index is supported by MyISAM.
+
+    - Other types
+
+        - TokuDB - Fractal Tree Indexes.
+        - ScaleDB - Patricia tries
+        - InfiniDB - Special Logic
+
 <br>
 
-## 
+## Indexing strategies for high performance
 
+Indexes are called keys in MySQL. They are data structure that storage engines use to find rows quickly, leading to better performance for our queries. They are very important for higher performance when our data is large.
 
+Indexes are often misunderstood. So poor indexing can cause lots of performance problems. Indexes can improve performance by many orders of magnitude. Let's look at some of the cases where indexes can be helpful.
+- Indexes help to find rows matching a WHERE clause.
+- Eliminate rows by opting for the most selective index.
+- Retrieving rows from other table while joining multiple tables.
+- Finding MIN() or MAX() value.
+- Sort or group table.
+- Reduce I/O bottleneck by using Covering Index.
 
+Belows are some common things that we will use in MySQL to interact with our database. We will use default **sakila** database.
+
+1. List indexes
+
+    In order to get list of indexes in our database, we can use following commands:
+
+    ```sql
+    SHOW INDEX FROM film FROM sakila;
+    SHOW INDEX FROM film;
+
+    SELECT * FROM INFORMATION_SCHEMA.STATISTICS
+    ```
+
+    So, we will have our result:
+
+    ![](../img/Database/MySQL/index/example/show-indexes.png)
 
 
 
@@ -78,16 +118,20 @@ MySQL uses indexes for these operations:
     WHERE key_part1=1
     ```
 
-Indexes are less important for queries on small tables, or big tables where report queries process most or all of the rows. When a query needs to access most of the rows, reading sequentially is faster than working through an index. Sequential reads minimize disk seeks, even if not all the rows are needed for the query. 
+Indexes are less important for queries on small tables, or big tables where report queries process most or all of the rows. When a query needs to access most of the rows, reading sequentially is faster than working through an index. Sequential reads minimize disk seeks, even if not all the rows are needed for the query.
 
+<br>
 
+## Benefits and Drawbacks
+1. Benefits
+
+    - Indexes improve query performance greatly in most of the cases.
+    - Indexes reduces the random I/O of the storage system by converting it to sequential I/O whenever possible.
+    - Indexes improves performance by avoiding sorting, using temporary tables and reducing additional network traffic.
 
 <br>
 
 ## Wrapping up
-
-
-
 
 
 <br>

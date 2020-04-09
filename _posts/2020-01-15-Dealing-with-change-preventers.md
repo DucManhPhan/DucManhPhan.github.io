@@ -2,7 +2,7 @@
 layout: post
 title: Dealing with change preventers
 bigimg: /img/image-header/yourself.jpeg
-tags: [Java, Refactoring]
+tags: [Java, Refactoring, Clean Code]
 ---
 
 In this article, we will learn how to deal with change preventers. All information of this artice is the content of the course [Java Refactoring: Best Practices](https://app.pluralsight.com/library/courses/java-refactoring-best-practices/table-of-contents).

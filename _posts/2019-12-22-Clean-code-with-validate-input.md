@@ -2,7 +2,7 @@
 layout: post
 title: Clean code with validate input
 bigimg: /img/image-header/yourself.jpeg
-tags: [Clean code]
+tags: [Clean Code]
 ---
 
 In this article, we will learn how to write better code for validating method's inputs. Use these techniques makes our code easily maintain, readable, because we will separate validation's place and logic place.

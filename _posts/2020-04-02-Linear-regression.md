@@ -2,7 +2,7 @@
 layout: post
 title: Linear Regression
 bigimg: /img/image-header/yourself.jpeg
-tags: [Machine learning]
+tags: [Machine Learning]
 mathjax: true
 ---
 

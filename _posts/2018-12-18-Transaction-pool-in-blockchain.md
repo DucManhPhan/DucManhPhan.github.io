@@ -2,7 +2,7 @@
 layout: post
 title: Transaction pool in Blockchain
 bigimg: /img/image-header/ravashing-beach.jpg
-tags: [transaction, blockchain]
+tags: [Blockchain]
 ---
 
 Where are the transactions create by the clients which will go to? It is an question when you're curiousity about transactions in blockchain. 
@@ -12,6 +12,8 @@ In bitcoin, you will know about the truth: "Each ten minutes, one block will be 
 So there are still transactions that miner will not choosed, where will it be contains?
 
 This article will make you understand about this question and deeper blockchain.
+
+<br>
 
 ## Talbe of Contents
 - [Transaction pool](#transaction-pool)

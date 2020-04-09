@@ -2,7 +2,7 @@
 layout: post
 title: Basic entity class in JPA
 bigimg: /img/image-header/home-office-2.jpg
-tags: [Java]
+tags: [Java, JPA]
 ---
 
 When we work with Java web development, we have to implement with database. Normally, we will use JDBC or JDBC template for doing this problem. But to make it easier, we will use the new technology called ORM - Object Relational Mapping. The standard version of ORM is JPA. JPA will help us to map POJO to each record in table of database. We will do not take care all queries to access database. This action will be sent to the JPA.

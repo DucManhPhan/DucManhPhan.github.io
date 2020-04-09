@@ -9,6 +9,8 @@ When we need to install JDK 12 to utilize some new features in Java 12, we will 
 
 Now, in this article, we will fix them. Let's go.
 
+<br>
+
 ## Table of contents
 - [The problem's context](#the-problem's-context)
 - [Solution for this problem](#solution-for-this-problem)

@@ -2,7 +2,7 @@
 layout: post
 title: Understanding about SOLID - Dependency Inversion Principle
 bigimg: /img/image-header/home-office-1.jpg
-tags: [design pattern, SOLID]
+tags: [SOLID]
 ---
 
 In this article, we will find something out about Dependency Inversion Principle. Let's get started.

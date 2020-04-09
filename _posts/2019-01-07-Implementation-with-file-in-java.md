@@ -2,7 +2,7 @@
 layout: post
 title: Implementation with file in Java
 bigimg: /img/image-header/ravashing-beach.jpg
-tags: [java]
+tags: [Java]
 ---
 
 Implementation with file is very crucial for programmer. Master read/write file is obligated with them. 

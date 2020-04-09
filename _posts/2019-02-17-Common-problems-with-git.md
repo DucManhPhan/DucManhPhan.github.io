@@ -2,7 +2,7 @@
 layout: post
 title: Common problems with GIT
 bigimg: /img/path.jpg
-tags: [git]
+tags: [Git]
 ---
 
 Git is powerful tool to manage source code in our project. But sometimes, we will cope with some problems in git such as do not pull files, conflict source code, ...

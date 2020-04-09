@@ -2,7 +2,7 @@
 layout: post
 title: Logout in Spring Boot
 bigimg: /img/path.jpg
-tags: [java]
+tags: [Java, Spring]
 ---
 
 In web development, we usually cope with some problems about logging out a website. After logging out, we have to set the invalidation state of session, and delete our cookies ...

@@ -2,7 +2,7 @@
 layout: post
 title: The difference between line-height property and height property in CSS
 bigimg: /img/image-header/california.jpg
-tags: [front-end]
+tags: [Front-End, CSS]
 ---
 
 In CSS, there are so many interesting tricks for specific problems. So, to break down these problems, we have to understand deeply about concepts. When I practice coding about html, css that is relevant to navigation, I cope with a problem about centering texts between it. It use height and line-height properties to center navigation.

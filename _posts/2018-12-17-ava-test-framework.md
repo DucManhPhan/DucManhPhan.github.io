@@ -2,18 +2,25 @@
 layout: post
 title: Using ava testing framework
 bigimg: /img/image-header/ravashing-beach.jpg
-tags: [ava testing]
+tags: [Ava Testing, Node.js]
 ---
 
 To developers, writing test case is a important skill that everyone have to learn and expert. Because you can not code the perfect software, when you can not cover all the case. In Node.js project, it's neccessary to use testing framework such as Ava, Jest, Jasmine, Karma, ... The testing framework will boost your performance and make your life easier. 
 
 Today, I will completely show you how to use Ava testing framework. 
 
+<br>
 
 ## Table of Contents
 - [Installing Ava](#installing-ava)
-- [How to use test function in Ava](#use-test()-function-in-ava)
-- [Some informations that need to note](#note)
+- [Use test() function in Ava](#use-test()-function-in-ava)
+- [Running test serially](#running-test-serially)
+- [Using async keyword](#using-async-keyword)
+- [Running specific test](#running-specific-test)
+- [Skipping test](#skipping-test)
+- [Using assertion](#using-assertion)
+- [Use before and after hooks](#use-before-and-after-hooks)
+- [Wrapping up](#wrapping-up)
 
 <br>
 
@@ -70,7 +77,7 @@ Note: In order for the enhanced assertion messages to behave correctly, the firs
 
 <br>
 
-### Running test serially
+## Running test serially
 By default, tests run concurrently. But when each test case works with I/O operations, it can cause the error. So, you want your test cases that must be run synchronously. 
 
 Use *.serial* modifier, it will force those tests to run serially before the concurrent ones.
@@ -83,7 +90,7 @@ ava --serial .\\test_folder\\*.js
 
 <br>
 
-### Using async keyword
+## Using async keyword
 Ava supports asyn function in the second parameter. 
 
 ```Javascript
@@ -94,7 +101,7 @@ test('action', async t => {
 
 <br>
 
-### Running specific test
+## Running specific test
 If you only want to run some test cases, not all of test cases. You can use *.only* modifier. 
 
 ```Javascript
@@ -107,7 +114,7 @@ Note: You can use the *.only* modifier with all tests. It cannot be used with ho
 
 <br>
 
-### Skipping test
+## Skipping test
 When your test case can not be fixed, you can use the *.skip* modifier to skip this test case. 
 
 ```Javascript
@@ -118,7 +125,7 @@ test.skip('action', t => {
 
 <br>
 
-### Using assertion
+## Using assertion
 The below is the common assertion that you will need to use. 
 - .pass([message]): passing assertion.
 - .fail([message]): failing assertion.
@@ -127,7 +134,7 @@ The below is the common assertion that you will need to use.
 
 <br>
 
-### Use before and after hooks
+## Use before and after hooks
 - test.before()           : register a hook to be run before the first test in your test file. 
 - test.after()            : register a hook to be run after the last test. 
 - test.after.always()     : register a hook that will always run once your tests ans other hooks complete.
@@ -139,7 +146,7 @@ The below is the common assertion that you will need to use.
 
 <br>
 
-## Notice
+## Wrapping up
 - Tests run concurrently.
 - Each test file is run in a seperate Node.js process. It's greate performance on modern multi-core processors, allowing multiple test files to execute in parallel.
 

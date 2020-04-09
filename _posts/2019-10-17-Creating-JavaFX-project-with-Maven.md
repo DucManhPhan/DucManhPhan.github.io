@@ -2,7 +2,7 @@
 layout: post
 title: Creating JavaFX project with Maven
 bigimg: /img/image-header/yourself.jpeg
-tags: [JavaFx]
+tags: [JavaFx, Maven]
 ---
 
 In this article, we will find something out about how to create JavaFX project with Maven. It will help us improving productivity, performance when we can program automatically small task with desktop applications.

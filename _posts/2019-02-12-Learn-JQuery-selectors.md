@@ -2,7 +2,7 @@
 layout: post
 title: Learn JQuery - Selectors
 bigimg: /img/path.jpg
-tags: [front-end]
+tags: [Front-End, JQuery]
 ---
 
 JQuery is a library that is designed from Javascript. It helps developers to construct many functionalities that use Javascript easily. Almost websites, 99% percentage, is utilizing JQuery.

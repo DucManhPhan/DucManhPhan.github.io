@@ -2,7 +2,7 @@
 layout: post
 title: Angular project structure
 bigimg: /img/path.jpg
-tags: [front-end]
+tags: [Front-End, Angular]
 ---
 
 When using Angular CLI, it will create so many files in our folder. But some files that we can not understand that what these files will used to do.

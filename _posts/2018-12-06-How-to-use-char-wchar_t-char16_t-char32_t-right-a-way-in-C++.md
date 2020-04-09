@@ -2,13 +2,14 @@
 layout: post
 title: How to use char, wchar_t, char16_t and char32_t right a way in C++
 bigimg: /img/image-header/ravashing-beach.jpg
-tags: [unicode, C++]
+tags: [Unicode, C++]
 ---
 
 When you worked with the software that need to use the language which is out of English, such as Japanese, Korean, Chinese. The arduous problem can happen in here.
 
 So today, I will find something out about character types that is supported in C++. When having deep understand about all character types, you will easily convert between utf8, utf16 and utf32.
 
+<br>
 
 ## Table of Contents
 - [General information about char, wchar_t, char16_t, char32_t](#general-information-about-char-wchar_t-char16_t-char32_t)
@@ -16,9 +17,12 @@ So today, I will find something out about character types that is supported in C
 - [wchar_t type](#wchar_t-type)
 - [char16_t type](#char16_t-type)
 - [char32_t type](#char32_t-type)
+- [Wrapping up](#wrapping-up)
 
+<br>
 
 ## General information about char, wchar_t, char16_t, char32_t
+
 To talk about the character types, we have to come back to the time that C and C++ are created. In the 1960s, the C programming language is invented by Dennis Ritchie (September 9, 1941 – c. October 12, 2011), with long-time colleague Ken Thompson.
 
 At this time, C language only supported for the char type. Because during the 1960s, mainframe and mini-computer manufactures began to standardize around the 8-bit byte as their smallest datatype. 
@@ -54,14 +58,18 @@ typedef basic_string<char16_t> u16string;
 typedef basic_string<char32_t> u32string;
 ```
 
+<br>
 
 ## char type
+
 The ```char``` type is the original type in C/C++. The size of ```char``` data type is 1 byte. With ANSI character set or any of the ISO-8859 character sets, you usually uses the ```char``` type when processing the character type. 
 
 In ```UTF-8``` encoding, the ```char``` type is the most compatible with it.
 
+<br>
 
 ## wchar_t type
+
 In C/C++, it supports the ```wchar_t``` type. It is defined as a wide character type. Unfortunately, its size that depends on the compiler. 
 
 The ISO/IEC 10646:2003 Unicode standard 4.0 says that: 
@@ -80,27 +88,35 @@ To improve it, C++11 provides the better suitable character type - ```char16_t``
 
 If you're programming with C/C++ on Windows OS, you can confidently use the wchar_t data type to conversion between UTF-16 and UTF-8. 
 
+<br>
 
 ## char16_t type
+
 According to the definition of cppreference.com, ```char16_t``` is a type for UTF-16 character representation, required to be large enough to represent any UTF-16 code unit (16-bit). It has the same size, signedness, and alignment as std::uint_least16_t, but is a distinct type.
 
 When searching about UTF-16, I find that UTF-16 encoding has so many wrong points. So, using the char16_t type is something that you need to consider carefully. 
 
 You can refer to the previous article [Encoding in Unicode](2018-11-06-Encoding-Unicode).
 
+<br>
 
 ## char32_t type
+
 According to the definition of cppreference.com, char32_t is a type for UTF-32 character representation, required to be large enough to represent any UTF-32 code unit (32 bits). It has the same size, signedness, and alignment as std::uint_least32_t, but is a distinct type. 
 
+<br>
 
+## Wrapping up
 
-Notice: 
 - The Unicode standard defines three encoding forms, UTF-8, UTF-16, and UTF-32, for storing Unicode in strings with base types that are 8, 16, or 32 bits wide, respectively. UTF-16 is the preferred form because it is easy to handle, and most characters fit into single 16-bit code units. UTF-32 has the advantage of being a fixed-width encoding form, but it uses a lot more memory. UTF-8 is designed for systems that need byte-based strings; it is the most complicated Unicode encoding form. It uses less memory than UTF-16 for Western European languages, but almost the same amount for Greek, Cyrillic, and Middle-Eastern languages, and more for all East Asian languages.
-- Strings of the types char16_t and char32_t, and wchar_t are all referred to as **wide strings** , though the term often refers specifically to strings of wchar_t type. 
+
+- Strings of the types char16_t and char32_t, and wchar_t are all referred to as **wide strings** , though the term often refers specifically to strings of wchar_t type.
+
 - Strings of char types are referred to as **narrow string**, even when used to encode multibyte characters.
+
 - Many applications, frameworks and APIs use UTF-16, such as Java's String, C#'s String, Win32 APIs, Qt GUI libraries, the ICU Unicode library, etc.
 
-
+<br>
 
 Refer: 
 

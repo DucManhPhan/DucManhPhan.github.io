@@ -2,7 +2,7 @@
 layout: post
 title: Abstract Factory Pattern
 bigimg: /img/path.jpg
-tags: [creational pattern, design pattern]
+tags: [Creational Pattern, Design Pattern]
 ---
 
 In Creational pattern, abstract factory pattern is at higher lever than the other pattern such as factory method pattern, ... It is always used in our system, because it makes our system consistency, and loose coupling between our system and concrete something.

@@ -2,7 +2,7 @@
 layout: post
 title: Decorator pattern
 bigimg: /img/image-header/home-office-2.jpg
-tags: [Structural pattern, Design pattern]
+tags: [Structural Pattern, Design Pattern]
 ---
 
 In this article, we will learn how to use Decorator pattern. Let's get started.

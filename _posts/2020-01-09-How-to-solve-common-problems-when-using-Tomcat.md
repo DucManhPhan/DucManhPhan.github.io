@@ -2,7 +2,7 @@
 layout: post
 title: How to solve common problems when using Tomcat
 bigimg: /img/image-header/yourself.jpeg
-tags: [JavaEE]
+tags: [J2EE, Tomcat]
 ---
 
 In this article, we will encounter some problems when we use Tomcat to deploy or debug our application. Belows are some solutions to fix them.

@@ -2,7 +2,7 @@
 layout: post
 title: How to use Dates and Times in Java 8
 bigimg: /img/image-header/factory.jpg
-tags: [Java, Exception handling]
+tags: [Java]
 ---
 
 The old version of date time have many drawbacks, Java 8 provides java.time package to solve them clearly. So, in this article, we will learn how to use Dates and Times in Java 8, especially the way to communication between database and application.

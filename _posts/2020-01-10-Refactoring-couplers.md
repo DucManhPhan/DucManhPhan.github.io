@@ -2,7 +2,7 @@
 layout: post
 title: Refactoring couplers
 bigimg: /img/image-header/yourself.jpeg
-tags: [Java, Refactoring]
+tags: [Java, Refactoring, Clean Code]
 ---
 
 In this article, we will continue in refactoring series with couplers. Let's get started.

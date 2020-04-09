@@ -2,7 +2,7 @@
 layout: post
 title: The neccessary commands in VIM
 bigimg: /img/image-header/yokohama-tonight.jpeg
-tags: [vim]
+tags: [Vim]
 ---
 
 VIM is one of the best editor that every developer really like to use. It is cross platform editor and available on most popular platforms like Linux, Mac, Windows, ... 

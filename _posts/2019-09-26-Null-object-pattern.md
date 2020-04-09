@@ -2,7 +2,7 @@
 layout: post
 title: Null object pattern
 bigimg: /img/image-header/ravashing-beach.jpg
-tags: [Design pattern, Behavior pattern]
+tags: [Design Pattern, Behavioral Pattern]
 ---
 
 In this article, we will find something out about Null object pattern. It is a behavior pattern, and it makes our program smoothly, do not use overchecking null for objects.

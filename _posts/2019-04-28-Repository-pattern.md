@@ -2,7 +2,7 @@
 layout: post
 title: Repository pattern
 bigimg: /img/image-header/california.jpg
-tags: [structure pattern, design pattern]
+tags: [Structural Pattern, Design Pattern]
 ---
 
 In this article, we will find out something about Repository pattern such as the context's problem, when to use Repository pattern, the advantages and disadvantages, ...

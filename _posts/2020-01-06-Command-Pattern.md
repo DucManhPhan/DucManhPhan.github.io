@@ -2,7 +2,7 @@
 layout: post
 title: Command pattern
 bigimg: /img/image-header/yourself.jpeg
-tags: [Behavirol pattern, design pattern]
+tags: [Behavioral Pattern, Design Pattern]
 ---
 
  In this article, we will learn how to use Command pattern. Let's get started.

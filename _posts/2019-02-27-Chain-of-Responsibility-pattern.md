@@ -2,7 +2,7 @@
 layout: post
 title: Chain of Responsibility pattern
 bigimg: /img/image-header/ravashing-beach.jpg
-tags: [behaviral pattern, design pattern]
+tags: [Behavioral Pattern, Design Pattern]
 ---
 
 In this article, we will discuss about ```Chain of Responsibility``` pattern, and when to use, advantages and disadvantages of it.

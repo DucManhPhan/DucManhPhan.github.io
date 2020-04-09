@@ -2,7 +2,7 @@
 layout: post
 title: Understanding about Functional Interfaces in Java 8 - Function
 bigimg: /img/image-header/yourself.jpeg
-tags: [Java, Functional programming]
+tags: [Java, Functional Programming]
 ---
 
 In this article, we will learn how to use Function functional interface. Let's get started.

@@ -2,7 +2,7 @@
 layout: post
 title: Configure pom.xml with maven in Java Spring
 bigimg: /img/image-header/home-office-1.jpg
-tags: [java]
+tags: [Java]
 ---
 
 In order to understand the difficulty when we do not use the maven in Java project, there are some tasks that we have to do:
@@ -23,7 +23,7 @@ In this article, we will find informations about configuring POM file.
 <br>
 
 ## Table of Contents
-- [Introduction to structure project in Maven](#introduction-to-structure-project-in-maven)
+- [Standard structure in Maven project](#standard-structure-in-maven-project)
 - [POM file in Maven project](#pom-file-in-maven-project)
 - [Add specific package into project through pom file](#add-specific-package-into-project-through-pom-file)
 - [How the Maven works](#how-the-maven-works)

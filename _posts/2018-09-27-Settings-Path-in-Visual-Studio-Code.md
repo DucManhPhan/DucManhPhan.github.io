@@ -2,7 +2,7 @@
 layout: post
 title: Setting Paths in Vs Code
 bigimg: /img/path.jpg
-tags: [vscode, settings]
+tags: [VsCode]
 ---
 
 
