@@ -1,6 +1,6 @@
 ---
 layout: post
-title: Creating project with Spring Webflux and Mongodb
+title: Creating project with Spring Webflux and MongoDB
 bigimg: /img/image-header/california.jpg
 tags: [Java, Spring, Reactive Programming, MongoDB]
 ---

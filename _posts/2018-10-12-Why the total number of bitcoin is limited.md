@@ -2,7 +2,7 @@
 layout: post
 title: Why the total number of bitcoin is limited?
 bigimg: /img/path.jpg
-tags: [Blockchain, Bitcoin]
+tags: [Blockchain]
 ---
 
 When I have just began to find out something in blockchain, especially bitcoin, I read the way that bitcoin works. Looking at the information 'There are approximately only 21 millions bitcoin that is mined in the world.", I'm always curious about why they can calculate this number. 

@@ -2,7 +2,7 @@
 layout: post
 title: Using frameworks for validation in Java
 bigimg: /img/image-header/california.jpg
-tags: [Clean code]
+tags: [Clean Code]
 ---
 
 In this article, we will focus on using frameworks to validate our input parameters of methods in our project.

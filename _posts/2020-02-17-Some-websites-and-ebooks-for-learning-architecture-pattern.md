@@ -2,7 +2,7 @@
 layout: post
 title: Some websites and ebooks for learning architecture pattern
 bigimg: /img/path.jpg
-tags: [Architecture Pattern]
+tags: [Courses]
 ---
 
 In order to learn about architecture pattern, we should note about some interesting, good websites and books.

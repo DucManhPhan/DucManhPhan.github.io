@@ -2,7 +2,7 @@
 layout: post
 title: Configure pom.xml with maven in Java Spring
 bigimg: /img/image-header/home-office-1.jpg
-tags: [Java]
+tags: [Java, Maven]
 ---
 
 In order to understand the difficulty when we do not use the maven in Java project, there are some tasks that we have to do:
