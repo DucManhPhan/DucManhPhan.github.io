@@ -53,11 +53,9 @@ There really isn't a standard UML diagram for the facade pattern because the Fac
 
 ## When to use
 
+- When we are encountering the complex system.
 
-
-
-
-
+- When we want to decouple between other systems.
 
 <br>
 
@@ -226,3 +224,4 @@ Refer:
 
 [https://medium.com/swlh/structural-design-pattern-facade-c6157dbbd025](https://medium.com/swlh/structural-design-pattern-facade-c6157dbbd025)
 
+[https://medium.com/@andreaspoyias/design-patterns-a-quick-guide-to-facade-pattern-16e3d2f1bfb6](https://medium.com/@andreaspoyias/design-patterns-a-quick-guide-to-facade-pattern-16e3d2f1bfb6)
