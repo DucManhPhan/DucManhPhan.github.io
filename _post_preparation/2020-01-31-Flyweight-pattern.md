@@ -1,6 +1,6 @@
 ---
 layout: post
-title: Flyweight Pattern
+title: Flyweight pattern
 bigimg: /img/path.jpg
 tags: [Structural Pattern, Design Pattern]
 ---

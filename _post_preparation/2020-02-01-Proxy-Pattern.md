@@ -32,9 +32,15 @@ tags: [Structural Pattern, Design Pattern]
 
 
 
+
+
+
 <br>
 
 ## When to use
+
+
+
 
 
 
@@ -44,15 +50,24 @@ tags: [Structural Pattern, Design Pattern]
 
 
 
+
+
+
 <br>
 
 ## Code C++ /Java / Javascript
 
 
 
+
+
+
 <br>
 
 ## Application & Examples
+
+
+
 
 
 

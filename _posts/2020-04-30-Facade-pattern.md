@@ -57,6 +57,13 @@ There really isn't a standard UML diagram for the facade pattern because the Fac
 
 - When we want to decouple between other systems.
 
+There are some specific situations that the Facade pattern can be used.
+- access to a database.
+- access to I/O device, for example, webcam, sound card.
+- file I/O
+- using visualization libraries
+- using other libraries, ...
+
 <br>
 
 ## Benefits & Drawback
@@ -72,10 +79,11 @@ There really isn't a standard UML diagram for the facade pattern because the Fac
 
 2. Drawbacks
 
-    - It's typically used to clean up code that was potentially designed incorrectly or poorly to begin with.
-    - If we're using it in a new API or interface, we really should look at the design of our API and see if another pattern will help to solve the problems that we're trying to solve with the Facade pattern.
-    - It's typically shouldn't utilize inheritance, so the Facade pattern deals with a flat problem or structure.
-    - It's the Singleton of the Structural patterns. It means that it is often misused or overused because it is such an easy pattern to implement.
+    - adds a layer of indirection which may affect performance.
+
+    - may make our code bigger.
+
+    - our developer will need to learn to use this API.
 
 <br>
 
