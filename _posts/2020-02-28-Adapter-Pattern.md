@@ -1,6 +1,6 @@
 ---
 layout: post
-title: Adapter Pattern
+title: Adapter pattern
 bigimg: /img/path.jpg
 tags: [Structural Pattern, Design Pattern]
 ---
