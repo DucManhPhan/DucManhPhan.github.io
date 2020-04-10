@@ -5,7 +5,9 @@ bigimg: /img/path.jpg
 tags: [Structural Pattern, Design Pattern]
 ---
 
+In this article, we will learn how to use Facade pattern and how to apply it in our project.
 
+Let's get started.
 
 
 <br>
@@ -23,6 +25,8 @@ tags: [Structural Pattern, Design Pattern]
 <br>
 
 ## Given Problem 
+
+
 
 
 
