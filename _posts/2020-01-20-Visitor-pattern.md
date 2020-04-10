@@ -131,8 +131,11 @@ To refer this pattern's code, we can read this [link](https://github.com/DucManh
 <br>
 
 ## Application && Examples
-- In practice, the visitor pattern is often used in compilers. Here, the syntax of a program is usually represented through a tree data structure, where each element in the tree may have a different type. Different parts of the compiler do wildly different stuff with this tree: one part pretty-prints the code. One part optimizes the code. Another part compiles the code to another languages, and a further visitor could be an interpreter.
+- In practice, the visitor pattern is often used in compilers. Here, the syntax of a program is usually represented through a tree data structure, where each element in the tree may have a different type. Different parts of the compiler do widely different stuff with this tree: one part pretty-prints the code. One part optimizes the code. Another part compiles the code to another languages, and a further visitor could be an interpreter.
 
+- **java.nio.file.FileVisitor** interface has an implementation class of **SimpleFileVisitor** which is an example of a visitor. The interface is defined as a visitor of files. An implementation of this interface is provided to the Files.**walkFileTree** methods to visit each file in a file tree.
+
+- **javax.lang.model.element.Element** interface represents a program element such as a package, class, or method. To implement operations based on the class of an Element object not known at compile an implementation of the **javax.lang.model.element.ElementVisitor** interface is required.
 
 <br>
 
@@ -142,7 +145,6 @@ To refer this pattern's code, we can read this [link](https://github.com/DucManh
 - The key idea of this pattern is to define a double-dispatch operation ```accept(visitor)``` for each Element class. The operation that gets executed depends on both the type of Visitor and the type of Element it visit.
 
 - Visitor provides a way to define new operations for the elements of an object structure.
-<br>
 
 Thanks for your reading.
 
