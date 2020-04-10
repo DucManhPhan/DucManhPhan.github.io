@@ -104,6 +104,8 @@ This makes it possible to create new operations independently from the classes o
 
         The visitor interface must be extended to support new element classes in the object structure. Therefore, the Visitor pattern should be used only when the object structure is stable and new element classes aren't added frequently.
 
+        In such cases, it's probably easier just to define operations on the classes that make up the structure. If the Element class hierarchy is stable, but you are continually adding operations or changing algorithms, then the visitor pattern will help you manage the changes.
+
     - May require extending the element interfaces
 
         The element interfaces may have to be extended to let all visitors do their work and access the needed data and functionality.
@@ -112,11 +114,13 @@ This makes it possible to create new operations independently from the classes o
 
         The pattern achieves flexibility by introducing separate visitor objects and a double-dispatch mechanism, which can complicate a design.
 
+    - Languages that support double or multiple dispatch lessen the need for the visitor pattern.
+
 <br>
 
 ## Code C++/Java
 
-To refer this pattern's code, we can read this [link](https://github.com/DucManhPhan/Design-Pattern/tree/master/Behavioral-Pattern/visitor-pattern/src/Java).
+To refer this pattern's code, we can read this [Visitor pattern on Github](https://github.com/DucManhPhan/Design-Pattern/tree/master/Behavioral-Pattern/visitor-pattern/src/Java).
 
 
 <br>

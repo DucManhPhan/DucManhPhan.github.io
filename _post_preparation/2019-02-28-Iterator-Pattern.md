@@ -2,7 +2,7 @@
 layout: post
 title: Iterator Pattern
 bigimg: /img/path.jpg
-tags: [behavioral pattern, design pattern]
+tags: [Behavioral Pattern, Design Pattern]
 ---
 
 <br>

@@ -1,10 +1,9 @@
 ---
 layout: post
-title: Facade Pattern
+title: Composite pattern
 bigimg: /img/path.jpg
 tags: [Structural Pattern, Design Pattern]
 ---
-
 
 
 
@@ -12,7 +11,7 @@ tags: [Structural Pattern, Design Pattern]
 
 ## Table of contents
 - [Given Problem](#given-problem)
-- [Solution of Facade Pattern](#solution-of-facade-pattern)
+- [Solution of Composite Pattern](#solution-of-composite-pattern)
 - [When to use](#when-to-use)
 - [Benefits & Drawback](#benefits-&-drawback)
 - [Code C++ /Java / Javascript](#code-c++-java-javascript)
@@ -28,7 +27,7 @@ tags: [Structural Pattern, Design Pattern]
 
 <br>
 
-## Solution of Facade Pattern
+## Solution of Composite Pattern
 
 
 

@@ -1,6 +1,6 @@
 ---
 layout: post
-title: Mediator Pattern
+title: Mediator pattern
 bigimg: /img/path.jpg
 tags: [Behavioral Pattern, design pattern]
 ---

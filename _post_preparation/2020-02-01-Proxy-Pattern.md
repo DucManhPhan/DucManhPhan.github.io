@@ -1,8 +1,8 @@
 ---
 layout: post
-title: Proxy Pattern
+title: Proxy pattern
 bigimg: /img/path.jpg
-tags: [Structural pattern, Design pattern]
+tags: [Structural Pattern, Design Pattern]
 ---
 
 <br>
@@ -21,7 +21,6 @@ tags: [Structural pattern, Design pattern]
 
 ## Given Problem 
 
-![]()
 
 
 

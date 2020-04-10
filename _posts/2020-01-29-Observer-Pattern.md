@@ -1,6 +1,6 @@
 ---
 layout: post
-title: Observer Pattern
+title: Observer pattern
 bigimg: /img/path.jpg
 tags: [Design Pattern, Behavioral Pattern]
 ---

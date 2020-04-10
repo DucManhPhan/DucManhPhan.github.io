@@ -1,6 +1,6 @@
 ---
 layout: post
-title: Facade Pattern
+title: Flyweight Pattern
 bigimg: /img/path.jpg
 tags: [Structural Pattern, Design Pattern]
 ---
@@ -12,7 +12,7 @@ tags: [Structural Pattern, Design Pattern]
 
 ## Table of contents
 - [Given Problem](#given-problem)
-- [Solution of Facade Pattern](#solution-of-facade-pattern)
+- [Solution of Flyweight Pattern](#solution-of-flyweight-pattern)
 - [When to use](#when-to-use)
 - [Benefits & Drawback](#benefits-&-drawback)
 - [Code C++ /Java / Javascript](#code-c++-java-javascript)
@@ -26,9 +26,14 @@ tags: [Structural Pattern, Design Pattern]
 
 
 
+
+
 <br>
 
-## Solution of Facade Pattern
+## Solution of Flyweight Pattern
+
+
+
 
 
 
@@ -38,9 +43,14 @@ tags: [Structural Pattern, Design Pattern]
 
 
 
+
+
 <br>
 
 ## Benefits & Drawback
+
+
+
 
 
 
@@ -50,9 +60,14 @@ tags: [Structural Pattern, Design Pattern]
 
 
 
+
+
+
 <br>
 
 ## Application & Examples
+
+
 
 
 

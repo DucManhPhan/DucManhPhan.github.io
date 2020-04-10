@@ -1,6 +1,6 @@
 ---
 layout: post
-title: Strategy Pattern
+title: Strategy pattern
 bigimg: /img/path.jpg
 tags: [Behavioral Pattern, Design Pattern]
 ---

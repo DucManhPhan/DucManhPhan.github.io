@@ -2,7 +2,7 @@
 layout: post
 title: Bridge pattern
 bigimg: /img/image-header/yourself.jpeg
-tags: [Behavioral pattern, Design pattern]
+tags: [Behavioral Pattern, Design Pattern]
 ---
 
  
@@ -10,9 +10,8 @@ tags: [Behavioral pattern, Design pattern]
 
 <br>
 
-# Table of Contents
+## Table of Contents
 - [Given Problem](#given-problem)
-- [Analysis Problem](#analysis-problem)
 - [Solution of Template Method Pattern](#solution-of-template-method-pattern)
 - [When to use](#when-to-use)
 - [Code C++/Java](#code-C++/Java)
@@ -21,24 +20,33 @@ tags: [Behavioral pattern, Design pattern]
 
 <br>
 
-# Given Problem
+## Given Problem
+
+
+
 
 
 
 <br>
 
-# Solution of Bridge Pattern
+## Solution of Template Method Pattern
+
+
+
 
 
 
 <br>
 
-# When to use
+## When to use
+
+
+
 
 
 <br>
 
-# Benefits & Drawback
+## Benefits & Drawback
 1. Benefits
 
     
@@ -48,7 +56,7 @@ tags: [Behavioral pattern, Design pattern]
 
 <br>
 
-# Code C++/Java
+## Code C++/Java
 
 
 
@@ -105,7 +113,7 @@ public class QuarterNoteDrawer extends NoteDrawer {
 
 <br>
 
-# Application & Examples
+## Application & Examples
 
 
 

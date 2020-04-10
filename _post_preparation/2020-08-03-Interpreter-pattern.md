@@ -2,7 +2,7 @@
 layout: post
 title: Interpreter pattern
 bigimg: /img/image-header/yourself.jpeg
-tags: [Architecture pattern]
+tags: [Behavioral Pattern, Design Pattern]
 ---
 
 
