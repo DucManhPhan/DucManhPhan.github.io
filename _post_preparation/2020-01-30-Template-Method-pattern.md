@@ -5,7 +5,7 @@ bigimg: /img/image-header/yourself.jpeg
 tags: [Behavioral Pattern, Design Pattern]
 ---
 
- 
+
 
 
 <br>

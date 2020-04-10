@@ -1,6 +1,6 @@
 ---
 layout: post
-title: Facade Pattern
+title: Facade pattern
 bigimg: /img/path.jpg
 tags: [Structural Pattern, Design Pattern]
 ---
