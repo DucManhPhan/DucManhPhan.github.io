@@ -210,9 +210,8 @@ class Address {
 <br>
 
 ## Wrapping up
-
-
-
+- It simplifies the client interface.
+- It hides the complexity of something and make them easier to use.
 
 
 <br>
