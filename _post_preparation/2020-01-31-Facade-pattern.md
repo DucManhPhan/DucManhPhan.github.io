@@ -36,15 +36,24 @@ Let's get started.
 
 
 
+
+
 <br>
 
 ## When to use
 
 
 
+
+
+
+
 <br>
 
 ## Benefits & Drawback
+
+
+
 
 
 
@@ -75,3 +84,8 @@ Thanks for your reading.
 <br>
 
 Refer: 
+
+[Design Patterns in Java: Structural by Bryan Hansen](https://app.pluralsight.com/library/courses/design-patterns-java-structural/table-of-contents)
+
+[https://medium.com/swlh/structural-design-pattern-facade-c6157dbbd025](https://medium.com/swlh/structural-design-pattern-facade-c6157dbbd025)
+
