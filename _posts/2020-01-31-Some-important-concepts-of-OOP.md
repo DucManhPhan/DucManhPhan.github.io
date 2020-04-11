@@ -190,13 +190,13 @@ The last few years saw the acceptance of some dynamic object-oriented languages 
 
     There are some types of Association:
 
-    - ```Dependency```
+    - Dependency
 
         ```Dependency``` is a weaker form of relationship and in code terms indicates that a class uses another by **parameter** or **return type**.
 
         ```Dependency``` is a form of association.
 
-    - ```Aggregation```
+    - Aggregation
 
         ```Aggregation``` is another form of ```Association```, implies a realtionship where the child can exist independently of the parent.
 
@@ -219,7 +219,7 @@ The last few years saw the acceptance of some dynamic object-oriented languages 
         }
         ```
 
-    - ```Composition```
+    - Composition
 
         ```Composition``` is another form of Association, implies a relationship where the child cannot exist independent of the parent. When the parent is destroyed, the child object will be immediately destroyed.
 
