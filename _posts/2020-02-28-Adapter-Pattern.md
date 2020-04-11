@@ -14,7 +14,7 @@ In this article, we will learn how to use adapter pattern. Let's get started.
 - [Solution of Adapter Pattern](#solution-of-adapter-pattern)
 - [When to use](#when-to-use)
 - [Benefits & Drawbacks](#benefits-&-drawbacks)
-- [Code C++ /Java / Javascript](#code-c++-java-javascript)
+- [Code C++ /Java / Javascript](#code-c++-/java-/-javascript)
 - [Wrapping up](#wrapping-up)
 
 
@@ -85,7 +85,7 @@ So, we will have Adapter pattern, and below is UML class diagram of it.
 
 ## Code C++ /Java / Javascript
 
-To refer this pattern's code, we can read this [link](https://github.com/DucManhPhan/Design-Pattern/tree/master/Structural-Pattern/Adapter-pattern/src/Java).
+To refer this pattern's code, we can read the [source code of Adapter pattern on Github](https://github.com/DucManhPhan/Design-Pattern/tree/master/Structural-Pattern/Adapter-pattern/src/Java).
 
 <br>
 

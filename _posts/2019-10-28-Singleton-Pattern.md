@@ -18,7 +18,7 @@ So, let's get started.
 - [Why not to use](#why-not-to-use)
 - [Benefits & Drawback](#benefits-&-drawback)
 - [Replace singleton pattern with single instance](#replace-singleton-pattern-with-single-instance)
-- [Code C++ /Java / Javascript](#code-c++-java-javascript)
+- [Code C++ /Java / Javascript](#code-c++-/java-/-javascript)
 - [Relations with other Patterns](#relations-with-other-patterns)
 - [Some thoughts about Singleton](#some-thoughts-about-singleton)
 - [Application & Examples](#application-&-examples)
