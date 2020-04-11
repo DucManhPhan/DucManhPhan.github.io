@@ -14,8 +14,9 @@ In this article, we will learn how to use Composite pattern. Let's get started.
 - [Solution of Composite Pattern](#solution-of-composite-pattern)
 - [When to use](#when-to-use)
 - [Benefits & Drawback](#benefits-&-drawback)
-- [Code C++ /Java / Javascript](#code-c++-java-javascript)
+- [Code C++ /Java / Javascript](#code-c++-/java-/-javascript)
 - [Application & Examples](#application-&-examples)
+- [Contrast to other patterns](#contrast-to-other-patterns)
 - [Wrapping up](#wrapping-up)
 
 
