@@ -83,7 +83,7 @@ The implementation of Mediator pattern will do the following steps:
 
 ## Code C++ /Java / Javascript
 
-To refer this pattern's code, we can read this [link](https://github.com/DucManhPhan/Design-Pattern/tree/master/Behavioral-Pattern/mediator-pattern/src/Java).
+To refer this pattern's code, we can read the [source code of Mediator pattern on Github](https://github.com/DucManhPhan/Design-Pattern/tree/master/Behavioral-Pattern/mediator-pattern/src/Java).
 
 <br>
 

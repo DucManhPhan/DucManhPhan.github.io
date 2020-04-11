@@ -74,7 +74,7 @@ Some Classical Examples:
 
 ## Code C++/Java
 
-To refer this pattern's code, we can read this [link](https://github.com/DucManhPhan/Design-Pattern/tree/master/Behavioral-Pattern/observer-pattern/src/Java).
+To refer this pattern's code, we can read the [source code of Observer pattern on Github](https://github.com/DucManhPhan/Design-Pattern/tree/master/Behavioral-Pattern/observer-pattern/src/Java).
 
 
 <br>
@@ -106,4 +106,3 @@ Refer:
 [Head First Design Pattern]()
 
 [https://sourcemaking.com/design_patterns/observer](https://sourcemaking.com/design_patterns/observer)
-
