@@ -26,7 +26,7 @@ Let's get started.
 
 ## Programming paradigm
 
-According to [wikipedia.com](https://en.wikipedia.org/wiki/Programming_paradigm), we have a definition of programming paradigm:
+According to [Programming pradigm of wikipedia.com](https://en.wikipedia.org/wiki/Programming_paradigm), we have a definition of programming paradigm:
 
 ```
 Programming paradigms are a way to classify programming languages based on their features. Languages can be classified into multiple paradigms.
@@ -40,10 +40,12 @@ Some paradigms are concerned mainly with implications for the execution model of
 
 ## Introduction to Object oriented programming
 
+Object-oriented programming is a programming paradigm based on the concepts of objects that contains data called as fields, and some logic that is relevant to its fields.
 
-
-
-
+In order to solve our problems with OOP, we can follow some below steps:
+- Identify all the objects that our problem has, and how they interact with each other.
+- Then, we will generalize them as classes, that they contains fields and methods.
+- Based on the relationships between objects, we write the business logic between them.
 
 <br>
 
@@ -163,13 +165,13 @@ The last fewyears saw the acceptance of some dynamic object-oriented languages t
 
     Each module provides certain functionality; cohesion of a module tells us how well the entities within amodule work together to provide this functionality. Cohesion is a measure of how focused the responsibilities of a module are. If the responsibilities of a module are unrelated or varied and use different sets of data, cohesion is reduced.
     
-    Highly cohesive modules tend to be more reliable, reusable, and understandable than less cohesive ones. To increase cohesion, we would like that all the constituents contribute to some well-defined responsibility of the module. This may be quite a challenging task. In contrast, theworst approachwould be to arbitrarily assign entities to modules, resulting in a module whose constituents have no obvious relationship.
+    Highly cohesive modules tend to be more reliable, reusable, and understandable than less cohesive ones. To increase cohesion, we would like that all the constituents contribute to some well-defined responsibility of the module. This may be quite a challenging task. In contrast, the worst approach would be to arbitrarily assign entities to modules, resulting in a module whose constituents have no obvious relationship.
 
 2. Coupling
 
     Coupling refers to how dependent modules are on each other. The very fact that we split a program into multiple modules introduces some coupling into the system. Coupling could result because of several factors: a module may refer to variables defined in another module or a module may call methods of another module and use the return values. The amount of coupling between modules can vary. In general, if modules do not depend on each others implementation, i.e., modules depend only on the published interfaces of other modules and not on their internals, we say that the coupling is low. In such cases, changes in one module will not necessitate changes in other modules as long as the interfaces themselves do not change.
 
-    Low coupling allows us to modify amodulewithoutworrying about the ramifications of the changes on the rest of the system. By contrast, high couplingmeans that changes in one module would necessitate changes in other modules, which may have a domino effect and also make it harder to understand the code.
+    Low coupling allows us to modify a module without worrying about the ramifications of the changes on the rest of the system. By contrast, high coupling means that changes in one module would necessitate changes in other modules, which may have a domino effect and also make it harder to understand the code.
 
 <br>
 
@@ -247,15 +249,27 @@ The last fewyears saw the acceptance of some dynamic object-oriented languages t
 
 ## Granularity
 
+According to [Granularity of analysis](http://jripples.sourceforge.net/jripples/manual/concepts/granularities.html), we have the definition of granularity of OOP.
 
+Object-Oriented Programs may have complex structure of components and interactions among them; in other words, components and interactions among them can be defined on different levels of granularities. Typically, the component of the coarsest granularity in OOP is class; this is called **granularity of classes** or **level of classes**. In turn, a class may define methods; this finer granularity is called **granularity of methods** or **level of methods**.
 
+![](../img/design-pattern/core-oop/oop/class_interactions.jpg)
 
+For example, on the above picture, components A and B are defined on granularity of classes (top components), while components n and m are defined on granularity of members.
+
+In turn, dependencies among these components are defined on different granularities as well.
+
+For example, dependency 2 is defined between members, while dependency 1 is mixed dependency defined between the method and the class. The membership relation among the components affects the marks (statuses) of components during incremental change.
+
+For example, if method n is changed, then it implies that its parent component ?class A, - is changed as well. The type of dependency specifies, how a component interacts with other components, and how the change in status of this component through propagation rules affects other components it interacts with.
+
+For example, dependency 2 on the picture implies that class A interacts with component B only. On the other hand, dependency 2 implies the method n interacts with method m, and, transitively, method n interacts with class B; also, through membership relations, it implies that A interacts with m, and, transitively, A interacts with B.
 
 <br>
 
 ## Wrapping up
-
-
+- Understanding OOP and some its properties.
+- The meaning of cohension and coupling.
 
 
 <br>

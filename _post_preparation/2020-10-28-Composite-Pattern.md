@@ -25,9 +25,16 @@ tags: [Structural Pattern, Design Pattern]
 
 
 
+
+
+
 <br>
 
 ## Solution of Composite Pattern
+
+
+
+
 
 
 
@@ -37,9 +44,17 @@ tags: [Structural Pattern, Design Pattern]
 
 
 
+
+
+
+
 <br>
 
 ## Benefits & Drawback
+
+
+
+
 
 
 
@@ -49,9 +64,16 @@ tags: [Structural Pattern, Design Pattern]
 
 
 
+
+
+
+
 <br>
 
 ## Application & Examples
+
+
+
 
 
 

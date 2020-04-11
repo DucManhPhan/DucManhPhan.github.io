@@ -5,7 +5,9 @@ bigimg: /img/path.jpg
 tags: [Structural Pattern, Design Pattern]
 ---
 
+In this article, we will learn how to use Flyweight patter, and how to apply it in our project.
 
+Let's get started.
 
 
 <br>
