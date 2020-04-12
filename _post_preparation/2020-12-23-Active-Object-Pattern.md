@@ -2,7 +2,7 @@
 layout: post
 title: Active object pattern
 bigimg: /img/image-header/factory.jpg
-tags: [Concurrency pattern, Design pattern]
+tags: [Concurrency Pattern, Design Pattern]
 ---
 
 

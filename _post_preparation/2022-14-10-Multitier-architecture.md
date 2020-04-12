@@ -1,6 +1,6 @@
 ---
 layout: post
-title: Decentralized architecture pattern
+title: Multitier architecture pattern
 bigimg: /img/image-header/yourself.jpeg
 tags: [Architecture Pattern]
 ---

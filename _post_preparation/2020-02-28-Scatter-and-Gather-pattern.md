@@ -2,7 +2,7 @@
 layout: post
 title: Scatter and Gather pattern
 bigimg: /img/path.jpg
-tags: [Design pattern]
+tags: [Design Pattern, Concurrency Pattern]
 ---
 
 

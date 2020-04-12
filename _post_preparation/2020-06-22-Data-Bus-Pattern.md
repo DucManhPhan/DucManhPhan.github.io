@@ -2,7 +2,7 @@
 layout: post
 title: Data bus pattern
 bigimg: /img/image-header/yourself.jpeg
-tags: [Design pattern]
+tags: [Design Pattern]
 ---
 
 

@@ -59,6 +59,7 @@ In a nutshell, a Repository:
 
 ## Benefits & Drawback
 1. Benefits
+
     - Concentrate on logic about data processing or business logic.
     - Repository pattern allows us to easily test our application with unit tests.
     - Improve the flexibility of architecture.
@@ -73,8 +74,8 @@ In a nutshell, a Repository:
 <br>
 
 ## Code C++ /Java / Javascript
-We can refer to the [link](https://ducmanhphan.github.io/2019-02-15-DAO-pattern-in-java)
 
+We can refer to the [source code of Repository pattern on Github](https://ducmanhphan.github.io/2019-02-15-DAO-pattern-in-java).
 
 <br>
 
@@ -107,11 +108,13 @@ If we have an anemic domain, the repository will be just a DAO.
     This pattern describes how to map data to different schemas. It is often used to map between a data store and a domain model.
   
 - Unit of Work
+
     This pattern keeps track of everything that happens during a business transaction that affects the database. At the conclusion of the transaction, it determines how to update the database to conform to the changes.
 
 <br>
 
 ## Wrapping up
+
 - In Domain Driven Design, it's important to emphasize that we should only define one repository for each aggregate root. 
 
     To achieve the goal of the aggregate root to maintain transactional consistency between all the objects within the aggregate, you should never create a repository for each table in the database.
@@ -122,7 +125,8 @@ If we have an anemic domain, the repository will be just a DAO.
 
     By doing this and using Dependency Injection in the controllers of our Web API, we can implement mock repositories that return fake data instead of data from the database. This decoupled approach allows us to create and run unit tests that focus the logic of our application without requiring connectivity to the database.
 
-- Here are the main differences between Repository and DAO:
+- Here are the main differences between Repository and DAO.
+
     - Repository provides a higher level of data manipulation.
     - Repository is persistence ignorance.
     - Repository is a collection of aggregate roots.

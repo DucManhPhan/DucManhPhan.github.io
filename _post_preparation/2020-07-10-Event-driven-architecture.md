@@ -1,8 +1,8 @@
 ---
 layout: post
-title: Event drivent architecture pattern
+title: Event-driven architecture pattern
 bigimg: /img/image-header/yourself.jpeg
-tags: [Architecture pattern]
+tags: [Architecture Pattern]
 ---
 
 

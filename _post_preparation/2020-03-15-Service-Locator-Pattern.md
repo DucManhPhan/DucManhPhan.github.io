@@ -2,7 +2,7 @@
 layout: post
 title: Service Locator Pattern
 bigimg: /img/path.jpg
-tags: [design pattern]
+tags: [Design Pattern]
 ---
 
 

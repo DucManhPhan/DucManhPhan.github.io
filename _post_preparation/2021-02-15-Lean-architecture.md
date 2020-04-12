@@ -2,7 +2,7 @@
 layout: post
 title: Lean architecture pattern
 bigimg: /img/image-header/yourself.jpeg
-tags: [Architecture pattern]
+tags: [Architecture Pattern]
 ---
 
 

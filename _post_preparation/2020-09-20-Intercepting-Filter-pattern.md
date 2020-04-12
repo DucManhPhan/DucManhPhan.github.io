@@ -2,7 +2,7 @@
 layout: post
 title: Intercepting Filter pattern
 bigimg: /img/image-header/california.jpg
-tags: [design pattern]
+tags: [Design Pattern, Enterprise Pattern]
 ---
 
 

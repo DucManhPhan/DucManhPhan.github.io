@@ -2,7 +2,7 @@
 layout: post
 title: Factory Method Pattern
 bigimg: /img/image-header/ravashing-beach.jpg
-tags: [creational pattern, design pattern]
+tags: [Creational Pattern, Design Pattern]
 ---
 
 
