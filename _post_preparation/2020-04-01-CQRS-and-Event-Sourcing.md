@@ -1,6 +1,6 @@
 ---
 layout: post
-title: CQRS
+title: CQRS and Event Sourcing
 bigimg: /img/image-header/yourself.jpeg
 tags: [Architecture Pattern]
 ---
@@ -53,3 +53,4 @@ tags: [Architecture Pattern]
 
 Refer:
 
+[https://www.slideshare.net/HanoiItlc/itlc-hanoi-cqrs-es-2210-2015](https://www.slideshare.net/HanoiItlc/itlc-hanoi-cqrs-es-2210-2015)
