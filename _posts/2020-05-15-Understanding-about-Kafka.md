@@ -64,6 +64,68 @@ Apache Kafka is an open-source stream processing software platform developed by 
 
 <br>
 
+## Introduction to Kafka
+
+- Apache Kafka is open source and has a great community contributing to the project and developing an entire ecosystem around it.
+    
+    ![](../img/hadoop/kafka/history-kafka/history-kafka.png)
+
+    Kafka was originally developed in 2010 at LinkedIn and was subsequently open sourced in 2011.
+    
+    In 2012, the project had graduated the Apache incubator and became a top-level Apache project allowing the users of the software to use it for any purpose, to distribute it or modify it without any concerns for any royalties. Companies became very interested in this product, and many have started to adopt it, including companies like Netflix, Uber and Spotify, who are handling millions of messages per day.
+    
+    In 2017, the first stable version of Kafka had been released, and two years later, the major version has been bumped again.
+
+- Kafka has been built in Java, one of the most popular programming languages in the world.
+
+    ![](../img/hadoop/kafka/history-kafka/written-languages-kafka.png)
+
+    This ensures a high number of contributors are maintaining and developing the product, but it also has debugging when something goes wrong, especially because there are many Java-oriented DevOps engineers on the hiring market compared to some other programming languages.
+    
+    Originally, Kafka was developed with Scala, but soon after, it switched to Java because of its popularity and ease of delivering new versions.
+    
+    Although they are two separate programming languages, they can run under the same platform, so there are no need for a Big Bang type of change. The Scala and Java classes are passed through a compiler, a Scala compiler for Scala classes and a Java compiler for Java classes. After the compilation step, both the Scala and Java classes result in something called bytecode. The byte code resulted is the same, so it can be run under the same JVM without knowing if the original code was Scala or Java.
+
+- High throughput
+
+    Kafka is fast. It can handle a very high load of messages per second without using a massive amount of resouces.
+    
+    It achieves this using two main features.
+    - Firstly, there is no serialization or deserialization happening inside Kafka.
+
+        ![](../img/hadoop/kafka/history-kafka/no-serialization-deserialization.png)
+
+        The serialization process consists of converting an known object, for example, a car, into a stream of bytes, in order to transmit it over a network or to store it in memory, or even in our file on our hard drive.
+
+        The reverse process called deserialization, and it allows converting the stream of bytes back into the known object after it has been transmitted over the network or when it is retrieved from the hard drive.
+
+        The problem with those two operations is the fact that they are expensive in the sense that it requires processing power and time to do it. When only a couple of hundred messages per day are serialized and deserialized, it would not represent an impact to the system. But try to image a scaling up to millions or even billions messages per day. These operations would slow down the entire system, so Kafka does nots handle anything else rather than bytes. All the data that is stored on the hard drive is usin a well-known byte encoding format, so there is no serialization or deserialization happening inside Kafka.
+        
+        The same thing can be said about what Kafka is receiving and transmitting over the network. All the data that is passed into Kafka and received from it will be in a binary format.
+
+    - Secondly, it uses a mechanism called zero copy.
+    
+        ![](../img/hadoop/kafka/history-kafka/zero-copy.png)
+
+        The goal is to store a message in a hard drive for it to be persisted for the long term and prevent losing data in case of a blackout.
+        
+        In a typical application, when a message is received over the network, it passes through the network card, and then it is stored in the Java heap, which is from the the hardware perspective, resides on the RAM. The data will then be copied to the hard drive. The reason for using the RAM and not the hard drive for storage is the fact that hard drive are usually very slow when it comes to random data access.
+
+    Kafka is handling these by storing the data sequentially and bypassing the Java heap resulting in a situation where the data is not copied from one component to another, hence the name zero copy.
+    
+    A bit disappointing is the fact that the zero copy feature is only available for non-TLS connections. The reason for doing this is because the transport layer security protocol is deeply embbeded in the JDK, so bypassing the JVM heap is not possible in this situation. So increasing the security on our system by using encrypted communication would result in some performance throwbacks.
+
+- Kafka is more than a messaging system. Kafka is considered to be a distributed streaming platform. 
+
+    A distributed streaming platform include:
+    - First of all, it can be used as a messaging system by using the publish/subscribe pattern. In this pattern, there are two types of applications, consumers and producers. Producers create and publish the events to the messaging system while consumers subscribe to those events and consume them.
+
+    - Kafka can also be used for storing the data in a distributed way. It supports clustering, so data will be uniformly spread across systems, but it can also be replicated in case one of the systems fail, thus ensuring data will not be lost.
+
+    - The last process that a distributed streaming platform can perform is processing the events as they occur in the system by taking benefit of the streaming model. Companies should react as fast as possible to customer's needs, and by using streaming, all the incoming events can be processed in almost realtime.
+
+<br>
+
 ## Concepts in Kafka
 
 1. Message
@@ -137,10 +199,36 @@ Apache Kafka is an open-source stream processing software platform developed by 
 
 ## The architecture of Kafka
 
+Kafka has two important components that we need to remember.
+- The main component is the Kafka broker, which deals with receiving, storing, and transmitting data.
 
+- But a broker cannot live by itself. It requires a zookeeper in order to achieve a distributed state.
 
+1. Broker
 
+    A broker should always reside in a dedicated server with dedicated resources since it has a very high input/output load, which may affect other applications or the other way around.
+    
+    A broker is nothing more than a process that lives on top of the OS. When a message is received  across the network, the broker stores it into the hard drive of that machine. When that specific message has been requested, the broker will then copy it from the file system, and it will transmit to the application that request it.
 
+    ![](../img/hadoop/kafka/history-kafka/message-to-brokers.png)
+
+    It's important to mention that everything is done at the binary level. Messages are nothing more than bytes received over a network.
+
+    Having a single server may be enough for the development environment when load throughput and loss the data may not be an issue. But in order to ensure that our setup is fault-tolerant and highly available, then multiple brokers need to be added under the same context. This distribution is called a cluster.
+
+    ![](../img/hadoop/kafka/history-kafka/message-to-clusters.png)
+
+    When a message is received, the broker will duplicate it, and then it will send it to its siblings to prevent the loss of data in case of faliures. Having a cluster setup also increases the throughput by offering a uniform load across the brokers without overloading one while the others are idle.
+
+2. Zookeeper
+
+    ![](../img/hadoop/kafka/history-kafka/problems-brokers.png)
+
+    The main problem is that broker are independent applications and one has no idea about the others.
+
+    To solve this issue, we need a zookeeper. Consider a zookeeper as a centralized service that all the brokers are connected to. A zookeeper maintains a list with all the brokers registered to it but also some configuration required by the brokers to synchronize. It helps the brokers to distribute the load evenly by electing leaders who are in charge of handling some specific categories of messages. Also, in case of a broker failure, it will announce it to the others in order to prevent sending data to a faulty broker.
+
+    ![](../img/hadoop/kafka/history-kafka/responsibility-zookeeper.png)
 
 <br>
 
