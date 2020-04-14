@@ -2,7 +2,7 @@
 layout: post
 title: Message Translator pattern
 bigimg: /img/image-header/yourself.jpeg
-tags: [Enterprise Pattern]
+tags: [Enterprise Integration Pattern]
 ---
 
 

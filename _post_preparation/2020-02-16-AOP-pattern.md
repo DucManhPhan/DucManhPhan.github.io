@@ -1,8 +1,8 @@
 ---
 layout: post
-title: AOP Pattern
+title: AOP pattern
 bigimg: /img/path.jpg
-tags: [Design pattern]
+tags: [Design Pattern]
 ---
 
 

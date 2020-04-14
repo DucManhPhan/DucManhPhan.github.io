@@ -2,7 +2,7 @@
 layout: post
 title: Process Manager pattern
 bigimg: /img/image-header/yourself.jpeg
-tags: [Enterprise Pattern]
+tags: [Enterprise Integration Pattern]
 ---
 
 
