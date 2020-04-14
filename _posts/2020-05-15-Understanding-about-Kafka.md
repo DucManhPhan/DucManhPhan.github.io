@@ -247,7 +247,7 @@ Refer:
 
 [Learning Apache Kafka, 2nd Edition](https://www.amazon.com/Learning-Apache-Kafka-Nishant-Garg-ebook/dp/B00U2MI8MI)
 
-[Apache Kafka - Packpub]()
+[Apache Kafka - Packtpub]()
 
 [https://blog.scottlogic.com/2018/04/17/comparing-big-data-messaging.html](https://blog.scottlogic.com/2018/04/17/comparing-big-data-messaging.html)
 
