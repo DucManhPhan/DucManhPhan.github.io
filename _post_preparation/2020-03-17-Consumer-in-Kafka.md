@@ -5,7 +5,7 @@ bigimg: /img/path.jpg
 tags: [Kafka]
 ---
 
-
+In this article, we will learn what is Consumer, how to use Consumer of Kafka with Java source code. Let's get started.
 
 <br>
 
