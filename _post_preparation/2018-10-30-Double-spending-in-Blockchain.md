@@ -2,7 +2,7 @@
 layout: post
 title: Double speding in Blockchain
 bigimg: /img/path.jpg
-tags: [Double speding, Blockchain]
+tags: [Blockchain]
 ---
 
 

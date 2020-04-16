@@ -2,7 +2,7 @@
 layout: post
 title: How do the mining work?
 bigimg: /img/path.jpg
-tags: [Mining, Nonce, Blockchain]
+tags: [Blockchain]
 ---
 
 

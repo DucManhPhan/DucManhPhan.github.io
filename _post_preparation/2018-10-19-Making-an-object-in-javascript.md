@@ -2,35 +2,65 @@
 layout: post
 title: Making an object in Javascript
 bigimg: /img/path.jpg
-tags: [javascript]
+tags: [Javascript]
 ---
 
 In Javascript, everything is object, an object is a collection of properties, and a property is an association between a key and a value. So, there are so multiple interesting ways to create the object. In this article, we are going to find out these ways. 
 
-# Table of Contents
-- [Use class syntax in ES6](#use-class-syntax-in-es6)
-- [Use constructor function](#use-constructor-function)
-- [Use object initializer](#use-object-initializer)
-- [Use Object.create() method](#use-Object.create()-method)
-- [Use Object() constructor](#use-Object()-constructor)
+<br>
 
-# Use class syntax in ES6
-
-
-# Use constructor function
+## Table of Contents
+- [Use class syntax in ES6](##use-class-syntax-in-es6)
+- [Use constructor function](##use-constructor-function)
+- [Use object initializer](##use-object-initializer)
+- [Use Object.create() method](##use-Object.create()-method)
+- [Use Object() constructor](##use-Object()-constructor)
+- [Wrapping up](#wrapping-up)
 
 
-# Use object initializer
+<br>
 
-
-# Use Object.create() method 
-
-
-# Use Object() constructor
+## Use class syntax in ES6
 
 
 
-Refer: 
+
+<br>
+
+## Use constructor function
+
+
+
+
+<br>
+
+## Use object initializer
+
+
+
+<br>
+
+## Use Object.create() method 
+
+
+
+
+<br>
+
+## Use Object() constructor
+
+
+
+
+<br>
+
+## Wrapping up
+
+
+
+
+
+Refer:
 
 [Different ways of creating an Object in javascript](https://coderwall.com/p/p5cf5w/different-ways-of-creating-an-object-in-javascript)
 

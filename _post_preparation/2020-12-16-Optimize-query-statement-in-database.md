@@ -27,6 +27,7 @@ But actually, to optimize the speed of accessing data in disk, implementing with
 
 So, in this article, we will list some ways to optimize query database. 
 
+<br>
 
 ## Table of Contents
 

@@ -2,7 +2,7 @@
 layout: post
 title: Merkle Root in Blockchain
 bigimg: /img/path.jpg
-tags: [Merkle Root, Blockchain]
+tags: [Blockchain]
 ---
 
 

@@ -19,9 +19,6 @@ tags: [Architecture Pattern]
 - [Related Patterns](#related-patterns)
 - [Wrapping up](#wrapping-up)
 
-
-
-
 <br>
 
 ## Given Problem
@@ -86,7 +83,7 @@ Belows are some concepts that usually uses in EDA.
 
 ## When to use
 
-
+- When our system has to process multiple requests that takes so much time to check business logic.
 
 
 
@@ -141,9 +138,9 @@ Belows are some concepts that usually uses in EDA.
 
 ## Code C++ /Java / Javascript
 
+To understand the way that Event-driven architecture is implemented, we will use Axon framework to deal with it.
 
-
-
+We can refer the [source code of Event-driven architecture on Github]().
 
 <br>
 

@@ -13,8 +13,8 @@ In this article, we will find out about the structure of Spring MVC and how Spri
 ## Table of Contents
 - [Introduction to Spring MVC](#introduction-to-spring-mvc)
 - [How Spring MVC works](how-spring-mvc-works)
-- [Disadvantages of Spring MVC](#disadvantages-of-spring-mvc)
-- [Advantages of Spring MVC](#advantages-of-spring-mvc)
+- [Benefits and Drawbacks](#benefits-and-drawbacks)
+- [Wrapping up](#wrapping-up)
 
 
 <br>
@@ -37,14 +37,9 @@ In this article, we will find out about the structure of Spring MVC and how Spri
 
 
 
-
-
-
-
-
 <br>
 
-## Disadvantages of Spring MVC
+## Benefits and Drawbacks
 
 
 
@@ -53,7 +48,7 @@ In this article, we will find out about the structure of Spring MVC and how Spri
 
 <br>
 
-## Advantages of Spring MVC
+## Wrapping up
 
 
 
