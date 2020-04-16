@@ -67,3 +67,7 @@ tags: [Architecture Pattern]
 Refer:
 
 [https://www.slideshare.net/HanoiItlc/itlc-hanoi-cqrs-es-2210-2015](https://www.slideshare.net/HanoiItlc/itlc-hanoi-cqrs-es-2210-2015)
+
+[https://medium.com/faun/why-we-failed-implementing-cqrs-in-microservice-architecture-5c39a2d0b2dd](https://medium.com/faun/why-we-failed-implementing-cqrs-in-microservice-architecture-5c39a2d0b2dd)
+
+[https://medium.com/faun/four-event-driven-patterns-4b1cad5ac5e3](https://medium.com/faun/four-event-driven-patterns-4b1cad5ac5e3)

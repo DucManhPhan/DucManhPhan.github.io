@@ -24,7 +24,7 @@ description: Practice makes perfect!
 # List of links in the navigation bar
 navbar-links:
   Algorithm: 
-    - Dynamic Programming: "DP"
+    - Dynamic Programming: "tags/Dynamic programming"
     - Backtracking: "Backtracking"
     - Divide & Conquer: "Divide and Conquer"
     - Greedy Algorithm: "Greedy Algorithm"
@@ -43,10 +43,10 @@ navbar-links:
         # - Min/Max Heap: "Min/Max Heap"
         # - Fibonacci Heap: "Fibonacci Heap"
   Language:
-    - C++: "C++"
-    - C#: "C#"
-    - Javascript: "Javascript"
-    - Java: "Java"
+    - C++: "tags/C++"
+    - C#: "tags/C#"
+    - Javascript: "tags/Javascript"
+    - Java: "tags/Java"
  # About Me: "aboutme"
 
 # Image to show in the navigation bar - image must be a square (width = height)
