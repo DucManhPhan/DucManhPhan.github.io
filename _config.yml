@@ -24,29 +24,29 @@ description: Practice makes perfect!
 # List of links in the navigation bar
 navbar-links:
   Algorithm: 
-    - Dynamic Programming: "tags/Dynamic programming"
-    - Backtracking: "Backtracking"
-    - Divide & Conquer: "Divide and Conquer"
-    - Greedy Algorithm: "Greedy Algorithm"
-    - Sorting Algorithm: "Sorting Algorithm"
+    - Dynamic Programming: "tags/#Dynamic programming"
+    - Backtracking: "tags/#Backtracking"
+    - Divide & Conquer: "tags/#Divide and Conquer"
+    - Greedy Algorithm: "tags/#Greedy Algorithm"
+    - Sorting Algorithm: "tags/#Sorting Algorithm"
   Data structure:
-    - Array: "Array"
-    - Linked List: "Linked List"
+    - Array: "tags/#Array"
+    - Linked List: "tags/#Linked List"
     - Binary tree: 
         # - Binary Search Tree: "Binary Search Tree"
         # - AVL: "AVL"
         # - Red-Black Tree: "Red-Black Tree"
         # - B-Tree: "B-Tree"
-    - Stack: "Stack"
-    - Queue: "Queue"
-    - Heap: "Heap"
+    - Stack: "tags/#Stack"
+    - Queue: "tags/#Queue"
+    - Heap: "tags/#Heap"
         # - Min/Max Heap: "Min/Max Heap"
         # - Fibonacci Heap: "Fibonacci Heap"
   Language:
-    - C++: "tags/C++"
-    - C#: "tags/C#"
-    - Javascript: "tags/Javascript"
-    - Java: "tags/Java"
+    - C++: "tags/#C++"
+    - C#: "tags/#C#"
+    - Javascript: "tags/#Javascript"
+    - Java: "tags/#Java"
  # About Me: "aboutme"
 
 # Image to show in the navigation bar - image must be a square (width = height)
