@@ -2,7 +2,7 @@
 layout: post
 title: Create the first ReactJS project using Webpack and Typescript
 bigimg: /img/image-header/yourself.jpeg
-tags: [Reactjs]
+tags: [ReactJS, Javascript]
 ---
 
 
@@ -24,7 +24,7 @@ tags: [Reactjs]
 
 <br>
 
-##
+## 
 
 
 

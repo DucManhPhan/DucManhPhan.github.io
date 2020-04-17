@@ -168,3 +168,5 @@ Refer:
 [https://www.confluent.io/blog/apache-kafka-for-service-architectures/](https://www.confluent.io/blog/apache-kafka-for-service-architectures/)
 
 [https://stackoverflow.com/questions/54875234/request-based-vs-event-based-architecture](https://stackoverflow.com/questions/54875234/request-based-vs-event-based-architecture)
+
+[https://tanzu.vmware.com/content/intersect/introduction-to-event-driven-architecture-and-apache-kafka](https://tanzu.vmware.com/content/intersect/introduction-to-event-driven-architecture-and-apache-kafka)

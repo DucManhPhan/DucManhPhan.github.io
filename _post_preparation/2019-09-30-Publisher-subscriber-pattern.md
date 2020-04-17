@@ -14,7 +14,7 @@ tags: [Design pattern, behaviral pattern]
 - [Given the problem](#given-the-problem)
 - [Solution with publisher-subscriber patter](#solution-with-publisher-subscriber-pattern)
 - [When to use](#when-to-use)
-- [Benefits and drawbacks](#benefits-and-drawbacks)
+- [Benefits and Drawbacks](#benefits-and-drawbacks)
 - [Sample code with Java](#sample-code-with-java)
 - [The differences between Observer pattern and Publisher-subscriber pattern](#the-differences-between-observer-pattern-and-publisher-subscriber-pattern)
 - [Wrapping up](#wrapping-up)
@@ -34,6 +34,8 @@ tags: [Design pattern, behaviral pattern]
 
 
 
+
+
 <br>
 
 ## When to use
@@ -43,7 +45,7 @@ tags: [Design pattern, behaviral pattern]
 
 <br>
 
-## Benefits and drawbacks
+## Benefits and Drawbacks
 
 
 

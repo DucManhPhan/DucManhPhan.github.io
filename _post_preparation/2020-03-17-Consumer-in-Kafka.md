@@ -44,10 +44,29 @@ If a leader partition goes down, then another in-sync replicated partition becom
 
 ## Source code Java for Kafka consumer
 
+```java
+public static KafkaConsumer<String, String> initConsumer(String connection, String group, String topic) {
 
+    KafkaConsumer<String, String> consumer = null;
+    logger.info("connection: " + connection);
+    logger.info("group: " + group);
+    logger.info("topic: " + topic);
 
+    try {
+        Properties props = new Properties();
+        props.put("bootstrap.servers", connection);
+        props.put("group.id", group);
+        props.put("key.deserializer", StringDeserializer.class.getName());
+        props.put("value.deserializer", StringDeserializer.class.getName());
 
-
+        consumer = new KafkaConsumer<>(props);
+        consumer.subscribe(Collections.singletonList(topic));
+    } catch (Exception ex) {
+        logger.error("initConsumber(): ", ex);
+    }
+    return consumer;
+}
+```
 
 <br>
 
@@ -56,7 +75,11 @@ If a leader partition goes down, then another in-sync replicated partition becom
 
 
 
-- Why we need **group.id** when configuring some fields for creating consumer
+- Why we need **group.id** when configuring some fields for creating consumers
+
+    Parameter **group.id** is useful when we want to share the load of messages across multiple consumers without having to deal with duplicate messages.
+
+    We need to know that each consumer should be a part of a consumer group. If multiple consumers are part of the same consumer group, then they will share their load of messages, and they will act as a single consumer.
 
 
 

@@ -46,8 +46,8 @@ All of the code is modeled and written using the terms from this ubiquitous lang
 
 A ubiquitous language allows developers and business owners to communicate with one another without having to translate. Assumptions tend to get lost in the translation because each party assigns their own meaning to the words that they use to communicate with the other, but by agreeing upon a ubiquitous language that forces the two parties to define their terms and flushes assumption into the light.
 
-For example, assuming that we encountered an application of a pharmaceutical network by using DDD. The network negotiates rebates from pharmaceutical manufacturers on behalf of their members. The members log into the application to track their sales performance towards earning these rebates. This started with agreeing upon a ubiquitous language. Here are some of the terms that we had to come to agree upon.
-- Rebat - A contract negotiated by the network with manufacturers on behalf of members.
+For example, assuming that we encountered an application of a pharmaceutical network by using DDD. **The network negotiates rebates from pharmaceutical manufacturers on behalf of their members. The members log into the application to track their sales performance towards earning these rebates**. This started with agreeing upon a ubiquitous language. Here are some of the terms that we had to come to agree upon.
+- Rebate - A contract negotiated by the network with manufacturers on behalf of members.
 
     To developer, a rebate was just an instance of receiving money for sending in a receipt, but the business owners this was a very different terms.
 
@@ -149,7 +149,7 @@ We've created a separate solution for Performance, Rebates, and Sales.
 
 While we put them all in the same source code repository, it's equally likely that we'll put each one in separate repository. This will make it even easier for the individual teams to branch them independently. Let us dive into the Performance solution so that we can take a closer look.
 
-![](../img/Architecture-pattern/Domain-driven-design/layered-architecture/Performance-context-ex.png)\
+![](../img/Architecture-pattern/Domain-driven-design/layered-architecture/Performance-context-ex.png)
 
 One thing that we should notice is that each of the projects within the solution is completely owned by its bounded context. We don't have any references to projects outside of this context. That's just another benefit of having separate solution for each bounded context. It discourages interdependencies between them. A bounded context should be just that, bounded. It should have strict boundaries so that it remains unaffected. Keeping the solutions separate makes it abundantly clear when we've crossed those context boundaries. Within each solution, the projects are organized into layers.
 
@@ -190,7 +190,7 @@ Eric Evan talks about four layers in his book, and we have three of them represe
 ## Benefits and Drawbacks
 1. Benefits
 
-
+    https://www.udemy.com/course/domain-driven-design-complete-software-architecture-course/
 
 2. Drawbacks
 
@@ -218,6 +218,8 @@ Thanks for your reading
 <br>
 
 Refer:
+
+[Domain-Driven Design in Practice by Vladimir Khorikov](https://app.pluralsight.com/library/courses/domain-driven-design-in-practice/table-of-contents)
 
 [Practical Domain-Driven Design in Enterprise Java](http://file.allitebooks.com/20200217/Practical%20Domain-Driven%20Design%20in%20Enterprise%20Java.pdf)
 

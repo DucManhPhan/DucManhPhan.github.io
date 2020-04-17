@@ -10,9 +10,14 @@ tags: [Multithreading, Java]
 <br>
 
 ## Table of contents
-
-
-
+- [The Scatter-Gather pattern](#the-scatter-gather-pattern)
+- [Scatter-Gather using Futures]()
+- [Scatter-Gather using ExecutorService]()
+- [The importance of making aggregations Thread-safe]()
+- [Gathering using concurrency primitives]()
+- [Gathering using AtomicInteger, ConcurrentHashMap, and LongAdder](#gathering-using-atomicinteger-concurrenthashmap,-and-longadder)
+- [Gathering using ReentrantLock](#gathering-using-reentrantlock)
+- [Wrapping up](#wrapping-up)
 
 
 <br>
