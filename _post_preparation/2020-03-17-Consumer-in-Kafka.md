@@ -26,19 +26,29 @@ In this article, we will learn what is Consumer, how to use Consumer of Kafka wi
 
 ## The definition of Kafka Consumer
 
+A Kafka consumer is an application that subscribes a specific topic. It will get messages from this topic and process them.
 
+A Kafka consumer is a pull mechanism compared to other solutions that use a push mechanism. This means that when a message is available on the Kafka cluster, the consumer will pull and process it along the application to consume messages in its own rythm. This is very important feature because it allows slow consumers to do their job without blocking the Kafka cluster in any way.
 
-
+![](../img/hadoop/kafka/consumer/consumer.png)
 
 <br>
 
 ## How Kafka Consumer works
 
+![](../img/hadoop/kafka/consumer/how-consumer-works.png)
+
+A Kafka consumer handles records is very similar to how a producer does, but in reverse.
+
+The consumer is constantly pulling from Kafka, meaning that it asks Kafka every couple of milliseconds - Do you have a new message for me? When a new message has arrived on the topic, the consumer will pull it, and it creates a consumer record. As we noticed, both the key and value are encoded in a binary format so we need to convert them back into proper objects. Since we know that the key and value were originally strings before encoding, we're going to use a **StringDeserializer** for both. After the key and value have been deserialized, we have our objects back, and we can process them.
+
+For example, we might send them to a SuggestionEngine, which can now create a list of suggested articles for consumers.
+
 Every time a consumer polls new messages, a heart-beat is sent to the group co-ordinator (A group co-ordinator is the first broker reporting its availability to Zookeeper). If the heart-beat is not received by the group coordinator then it assumes that the consumer is down and re-assigns its partition to other available consumer – process called rebalancing.
 
 After a consumer reads and processes a message it needs to commit the offset of that message. This keeps a consumer and last read message in sync.
 
-If a leader partition goes down, then another in-sync replicated partition becomes a leader and rest of the partitions start keeping up with the new leader partition.
+If a leader partition goes down, then another ISR, in-sync replicated partition becomes a leader and rest of the partitions start keeping up with the new leader partition.
 
 <br>
 
@@ -46,7 +56,6 @@ If a leader partition goes down, then another in-sync replicated partition becom
 
 ```java
 public static KafkaConsumer<String, String> initConsumer(String connection, String group, String topic) {
-
     KafkaConsumer<String, String> consumer = null;
     logger.info("connection: " + connection);
     logger.info("group: " + group);
@@ -64,7 +73,28 @@ public static KafkaConsumer<String, String> initConsumer(String connection, Stri
     } catch (Exception ex) {
         logger.error("initConsumber(): ", ex);
     }
+
     return consumer;
+}
+
+public static void main(String[] args) {
+    try {
+        while (true) {
+            ConsumerRecords<String, String> consumerRecords = consumer.poll(10);
+
+            for (ConsumerRecord conRecord : consumerRecords) {
+                System.out.printf("Consumer Record:(%s, %s, %d, %d)\n",
+                        conRecord.key(), conRecord.value(),
+                        conRecord.partition(), conRecord.offset());
+            }
+
+            consumer.commitAsync();
+        }
+    } catch (Exception ex) {
+        System.out.println(ex.getMessage());
+    } finally {     
+        consumer.close();
+    }
 }
 ```
 
@@ -72,16 +102,15 @@ public static KafkaConsumer<String, String> initConsumer(String connection, Stri
 
 ## The meaning of parameters in consumer client
 
+- Parameter **bootstrap.servers** is servers that run Kafka.
 
-
+- Parameter **key.deserializer**, **value.deserializer** is used to deserialize the binary format of record in Kafka broker.
 
 - Why we need **group.id** when configuring some fields for creating consumers
 
     Parameter **group.id** is useful when we want to share the load of messages across multiple consumers without having to deal with duplicate messages.
 
     We need to know that each consumer should be a part of a consumer group. If multiple consumers are part of the same consumer group, then they will share their load of messages, and they will act as a single consumer.
-
-
 
 <br>
 
@@ -100,7 +129,7 @@ public static KafkaConsumer<String, String> initConsumer(String connection, Stri
 
     When a rebalance happens, all consumers drop their partitions and are reassigned new ones. If you have an application that has state associated with the consumed data, such as our aggregator service, we need to drop that state and start fresh with data from the new partition.
 
-    However, if dropping state isn’t an option, an alternative is to not use a consumer group and instead use the Kafka API to statically assign partitions, which does not trigger rebalances. Of course, in that case, you must balance the partitions yourself and also make sure that all partitions are consumed.
+    However, if dropping state isn't an option, an alternative is to not use a consumer group and instead use the Kafka API to statically assign partitions, which does not trigger rebalances. Of course, in that case, you must balance the partitions yourself and also make sure that all partitions are consumed.
 
 
 2. The affections of rebalancing in Kafka
@@ -110,8 +139,29 @@ public static KafkaConsumer<String, String> initConsumer(String connection, Stri
 
 ## Heartbeat thread in Kafka
 
+Accroding to [Java Enterprise Design Pattern ebook](), we can find that Hearbeat is used to check Kafka broker whether is alive or not at the moment. If this Kafka broker was down, Zookeeper will do coordinatior between Kafka brokers if this broker is leader.
 
+Then, rebalancing partitions for Kafka consumers will implement.
 
+In the old versions of Kafka, the heartbeat mechanism is triggered when we called **poll()** method.
+
+![](../img/hadoop/kafka/consumer/heartbeat-old-way.png)
+
+Some problems of this Kafka version:
+- 
+- 
+- 
+
+So, to solve these problems, Kafka provides new versions with the Hearbeat mechanism.
+
+![](../img/hadoop/kafka/consumer/heartbeat-new-way.png)
+
+Belows are some parameters that we need to understand when we want to configure Kafka consumer with Hearbeat mechanism.
+- 
+- 
+- 
+
+To understand more detail about how heartbeat mechanism works, we can reference this article [What does the heartbeat thread do in Kafka Consumer?](https://chrzaszcz.dev/2019/06/kafka-heartbeat-thread/).
 
 <br>
 
@@ -176,13 +226,11 @@ https://www.oreilly.com/library/view/kafka-the-definitive/9781491936153/ch04.htm
 
 
 
-
-
-
-
 <br>
 
 Refer:
+
+[https://chrzaszcz.dev/2019/06/16/kafka-consumer-poll/](https://chrzaszcz.dev/2019/06/16/kafka-consumer-poll/)
 
 [https://ohioedge.com/2018/05/17/kafka-a-simple-explanation/](https://ohioedge.com/2018/05/17/kafka-a-simple-explanation/)
 
@@ -203,6 +251,8 @@ Refer:
 <br>
 
 **Hearbeat thread**
+
+[Java Enterprise Design Pattern ebook by Mark Grand]()
 
 [http://javierholguera.com/2018/01/01/timeouts-in-kafka-clients-and-kafka-streams/](http://javierholguera.com/2018/01/01/timeouts-in-kafka-clients-and-kafka-streams/)
 
