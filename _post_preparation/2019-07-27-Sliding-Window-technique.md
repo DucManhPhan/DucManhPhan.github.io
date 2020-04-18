@@ -2,7 +2,7 @@
 layout: post
 title: Sliding window technique
 bigimg: /img/image-header/home-office-1.jpg
-tags: [Coding patterns]
+tags: [Coding Patterns, Algorithm]
 ---
 
 
@@ -11,7 +11,7 @@ tags: [Coding patterns]
 
 ## Table of contents
 - [Given problem](#given-problem)
-- [Solution with sliding window techique](#solution-with-sliding-window-techique)
+- [Solution with Sliding window techique](#solution-with-sliding-window-techique)
 - [Some types of Sliding window technique](#some-types-of-sliding-window-technique)
 - [When to use](#when-to-use)
 - [Wrapping up](#wrapping-up)
@@ -26,7 +26,7 @@ tags: [Coding patterns]
 
 <br>
 
-## Solution with sliding window techique
+## Solution with Sliding window techique
 
 
 
@@ -50,6 +50,53 @@ tags: [Coding patterns]
 
 
 
+
+<br>
+
+## Examples of Sliding Window technique
+
+1. Max Consective Ones
+
+    Given a binary array, find the maximum number of consecutive 1s in this array.
+
+    For example:
+
+    ```java
+    Input: [1,1,0,1,1,1]
+    Output: 3
+    Explanation: The first two digits or the last three digits are consecutive 1s.
+        The maximum number of consecutive 1s is 3.
+    ```
+
+    - Analysis
+
+        - Currently, we will scan all the consecutive numbers 1s to find the maximum length.
+        - Then, based on section [When to use](#when-to-use), we can use sliding window techique to solve this problem.
+
+    - Source code
+
+        ```java
+        public int findMaxConsecutiveOnes(int[] nums) {
+            int windowStart = 0;
+            int length = nums.length;
+            int maxLength = 0;
+
+            for (int windowEnd = 0; windowEnd < length; ++windowEnd) {
+                while (windowEnd < length && nums[windowEnd] != 1) {
+                    ++windowEnd;
+                    windowStart = windowEnd;
+                }
+
+                if (windowEnd == length) {
+                    break;
+                }
+
+                maxLength = Math.max(maxLength, windowEnd - windowStart + 1);
+            }
+
+            return maxLength;
+        }
+        ```
 
 <br>
 

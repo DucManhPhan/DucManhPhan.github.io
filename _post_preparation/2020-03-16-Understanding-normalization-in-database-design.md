@@ -2,7 +2,7 @@
 layout: post
 title: Understanding normalization in database design
 bigimg: /img/image-header/yourself.jpeg
-tags: [Database design]
+tags: [Database]
 ---
 
 
@@ -11,9 +11,12 @@ tags: [Database design]
 <br>
 
 ## Table of contents
-
-
-
+- [Introduction to normalization]()
+- [First Normal Form]()
+- [Second Normal Form]()
+- [Third Normal Form]()
+- [Boyce-Codd Normal Form]()
+- [Wrapping up]()
 
 
 <br>

@@ -2,7 +2,7 @@
 layout: post
 title: Two pointer technique
 bigimg: /img/image-header/yourself.jpeg
-tags: [Algorithm, Technique]
+tags: [Coding Patterns, Algorithm]
 ---
 
 
@@ -11,9 +11,10 @@ tags: [Algorithm, Technique]
 <br>
 
 ## Table of contents
-
-
-
+- [Given problem](#given-problem)
+- [Solution of Two pointer technique](#)
+- [When to use]()
+- [Wrapping up]()
 
 
 <br>
