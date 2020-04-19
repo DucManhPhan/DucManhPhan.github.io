@@ -77,18 +77,14 @@ tags: [Coding Patterns, Algorithm]
 
         ```java
         public int findMaxConsecutiveOnes(int[] nums) {
-            int windowStart = 0;
             int length = nums.length;
             int maxLength = 0;
+            int windowStart = 0;    // always point to the index of current element with value 1
 
             for (int windowEnd = 0; windowEnd < length; ++windowEnd) {
-                while (windowEnd < length && nums[windowEnd] != 1) {
-                    ++windowEnd;
+                if (nums[windowEnd] != 1) {
                     windowStart = windowEnd;
-                }
-
-                if (windowEnd == length) {
-                    break;
+                    ++windowStart;
                 }
 
                 maxLength = Math.max(maxLength, windowEnd - windowStart + 1);
@@ -97,6 +93,14 @@ tags: [Coding Patterns, Algorithm]
             return maxLength;
         }
         ```
+
+2. Longest Repeating Character Replacement
+
+
+
+3. No repeated characters
+
+
 
 <br>
 
