@@ -14,6 +14,8 @@ tags: [Coding Patterns, Algorithm]
 - [Solution with Sliding window techique](#solution-with-sliding-window-techique)
 - [Some types of Sliding window technique](#some-types-of-sliding-window-technique)
 - [When to use](#when-to-use)
+- [Steps to solve Sliding window problem](#steps-to-solve-sliding-window-problem)
+- [Examples of Sliding Window technique](#examples-of-sliding-window-technique)
 - [Wrapping up](#wrapping-up)
 
 <br>
@@ -46,10 +48,26 @@ tags: [Coding Patterns, Algorithm]
 
 ## When to use
 
+- When we usually cope with the problems that are relevant to the range of elements, then we need to calculate some properties on them such as sum, longest, smallest string, ...
+
+- When our need is to have time complexity that is O(n) - linear time.
 
 
+<br>
 
+## Steps to solve Sliding window problem
 
+1. Determine our problem that is related to the range of elements and some properties of them.
+
+2. Mark **windowStart** variable as a starting point of our window to scan. And **windowEnd** variable will be scan all elements of array.
+
+3. Then, determine our sliding window type is fixed length window or dynamic length window.
+
+4. A condition that we need to increment the **windowStart** variable to point to other element.
+
+    It means that we will remove the elements that do not satisfy in our sliding window's length.
+
+5. Convert all our input data into the other variables.
 
 <br>
 

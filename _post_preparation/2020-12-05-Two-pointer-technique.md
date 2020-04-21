@@ -39,7 +39,9 @@ tags: [Coding Patterns, Algorithm]
 
 ## When to use
 
+- When we have to deal with sorted arrays (or Linked List) and need to find a set of elements that fulfill cretain constraints.
 
+    The set of elements could be a pair, a triplet, or even a subarray.
 
 
 
@@ -47,7 +49,7 @@ tags: [Coding Patterns, Algorithm]
 
 ## Wrapping up
 
-
+- Due to our context of this technique is the sorted array or something, so we can use binary search as the brute-force solution when we do not think other solutions.
 
 
 <br>
