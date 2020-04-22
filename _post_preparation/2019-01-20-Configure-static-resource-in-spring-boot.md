@@ -2,7 +2,7 @@
 layout: post
 title: Configure static resource in Spring Boot
 bigimg: /img/path.jpg
-tags: [front-end]
+tags: [Spring, Java]
 ---
 
 

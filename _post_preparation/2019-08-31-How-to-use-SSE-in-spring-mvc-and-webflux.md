@@ -2,7 +2,7 @@
 layout: post
 title: How to use SSE in Spring MVC and Spring webflux
 bigimg: /img/image-header/yourself.jpg
-tags: [java]
+tags: [Java, Spring]
 ---
 
 

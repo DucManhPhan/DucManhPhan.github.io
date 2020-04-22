@@ -2,7 +2,7 @@
 layout: post
 title: Understanding about Domain-Driven-Design
 bigimg: /img/image-header/california.jpg
-tags: [Design Pattern]
+tags: [DDD, Architecture Pattern]
 ---
 
 

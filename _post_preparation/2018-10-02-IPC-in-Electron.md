@@ -2,14 +2,48 @@
 layout: post
 title: Inter-Processes Communication in Electron
 bigimg: /img/path.jpg
-tags: [electron, node.js]
+tags: [Electron, Node.js]
 ---
 
-## 1. Definition of IPC
+
+<br>
+
+## Table of Contents
 
 
-## 2. Why to use IPC in Electron
 
 
-## 3. When to use IPC
+<br>
+
+## Introduction to IPC
+
+
+
+
+<br>
+
+## Why to use IPC in Electron
+
+
+
+
+
+<br>
+
+## When to use IPC
+
+
+
+
+
+<br>
+
+## Wrapping up
+
+
+
+
+<br>
+
+Refer:
 

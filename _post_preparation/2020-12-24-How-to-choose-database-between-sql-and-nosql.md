@@ -1,8 +1,8 @@
 ---
 layout: post
-title: Analysis about choosing database
+title: How to choose database between SQL and NoSQL
 bigimg: /img/image-header/home-office-2.jpg
-tags: [database]
+tags: [Database]
 ---
 
 

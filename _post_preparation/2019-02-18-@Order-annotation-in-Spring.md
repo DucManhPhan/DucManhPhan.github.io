@@ -2,7 +2,7 @@
 layout: post
 title: @Order annotation in Spring
 bigimg: /img/path.jpg
-tags: [java]
+tags: [Java, Spring]
 ---
 
 

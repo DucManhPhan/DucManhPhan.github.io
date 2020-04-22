@@ -2,7 +2,7 @@
 layout: post
 title: Build Java Spring MVC project with Netbean
 bigimg: /img/image-header/home-office-1.jpg
-tags: [java]
+tags: [Java]
 ---
 
 

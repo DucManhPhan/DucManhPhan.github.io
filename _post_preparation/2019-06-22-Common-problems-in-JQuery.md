@@ -2,7 +2,7 @@
 layout: post
 title: Common problems in JQuery
 bigimg: /img/image-header/california.jpg
-tags: [front-end]
+tags: [Front-End], JQuery
 ---
 
 

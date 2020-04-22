@@ -2,7 +2,7 @@
 layout: post
 title: Http caching
 bigimg: /img/path.jpg
-tags: [Protocol]
+tags: [Network]
 ---
 
 

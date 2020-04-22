@@ -2,7 +2,7 @@
 layout: post
 title: User registration in Spring Security
 bigimg: /img/path.jpg
-tags: [front-end]
+tags: [Spring, Java]
 ---
 
 

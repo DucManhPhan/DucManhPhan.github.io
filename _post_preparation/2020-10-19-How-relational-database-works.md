@@ -2,7 +2,7 @@
 layout: post
 title: How does relational database work?
 bigimg: /img/image-header/home-office-1.jpg
-tags: [database]
+tags: [Database]
 ---
 
 When we are working with websites, or some applications that need to save data, it means that we need to use Relational Database Management or usually called as RDBMS. Normally, we only need to understand how to use Structure Query Language SQL or to communicate with Database management system.

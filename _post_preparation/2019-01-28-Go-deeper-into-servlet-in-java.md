@@ -2,7 +2,7 @@
 layout: post
 title: Go deeper into Servlet in Java Spring MVC
 bigimg: /img/image-header/home-office-1.jpg
-tags: [java]
+tags: [Java, Servlet]
 ---
 
 

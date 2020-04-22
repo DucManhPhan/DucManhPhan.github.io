@@ -2,7 +2,7 @@
 layout: post
 title: Understanding about tag libraries in JSTL
 bigimg: /img/image-header/california.jpg
-tags: [Java]
+tags: [Java, Servlet]
 ---
 
 

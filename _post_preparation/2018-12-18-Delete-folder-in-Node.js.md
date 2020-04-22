@@ -2,7 +2,7 @@
 layout: post
 title: Delete folder in Node.js
 bigimg: /img/image-header/ravashing-beach.jpg
-tags: [node.js]
+tags: [Node.js]
 ---
 
 

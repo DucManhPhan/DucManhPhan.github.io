@@ -2,7 +2,7 @@
 layout: post
 title: Understanding about flex in CSS
 bigimg: /img/path.jpg
-tags: [front-end]
+tags: [Front-End, CSS]
 ---
 
 <br>

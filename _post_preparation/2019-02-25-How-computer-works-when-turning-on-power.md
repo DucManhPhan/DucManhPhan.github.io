@@ -2,7 +2,7 @@
 layout: post
 title: How computer works when turning on power
 bigimg: /img/path.jpg
-tags: [computer science]
+tags: [Computer]
 ---
 
 

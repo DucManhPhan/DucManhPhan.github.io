@@ -2,9 +2,13 @@
 layout: post
 title: Command syntax in JSP
 bigimg: /img/image-header/home-office-1.jpg
-tags: [java]
+tags: [Java, Servlet]
 ---
 
+
+
+
+<br>
 
 ## Table of contents
 

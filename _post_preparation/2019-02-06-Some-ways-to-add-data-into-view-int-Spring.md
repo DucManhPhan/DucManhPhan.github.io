@@ -2,7 +2,7 @@
 layout: post
 title: Some ways to add data into Spring
 bigimg: /img/image-header/home-office-1.jpg
-tags: [java]
+tags: [Java, Spring]
 ---
 
 

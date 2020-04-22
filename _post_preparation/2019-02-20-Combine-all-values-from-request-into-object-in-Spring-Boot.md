@@ -2,7 +2,7 @@
 layout: post
 title: Combine all values from request into object in Spring Boot
 bigimg: /img/path.jpg
-tags: [java]
+tags: [Java, Spring]
 ---
 
 

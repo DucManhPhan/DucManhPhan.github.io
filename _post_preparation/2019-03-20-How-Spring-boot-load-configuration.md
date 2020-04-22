@@ -2,7 +2,7 @@
 layout: post
 title: How Spring boot load configuration
 bigimg: /img/image-header/california.jpg
-tags: [Java]
+tags: [Java, Spring]
 ---
 
 

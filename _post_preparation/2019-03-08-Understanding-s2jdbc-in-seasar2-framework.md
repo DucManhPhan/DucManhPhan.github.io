@@ -2,7 +2,7 @@
 layout: post
 title: Understanding S2JDBC in Seasar2 framework
 bigimg: /img/image-header/california.jpg
-tags: [Java]
+tags: [Java, Seasar]
 ---
 
 

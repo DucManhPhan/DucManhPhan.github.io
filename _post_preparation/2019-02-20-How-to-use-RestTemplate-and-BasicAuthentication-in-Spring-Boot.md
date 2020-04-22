@@ -2,7 +2,7 @@
 layout: post
 title: How to use RestTemplate and BasicAuthentication in Spring Boot
 bigimg: /img/path.jpg
-tags: [java]
+tags: [Java, Http Client, Spring]
 ---
 
 

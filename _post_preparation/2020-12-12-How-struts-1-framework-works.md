@@ -2,7 +2,7 @@
 layout: post
 title: How Struts 1 framework works
 bigimg: /img/image-header/california.jpg
-tags: [Java]
+tags: [Java, Struts 1]
 ---
 
 

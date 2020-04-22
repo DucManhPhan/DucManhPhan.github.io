@@ -2,7 +2,7 @@
 layout: post
 title: CGLIB in Spring framework
 bigimg: /img/image-header/home-office-1.jpg
-tags: [java]
+tags: [Java]
 ---
 
 

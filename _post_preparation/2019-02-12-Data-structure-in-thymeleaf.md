@@ -2,7 +2,7 @@
 layout: post
 title: Data structure in Thymeleaf
 bigimg: /img/image-header/home-office-1.jpg
-tags: [java]
+tags: [Java, Thymeleaf]
 ---
 
 

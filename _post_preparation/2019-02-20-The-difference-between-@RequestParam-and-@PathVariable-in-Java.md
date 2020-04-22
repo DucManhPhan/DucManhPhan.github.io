@@ -2,7 +2,7 @@
 layout: post
 title: The difference between @RequestParam and @PathVariable annotations in Java
 bigimg: /img/path.jpg
-tags: [java]
+tags: [Java, Spring]
 ---
 
 

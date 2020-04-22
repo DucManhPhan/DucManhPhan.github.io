@@ -2,7 +2,7 @@
 layout: post
 title: The differences between rebase and merge commands in Git
 bigimg: /img/image-header/yourself.jpeg
-tags: [git]
+tags: [Git]
 ---
 
 

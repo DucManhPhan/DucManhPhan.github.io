@@ -2,16 +2,49 @@
 layout: post
 title: Introduction to Electron
 bigimg: /img/path.jpg
-tags: [electron, node.js]
+tags: [Electron, Node.js]
 ---
 
-## Definition of Electron 
 
+
+<br>
+
+## Table of Contents
+
+
+
+
+<br>
+
+## Introduction to Electron 
+
+
+
+
+
+<br>
 
 ## Concepts happen around electron
 
 
-## The advanges of Electron
 
 
-## The disadvantages of Electron
+
+<br>
+
+## Benefits and Drawbacks
+
+
+
+
+<br>
+
+## Wrapping up
+
+
+
+
+<br>
+
+Refer: 
+

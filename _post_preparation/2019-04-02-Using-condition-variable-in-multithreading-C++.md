@@ -2,7 +2,7 @@
 layout: post
 title: Using condition variable in multithreading C++
 bigimg: /img/image-header/california.jpg
-tags: [C++, multithreading]
+tags: [C++, Multithreading]
 ---
 
 

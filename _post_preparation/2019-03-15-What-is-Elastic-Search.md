@@ -1,8 +1,8 @@
 ---
 layout: post
-title: What is Elastic Search
+title: Introduction to Elastic Search
 bigimg: /img/image-header/california.jpg
-tags: [front-end]
+tags: [Elastic Search]
 ---
 
 

@@ -2,7 +2,7 @@
 layout: post
 title: Understanding about endian in computer
 bigimg: /img/image-header/california.jpg
-tags: [C++]
+tags: [Memory management]
 ---
 
 

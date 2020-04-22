@@ -2,7 +2,7 @@
 layout: post
 title: Custom authentication with Spring Boot
 bigimg: /img/image-header/home-office-1.jpg
-tags: [java]
+tags: [Java, Spring]
 ---
 
 

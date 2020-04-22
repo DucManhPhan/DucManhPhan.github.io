@@ -2,7 +2,7 @@
 layout: post
 title: User Authentication function in Spring Boot
 bigimg: /img/image-header/home-office-1.jpg
-tags: [java]
+tags: [Java, Spring]
 ---
 
 

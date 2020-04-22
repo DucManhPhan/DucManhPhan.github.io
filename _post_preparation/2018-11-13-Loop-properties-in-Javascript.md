@@ -2,7 +2,7 @@
 layout: post
 title: Loop properties in Javascript
 bigimg: /img/path.jpg
-tags: [javascript, properties loop]
+tags: [Javascript]
 ---
 
 

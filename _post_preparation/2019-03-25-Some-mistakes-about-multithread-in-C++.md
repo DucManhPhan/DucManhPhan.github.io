@@ -2,7 +2,7 @@
 layout: post
 title: Some mistakes about multithread in C++
 bigimg: /img/image-header/california.jpg
-tags: [C++, Multithread]
+tags: [C++, Multithreading]
 ---
 
 

@@ -1,4 +1,9 @@
-
+---
+layout: post
+title: How to use dynamic controls in form Angular
+bigimg: /img/image-header/california.jpg
+tags: [Angular]
+---
 
 
 

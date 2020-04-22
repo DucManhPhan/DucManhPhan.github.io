@@ -2,7 +2,7 @@
 layout: post
 title: Prototype Pattern
 bigimg: /img/path.jpg
-tags: [creational pattern, design pattern]
+tags: [Creational Pattern, Design Pattern]
 ---
 
 

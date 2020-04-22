@@ -2,7 +2,7 @@
 layout: post
 title: Learn JQuery - ToggleClass
 bigimg: /img/path.jpg
-tags: [front-end]
+tags: [Front-End, JQuery]
 ---
 
 

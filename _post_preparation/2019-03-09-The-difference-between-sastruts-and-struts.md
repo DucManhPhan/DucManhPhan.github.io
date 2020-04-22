@@ -2,7 +2,7 @@
 layout: post
 title: The difference between SAStruts and Struts
 bigimg: /img/path.jpg
-tags: [Java]
+tags: [Java, Struts 1]
 ---
 
 

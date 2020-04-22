@@ -2,7 +2,7 @@
 layout: post
 title: Import JQuery into Angular project
 bigimg: /img/path.jpg
-tags: [Angular]
+tags: [Angular, JQuery]
 ---
 
 

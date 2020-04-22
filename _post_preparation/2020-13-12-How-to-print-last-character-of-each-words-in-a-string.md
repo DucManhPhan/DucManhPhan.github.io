@@ -1,8 +1,8 @@
 ---
 layout: post
-title: Some basic steps for DP
+title: How to print last character of each words in a string
 bigimg: /img/image-header/california.jpg
-tags: [Dynamic programming]
+tags: [Dynamic programming, Algorithm]
 ---
 
 

@@ -2,7 +2,7 @@
 layout: post
 title: How does Spring Boot works in Java
 bigimg: /img/image-header/home-office-1.jpg
-tags: [java]
+tags: [Java, Spring]
 ---
 
 To be able to work with project that uses Spring boot, we have to understand all stuff things of Spring boot such as the work flow, classes, annotation, ... 

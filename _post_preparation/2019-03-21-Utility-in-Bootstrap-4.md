@@ -2,7 +2,7 @@
 layout: post
 title: Utility in Bootstrap 4
 bigimg: /img/path.jpg
-tags: [front-end]
+tags: [Front-End, Bootstrap]
 ---
 
 <br>

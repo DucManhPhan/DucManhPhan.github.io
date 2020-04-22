@@ -2,7 +2,7 @@
 layout: post
 title: Dispatcher context and Application context in Java Spring
 bigimg: /img/image-header/home-office-1.jpg
-tags: [java]
+tags: [Java, Spring]
 ---
 
 

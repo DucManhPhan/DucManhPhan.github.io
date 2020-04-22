@@ -2,7 +2,7 @@
 layout: post
 title: Structure of Jar file in Java
 bigimg: /img/path.jpg
-tags: [java]
+tags: [Java]
 ---
 
 

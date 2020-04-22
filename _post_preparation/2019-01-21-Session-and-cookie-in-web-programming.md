@@ -2,7 +2,7 @@
 layout: post
 title: Session and cookie in web programming
 bigimg: /img/image-header/home-office-1.jpg
-tags: [java]
+tags: [Java]
 ---
 
 Session and cookie
@@ -10,7 +10,7 @@ Session and cookie
 <br>
 
 ## Table of contents
-- 
+- []()
 - [Wrapping up](#wrapping-up)
 
 <br>

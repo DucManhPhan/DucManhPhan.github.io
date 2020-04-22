@@ -2,7 +2,7 @@
 layout: post
 title: MVC architecture pattern
 bigimg: /img/image-header/home-office-1.jpg
-tags: [architecture pattern, design pattern]
+tags: [Architecture Pattern]
 ---
 
 

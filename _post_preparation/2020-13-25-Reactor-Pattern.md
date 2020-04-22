@@ -2,7 +2,7 @@
 layout: post
 title: Reactor Pattern
 bigimg: /img/path.jpg
-tags: [design pattern]
+tags: [Design Pattern]
 ---
 
 <br>

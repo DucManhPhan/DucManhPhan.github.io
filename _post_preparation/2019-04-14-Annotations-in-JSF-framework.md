@@ -2,7 +2,7 @@
 layout: post
 title: Annotations in JSF framework
 bigimg: /img/image-header/california.jpg
-tags: [Java]
+tags: [Java, JSF]
 ---
 
 

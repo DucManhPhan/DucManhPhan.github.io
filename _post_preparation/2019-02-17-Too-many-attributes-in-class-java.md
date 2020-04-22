@@ -2,7 +2,7 @@
 layout: post
 title: Too many attributes in Java's class
 bigimg: /img/image-header/home-office-1.jpg
-tags: [design pattern, java]
+tags: [Java]
 ---
 
 

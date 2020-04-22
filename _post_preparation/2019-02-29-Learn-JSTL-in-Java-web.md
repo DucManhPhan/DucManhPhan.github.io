@@ -2,7 +2,7 @@
 layout: post
 title: Learn JSTL in Java web
 bigimg: /img/path.jpg
-tags: [Java]
+tags: [Java, Servlet]
 ---
 
 
