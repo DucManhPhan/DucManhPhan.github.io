@@ -194,7 +194,10 @@ Below is an image that describe the modified MVC architectural pattern.
 
 <br>
 
+
 Refer:
+
+[https://www.oracle.com/technetwork/java/architecture-142923.html](https://www.oracle.com/technetwork/java/architecture-142923.html)
 
 [https://www.oracle.com/technical-resources/articles/java/java-se-app-design-with-mvc.html](https://www.oracle.com/technical-resources/articles/java/java-se-app-design-with-mvc.html)
 
