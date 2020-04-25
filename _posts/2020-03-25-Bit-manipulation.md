@@ -2,7 +2,7 @@
 layout: post
 title: Bit manipulation
 bigimg: /img/image-header/home-office-2.jpg
-tags: [Algorithm]
+tags: [Algorithm, Bit Manipulation]
 ---
 
 In this article, we will learn how to use Bitwise operators and some tricks to deal with our common problems. Let's get started.
