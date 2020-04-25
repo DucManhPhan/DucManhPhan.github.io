@@ -29,7 +29,7 @@ There are some operators:
 - Bitwise Complement ```~```
 - Shift operator ```>>``` or ```<<```
 
-1. Bitwise AND &
+1. Bitwise AND ```&```
 
     ```java
     1 & 1 = 1
@@ -40,7 +40,7 @@ There are some operators:
 
     So if both bits are 1, then AND operator gives 1, otherwise 0.
 
-2. Bitwise OR |
+2. Bitwise OR ```|```
 
     ```java
     1 | 1 = 1
@@ -51,7 +51,7 @@ There are some operators:
 
     If either of bits are 1, then OR operator gives 1, otherwise 0.
 
-3. Bitwise XOR ^
+3. Bitwise XOR ```^```
 
     ```java
     1 ^ 1 = 0
@@ -71,7 +71,7 @@ There are some operators:
     //   = 0011  (3)
     ```
 
-4. Bitwise Complement ~
+4. Bitwise Complement ```~```
 
     ```java
     ~5 = ~0101 = 1010
