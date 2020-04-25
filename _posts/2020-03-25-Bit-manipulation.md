@@ -143,7 +143,7 @@ There are some operators:
         Languages handle arithmetic and logical right shifting in different ways. Java provides two right shift operators: >> does an arithmetic right shift and >>> does a logical right shift.
 
         ```java
-          1011 >> 1  →  1101
+        1011 >> 1  →  1101
         1011 >> 3  →  1111
 
         0011 >> 1  →  0001
