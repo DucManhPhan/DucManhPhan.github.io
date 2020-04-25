@@ -30,6 +30,15 @@ tags: [Java]
 
 
 
+    ```java
+    BufferedReader br = new BufferedReader(new InputStreamReader(System.in));   // speedup
+    // Note: String splitting and/or input parsing is needed afterwards
+
+    PrintWriter pr = new PrintWriter(new BufferedWriter(new OutputStreamWriter(System.out)));   // speedup
+    // PrintWriter allows us to use the pr.printf() method
+    // do not forget to call pr.close() before exitting our Java program
+    ```
+
 
 <br>
 
