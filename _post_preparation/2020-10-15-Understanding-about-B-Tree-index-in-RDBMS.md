@@ -12,8 +12,8 @@ tags: [MySQL, Index, Database]
 
 ## Table of contents
 - [Introduction to B-Tree Index](#introduction-to-b-tree-index)
-- []()
-- []()
+- [When to use]()
+- [How to use]()
 - [Benefits and Drawbacks](#benefits-and-drawbacks)
 - [Applications and Examples](#applications-and-examples)
 - [Wrapping up](#wrapping-up)
