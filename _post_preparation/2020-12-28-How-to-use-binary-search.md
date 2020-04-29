@@ -56,13 +56,18 @@ tags: [Algorithm]
 
 ## Source code
 
-1. 
+1. Iterative version
+
+    ```java
+
+    ```
 
 
+2. Recursive version
 
+    ```java
 
-2. 
-
+    ```
 
 
 Note:
@@ -85,7 +90,9 @@ Note:
 ## Some examples that uses Binary Search
 
 - [Am I A Fibonacci Number](http://www.codechef.com/problems/AMIFIB) (Simple)
+
 - [Codeforces:Eugeny and Play List](http://codeforces.com/problemset/problem/302/B) (Easy)
+
 - [Codeforces:Primes on Interval](http://codeforces.com/problemset/problem/237/C) (Medium)
 
 
@@ -102,5 +109,4 @@ Note:
 
 Refer:
 
-[Introducing InnoDB Cluster ebook]()
 
