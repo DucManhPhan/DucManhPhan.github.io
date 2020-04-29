@@ -79,8 +79,9 @@ public static int findMinElement(int[] arr) {
 }
 ```
 
-Time complexity: O(n) - n is the number of elements of this array
-Space complexity: O(1)
+The complexity of Linear Search:
+- Time complexity: O(n) - n is the number of elements of this array
+- Space complexity: O(1)
 
 <br>
 
@@ -169,8 +170,9 @@ public static int findMinElement(int[] arr) {
 }
 ```
 
-Time complexity: O(log(n)) - n is the number of elements of this array
-Space complexity: O(1)
+The complexity of Binary Search:
+- Time complexity: O(log(n)) - n is the number of elements of this array
+- Space complexity: O(1)
 
 <br>
 
