@@ -19,6 +19,7 @@ Let's get started.
 - [Asynchronous programming](#asynchronous-programming)
 - [Functional and Declarative programming](#functional-and-declarative-programming)
 - [Introduction to Spring Webflux](#introduction-to-spring-webflux)
+- [How Spring Webflux works](#how-spring-webflux-works)
 - [When to use](#when-to-use)
 - [Benefits and Drawbacks](#benefits-and-drawbacks)
 - [Wrapping up](#wrapping-up)
@@ -298,6 +299,20 @@ However, Project Reactor is the default and preferred reactive library to work w
 
 <br>
 
+## How Spring Webflux works
+
+All incoming requests come with a event handler and call back information. Request thread delegates the incoming requests to a thread pool (generally small number of threads) which delegate the request to it’s handler function and immediately start processing other incoming requests from request thread.
+
+When the handler function is complete, one of thread from pool collect the response and pass it to the call back function.
+
+To understanding about event loop, we can read about article [Understanding about Event Loop in Node.js](https://ducmanhphan.github.io/2020-01-12-Understanding-about-event-loop-in-Node.js/).
+
+In Spring WebFlux, we call reactive APIs/functions that return monos and fluxes and your controllers will return monos and fluxes. When you invoke an API that returns a mono or a flux, it will return immediately. The results of the function call will be delivered to you through the mono or flux when they become available.
+
+![](../img/Srping-webflux/reactive-architecture/how-source-code-spring-webflux-works.jpg)
+
+<br>
+
 ## When to use
 
 - When we want to work with asynchonous programming, non-blocking to improve performance of system.
@@ -334,3 +349,7 @@ However, Project Reactor is the default and preferred reactive library to work w
 Refer:
 
 [https://dzone.com/articles/spring-webflux-eventloop-vs-thread-per-request-mod](https://dzone.com/articles/spring-webflux-eventloop-vs-thread-per-request-mod)
+
+[Web on Reactive Stack with version 5.2.6.RELEASE](https://docs.spring.io/spring/docs/current/spring-framework-reference/web-reactive.html)
+
+[https://howtodoinjava.com/spring-webflux/spring-webflux-tutorial/](https://howtodoinjava.com/spring-webflux/spring-webflux-tutorial/)

@@ -141,6 +141,21 @@ sink.next(14L);
 sink.next(15L);
 ```
 
+```java
+EmitterProcessor<String> emitter = EmitterProcessor.create();
+FluxSink<String> sink = emitter.sink();
+emitter.publishOn(Schedulers.single())
+       .map(String::toUpperCase)
+       .filter(s -> s.startsWith("HELLO")) 
+       .delayElements(Duration.of(1000, MILLIS))
+       .subscribe(System.out::println);
+
+sink.next("Hello World!");
+sink.next("Goodbye World");
+sink.next("Again");
+Thread.sleep(3000);
+```
+
 <br>
 
 ## ReplayProcessor

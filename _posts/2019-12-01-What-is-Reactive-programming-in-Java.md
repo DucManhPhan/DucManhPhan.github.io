@@ -16,6 +16,7 @@ Let's get started.
 - [Reactive architecture](#reactive-architecture)
 - [How does Java implement Reactive programming ?](#how-does-java-implement-reactive-programming-?)
 - [Benefits and Drawbacks](#benefits-and-drawbacks)
+- [Some interview questions](#some-interview-questions)
 - [Wrapping up](#wrapping-up)
 
 <br>
@@ -148,6 +149,22 @@ Below is some parts of Reactor library:
 
 <br>
 
+## Some interview questions
+
+1. ```Flux<T>``` finite collection or infinite stream?
+
+    It depends on media type to decide.
+    - ```application/json``` --> finite collection (JSON array)
+
+        No back-pressure, Flux#collectToList (request all + buffer)
+
+    - ```text/event-stream```, ```application/stream+json``` --> infinite stream
+
+        Back-pressure with request(n), write, flush, repeat.
+
+
+<br>
+
 ## Wrapping up
 - Before Java 8, asynchronous non-blocking behavior was not obvious to implement for at least two reasons.
 
@@ -159,8 +176,16 @@ Below is some parts of Reactor library:
     - Monolithic: 200-300 requests/sec/host
     - Reactive: 10-20k requests/sec/host
 
+- Reactor project allows building high performance (low latency, high throughput) non-blocking asynchronous applications on JVM.
+
+    Reactor is desgined to be extraordinarily fast and can sustain throughput rates on order of 10's of millions of operations per second.
+
+    Make uses of the concept of Mechanical Sympathy built on top of Disruptor / RingBuffer.
+
 <br>
 
 [https://www.lightbend.com/blog/understand-reactive-architecture-design-and-programming-in-less-than-12-minutes](https://www.lightbend.com/blog/understand-reactive-architecture-design-and-programming-in-less-than-12-minutes)
 
 [https://dzone.com/articles/reactive-streams-in-java-9](https://dzone.com/articles/reactive-streams-in-java-9)
+
+[https://www.slideshare.net/InfoQ/servlet-vs-reactive-stacks-in-five-use-cases](https://www.slideshare.net/InfoQ/servlet-vs-reactive-stacks-in-five-use-cases)
