@@ -5,8 +5,9 @@ bigimg: /img/image-header/yourself.jpeg
 tags: [Node.js, Reactive Programming, Javascript]
 ---
 
+In this article, we will learn about Event Loop in Node.js, how it works and some components that are relevant to it. Based on the knowledge of Event Loop in Node.js, we will also understand the architecture of Vert.x toolkit.
 
-
+Let's get started.
 
 <br>
 
@@ -14,6 +15,8 @@ tags: [Node.js, Reactive Programming, Javascript]
 - [Given problem](#given-problem)
 - [Solution of Event Loop](#solution-of-event-loop)
 - [How Event Loop works in Node.js](#how-event-loop-works-in-node.js)
+- [Some other concepts in Event Loop](#some-other-concepts-in-event-loop)
+- [When to use](#when-to-use)
 - [Benefits and Drawbacks](#benefits-and-drawbacks)
 - [Applications and Examples](#applications-and-examples)
 - [Wrapping up](#wrapping-up)
@@ -23,11 +26,8 @@ tags: [Node.js, Reactive Programming, Javascript]
 
 ## Given problem
 
+Normally, in our web server, with each request we will create one threads to handle its action, especially in Spring MVC, ... But this way has some drawbacks that we need to know:
 
-
-
-
-The drawbacks of synchronous programming:
 - Creating multiple threads to handle requests at the same time makes our computer have multi-cores, RAMs, but verticle scaling has limit point. And the context-switching between requests consumes time and cost.
 
     Each threads can consumes 2 - 3 MB RAM.
@@ -58,7 +58,7 @@ const fs = require('fs');
 
 function someAsyncOperation(callback) {
   const startCallback = Date.now();
-  // assuming that reading file takes 98ms
+  // assuming that reading file takes 95ms
   fs.readFile('/path/to/file', callback);
 }
 
@@ -80,14 +80,13 @@ function main() {
 }
 
 main();
-
 ```
 
 Belows are some steps that is implemented in Node.js.
 
 1. **main()** function will be called. It will be loaded in **CallStack**.
 
-    After the **now()** method of Date class is called, main() method will be called.
+    After the **now()** method of Date class is called, **main()** method will be called.
 
     ![](../img/asynchronous-programming/event-loop/main-method-call-stack.png)
 
@@ -107,11 +106,55 @@ Belows are some steps that is implemented in Node.js.
 
     ![](../img/asynchronous-programming/event-loop/read-file-async.png)
     
-    But how does Node.js handle the reading file to finish? And how data from the asynchronous function **fs.readFile()** will be passed into callback function?
+    But we have some questions in this case.
+    - How does Node.js handle the reading file to finish?
+
+        We attach listeners to events, so whenever an event is fired the callback attached to the event is executed.
+    
+    - How data from the asynchronous function **fs.readFile()** will be passed into callback function?
     
     After that, **someAsyncOperation()** method will be pop off the CallStack.
 
-    If the call stack is empty, so if all previously invoked functions have returned their values and have been popped off the stack, the first item in the queue gets added to the call stack.
+    Due to the time of finishing the reading file takes 95 ms, and the timeout takes 100ms, so the **readFileAsync()** method will be pushed into Event Queue before the callback of **setTimeout()** method.
+    
+
+4. After **someAsyncOperation()** method, and **main()** method are got out of Call Stack, the Call Stack is empty.
+
+    ![](../img/asynchronous-programming/event-loop/empty-call-stack.png)
+
+    The Event Loop is a constantly running thread that checks if the call stack is empty then, proceeds to execute all the callbacks enqueued in the Event queue.
+
+    ```java
+    while (eventLoop.waitForTask()) {
+        eventLoop.processNextTask()
+    }
+    ```
+
+    Based on it, we can find that **readFileAsync()** callback method will be push into Call Stack. This callback will wait for 10 ms before finishing.
+    
+    ![](../img/asynchronous-programming/event-loop/push-read-file-async-into-call-stack.png)
+    
+    Then, the callback of **setTimeout()** method will be pushed into Call Stack to continuously proceed.
+
+    ![](../img/asynchronous-programming/event-loop/callback-settimeout-in-call-stack.png)
+
+    Finally, the callback of **setTimeout()** method will be poped out of call stack.
+
+<br>
+
+## Some other concepts in Event Loop
+
+- Job Queue
+
+    Job Queue was introduced in ES6. It's a layer on top of the Event Loop queue.
+
+- Microtask and Macrotask
+
+    We can refer an article about [Microtask and Macrotask: A Hands-on Approach](https://blog.bitsrc.io/microtask-and-macrotask-a-hands-on-approach-5d77050e2168).
+
+- Some phases of Event Loop
+
+    We can refer an article about [Phases of the Node JS Event Loop](https://medium.com/@kunaltandon.kt/process-nexttick-vs-setimmediate-vs-settimeout-explained-wrt-different-event-loop-phases-c0506b12921d).
 
 <br>
 
@@ -143,22 +186,16 @@ Belows are some steps that is implemented in Node.js.
 
 ## Applications and Examples
 
-
-
-
-<br>
-
-## Some questions related to Event Loop
-
-
+- Using event loop is applied in Vert.x, Spring Webflux.
 
 
 <br>
 
 ## Wrapping up
 
+- The Event Loop has one simple job — to monitor the Call Stack and the Callback Queue. If the Call Stack is empty, it will take the first event from the queue and will push it to the Call Stack, which effectively runs it.
 
-
+- If the call stack is empty, so if all previously invoked functions have returned their values and have been popped off the stack, the first item in the queue gets added to the call stack.
 
 <br>
 
