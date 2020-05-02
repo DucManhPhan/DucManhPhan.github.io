@@ -31,11 +31,11 @@ Dynamic Programming is mainly used when solutions of same subproblems are needed
 
 In dynamic programming, computed solutions to subproblems are stored in a table so that these don’t have to be recomputed. So Dynamic Programming is not useful when there are no common (overlapping) subproblems because there is no point storing the solutions if they are not needed again. 
 
-For example, Binary Search doesn’t have common subproblems. If we take an example of following recursive program for **Fibonacci Numbers**, there are many subproblems which are solved again and again.
+For example, Binary Search doesn't have common subproblems. If we take an example of following recursive program for **Fibonacci Numbers**, there are many subproblems which are solved again and again.
 
 ![](../img/Algorithm/dynamic-programming/Fibonacchi-Recursion.png)
 
-We can see that the function F(2) is being called 2 times. If we would have stored the value of F(2), then instead of computing it again, we could have reused the old stored value.
+We can see that the function **F(2)** is being called 2 times. If we would have stored the value of **F(2)**, then instead of computing it again, we could have reused the old stored value.
 
 There are following two different ways to store the values so that these values can be reused:
 - Memoization (Top Down)
@@ -48,7 +48,7 @@ There are following two different ways to store the values so that these values 
 
     The tabulated program for a given problem builds a table in bottom up fashion and returns the last entry from table. 
     
-    For example, for the same Fibonacci number, we first calculate fib(0) then fib(1) then fib(2) then fib(3) and so on. So literally, we are building the solutions of subproblems bottom-up.
+    For example, for the same Fibonacci number, we first calculate F(0), then F(1), then F(2), then F(3), and so on. So literally, we are building the solutions of subproblems bottom-up.
 
 <br>
 

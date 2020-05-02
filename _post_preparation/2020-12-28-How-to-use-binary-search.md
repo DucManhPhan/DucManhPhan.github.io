@@ -2,7 +2,7 @@
 layout: post
 title: How to use binary search
 bigimg: /img/image-header/yourself.jpeg
-tags: [Algorithm]
+tags: [Algorithm, Binary Search]
 ---
 
 
@@ -11,9 +11,13 @@ tags: [Algorithm]
 <br>
 
 ## Table of contents
-
-
-
+- [Given problem](#given-problem)
+- [Solution of Binary Search](#solution-of-binary-search)
+- [When to use](#when-to-use)
+- [Source code](#source-code)
+- [Some variants of Binary Search](#some-variants-of-binary-search)
+- [Some examples that uses Binary Search](#some-examples-that-uses-binary-search)
+- [Wrapping up](#wrapping-up)
 
 
 <br>
