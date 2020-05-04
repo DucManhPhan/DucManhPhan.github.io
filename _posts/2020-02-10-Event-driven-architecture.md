@@ -5,8 +5,7 @@ bigimg: /img/image-header/yourself.jpeg
 tags: [Architecture Pattern]
 ---
 
-
-
+In this article, we will learn how to use Event-driven architecture pattern, and apply it in Axon framework. Let's get started.
 
 <br>
 
@@ -154,8 +153,9 @@ We can refer the [source code of Event-driven architecture on Github]().
 
 ## Wrapping up
 
+- Understanding about Event-driven architecture pattern, benefits and drawbacks.
 
-
+- Dig deeper into using Axon framework to combine DDD and Event-driven architecture.
 
 <br>
 
