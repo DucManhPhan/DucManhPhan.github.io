@@ -55,6 +55,8 @@ There are following two different ways to store the values so that these values 
 ## Optimal Substructure Property
 A given problems has **Optimal Substructure Property** if optimal solution of the given problem can be obtained by using optimal solutions of its subproblems.
 
+
+
 <br>
 
 ## Some steps to solve DP problem
@@ -92,6 +94,22 @@ Steps to solve a DP
     his is the easiest part of a dynamic programming solution. We just need to store the state answer so that next time that state is required, we can directly use it from our memory.
 
     Another way is to add tabulation and make solution iterative. 
+
+<br>
+
+## 
+
+
+
+
+
+<br>
+
+## Wrapping up
+
+
+
+
 
 <br>
 
