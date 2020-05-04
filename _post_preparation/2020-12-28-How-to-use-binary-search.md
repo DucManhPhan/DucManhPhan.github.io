@@ -99,7 +99,7 @@ Note:
 
 - [Codeforces:Primes on Interval](http://codeforces.com/problemset/problem/237/C) (Medium)
 
-
+- [VNOI examples](http://vnspoj.blogspot.com/p/blog-page_49.html)
 
 
 <br>
