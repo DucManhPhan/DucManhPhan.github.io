@@ -57,7 +57,7 @@ A relational database is a digital database based on the relational model of dat
 
 1. Background of RDBMS works
 
-
+    
 
 
 2. Detail of RDBMS works

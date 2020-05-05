@@ -18,7 +18,7 @@ tags: [MySQL, Database]
 
 <br>
 
-## 
+## Introduction to Engines in MySQL
 
 
 
@@ -27,7 +27,7 @@ tags: [MySQL, Database]
 
 <br>
 
-## 
+## MyISAM engine
 
 
 
@@ -36,7 +36,15 @@ tags: [MySQL, Database]
 
 <br>
 
-## 
+## INNODB engine
+
+
+
+
+
+<br>
+
+## MEMORY engine
 
 
 
@@ -49,9 +57,13 @@ tags: [MySQL, Database]
 
 
 
+
 <br>
 
 Refer:
 
 [Introducing InnoDB Cluster ebook]()
 
+[http://kienthucweb.net/tim-hieu-ve-cac-storage-engine-trong-mysql.html](http://kienthucweb.net/tim-hieu-ve-cac-storage-engine-trong-mysql.html)
+
+[http://kienthucweb.net/huong-dan-lap-index-cho-truong-trong-csdl-mysql.html](http://kienthucweb.net/huong-dan-lap-index-cho-truong-trong-csdl-mysql.html)
