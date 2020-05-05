@@ -66,3 +66,6 @@ Refer:
 
 [https://gravitymodel.net/database-architecture-and-cap-theory/](https://gravitymodel.net/database-architecture-and-cap-theory/)
 
+[https://techmaster.vn/posts/35127/nhung-diem-khac-biet-giua-sql-va-nosql](https://techmaster.vn/posts/35127/nhung-diem-khac-biet-giua-sql-va-nosql)
+
+[https://viblo.asia/p/nosql-database-WEMkBjZykQK](https://viblo.asia/p/nosql-database-WEMkBjZykQK)

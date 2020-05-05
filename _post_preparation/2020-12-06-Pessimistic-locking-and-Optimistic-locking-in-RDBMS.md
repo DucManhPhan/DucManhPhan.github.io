@@ -64,7 +64,7 @@ To overcome this problem, we need to protect our data from multiple requests tha
 
 ## Pessimistic locking
 
-
+http://coding-geek.com/how-databases-work/
 
 
 
