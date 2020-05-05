@@ -2,9 +2,8 @@
 layout: post
 title: Understanding B tree
 bigimg: /img/image-header/ravashing-beach.jpg
-tags: [data structure]
+tags: [Data Structure, Tree]
 ---
-
 
 
 
@@ -13,8 +12,16 @@ tags: [data structure]
 ## Table of contents
 - [Introduction to B tree](#introduction-to-b-tree)
 - [Properties in B tree](#properties-in-b-tree)
-- [Source code C++/Java/Javascript](#source-code-c++-java-javascript)
+- [Source code](#source-code)
 - [Wrapping up](#wrapping-up)
+
+
+<br>
+
+## Given problem
+
+
+
 
 
 <br>
@@ -36,7 +43,22 @@ tags: [data structure]
 
 <br>
 
-## Source code C++/Java/Javascript
+## Source code
+
+
+
+
+
+<br>
+
+## When to use
+
+
+
+
+<br>
+
+## Benefits and Drawbacks
 
 
 

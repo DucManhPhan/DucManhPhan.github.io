@@ -28,7 +28,7 @@ But from two tier architecture, n-tier architecture, we have multiple users in o
 Belows are some problems that we have to deal with.
 - Lost update
 
-    Assuming that we have Person 1 and Person that interact with our database such as Employee table.
+    Assuming that we have Person 1 and Person 2 that interact with our database such as Employee table.
 
     |   Time   |        Person 1        |        Person 2        |
     | -------- | ---------------------- | ---------------------- |

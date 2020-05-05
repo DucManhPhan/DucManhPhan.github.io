@@ -2,7 +2,7 @@
 layout: post
 title: Quicksort
 bigimg: /img/image-header/california.jpg
-tags: [Algorithm]
+tags: [Algorithm, Sorting]
 ---
 
 

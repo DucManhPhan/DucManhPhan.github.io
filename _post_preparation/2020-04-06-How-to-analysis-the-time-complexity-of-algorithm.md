@@ -55,4 +55,6 @@ Refer:
 
 [Competitive Programmer's Handbook]()
 
-[]()
+[Algorithms - Design techniques and Analysis book]()
+
+[Guide to Competitive Programming - Learning and Improving Algorithms through Contests]()
