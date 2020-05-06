@@ -58,7 +58,6 @@ Some types of Two pointers technique:
     Finally, we also have some examples to practice.
     - [https://leetcode.com/problems/linked-list-cycle/](https://leetcode.com/problems/linked-list-cycle/)
 
-    - [https://leetcode.com/problems/linked-list-cycle/](https://leetcode.com/problems/linked-list-cycle/)
 
 <br>
 
