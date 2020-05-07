@@ -18,7 +18,7 @@ tags: [Algorithm]
 
 <br>
 
-## 
+## Given problem
 
 
 
@@ -27,7 +27,7 @@ tags: [Algorithm]
 
 <br>
 
-## 
+## Solution of BFS algorithm
 
 
 
@@ -36,8 +36,30 @@ tags: [Algorithm]
 
 <br>
 
-## 
+## BFS algorithm with recursive version
 
+To recursively traverse a binary tree in a DFS fashion, we can start from the root and at every step, make two recursive calls one for the left and one for the right child.
+
+
+
+
+<br>
+
+## BFS algorithm with iterative version
+
+
+
+
+<br>
+
+## When to use
+
+- When we want to search for a root-to-leaf path.
+
+
+<br>
+
+## Benefits and Drawbacks
 
 
 
