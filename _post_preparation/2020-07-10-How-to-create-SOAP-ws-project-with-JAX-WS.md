@@ -56,4 +56,4 @@ Refer:
 
 [https://www.journaldev.com/9123/jax-ws-tutorial](https://www.journaldev.com/9123/jax-ws-tutorial)
 
-
+[https://terasolunaorg.github.io/guideline/5.2.1.RELEASE/en/ArchitectureInDetail/WebServiceDetail/SOAP.html](https://terasolunaorg.github.io/guideline/5.2.1.RELEASE/en/ArchitectureInDetail/WebServiceDetail/SOAP.html)
