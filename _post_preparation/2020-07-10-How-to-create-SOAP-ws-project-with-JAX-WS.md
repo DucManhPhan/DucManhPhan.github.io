@@ -18,7 +18,7 @@ tags: [Java, Soap ws, J2ee]
 
 <br>
 
-## 
+## Introduction to JAX-WS
 
 
 
@@ -27,7 +27,7 @@ tags: [Java, Soap ws, J2ee]
 
 <br>
 
-## 
+## The structure of JAX-WS
 
 
 
@@ -36,7 +36,7 @@ tags: [Java, Soap ws, J2ee]
 
 <br>
 
-## 
+## Source code
 
 
 
@@ -57,3 +57,5 @@ Refer:
 [https://www.journaldev.com/9123/jax-ws-tutorial](https://www.journaldev.com/9123/jax-ws-tutorial)
 
 [https://terasolunaorg.github.io/guideline/5.2.1.RELEASE/en/ArchitectureInDetail/WebServiceDetail/SOAP.html](https://terasolunaorg.github.io/guideline/5.2.1.RELEASE/en/ArchitectureInDetail/WebServiceDetail/SOAP.html)
+
+[https://www.w3.org/TR/soap/](https://www.w3.org/TR/soap/)
