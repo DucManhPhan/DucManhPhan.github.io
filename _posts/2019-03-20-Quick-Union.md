@@ -2,7 +2,7 @@
 layout: post
 title: Quick Union
 bigimg: /img/image-header/california.jpg
-tags: [Data structure]
+tags: [Data Structure]
 ---
 
 In this tutorial, we will discuss about Quick - Union to understand all of it. Then, we can know about which problem will be applied Quick-Union.
