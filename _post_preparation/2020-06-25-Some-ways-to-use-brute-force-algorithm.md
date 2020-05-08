@@ -12,11 +12,12 @@ tags: [Algorithm]
 
 ## Table of contents
 - [Introduction to brute force algorithm](#introduction-to-brute-force-algorithm)
-- [Brute-force algorithm with search element in array](#brute-force-algorithm-with-search-element-in-array)
-- [Brute force algorithm with Bubble Sort](#brute-force-algorithm-with-bubble-sort)
-- [Brute force algorithm with subarray sum](#brute-force-algorithm-with-subarray-sum)
-- [Brute force algorithm with palindrome string](brute-force-algorithm-with-palindrome-string)
+- [Search an element in an array](#search-an-element-in-an-array)
+- [Sorting an array](#sorting-an-array)
+- [Find subarray sum](#find-subarray-sum)
+- [Palindrome string](#palindrome-string)
 - [When to use](#when-to-use)
+- [Benefits and Drawbacks](#benefits-and-drawbacks)
 - [Wrapping up](#wrapping-up)
 
 
@@ -31,7 +32,7 @@ For example, we have a dictionary, and we want to find a word in it. With brute 
 
 <br>
 
-## Brute-force algorithm with search element in array
+## Search an element in an array
 
 To search element in an array, we will apply brute force algorithm by scanning all array's elements.
 
@@ -92,7 +93,7 @@ The complexity of this optimal solution:
 
 <br>
 
-## Brute force algorithm with Bubble Sort
+## Sorting an array
 
 To apply brute force in sorting element in an array, we can do like the above:
 
@@ -146,7 +147,7 @@ public void sort(int[] nums) {
 
 <br>
 
-## Brute force algorithm with subarray sum
+## Find subarray sum
 
 
 
@@ -154,7 +155,7 @@ public void sort(int[] nums) {
 
 <br>
 
-## Brute force algorithm with palindrome string
+## Palindrome string
 
 
 
@@ -186,8 +187,4 @@ public void sort(int[] nums) {
 
 
 
-
-<br>
-
-Refer:
 
