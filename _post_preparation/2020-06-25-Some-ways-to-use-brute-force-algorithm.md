@@ -14,8 +14,8 @@ tags: [Algorithm]
 - [Introduction to brute force algorithm](#introduction-to-brute-force-algorithm)
 - [Search an element in an array](#search-an-element-in-an-array)
 - [Sorting an array](#sorting-an-array)
-- [Find subarray sum](#find-subarray-sum)
-- [Palindrome string](#palindrome-string)
+- [Find the contiguous subarray has largest sum](#find-the-contiguous-subarray-has-largest-sum)
+- [Longest palindrome substring](#longest-palindrome-substring)
 - [When to use](#when-to-use)
 - [Benefits and Drawbacks](#benefits-and-drawbacks)
 - [Wrapping up](#wrapping-up)
@@ -147,26 +147,150 @@ public void sort(int[] nums) {
 
 <br>
 
-## Find subarray sum
+## Find the contiguous subarray has largest sum
 
+Given an integer array nums, find the contiguous subarray (containing at least one number) which has the largest sum and return its sum.
 
+For example:
 
+```
+Input: [-2, 1, -3, 4, -1, 2, 1, -5, 4],
+Output: 6
+Explanation: [4,-1,2,1] has the largest sum = 6.
+```
+
+To apply the brute force algorithm, we need to scan subarray with the dynamic length. It means that:
+- the outter loop will be used to set the **start index** of a subarray.
+- the inner loop will be used to set the **last index** of a subarray.
+- the most inner loop will loop from **start index** to **last index**.
+
+Below is a source code for this problem:
+
+```java
+public int maxSubArray(int[] nums) {
+    int len = nums.length;
+    int max = Integer.MIN_VALUE;
+
+    for (int start = 0; start < len; ++start) {
+        for (int end = start + 1; end <= len; ++end) {
+            int sum = 0;
+            for (int i = start; i < end; ++i) {
+                sum += nums[i];
+            }
+
+            max = Math.max(max, sum);
+        }
+    }
+
+    return max;
+}
+```
 
 
 <br>
 
-## Palindrome string
+## Longest palindrome substring
 
+Given a string s, find the longest palindromic substring in s. You may assume that the maximum length of s is 1000.
 
+For example:
 
+```
+Example 1:
+Input: "babad"
+Output: "bab"
+Note: "aba" is also a valid answer.
 
+Example 2:
+Input: "cbbd"
+Output: "bb"
+```
+
+With this problem, we can use brute force with some ways:
+1. scan all substring that we can. We can use the similar idea in the section [Find the contiguous subarray has largest sum](#find-the-contiguous-subarray-has-largest-sum).
+
+    - Based on the start index and last index of substring.
+
+        ```java
+        public void subString(String str) {
+            int n = str.length();
+
+            for (int start = 0; start < n; ++start) {
+                for (int end = start + 1; end <= n; ++end) {
+                    String subString = str.substring(start, end);
+                    System.out.println(subString);
+                }
+            }
+        }
+        ```
+
+    - Based on the length of each substring.
+
+        ```java
+        public void subString(String str) {
+            int n = str.length();
+
+            for (int len = 1; len <= n; ++len) {
+                for (int start = 0; start <= n - len; ++start) {
+                    String subString = str.substring(start, start + len);
+                    System.out.println(subString);
+                }
+            }
+        }
+        ```
+
+    The complexity of this solution:
+    - Time complexity: O(n^3)
+    - Space complexity: O(1)
+
+    To check the substring is palindromic string, we can refer the other article [Palindrome string]().
+
+2. At each character currently, we will expand both left and right side to check this substring is palindrome or not.
+
+    Below is the source code of this problem.
+
+    ```java
+    private static int lo;
+    private static int maxLen;
+
+    public static String longestPalindrome(String s) {
+    int len = s.length();
+        if (len < 2) {
+            return s;
+        }
+
+        for (int i = 0; i < len - 1; i++) {
+            makePalindrome(s, i, i);
+            makePalindrome(s, i, i + 1);
+        }
+
+        return s.substring(lo, lo + maxLen);
+    }
+
+    public static void makePalindrome(String s, int j, int k) {
+        while (j >= 0 && k < s.length() && s.charAt(j) == s.charAt(k)) {
+            j--;
+            k++;
+        }
+
+        if (maxLen < k - j - 1) {
+            lo = j + 1;
+            maxLen = k - j - 1;
+        }
+    }
+    ```
+
+    The complexity of this solution:
+    - Time complexity: O(n^2)
+    - Space complexity: O(1)
 
 <br>
 
 ## When to use
 
+- In interview, we should always start from the brute force algorithm. Then, identify some problems of this solution, and optimize it.
 
-
+- When we want to find all possible results of this problem.
 
 <br>
 
@@ -185,6 +309,11 @@ public void sort(int[] nums) {
 
 ## Wrapping up
 
+- Understanding some above ways to apply brute force in our problem.
 
 
+<br>
 
+Refer:
+
+[https://medium.com/@chyanpin/solving-leetcodes-longest-palindrome-substring-challenge-60eaffd7929a](https://medium.com/@chyanpin/solving-leetcodes-longest-palindrome-substring-challenge-60eaffd7929a)

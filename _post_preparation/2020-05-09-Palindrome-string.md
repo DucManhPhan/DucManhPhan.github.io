@@ -1,10 +1,9 @@
 ---
 layout: post
-title: Reverse Linked List
+title: Palindrome string
 bigimg: /img/image-header/yourself.jpeg
-tags: [Data Structure, Linked List, Slow-Fast Pointers]
+tags: [Stack, ]
 ---
-
 
 
 
@@ -49,3 +48,8 @@ tags: [Data Structure, Linked List, Slow-Fast Pointers]
 
 
 
+<br>
+
+Refer:
+
+[]()

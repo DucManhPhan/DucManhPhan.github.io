@@ -60,6 +60,14 @@ tags: [Java, Reactive programming, Spring]
 
 <br>
 
+## Some tips to use WebClient efficiently
+
+https://piotrminkowski.com/2020/03/30/a-deep-dive-into-spring-webflux-threading-model/
+
+
+
+<br>
+
 ## The comparison of WebClient with RestTemplate
 
 - non-blocking, reactive, and supports higher concurrency with less hardware resources.
