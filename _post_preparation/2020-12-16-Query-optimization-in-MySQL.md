@@ -1,6 +1,6 @@
 ---
 layout: post
-title: Optimize the query statement in database
+title: Query optimization in MySQL
 bigimg: /img/image-header/home-office-2.jpg
 tags: [Database]
 ---
@@ -37,7 +37,7 @@ So, in this article, we will list some ways to optimize query database.
 
 <br>
 
-## 
+## Introduction to MySQL
 
 
 
