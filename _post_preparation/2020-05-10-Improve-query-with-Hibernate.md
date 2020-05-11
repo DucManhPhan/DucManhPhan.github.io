@@ -46,7 +46,7 @@ tags: [Java, Hibernate]
 
 ## Wrapping up
 
-
+- JTA is an API, not an implementation, and it does not actually provide transactions, only a way to manage them. If we use JTA in an environment outside of an application server, for example, we have have provide a JTA implementation as well.
 
 
 <br>

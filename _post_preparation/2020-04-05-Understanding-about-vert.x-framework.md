@@ -155,18 +155,20 @@ tags: [Vert.x, Java]
 ## Benefits and Drawbacks
 1. Benefits
 
+    - Handle multiple requests at the same time, because it has the number of Event Loop is equal to the number of CPU cores.
 
-
+    - Multiple languages can use Vert.x framework. So, it is very suitable for Microservice architecture because each service can be use the different language to develop based on Vert.x framework.
 
 2. Drawbacks
 
+    - It's difficult to touch for the Vert.x's newbies.
 
-
+    - If we use the wrong way with Vert.x such as blocking the main thread, it will makes our application slow down.
 
 <br>
 
 ## Wrapping up
-- SpringBoot serves hundreds of requests just fine
+- SpringBoot serves hundreds of requests just fine.
 
 
 

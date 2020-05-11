@@ -88,6 +88,8 @@ In order to understand about the components of Query Manager and how they works,
     SELECT name FROM CUSTOMER LIMIT 10;
     ```
 
+    Retrieving all columns can prevent optimizations such as covering indexes, as well as adding I/O, memory, and CPU overhead for the server.
+
 2. Fetching more columns by using join command with multiple table
 
     We should select some specific columns in join commands.
