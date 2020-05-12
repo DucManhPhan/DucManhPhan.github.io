@@ -5,7 +5,7 @@ bigimg: /img/image-header/factory.jpg
 tags: [Database]
 ---
 
-
+All content of this article is refer from the website [https://employment.en-japan.com/engineerhub/entry/2017/09/05/110000](https://employment.en-japan.com/engineerhub/entry/2017/09/05/110000).
 
 <br>
 
@@ -249,6 +249,10 @@ Belows are some concepts about read phenomena with an example is that we have tw
 
     In the SERIALIZABLE isolation mode, Query 1 would result in all records with age in the range 10 to 30 being locked, thus Query 2 would block until the first transaction was committed. In REPEATABLE READ mode, the range would not be locked, allowing the record to be inserted and the second execution of Query 1 to include the new row in its results.
 
+By default, MySQL use REPEATABLE READ isolation level. With this transaction isolation level, there is no concern that the data to be read will be changed by another transaction. However, phantom read may occur. MySQL uses mechanism called Next Key Locking to avoid this problem.
+
+By default, PostgreSQL use READ COMMITTED isolation level. With this way, phantom read and non-repeatable read may occur, so it is necessary to be careful. In PostgreSQL, even if the transaction isolation level is changed to REPEATABLE READ, the Next Key Locking is not taken and phantom read is prevented by a different method. Therefore, it may be better than MySQL in that it is easier to prevent lock contention.
+
 <br>
 
 ## Stored procedures and triggers
@@ -306,9 +310,11 @@ PostgreSQL will only support physical replication.
 
 ## Wrapping up
 
-- Using MySQL 
+- MySQL is suitable for simple web services. It's like getting a set of data and display that data. For example, a service that display the beginning of the timeline and scrolls down to read the next data, such as Twitter, is particularly suitable for MySQL.
 
-- Using PostgreSQL
+- PostgreSQL has the greatest advantage of being multi-functional. So it is suitable for systems where its feature can be used. It's often used in analytical systems.
+
+- In the latest version of MySQL, it's improved about performance and some functionalities. So the differences between MySQL and PostgreSQL will be reduced.
 
 
 <br>
