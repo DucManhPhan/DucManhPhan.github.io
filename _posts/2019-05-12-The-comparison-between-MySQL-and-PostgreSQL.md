@@ -154,29 +154,34 @@ Nested Loop Join are the best choice when the tables being joined have a small a
 There are four transaction isolation level:
 - REPEATABLE READ
 
-    Read locks and write locks are acquired. This isolation level does not permit dirty reads or non-repeatable reads. It also does not acquire a range lock, which means it permits phantom reads. A read lock prevents any write locks from being acquired by other concurrent transaction. This level can still have some scalability issues.
+    It's the most restrictive isolation level.
+
+    Read locks and write locks are acquired. It means that reading transactions block writing transactions (but not other reading transactions), and writing transactions block all other transactions.
+    
+    This isolation level does not permit dirty reads or non-repeatable reads. It also does not acquire a range lock, which means it permits phantom reads. A read lock prevents any write locks from being acquired by other concurrent transaction. This level can still have some scalability issues.
 
 - READ COMMITTED
 
-    Read locks are acquired and released immediately, and write locks are acquired and released at the end of the transaction. Dirty read are not allowed in this isolation level, but non-repeatable reads and phantom reads are permitted. By using the combination of persistent context and versioning, we can achieve the REPEATABLE READ isolation level.
+    Read locks are acquired and released immediately, and write locks are acquired and released at the end of the transaction. It means that reading transactions do not block other transactions from accessing a row. However, an uncommitted writting transaction blocks all other transactions from accessing the row.
+    
+    Dirty read are not allowed in this isolation level, but non-repeatable reads and phantom reads are permitted. By using the combination of persistent context and versioning, we can achieve the REPEATABLE READ isolation level.
 
 - READ UNCOMMITTED
 
-    Changes made by one transaction are made visible to other transactions before they're committed. All types of reads, including dirty reads, are permitted. This isolation level is not recommended for use. If a transaction's uncommitted changes are rolled back, other concurrent transaction may be seriously affected.
+    It's the lowest isolation level.
+
+    Changes made by one transaction are made visible to other transactions before they're committed. All types of reads, including dirty reads, are permitted, but do not permit lost updates. This isolation level is not recommended for use. If a transaction's uncommitted changes are rolled back, other concurrent transaction may be seriously affected.
+
+    One transaction may not write to a row if another uncommitted transaction has already written to it. Any transaction may read any row, however. This isolation level may be implemented using exclusive write locks.
 
 - SERIALIZABLE
+
+    It's the highest isolation level.
 
     Transactions are executed serially, one after the other. This isolation level allows a transaction to acquire read locks or write locks for the entire range of data that it affects. The SERIALIZABLE isolation level prevents dirty reads, non-repeatable reads, and phantom reads, but it can cause scalability issues for an application.
 
 
-So, summarize the reads that are permitted for various isolation reads.
-
-|           Isolation Level           |       Dirty Read       |      Non-repeatable Read        |         Phantom Read         |
-| ----------------------------------- | ---------------------- | ------------------------------- | ---------------------------- |
-| Serializable                        | _                      | _                               | _                            |
-| Repeatable Read                     | _
-
-Belows are some concepts about read phenomena with an example is that we have two transactions work on the **users** table that has some fields - id, name, and age.
+Belows are some concepts about several phenomena with an example is that we have two transactions work on the **users** table that has some fields - id, name, and age.
 
 |  id  | name | age |
 | ---- | ---- | --- |
@@ -248,6 +253,24 @@ Belows are some concepts about read phenomena with an example is that we have tw
     Transaction 1 executed the same query twice. If the highest level of isolation were maintained, the same set of rows should be returned both times, and indeed that is what is mandated to occur in a database operating at the SQL SERIALIZABLE isolation level. However, at the lesser isolation levels, a different set of rows may be returned the second time.
 
     In the SERIALIZABLE isolation mode, Query 1 would result in all records with age in the range 10 to 30 being locked, thus Query 2 would block until the first transaction was committed. In REPEATABLE READ mode, the range would not be locked, allowing the record to be inserted and the second execution of Query 1 to include the new row in its results.
+
+- Lost update
+
+    Two transactions both update a row and then the second transactions aborts, causing both changes to be lost. This occurs in systems that don't implement any locking. This concurrent transaction aren't isolated.
+
+- Second lost updates problem
+
+    A special case of an non-repeatable read. Imagine that two concurrent transactions both read a row, one writes to it and commits, and then the second writes to it and commits. The changes made by the first writer are lost.
+
+
+So, summarize the reads that are permitted for various isolation reads.
+
+|           Isolation Level           |     Lost update        |       Second lost update        |             Dirty Read       |      Non-repeatable Read        |         Phantom Read         |
+| ----------------------------------- | ---------------------- | ------------------------------- | ---------------------------- | ------------------------------- | ---------------------------- |
+| Serializable                        | _                      | _                               | _                            | _                               | _                            |
+| Repeatable Read                     | _                      | _                               | _                            | _                               | May occur                    |
+| Read Committed                      | _                      | _                               | _                            | May occur                       | May occur                    |
+| Read Uncommitted                    | _                      | _                               | May occur                    | May occur                       | May occur                    |
 
 By default, MySQL use REPEATABLE READ isolation level. With this transaction isolation level, there is no concern that the data to be read will be changed by another transaction. However, phantom read may occur. MySQL uses mechanism called Next Key Locking to avoid this problem.
 
