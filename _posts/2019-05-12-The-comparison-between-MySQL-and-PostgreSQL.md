@@ -10,15 +10,15 @@ All content of this article is refer from the website [https://employment.en-jap
 <br>
 
 ## Table of contents
-- [Some points to compare between MySQL and PostgreSQL]()
-- [Non-blocking of DDL operation]()
-- [DML sentence performance]()
-- [Table join (JOIN) algorithm]()
-- [Separation level of transaction processing]()
-- [Stored procedures and triggers]()
-- [Logical type and physical type of replication]()
-- [Convenient function only in either DB]()
-- [Looseness of data type, type conversion, character string comparison]()
+- [Some points to compare between MySQL and PostgreSQL](#some-points-to-compare-between-mysql-and-postgresql)
+- [Non-blocking of DDL operation](#non-blocking-of-ddl-operation)
+- [DML sentence performance](#dml-sentence-performance)
+- [Table join (JOIN) algorithm](#table-join-(JOIN)-algorithm)
+- [Separation level of transaction processing](#separation-level-of-transaction-processing)
+- [Stored procedures and triggers](#stored-procedures-and-triggers)
+- [Logical type and physical type of replication](#logical-type-and-physical-type-of-replication)
+- [Convenient function only in either DB](#convenient-function-only-in-either-db)
+- [Looseness of data type, type conversion, character string comparison](#looseness-of-data-type,-type-conversion,-character-string-comparison)
 - [Wrapping up](#wrapping-up)
 
 
