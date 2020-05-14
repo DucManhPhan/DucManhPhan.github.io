@@ -153,4 +153,3 @@ Refer:
 [https://dzone.com/articles/7-simple-tips-to-boost-the-performance-of-your-sql](https://dzone.com/articles/7-simple-tips-to-boost-the-performance-of-your-sql)
 
 [https://www.ibm.com/support/knowledgecenter/en/SSZLC2_7.0.0/com.ibm.commerce.developer.soa.doc/refs/rsdperformanceworkspaces.htm](https://www.ibm.com/support/knowledgecenter/en/SSZLC2_7.0.0/com.ibm.commerce.developer.soa.doc/refs/rsdperformanceworkspaces.htm)
-

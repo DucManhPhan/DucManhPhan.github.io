@@ -45,9 +45,6 @@ Belows are some problems that we have to deal with.
 
     This problem is related to the Commit/Rollback mechanism of the transaction management.
 
-    
-
-
 
 - Inconsistent analysis problem
 
