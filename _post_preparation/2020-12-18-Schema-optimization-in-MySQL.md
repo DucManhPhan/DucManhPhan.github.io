@@ -18,7 +18,7 @@ tags: [Database]
 
 <br>
 
-## 
+## Solution with Data types
 
 
 
@@ -27,7 +27,7 @@ tags: [Database]
 
 <br>
 
-## 
+## Solution with Default value
 
 
 

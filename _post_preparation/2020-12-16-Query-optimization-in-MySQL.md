@@ -76,7 +76,7 @@ In order to understand about the components of Query Manager and how they works,
 
 <br>
 
-## Solution with fetching so much data than needed
+## Solution with SELECT command
 
 1. Fetching more rows by using select  * command
 
@@ -104,7 +104,64 @@ In order to understand about the components of Query Manager and how they works,
 
 <br>
 
-## 
+## Solution with MySQL's logical operators
+
+1. LIKE operator
+
+    This operator will use wildcard operator to compare two values. With like operator, we have three types:
+    - full wildcard
+
+        ```sql
+        SELECT * FROM CUSTOMER WHERE CUSTOMER_NAME LIKE '%John%';
+        ```
+
+    - postfix wildcard
+
+        ```sql
+        SELECT * FROM CUSTOMER WHERE CUSTOMER_NAME LIKE 'John%';
+        ```
+
+    - prefix wildcard
+
+        ```sql
+        SELECT * FROM CUSTOMER WHERE CUSTOMER_NAME LIKE '%John';
+        ```
+
+    With full wildcard and prefix wildcard or **substr()** method, its time complexity is O(n) - n is the max length of target, based on the KMP algorithm for pattern matching.
+
+    With postfix wildcard, its time complexity is O(m) - m is the length of the pattern to search.
+
+    So, we can easily find that using postfix wildcard is the optimization way to deal with this problem.
+
+2. OR operator
+
+    Assuming that we have an select query like the below code:
+
+    ```sql
+    SELECT * FROM CUSTOMER WHERE CUSTOMER_NAME LIKE 'Marry%' OR CITY LIKE 'New%';
+    ```
+
+    To understand the drawbacks of OR operator, we can refer about this article [Optimizing OR (union) operations in MySQL](https://www.techfounder.net/2008/10/15/optimizing-or-union-operations-in-mysql/).
+
+    So, the optimizationay for this problem is to split the OR condition and combine it by using UNION clause because we can index for our field to improve performance of each query.
+
+    ```sql
+    SELECT * FROM CUSTOMER WHERE CUSTOMER_NAME LIKE 'Marry%'
+    UNION
+    SELECT * FROM CUSTOMER WHERE CITY LIKE 'New%';
+    ```
+
+    By default, UNION is usually went with DISTINCT keyword, it means that each result's row will be unique, so RDBMS will compare the current row with the previous rows, this way will reduce RDBMS's performance.
+
+    Then, we can use UNION ALL to replace with UNION. But using UNION ALL will makes our result to have some duplicated rows.
+
+3. NOT operator
+
+
+
+<br>
+
+## Solution with ORDER BY command
 
 
 
@@ -112,15 +169,7 @@ In order to understand about the components of Query Manager and how they works,
 
 <br>
 
-## 
-
-
-
-
-
-<br>
-
-## 
+## Solution with functions
 
 
 
@@ -130,6 +179,12 @@ In order to understand about the components of Query Manager and how they works,
 
 ## Wrapping up
 
+- Database performance tuning refers to a set of activities and procedures designed to reduce the response time of the database system, that is, to ensure that an end-user query is processed by the RDBMS by the DBMS in the minimum amount of time.
+
+    The time required by a query to return a result set depends on many factors. Those factors tend to be wide-ranging and to vary from environment to environment and from vendor to vendor. The performance of a typical DBMS is constrained by three main factors:
+    - CPU processing power
+    - available primary memory RAM
+    - input/output (hard disk and network) throughput.
 
 
 <br>
@@ -137,8 +192,6 @@ In order to understand about the components of Query Manager and how they works,
 Refer:
 
 [MySQL Query Optimization and Performance tuning]()
-
-[https://www.hungred.com/useful-information/ways-optimize-sql-queries/](https://www.hungred.com/useful-information/ways-optimize-sql-queries/)
 
 [https://www.sqlshack.com/query-optimization-techniques-in-sql-server-tips-and-tricks/](https://www.sqlshack.com/query-optimization-techniques-in-sql-server-tips-and-tricks/)
 
