@@ -11,23 +11,14 @@ tags: [Data Structure, Array]
 
 ## Table of contents
 - [Given problem](#given-problem)
-- [Solution](#solution)
 - [Using brute force way](#using-brute-force-way)
+- []()
 - [Wrapping up](#wrapping-up)
 
 
 <br>
 
 ## Given problem
-
-
-
-
-
-
-<br>
-
-## Solution
 
 
 
