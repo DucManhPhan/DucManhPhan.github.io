@@ -29,6 +29,7 @@ Brute force algorithm is an algorithm that goes straight forward, through all ca
 
 For example, we have a dictionary, and we want to find a word in it. With brute force algorithm, we will go with the natural order - from A to Z of this dictionary. If this word starts with z character, it takes so much time to find it.
 
+So, in this article, we will learn how to use brute force algorithm for some specific problems.
 
 <br>
 

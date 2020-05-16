@@ -29,9 +29,9 @@ tags: [Database]
 
 ## Solution with Default value
 
-
-
-
+Benefits:
+- reduce the time that Query Manager implement.
+- improve the insert speed.
 
 
 <br>

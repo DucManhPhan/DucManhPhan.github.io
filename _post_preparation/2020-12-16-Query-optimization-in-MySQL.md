@@ -37,15 +37,24 @@ So, in this article, we will list some ways to optimize query database.
 
 <br>
 
-## Introduction to MySQL's Query Manager
-
-In order to understand about the components of Query Manager and how they works, we can read the article [How relational database works](https://ducmanhphan.github.io/2020-01-19-How-relational-database-works/).
+## Introduction to performance tuning
 
 
 
 
 
 <br>
+
+## Introduction to MySQL's Query Manager
+
+
+
+
+
+
+
+<br>
+
 
 ## Some reasons that makes a query perform slow
 
@@ -161,6 +170,48 @@ In order to understand about the components of Query Manager and how they works,
 
 <br>
 
+## Solution with conditional opertors
+
+1. Use simple columns or literals as operands in a conditional expression, means that avoid the use of conditional expressions with functions whenever possible.
+
+    - Comparing the contents of a single column to a literal is faster than comparing to expression.
+
+        Ex: price >= 10.00 is faster than price >= base_price * 2.30 because RDBMS must evaluate the **base_price * 2.30** expression first.
+
+    - The use of function in expressions also adds to the total query execution time.
+
+2. Numeric field comparisons are faster than character, date, and NULL comparisons.
+
+    In search conditions, comparing a numeric attribute to a numeric literal is faster than comparing a character attribute to a character literal. In general, the CPU handles numeric comparisons (integer and decimal) faster than character and date comparisons. Because indexes do not store references to null values, NULL conditions involve additional processing, and therefore, tend to be the slowest of all conditional operands.
+
+3. Equality comparisons are faster than inequality comparisons.
+
+    For example, price = 10.00 is processed faster because the RDBMS can do a direct search using the index in the column. If there are no exact matches, the condition is evaluated as false. However, if we use an inequality symbol (>, >=, <=, <), the RDBMS must perform additional processing to complete the request. The reason is that there will almost always be more **greater than** or **less than** values than exactly **equal** values in the index.
+
+4. Whenever possible, transform conditional expressions to use literals.
+
+    For example, price - 10 = 7, change it to read price = 17.
+
+    If we have a composite condition such as: ```a < b AND b = c AND a = 10``` change it to read: ```a = 10 AND b = c AND b > 10```.
+
+5. When using multiple conditional expressions, write the equality conditions first.
+
+6. If we use multiple AND conditions, write the condition most likely to be false first.
+    
+    If we use this technique, the RDBMS will stop evaluating the rest of the conditions as soon as it finds a conditional expression that is evaluated as false.
+
+7. When using multiple OR conditions, put the condition most likely to be true first.
+
+    By doing this, the RDBMS will stop evaluating the remaining conditions as soon as it finds a conditional expression that is evaluated as true.
+
+8. Whenever possible, try to avoid the use of the NOT logical operator.
+
+    It is best to transform SQL expression containing a NOT logical operator into an equivalent expression.
+
+    For example, ```NOT(price > 10)``` can be written as ```price <= 10```.
+
+<br>
+
 ## Solution with ORDER BY command
 
 
@@ -186,12 +237,28 @@ In order to understand about the components of Query Manager and how they works,
     - available primary memory RAM
     - input/output (hard disk and network) throughput.
 
+- The majority of performance-tuning activities focus on minimizing the number of I/O operations because using I/O operations in many times slower than reading data from the data cache.
+
+    For example, as of this writing, RAM access times range from 5 to 70 ns, while hard disk access times range from 5 to 15 ms. This means that hard disks are about six orders of magnitude (a million times) slower than RAM.
+
+    |              Operation            |                       Description                      |
+    | --------------------------------- | ------------------------------------------------------ |
+    | Table scan (full)                 | Reads the entire table sequentially, from the first row to the last row, one row at a time (slowest) |
+    | Table access (Row ID)             | Reads a table row directly, using the row ID value (fastest) |
+    | Index scan (range)                | Reads the index first to obtain the row IDs and then accesses the table rows directly (faster than a full table scan) |
+    | Index acess (unique)              | Used when a table has a unique index in a column |
+    | Nested Loop                       | Reads and compares a set of values to another set of values, using a nested loop style (slow) |
+    | Merge                             | Merges two data sets (slow) |
+    | Sort                              | Sorts a data set (slow)     |
+
 
 <br>
 
 Refer:
 
 [MySQL Query Optimization and Performance tuning]()
+
+[Database System: Design, Implementation, and Management ebook]()
 
 [https://www.sqlshack.com/query-optimization-techniques-in-sql-server-tips-and-tricks/](https://www.sqlshack.com/query-optimization-techniques-in-sql-server-tips-and-tricks/)
 
