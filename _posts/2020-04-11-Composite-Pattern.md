@@ -73,13 +73,12 @@ The leaf represents the leaf objects or nodes in the composition. It should be n
     This is done by configuring our objects into tree structures. Once our data is built by this way, we can treat individual objects the same as a composite object. In treating objects the same, we can apply operations or functions on both the individual and the composite, and expect them to work the same way.
 
 
-
 <br>
 
 ## Benefits & Drawback
 1. Benefits
 
-
+    - makes easily to add new kinds of components to our collection as long as they support a similar programming interface.
 
 
 2. Drawbacks
