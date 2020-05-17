@@ -35,7 +35,16 @@ In the above diagram, we can have some notes:
 
     So, it means that folder can be an instance of **Part** class of another folder as **Whole** class. But with an above diagram, the **Part**-**Whole** classes are different. So, in our code, **Whole** class also can contain its instances. It makes our code really complex because we treated **Part** and **Whole** instances differently.
 
-To solve this problem, we need to define an interface that have all common operations of Part and Whole class. Then, Part and Whole classes will inherit from this interface.
+Belows are some drawbacks of the above diagram:
+- difficult to traverse all elements of Whole.
+
+- violate the inheritance property.
+
+    In reality, Whole class can contains the other Whole class's instances and Part class's instances. So, Whole class can be considered as Part class. It's is-a relationship between Whole-Part class.
+
+    Then, we do not take advantage of polymorphism property to traverse dynamically.
+
+To solve these problem, we need to define an interface that have all common operations of Part and Whole class. Then, Part and Whole classes will inherit from this interface.
 
 So, we have Composite pattern.
 
