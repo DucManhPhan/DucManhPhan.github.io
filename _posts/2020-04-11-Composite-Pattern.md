@@ -92,7 +92,7 @@ The leaf represents the leaf objects or nodes in the composition. It should be n
 
 ## Code C++ /Java / Javascript
 
-To refer this pattern's code, we can read the [source code of Adapter pattern on Github](https://github.com/DucManhPhan/Design-Pattern/tree/master/Structural-Pattern/Composite-pattern).
+To refer this pattern's code, we can read the [source code of Composite pattern on Github](https://github.com/DucManhPhan/Design-Pattern/tree/master/Structural-Pattern/Composite-pattern).
 
 <br>
 
@@ -124,16 +124,15 @@ To refer this pattern's code, we can read the [source code of Adapter pattern on
 ## Contrast to other patterns
 
 Below is the comparison between the Composite pattern and the Decorator pattern.
+- With Composite patern
 
-    - With Composite patern
+    - It is a tree structure, its intent to make a leaf and a composite have the same interface to the client.
+    - It provides a unity between objects.
 
-        - It is a tree structure, its intent to make a leaf and a composite have the same interface to the client.
-        - It provides a unity between objects.
+- With Decorator pattern
 
-    - With Decorator pattern
-
-        - It contains another entity. This may sound like a composite, but it is really just composition. Composition is just an object containing another one.
-        - If differs in that the decorator modifies the behavior of the contained entity. This is usually adding functionality to an entity that it didn't originally have. It decorates the underlying object, but doesn't necessarily change it.
+    - It contains another entity. This may sound like a composite, but it is really just composition. Composition is just an object containing another one.
+    - If differs in that the decorator modifies the behavior of the contained entity. This is usually adding functionality to an entity that it didn't originally have. It decorates the underlying object, but doesn't necessarily change it.
 
 <br>
 
