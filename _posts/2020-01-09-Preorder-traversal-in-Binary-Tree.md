@@ -2,7 +2,7 @@
 layout: post
 title: Preorder traversal in Binary Tree
 bigimg: /img/image-header/yourself.jpeg
-tags: [Data Structure]
+tags: [Data Structure, Tree]
 ---
 
 
