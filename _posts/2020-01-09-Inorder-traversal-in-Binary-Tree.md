@@ -2,7 +2,7 @@
 layout: post
 title: Inorder traversal in Binary Tree
 bigimg: /img/image-header/yourself.jpeg
-tags: [Data Structure]
+tags: [Data Structure, Tree]
 ---
 
 
@@ -59,9 +59,9 @@ public void inorderTraversal(TreeNode root, List<Integer> res) {
 ## Using iterative version
 
 Some steps for the iterative version:
-- First, we will get all elements from the left side of the specific element.
-- 
-- 
+- First, we will get all elements from the left side of the specific element, push them into the stack.
+- Then, we will process this stack. Pop each element from the stack, and go to the right side of that element.
+
 
 Below is the source code for this version.
 
@@ -100,10 +100,5 @@ public List<Integer> inorderTraversal(TreeNode root) {
 
 ## Wrapping up
 
-
-
-
-<br>
-
-Refer:
+- Understanding about the way of the inorder traversal in binary tree.
 
