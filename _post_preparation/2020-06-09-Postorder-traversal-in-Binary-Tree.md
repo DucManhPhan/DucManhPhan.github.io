@@ -87,10 +87,51 @@ The complexity of this version:
     In this version, we will follow by some steps:
     - push the root node and the right node into the stack, but the root node will be pushed first, then the right node.
 
-    - but we need to differentiate between the root node and the right node by using the additional class that contains two fields that contains TreeNode's instance and boolean variable with false - the root node, true - the right node.
+    - but we need to differentiate between the root node and the right node by using the additional class that contains two fields that contains TreeNode's instance and boolean variable with ```false``` - the root node, ```true``` - the right node.
 
     ```java
+    class TreeNodeState {
+        TreeNode node;
+        boolean isRightNode;
 
+        TreeNodeState(TreeNode node, boolean isRightNode) {
+            this.node = node;
+            this.isRightNode = isRightNode;
+        }
+    }
+
+    public List<Integer> postorderTraversal(TreeNode root) {
+        List<Integer> res = new ArrayList<>();
+        Stack<TreeNodeState> stk = new Stack<>();
+        stk.push(new TreeNodeState(null, false));   // mark the end of stack
+
+        TreeNode tmp = root;
+        boolean isRightNode = true;
+
+        do {
+            while (tmp != null && isRightNode) {
+                TreeNodeState stateRoot = new TreeNodeState(tmp, false);
+                stk.push(stateRoot);
+
+                if (tmp.right != null) {
+                    TreeNodeState stateRight = new TreeNodeState(tmp.right, true);
+                    stk.push(stateRight);
+                }
+
+                tmp = tmp.left;
+            }
+
+            if (tmp != null) {
+                res.add(tmp.val);
+            }
+
+            TreeNodeState poppedNode = stk.pop();
+            tmp = poppedNode.node;
+            isRightNode = poppedNode.isRightNode;
+        } while (tmp != null);
+
+        return res;
+    }
     ```
 
 2. Using one stack
