@@ -32,7 +32,7 @@ navbar-links:
   Data structure:
     - Array: "tags/#Array"
     - Linked List: "tags/#Linked List"
-    - Binary tree: 
+    - Tree: "tags/#Tree"
         # - Binary Search Tree: "Binary Search Tree"
         # - AVL: "AVL"
         # - Red-Black Tree: "Red-Black Tree"

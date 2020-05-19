@@ -11,9 +11,10 @@ tags: [Data Structure, Linked List]
 <br>
 
 ## Table of contents
-
-
-
+- [Given problem](#given-problem)
+- [Brute force solution](#brute-force-solution)
+- [The optimization way](#the-optimization-way)
+- [Wrapping up](#wrapping-up)
 
 
 <br>

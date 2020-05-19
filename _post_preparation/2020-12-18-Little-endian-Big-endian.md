@@ -1,8 +1,8 @@
 ---
 layout: post
-title: Knowledge about little endian and big endian
+title: Little Endian and Big Endian
 bigimg: /img/image-header/ravashing-beach.jpg
-tags: [Memory management]
+tags: [Memory Management]
 ---
 
 
