@@ -260,6 +260,8 @@ Refer:
 
 [Database System: Design, Implementation, and Management ebook]()
 
+[https://medium.com/better-programming/using-select-in-an-sql-query-is-a-bad-practice-a8f6beeca1da](https://medium.com/better-programming/using-select-in-an-sql-query-is-a-bad-practice-a8f6beeca1da)
+
 [https://www.sqlshack.com/query-optimization-techniques-in-sql-server-tips-and-tricks/](https://www.sqlshack.com/query-optimization-techniques-in-sql-server-tips-and-tricks/)
 
 [https://www.apriorit.com/dev-blog/381-sql-query-optimization](https://www.apriorit.com/dev-blog/381-sql-query-optimization)
