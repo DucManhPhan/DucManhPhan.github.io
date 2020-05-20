@@ -134,18 +134,8 @@ The complexity of this version:
     }
     ```
 
-2. Using one stack
-
-
-    ```java
-
-    ```
-
 <br>
 
 ## Wrapping up
 
-
-
-
-
+- Understanding about using stack with postorder traversal.
