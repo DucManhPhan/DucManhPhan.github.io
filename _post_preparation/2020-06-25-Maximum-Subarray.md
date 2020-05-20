@@ -2,7 +2,7 @@
 layout: post
 title: Maximum Subarray
 bigimg: /img/image-header/yourself.jpeg
-tags: [HashMap, Priority Queue]
+tags: [HashMap, Priority Queue, Divide & Conquer]
 ---
 
 
@@ -11,9 +11,10 @@ tags: [HashMap, Priority Queue]
 <br>
 
 ## Table of contents
-
-
-
+- [Given problem](#given-problem)
+- [Using HashMap and Priority Queue](#using-hashmap-and-priority-queue)
+- [Using Divide and Conquer algorithm](#using-divide-and-conquer-algorithm)
+- [Wrapping up](#wrapping-up)
 
 
 <br>
@@ -32,8 +33,7 @@ Explanation: [4,-1,2,1] has the largest sum = 6.
 
 <br>
 
-## Solution
-
+## Using HashMap and Priority Queue
 
 
 
@@ -41,10 +41,16 @@ Explanation: [4,-1,2,1] has the largest sum = 6.
 
 <br>
 
-## Use HashMap and Priority Queue
+## Using Divide and Conquer algorithm
 
+Below is a solution template for the divide and conquer problems :
+- Define the base case(s).
+- Split the problem into subproblems and solve them recursively.
+- Merge the solutions for the subproblems to obtain the solution for the original problem.
 
+```java
 
+```
 
 
 <br>
