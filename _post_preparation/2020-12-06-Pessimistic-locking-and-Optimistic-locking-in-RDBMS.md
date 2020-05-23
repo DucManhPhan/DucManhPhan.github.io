@@ -45,16 +45,27 @@ Belows are some problems that we have to deal with.
 
     This problem is related to the Commit/Rollback mechanism of the transaction management.
 
+    For example, assuming that we have two transaction T1 and T2.
+
+    |               T1              |               T2              |
+    | ----------------------------- | ----------------------------- |
+    | SELECT * FROM customer;       |                               |
+    |                               | UPDATE customer SET name = 'Johnson'; Rollback; | 
+    | SELECT * FROM customer;       |                               |
+
+    Based on the above example, we can find that the result of the second query of T1 transaction is different than the first query's result of T1 transaction.
+
+    Because T1 transaction can see the uncommitted data from T2 transaction.
 
 - Inconsistent analysis problem
-
-
 
 <br>
 
 ## Solution of locking in RDBMS
 
 To overcome this problem, we need to protect our data from multiple requests that interact the same table or row. So we need locking.
+
+
 
 
 <br>

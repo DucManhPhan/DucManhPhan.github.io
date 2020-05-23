@@ -11,20 +11,32 @@ tags: [Database]
 <br>
 
 ## Table of contents
-
-
+- [Given problem](#given-problem)
+- [Introduction to Join operators](#introduction-to-join-operators)
+- [Merge Join](#merge-join)
+- [Hash Join](#hash-join)
+- [Nested Loop Join](#nested-loop-join)
+- [Wrapping up](#wrapping-up)
 
 
 <br>
 
 ## Given problem
 
+Assuming that we have a join query such as:
 
+```sql
+SELECT customer.* FROM customer
+INNER JOIN order
+ON order.customer_id = customer.id;
+```
 
+Basically, we only understand that RDBMS will merge all fields of customer and order table, then select some specific fields of customer table.
+
+But how does join operation work? Because of be aware of it, we can optmize our join query to improve performance of system.
 
 
 <br>
-
 
 ## Introduction to Join operators
 

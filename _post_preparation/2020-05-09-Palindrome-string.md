@@ -2,7 +2,7 @@
 layout: post
 title: Palindrome string
 bigimg: /img/image-header/yourself.jpeg
-tags: [Stack, ]
+tags: [Data Structure, Stack]
 ---
 
 
