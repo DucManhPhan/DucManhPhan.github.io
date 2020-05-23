@@ -18,7 +18,7 @@ tags: [Algorithm]
 
 <br>
 
-## 
+## Given problem
 
 
 
@@ -27,7 +27,7 @@ tags: [Algorithm]
 
 <br>
 
-## 
+## Using brute-force algorithm
 
 
 
@@ -53,3 +53,4 @@ tags: [Algorithm]
 
 Refer:
 
+[]()
