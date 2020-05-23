@@ -172,7 +172,9 @@ Some conclusion for the implementation of Bubble sort:
 
 ## When to use
 
-- When the number of array's elements is small, and the order of its array is partialy sorted.
+- When the number of array's elements is small.
+
+- When the order of its array is partialy sorted.
 
 
 <br>
