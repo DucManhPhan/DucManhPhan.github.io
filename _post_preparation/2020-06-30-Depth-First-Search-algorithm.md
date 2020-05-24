@@ -1,6 +1,6 @@
 ---
 layout: post
-title: Prefix sum
+title: Depth First Search algorithm
 bigimg: /img/image-header/yourself.jpeg
 tags: [Algorithm]
 ---

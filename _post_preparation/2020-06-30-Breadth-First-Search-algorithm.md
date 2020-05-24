@@ -1,6 +1,6 @@
 ---
 layout: post
-title: Prefix sum
+title: Breadth First Search algorithm
 bigimg: /img/image-header/yourself.jpeg
 tags: [Algorithm]
 ---
