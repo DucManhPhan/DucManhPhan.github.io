@@ -2,7 +2,7 @@
 layout: post
 title: Depth First Search algorithm
 bigimg: /img/image-header/yourself.jpeg
-tags: [Algorithm]
+tags: [Algorithm, Prefix Sum]
 ---
 
 
@@ -11,9 +11,10 @@ tags: [Algorithm]
 <br>
 
 ## Table of contents
-
-
-
+- [Given problem](#given-problem)
+- [Using brute force algorithm](#using-brute-force-algorithm)
+- [Using prefix sum technique](#using-prefix-sum-technique)
+- [Wrapping up](#wrapping-up)
 
 
 <br>
@@ -67,7 +68,25 @@ For each sum of **startValue** and elements of an array is less than 1, exit the
 
 ```java 
 public int minStartValue(int[] nums) {
-    
+    int minStartValue = 1;
+
+    while (true) {
+        int startValue = minStartValue;
+        boolean isMinValue = true;
+        for (int i = 0; i < nums.length; ++i) {
+            startValue += nums[i];
+            if (startValue < 1) {
+                isMinValue = false;
+                break;
+            }
+        }
+
+        if (isMinValue) {
+            return minStartValue;
+        }
+
+        ++minStartValue;
+    }
 }
 ```
 
@@ -76,11 +95,26 @@ public int minStartValue(int[] nums) {
 
 ## Using prefix sum technique
 
-Before jump directly into source code of this section, we need to read an article about [Prefix sum]().
+Before jump directly into source code of this section, we need to read an article about [Prefix sum](https://ducmanhphan.github.io/2019-06-30-Prefix-sum/).
 
 ```java
 
 ```
+
+
+
+<br>
+
+## Using binary search algorithm
+
+
+
+
+
+<br>
+
+## Using Kadane algorithm
+
 
 
 

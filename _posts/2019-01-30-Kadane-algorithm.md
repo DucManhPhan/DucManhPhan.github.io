@@ -32,7 +32,7 @@ Below is our analysis for this problem:
 - Elements can be negative, positive, zero numbers.
 - Our subarray is contiguous and it has only one property that is relevant to this subarray: largest sum.
 
-    We can not apply the Sliding Window technique to this problem because we do not determine the boundary of this subarray to increase the value of windowStart variable.
+    We can not apply the Sliding Window technique independently to this problem because we do not determine the boundary of this subarray to increase the value of windowStart variable.
 
 - Our subarray is contiguous, so the simple solution is to iterate all the sequence elements. 
 - Finally, we have two solution:
