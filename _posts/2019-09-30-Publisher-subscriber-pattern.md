@@ -140,3 +140,5 @@ Refer:
 [https://www.oreilly.com/library/view/learning-javascript-design/9781449334840/ch09s05.html](https://www.oreilly.com/library/view/learning-javascript-design/9781449334840/ch09s05.html)
 
 [https://docs.microsoft.com/en-us/azure/architecture/patterns/publisher-subscriber](https://docs.microsoft.com/en-us/azure/architecture/patterns/publisher-subscriber)
+
+[http://circe.di.unipi.it/~gervasi/DSDL10/DSDL-07.pdf](http://circe.di.unipi.it/~gervasi/DSDL10/DSDL-07.pdf)
