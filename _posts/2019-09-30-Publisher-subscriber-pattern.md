@@ -35,6 +35,17 @@ Based on an above image, we can have some notes about it:
 
 - To update Observer class's instances, the synchronous programming will be applied. It means that the performance of our application can be degraded if the update process takes so much times.
 
+Belows are some drawbacks of Observer patterns when applied in the distributed system:
+- Slow
+
+    Because the communication between Subject and Observer utilizes the synchronous programming. So, it will use RESTful API or SOAP. But the time to send messages from Subject to Observers and wait for Observer process completely is large.
+
+- Costly
+
+- Unreliable
+
+-- Limited capacity
+
 Therefore, we need to have some improvements for Observer pattern by answer some questions.
 1. How does Observer pattern work in the distributed system?
 2. How can apply the asynchronous programming in Observer pattern?
