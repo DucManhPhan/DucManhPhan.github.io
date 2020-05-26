@@ -1,6 +1,6 @@
 ---
 layout: post
-title: CyclicBarrier in Java's multithreading
+title: CyclicBarrier in Java's Multithreading
 bigimg: /img/image-header/yourself.jpeg
 tags: [Multithreading, Java]
 ---
@@ -11,6 +11,17 @@ tags: [Multithreading, Java]
 <br>
 
 ## Table of contents
+- [Given problem](#given-problem)
+- [Solution of CyclicBarrier](#Solution-of-CyclicBarrier)
+- [When to use](#when-to-use)
+- [Source code](#source-code)
+- [Benefits and Drawbacks](#benefits-and-drawbacks)
+- [Wrapping up](#wrapping-up)
+
+
+<br>
+
+## Given problem
 
 
 
@@ -18,15 +29,7 @@ tags: [Multithreading, Java]
 
 <br>
 
-## 
-
-
-
-
-
-<br>
-
-## 
+## Solution of CyclicBarrier
 
 
 
@@ -35,14 +38,24 @@ tags: [Multithreading, Java]
 
 <br>
 
-## 
+## When to use
+
 
 
 
 
 <br>
 
-## 
+## Source code
+
+
+
+
+<br>
+
+## Benefits and Drawbacks
+
+
 
 
 

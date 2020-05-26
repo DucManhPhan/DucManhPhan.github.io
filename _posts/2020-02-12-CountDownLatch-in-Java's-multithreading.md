@@ -39,7 +39,9 @@ So, how to deal with the above drawbacks?
 
 ## Solution of CountDownLatch
 
-**CountDownLatch** is defined in the package **java.util.concurrent**. It was introduced in Java 5 along with other concurrent utilities such as **CyclicBarrier**, **Semaphore**, **ConcurrentHashMap**, and **BlockingQueue**. To solve the above problems when using **synchronized** keyword, **wait()**, **notify()**, and **join()** methods, **CountDownLatch** provides some functionalities:
+**CountDownLatch** is defined in the package **java.util.concurrent**. It was introduced in Java 5 along with other concurrent utilities such as **CyclicBarrier**, **Semaphore**, **ConcurrentHashMap**, and **BlockingQueue**.
+
+To solve the above problems when using **synchronized** keyword, **wait()**, **notify()**, and **join()** methods, **CountDownLatch** provides some functionalities:
 - **CountDownLatch** handles spurious wake up.
 
 - **CountDownLatch** takes responsibility to orchestrate among threads.
