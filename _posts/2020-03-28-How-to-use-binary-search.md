@@ -112,7 +112,7 @@ Some steps to solve problems with Binary Search:
 1. Iterative version
 
     ```java 
-    public static int binarySearchIterative(int[] arr, int k) {
+    public static int binarySearch(int[] arr, int k) {
         int left = 0;
         int right = arr.length - 1;
 
@@ -137,7 +137,7 @@ Some steps to solve problems with Binary Search:
 2. Recursive version
 
     ```java
-    public static int binarySearchRecursive(int[] arr, int k, int left, int right) {
+    public static int binarySearch(int[] arr, int k, int left, int right) {
         if (left > right) {
             return -1;
         }
@@ -154,6 +154,29 @@ Some steps to solve problems with Binary Search:
     }
     ```
 
+3. Stride version
+
+    Another way to implement binary search is to go through the array from left to right making jumps.
+    - The initial jump length is n/2.
+    - The jump length is halved on each round: first n/4, then n/8, then n/16, ... until finally the length is 1
+    - On each round, we make jumps until we would end up outside the array or in an element whose value exceeds the target value.
+    - After the jumps, either the desired element has been  found or we know that it does not appear in the array.
+
+    ```java
+    public static int binarySearch(int[] arr, int k) {
+        int pos = 0;
+        int sz = arr.length;
+
+        for (int stride = sz / 2; stride >= 1; stride /= 2) {
+            while (pos + stride < sz && a[pos + stride] <= k) {
+                pos += stride;
+            }
+        }
+
+        if (a[pos] == k) return pos;
+        return -1;
+    }
+    ```
 
 Note:
 - With ```int mid = (right + left) / 2;```, if right and left variable is large, then the expression of ```right + left``` can be overflow.
@@ -308,3 +331,5 @@ Note:
 Refer:
 
 [https://leetcode.com/explore/learn/card/binary-search](https://leetcode.com/explore/learn/card/binary-search)
+
+[Guide to competitive programming: Learning and improving algorithms through concepts]()
