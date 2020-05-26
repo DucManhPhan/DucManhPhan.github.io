@@ -76,8 +76,9 @@ Belows are some steps to describe how **CountDownLatch** works.
 
 ## When to use
 
-- Use **CountDownLatch** when one or many threads require to wait for one or more threads to complete, before it can continue processing.
+- Use **CountDownLatch** when the main thread require to wait for one or more threads to complete, before it can continue processing.
 
+- CountDownLatch is good for one-time events like application start-up time.
 
 <br>
 
