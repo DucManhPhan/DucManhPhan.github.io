@@ -39,10 +39,12 @@ So, how to deal with the above drawbacks?
 
 ## Solution of CountDownLatch
 
-**CountDownLatch** is defined in the package **java.util.concurrent**. It was introduced in Java 5. To solve the above problems when using synchronized keyword, wait(), notify(), and join() methods, CountDownLatch provides some functionalities:
-- CountDownLatch handles spurious wake up.
+**CountDownLatch** is defined in the package **java.util.concurrent**. It was introduced in Java 5 along with other concurrent utilities such as **CyclicBarrier**, **Semaphore**, **ConcurrentHashMap**, and **BlockingQueue**. To solve the above problems when using **synchronized** keyword, **wait()**, **notify()**, and **join()** methods, **CountDownLatch** provides some functionalities:
+- **CountDownLatch** handles spurious wake up.
 
-- CountDownLatch takes responsibility to orchestrate among threads.
+- **CountDownLatch** takes responsibility to orchestrate among threads.
+
+**CountDownLatch** works in latch principle, the main thread will wait until Gate is open.
 
 Belows are some steps to describe how **CountDownLatch** works.
 - **CountDownLatch**'s instance is constructed with the **count** variable that is corresponding to the number of threads we want to work together.
@@ -116,6 +118,9 @@ latch.await();
 
 - Memory consistency effects: Until the count reach zeros, actions in a thread prior to calling **countDown()** happen-before actions following a successful return from a corresponding **await()** in another thread.
 
+- We can not reuse CountDownLatch once count reaches zero --> it was born CyclicBarrier.
+
+- Main thread wait on Latch by calling **CountDownLatch.await()** method while other thread calls **CountDownLatch.countDown()** to inform that they have completed.
 
 <br>
 
