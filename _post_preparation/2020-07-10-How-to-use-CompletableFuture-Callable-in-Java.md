@@ -12,8 +12,7 @@ tags: [Java, Multithreading]
 ## Table of contents
 - [Understanding about Callable](#understanding-about-callable)
 - [Understanding about Future](#understanding-about-future)
-- []()
-- []()
+- [Understanding about CompletableFuture](#understanding-about-completablefuture)
 - [Wrapping up](#wrapping-up)
 
 
@@ -183,7 +182,7 @@ tags: [Java, Multithreading]
 
 <br>
 
-## 
+## Understanding about CompletableFuture
 
 
 

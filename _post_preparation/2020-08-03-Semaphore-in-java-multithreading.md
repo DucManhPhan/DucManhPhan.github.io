@@ -27,7 +27,7 @@ tags: [Multithreading, Java]
 
 <br>
 
-## 
+## Solution of Semaphore
 
 
 

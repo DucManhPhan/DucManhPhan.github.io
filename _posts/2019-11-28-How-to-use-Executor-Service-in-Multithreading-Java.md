@@ -292,7 +292,7 @@ Let's get started.
 
     The **awaitTermination()** method takes a timeout as a parameter. Some steps of this method:
     - First, it will issue a **shutdown()** method, so it will prevent the submission of any new tasks
-    - Then, it will wait for the given timeout. During this timeout, it gives the chance of all the executing tasks to complete and of all the waiting tasks to be executed
+    - Then, it will wait for the given timeout. During this timeout, it gives the chance of all the executing tasks to complete and all the waiting tasks to be executed
     - And at the end of this timeout, if there are still remaining tasks, it will halt everything and cleanup the waiting queue if it is not empty.
 
 <br>
