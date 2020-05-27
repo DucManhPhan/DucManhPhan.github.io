@@ -40,6 +40,10 @@ tags: [Java, Multithreading]
     ```
 
     There are several caveats in this Runnable interface:
+    - The run() method of Runnable interface does not return anything. It means that no object can be returned and no exception can be raised.
+
+        Suppose our task involved some kind of database quering.
+
     - 
 
 2. Solution
