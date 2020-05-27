@@ -53,9 +53,32 @@ What would happen if a thread is blocked inside the block? It means that the pro
 
 ## Solution of ReentrantLock
 
+Normally, when we want to use synchronization in our method, we can write the below code:
 
+```java
+Object key = new Object();
 
+synchronized(key) {
+    // do something
+}
+```
 
+Instead of writing the above code, that is creating a key object and passing this key object to a synchronized block of code, we are going to use ReentrantLock to replace the above code.
+
+```java
+Lock lock = new ReentrantLock();
+try {
+    lock.lock();
+
+    // do something
+} finally {
+    lock.unlock();
+}
+```
+
+We create an instance of the Lock interface, the JDK provides an implementing class which is called ReentrantLock, and inside the try...finally block of code, we call the lock() method of this Lock object and in the finally part, call the unlock() method, thus guaranteeing that this unlock() method will be called when exitting this block of code whatever happens after the lock() call.
+
+Lock is an interface, implemented by ReentrantLock. It is part of the java.util.concurrent package introduced in Java 5 in 2004. It offers the same guarantees, that is exclusion explicitly, read & write ordering, that is visibility, happens-before link between operation as the synchronize pattern.
 
 
 <br>
