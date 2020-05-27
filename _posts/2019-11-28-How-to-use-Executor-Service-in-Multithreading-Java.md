@@ -42,6 +42,13 @@ Let's get started.
 
     When that thread is finished completely, it will be vanished.
 
+    The CachedThreadPools differed from the FixedThreadPools in a way that
+    - Those executors create threads on demand.
+
+        The FixedThreadPools, if created with four threads, will create those four threads immediately. The CachedThreadPools create those threads on demand.
+
+    - The CachedThreadPools will keep threads for a certain amount of time. Now if the thread created are not used for 60 seconds by default, then this thread pool will destroy them. This kind of pool is very efficient if we have from time to time an important number of tasks to execute, but it turns out that we do not have to do that very often, for instance, once in several hours. So we can create the thread pool. It will not consume many resources since most of the time it will not have any threads at all, but when we need those threads, it will create them for us.
+
 2. Use ```newFixedThreadPool()``` method
 
     It will create a thread pool that reuses a fixed the number of threads.
