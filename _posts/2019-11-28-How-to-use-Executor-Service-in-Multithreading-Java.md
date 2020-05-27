@@ -113,6 +113,30 @@ Let's get started.
 
 4. use ```newScheduledThreadPool()``` method
 
+    - Understanding about ScheduledExecutorService
+
+        The newScheduledThreadPool() method will:
+        - create a pool of threads
+        - return a ScheduledExecutorService
+
+        The ScheduledExecutorService does three things:
+        - we can schedule a task somewhere in the future by passing this task and a delay, which is a special amount of time.
+
+            ```schedule(task, delay);```
+        
+        - we can call ```scheduleAtFixedRate(task, delay, period)``` method will execute the task after a certain delay and then execute it again and again after a certain period of time.
+
+            So this task will be executed indefinitely starting in 5 minutes, and for instances, every 30 seconds.
+            
+            ![](../img/Java/Multithreading/executor-service/schedule-at-fix.png)
+
+        - we can call ```scheduleWithFixedDelay(task, initialDelay, delay)``` method
+
+            At the first glimpse, it works the same as the previous method. It takes an initialDelay and then a second delay which acts as a period. In fact, it does not work exactly the same. This task will be first executed after the initial delay and then executed again after a certain delay. The second delay is measured between the end of the execution of this task and the beginning of the next execution of this task.
+
+            ![](../img/Java/Multithreading/executor-service/schedule-at-fixed-delay.png)
+
+
     - Run task at once time
 
         ```java
