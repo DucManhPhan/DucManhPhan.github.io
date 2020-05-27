@@ -226,8 +226,18 @@ Let's get started.
     void shutdown();
     ```
 
+    So we can have concluded about shutdown() method works:
+    - continue to execute all sumitted tasks
+    - execute waiting tasks in the waiting queue
+    - do not accept new tasks
+    - then shutdown properly by destroying and cleaning up all the threads that have been created.
+
+    This is the soft way of closing an ExecutorService.
+
 
 2. ```shutdownNow()``` method
+
+    If we need to shutdown ExecutorService quickly, we might not be able to wait for all the tasks to complete. So we will use shutdownNow() method.
 
     It will do the same thing with ```shutdown()``` method and try to cancel the already submitted tasks by interrupting the relevant threads.
 
@@ -236,6 +246,13 @@ Let's get started.
     ```java
     List<Runnable> shutdownNow();
     ```
+
+    Belows are some steps of shutdownNow() method:
+    - interrupting the threads that are executing them.
+    - it will do not execute any waiting tasks. Of course, it will not allow any new submission.
+    - then it will shutdown.
+
+    The shutdownNow() method is the hard way of shutting down an ExecutorService. It is not respectful of the running tasks since it will hold them immediately.
 
 3. Example for ```shutdown()``` and ```shutdownNow()```
 
@@ -270,6 +287,13 @@ Let's get started.
     - with ```shutdownNow()```, the output is ```interrupted``` and ```Exiting normally...``` because the running task is interrupted, catches the interruption and then stops what it is doing (breaks the while loop).
 
     - with ```shutdownNow()```, if you comment out the lines within the while loop, you will get ```still waiting after 100ms: calling System.exit(0)...``` because the interruption is not handled by the running task any longer.
+
+3. Use **awaitTermination()** method to terminate threads
+
+    The **awaitTermination()** method takes a timeout as a parameter. Some steps of this method:
+    - First, it will issue a **shutdown()** method, so it will prevent the submission of any new tasks
+    - Then, it will wait for the given timeout. During this timeout, it gives the chance of all the executing tasks to complete and of all the waiting tasks to be executed
+    - And at the end of this timeout, if there are still remaining tasks, it will halt everything and cleanup the waiting queue if it is not empty.
 
 <br>
 
