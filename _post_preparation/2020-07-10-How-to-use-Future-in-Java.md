@@ -1,6 +1,6 @@
 ---
 layout: post
-title: How to use CompletableFuture and Callable in Java
+title: How to use Future in Java
 bigimg: /img/image-header/yourself.jpeg
 tags: [Java, Multithreading]
 ---
@@ -27,22 +27,11 @@ tags: [Java, Multithreading]
 
 <br>
 
-## Understanding about Callable
+## 
 
-1. Given problem
 
-    To understand why we need Callable functional interface, we need to take closer look at Runnable interface.
 
-    ```java
-    Runnable task = () -> someReallyLongProcess();
-    Executor executor = Executors.newSingleThreadExecutor();
-    executor.execute(task);
-    ```
 
-    There are several caveats in this Runnable interface:
-    - 
-
-2. Solution
 
 
 <br>

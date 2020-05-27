@@ -15,6 +15,9 @@ Let's get started.
 - [Some ways to create ExecutorService](#some-ways-to-create-executorservice)
 - [Use shutdown() or shutdownNow() methods to terminate thread](#use-shutdown()-or-shutdownNow()-methods-to-terminate-thread)
 - [Use back-off strategy for running thread forever](#use-back-off-strategy-for-running-thread-forever)
+- [Benefits of Executors framework](#benefits-of-executors-framework)
+- [Comparison between Fork-Join and Executor framework](#comparison-between-fork-join-and-executor-framework)
+- [Comparison between Executor pattern and Runnable pattern](#comparison-between-executor-pattern-and-runnable-pattern)
 - [Wrapping up](#wrapping-up)
 
 <br>
@@ -66,7 +69,40 @@ Let's get started.
 
     Because in thread pool, we only have only 1 thread, but we want to run 10 threads. So, after the first thread finished completely, the next thread will run.
 
+    It is versy useful for reactive programming when we just want to execute a single task in another thread.
     
+    Belows are some problems that we need to know when using **newSingleThreadExecutor()** method.
+
+    Suppose we run this code:
+
+    ```java
+    Executor executor = Executors.newSingleThreadExecutor();
+    Runnable task1 = () -> someReallyLongProcess();
+    Runnable task2 = () -> anotherReallyLongProcess();
+
+    executor.execute(task1);
+    executor.execute(task2);
+    ```
+
+    Obviously, task2 will have to wait for task1 to complete. So to handle this case, an Executor, whether it is single threaded or not, has to waiting queue.
+    
+    Now this waiting queue is precisely specified.
+    - First, a task is added to the waiting queue when no threads is available.
+
+        So suppose we have an ExecutorService built on full thread and all the threads are busy. If a new task is submitted, it will be added to this waiting queue.
+
+    - The tasks are executed in the order of their submission.
+
+        In our example, we have guarantee that task1 will be executed before task2. This is very important in ordering our tasks.
+
+    But we can have some questions to need to answer:
+    - Can we know if a task is done or not?
+
+        No, we cannot know if a task is done or not. In fact, in this case, when we are using Runnable, it is not possible to query the Executor to know if a given task is executed or not.
+
+    - Can we cancel the execution of a task?
+
+        Yes, in the certain way, we can. In fact, what we can do is remove a task from the waiting queue. If the task has been started by the thread, it is not possible to cancel.
 
 4. use ```newScheduledThreadPool()``` method
 
@@ -269,11 +305,36 @@ class Test1 implements Runnable {
 
 <br>
 
+## Comparison between Executor pattern and Runnable pattern
+
+```java
+// Executor pattern
+executor.execute(task);
+
+// Runnable pattern
+new Thread(task).start();
+```
+
+Let's compare the two patterns:
+- The Executor pattern does not create a new thread.
+- The behavior is the same: both calls return immediately, the task is executed in another thread.
+
+
+
+<br>
+
 ## Wrapping up
+
+- Building an Executor is more efficient than creating threads on demand. Creating an Executor or ExecutorService will create a pool of thread when this Executor is created and those threads will remain alive as long as the executor is alive. So, one given thread can execute as many tasks as we need.
+
+- We can pass instances of Runnable to an Executor. The Executor has a waiting queue to handle the fact that it can have more requests than available threads. If we want, we can ask the Executor to remove a task from the waiting queue. So using Executor pattern is more efficient than using the basic Runnable pattern.
+
 - Understanding about some ways to create ExecutorService.
+
 - Fork-Join and ExecutorService.
 
 <br>
+
 
 Refer: 
 

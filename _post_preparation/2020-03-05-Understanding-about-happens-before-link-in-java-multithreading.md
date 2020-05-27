@@ -10,8 +10,11 @@ tags: [Multithreading, Java]
 <br>
 
 ## Table of contents
+- [Understanding about happens-before link]()
 - []()
 - []()
+- []()
+- [Wrapping up](#wrapping-up)
 
 <br>
 
@@ -33,13 +36,20 @@ tags: [Multithreading, Java]
 
 <br>
 
-## LongWrapper example
+## 
 
 
 
 <br>
 
-## Double-check locking Singleton pattern example
+## Applications and Examples
+
+1. Double-check locking Singleton pattern example
+
+
+
+2. LongWrapper example
+
 
 
 
