@@ -135,7 +135,33 @@ Belows are some steps to describe how **CyclicBarrier** works.
     So, we can have some conclusion:
     - When all threads reach the barrier point, the barrier action will be called first. Then all threads will continue processing the remained work on it.
 
+- Finally, after all threads waited on the barrier, then the barrier action will be called if it is declared in the constructor of **CyclicBarrier**.
+
+<br>
+
+## How CyclicBarrier works
+
+Suppose that we have four callables created in the main thread and a barrier object.
+
+![](../img/Java/Multithreading/cyclic-barrier/how-cyclic-barrier-works.png)
+
+All these callables are passed to the **executor.submit()** method. They are going to be executed in the ExecutorService and the barrier for the moment is closed, which is its default state when it is created. All those tasks are going to compute the data set and we call the await() method on this barrier object.
+
+![](../img/Java/Multithreading/cyclic-barrier/how-cyclic-barrier-works-1.png)
+
+Now this barrier object is going to count how many times this await() method has been called and when this number of call matches the number of which this barrier has been created, it will open and let the threads continue their execution. After that, we can setup a callback task that will be triggered when the barrier is open.
+
+![](../img/Java/Multithreading/cyclic-barrier/how-cyclic-barrier-works-2.png)
+
+<br>
+
+## Understanding about await() and reset() methods
+
+1. await() method
+
     Below is the information of **await()** method we need to know:
+
+    The **await()** method call is a blocking call. In fact, we have two versions of this **await()** method.
 
     ```java
     public int await() throws InterruptedException, BrokenBarrierException;
@@ -155,23 +181,15 @@ Belows are some steps to describe how **CyclicBarrier** works.
 
     If the **current thread is the last thread** to arrive, and **a non-null barrier action was supplied in the constructor**, then **the current thread runs the action before allowing the other threads to continue**. **If an exception occurs during the barrier action then that exception will be propagated in the current thread and the barrier is placed in the broken state**.
 
-- Finally, after all threads waited on the barrier, then the barrier action will be called if it is declared in the constructor of **CyclicBarrier**.
+    Once opened, a barrier is normally reset, that is it will open, let the thread go through, and then close again.
 
-<br>
+2. reset() method
 
-## How CyclicBarrier works
+    We can reset manually on the barrier. It will open the barrier, but open it exceptionally. So all the waiting threads on this barrier are going to throw a BrokenBarrierException in that case.
 
-Suppose that we have four callables created in the main thread and a barrier object.
-
-![](../img/Java/Multithreading/cyclic-barrier/how-cyclic-barrier-works.png)
-
-All these callables are passed to the **executor.submit()** method. They are going to be executed in the ExecutorService and the barrier for the moment is closed, which is its default state when it is created. All those tasks are going to compute the data set and we call the await() method on this barrier object.
-
-![](../img/Java/Multithreading/cyclic-barrier/how-cyclic-barrier-works-1.png)
-
-Now this barrier object is going to count how many times this await() method has been called and when this number of call matches the number of which this barrier has been created, it will open and let the threads continue their execution. After that, we can setup a callback task that will be triggered when the barrier is open.
-
-![](../img/Java/Multithreading/cyclic-barrier/how-cyclic-barrier-works-2.png)
+    A **BrokenBarrierException** is raised if:
+    - a thread is interrupted while waiting.
+    - the barrier is reset while some threads are waiting.
 
 <br>
 
