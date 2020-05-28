@@ -13,10 +13,10 @@ tags: [Multithreading, Java]
 ## Table of contents
 - [Given problem](#given-problem)
 - [Solution of Semaphore](#solution-of-semaphore)
-- [When to use]()
-- [Source code]()
-- [Benefits and Drawbacks]()
-- [Wrapping up]()
+- [When to use](#when-to-use)
+- [Source code](#source-code)
+- [Benefits and Drawbacks](#benefits-and-drawbacks)
+- [Wrapping up](#wrapping-up)
 
 
 <br>
@@ -68,7 +68,7 @@ In an above example, acquire() method will ask for 2 permits, and if there is on
 
 ## When to use
 
-
+- 
 
 
 
@@ -127,6 +127,12 @@ In an above example, acquire() method will ask for 2 permits, and if there is on
 <br>
 
 ## Benefits and Drawbacks
+
+1. Benefits
+
+
+
+2. Drawbacks
 
 
 
