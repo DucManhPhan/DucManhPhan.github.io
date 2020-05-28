@@ -159,6 +159,22 @@ Belows are some steps to describe how **CyclicBarrier** works.
 
 <br>
 
+## How CyclicBarrier works
+
+Suppose that we have four callables created in the main thread and a barrier object.
+
+![](../img/Java/Multithreading/cyclic-barrier/how-cyclic-barrier-works.png)
+
+All these callables are passed to the **executor.submit()** method. They are going to be executed in the ExecutorService and the barrier for the moment is closed, which is its default state when it is created. All those tasks are going to compute the data set and we call the await() method on this barrier object.
+
+![](../img/Java/Multithreading/cyclic-barrier/how-cyclic-barrier-works-1.png)
+
+Now this barrier object is going to count how many times this await() method has been called and when this number of call matches the number of which this barrier has been created, it will open and let the threads continue their execution. After that, we can setup a callback task that will be triggered when the barrier is open.
+
+![](../img/Java/Multithreading/cyclic-barrier/how-cyclic-barrier-works-2.png)
+
+<br>
+
 ## When to use
 
 - When multiple thread carry out different sub-tasks and the output of these sub-tasks need to be combined to form the final output.
