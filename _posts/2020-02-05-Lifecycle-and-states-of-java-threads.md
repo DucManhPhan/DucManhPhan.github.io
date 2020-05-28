@@ -11,8 +11,7 @@ tags: [Java, Multithreading]
 
 ## Table of contents
 - [States of Java's thread](#states-of-java's-thread)
-- []()
-- []()
+- [Source code](#source-code)
 - [Wrapping up](#wrapping-up)
 
 <br>
@@ -51,27 +50,9 @@ tags: [Java, Multithreading]
 
 <br>
 
-## 
+## Source code
 
-
-
-
-
-<br>
-
-## 
-
-
-
-
-
-<br>
-
-## 
-
-
-
-
+- Be aware of the life cycle and state of thread in java makes us easy to understand how synchronized block, lock framework such as ReentrantLock works.
 
 
 <br>
