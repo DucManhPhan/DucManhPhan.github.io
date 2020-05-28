@@ -238,6 +238,12 @@ Now this barrier object is going to count how many times this await() method has
 
 ## Wrapping up
 
+- CyclicBarrier is a tool to synchronize several threads between them, and let them continue when they reach a common point.
+
+- A CyclicBarrier is closed when created and will open when all the threads have reached this common point, and then will close again allowing for cyclic computations. It can also be reset manually, but in this case, the waiting thread on the barrier will throw a BrokenBarrierException.
+
+- It is also possible to set timeouts on the threads that are waiting for a barrier to open. So if something goes wrong in our computation, the system is not blocked, the threads can still be freed with an InterruptedException.
+
 - We can use CyclicBarrier wherever we want to use CountDownLatch, but the opposite is not possible because we can not reuse the latch once the count reaches to zero.
 
 - CyclicBarrier is useful in parallel algorithms in which a computation is decomposed into parts, and each part is handled by a separate thread. In such algorithm, the threads must typically rendezvous so that their partial solutions can be merged into a complete solution. To facilitate this, the CyclicBarrier constructor allows us to specify a Runnable object to be executed by the last thread that calls **await()** before any of the other threads are woken up and allowed to resume. This Runnable can provide the coordination required to assemble a solution from the threads' computations or to assign a new computation to each of the threads.

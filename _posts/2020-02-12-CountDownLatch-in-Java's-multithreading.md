@@ -25,7 +25,11 @@ tags: [Multithreading, Java]
 
 1. Basic problem
 
-    In order to understand the basic problem of CountDownLatch, we can refer the section [Given problem of CyclicBarrier](https://ducmanhphan.github.io/2019-12-23-CyclicBarrier-in-Java's-Multithreading/#given-problem).
+    Supposed that we have a case that we need to start our application. This application is a quite complex. It depends on many services such as AuthenticationService, DataService to access the database, and OrderService to handle orders from our customers, ... And we need to make sure that all those services have properly started before we start our main application.
+
+    So before serving clients, our application needs to make sure that all those resources are properly initialized. It looks like it is a problem for the CyclicBarrier. The problem is that once all the services are available, once they have all properly started, we need to start our application, but we do not want the barrier to reset. We do not want the barrier to close again because it could block everything, they system will have impression that some services have no been properly started. So it is the fact that the barrier is cycling that we cannot use this object in this case.
+
+    What we need is a kind of Barrier that once opened, it cannot be closed again.
 
 2. The drawbacks of using synchronized keyword
 
