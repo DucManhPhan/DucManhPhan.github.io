@@ -22,15 +22,21 @@ tags: [Multithreading, Java]
 
 ## Given problem
 
-Before jumping into **CyclicBarrier** - how it works, we need to read about the article [CountDownLatch in Java's Multithreading](https://ducmanhphan.github.io/2020-02-12-CountDownLatch-in-Java's-multithreading/).
+1. Basic problem
 
-The drawback of **CountDownLatch** is the reusable property. Because when the current count of **CountDownLatch** is equal to zero, the current count does not reset again.
+    Suppose we need to compute something that is a heavy computation and we want to share this computation among several threads. This is a very classical use case. What we could do is divide our data set among several threads. Each thread is given a subtask and what we expect is that each thread will be executed on a given call of our CPU. When all the threads are done, what we need to do is to gather all the results of the computations and merge them, so we need some subsequent task to be triggered to do this merging operation.
 
-And **CountDownLatch.await()** will be called in the main thread, to continue the main thread's tasks. It's difficult to use when we need to do the other task, not in the main thread, if the remained threads finished.
+2. The drawback of CountDownLatch
 
-The **CountDownLatch.await()** method will block the main thread to wait for all other threads completely finishes. Sometimes we do not need this situation, we want do the other task without blocking the main thread.
+    Before jumping into **CyclicBarrier** - how it works, we need to read about the article [CountDownLatch in Java's Multithreading](https://ducmanhphan.github.io/2020-02-12-CountDownLatch-in-Java's-multithreading/).
 
-So how does reduce these drawbacks?
+    The drawback of **CountDownLatch** is the reusable property. Because when the current count of **CountDownLatch** is equal to zero, the current count does not reset again.
+
+    And **CountDownLatch.await()** will be called in the main thread, to continue the main thread's tasks. It's difficult to use when we need to do the other task, not in the main thread, if the remained threads finished.
+
+    The **CountDownLatch.await()** method will block the main thread to wait for all other threads completely finishes. Sometimes we do not need this situation, we want do the other task without blocking the main thread.
+
+    So how does reduce these drawbacks?
 
 <br>
 
@@ -167,8 +173,8 @@ Belows are some steps to describe how **CyclicBarrier** works.
 
 1. Benefits over CountDownLatch
 
-    - Can be reset and rerun repeatedly.
-    - Once the barrier is met we could break the barrier.
+    - CyclicBarrier can reset its count and is ready for immediate reuse.
+    - Once the barrier is met, we could break the barrier.
     - Kind of split-merge (however merge will need to wait till all splitters are done).
 
 
@@ -200,6 +206,7 @@ Belows are some steps to describe how **CyclicBarrier** works.
 
 - We can use CyclicBarrier wherever we want to use CountDownLatch, but the opposite is not possible because we can not reuse the latch once the count reaches to zero.
 
+- CyclicBarrier is useful in parallel algorithms in which a computation is decomposed into parts, and each part is handled by a separate thread. In such algorithm, the threads must typically rendezvous so that their partial solutions can be merged into a complete solution. To facilitate this, the CyclicBarrier constructor allows us to specify a Runnable object to be executed by the last thread that calls **await()** before any of the other threads are woken up and allowed to resume. This Runnable can provide the coordination required to assemble a solution from the threads' computations or to assign a new computation to each of the threads.
 
 <br>
 
@@ -210,3 +217,5 @@ Refer:
 [https://www.java67.com/2012/08/difference-between-countdownlatch-and-cyclicbarrier-java.html](https://www.java67.com/2012/08/difference-between-countdownlatch-and-cyclicbarrier-java.html)
 
 [https://javarevisited.blogspot.com/2012/07/cyclicbarrier-example-java-5-concurrency-tutorial.html](https://javarevisited.blogspot.com/2012/07/cyclicbarrier-example-java-5-concurrency-tutorial.html)
+
+[Java in a nutshell ebook]()

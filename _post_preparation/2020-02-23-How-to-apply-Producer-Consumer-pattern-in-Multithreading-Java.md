@@ -145,14 +145,69 @@ tags: [Multithreading, Java, Concurrency Pattern]
             }
         }
         ```
+    
+    One major caveat of this pattern is in the wait state. Once it has called the **wait()** method, it is blocked and there is no way we can interrupt it. So if no thread is ever calling **notify()** or **notifyAll()**, there is no chance that this thread will be awakened. The only way to interrupt it will be to reboot the application.
 
 <br>
 
 ## Producer/Consumer pattern using Lock framework
 
+Based on using wait/notify pattern with producer/consumer, we can change somethings in the above source code. Then we have,
 
+```java
+private static Lock lock = new ReentrantLock();
+private static Condition notFull = lock.newCondition();
+private static Condition notEmpty = lock.newCondition();
 
+public class Producer {
+    public void produce() {
+        try {
+            lock.lock();
+            while (isFull(buffer)) {
+                notFull.await();
+            }
 
+            buffer[count++] = 1;
+            notEmpty.signal();
+        } catch (InterruptedException ex) {
+            System.out.println(ex);
+        } finally {
+            lock.unlock();
+        }
+    }
+}
+
+public  class Consumer {
+    public void consume() {
+        try {
+            lock.lock();
+            while (isEmpty(buffer)) {
+                if (!notEmpty.await(10, TimeUnit.MILLiSECOND)) {
+                    throw new TimeoutException("Consumer timeout");
+                }
+            }
+
+            buffer[--count] = 0;
+            notFull.signal();
+        } catch (InterruptedException ex) {
+            System.out.println(ex);
+        } finally {
+            lock.unlock();
+        }
+    }
+}
+```
+
+In order to use Lock framework with Producer/Consumer pattern, we need to identify two state of buffer:
+- full state
+- empty state
+
+If the buffer is in the full state, we will use the new Condition instance **notFull** to describe this state, then calling the **await()** method of Condition's  instance **notFull**.
+
+It's similar to the empty state.
+
+Note:
+- In Consumer class, we use the **await()** method with timeout as the first parameter. It needs timeout because when happening the exception in Producer class, then lock object will be unlocked. So consumer will wait for so much time. It makes our application hang out. So, we need to use **await()** method with version timeout.
 
 <br>
 
@@ -192,4 +247,4 @@ tags: [Multithreading, Java, Concurrency Pattern]
 
 Refer:
 
-[]()
+[Advanced Java Concurrent Patterns by Jose Paumard](https://app.pluralsight.com/library/courses/java-concurrent-patterns-advanced/table-of-contents)

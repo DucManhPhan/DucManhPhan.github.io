@@ -23,17 +23,23 @@ tags: [Multithreading, Java]
 
 ## Given problem
 
-Normally, when we want multiple threads work together, we usually utilize some common keyword and methods such as **synchronized**, **wait()**, **notify()**, **join()**. Our problem is that we need to run multiple threads before the main thread. But using them to solve this problem has some drawbacks:
+1. Basic problem
 
-- **wait()**, **notify()** method only work on the segment code of **synchronized** keyword.
+    In order to understand the basic problem of CountDownLatch, we can refer the section [Given problem of CyclicBarrier](https://ducmanhphan.github.io/2019-12-23-CyclicBarrier-in-Java's-Multithreading/#given-problem).
 
-    The problem of using **wait()** method is the spurious wake up. Spurious wake up is a phenomena where a waiting thread is awaken without a notify signal. This can be happened due to OS. So in some cases, if code is not written properly, it ended up with an error or deadlock.
+2. The drawbacks of using synchronized keyword
 
-- Using **join()** method makes our code duplicated, difficult to maintain. Because we have to call **join()** method of multiple threads.
+    Normally, when we want multiple threads work together, we usually utilize some common keyword and methods such as **synchronized**, **wait()**, **notify()**, **join()**. Our problem is that we need to run multiple threads before the main thread. But using them to solve this problem has some drawbacks:
 
-- Using **wait()**, **notify()**, **join()** method and synchronized keyword is difficult to use when we manullay orchestrate among threads.
+    - **wait()**, **notify()** method only work on the segment code of **synchronized** keyword.
 
-So, how to deal with the above drawbacks?
+        The problem of using **wait()** method is the spurious wake up. Spurious wake up is a phenomena where a waiting thread is awaken without a notify signal. This can be happened due to OS. So in some cases, if code is not written properly, it ended up with an error or deadlock.
+
+    - Using **join()** method makes our code duplicated, difficult to maintain. Because we have to call **join()** method of multiple threads.
+
+    - Using **wait()**, **notify()**, **join()** method and synchronized keyword is difficult to use when we manullay orchestrate among threads.
+
+    So, how to deal with the above drawbacks?
 
 <br>
 
@@ -82,6 +88,18 @@ Belows are some steps to describe how **CountDownLatch** works.
 
 <br>
 
+## How CountDownLatch works
+
+The CountDownLatch works alsmost the same as a CyclicBarrier. Suppose we have three tasks in Callable in the main thread and a Latch object.
+
+![](../img/Java/Multithreading/count-down-latch/how-countdownlatch-works.png)
+
+We pass everything to the ExecutorService and our tasks are going to execute. At some point, all our tasks will be waiting on the latch and this will have the same effect as the barrier. It will open the latch and let the task continue their execution. But the big difference is that the latch does not reset, and does not close again.
+
+![](../img/Java/Multithreading/count-down-latch/how-countdownlatch-works-1.png)
+
+<br>
+
 ## Benefits and Drawbacks
 
 1. Benefits
@@ -111,7 +129,7 @@ IntStream.range(0, 5).forEach(item -> {
         });
 });
 
-latch.await();
+latch.await();  // block until the count reaches 0
 ```
 
 
@@ -119,11 +137,15 @@ latch.await();
 
 ## Wrapping up
 
+- A latch is just a tool to check that different threads did their task properly. And we can synchronize the beginning of subsequent tasks on the last one to complete.
+
 - Memory consistency effects: Until the count reach zeros, actions in a thread prior to calling **countDown()** happen-before actions following a successful return from a corresponding **await()** in another thread.
 
 - We can not reuse CountDownLatch once count reaches zero --> it was born CyclicBarrier.
 
 - Main thread wait on Latch by calling **CountDownLatch.await()** method while other thread calls **CountDownLatch.countDown()** to inform that they have completed.
+
+- A latch is conceptually any variable or concurrency construct that has two possible states and transitions from its initial state to its final state only once. Once the transition occurs, it remains in that final state forever. CountDownLatch is a concurrency utility that can exist in two states, closed and open. In its initial closed state, any thread that call the **await()** method block and can not proceed until it transitions to its latched open gate. Once this transition occurs, all waiting threads proceed, and any threads that call **await()** in the future will not block at all. The transition from closed to open occurs when a specified number of calls to **countDown()** have occured.
 
 <br>
 
