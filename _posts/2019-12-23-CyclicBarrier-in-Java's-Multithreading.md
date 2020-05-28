@@ -233,6 +233,7 @@ Now this barrier object is going to count how many times this await() method has
 
 - To implement multi player game which can not begin until all player has joined.
 
+- CyclicBarrier is useful for parallel computations.
 
 <br>
 

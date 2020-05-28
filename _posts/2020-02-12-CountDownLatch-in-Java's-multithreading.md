@@ -90,6 +90,8 @@ Belows are some steps to describe how **CountDownLatch** works.
 
 - CountDownLatch is good for one-time events like application start-up time.
 
+- CountDownLatch is useful for starting an application on the completion of different initializations.
+
 <br>
 
 ## How CountDownLatch works
