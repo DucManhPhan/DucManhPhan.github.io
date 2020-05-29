@@ -229,16 +229,16 @@ tags: [Java, Multithreading]
 
 3. Some methods of CompletableFuture class
 
-    CompletableFuture is a class that implements two interface.
+    **CompletableFuture** is a class that implements two interface.
     - First, this is the Future interface.
-    - Second, this is the CompletionStage interface.
+    - Second, this is the **CompletionStage** interface.
 
     The fact that the **CompletableFuture** is also an implementation of this **Future** object, is making CompletableFuture and Future compatible Java objects. **CompletionStage** adds methods to chain tasks. This is where the methods of chaining tasks are defined. And the **CompletableFuture** adds more methods to the **CompletionStage** interface. So most of the time in our code, we will be using **CompletableFuture**, even if we are calling methods that are defined on the **CompletionStage** interface.
 
-    In the CompletableFuture API, a task has a state which was not really the case in the Executor and Future API.
+    In the **CompletableFuture** API, a task has a state which was not really the case in the **Executor** and **Future** API.
     
     This state may be:
-    - running 
+    - running
     
         It means that this task is currently running as any task.
 
@@ -251,8 +251,72 @@ tags: [Java, Multithreading]
         This happens if a task encountered a problem and raised an exception while running.
 
     There are 5 methods on Future:
-    - 
+    - two methods to get the result
 
+        ```java
+        T get();
+
+        T get(long timeout, TimeUnit unit);
+        ```
+
+        Those methods are blocking call.
+
+    - one to cancel the execution of the task.
+
+        ```java
+        void cancel();
+        ```
+
+    - two getters
+
+        ```java
+        // to check if the task has completed
+        boolean isDone();
+
+        // it will result true if the cancel() method has been called.
+        boolean isCancelled();
+        ```
+
+    **CompletableFuture** brings 5 future-like methods that are not defined on **CompletionStage**.
+    - two methods to get the result in a different way
+
+        ```java
+        T join();     // may throw an unchecked exception
+
+        T getNow(T valueIfAbsent);
+        ```
+
+        **join()** method is the same as the **get()** method. The difference is that it does not throw a checked exception, so we do not have to rub this call in a **try/catch** pattern.
+
+        **getNow()** method will check if the task is done, and if it's not the case, we'll cancel it and return the value of absent parameter that is passed.
+
+    - two methods to force the returned value
+
+        ```java
+        boolean complete(V value);
+
+        void obtrudeValue(V value);
+        ```
+
+        The **complete()** method checks if the task is done or not. If it is done, then it does nothing, that is calling **join()** method or **get()** method will return the value the task computed. If it is not done, then it completes the task interrupting the grand process and sets the returned value to value that is passed as a parameter.
+
+        The **obtrudeValue()** works almost the same. It checks if the task is done. If it is done, then it forces the returned value to the value passed as a parameter and this is the difference with the **complete()** method. If it is not done, then the behavior is the same, it completes this task and sets the return value to the value passed as a parameter.
+
+        This **obtrudeValue()** method should be used in error recovery operations and not in normal operations.
+
+    - two methods to force an exception
+
+        ```java
+        boolean completeExceptionally(Throwable t);
+
+        void obtrudeException(Throwable t);
+        ```
+
+        The completeExceptionally() method will force the completion if the task is not done in an exceptional way, meaning that the join() method or the get() method will throw an exception.
+
+        An obtrudeException() method does almost the same as the completeExceptionally() method, meaning that it forces the completion even if the task is done, even if the task is completed in a normal way, it would force the exception state and both of the join() method or the get() method will throw an exception.
+
+        The exception thrown by the **get()** method or the **join()** method is not the exception that passed as a parameter. Merely, it is a special exception of the **Future** API or the **CompletableFuture** API that will have the exception passed as a parameter, as the root cause of this exception.
 
 <br>
 
