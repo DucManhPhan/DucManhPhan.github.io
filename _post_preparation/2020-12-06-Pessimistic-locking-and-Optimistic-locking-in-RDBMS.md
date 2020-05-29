@@ -106,7 +106,6 @@ The commit statement signals the successful end of a series of updates within on
 The rollback statement aborts the current transaction. All updates, within the current transaction, are cancelled and the database reverts to its state before the start of transaction.
 
 
-
 <br>
 
 ## Wrapping up
@@ -120,3 +119,6 @@ Refer:
 
 [http://git@github.com.github.com/blog/2013/05/13/exclusivelock-sharedlock/](http://git@github.com.github.com/blog/2013/05/13/exclusivelock-sharedlock/)
 
+[https://mjabr.wordpress.com/2011/06/10/differences-between-pessimistic-and-optimistic-locking/](https://mjabr.wordpress.com/2011/06/10/differences-between-pessimistic-and-optimistic-locking/)
+
+[https://convincedcoder.com/2018/09/01/Optimistic-pessimistic-locking-sql/](https://convincedcoder.com/2018/09/01/Optimistic-pessimistic-locking-sql/)
