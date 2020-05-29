@@ -184,8 +184,74 @@ tags: [Java, Multithreading]
 
 ## Understanding about CompletableFuture
 
+1. Introduction to **CompletableFuture**
 
+    In fact, the **CompletableFuture** object is almost the same as a Future object with more methods and more capabilities. So everything we know about Future object is also true for a CompletableFuture.
 
+    ```java
+    Runnable task = () -> System.out.println("Hello world");
+    ExecutorService service = Executors.newSingleThreadExecutor();
+    Future<?> future = service.submit(task);    // use future object
+    CompletableFuture<Void> completableFuture = CompletableFuture.runAsync(task);
+    ```
+
+    The above is the completable future pattern and it does not work with Callable. But it does with Suppliers.
+
+    ```java
+    Supplier<String> task = () -> readPage("https://google.com");
+    ExecutorService service = Executors.newSingleThreadExecutor();
+    CompletableFuture<String> completableFuture = CompletableFuture.supplyAsync(task);
+    ```
+
+    Be careful that a supplier cannot throw any checked exceptions because the supplier's signature does not declare any checked exception, this is the main difference between callable and supplier. So if our Callable is throwing a checked exception, we cannot make it a supplier.
+
+    Then we have two pattern for working with CompletableFuture:
+    - **runAsync()** method that takes a Runnable interface.
+    - **supplyAsync()** method that takes a Supplier.
+
+2. What thread does asynchronous tasks are going to be run
+
+    In the asynchronous pattern, we do not have such pool of thread, so this is a question. In fact, by default, all the asynchronous tasks launched with those patterns are run in what is called the Common Fork/Join pool. This Common Fork/Join pool is launched by defaut with JVM starting with Java 8. It is an executor service or merely an extension of it with special capabilities.
+    
+    If we remember the Stream API, in fact, when we launch computations in parallel streams, the threads of the Common Fork/Join pool are used to run the parallel tasks of our stream. We can also pass an explicit executor service as a parameter as we are going to see in the code.
+
+    ```java
+    ExecutorService service = Executors.newSingleThreadExecutor();
+    // first way
+    Runnable task = () -> System.out.println("Hello world");
+    Future<?> future = service.submit(task);    // use future object
+    CompletableFuture<Void> completableFuture = CompletableFuture.runAsync(task, service);
+
+    // second way
+    Supplier<String> task = () -> readPage("https://google.com");
+    CompletableFuture<String> completableFuture = CompletableFuture.supplyAsync(task, service);
+    ```
+
+3. Some methods of CompletableFuture class
+
+    CompletableFuture is a class that implements two interface.
+    - First, this is the Future interface.
+    - Second, this is the CompletionStage interface.
+
+    The fact that the **CompletableFuture** is also an implementation of this **Future** object, is making CompletableFuture and Future compatible Java objects. **CompletionStage** adds methods to chain tasks. This is where the methods of chaining tasks are defined. And the **CompletableFuture** adds more methods to the **CompletionStage** interface. So most of the time in our code, we will be using **CompletableFuture**, even if we are calling methods that are defined on the **CompletionStage** interface.
+
+    In the CompletableFuture API, a task has a state which was not really the case in the Executor and Future API.
+    
+    This state may be:
+    - running 
+    
+        It means that this task is currently running as any task.
+
+    - completed normally.
+    
+        This is a task that run normally and produced a result in a certain way. This result can be anything including, by the way, **Void** that is no result.
+
+    - completed exceptionally
+
+        This happens if a task encountered a problem and raised an exception while running.
+
+    There are 5 methods on Future:
+    - 
 
 
 <br>
