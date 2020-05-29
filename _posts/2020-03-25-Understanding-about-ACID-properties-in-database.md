@@ -38,25 +38,31 @@ So, we can find that ACID properties has some points:
 
 ## Atomicity
 
-A transaction is a group of database operations that is treated as an atomic unit. It means that all operations within a transaction are executed successfully, or none of them will executed.
+1. Introduction to Atomicity
 
-The rule for this properties is:
+    A transaction is a group of database operations that is treated as an atomic unit. It means that all operations within a transaction are executed successfully, or none of them will executed.
 
-```
-All or Nothing Transactions
-```
+    The rule for this properties is:
 
-For example, if Person T1 wants to transfer ```$20``` to Person T2. Then we have some operations for this case:
-- Read the balance of T1.       (1)
-- **balanceT1** = **balanceT1** - 20       (2)
-- Write the **balanceT1** to database.      (3)
-- Read the balance of T2.                   (4)
-- **balanceT2** = **balanceT2** + 20        (5)
-- Write the **balanceT2** to database.      (6)
+    ```
+    All or Nothing Transactions
+    ```
 
-With the atomicity property, if one of the above operations is fail, our transaction is rollbacked to the initial state.
+    For example, if Person T1 wants to transfer ```$20``` to Person T2. Then we have some operations for this case:
+    - Read the balance of T1.       (1)
+    - **balanceT1** = **balanceT1** - 20       (2)
+    - Write the **balanceT1** to database.      (3)
+    - Read the balance of T2.                   (4)
+    - **balanceT2** = **balanceT2** + 20        (5)
+    - Write the **balanceT2** to database.      (6)
 
-To apply this property, database uses Commit/Rollback mechanism.
+    With the atomicity property, if one of the above operations is fail, our transaction is rollbacked to the initial state.
+
+    To apply this property, database uses Commit/Rollback mechanism.
+
+2. How to implement rollback mechanism in DBMS
+
+    In order to revert to the previous state of our database, DBMS provides a undo log append-only structure. In Oracle, MySQL, it is called undo log. But in SQL Server, it is called transaction log. PostgreSQL does not have an undo log, but it use a multi-version table structure since tables can store multiple versions of the same row.
 
 <br>
 
@@ -98,7 +104,9 @@ The rule for this properties is:
 Committed data is never lost
 ```
 
-To apply this property, database uses redo logs.
+To apply this property, database uses redo logs. The redo log is an append-only disk-based structure that stores every change a given transaction has undergone. When a transaction commits, every data page change will be written to the redo log as well.
+
+In PostgreSQL, it is called WAL - Write Ahead Log. In MySQL, Oracle, it is called as redo log.
 
 <br>
 
@@ -116,3 +124,5 @@ Refer:
 [https://blog.sqlauthority.com/2016/04/10/acid-properties-database-interview-question-week-066/](https://blog.sqlauthority.com/2016/04/10/acid-properties-database-interview-question-week-066/)
 
 [https://en.wikipedia.org/wiki/ACID](https://en.wikipedia.org/wiki/ACID)
+
+[https://vladmihalcea.com/how-does-a-relational-database-work/](https://vladmihalcea.com/how-does-a-relational-database-work/)
