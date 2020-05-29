@@ -166,7 +166,9 @@ The **await()** call is blocking, but this is the difference with the **wait()**
 
 ## When to use
 
+- use it when we actually need something it provides that ```synchronized``` doesn't, like timed lock waits, interruptible lock waits, non-block-structured locks, multiple condition variables, or lock polling.
 
+- ```ReentrantLock``` also has scalability benefits, and we should use it if we actually have a situation that exhibits high contention, but remember that the vast majority of synchronized blocks hardly ever exhibit any contention, let alone high contention. We would advise developing with synchronization until synchronization has proven to be inadequate, rather than simply assuming **the performance will be better** if we use ```ReentrantLock```.
 
 
 <br>
@@ -237,8 +239,20 @@ The **await()** call is blocking, but this is the difference with the **wait()**
 
 ## Benefits and Drawbacks
 
+1. Benefits
 
+    - ```Reentrant Lock``` provides explicit locking that is much more granular and powerful than ```synchronized``` keyword.
 
+        For example:
+        - The scope of lock can range from one method to another but scope of ```synchronized``` keyword can not go beyond one method.
+
+    - Lock framework also supply ```Condition variables``` that are instances of ```Condition``` class, which provides inter thread communication methods similar to ```wait()```, ```notify()``` and ```notifyAll()``` such as ```await()```, ```signal()``` and ```signalAll()```.
+
+        So, if one thread is waiting on a condition by calling ```condition.await()```, then once that condition changes, second thread can call ```condition.signal()``` or ```condition.signalAll()``` method to notify that its time to wake up, condition has been changed.
+
+2. Drawbacks
+
+    - Difficult to use, understand for the novice programmers.
 
 <br>
 
