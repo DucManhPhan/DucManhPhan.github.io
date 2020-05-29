@@ -169,7 +169,7 @@ Let's get started.
 
     - [Open Close Principle](https://ducmanhphan.github.io/2020-01-07-Understanding-about-SOLID-part-2/)
 
-    - [Liskov Substitution Principle](https://ducmanhphan.github.io/2020-01-15-Understanding-about-SOLID-part-3/)
+    - [Liskov Substitution Principle](https://ducmanhphan.github.io/2020-01-13-Understanding-about-SOLID-part-3/)
 
     - [Interface Segregation Principle](https://ducmanhphan.github.io/2020-01-15-Understanding-about-SOLID-part-4)
 
