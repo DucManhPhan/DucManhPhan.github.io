@@ -322,8 +322,7 @@ tags: [Java, Multithreading]
 
 ## Wrapping up
 
-
-
+- Understanding why we have Callable, Future concept, and how to apply CompletableFuture into the asynchronous programming
 
 <br>
 
