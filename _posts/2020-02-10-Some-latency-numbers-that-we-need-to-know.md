@@ -32,3 +32,5 @@ Refer:
 [https://medium.com/@hondanhon/more-latency-numbers-every-programmer-should-know-3142f0cf614d](https://medium.com/@hondanhon/more-latency-numbers-every-programmer-should-know-3142f0cf614d)
 
 [https://colin-scott.github.io/personal_website/research/interactive_latency.html](https://colin-scott.github.io/personal_website/research/interactive_latency.html)
+
+[http://highscalability.com/blog/2011/1/26/google-pro-tip-use-back-of-the-envelope-calculations-to-choo.html](http://highscalability.com/blog/2011/1/26/google-pro-tip-use-back-of-the-envelope-calculations-to-choo.html)
