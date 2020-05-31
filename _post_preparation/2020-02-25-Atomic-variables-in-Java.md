@@ -253,11 +253,9 @@ tags: [Java, Multithreading]
 
 ## Wrapping up
 
+- When we need to update values or references in memory, CASing may be a better solution than locking. CASing is based on very efficient assembly instruction down to the CPU and it is, in some cases, more efficient than synchronization.
 
-
-
-
-
+- Atomic variables are used in a case that if our threads are updating location in memory at the same time.
 
 <br>
 
