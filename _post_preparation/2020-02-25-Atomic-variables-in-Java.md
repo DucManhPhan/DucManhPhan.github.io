@@ -66,6 +66,16 @@ tags: [Java, Multithreading]
 
     - CASing is more efficient than synchronization if there is no real concurrency.
 
+3. When to use
+
+    - CASing works well when concurrency is not too high.
+
+        In fact, if the concurrency is high, then the update operation of the memory will be tried again and again until it is accepted by all the thread, and at one given point of time, only one thread will win. All the other ones will be retrying again and again.
+
+        The behavior of CASing system is very different from the behavior of a synchronized system. If we synchronize a portion of memory, it means that all our threads between are going to wait to access this memory. In this case of CASing, all the threads at the same time are going to access this memory, but only one will be the winner.
+
+        So if CASing is not used in the right use case, it may create a very heavy load both on the memory and on the CPU.
+
 <br>
 
 ## Some types of Atomic variable in Java
@@ -123,16 +133,113 @@ tags: [Java, Multithreading]
 
 4. AtomicReference<V> class
 
+    AtomicReference is a wrapper on the reference that is on a pointer.
 
+    Belows are the set of methods of AtomicReference class.
+    - get(), set() methods
+    - getAndSet(value) method
+    - getAndUpdate(unaryOp), updateAndGet(unaryOp) methods
+    - getAndAccumulate(value, binOp), accumulateAndGet(value, binOp) methods
+    - compareAndSet(expected, value) method
+
+5. When to use
+
+    Atomic variables are based on CASing. CASing is another tool to handle concurrent read and write operations on memory. This tool works in a very different way than synchronization.
+
+    It can lead to better performances. But it should be used with care because in the case where the concurrency is very high, it will generate heavy load on both CPU and memory.
 
 <br>
 
-## 
+## Understanding Adders and Accumulators
 
+1. Introduction to Adders and Accumulators
 
+    Adders and accumulators are an introduction of Java 8. These classes are not available in Java 7 and before.
 
+    The starting point is a fact that all the methods are built on the **modify and get** or **get and modify** concept, and the fact is that sometimes we do not need the **get** part at each modification.
 
+    Suppose we are just creating a counter and we just want to count a certain number of events, we want to make it in a thread-safe way, so we are using an AtomicLong, for instance. Each time we increment this AtomicLong, we also get the current value of this AtomicLong, but the fact is we do not need this value at this time. All we need is the value once our process is done at the end of it.
 
+    This is precisely the role of the LongAdder and the LongAccumulator classes introduced in Java 8. The LongAdder can be seen as an AtomicLong that does not expose the get functionality at each modification and that can optimize things.
+
+2. How they works
+
+    LongAdder and LongAccumulator work the same as an AtomicLong.
+
+    The difference is that it does not return the updated value at each modification, so it can distribute the update on different cells, if they are really many threads tring to do the modifications. And at the end of the day, when we call the get() method, all the results from those different cells can be merged on that call.
+
+    Those classes have been created to handle very high concurrency, a huge number of threads, it is quite useless to use them if it is not case.
+
+3. Some methods of LongAdder and LongAccumulator
+
+    For the LongAdder class:
+    - increment(), decrement() methods
+
+        They do not return anything.
+
+    - add(long) method that takes long as a parameter.
+
+    - sum(), longValue(), intValue() methods that's going to return the content of this LongAdder.
+
+    - sumThenReset() method that will return the content of this LongAdder and reset the value to 0.
+
+    For the LongAccumulator class:
+    - It's built on a binary operator since this is an accumulator.
+    - accumulate(long) method
+    - get() method returns the value computed in this accumulator.
+    - intValue(), longValue(), floatValue(), doubleValue() methods converts this accumulated value in int, long, float, double.
+    - getThenReset() method will reset this accumulator while getting its value 
+
+4. Source code
+
+    ```java
+    private static int counter = 0;
+    
+    public static void main(String[] args) {
+        class Increment implements Runnable {
+            @Override
+            public void run() {
+                for (int i = 0; i < 1_000; ++i) {
+                    counter++;
+                }
+            }
+        }
+
+        class Decrement implements Runnable {
+            @Override
+            public void run() {
+                for (int i = 0; i < 1_000; ++i) {
+                    counter--;
+                }
+            }
+        }
+
+        ExecutorService executorService = Executors.newFixedThreadPool(8);
+        List<Future<?>> futures = new ArrayList<>();
+
+        try {
+            for (int i = 0; i < 4; i++) {
+                futures.add(executorService.submit(new Increment()));
+            }
+
+            for (int i = 0; i < 4; i++) {
+                futures.add(executorService.submit(new Decrement()));
+            }
+
+            futures.forEach(future -> {
+                try {
+                    future.get();
+                } catch (InterruptedException | ExecutionException ex) {
+                    System.out.println(ex);
+                }
+            });
+
+            System.out.println("counter = " + counter);
+        } finally {
+            executorService.shutdown();
+        }
+    }
+    ```
 
 <br>
 
