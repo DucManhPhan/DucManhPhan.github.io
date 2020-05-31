@@ -98,6 +98,8 @@ tags: [Java, Multithreading]
 
         So, if we have several threads incrementing the same counter, CASing ensures that no incrementation is lost. If we have 4 threads incrementing a counter 25 times, this counter will hold 100 as a value at the end of the day. The counter part is that more than 100 incrementations will be attempted most probably. Some of them will not be taken into account due to concurrency.
 
+    
+
 2. AtomicBoolean class
 
     Some methods of this class:
@@ -130,6 +132,8 @@ tags: [Java, Multithreading]
     - getAndAccumulate(value, binOp), accumulateAndGet(value, binOp)
 
         They takes a binary operator. This binary operator will operate and the current value at that location and the past value as a parameter to compute the new value to be set in this AtomicInteger or AtomicLong.
+
+    - incrementAndGet() method
 
 4. AtomicReference<V> class
 
@@ -196,35 +200,20 @@ tags: [Java, Multithreading]
     private static int counter = 0;
     
     public static void main(String[] args) {
-        class Increment implements Runnable {
-            @Override
-            public void run() {
-                for (int i = 0; i < 1_000; ++i) {
-                    counter++;
-                }
-            }
-        }
+        Runnable increThread = () -> {
+            LongStream.range(0, 1_000).forEach(cnt -> counter++);
+        };
 
-        class Decrement implements Runnable {
-            @Override
-            public void run() {
-                for (int i = 0; i < 1_000; ++i) {
-                    counter--;
-                }
-            }
-        }
+        Runnable decreThread = () -> {
+            LongStream.range(0, 1_000).forEach(cnt -> counter--);
+        };
 
         ExecutorService executorService = Executors.newFixedThreadPool(8);
         List<Future<?>> futures = new ArrayList<>();
 
         try {
-            for (int i = 0; i < 4; i++) {
-                futures.add(executorService.submit(new Increment()));
-            }
-
-            for (int i = 0; i < 4; i++) {
-                futures.add(executorService.submit(new Decrement()));
-            }
+            IntStream.range(0, 4).forEach(cnt -> futures.add(executorService.submit(increThread)));
+            IntStream.range(0, 4).forEach(cnt -> futures.add(executorService.submit(decreThread)));
 
             futures.forEach(future -> {
                 try {
@@ -238,6 +227,25 @@ tags: [Java, Multithreading]
         } finally {
             executorService.shutdown();
         }
+    }
+    ```
+
+    After running the above code, we can find that the counter variable has multiple values. So use Atomic variables, we can fix some places:\
+
+    ```java
+    private static AtomicInteger counter = new AtomicInteger(0);
+
+    public static void main(String[] args) {
+        Runnable increThread = () -> {
+            LongStream.range(0, 1_000).forEach(cnt -> counter.incrementAndGet());
+        };
+
+        Runnable decreThread = () -> {
+            LongStream.range(0, 1_000).forEach(cnt -> counter.decrementAndGet());
+        };
+
+        // do something
+        // ...
     }
     ```
 
