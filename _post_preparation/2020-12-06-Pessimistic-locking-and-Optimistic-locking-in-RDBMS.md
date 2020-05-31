@@ -72,18 +72,41 @@ To overcome this problem, we need to protect our data from multiple requests tha
 
 ## Pessimistic locking
 
-http://coding-geek.com/how-databases-work/
+1. Given problem
 
 
+
+2. Solution
+
+
+
+3. Implementations of pessimistic locking
+
+    - Two phase locking
 
 
 <br>
 
 ## Optimistic locking
 
+1. Given problem
 
 
 
+2. Solution
+
+
+
+
+2. Some implementations of optimistic locking
+
+    - The timestamp-based concurrecy control
+
+        The timestamp-based algorithm assigns a single (more correctly one for each kind of operation, read and write) timestamp to each object, denoting the last transaction that accessed it. So each transaction checks during the operation, if it conflicts with the last transaction that accessed the object.
+
+    - The multi-version concurrecy control
+
+        The multi-version approach maintains multiple versions of each object, each one corresponding to a transaction. As a result, the multi-version approach manages to have fewers aborts than the first approach, since a potentially conflicting transaction can write a new version, instead of aborting in some cases. However, this is achieved at the cost of more storage required for all the versions.
 
 <br>
 
@@ -122,3 +145,11 @@ Refer:
 [https://mjabr.wordpress.com/2011/06/10/differences-between-pessimistic-and-optimistic-locking/](https://mjabr.wordpress.com/2011/06/10/differences-between-pessimistic-and-optimistic-locking/)
 
 [https://convincedcoder.com/2018/09/01/Optimistic-pessimistic-locking-sql/](https://convincedcoder.com/2018/09/01/Optimistic-pessimistic-locking-sql/)
+
+[https://stackoverflow.com/questions/5751271/optimistic-vs-multi-version-concurrency-control-differences/39269085](https://stackoverflow.com/questions/5751271/optimistic-vs-multi-version-concurrency-control-differences/39269085)
+
+[https://en.wikipedia.org/wiki/Timestamp-based_concurrency_control](https://en.wikipedia.org/wiki/Timestamp-based_concurrency_control)
+
+[https://en.wikipedia.org/wiki/Multiversion_concurrency_control](https://en.wikipedia.org/wiki/Multiversion_concurrency_control)
+
+[https://en.wikipedia.org/wiki/Two-phase_locking](https://en.wikipedia.org/wiki/Two-phase_locking)
