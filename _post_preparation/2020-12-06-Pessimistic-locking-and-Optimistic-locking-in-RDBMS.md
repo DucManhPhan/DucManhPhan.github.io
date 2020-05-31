@@ -153,3 +153,9 @@ Refer:
 [https://en.wikipedia.org/wiki/Multiversion_concurrency_control](https://en.wikipedia.org/wiki/Multiversion_concurrency_control)
 
 [https://en.wikipedia.org/wiki/Two-phase_locking](https://en.wikipedia.org/wiki/Two-phase_locking)
+
+[https://enterprisecraftsmanship.com/posts/optimistic-locking-automatic-retry/](https://enterprisecraftsmanship.com/posts/optimistic-locking-automatic-retry/)
+
+[https://vladmihalcea.com/how-does-mvcc-multi-version-concurrency-control-work/](https://vladmihalcea.com/how-does-mvcc-multi-version-concurrency-control-work/)
+
+[https://labs.septeni-technology.jp/technote/optimistic-hay-pessimistic-locking/](https://labs.septeni-technology.jp/technote/optimistic-hay-pessimistic-locking/)
