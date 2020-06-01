@@ -1,6 +1,6 @@
 ---
 layout: post
-title: Sharing resources between parallel workers
+title: Scatter-Gather pattern
 bigimg: /img/path.jpg
 tags: [Multithreading, Java, Concurrency Pattern]
 ---
