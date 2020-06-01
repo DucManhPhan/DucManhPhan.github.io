@@ -2,7 +2,7 @@
 layout: post
 title: Sharing resources between parallel workers
 bigimg: /img/path.jpg
-tags: [Multithreading, Java]
+tags: [Multithreading, Java, Concurrency Pattern]
 ---
 
 

@@ -1,8 +1,8 @@
 ---
 layout: post
-title: Improving performance of application by running processes in the background
+title: Fire and forget pattern
 bigimg: /img/image-header/factory.jpg
-tags: [Multithreading, Java]
+tags: [Multithreading, Java, Concurrency Pattern]
 ---
 
 In this article, we will learn how to use the fire-and-forget pattern to improve performance of system with its implementations.
