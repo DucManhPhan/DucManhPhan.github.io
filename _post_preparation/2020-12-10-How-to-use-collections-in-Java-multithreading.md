@@ -299,18 +299,106 @@ In Java, we have some collections that support multithreading such as:
 
 5. The ConcurrentHashMap of Java 8
 
-    
+    The implementation of ConcurrentHashMap has completely changed between Java 7 and Java 8. It is still compatible from the serialization point of view. It means that if we have a serialized Java 7 ConcurrentHashMap, we can deserialize it as a ConcurrentHashMap from Java 8 and vice versa. It has been created to handle very heavy concurrency, thousands of threads, and millions of key-value pairs, and because of that, some more methods not defined on map or ConcurrencyMap have been added with parallel implementations
 
+    ```java
+    ConcurrentHashMap<Long, String> map = ...; // JDK 8
+    String result = map.search(10_000, (key, value) -> value.startsWith("a") ? "a" : null);
+    ```
+
+    In search() method, the first parameter is the parallelism threshold, the second parameter is the operation to be applied. If the number of key-value pairs is greater than the parallelism threshold, it will trigger the parallel search.
+
+    Some versions of search() method such as searchKeys(), searchValues(), and searchEntries() methods.
+
+    ```java
+    ConcurrentHashMap<Long, List<String>> map = ...; // JDK 8
+    String result = map.forEach(10_000, (key, value) -> value.removeIf(s -> s.length() > 20));
+    ```
+
+    In forEach() method, the second parameter is the biconsumer that is applied to all the key-value pairs of the map.
+
+    Som versions of forEach() method such as forEachKeys(), forEachValues(), forEachEntry() methods.
+
+6. Some notes of ConcurrentHashMap Java 8
+
+    - A fully concurrent map
+
+    - It has been made to handle very high concurrency and millions of key-value pairs.
+
+    - It exposes built-in parallel operations. Those operations present in the map or concurrent map.
+
+    - It can be used to create concurrent sets.
+
+
+<br>
+
+## How to use Concurrent Skip List
+
+1. Introduction to Skip List
+
+    The concurrent skip list is used for two implementations in the JDK. It is another concurrent map introduced in JDK 6. It is based on a structure called a skip list.
+    
+    A skip list is a smart structure used to create linked list and to provide fast random access to any of its elements. The concurrent version of this skip list implemented in Java 6 relies on atomic reference operations and no synchronization is used in it, making it a very efficient structure even in high concurrency environment. It can be used to create maps and sets.
+
+    In JDK, we have two implementations that use this structure.
+    - ConcurrentSkipListMap 
+
+        All references in this skip list are implemented using AtomicReference. So it is a thread-safe map with no synchronization.
+
+    - ConcurrentSkipListSet
+
+    Both structures can be used in high concurrency environment as long as there are enough elements in it.
+
+
+2. How Skip List works
+
+    First, we need to start with a classical linked list, a pointer to the head and another pointer to the tail of this linked list.
+
+    ![](../img/Java/Multithreading/collections/classical-linked-list.png)
+
+    The problem of the classical linked list:
+    - It takes very long time to reach randomly an element of this list, the complexity is O(N).
+
+    The solution is to use Skip List. It creates a fast access list with less elements on top of it. We can even create several layer of such a fast access list, in fact, as many as we need.
+
+    The use of those fast access list assume that the elements of the skip list are sorted. Now, in fact, since it is a list, we can always store key-value pairs in the form of index object and sort those key-value pair using the index. So we are always possible to do that on the list.
+
+    ![](../img/Java/Multithreading/collections/skip-list.png)
+
+    The complexity of this skip list is O(log(N)).
+
+3. Some notes of Skip List
+
+    - A skip list can be used both to implement linked list and map, as long as the keys are comparable objects.
+
+    - The skip list structure ensures fast access to any key.
+
+    - A skip list is not an array-based structure. Since it is not an array-based structure, we can imagine other ways than locking to guard a skip list, that is to make skip list thread-safe.
 
 <br>
 
 ## Wrapping up
 
+- If we have very few writes, use copy-on-write structures.
 
+- If we have low concurrency, we can rely on synchronization.
 
+- In high concurrency, skip lists are usable with many objects, or ConcurrentHashMap.
+
+- If we have high concurrency with few objects, then we are in the problematic area of concurrency. If we rely on synchronization, we will block our threads. If we rely on atomic references or atomic variables, we will generate high CPU load and high memory load.
+
+- Be careful when designing concurrent code:
+
+    - Be sure to have a good idea of what our problem is.
+
+    - we need to keep in mind that concurrent programming is different parallel processing.
+
+    - try to delegate to the API as much as we can.
+
+    - know the concurrent collections well, as they solve many problems.
 
 <br>
 
 Refer:
 
-[]()
+[Advanced Java Concurrent Patterns by Jose Paumard](https://app.pluralsight.com/library/courses/java-concurrent-patterns-advanced/table-of-contents)
