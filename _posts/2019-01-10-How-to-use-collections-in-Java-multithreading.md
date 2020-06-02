@@ -5,15 +5,17 @@ bigimg: /img/image-header/yourself.jpeg
 tags: [Multithreading, Java]
 ---
 
-
-
+In this article, we will learn how to use concurrent collections in Java.
 
 <br>
 
 ## Table of contents
-
-
-
+- [Introduction to collections in Java's multithreading](#)
+- [How to use Vector](#how-to-use-vector)
+- [How to use Queue/Stack](#how-to-use-queue/stack)
+- [How to use Map](#how-to-use-map)
+- [How to use Concurrent Skip List](#how-to-use-concurrent-skip-list)
+- [Wrapping up](#wrapping-up)
 
 
 <br>
