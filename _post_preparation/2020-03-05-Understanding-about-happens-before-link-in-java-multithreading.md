@@ -64,4 +64,8 @@ tags: [Multithreading, Java]
 
 Refer: 
 
-[]()
+[https://docs.oracle.com/javase/8/docs/api/java/util/concurrent/package-summary.html#MemoryVisibility](https://docs.oracle.com/javase/8/docs/api/java/util/concurrent/package-summary.html#MemoryVisibility)
+
+[https://docs.oracle.com/javase/tutorial/essential/concurrency/memconsist.html](https://docs.oracle.com/javase/tutorial/essential/concurrency/memconsist.html)
+
+[https://docs.oracle.com/javase/specs/jls/se7/html/jls-17.html#jls-17.4.5](https://docs.oracle.com/javase/specs/jls/se7/html/jls-17.html#jls-17.4.5)
