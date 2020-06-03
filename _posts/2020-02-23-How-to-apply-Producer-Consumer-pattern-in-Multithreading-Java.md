@@ -399,8 +399,7 @@ public static void main(String[] args) {
 
 ## Wrapping up
 
-
-
+- Understanding how to use synchronized block, Lock framework, BlockingQueue and Semaphore to solve the producer/consumer problem.
 
 <br>
 
