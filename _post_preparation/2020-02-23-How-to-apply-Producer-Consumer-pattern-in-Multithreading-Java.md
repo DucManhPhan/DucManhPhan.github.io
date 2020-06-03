@@ -46,7 +46,7 @@ So, below is the common solution for this problem.
 
 ## When to use
 
-
+- When we want to separate the actions between producing data and consuming data. It makes our code loose coupling.
 
 
 <br>
@@ -330,7 +330,60 @@ public static void main(String[] args) throws InterruptedException {
 Below is the source code that uses Semaphore.
 
 ```java
+public class Buffer {
 
+    private LinkedList<Integer> buffer = new LinkedList<>();
+
+    private Semaphore semProducer = new Semaphore(1);
+
+    private Semaphore semConsumer = new Semaphore(0);
+
+    public void put(int value) {
+        try {
+            semProducer.acquire();
+        } catch (InterruptedException ex) {
+            System.out.println(ex);
+        }
+
+        this.buffer.add(value);
+        System.out.println("Producer push " + value + " to buffer in " + Thread.currentThread().getName());
+
+        semConsumer.release();
+    }
+
+    public void get() {
+        try {
+            this.semConsumer.acquire();
+        } catch (InterruptedException ex) {
+            System.out.println(ex);
+        }
+
+        System.out.println("Consumer is consuming element " + this.buffer.removeLast() + " in " + Thread.currentThread().getName());
+
+        semProducer.release();
+    }
+
+}
+
+public static void main(String[] args) {
+    Buffer buffer = new Buffer();
+
+    Runnable producer = () -> {
+        IntStream.range(1, 51).forEach(cnt -> buffer.put(cnt));
+    };
+
+    Runnable consumer = () -> {
+        IntStream.range(1, 51).forEach(cnt -> buffer.get());
+    };
+
+    ExecutorService executorService = Executors.newFixedThreadPool(2);
+    executorService.submit(producer);
+    executorService.submit(consumer);
+
+    System.out.println("Working producer and consumer with using Semaphore");
+
+    executorService.shutdown();
+}
 ```
 
 <br>
@@ -360,3 +413,5 @@ Refer:
 [https://dzone.com/articles/the-evolution-of-producer-consumer-problem-in-java](https://dzone.com/articles/the-evolution-of-producer-consumer-problem-in-java)
 
 [https://stackoverflow.com/questions/8288479/how-to-solve-the-producer-consumer-using-semaphores](https://stackoverflow.com/questions/8288479/how-to-solve-the-producer-consumer-using-semaphores)
+
+[https://dzone.com/articles/the-evolution-of-producer-consumer-problem-in-java](https://dzone.com/articles/the-evolution-of-producer-consumer-problem-in-java)
