@@ -46,11 +46,11 @@ try {
 }
 ```
 
-When we create a semaphore in Java, we have to fix the number of permits on which the semaphore is built. Then there is an acquire method, a release method to acquire a permit and be allowed in a guarded block of code and to release this permit.
+When we create a semaphore in Java, we have to fix the number of permits on which the semaphore is built. Then there is an **acquire()** method to acquire a permit and be allowed in a guarded block of code and a **release()** method to release this permit.
 
-A semaphore built in the normal way, and the default way, is non-fair. It means that if there are threads waiting for permits, they will be accepted randomly in the guarded block of code. This acquire() method, is blocking until a permit is available. So, in our example, at most 5 threads can execute the guarded block of code at the same time.
+A semaphore built in the normal way, and the default way, is non-fair. It means that if there are threads waiting for permits, they will be accepted randomly in the guarded block of code. This **acquire()** method, is blocking until a permit is available. So, in our example, at most 5 threads can execute the guarded block of code at the same time.
 
-A Semaphore can be made fair. If we pass the true Boolean as the second parameter of the construction of this object, each will create a fair semaphore. The **acquire()** method can ask for more than one permit at a time. Then the **release()** method must release them all.
+A Semaphore can be made fair. If we pass the **true** Boolean as the second parameter of the construction of this object, each will create a fair semaphore. The **acquire()** method can ask for more than one permit at a time. Then the **release()** method must release them all.
 
 ```java
 Semaphore semaphore = new Semaphore(5, true);      // fair
@@ -62,7 +62,7 @@ try {
 }
 ```
 
-In an above example, acquire() method will ask for 2 permits, and if there is only 1 available, the thread executing this code will have to wait for a second 1 to be released. If we ask for 2 permits, we should also release two permits.
+In an above example, **acquire()** method will ask for 2 permits, and if there is only 1 available, the thread executing this code will have to wait for a second 1 to be released. If we ask for 2 permits, we should also release two permits.
 
 <br>
 
@@ -123,6 +123,13 @@ In an above example, acquire() method will ask for 2 permits, and if there is on
         semaphore.release();
     }
     ```
+
+<br>
+
+## Some methods need to know
+
+
+
 
 <br>
 

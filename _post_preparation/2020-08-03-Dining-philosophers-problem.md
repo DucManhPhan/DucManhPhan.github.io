@@ -1,9 +1,10 @@
 ---
 layout: post
-title: Scatter and Gather pattern
-bigimg: /img/path.jpg
-tags: [Design Pattern, Concurrency Pattern]
+title: Dining philosophers problem
+bigimg: /img/image-header/yourself.jpeg
+tags: [Multithreading]
 ---
+
 
 
 
@@ -23,18 +24,19 @@ tags: [Design Pattern, Concurrency Pattern]
 
 
 
-<br>
-
-## 
-
-
-
-
 
 <br>
 
 ## 
 
+
+
+
+
+
+<br>
+
+## 
 
 
 
@@ -47,11 +49,7 @@ tags: [Design Pattern, Concurrency Pattern]
 
 
 
-
-
-
 <br>
 
 Refer:
 
-[]()

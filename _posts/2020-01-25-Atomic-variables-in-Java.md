@@ -10,9 +10,9 @@ tags: [Java, Multithreading]
 <br>
 
 ## Table of contents
-- [Understanding about CASing]()
-- [Some types of Atomic variable in Java]()
-- []()
+- [Understanding about CASing](#understanding-about-casing)
+- [Some types of Atomic variable in Java](#some-types-of-atomic-variable-in-java)
+- [Understanding Adders and Accumulators](#understanding-adders-and-accumulators)
 - [Wrapping up](#wrapping-up)
 
 <br>
@@ -110,30 +110,30 @@ tags: [Java, Multithreading]
 3. AtomicInteger class
 
     Some methods of this class.
-    - get(), set() methods
-    - getAndSet(value)
-    - compareAndSet(expected, value) method.
-    - getAndUpdate(unaryOp), updateAndGet(unaryOp) methods
+    - **get()**, **set()** methods.
+    - **getAndSet(value)** method.
+    - **compareAndSet(expected, value)** method.
+    - **getAndUpdate(unaryOp)**, **updateAndGet(unaryOp)** methods.
 
-        getAndUpdate() method will return the current value and do the update.
+        **getAndUpdate()** method will return the current value and do the update.
 
-        updateAndGet() will do the contrary, first update, then get a new value.
+        **updateAndGet()** will do the contrary, first update, then get a new value.
 
         A unary operator may be implemented using the lambda expression and it is just an operation on the current value that will compute the new value.
 
-    - getAndIncrement(), getAndDecrement() methods
+    - **getAndIncrement()**, **getAndDecrement()** methods
 
-    - getAndAdd(value), addAndGet(value) methods
+    - **getAndAdd(value)**, **addAndGet(value)** methods
 
-        addAndGet(value) method will increment the current value with the past value, returns the updated value.
+        **addAndGet(value)** method will increment the current value with the past value, returns the updated value.
 
-        getAndAdd(value) method returns the existing value, increment the current value.
+        **getAndAdd(value)** method returns the existing value, increment the current value.
 
-    - getAndAccumulate(value, binOp), accumulateAndGet(value, binOp)
+    - **getAndAccumulate(value, binOp)**, **accumulateAndGet(value, binOp)** methods
 
         They takes a binary operator. This binary operator will operate and the current value at that location and the past value as a parameter to compute the new value to be set in this AtomicInteger or AtomicLong.
 
-    - incrementAndGet() method
+    - **incrementAndGet()** method
 
 4. AtomicReference<V> class
 
@@ -177,22 +177,22 @@ tags: [Java, Multithreading]
 3. Some methods of LongAdder and LongAccumulator
 
     For the LongAdder class:
-    - increment(), decrement() methods
+    - **increment()**, decrement() methods
 
         They do not return anything.
 
-    - add(long) method that takes long as a parameter.
+    - **add(long)** method that takes long as a parameter.
 
-    - sum(), longValue(), intValue() methods that's going to return the content of this LongAdder.
+    - **sum()**, **longValue()**, **intValue()** methods that's going to return the content of this LongAdder.
 
-    - sumThenReset() method that will return the content of this LongAdder and reset the value to 0.
+    - **sumThenReset()** method that will return the content of this LongAdder and reset the value to 0.
 
     For the LongAccumulator class:
     - It's built on a binary operator since this is an accumulator.
-    - accumulate(long) method
-    - get() method returns the value computed in this accumulator.
-    - intValue(), longValue(), floatValue(), doubleValue() methods converts this accumulated value in int, long, float, double.
-    - getThenReset() method will reset this accumulator while getting its value 
+    - **accumulate(long)** method
+    - **get()** method returns the value computed in this accumulator.
+    - **intValue()**, **longValue()**, **floatValue()**, **doubleValue()** methods converts this accumulated value in int, long, float, double.
+    - **getThenReset()** method will reset this accumulator while getting its value 
 
 4. Source code
 

@@ -12,10 +12,10 @@ tags: [Multithreading, Java, Concurrency Pattern]
 ## Table of contents
 - [Understanding about Producer/Consumer pattern](#understanding-about-producer/consumer-pattern)
 - [When to use](#when-to-use)
-- [Producer/Consumer pattern using wait/notify](#producer/consumer-pattern-using-wait/notify)
-- [Producer/Consumer pattern using Lock framework](#producer/consumer-pattern-using-lock-framework)
-- [Producer/Consumer pattern using BlockingQueue](#producer/consumer-pattern-using-blockingqueue)
-- [Producer/Consumer pattern with Semaphore](#producer/consumer-pattern-with-semaphore)
+- [Using synchronized block](#using-synchronized-block)
+- [Using Lock framework](#using-lock-framework)
+- [Using BlockingQueue](#using-blockingqueue)
+- [Using Semaphore](#using-semaphore)
 - [Common questions with Producer/Consumer](#common-questions-with-producer/consumer)
 - [Wrapping up](#wrapping-up)
 
@@ -24,9 +24,22 @@ tags: [Multithreading, Java, Concurrency Pattern]
 
 ## Understanding about Producer/Consumer pattern
 
+The producer-consumer problem, it also can be called bounded-buffer problem, is proposed by Edsger W. Dijkstra.
 
+![](../img/concurrency/java/producer-consumer-pattern/problem.png)
 
+This problem describes that:
+- A producer produces items one by one, and push each item into the buffer.
 
+    When the buffer is full, a producer need to stop its working, and wait until the buffer has some available spaces.
+
+- A consumer consumes items one by one, and takes each item from the buffer.
+
+    When the buffer is empty, a consumer has to wait until the buffer has some items to continue consuming.
+
+So, below is the common solution for this problem.
+
+![](../img/concurrency/java/producer-consumer-pattern/solution-producer-consumer.png)
 
 
 <br>
@@ -38,7 +51,8 @@ tags: [Multithreading, Java, Concurrency Pattern]
 
 <br>
 
-## Producer/Consumer pattern using wait/notify
+## Using synchronized block
+
 1. Runnable pattern
 
     This is the first pattern used to launch threads in Java. It is introduced in Java 1.0. Other patterns have been introduced in Java 5.
@@ -150,7 +164,7 @@ tags: [Multithreading, Java, Concurrency Pattern]
 
 <br>
 
-## Producer/Consumer pattern using Lock framework
+## Using Lock framework
 
 Based on using wait/notify pattern with producer/consumer, we can change somethings in the above source code. Then we have,
 
@@ -158,6 +172,18 @@ Based on using wait/notify pattern with producer/consumer, we can change somethi
 private static Lock lock = new ReentrantLock();
 private static Condition notFull = lock.newCondition();
 private static Condition notEmpty = lock.newCondition();
+
+private static int[] buffer;
+
+private static int count;
+
+static boolean isEmpty(int[] buffer) {
+    return count == 0;
+}
+
+static boolean isFull(int[] buffer) {
+    return count == buffer.length;
+}
 
 public class Producer {
     public void produce() {
@@ -177,7 +203,7 @@ public class Producer {
     }
 }
 
-public  class Consumer {
+public class Consumer {
     public void consume() {
         try {
             lock.lock();
@@ -196,6 +222,44 @@ public  class Consumer {
         }
     }
 }
+
+public static void main(String[] args) {
+    buffer = new int[10];
+    count = 0;
+
+    final Producer producer = new Producer();
+    Consumer consumer = new Consumer();
+
+    Runnable produceTask = () -> {
+        for (int i = 0; i < 50; ++i) {
+            producer.produce();
+        }
+
+        System.out.println("Done producing");
+    };
+
+    Runnable consumeTask = () -> {
+        for (int i = 0; i < 50; ++i) {
+            consumer.consume();
+        }
+
+        System.out.println("Done consuming");
+    };
+
+    Thread consumerThread = new Thread(consumeTask);
+    Thread produceThread = new Thread(produceTask);
+
+    consumerThread.start();
+    produceThread.start();
+
+    consumerThread.join();
+    produceThread.join();
+
+    System.out.println("Data in the buffer: " + count);
+
+    IntStream.of(buffer).forEach(item -> System.out.println(item + " "));
+}
+
 ```
 
 In order to use Lock framework with Producer/Consumer pattern, we need to identify two state of buffer:
@@ -211,21 +275,63 @@ Note:
 
 <br>
 
-## Producer/Consumer pattern using BlockingQueue
+## Using BlockingQueue
 
+Below is the source code of Producer/Consumer that uses BlockingQueue.
 
+```java
+public static void main(String[] args) throws InterruptedException {
+    BlockingQueue<String> queue = new ArrayBlockingQueue<>(50);
 
+    Callable<String> consumer = () -> {
+        int count = 0;
+        while (count++ < 50) {
+            queue.take();
+        }
 
+        return "Consumed " + (count - 1);
+    };
 
+    Callable<String> producer = () -> {
+        int count = 0;
+        while (count++ < 50) {
+            queue.put(Integer.toString(count));
+        }
+
+        return "Produced " + (count - 1);
+    };
+
+    List<Callable<String>> producersAndConsumers = new ArrayList<>();
+    IntStream.range(0, 2).forEach(cnt -> producersAndConsumers.add(producer));
+    IntStream.range(0, 2).forEach(cnt -> producersAndConsumers.add(consumer));
+
+    System.out.println("Producers and Consumers launched");
+
+    ExecutorService executorService = Executors.newFixedThreadPool(4);
+    try {
+        List<Future<String>> futures = executorService.invokeAll(producersAndConsumers);
+        futures.forEach(future -> {
+            try {
+                System.out.println(future.get());
+            } catch (InterruptedException | ExecutionException ex) {
+                System.out.println(ex);
+            }
+        });
+    } finally {
+        executorService.shutdown();
+    }
+}
+```
 
 <br>
 
-## Producer/Consumer pattern with Semaphore
+## Using Semaphore
 
+Below is the source code that uses Semaphore.
 
+```java
 
-
-
+```
 
 <br>
 
@@ -248,3 +354,9 @@ Note:
 Refer:
 
 [Advanced Java Concurrent Patterns by Jose Paumard](https://app.pluralsight.com/library/courses/java-concurrent-patterns-advanced/table-of-contents)
+
+[https://www.geeksforgeeks.org/semaphore-in-java/](https://www.geeksforgeeks.org/semaphore-in-java/)
+
+[https://dzone.com/articles/the-evolution-of-producer-consumer-problem-in-java](https://dzone.com/articles/the-evolution-of-producer-consumer-problem-in-java)
+
+[https://stackoverflow.com/questions/8288479/how-to-solve-the-producer-consumer-using-semaphores](https://stackoverflow.com/questions/8288479/how-to-solve-the-producer-consumer-using-semaphores)

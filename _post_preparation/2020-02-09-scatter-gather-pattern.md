@@ -1,6 +1,6 @@
 ---
 layout: post
-title: Scatter-Gather pattern
+title: Scatter and Gather pattern
 bigimg: /img/path.jpg
 tags: [Multithreading, Java, Concurrency Pattern]
 ---
