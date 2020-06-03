@@ -414,3 +414,5 @@ Refer:
 [https://stackoverflow.com/questions/8288479/how-to-solve-the-producer-consumer-using-semaphores](https://stackoverflow.com/questions/8288479/how-to-solve-the-producer-consumer-using-semaphores)
 
 [https://dzone.com/articles/the-evolution-of-producer-consumer-problem-in-java](https://dzone.com/articles/the-evolution-of-producer-consumer-problem-in-java)
+
+[https://www.javacodegeeks.com/2012/02/concurrency-pattern-producer-and.html](https://www.javacodegeeks.com/2012/02/concurrency-pattern-producer-and.html)
