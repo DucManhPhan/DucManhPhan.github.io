@@ -1,6 +1,6 @@
 ---
 layout: post
-title: Depth First Search algorithm
+title: Minimum value to get positive step by step sum
 bigimg: /img/image-header/yourself.jpeg
 tags: [Algorithm, Prefix Sum]
 ---
