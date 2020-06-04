@@ -180,6 +180,13 @@ tags: [Java]
     } else {
         System.out.println("Prime not found");
     }
+
+    // OR
+    String title = "";
+    Book book = service.findBookById(id);
+    if (book != null) {
+        title = book.getTitle();
+    }
     ```
 
 2. Solution
@@ -216,14 +223,68 @@ tags: [Java]
             .map(p -> "Prime is " + p)
             .orElse("Prime not found");
     );
+
+    // OR
+    String title = service.findBookById(id)
+                          .map(book -> book.getTitle())
+                          .orElse("");
+
+    // If getTitle() returns an Optional, use flatMap() method
+    String title = service.findBookById(id)
+                          .flatMap(book -> book.getTitle())
+                          .orElse("");
     ```
     
+    So we have conclusions:
+    - If the function returns a plain object, use map() method.
+    - If the function returns an Optional, use flatMap() method.
+
+<br>
+
+## Using filter() method
+
+Below is the declaration of filter() method in Optional class.
+
+```java
+Optional<T> filter(Predicate<? super T> predicate);
+```
+
+1. Problem
+
+    ```java
+    Book book = service.findBookById(id);
+    if (book != null && book.getNumberOfPages() > 500) {
+        System.out.println("It is a long book");
+    }
+    ```
+
+2. Solution
+
+    When we cope with some conditions for our object, we can use filter to do it.
+
+    ```java
+    service.findBookById(id)
+           .filter(book -> book.getNumberOfPages() > 500)
+           .ifPresent(
+               book -> System.out.println("It is a long book");
+           );
+    ```
 
 <br>
 
 ## Wrapping up
 
 - We need to use Optional to reduce the check null operations. It makes our code concise, easy to read.
+
+- Always start from an Optional.
+
+- Apply a chain of filter(), map(), or flatMap() method.
+
+- Use orElse(), or orElseGet() methods to get unwrap the value.
+
+- Never use Optional.get() method unless we're sure that the Optional is not empty.
+
+- Generally, we should not use Optional in fields.
 
 <br>
 
