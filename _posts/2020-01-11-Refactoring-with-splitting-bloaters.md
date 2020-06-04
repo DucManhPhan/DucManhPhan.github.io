@@ -2,7 +2,7 @@
 layout: post
 title: Refactoring with splitting bloaters
 bigimg: /img/image-header/factory.jpg
-tags: [Java, Refactoring, Clean Code]
+tags: [Refactoring]
 ---
 
 In this article, we will refactor code with splitting bloaters. Let's get started.
