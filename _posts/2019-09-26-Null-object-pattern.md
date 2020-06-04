@@ -50,10 +50,29 @@ To null object pattern, we should implement null objects as Singleton, because w
 
     - Reduce ```NullPointerException``` chances.
 
+    - The Null Object pattern replaces nulls with objects implement
+
+        - A default behavior
+        - A do-nothing behavior
+
+        This allows us to avoid null checks.
+
 2. Drawbacks
     - Can be difficult to implement if various clients do not agree on how the null object should do nothing as when your ```AbstractEmployee``` interface is not well defined.
 
     - Can necessitate creating a new NullObject class for every new ```AbstractEmployee``` class.
+
+    - An incorrect implementation can make bugs harder to detect.
+
+        - Null object can fail slowly.
+        - Do not implement it just to avoid null checks.
+        - Best suited when a default value can be assigned or a default action can be taken.
+
+    - Creating a proper Null Object may not be easy.
+
+        - Should it do nothing? Or should it fail with an exception?
+        - What if we still have to check for the null object?
+        - What if the parent class if final? Then we can not create a null object for it. But if we are working with an external library or legacy code, this could happen.
 
 <br>
 
@@ -71,6 +90,7 @@ About source code of Null Object Pattern, you can reference to this [link](https
 ## Relations with other design patterns
 - Null object pattern can be regarded as a special case of the ```State pattern``` and the ```Strategy pattern```.
 
+- Null object pattern may be confused with Proxy pattern. But a null object does not work like a proxy. Proxy acts as the objects they are proxying, and they may also provide some behaviors.
 
 <br>
 
