@@ -7,37 +7,44 @@ tags: [Creational Pattern, Design Pattern]
 
 
 
+<br>
+
+## Table of Contents
+- [Given Problem](##given-problem)
+- [Solution of Factory Method Pattern](##solution-of-factory-method-pattern)
+- [When to use](##when-to-use)
+- [Benefits & Drawbacks](##benefits-and-drawbacks)
+- [Source code](##source-code)
+- [Relations with other design patterns](##relations-with-other-design-patterns)
+- [Application & Examples](##application-&-examples)
+- [Differences between Abstract factory pattern and Factory method pattern](##differences-between-abstract-factory-pattern-and-factory-method-pattern)
+- [Wrapping up](##wrapping-up)
 
 <br>
 
-# Table of Contents
-- [Given Problem](#given-problem)
-- [Analysis Problem](#analysis-problem)
-- [Definition of Factory Method Pattern](#definition-of-factory-method-pattern)
-- [When to use](#when-to-use)
-- [Benefits & Drawbacks](#benefits-and-drawbacks)
-- [Code C++/Javascript/Java](#code-C++/Javascript/Java)
-- [Relations with other design patterns](#relations-with-other-design-patterns)
-- [Application & Examples](#application-&-examples)
-- [Differences between Abstract factory pattern and Factory method pattern](#differences-between-abstract-factory-pattern-and-factory-method-pattern)
-- [Wrapping up](#wrapping-up)
+## Given Problem
+
+Suppose we have a class diagram about classes such as Person, Teacher and Employee.
+
+![](../img/design-pattern/factory-method/given-problem.png)
+
+Normally, when we want to create an instance of the one of classes, we will do like the below code.
+
+```java
+Teacher t = new Teacher();
+Employee e = new Employee();
+```
+
+The drawback of this way:
+- Inflexible
+- Difficult to test
+- Violates the Dependency Inversion Principle in SOLID.
+
+So how do we improve the above code better?
 
 <br>
 
-# Given Problem
-
-
-
-
-<br>
-
-# Analysis Problem
-
-
-
-<br>
-
-# Definition of Factory Method Pattern
+## Solution of Factory Method Pattern
 According to [wikipedia.com](https://en.wikipedia.org/wiki/Factory_method_pattern), we have:
 
 ```
@@ -57,7 +64,8 @@ Below is an image that describe how factory method pattern works
 
 <br>
 
-# When to use
+## When to use
+
 - When the client does not know the actual class from which subclass to create the object.
 
 - When the client wants to delegate the decision of choosing the concrete class to create the object to one of the subclasses.
@@ -70,18 +78,23 @@ Below is an image that describe how factory method pattern works
 
 <br>
 
-# Benefits & Drawbacks
+## Benefits & Drawbacks
+
 1. Benefits
 
+    - reduce maintenance
 
+    - complexity is hidden through better encapsulation.
 
 2. Drawbacks
 
+    - If we add some types of classes, normally we will add some cases into the method of Factory method pattern. But it will violate the Open-Close principle.
 
+        The solution for this problem is that we can use abstract factory pattern.
 
 <br>
 
-# Code C++/Javascript/Java
+## Source code
 
 In this section, we will refer to the Shape class, and some its inherited classes such as Square, Circle, Rectangle. We will use Factory method pattern to do this problem.
 
@@ -92,22 +105,14 @@ About sample code, we can refer to [github](https://github.com/DucManhPhan/Desig
 <br>
 
 ## Relations with other design patterns
+
 - The Factory method pattern is closely related to Abstract factory pattern and Prototype pattern.
-
-
-
-
-<br>
-
-# Application & Examples
-
-
-
 
 
 <br>
 
 ## Differences between Abstract factory pattern and Factory method pattern
+
 - The main difference between factory method pattern and abstract factory pattern is that the factory method is a single method, and an abstract factory is an object.
 
 - The factory method is just a method, it can be overriden in a subclass, whereas the abstract factory is an object that has multiple factory methods on it.
@@ -119,6 +124,7 @@ About sample code, we can refer to [github](https://github.com/DucManhPhan/Desig
 <br>
 
 ## Wrapping up
+
 - Factory method is called with other name that is Virtual Constructor.
 
 
@@ -131,3 +137,6 @@ Thanks for your reading.
 
 Refer:
 
+[https://en.wikipedia.org/wiki/Factory_method_pattern#:~:text=In%20class%2Dbased%20programming%2C%20the,object%20that%20will%20be%20created.](https://en.wikipedia.org/wiki/Factory_method_pattern#:~:text=In%20class%2Dbased%20programming%2C%20the,object%20that%20will%20be%20created.)
+
+[https://refactoring.guru/design-patterns/factory-method](https://refactoring.guru/design-patterns/factory-method)
