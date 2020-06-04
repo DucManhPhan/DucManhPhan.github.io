@@ -237,7 +237,12 @@ Take a closer look at Optional class's definition, we can understand how Optiona
 
     - If we do not use Optional correctly, we still create boilerplate code such as using **isPresent()** method.
     - Beside Optional class to validate our code, we can use some other libraries to deal with it such as Objects class in JDK, guava libraries.
+    - Optional can make our code harder to read because it makes our code more verbose.
 
+        - Types: **Optional<Book>** and **Book**
+        - Checking: **opt.isPresent()** and **obj != null**
+
+    - Optional can convert a NullPointerException into another exception that can make our application crash.
 
 <br>
 

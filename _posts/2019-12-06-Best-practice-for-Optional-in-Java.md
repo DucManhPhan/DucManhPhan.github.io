@@ -278,13 +278,22 @@ Optional<T> filter(Predicate<? super T> predicate);
 
 - Always start from an Optional.
 
-- Apply a chain of filter(), map(), or flatMap() method.
+- Apply a chain of **filter()**, **map()**, or **flatMap()** method.
 
-- Use orElse(), or orElseGet() methods to get unwrap the value.
+- Use **orElse()**, or **orElseGet()** methods to get unwrap the value.
 
 - Never use Optional.get() method unless we're sure that the Optional is not empty.
 
 - Generally, we should not use Optional in fields.
+
+    - The Optional class is not serializable.
+    - **For truly optional fields, have a getter method returns Optional.**
+
+- The use of Optional as a method argument is discouraged because it can cause conditional logic inside their methods.
+
+    - Use methods of the Optional type itself.
+
+- Do use optional as a return value.
 
 <br>
 
