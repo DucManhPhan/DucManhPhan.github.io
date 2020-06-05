@@ -203,7 +203,150 @@ But our code has become even more complicated. So how to solve this issue?
 
 ## Using static factory method
 
+To solve an above problem, we can use creation method or static factory method.
 
+For example, with creation method or factory method.
+
+```java
+// creation method or factory method
+public DictionaryCopier {
+
+    // ...
+
+    public copy(Dictionary d) {
+        Dictionary copy = /*clone it */;
+        return copy;
+    }
+
+    public static copy(Dictionary d) {
+        Dictionary copy = /*clone it */;
+        return copy;
+    }
+
+}
+
+// ClientApp.java
+Dictionary d1 = new Dictionary();
+
+// call a creation method
+Dictionary d2 = new DictionaryCopier().copy(d1);
+
+// call a static method
+Dictionary d3 = DictionaryCopier.copy(d1);
+
+```
+
+The **copy()** method is called **creation method**, or **factory method**, a method that creates and returns a new object.
+
+In the case of the **static factory method**, the code is the almost same. We just add ```static``` keyword to this **copy()** method. It means that creation methods and static factory methods are pratically the same.
+
+So, in this our case, we only need the static factory method.
+
+For example, some static factory methods in Java.
+
+```java
+Calendar.getInstance();
+
+String.valueOf(true);
+
+LocalDate.of(2019, 01, 01);
+
+Optional.empty();
+
+Collections.unmodifiableCollection(...);
+```
+
+Come back to our problem, we will define the static factory method for some languages in **WebServiceDefinitionSearch** class.
+
+```java
+public class WebServiceDefinitionSearch implements DefinitionSearch {
+    public static WebServiceDefinitionSearch newInstance() {
+        return new WebServiceDefinitionSearch(new HttpHelper(), Language.ENGLISH);
+    }
+
+    public static WebServiceDefinitionSearch newForeignLanguageInstance(Language language) {
+        return new WebServiceDefinitionSearch(new HttpHelper(), language);
+    }
+}
+```
+
+Then, in Dictionary class, we will define some methods for English dictionary or Spanish Dictionary.
+
+```java
+public class Dictionary {
+
+    public static Dictionary english() {
+        return new Dictionary(newInstance())
+    }
+
+    public static Dictionary spanish() {
+        return new Dictionary(newForeignLanguageInstance(Language.SPANISH));
+    }
+
+    public static Dictionary withLanguage(Language language) {
+        return new Dictionary(new newForeignLanguageInstance(language));
+    }
+
+}
+```
+
+Now, we have the code in the client side looks like:
+
+```java
+public static void main(String[] args) {
+    Dictionary d4 = Dictionary.english();
+    Dictionary d5 = Dictionary.spanish();
+
+    List<String> definitions4 = d4.getDefinitions("tea");
+    definitions4.forEach(System.out::println);
+
+    List<String> definitions5 = d4.getDefinitions("hola");
+    definitions4.forEach(System.out::println);
+}
+```
+
+So, we can find that when we need english or spanish dictionary, we only need to call **Dictionary.english()** method or **Dictionary.spanish()** method. We don't need to know how it gets constructed. It's really concise, easy to read, understand, and change.
+
+If our english dictionary gets called very frequently, we might want to cache this value. Then, we will modify our Dictionary class.
+
+```java
+public class Dictionary {
+    private static final Dictionary ENG = new Dictionary(newForeignLanguageInstance(Language.ENGLISH));
+
+    // ...
+
+    public static Dictionary english() {
+        return ENG;
+    }
+
+}
+```
+
+Now we have another situation where this might be useful. Imagine that the web service is is down, but we do not want to wait for it to be backup. So we should fail back on local dictionary with the limited support. But that's better than nothing.
+
+![](../img/refactoring/object-creation/network-down.png)
+
+We could create another implementation of the search service and then swap it if we need. We want to swap this at runtime, not changed the code, recompile and deliver a new version.
+
+![](../img/refactoring/object-creation/backup-service-when-network-down.png)
+
+So, we will define the local backup version for our web service.
+
+```java
+public class LocalBackupDefinitionSearch implements DefinitionSearch {
+    public static LocalBackupDefinitionSearch newInstance() {
+        return new LocalBackupDefinitionSearch();
+    }
+
+    @Override
+    public List<String> getDefinition(String word) {
+        String content;
+        try {
+            
+        }
+    }
+}
+```
 
 
 <br>
@@ -224,7 +367,7 @@ But our code has become even more complicated. So how to solve this issue?
 
 ## Wrapping up
 
-
+- The static factory method uses to construct the complex objects.
 
 
 <br>
