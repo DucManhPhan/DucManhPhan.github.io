@@ -148,6 +148,22 @@ So, based on two fundamental ideas, we can make object-oriented with C code, ass
     }
     ```
 
+    We can find that we have the branches to check null for string type. But it is not object-oriented. Because with OOP, all things are objects. So, to solve our problem, we need to create another object that model our data regardless of null value.
+
+    ```java
+    public class Main {
+        public void showIt(String data) {
+            
+        }
+    }
+    ```
+
+    From this example, we have advices:
+    - Do not model a missing object with null.
+    - Use an object of a class to model the missing object.
+
+
+
 <br>
 
 ## Wrapping up
