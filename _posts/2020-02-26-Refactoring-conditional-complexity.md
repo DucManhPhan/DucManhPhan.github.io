@@ -664,7 +664,7 @@ So, in this case, we will use polymorphism to refactor it.
     - Extract conditional
     - Use Java 8 Stream
 
-- When we have a lot of code in a simple if/else statement, we can use polymorphism.
+- When we have a lot of code in a simple if/else statement, we can use polymorphism. Normally replace branching with polymorphism is often enough.
 
     It means that we will create classes for corresponding code in each if/else statement, and the base class for them. Then, we will use factory method pattern to support creating an instance of each class.
 
