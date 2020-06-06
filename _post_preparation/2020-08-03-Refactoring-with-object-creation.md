@@ -342,8 +342,15 @@ public class LocalBackupDefinitionSearch implements DefinitionSearch {
     public List<String> getDefinition(String word) {
         String content;
         try {
-            
+            content = Files.readString(Paths.get("resources/BackupLocalDefinitions.json"), StandardCharsets.UTF_8);
+        } catch (IOException e) {
+            throw new UnCheckedIOException(e);
         }
+
+        String sub1 = content.substring(content.indexOf("word\": \"" + word) + 4);
+        String sub2 = sub1.substring(0, sub1.indexOf("word\": \""));
+
+        return extractDefinitions(sub2);
     }
 }
 ```
@@ -352,6 +359,98 @@ public class LocalBackupDefinitionSearch implements DefinitionSearch {
 <br>
 
 ## Using factory method pattern
+
+1. Given problem
+
+    Supposed that our dictionary becomes more complex over time. We might add a synonym finder or example provider dependencies as new features.
+
+    ```java
+    public class Dictionary {
+        // ...
+
+        public static Dictionary withLanguage(Language language) {
+            return new Dictionary(newInstance(),
+                                  new SynonymFinder(),
+                                  new ExampleProvider());
+        }
+    }
+    ```
+
+    It makes our code base more complexity. But they do not do anything useful. So, basically, our static factory method doesn't write in one line of code.
+
+2. Solution
+
+    So, it would be resonable to move them to a dedicated class. Just move the static methods to a dedicated factory class
+    
+    ![](../img/refactoring/object-creation/move-static-factory-methods.png)
+    
+    and then let the client use that to create dictionaries.
+
+    ![](../img/refactoring/object-creation/move-static-factory-methods-1.png)
+
+    Then, we have our factory method pattern.
+
+    ```java
+    public class SimpleDictinaryFactory {
+        public static Dictionary newDictionaryWith(Language language) {
+            return new Dictionary(new newForeignLanguageInstance(language));
+        }
+
+        public static Dictionary english() {
+            return new Dictionary(newInstance())
+        }
+
+        public static Dictionary spanish() {
+            return new Dictionary(newForeignLanguageInstance(Language.SPANISH));
+        }
+
+    }
+    ```
+
+    But our factor method pattern uses switch statement to return subtypes.
+
+    Our Dictionary class is used for common things. But in real life, there are many specialized dictionaries such as legal dictionary, medical dictionary, ...
+
+    ![](../img/refactoring/object-creation/the-large-number-of-dictionary.png)
+
+    So, we will create dedicated classes for each.
+    - We need to create an enum type of DictionaryType for multiple Dictionary's type.
+
+        ```java
+        public enum DictionaryType {
+            
+        }
+        ```
+
+    - Our current implementation of Dictionary class is for common things. So, we will rename this dictionary class to **GeneralDictionary** class.
+    - Create an interface Dictionary with a single method and make our GeneralDictionary implements this interface.
+
+        ```java
+        public interface Dictionary {
+            List<String> getDefinitions(String word);
+        }
+
+        public class GeneralDictionary implements Dictionary {
+            // do something
+        }
+        ```
+    
+    - Then create our LegalDictionary class.
+
+        ```java
+        public class LegalDictionary implements Dictionary {
+            private Language language;
+
+            poublic LegalDictionary(Language language) {
+                this.language = language;
+            }
+
+            public List<String> getDefinitions(String word) {
+                return List.of("Not implemented yet");
+            }
+
+        }
+        ```
 
 
 

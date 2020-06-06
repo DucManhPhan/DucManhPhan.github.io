@@ -1,6 +1,6 @@
 ---
 layout: post
-title: Some interview questions about ForkJoinPool
+title: Some interview questions about CyclicBarrier
 bigimg: /img/path.jpg
 tags: [Multithreading, Java, Interview question]
 ---
