@@ -73,11 +73,19 @@ To solve the above problems, we will do some following steps:
 ## Benefits & Drawback
 1. Benefits
 
-    - Reduce the [cyclomatic complexity](https://en.wikipedia.org/wiki/Cyclomatic_complexity) when we do not use if-else or switch statement.
+    - Reduce the [cyclomatic complexity](https://en.wikipedia.org/wiki/Cyclomatic_complexity) when we do not use if-else or switch statement. Then it makes no branching code.
+
+    - Improve encapsulation. 
+
+    - Swap behavior at runtime.
+
+    - Open-Closed Principle is respected because a new algorithm simply means adding new classes without touching exsting ones.
 
     - Makes our code testable, maintainable, reusable.
 
 2. Drawbacks
+
+    - It makes more complicated desing (more classes).
 
 
 <br>
