@@ -14,6 +14,7 @@ In this article, we will learn how to use Decorator pattern. Let's get started.
 - [Solution with Decorator Pattern](#solution-with-decorator-pattern)
 - [When to use](#when-to-use)
 - [Code C++/Java](#code-C++/Java)
+- [Benefits & Drawbacks](#benefits-&-drawbacks)
 - [Relations with other patterns](#relations-with-other-patterns)
 - [Application & Examples](#application-&-examples)
 - [Wrapping up](#wrapping-up)
@@ -62,8 +63,8 @@ So, we have class diagram of this pattern:
 <br>
 
 ## When to use
-- when we want to add new functionalities for objets without utilizing inheritance property.
 
+- when we want to add new functionalities for objets without utilizing inheritance property.
 
 <br>
 
@@ -82,14 +83,27 @@ To refer this pattern's code, we can read this [link](https://github.com/DucManh
 
         Decorating can provide new behavior at run time for inidividual objects.
 
-    - Decorator offers a  pay-as-you-go approach to add responsibilities. Instead of trying to support all foreseeable features in a complex, customizable class, we can define a simple class and add functionality incrementally with Decorator object.
+    - Decorator offers a pay-as-you-go approach to add responsibilities. Instead of trying to support all foreseeable features in a complex, customizable class, we can define a simple class and add functionality incrementally with Decorator object.
 
+    - Adheres to Single Responsibility Principle (one functionality per class).
 
 2. Drawbacks
 
     - Decorator can complicate the process of instantiating the component because we not only have to instantiate the component, but wrap it in a number of decorators.
 
     - It can be complicated to have decorators keep track of other decorators, because to look back into multiple layers of the decorator chain starts to push the decorator pattern beyond its true intent.
+
+    - Looks ugly and complicated because building up our code with multiple layers.
+
+    - Sometimes inflexible with the order of decorating.
+
+        For example:
+
+        ```java
+        new BufferedReader(new FileReader(new File("f.txt")));
+
+        new BufferedReader(new File("f.txt"));  // no compile
+        ```
 
 <br>
 
@@ -125,6 +139,7 @@ To refer this pattern's code, we can read this [link](https://github.com/DucManh
 ## Wrapping up
 - The key idea in decorator pattern is to work through separate ```Decorator``` objects that 'decorate' (add responsibilities to) an (already existing) object.
 
+- Decorator pattern could be replaced with functional programming.
 
 <br>
 
