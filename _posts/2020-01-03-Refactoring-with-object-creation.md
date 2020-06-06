@@ -5,18 +5,19 @@ bigimg: /img/image-header/yourself.jpeg
 tags: [Refactoring]
 ---
 
+In this article, we will learn how to refactor code for object creation from scratch. It's really helpful because we encounter this problem frequently.
 
-
+Let's get started.
 
 <br>
 
 ## Table of contents
 - [Given problem](#given-problem)
-- [Using Dependency Inversion principle]()
-- [Using static factory method]()
-- [Using factory method pattern]()
-- [Using abstract factory pattern]()
-- [Wrapping up]()
+- [Using Dependency Inversion principle](#using-dependency-inversion-principle)
+- [Using static factory method](#using-static-factory-method)
+- [Using factory method pattern](#using-factory-method-pattern)
+- [Using abstract factory pattern](#using-abstract-factory-pattern)
+- [Wrapping up](#wrapping-up)
 
 
 <br>
@@ -418,7 +419,7 @@ public class LocalBackupDefinitionSearch implements DefinitionSearch {
 
         ```java
         public enum DictionaryType {
-            
+            GENERAL, LEGAL, MEDICAL;
         }
         ```
 
@@ -435,7 +436,7 @@ public class LocalBackupDefinitionSearch implements DefinitionSearch {
         }
         ```
     
-    - Then create our LegalDictionary class.
+    - Then create our **LegalDictionary** and **MedicalDictionary** classes.
 
         ```java
         public class LegalDictionary implements Dictionary {
@@ -450,23 +451,162 @@ public class LocalBackupDefinitionSearch implements DefinitionSearch {
             }
 
         }
+
+        public class MedicalDictionary implements Dictionary {
+            private Language language;
+
+            public MedicalDictionary(Language language) {
+                this.language = language;
+            }
+
+            public List<String> getDefinitions(String word) {
+                return List.of("Not implemented yet");
+            }
+
+        }
         ```
 
+    - Finally, we will appy factory method pattern with SimpleDictinaryFactory class.
 
+        ```java
+        public class SimpleDictinaryFactory {
+            public static Dictionary ofType(DictionaryType type) {
+                switch (type) {
+                    case LEGAL:
+                        return new LegalDictionary(Language.ENGLISH);
+
+                    case MEDICAL:
+                        return new MedicalDictionary(Language.ENGLISH);
+
+                    default:
+                        throw new IllegalArgumentException("We currently don't support dictionaries of type " + type);
+                }
+            }
+        }
+        ```
+
+        In the **ofType()** method of **SimpleDictinaryFactory** class, we can find that we use hard code for the other type of **Dictionary**.
+
+    Belows are some steps to refactor our code.
+
+    ![](../img/refactoring/object-creation/solution-steps-1.png)
+
+    ![](../img/refactoring/object-creation/solution-steps-2.png)
 
 
 <br>
 
 ## Using abstract factory pattern
 
+1. Given problem
 
+    Suppose that we have a new requirement. Our application has to support many dictionaries in many languages. But in an above section [](), we only support English language for many dictionaries such as general dictionary, legal dictionary, medical dictionary.
 
+    How can we deal with it?
+
+2. Solution
+
+    Normally, we will change our code base to adapt a new requirement. But it will violate Open-Closed Principle. So now we have a set of dictionaries that should come in any languages and backed by any service, perhaps even some databases in the future.
+    
+    ![](../img/refactoring/object-creation/factories-dictionary.png)
+    
+    So we have this family of products. But we have only a single factory class at this point, we should break it up into multiple classes, it means that we will create a factory for each product and make those factories extend a super class.
+
+    ![](../img/refactoring/object-creation/factories-dictionary-1.png)
+
+    In that super class, we will define a single creational method that will call an abstract method that is handled by each subclass seperately.
+
+    Below is the source code.
+
+    ```java
+    public class DedicatedLegalDefinitionSearch implements DefinitionSearch {
+
+        private Language language;
+
+        public DedicatedLegalDefinitionSearch() {
+            this.language = Language.ENGLISH; // default
+        }
+
+        public DedicatedLegalDefinitionSearch(Language language) {
+            this.language = language;
+        }
+
+        @Override
+        public List<String> getDefinition(String word) {
+            return List.of("Find and implement a dedicated provider, since the general one is insufficient");
+        }
+    }
+
+    public class DedicatedMedicalDefinitionSearch implements DefinitionSearch {
+
+        private Language language;
+
+        public DedicatedMedicalDefinitionSearch(){
+            this.language = Language.ENGLISH; // default
+        }
+
+        public DedicatedMedicalDefinitionSearch(Language language) {
+            this.language = language;
+        }
+
+        @Override
+        public List<String> getDefinition(String word) {
+            return List.of("Perhaps from a database");
+        }
+    }
+
+    public abstract class DictionaryFactory {
+        public Dictionary newDictionary (Language language) {
+            Dictionary dict = create(language);
+            return dict;
+        }
+
+        abstract Dictionary create(Language language);
+    }
+
+    public class GeneralDictionaryFactory extends DictionaryFactory {
+        @Override
+        protected Dictionary create(Language language) {
+            return new GeneralDictionary(newForeignLanguageInstance(language));
+        }
+    }
+
+    public class LegalDictionaryFactory extends DictionaryFactory {
+        @Override
+        protected Dictionary create(Language language) {
+            return new LegalDictionary(new DedicatedLegalDefinitionSearch(language));
+        }
+    }
+
+    public class MedicalDictionaryFactory extends DictionaryFactory {
+        @Override
+        protected Dictionary create(Language language) {
+            return new MedicalDictionary(new DedicatedMedicalDefinitionSearch(language));
+        }
+    }
+
+    public static void main(String[] args) {
+        DictionaryFactory dictFactory = new GeneralDictionaryFactory();
+        dictFactory.newDictionary(Language.ENGLISH)
+                   .getDefinitions("coffee")
+                   .forEach(System.out::println);
+    }
+    ```
+
+    After applying this pattern, we can have class diagram to have background about refactoring.
+
+    ![](../img/refactoring/object-creation/final-solutions.png)
 
 <br>
 
 ## Wrapping up
 
 - The static factory method uses to construct the complex objects.
+
+- Static factories have multiple benefits:
+
+    - Reduced maintenance
+    - Complexity is hidden through better encapsulation.
 
 
 <br>
