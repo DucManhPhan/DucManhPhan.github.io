@@ -1,9 +1,10 @@
 ---
 layout: post
-title: Making your Java code more object oriented
-bigimg: /img/image-header/factory.jpg
-tags: [Java]
+title: How to make our code object oriented
+bigimg: /img/image-header/yourself.jpeg
+tags: [Refactoring]
 ---
+
 
 
 
@@ -70,13 +71,6 @@ So, based on two fundamental ideas, we can make object-oriented with C code, ass
 
 
 
-<br>
-
-## 
-
-
-
-
 
 <br>
 
@@ -86,6 +80,73 @@ So, based on two fundamental ideas, we can make object-oriented with C code, ass
 
 
 
+
+<br>
+
+## Some examples to refactor code
+
+1. 
+
+    ```java
+    public class Main {
+        public int sum(int[] values) {
+            int sum = 0;
+            for (int value : values) {
+                sum += value;
+            }
+
+            return sum;
+        }
+
+        public int sum(int[] values, boolean oddNumbersOnly) {
+            int sum = 0;
+            for (int value : values) {
+                if (oddNumbersOnly || value % 2 == 0) { // (1)
+                    sum += value;
+                }
+            }
+
+            return sum;
+        }
+    }
+    ```
+
+    The above code lacks flexibility. Because if we have a new requirement that sum up odd numbers, or sum up numbers at even positions, or sum up even numbers, so we need to change our code to be suitable for this requirement.
+
+    So the solution will grow large and complicated. We will not be able to maintain it.
+
+    The short answer is that it is lacking dynamic dispatch. The selection criteria **(1)** before summation must be dynamic. The current selection criteria is static, hard-coded in the middle of the loop. If a new requirement comes in, this selection criteria does not support the change.
+
+    But we have some advice:
+    - Do not change code to modify behavior.
+    - Try to substitute an object with a different behavior.
+
+    Below is the solution for our problem:
+
+    ```java
+    public class Main {
+        public int sum(int[] values) {
+            
+        }
+    }
+    ```
+
+2. 
+
+    ```java
+    public class Main {
+        public void showIt(String data) {
+            String upper;
+            if (data == null) {
+                upper = null;
+            } else {
+                upper = data.toUpperCase();
+            }
+
+            System.out.println(upper);
+        }
+    }
+    ```
 
 <br>
 
@@ -94,10 +155,7 @@ So, based on two fundamental ideas, we can make object-oriented with C code, ass
 
 
 
-
-
 <br>
 
 Refer:
 
-[]()
