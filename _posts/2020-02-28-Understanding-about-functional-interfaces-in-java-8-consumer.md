@@ -70,7 +70,13 @@ tags: [Functional Programming, Java]
 To chain many **Consumer** interface, we need to use a default method **andThen()**.
 
 ```java
-default Consumer<T> andThen(Consumer<? super T> after);
+default Consumer<T> andThen(Consumer<? super T> after) {
+    Objects.requireNonNull(after);
+    return (T t) -> {
+        accept(t);
+        after.accept(t);
+    };
+}
 ```
 
 For example:
