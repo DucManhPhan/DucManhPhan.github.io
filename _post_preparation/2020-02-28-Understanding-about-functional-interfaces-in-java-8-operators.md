@@ -17,7 +17,7 @@ tags: [Functional Programming, Java]
 
 <br>
 
-## Introduction to 
+## Introduction to Operations
 
 
 
