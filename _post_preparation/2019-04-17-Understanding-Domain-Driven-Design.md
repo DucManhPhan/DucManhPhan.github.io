@@ -46,7 +46,9 @@ All of the code is modeled and written using the terms from this ubiquitous lang
 
 A ubiquitous language allows developers and business owners to communicate with one another without having to translate. Assumptions tend to get lost in the translation because each party assigns their own meaning to the words that they use to communicate with the other, but by agreeing upon a ubiquitous language that forces the two parties to define their terms and flushes assumption into the light.
 
-For example, assuming that we encountered an application of a pharmaceutical network by using DDD. **The network negotiates rebates from pharmaceutical manufacturers on behalf of their members. The members log into the application to track their sales performance towards earning these rebates**. This started with agreeing upon a ubiquitous language. Here are some of the terms that we had to come to agree upon.
+For example:
+
+Assuming that we encountered an application of a pharmaceutical network by using DDD. **The network negotiates rebates from pharmaceutical manufacturers on behalf of their members. The members log into the application to track their sales performance towards earning these rebates**. This started with agreeing upon a ubiquitous language. Here are some of the terms that we had to come to agree upon.
 - Rebate - A contract negotiated by the network with manufacturers on behalf of members.
 
     To developer, a rebate was just an instance of receiving money for sending in a receipt, but the business owners this was a very different terms.

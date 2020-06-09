@@ -49,17 +49,59 @@ Constraints:
 
 ## Using brute force solution
 
+With brute force solution, we will:
+- iterate the shorter string with outer loop.
+- iterate the longer string with inner loop.
+- use a boolean variable to determine an element of the shorter string is belong to the longer string. If not, return false immediately.
+- use an integer variable to mark the previous element of the shorter string's index in the longer string.
 
+```java
+public boolean isSubsequence(String s, String t) {
+    int lent = t.length();
+    int lens = s.length();
+    int previousIndex = 0;
+    boolean found = false;
 
+    for (int i = 0; i < lens; ++i) {
+        for (int j = previousIndex; j < lent; ++j) {
+            if (t.charAt(j) == s.charAt(i)) {
+                previousIndex = j + 1;
+                found = true;
+                break;
+            }
+        }
 
+        if (!found) {
+            return false;
+        } else {
+            found = false;
+        }
+    }
+
+    return true;
+}
+```
+
+The complexity of this solution:
+- Time complexity: O(mn), m is the length of s string, n is the length of t string.
+- Space complexity: O(1)
 
 
 <br>
 
-## 
+## Using DP solution
+
+From the requirement, we can find that our solution that satisfies some conditions:
+- The order of each character in the shorter string with the longer string.
+- All characters of the shorter string are belong to the longer string.
 
 
 
+Below is the source code of this solution:
+
+```java
+
+```
 
 
 <br>
