@@ -15,6 +15,8 @@ Let's get started.
 - [Understanding about synchronization](#understanding-about-synchronization)
 - [Synchronizing more than one method](#synchronizing-more-than-one-method)
 - [Understanding wait(), notify() and notifyAll() methods](#understanding-wait()-notify()-and-notifyAll()-methods)
+- [Benefits and drawbacks](#benefits-and-drawbacks)
+- [Common questions for synchronized block](#common-questions-for-synchronized-block)
 - [Wrapping up](#wrapping-up)
 
 
@@ -184,6 +186,20 @@ public class Person {
 
 <br>
 
+## Some types of errors when not using synchronization
+
+1. Thread Interference Error
+
+    Thread interference happens when there are multiple threads working at the same time. They work on the same shared resource. Each thread performs different operations on the same shared resource, the operations can be overlapped, and create inconsistent data.
+
+    In order to understand deepper this concept, we can read about this article [Thread Interference](https://docs.oracle.com/javase/tutorial/essential/concurrency/interfere.html).
+
+2. Memory Consistency Error
+
+    In multithreading environment, the changes of a thread on the same shared resources is not visible to the other threads. So threads will get the different values of that same shared resources.
+
+<br>
+
 ## Benefits and drawbacks
 1. Benefits
 
@@ -254,7 +270,7 @@ public class Person {
         // someone called notify() after taking the lock on
         // lockObject or entered wait() so now it's my turn
 
-        while ( whatineedisnotready) {
+        while (whatineedisnotready) {
             wait(); // release the lock so others can enter their check
             // now, if there are others waiting to run, they 
             // will have a chance at doing so.
@@ -271,6 +287,7 @@ public class Person {
     - Synchronized method
     - Synchronized block
     - Static synchronization
+
 - ```synchronized``` keyword involve locking and unlocking. Before entering into ```synchronized method``` or ```block```, thread need to acquired the lock, at this point it reads data from the main memory than cache. When it releases the lock, it flushes write operation into main memory which eliminates memory inconsistency errors.
 
 - Instead of ```synchronized``` keyword, we have ```volatile``` variable, that JVM threads will read the value of the volatile variable from main memory and do not cache it locally.
