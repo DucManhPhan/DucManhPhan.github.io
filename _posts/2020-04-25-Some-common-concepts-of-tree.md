@@ -177,16 +177,32 @@ For example:
 
     The height of a node is the number of edges on the longest downward path between that node and a leaf.
 
+    For example:
+    - the height of root node is 2.
+    - the height of 2 node is 1.
+
 
 4. Width
 
+    The number of nodes in a level.
+
+    For example:
+    - at the level = 2, we have two nodes such as 2 and 3.
+
+        ![](../img/Data-structure/binary-tree/common-concepts/level-2-with-nodes.png)
+
+    - at the level = 3, we have four nodes.
+
+        ![](../img/Data-structure/binary-tree/common-concepts/level-3-with-nodes.png)
 
 
 <br>
 
 ## Wrapping up
 
+- With depth and level concept, remember that it compares with the root node.
 
+- With height concept, it compares with the leaf node.
 
 
 
