@@ -15,6 +15,7 @@ Let's get started.
 - [Understanding about synchronization](#understanding-about-synchronization)
 - [Synchronizing more than one method](#synchronizing-more-than-one-method)
 - [Understanding wait(), notify() and notifyAll() methods](#understanding-wait()-notify()-and-notifyAll()-methods)
+- [Some types of errors when not using synchronization](#some-types-of-errors-when-not-using-synchronization)
 - [Benefits and drawbacks](#benefits-and-drawbacks)
 - [Common questions for synchronized block](#common-questions-for-synchronized-block)
 - [Wrapping up](#wrapping-up)
@@ -292,7 +293,9 @@ public class Person {
 
 - Instead of ```synchronized``` keyword, we have ```volatile``` variable, that JVM threads will read the value of the volatile variable from main memory and do not cache it locally.
 
-- Java synchronized keyword is reentrant in nature. It means that if a java synchronized method calls another synchronized method which requires the same lock then the current thread which is holding lock can enter into that method without acquiring the lock.
+- Java synchronized keyword is reentrant in nature. It means that if a java ```synchronized``` method calls another ```synchronized``` method which requires the same lock then the current thread which is holding lock can enter into that method without acquiring the lock.
+
+- If we synchronized a static method, the lock will be on the class, not on the object. So no matter how many instances it may have, only one thread can run within a class of static synchronized methods.
 
 <br>
 
