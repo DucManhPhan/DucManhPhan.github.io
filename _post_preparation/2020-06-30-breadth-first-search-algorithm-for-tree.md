@@ -1,8 +1,8 @@
 ---
 layout: post
-title: Depth First Search algorithm
+title: Breadth First Search algorithm for Tree
 bigimg: /img/image-header/yourself.jpeg
-tags: [Algorithm]
+tags: [Algorithm, Tree]
 ---
 
 
@@ -36,7 +36,7 @@ tags: [Algorithm]
 
 <br>
 
-## BFS algorithm with recursive version
+## Using recursive version
 
 To recursively traverse a binary tree in a DFS fashion, we can start from the root and at every step, make two recursive calls one for the left and one for the right child.
 
@@ -45,7 +45,7 @@ To recursively traverse a binary tree in a DFS fashion, we can start from the ro
 
 <br>
 
-## BFS algorithm with iterative version
+## Using iterative version
 
 
 

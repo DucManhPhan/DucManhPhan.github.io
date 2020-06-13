@@ -1,8 +1,8 @@
 ---
 layout: post
-title: Breadth First Search algorithm
+title: Depth First Search algorithm for Tree
 bigimg: /img/image-header/yourself.jpeg
-tags: [Algorithm]
+tags: [Algorithm, Tree, Graph]
 ---
 
 
@@ -18,7 +18,7 @@ tags: [Algorithm]
 
 <br>
 
-## 
+## Given problem
 
 
 

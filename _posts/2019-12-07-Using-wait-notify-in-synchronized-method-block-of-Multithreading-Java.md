@@ -318,3 +318,5 @@ Appying Concurrency and Multithreading to Common Java patterns in [pluralsight.c
 [https://peterwadid.files.wordpress.com/2013/02/packtpub-java-7-concurrency-cookbook-oct-2012.pdf](https://peterwadid.files.wordpress.com/2013/02/packtpub-java-7-concurrency-cookbook-oct-2012.pdf)
 
 [https://javarevisited.blogspot.com/2011/04/synchronization-in-java-synchronized.html](https://javarevisited.blogspot.com/2011/04/synchronization-in-java-synchronized.html)
+
+[https://levelup.gitconnected.com/how-to-use-synchronization-in-java-aed6758aeff6](https://levelup.gitconnected.com/how-to-use-synchronization-in-java-aed6758aeff6)
