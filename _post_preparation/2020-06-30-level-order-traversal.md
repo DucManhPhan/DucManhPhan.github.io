@@ -37,19 +37,14 @@ The output of the above binary tree is:
 
 ## Using recursive version
 
+Belows are some steps that we use.
 1. The first action we need to do is to calculate the maximum level of the tree.
 
-    The level of node is defined by 1 + the number of edges between a node and the root node.
-
-    The level of root node is 1.
-
-    ```java
-    Level = Depth + 1
-    ```
-
-    The maximum level of above tree is 3.
-
 2. After we had the tree's maximum level, we will iterate from level 1 to the maximum level, then get all elements of each level.
+
+```java
+
+```
 
 <br>
 
