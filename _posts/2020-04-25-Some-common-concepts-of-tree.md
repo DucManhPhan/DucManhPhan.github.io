@@ -173,6 +173,32 @@ For example:
 
     For example, the level of 6 node in an above tree is 3.
 
+    Below is the source code that calculates the maximum level of binary tree.
+
+    We use [top-down recursive version](https://ducmanhphan.github.io/2020-01-20-How-to-solve-tree-problems-recursively/) for this problem because:
+    - the starting point is the root node.
+    - we know that the level of root node is 1.
+
+    ```java
+    public class MaxLevelTree {
+
+        private static int maxHeight = Integer.MIN_VALUE;
+
+        private static void getMaxLevelTopDown(TreeNode root, int level) {
+            if (root == null) {
+                return;
+            }
+
+            if (root.left == null && root.right == null) {
+                maxHeight = Math.max(maxHeight, level);
+            }
+
+            getMaxLevelTopDown(root.left, level + 1);
+            getMaxLevelTopDown(root.right, level + 1);
+        }
+    }
+    ```
+
 3. Height
 
     The height of a node is the number of edges on the longest downward path between that node and a leaf.
@@ -181,6 +207,23 @@ For example:
     - the height of root node is 2.
     - the height of 2 node is 1.
 
+    Below is the source code to calculate the height of binary tree. We will use [bottom-up recursive version](https://ducmanhphan.github.io/2020-01-20-How-to-solve-tree-problems-recursively/) because:
+    - if the node is null, then its height is -1.
+    - the leaf node's height is 0.
+    - It means that we have sufficient information about the height of the children nodes.
+
+    ```java
+    public static int getHeightTree(TreeNode root) {
+        if (root == null) {
+            return -1;
+        }
+
+        int leftHeight = getMaxLevelBottomUp(root.left);
+        int rightHeight = getMaxLevelBottomUp(root.right);
+
+        return Math.max(leftHeight, rightHeight) + 1;
+    }
+    ```
 
 4. Width
 
