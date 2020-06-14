@@ -2,7 +2,7 @@
 layout: post
 title: Is Subsequence
 bigimg: /img/image-header/yourself.jpeg
-tags: [Data Structure, Tree]
+tags: [DP]
 ---
 
 
@@ -11,9 +11,10 @@ tags: [Data Structure, Tree]
 <br>
 
 ## Table of contents
-
-
-
+- [Given problem](#given-problem)
+- [Using brute force solution](#using-brute-force-solution)
+- [Using DP solution](#using-dp-solution)
+- [Wrapping up](#wrapping-up)
 
 
 <br>
@@ -89,12 +90,18 @@ The complexity of this solution:
 
 <br>
 
+## Using Two Pointer solution
+
+
+
+
+<br>
+
 ## Using DP solution
 
 From the requirement, we can find that our solution that satisfies some conditions:
 - The order of each character in the shorter string with the longer string.
 - All characters of the shorter string are belong to the longer string.
-
 
 
 Below is the source code of this solution:
