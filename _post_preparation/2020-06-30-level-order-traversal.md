@@ -43,7 +43,47 @@ Belows are some steps that we use.
 2. After we had the tree's maximum level, we will iterate from level 1 to the maximum level, then get all elements of each level.
 
 ```java
+public class MaxLevelTraversal {
 
+    private static int maxLevel = Integer.MIN_VALUE;
+
+    public static List<Integer> levelOrderTraversal(TreeNode root) {
+        List<Integer> nodes = new ArrayList<>();
+        getMaxLevelTopDown(root, 1);
+
+        for (int level = 1; level <= maxLevel; ++level) {
+            getNodesInSameLevel(root, level, 1, nodes);
+        }
+
+        return nodes;
+    }
+
+    public static void getNodesInSameLevel(TreeNode root, int currentLevel, int level, List<Integer> nodes) {
+        if (root == null) {
+            return;
+        }
+
+        if (level == currentLevel) {
+            nodes.add(root.val);
+        }
+
+        getNodesInSameLevel(root.left, currentLevel, level + 1, nodes);
+        getNodesInSameLevel(root.right, currentLevel, level + 1, nodes);
+    }
+
+    private static void getMaxLevelTopDown(TreeNode root, int level) {
+        if (root == null) {
+            return;
+        }
+
+        if (root.left == null && root.right == null) {
+            maxLevel = Math.max(maxLevel, level);
+        }
+
+        getMaxLevelTopDown(root.left, level + 1);
+        getMaxLevelTopDown(root.right, level + 1);
+    }
+}
 ```
 
 <br>
