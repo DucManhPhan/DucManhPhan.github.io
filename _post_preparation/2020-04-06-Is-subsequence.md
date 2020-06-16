@@ -92,7 +92,15 @@ The complexity of this solution:
 
 ## Using Two Pointer solution
 
+In a brute-force solution, we use two loops to iterate both strings. But it's redundancy, we can use two-pointers technique to deal with this.
 
+In some common problems, we use two pointers technique in one string or array. But in this case, we will use it in two string or array. So, we need to remember cases that we use propery this technique.
+
+```java
+public boolean isSubsequence(String s, String t) {
+
+}
+```
 
 
 <br>
@@ -115,7 +123,7 @@ Below is the source code of this solution:
 
 ## Wrapping up
 
-
+- Understanding the two pointers technique to apply for arrays/strings, utilize it when we need to find a set of elements that fulfill certain constraints.
 
 
 <br>
