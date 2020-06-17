@@ -2,7 +2,7 @@
 layout: post
 title: Two pointer technique
 bigimg: /img/image-header/yourself.jpeg
-tags: [Coding Patterns, Algorithm]
+tags: [Algorithm, Two-Pointers]
 ---
 
 In this article, we will learn about two pointer technique. Let's get started.

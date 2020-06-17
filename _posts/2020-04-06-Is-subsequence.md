@@ -2,7 +2,7 @@
 layout: post
 title: Is Subsequence
 bigimg: /img/image-header/yourself.jpeg
-tags: [Dynamic programming]
+tags: [Dynamic programming, Two-Pointers]
 ---
 
 
