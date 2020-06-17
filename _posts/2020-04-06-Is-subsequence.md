@@ -2,9 +2,8 @@
 layout: post
 title: Is Subsequence
 bigimg: /img/image-header/yourself.jpeg
-tags: [DP]
+tags: [Dynamic programming]
 ---
-
 
 
 
@@ -13,6 +12,7 @@ tags: [DP]
 ## Table of contents
 - [Given problem](#given-problem)
 - [Using brute force solution](#using-brute-force-solution)
+- [Using Two Pointer solution](#using-two-pointer-solution)
 - [Using DP solution](#using-dp-solution)
 - [Wrapping up](#wrapping-up)
 
@@ -97,11 +97,23 @@ In a brute-force solution, we use two loops to iterate both strings. But it's re
 In some common problems, we use two pointers technique in one string or array. But in this case, we will use it in two string or array. So, we need to remember cases that we use propery this technique.
 
 ```java
-public boolean isSubsequence(String s, String t) {
+public static boolean isSubsequence(String s, String t) {
+    int sLength = s.length();
+    int tLength = t.length();
+    int sLeftIdx = 0;
+    int tLeftIdx = 0;
 
+    while (sLeftIdx < sLength && tLeftIdx < tLength) {
+        if (s.charAt(sLeftIdx) == t.charAt(tLeftIdx)) {
+            ++sLeftIdx;
+        }
+
+        ++tLeftIdx;
+    }
+
+    return sLeftIdx == sLength;
 }
 ```
-
 
 <br>
 
