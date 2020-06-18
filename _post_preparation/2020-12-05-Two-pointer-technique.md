@@ -29,8 +29,6 @@ In this article, we will learn about two pointer technique. Let's get started.
 
 ## Solution of Two pointers technique
 
-
-
 Some types of Two pointers technique:
 1. Use the **left** pointer starts from the beginning of an array. Use the **right** pointer starts from the ending of an array.
 
