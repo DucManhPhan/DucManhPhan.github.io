@@ -128,7 +128,9 @@ tags: [Functional Programming]
 
 1. Benefits
 
-    - If we have all parts of our application code that have been returned years ago before the days of Java 8 with interfaces that become functional now that we're using Java 8 or 11, then we can implement them using lambda expressions without having to recompile them.
+    - Lambda expression will compatible with the old interfaces has became functional interface at right now.
+    
+        If we have all parts of our application code that have been returned years ago before the days of Java 8 with interfaces that become functional now that we're using Java 8 or 11, then we can implement them using lambda expressions without having to recompile them.
 
 
 <br>
