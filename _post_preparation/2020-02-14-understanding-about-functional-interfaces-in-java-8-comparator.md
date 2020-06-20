@@ -10,9 +10,12 @@ tags: [Functional Programming]
 <br>
 
 ## Table of contents
-
-
-
+- [Introduction to Comparator functional interface](#introduction-to-comparator-functional-interface)
+- [Chaining expression with Comparator](#chaining-expression-with-comparator)
+- [When to use](#when-to-use)
+- [Source code](#source-code)
+- [Benefits and Drawbacks](#benefits-and-drawbacks)
+- [Wrapping up](#wrapping-up)
 
 
 <br>

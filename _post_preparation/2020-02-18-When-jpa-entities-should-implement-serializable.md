@@ -2,7 +2,7 @@
 layout: post
 title: When JPA entities should implement Serializable
 bigimg: /img/path.jpg
-tags: [java]
+tags: [Java]
 ---
 
 This question is always appeared in my mind, simply because when I've worked with Java web, especially Hibernate to implement with database. And why do we use it?

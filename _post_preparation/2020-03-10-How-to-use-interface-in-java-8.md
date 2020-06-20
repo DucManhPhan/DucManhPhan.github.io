@@ -108,12 +108,10 @@ With default methods in Interface, we have a rule for it:
 
 
 
-3. Problem of static methods
+3. Problem of static method
 
-
-
-With static methods in Interface, we have a rule for it:
-- Do not use static methods in an interface until that method is a utility method.
+    With static methods in Interface, we have a rule for it:
+    - Do not use static methods in an interface until that method is a utility method.
 
 <br>
 
