@@ -24,42 +24,46 @@ In this article, we will learn how to use Function functional interface. Let's g
 
 ## Introduction to Function functional interface
 
-Function is a functional interface with two type parameters T and R. Its functional method called **apply()**, takes an argument of type **T** and returns an object of type **R**. Functions are ideal for converting an object of type **T** to one of type **R**.
+1. Function interface
 
-```java
-@FunctionalInterface
-public interface Function<T, R> {
-    R apply(T t);
-}
-```
+    Function is a functional interface with two type parameters T and R. Its functional method called **apply()**, takes an argument of type **T** and returns an object of type **R**. Functions are ideal for converting an object of type **T** to one of type **R**.
 
-For example:
+    ```java
+    @FunctionalInterface
+    public interface Function<T, R> {
+        R apply(T t);
+    }
+    ```
 
-```java
-Function<String, Integer> func = str -> Integer.parseInt(str);
+    For example:
 
-// pass function interface to a method
-public static <T, R> R transform(T t, Function<T, R> func) {
-    return func.apply(t);
-}
-```
+    ```java
+    Function<String, Integer> func = str -> Integer.parseInt(str);
 
-Continuously, we will go through **BiFunction** interface with two type parameters for input types in addition to the output type parameter.
+    // pass function interface to a method
+    public static <T, R> R transform(T t, Function<T, R> func) {
+        return func.apply(t);
+    }
+    ```
 
-```java
-@FunctionalInterface
-public interface BiFunction<T, U, R> {
-    R apply(T, U);
-}
-```
+2. BiFunction interface
 
-For example:
+    Continuously, we will go through **BiFunction** interface with two type parameters for input types in addition to the output type parameter.
 
-```java
-BiFunction<String, String, String> func = (s1, s2) -> {
-    s3 = s1 + s2;   
-};
-```
+    ```java
+    @FunctionalInterface
+    public interface BiFunction<T, U, R> {
+        R apply(T, U);
+    }
+    ```
+
+    For example:
+
+    ```java
+    BiFunction<String, String, String> func = (s1, s2) -> {
+        s3 = s1 + s2;   
+    };
+    ```
 
 <br>
 
@@ -181,7 +185,6 @@ There's a style of programming called point-free programming, that is about pass
 
 In order to see how Predicate functional interface works, we can reference to [Function functional interface](https://github.com/DucManhPhan/J2EE/tree/master/src/Java_Core/Java%208/Functional%20Interfaces/function).
 
-
 <br>
 
 ## Some useful examples for applying Function and BiFunction interface
@@ -212,10 +215,16 @@ Assuming that we have a list of Student that we get from database, our tasks are
 
 <br>
 
+## When to use
+
+- It is used in the map operation of the Stream API.
+
+- When we want to convert some kind of objects.
+
 ## Benefits and Drawbacks
 1. Benefits
 
-    - Using Function interface makes our code DRY.
+    - Using **Function** interface makes our code DRY.
 
     - easy to understand what it does, and maintain.
 
@@ -223,9 +232,10 @@ Assuming that we have a list of Student that we get from database, our tasks are
 <br>
 
 ## Wrapping up
-- BiFunction interface only offers **andThen()** method, not **compose()** method, because **compose()** method will return single result, then it is not accepted as argument of another BiFunction with two input parameters.
 
-- Some specialization of Function interface that used to convert from primitive types such as **IntFunction**, **LongFunction**, **DoubleFunction**.
+- **BiFunction** interface only offers **andThen()** method, not **compose()** method, because **compose()** method will return single result, then it is not accepted as argument of another BiFunction with two input parameters.
+
+- Some specialization of **Function** interface that used to convert from primitive types such as **IntFunction**, **LongFunction**, **DoubleFunction**.
 
     ```java
     @FunctionalInterface
@@ -244,7 +254,7 @@ Assuming that we have a list of Student that we get from database, our tasks are
     }
     ```
 
-- Some specialization of Function interface that used to convert to primitive types such as **ToIntFunction**, **ToLongFunction**, **ToDoubleFunction**.
+- Some specialization of **Function** interface that used to convert to primitive types such as **ToIntFunction**, **ToLongFunction**, **ToDoubleFunction**.
 
     ```java
     @FunctionalInterface
