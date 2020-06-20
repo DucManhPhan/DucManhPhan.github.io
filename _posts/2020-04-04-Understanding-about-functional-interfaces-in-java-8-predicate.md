@@ -29,53 +29,55 @@ In Java 8, all utility functional interfaces are included in **java.util.functio
 | Predicate      | yes                        | boolean                      | Test argument and return true of false     |
 | Function       | yes                        | yes                          | Maps one type to another                   |
 | Consumer       | yes                        | no                           | Consumes input (returns nothing)           |
-| Supplier       | no                         | yes                          | Generate output (using no input)           |       
-
-
+| Supplier       | no                         | yes                          | Generate output (using no input)           |
 
 <br>
 
 ## Predicate functional interface
 
-Predicate is a functional interface whose functional method called **test()**, evaluates a condition on an input variable for a generic type. 
+1. **Predicate** interface
 
-```java
-@FunctionalInterface
-public interface Predicate<T> {
+    **Predicate** is a functional interface whose functional method called **test()**, evaluates a condition on an input variable for a generic type. 
 
-    // return true if the condition is true
-    // and otherwise, return false
-    boolean test(T t);
-}
-```
+    ```java
+    @FunctionalInterface
+    public interface Predicate<T> {
 
-For example:
+        // return true if the condition is true
+        // and otherwise, return false
+        boolean test(T t);
+    }
+    ```
 
-```java
-Predicate<Integer> hasSatisfyAge = age -> age > 20;
-System.out.println("Will the student's age satisfy condition: " + hasSatisfyAge.test(10));
+    For example:
 
-void checkAge(Predicate<Integer> p, Integer age) {
-    boolean result = p.test(age);
-    // do something with it
-}
-```
+    ```java
+    Predicate<Integer> hasSatisfyAge = age -> age > 20;
+    System.out.println("Will the student's age satisfy condition: " + hasSatisfyAge.test(10));
 
-Then, we will learn the syntax of BiPredicate interface that accepts two type parameters.
+    void checkAge(Predicate<Integer> p, Integer age) {
+        boolean result = p.test(age);
+        // do something with it
+    }
+    ```
 
-```java
-@FunctionalInterface
-public interface Bipredicate<T, U> {
-    boolean test(T t, U u);
-}
-```
+2. **BiPredicate** interface
 
-For example:
+    Then, we will learn the syntax of **BiPredicate** interface that accepts two type parameters.
 
-```java
-BiPredicate<Integer, String> condition = (age, name) -> age > 20 && name.startWith("John Wick");
-condition.test(60, "Bill Gate");
-```
+    ```java
+    @FunctionalInterface
+    public interface Bipredicate<T, U> {
+        boolean test(T t, U u);
+    }
+    ```
+
+    For example:
+
+    ```java
+    BiPredicate<Integer, String> condition = (age, name) -> age > 20 && name.startWith("John Wick");
+    condition.test(60, "Bill Gate");
+    ```
 
 <br>
 
@@ -167,6 +169,14 @@ In order to see how Predicate functional interface works, we can reference to [P
 
 <br>
 
+## When to use
+
+- It is used in the filtering operations of Stream API.
+
+- When we want to extract method technique for some complex conditions. Because we can use chaining expression to describe these complex conditions.
+
+<br>
+
 ## Benefits and Drawbacks
 1. Benefits
 
@@ -183,8 +193,8 @@ In order to see how Predicate functional interface works, we can reference to [P
 <br>
 
 ## Wrapping up
-- Based on our business logic, we can create Predicate helper class to squeeze multiple predicate into one place.
 
+- Based on our business logic, we can create **Predicate** helper class to squeeze multiple predicate into one place.
 
 
 <br>

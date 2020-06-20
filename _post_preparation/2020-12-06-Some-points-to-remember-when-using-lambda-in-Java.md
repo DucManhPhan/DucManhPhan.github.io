@@ -11,18 +11,47 @@ tags: [Functional Programming]
 
 ## Table of Contents
 
-
-
-
+- [Introduction to Lambda](#introduction-to-lambda)
+- [The performance of Lambda in Java](#the-performance-of-lambda-in-java)
+- [When to use](#when-to-use)
+- [Benefits and Drawbacks](#benefits-and-drawbacks)
+- [Wrapping up](#wrapping-up)
 
 <br>
 
 ## Introduction to Lambda
 
+1. Lambda
 
+    
 
+2. Functional Interface
 
+    Belows are some important points of a functional interface.
+    - A functional interface is an interface.
+    - What does make an interface to become a functional interface?
 
+        There's only one thing that does make it. It's the fact that a functional interface has only one abstract method. It means that the default methods, which are instance methods, and the static methods that we can define in interfaces, do not count in the total. Only the abstract methods do count.
+
+        And there's something a little odd, is that if we add abstract methods from the **Object** class, methods like **toString()**, **equals()**, and **hashCode()**, then those abstract methods do no count in the total.
+
+        So a functional interface may have one abstract method, as many default methods as we need, as many static methods as we need, and it can also define the method from the **Object** class.
+
+        But sometimes we will wonder that Why would we put methods from the **Object** class in an interface?
+
+        Any implementation of an interface will be a class that extends Object class because every class extends Object class in Java. So this class is bound to have **toString()**, **equals()**, and **hashCode()** methods.
+        
+        So why would we bother adding them to an interface?
+
+        In fact, if we check the JDK, we will see that several interfaces are adding those methods in their interfaces. And the reason is simple. It's that those interfaces are changing the documentation of those methods.
+        
+        For instance, if we check the **Collection** interface, there is the **equals()** method defined in it. Because the semantic of this **equals()** method is changing in the case of Collection interface.
+        
+        It has to be more precise than the general contract defined in the **Object** class. That's the reason why we will find those methods in interfaces.
+
+    - A functional interface may be annotated with the special annotation called **@FunctionalInterface**.
+
+        This annotation's not mandatory. But if we add this annotation, we are just telling the compiler that "if this interface that we've written is not functional, then give us an error", so that we can fix that.
 
 <br>
 
@@ -40,7 +69,7 @@ tags: [Functional Programming]
 
 2. Estimate the performance cost of auto boxing
 
-    What we want to avoid when writing lambda expressions is a mechanism introduced in Java 5 called autoboxing.
+    What we want to avoid when writing lambda expressions is a mechanism introduced in Java 5 called **autoboxing**.
 
     Auto boxing is a trick used by the compiler to automatically convert a primitive type to an object.
 
@@ -72,25 +101,17 @@ tags: [Functional Programming]
 
 3. The specialized interfaces for Primitive types
 
-    To solve an above problem, Java provides java.util.function package, we can find a specialized version of the function, predicate, consumer and supplier, tailored to work with primitive types, instead of wrapping types.
+    To solve an above problem, Java provides **java.util.function** package, we can find a specialized version of the **function**, **predicate**, **consumer** and **supplier**, tailored to work with primitive types, instead of wrapping types.
 
     For example:
-    - IntPredicate that takes an int as a primitive type and returns a Boolean.
-    - LongSupplier does the same, produces long as primitive types.
-    - IntFunction<T> takes int as a primitive type and returns an object of type T.
-    - LongToIntFunction takes long primitive types and return ints as primitive types.
+    - **IntPredicate** that takes an int as a primitive type and returns a Boolean.
+    - **LongSupplier** does the same, produces long as primitive types.
+    - **IntFunction<T>** takes int as a primitive type and returns an object of type T.
+    - **LongToIntFunction** takes long primitive types and return ints as primitive types.
 
-    So we have multiple specialization of Suppliers, Consumers, Predicates and Functions for ints, longs, and double primitive types.
+    So we have multiple specialization of **Suppliers**, **Consumers**, **Predicates** and **Functions** for ints, longs, and double primitive types.
 
     Finally, if we want to improve the performance of our application, we need to remember that and to use those specialized versions accordingly.
-
-<br>
-
-## How to chain and compose in lambda expression
-
-
-
-
 
 <br>
 
@@ -111,6 +132,10 @@ tags: [Functional Programming]
 <br>
 
 ## Wrapping up
+
+- A lambda expression is an implementation of functional interface.
+
+- A lambda expression is not another way of writing instances of anonymous classes.
 
 - Using lambda will lead to very performant code.
 
