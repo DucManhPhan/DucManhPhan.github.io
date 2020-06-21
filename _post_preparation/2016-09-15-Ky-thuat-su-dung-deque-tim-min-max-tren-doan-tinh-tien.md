@@ -49,10 +49,10 @@ for (int i = 1; i <= n; i++) {
 ```
 
 Nhận xét:
-- L[i] – 1 bằng 0 hoặc là số lớn nhất mà L[i] – 1< i và A[L[i] – 1] < A[i] (1)
-- R[i] + 1  bằng n+1 hoặc là số nhỏ nhất mà R[i] + 1 > i và A[R[i] + 1] < A[i] (2)
+- **L[i] – 1** bằng 0 hoặc là số lớn nhất mà **L[i] – 1 < i** và **A[L[i] – 1] < A[i]** (1)
+- **R[i] + 1**  bằng **n + 1** hoặc là số nhỏ nhất mà **R[i] + 1 > i** và **A[R[i] + 1] < A[i]** (2)
 
-Từ nhận xét này, ta xây dựng Deque bằng cách "lọc" lại dãy như sau: trong quá trình duyệt dãy A, luôn đưa i vào cuối Deque hiện tại, nhưng loại bỏ hết tất cả các vị trí j đã được đưa vào trong Deque mà A[j] >= A[i]. Như vậy, tại mọi thời điểm i, ta luôn có danh sách các vị trí trên Deque tạo thành dãy các số tăng dần trên A[1] -> A[i].
+Từ nhận xét này, ta xây dựng Deque bằng cách "lọc" lại dãy như sau: trong quá trình duyệt dãy A, luôn đưa i vào cuối Deque hiện tại, nhưng loại bỏ hết tất cả các vị trí j đã được đưa vào trong Deque mà **A[j] >= A[i]**. Như vậy, tại mọi thời điểm i, ta luôn có danh sách các vị trí trên Deque tạo thành dãy các số tăng dần trên **A[1] -> A[i]**.
 
 Ví dụ: A: 1 3 5 4 2 8 Deque và giá trị tương ứng trên A
 
@@ -70,15 +70,15 @@ for (int i = 1; i <= n; ++i){
 }
 ```
 
-Theo cách hoạt động của Deque, ta có: Giả sử tại bước i, đã xác định được i ở vị trí top trong Deque. Khi đó: L[i] = Deque[top – 1] + 1
+Theo cách hoạt động của Deque, ta có: Giả sử tại bước i, đã xác định được i ở vị trí top trong Deque. Khi đó: **L[i] = Deque[top – 1] + 1**.
 
 Chứng minh:
 
-Từ (1) ta có A[L[i] – 1] < A[i], nên L[i] – 1 không bị loại khỏi Deque trong quá trình cập nhật lại Deque. Mặc khác, cũng từ (1) ta có A[L[i] – 1] lớn nhất, mọi số j ∈ [L[i], i – 1] đều đã bị loại khỏi Deque vì A[j] >= A[i]. Sau đó ta đưa i vào vị trí cuối (top) của Deque, nên L[i] – 1 chính bằng Deque[top – 1], hay L[i] = Deque[top – 1] + 1.
+Từ (1) ta có **A[L[i] – 1] < A[i]**, nên **L[i] – 1** không bị loại khỏi Deque trong quá trình cập nhật lại Deque. Mặc khác, cũng từ (1) ta có **A[L[i] – 1]** lớn nhất, mọi số **j ∈ [L[i], i – 1]** đều đã bị loại khỏi Deque vì **A[j] >= A[i]**. Sau đó ta đưa i vào vị trí cuối (top) của Deque, nên **L[i] – 1** chính bằng **Deque[top – 1]**, hay **L[i] = Deque[top – 1] + 1**.
 
 Vậy, ta xác định được L của một phần tử bất kì ngay khi đưa phần tử đó vào Deque.
 
-Bên cạnh đó, gọi t là vị trí các phần tử của A bị loại khỏi Deque trong quá trình cập nhật Deque. t bị loại khỏi Deque tại thời điểm i, chứng tỏ i là số đầu tiên xuất hiện trong Deque mà A[i] < A[t] (vì nếu tồn tại một số k thỏa t < k < i mà A[k] < A[t] thì t đã bị loại tại thời điểm k). Từ (2) ta suy ra R[t] + 1 chính là i, hay: R[t] = i – 1;
+Bên cạnh đó, gọi t là vị trí các phần tử của A bị loại khỏi Deque trong quá trình cập nhật Deque. t bị loại khỏi Deque tại thời điểm i, chứng tỏ i là số đầu tiên xuất hiện trong Deque mà **A[i] < A[t]** (vì nếu tồn tại một số k thỏa **t < k < i** mà **A[k] < A[t]** thì t đã bị loại tại thời điểm k). Từ (2) ta suy ra **R[t] + 1** chính là i, hay: **R[t] = i – 1**;
 
 Vậy, ta xác định được R của một phần tử bất kì khi loại phần tử đó ra khỏi Deque.
 
@@ -91,7 +91,7 @@ for (int i = n; i >= 1; --i) {
 }
 ```
 
-Độ phức tạp của đoạn chương trình trên có thể đánh giá như sau: Với mỗi số ∈ dãy A ta chỉ đưa vào Deque 1 lần duy nhất và cũng chỉ lấy ra khỏi Deque 1 lần duy nhất. Do vậy chi phí thực hiện chỉ khoảng 2*n, hay độ phức tạp chương trình là O(n).
+Độ phức tạp của đoạn chương trình trên có thể đánh giá như sau: Với mỗi số ∈ dãy A ta chỉ đưa vào Deque 1 lần duy nhất và cũng chỉ lấy ra khỏi Deque 1 lần duy nhất. Do vậy chi phí thực hiện chỉ khoảng **2*n**, hay độ phức tạp chương trình là **O(n)**.
 
 <br>
 
@@ -120,19 +120,19 @@ Chúng ta xem các bài tập sau đây:
 
 3. Bài tập tương tự
 
-    http://vn.spoj.com/problems/CREC01/
+    [http://vn.spoj.com/problems/CREC01/](http://vn.spoj.com/problems/CREC01/)
 
-    http://vn.spoj.com/problems/CRECT/
+    [http://vn.spoj.com/problems/CRECT/](http://vn.spoj.com/problems/CRECT/)
 
-    http://vn.spoj.com/problems/NKGOLF/
+    [http://vn.spoj.com/problems/NKGOLF/](http://vn.spoj.com/problems/NKGOLF/)
 
     Một vài bài tập khác sử dụng Kĩ thuật tịnh tiến Deque
 
-    http://vn.spoj.com/problems/KDIFF/
+    [http://vn.spoj.com/problems/KDIFF/](http://vn.spoj.com/problems/KDIFF/)
 
-    http://vn.spoj.com/problems/BLAND
+    [http://vn.spoj.com/problems/BLAND](http://vn.spoj.com/problems/BLAND)
 
-    http://vn.spoj.com/problems/C11CIR/
+    [http://vn.spoj.com/problems/C11CIR/](http://vn.spoj.com/problems/C11CIR/)
 
 <br>
 
