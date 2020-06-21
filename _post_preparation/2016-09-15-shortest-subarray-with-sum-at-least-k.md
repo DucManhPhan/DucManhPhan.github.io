@@ -14,9 +14,11 @@ This problem is a good example for the mentioned situation. Don’t worry if it 
 <br>
 
 ## Table of contents
-
-
-
+- [Getting started with the problem](#getting-started-with-the-problem)
+- [Solution](#solution)
+- [Solving with non-negative array](#solving-with-non-negative-array)
+- [Solving the original problem](#solving-the-original-problem)
+- [Wrapping up](#wrapping-up)
 
 <br>
 

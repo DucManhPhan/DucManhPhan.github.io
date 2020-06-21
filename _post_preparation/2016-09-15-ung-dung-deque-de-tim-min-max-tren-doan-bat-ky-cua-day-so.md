@@ -10,9 +10,9 @@ tags: [Deque]
 <br>
 
 ## Table of contents
-
-
-
+- [Given problem](#given-problem)
+- [Using Deque solution](#using-deque-solution)
+- [Wrapping up](#wrapping-up)
 
 <br>
 
