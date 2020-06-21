@@ -11,9 +11,9 @@ tags: [Data Structure, Deque]
 <br>
 
 ## Table of contents
-- [Introduction to Deque in Java](#introduction-to-deque-in-java)
-- []()
-- []()
+- [Given problem](#Given-problem)
+- [Using brute force solution](#using-brute-force-solution)
+- [Using deque solution](#using-deque-solution)
 - [Wrapping up](#wrapping-up)
 
 
@@ -27,7 +27,7 @@ tags: [Data Structure, Deque]
 
 <br>
 
-## Solution for KDIFF
+## Using brute force solution
 
 
 
@@ -35,26 +35,7 @@ tags: [Data Structure, Deque]
 
 <br>
 
-## Introduction to Deque in Java
-
-
-
-
-
-
-<br>
-
-## 
-
-
-
-
-
-
-<br>
-
-## 
-
+## Using deque solution
 
 
 
