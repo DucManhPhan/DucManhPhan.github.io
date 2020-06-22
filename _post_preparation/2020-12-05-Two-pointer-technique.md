@@ -20,17 +20,42 @@ In this article, we will learn about two pointer technique. Let's get started.
 
 ## Given problem
 
+Given a sorted array nums, remove the duplicates in-place such that each element appear only once and return the new length.
 
+Do not allocate extra space for another array, you must do this by modifying the input array in-place with O(1) extra memory.
 
+Example 1:
+- Given nums = [1,1,2],
 
+    Your function should return length = 2, with the first two elements of nums being 1 and 2 respectively.
 
+    It doesn't matter what you leave beyond the returned length.
+
+Example 2:
+- Given nums = [0,0,1,1,1,2,2,3,3,4],
+
+    Your function should return length = 5, with the first five elements of nums being modified to 0, 1, 2, 3, and 4 respectively.
+
+    It doesn't matter what values are set beyond the returned length.
 
 <br>
 
 ## Solution of Two pointers technique
 
-Some types of Two pointers technique:
-1. Use the **left** pointer starts from the beginning of an array. Use the **right** pointer starts from the ending of an array.
+Currently our array is sorted, so to remove all duplicated elements, we will use two pointers technique to solve it. Because we need to compare two adjancency elements to know what elements are duplicated.
+
+Below is the source code of the above problem.
+
+```java
+public int removeDuplicates(int[] nums) {
+    
+}
+```
+
+To dig deeper into this technique, we need to know how much the templates of this technique. The below is some types of Two pointers technique.
+1. Left and Right boundary
+
+    Use the **left** pointer starts from the beginning of an array. Use the **right** pointer starts from the ending of an array.
 
     The condition to stop the scanning of whole array is **left** > **right**.
     
@@ -45,7 +70,13 @@ Some types of Two pointers technique:
 
     - [https://leetcode.com/problems/reverse-vowels-of-a-string/](https://leetcode.com/problems/reverse-vowels-of-a-string/)
 
-2. Use the **left** pointer as the slow pointer, the **right** pointer as the fast pointer.
+    - [https://leetcode.com/problems/container-with-most-water/](https://leetcode.com/problems/container-with-most-water/)
+
+    - [https://leetcode.com/problems/4sum/](https://leetcode.com/problems/4sum/)
+
+2. Slow/Fast pointers
+
+    Use the **left** pointer as the slow pointer, the **right** pointer as the fast pointer.
 
     Normally, when the fast pointer go to the end of an array is the stop condition that we need to care about.
 
@@ -54,8 +85,31 @@ Some types of Two pointers technique:
     ![](../img/Algorithm/two-pointer/slow-fast-pointers.png)
 
     Finally, we also have some examples to practice.
+    - [https://leetcode.com/problems/remove-duplicates-from-sorted-array/](https://leetcode.com/problems/remove-duplicates-from-sorted-array/)
+
     - [https://leetcode.com/problems/linked-list-cycle/](https://leetcode.com/problems/linked-list-cycle/)
 
+3. Use two pointers for two sequences
+
+    In each sequence, we will use one pointer to loop it. Each step we will compare them, and process logic between them.
+
+    ![](../img/Algorithm/two-pointer/two-pointers-in-two-sequences.png)
+
+    Finally, we also have some examples to practice.
+    - [https://leetcode.com/problems/is-subsequence/](https://leetcode.com/problems/is-subsequence/)
+
+    - [https://leetcode.com/problems/shortest-word-distance-ii/](https://leetcode.com/problems/shortest-word-distance-ii/)
+
+    - [https://leetcode.com/problems/wildcard-matching/](https://leetcode.com/problems/wildcard-matching/)
+
+4. Old and new state
+
+    ![](../img/Algorithm/two-pointer/old-and-new-state.png)
+
+    Finally, we also have some examples to practice.
+    - [https://leetcode.com/problems/merge-two-sorted-lists/](https://leetcode.com/problems/merge-two-sorted-lists/)
+
+    - [https://leetcode.com/problems/decode-ways/](https://leetcode.com/problems/decode-ways/)
 
 <br>
 
@@ -83,3 +137,9 @@ Refer:
 [https://afteracademy.com/blog/what-is-the-two-pointer-technique](https://afteracademy.com/blog/what-is-the-two-pointer-technique)
 
 [https://leetcode.com/](https://leetcode.com/)
+
+[https://www.pluralsight.com/guides/algorithm-templates:-two-pointers-part-1](https://www.pluralsight.com/guides/algorithm-templates:-two-pointers-part-1)
+
+[https://www.pluralsight.com/guides/algorithm-templates:-two-pointers-part-2](https://www.pluralsight.com/guides/algorithm-templates:-two-pointers-part-2)
+
+[https://www.pluralsight.com/guides/algorithm-templates:-two-pointers-part-3](https://www.pluralsight.com/guides/algorithm-templates:-two-pointers-part-3)
