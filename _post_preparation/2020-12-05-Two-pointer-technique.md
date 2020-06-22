@@ -53,6 +53,7 @@ public int removeDuplicates(int[] nums) {
 ```
 
 To dig deeper into this technique, we need to know how much the templates of this technique. The below is some types of Two pointers technique.
+
 1. Left and Right boundary
 
     Use the **left** pointer starts from the beginning of an array. Use the **right** pointer starts from the ending of an array.
@@ -110,6 +111,10 @@ To dig deeper into this technique, we need to know how much the templates of thi
     - [https://leetcode.com/problems/merge-two-sorted-lists/](https://leetcode.com/problems/merge-two-sorted-lists/)
 
     - [https://leetcode.com/problems/decode-ways/](https://leetcode.com/problems/decode-ways/)
+
+    - [https://leetcode.com/problems/merge-two-sorted-lists/](https://leetcode.com/problems/merge-two-sorted-lists/)
+
+    - [https://leetcode.com/problems/house-robber/](https://leetcode.com/problems/house-robber/)
 
 <br>
 
