@@ -48,7 +48,20 @@ Below is the source code of the above problem.
 
 ```java
 public int removeDuplicates(int[] nums) {
-    
+    if (arr == null || arr.length == 0) {
+            return 0;
+    }
+
+    // assuming that we have left is an index of the other array
+    int left = 0;
+    for (int right = 0; right < arr.length - 1; ++right) {
+        if (arr[right] != arr[right + 1]) {
+            arr[left++] = arr[right];
+        }
+    }
+
+    arr[left++] = arr[arr.length - 1];
+    return left;
 }
 ```
 
