@@ -116,6 +116,8 @@ To dig deeper into this technique, we need to know how much the templates of thi
 
     - [https://leetcode.com/problems/house-robber/](https://leetcode.com/problems/house-robber/)
 
+    - [https://leetcode.com/problems/sort-colors/](https://leetcode.com/problems/sort-colors/)
+
 <br>
 
 ## When to use
