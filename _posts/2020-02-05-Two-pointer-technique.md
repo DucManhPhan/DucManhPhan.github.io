@@ -46,24 +46,28 @@ Currently our array is sorted, so to remove all duplicated elements, we will use
 
 Below is the source code of the above problem.
 
-```java
-public int removeDuplicates(int[] nums) {
-    if (arr == null || arr.length == 0) {
-            return 0;
-    }
+- First way
 
-    // assuming that we have left is an index of the other array
-    int left = 0;
-    for (int right = 0; right < arr.length - 1; ++right) {
-        if (arr[right] != arr[right + 1]) {
-            arr[left++] = arr[right];
+    Assuming that the **left** pointer to point the other array, and the **right** pointer will iterate our source array.
+
+    ```java
+    public int removeDuplicates(int[] nums) {
+        if (arr == null || arr.length == 0) {
+                return 0;
         }
-    }
 
-    arr[left++] = arr[arr.length - 1];
-    return left;
-}
-```
+        // assuming that we have left is an index of the other array
+        int left = 0;
+        for (int right = 0; right < arr.length - 1; ++right) {
+            if (arr[right] != arr[right + 1]) {
+                arr[left++] = arr[right];
+            }
+        }
+
+        arr[left++] = arr[arr.length - 1];
+        return left;
+    }
+    ```
 
 To dig deeper into this technique, we need to know how much the templates of this technique. The below is some types of Two pointers technique.
 
