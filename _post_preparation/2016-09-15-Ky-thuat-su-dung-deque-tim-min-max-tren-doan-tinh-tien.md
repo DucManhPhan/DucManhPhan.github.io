@@ -151,3 +151,5 @@ Refer:
 [https://langocthuyan.wordpress.com/2020/04/26/shortest-subarray-with-sum-at-least-k/](https://langocthuyan.wordpress.com/2020/04/26/shortest-subarray-with-sum-at-least-k/)
 
 [https://vietcodes.github.io/code/3/index.html](https://vietcodes.github.io/code/3/index.html)
+
+[https://vietcodes.github.io/code/60/index.html](https://vietcodes.github.io/code/60/index.html)

@@ -1,8 +1,8 @@
 ---
 layout: post
-title: Java memory model
+title: Java Memory Model
 bigimg: /img/image-header/factory.jpg
-tags: [Java, Jvm]
+tags: [Multithreading]
 ---
 
 
@@ -17,7 +17,7 @@ tags: [Java, Jvm]
 
 <br>
 
-## Understanding about Java memory model 
+## Understanding about Java Memory Model 
 
 
 
@@ -71,3 +71,5 @@ Refer:
 [http://tutorials.jenkov.com/java-concurrency/java-memory-model.html](http://tutorials.jenkov.com/java-concurrency/java-memory-model.html)
 
 [https://betsol.com/2017/06/java-memory-management-for-java-virtual-machine-jvm/](https://betsol.com/2017/06/java-memory-management-for-java-virtual-machine-jvm/)
+
+[https://medium.com/platform-engineer/understanding-java-memory-model-1d0863f6d973](https://medium.com/platform-engineer/understanding-java-memory-model-1d0863f6d973)
