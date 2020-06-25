@@ -42,6 +42,14 @@ tags: [Data Structure, Deque]
 
 <br>
 
+## Using segment tree
+
+
+
+
+
+<br>
+
 ## Wrapping up
 
 
