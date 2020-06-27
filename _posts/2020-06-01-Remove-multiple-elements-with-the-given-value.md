@@ -11,9 +11,9 @@ tags: [Two-Pointer]
 <br>
 
 ## Table of contents
-
-
-
+- [Given problem](#given-problem)
+- [Using two-pointers technique](#using-two-pointers-technique)
+- [Wrapping up](#wrapping-up)
 
 
 <br>
@@ -51,26 +51,46 @@ Example 2:
 
 ## Using two-pointers technique
 
+In this problem, we will use two pointers:
+- Supposed that slow pointer will point to another array.
+- Fast pointer will iterate the current array.
+- Each time we find that an element at fast pointer is different than val, we will update the value at the slow pointer.
+- Otherwise, increment the fast pointer.
 
 ```java
-
+public int removeElement(int[] nums, int val) {
+    int slow = -1;
+    int fast = 0;
+    
+    while (fast < nums.length ){
+        if (nums[fast] != val) {
+            ++slow;
+            nums[slow] = nums[fast];
+        }
+        
+        ++fast;
+    }
+    
+    return slow + 1;
+}
 ```
 
+The benefits of this solution:
+- Maintain the order of elements after shifting them.
+- Shifting elements with in-place way.
 
+The drawbacks of this solution:
+- If an array does not contains any elements that is equal to val, it makes assignment operations redundancy.
 
-<br>
-
-## 
-
-
-
-
+The complexity of this solution:
+- Time complexity: O(n)
+- Space complexity: O(1)
 
 <br>
 
 ## Wrapping up
 
-
+- Understanding some ways of the two-pointers technique that will be applied into an array.
 
 
 <br>
