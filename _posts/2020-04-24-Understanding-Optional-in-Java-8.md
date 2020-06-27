@@ -2,7 +2,7 @@
 layout: post
 title: Understanding Optional in Java 8
 bigimg: /img/image-header/california.jpg
-tags: [Java]
+tags: [Functional Programming]
 ---
 
 In this article, we will learn how to use Optional functionality in Java 8. Let's get started.

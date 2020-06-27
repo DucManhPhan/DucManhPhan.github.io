@@ -2,7 +2,7 @@
 layout: post
 title: Some outstanding courses about clean code and design patterns in Java
 bigimg: /img/image-header/yourself.jpeg
-tags: [Java, Courses]
+tags: [Courses]
 ---
 
 In this article, we will concentrate about some interesting courses that we need to learn to improve our coding quality.

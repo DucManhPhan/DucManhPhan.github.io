@@ -2,7 +2,7 @@
 layout: post
 title: Understanding about SOAP Webservice
 bigimg: /img/image-header/yourself.jpeg
-tags: [Java, SOAP API, J2EE]
+tags: [SOAP API]
 ---
 
 In this article, we will find something out about SOAP webservices, how to use it, and some its disadvantages and advantages.
