@@ -2,7 +2,7 @@
 layout: post
 title: How to use JDBC to connect database in Java project
 bigimg: /img/image-header/california.jpg
-tags: [Java, JDBC]
+tags: [JDBC]
 ---
 
 When working with Java applications, reading and writing data to a relational database is a must-have skill that we need to know. So, in this article, we will learn how to connect our java application to database based on JDBC.

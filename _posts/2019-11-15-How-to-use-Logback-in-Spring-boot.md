@@ -2,7 +2,7 @@
 layout: post
 title: How to use Logback in Spring boot
 bigimg: /img/image-header/home-office-1.jpg
-tags: [Java, Logging framework]
+tags: [Spring, Logging framework]
 ---
 
 In this article, we will use Logback to implement logging functinality in Spring Boot. Let's get started.

@@ -2,7 +2,7 @@
 layout: post
 title: Understanding about Functional Interfaces in Java 8 - Supplier
 bigimg: /img/path.jpg
-tags: [Functional Programming, Java]
+tags: [Functional Programming]
 ---
 
 

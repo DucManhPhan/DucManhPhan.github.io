@@ -2,7 +2,7 @@
 layout: post
 title: Introduction to transaction in Spring Data JPA
 bigimg: /img/image-header/yourself.jpeg
-tags: [Java, Spring]
+tags: [Spring]
 ---
 
 In this article, we will introduce to transaction with Spring Data JPA, how many ways to implement it in our project.

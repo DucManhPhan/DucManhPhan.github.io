@@ -2,7 +2,7 @@
 layout: post
 title: Seasar framework
 bigimg: /img/image-header/ravashing-beach.jpg
-tags: [Java, Seasar]
+tags: [Seasar]
 ---
 
 Seasar is the most popular open source framework in Japan. It is created simply because the authors see that dependency injection is really bad thing and they want to free us from such annoyance of DI.

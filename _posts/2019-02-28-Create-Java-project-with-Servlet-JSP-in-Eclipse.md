@@ -2,7 +2,7 @@
 layout: post
 title: Create Java project with Servlet, JSP in Eclipse
 bigimg: /img/path.jpg
-tags: [Java, Servlet]
+tags: [Servlet]
 ---
 
 In this article, we will find out about how to create dynamic web project with servlet, jsp in eclipse, how to add external jar files, add new server into our project. 

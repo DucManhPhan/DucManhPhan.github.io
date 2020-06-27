@@ -2,7 +2,7 @@
 layout: post
 title: How to use CompletableFuture and Callable in Java
 bigimg: /img/image-header/yourself.jpeg
-tags: [Java, Multithreading]
+tags: [Multithreading]
 ---
 
 

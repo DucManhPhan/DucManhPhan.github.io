@@ -2,7 +2,7 @@
 layout: post
 title: Lifecycle and states of Java's threads
 bigimg: /img/image-header/factory.jpg
-tags: [Java, Multithreading]
+tags: [Multithreading]
 ---
 
 

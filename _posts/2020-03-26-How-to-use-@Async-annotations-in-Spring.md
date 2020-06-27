@@ -2,7 +2,7 @@
 layout: post
 title: How to use @Async annotation in Spring
 bigimg: /img/path.jpg
-tags: [Java, Spring]
+tags: [Spring]
 ---
 
 In this article, we will learn how to use @Async annotation in Spring. Let's get started.

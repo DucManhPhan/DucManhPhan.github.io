@@ -2,7 +2,7 @@
 layout: post
 title: How JSP works in Java
 bigimg: /img/image-header/home-office-1.jpg
-tags: [Java, Servlet]
+tags: [Servlet]
 ---
 
 When we, assumed as novice programmer, work with Java web, there are so many things to understand, or to be curious. I can list something such as annotations, jsp, servlet, spring framework, hibernate, JDBC, ... 

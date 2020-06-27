@@ -2,7 +2,7 @@
 layout: post
 title: Fundamental about Spring Security
 bigimg: /img/path.jpg
-tags: [Java, Spring]
+tags: [Spring]
 ---
 
 Security for website is very essential simply because we can be robbed all user information such as credit card, address, email, password, ... So, Spring Security will appear to help us to reduce our attempt.

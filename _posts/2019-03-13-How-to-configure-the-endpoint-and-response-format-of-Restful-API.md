@@ -2,7 +2,7 @@
 layout: post
 title: How to configure the endpoint and response format of RESTful API
 bigimg: /img/image-header/california.jpg
-tags: [Java, Restful API]
+tags: [Restful API]
 ---
 
 In this tutorial, we will discuss about the endpoint and API response format of RESTful API. These knowledge is ver useful when we want to design API web service scalable.

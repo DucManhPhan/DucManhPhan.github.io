@@ -2,7 +2,7 @@
 layout: post
 title: How to use Apache HttpClient to communicate with other systems
 bigimg: /img/path.jpg
-tags: [Java, Http Client]
+tags: [Http Client]
 ---
 
 In this article, we learn how to use Apache HttpClient. Let's get started.

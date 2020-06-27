@@ -2,7 +2,7 @@
 layout: post
 title: How to configure in Struts 1 framework
 bigimg: /img/image-header/california.jpg
-tags: [Java, Struts 1]
+tags: [Struts 1]
 ---
 
 Before diving deeper into how to understand Struts 1 framework works, we need to be aware of how to configure Struts 1 framework with ```struts-config.xml``` file, and ```web.xml``` file. It is very important for the first step simply because when we do not configure our project to run smoothly, we do not do something with it.

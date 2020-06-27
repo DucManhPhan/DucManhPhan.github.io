@@ -2,7 +2,7 @@
 layout: post
 title: Annotations in Spring Caching
 bigimg: /img/image-header/california.jpg
-tags: [Java, Spring]
+tags: [Spring]
 ---
 
 In the previous article, we has understood about [How Spring Caching works](https://ducmanhphan.github.io/2019-02-19-How-Spring-Caching-mechanism-works). So in this article, we will discuss about annotations in Spring caching, and how to use it in our source code.

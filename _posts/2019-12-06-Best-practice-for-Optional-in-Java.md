@@ -2,7 +2,7 @@
 layout: post
 title: Best practice for Optional in Java
 bigimg: /img/image-header/home-office-2.jpg
-tags: [Java]
+tags: [Functional Programming]
 ---
 
 

@@ -2,7 +2,7 @@
 layout: post
 title: Using wait, notify in synchronized method/block of Multithreading Java
 bigimg: /img/image-header/factory.jpg
-tags: [Multithreading, Java]
+tags: [Multithreading]
 ---
 
 In this article, we will find something about synchronization such as what is synchronization, how to use wait, notify inside a synchronized block code.

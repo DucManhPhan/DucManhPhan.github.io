@@ -2,7 +2,7 @@
 layout: post
 title: How to get different beans from configuration xml file in the same class - Spring MVC
 bigimg: /img/image-header/home-office-1.jpg
-tags: [Java]
+tags: [Spring]
 ---
 
 This article is stem from the question on [stackoverflow](https://stackoverflow.com/questions/4462466/autowiring-two-different-beans-of-same-class). When I read about this question, immediately, I think that it is very useful for me in reality.

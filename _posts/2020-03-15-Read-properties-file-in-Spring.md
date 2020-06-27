@@ -2,7 +2,7 @@
 layout: post
 title: Read properties file in Spring
 bigimg: /img/path.jpg
-tags: [Java, Spring]
+tags: [Spring]
 ---
 
 In this article, we will find something out about reading properties in file with Spring framework. Let's get started.

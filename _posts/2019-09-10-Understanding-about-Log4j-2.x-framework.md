@@ -2,7 +2,7 @@
 layout: post
 title: Understanding about Log4j 2.x framework
 bigimg: /img/image-header/home-office-1.jpg
-tags: [Java, Logging framework]
+tags: [Logging framework]
 ---
 
 In Java web applications, logging is an important feature that we need to understand and use frequently. Because logging will help us easy to detect bug like at runtime, we do not use debug mode, so, defenitely, we have to use logging functionality to play.

@@ -2,7 +2,7 @@
 layout: post
 title: Some notes about Resin web application server
 bigimg: /img/image-header/california.jpg
-tags: [Resin, Java]
+tags: [Resin]
 ---
 
 In this article, we will discuss about Resin web server, simply because I have so many problems with Resin when building my own projects, especially project that is relevant to seasar framework - sastruts, ...

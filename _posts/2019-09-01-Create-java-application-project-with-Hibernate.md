@@ -2,7 +2,7 @@
 layout: post
 title: Create Java application project with Hibernate
 bigimg: /img/image-header/california.jpg
-tags: [Java, Hibernate]
+tags: [Hibernate]
 ---
 
 In this article, we will learn how to configure Hibernate in our Java project with Maven. There are some problems when doing with Hibernate, and we will solve them to know more about configuration in Hibernate.

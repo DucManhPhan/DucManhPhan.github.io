@@ -2,7 +2,7 @@
 layout: post
 title: How to use HttpURLConnection to communicate with other systems
 bigimg: /img/path.jpg
-tags: [Java, Http Client]
+tags: [Http Client]
 ---
 
 In this article, we will learn how to use HttpURLConnection to communicate with other system based on HTTP protocol.

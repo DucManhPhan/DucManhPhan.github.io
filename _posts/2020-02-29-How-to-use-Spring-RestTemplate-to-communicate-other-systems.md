@@ -2,7 +2,7 @@
 layout: post
 title: How to use Spring RestTemplate to communicate with other systems
 bigimg: /img/path.jpg
-tags: [Java, Spring, Http Client]
+tags: [Spring, Http Client]
 ---
 
 In this article, we will learn how to use Spring RestTemplate. Let's get started.

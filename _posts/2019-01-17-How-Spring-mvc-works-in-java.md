@@ -2,7 +2,7 @@
 layout: post
 title: How does Spring MVC works in Java
 bigimg: /img/image-header/home-office-1.jpg
-tags: [Java, Spring]
+tags: [Spring]
 ---
 
 Spring MVC is the framework that helps our build the huge project. It divide project into smaller things such Model, View, Controller. It makes all members in team can be easily understand the whole structure of project. It reduces the number of bugs in developing the new functionalities in project. Because each part can be in charge of a specific target. We can find the position where bug happens immediately.

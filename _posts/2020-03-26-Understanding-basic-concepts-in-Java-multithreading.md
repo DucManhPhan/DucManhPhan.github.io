@@ -2,7 +2,7 @@
 layout: post
 title: Understanding basic concepts in Java's multithreading
 bigimg: /img/image-header/yourself.jpeg
-tags: [Multithreading, Java]
+tags: [Multithreading]
 ---
 
 In this article, we will learn about some basic concepts of multithreading, how to differenciate between them, and how to use it correctly.

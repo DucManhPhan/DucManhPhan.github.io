@@ -2,7 +2,7 @@
 layout: post
 title: Producers and Disposers in Java EE
 bigimg: /img/image-header/factory.jpg
-tags: [Java, J2EE]
+tags: [J2EE]
 ---
 
 Until now we've seen how CDI can inject bean into other beans that are valuable in the bean archive. The problem is that when we integrate third-party frameworks, their classes are not packaged in bean archives and, therefore, are not discovered by CDI, and can't be injected.

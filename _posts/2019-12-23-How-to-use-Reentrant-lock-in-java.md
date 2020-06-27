@@ -2,7 +2,7 @@
 layout: post
 title: How to use ReentrantLock in Java
 bigimg: /img/image-header/yourself.jpeg
-tags: [Java, Multithreading]
+tags: [Multithreading]
 ---
 
 

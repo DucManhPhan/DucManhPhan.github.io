@@ -2,7 +2,7 @@
 layout: post
 title: Working with Nulls in Java
 bigimg: /img/image-header/yourself.jpeg
-tags: [Java, Clean Code]
+tags: [Clean Code]
 ---
 
 In this article, we will learn some ways to deal with Null value in Java. Let's get started.

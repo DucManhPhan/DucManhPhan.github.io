@@ -2,7 +2,7 @@
 layout: post
 title: Fire and forget pattern
 bigimg: /img/image-header/factory.jpg
-tags: [Multithreading, Java, Concurrency Pattern]
+tags: [Concurrency Pattern]
 ---
 
 In this article, we will learn how to use the fire-and-forget pattern to improve performance of system with its implementations.

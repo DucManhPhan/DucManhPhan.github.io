@@ -2,7 +2,7 @@
 layout: post
 title: How to implement declarative transaction management in Spring Data JPA
 bigimg: /img/image-header/yourself.jpeg
-tags: [Java, Spring]
+tags: [Spring]
 ---
 
 In this article, we will learn how to use @Transactional annotation to manage transaction with database in Spring Data JPA.

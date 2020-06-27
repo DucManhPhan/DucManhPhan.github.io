@@ -2,7 +2,7 @@
 layout: post
 title: Ordering Read and Writes operations on a multiple core CPU
 bigimg: /img/path.jpg
-tags: [Multithreading, Java]
+tags: [Multithreading]
 ---
 
 In this article, we will learn about the organization of physical memory that impacts to our multithreaded application. And some concepts such as synchronization, visibility, volatility, happens-before link that will be used to deal with it.

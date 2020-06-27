@@ -2,7 +2,7 @@
 layout: post
 title: Waiting threads to finish completely in Java
 bigimg: /img/path.jpg
-tags: [Java, Multithreading]
+tags: [Multithreading]
 ---
 
 In this article, we will learn how to wait our threads to finish completely. Let's get started.

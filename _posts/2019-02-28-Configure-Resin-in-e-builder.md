@@ -1,8 +1,8 @@
 ---
 layout: post
-title: Configure Resin in e Builder
+title: Configure Resin in e-Builder
 bigimg: /img/image-header/california.jpg
-tags: [Java, Resin]
+tags: [Resin]
 ---
 
 In this article, we will discuss about how to configure Resin server into our IDE Eclipse, and how to overcome some common errors when running project.

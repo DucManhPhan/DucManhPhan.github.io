@@ -2,7 +2,7 @@
 layout: post
 title: Understanding configuration files in Tomcat
 bigimg: /img/path.jpg
-tags: [Java, Tomcat]
+tags: [Tomcat]
 ---
 
 Before going deeper the meaning of configuration file in Tomcat server, we can visit the other article about [Configure Tomcat for Java web](http://ducmanhphan.github.io/2019-02-18-Configure-Tomcat-for-Java-web).

@@ -2,7 +2,7 @@
 layout: post
 title: CountDownLatch in Java's Multithreading
 bigimg: /img/image-header/yourself.jpeg
-tags: [Multithreading, Java]
+tags: [Multithreading]
 ---
 
 

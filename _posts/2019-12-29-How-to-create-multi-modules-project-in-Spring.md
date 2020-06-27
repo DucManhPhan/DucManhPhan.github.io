@@ -2,7 +2,7 @@
 layout: post
 title: How to create multi-modules project in Spring
 bigimg: /img/image-header/ravashing-beach.jpg
-tags: [Java, Spring]
+tags: [Spring]
 ---
 
 In this article, we will learn how to configure multi-modules project in Spring with the support of Maven build tool. Using this approach makes our code better structure, easily maintain.

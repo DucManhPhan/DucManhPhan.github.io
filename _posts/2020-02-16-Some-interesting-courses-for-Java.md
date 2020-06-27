@@ -2,7 +2,7 @@
 layout: post
 title: Some interesting courses for Java
 bigimg: /img/image-header/factory.jpg
-tags: [Java, Courses]
+tags: [Courses]
 ---
 
 In this article, we will learn some courses about java. Let's get started.

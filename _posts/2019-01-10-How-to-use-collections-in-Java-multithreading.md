@@ -2,7 +2,7 @@
 layout: post
 title: How to use collections in Java's Multithreading
 bigimg: /img/image-header/yourself.jpeg
-tags: [Multithreading, Java]
+tags: [Multithreading]
 ---
 
 In this article, we will learn how to use concurrent collections in Java.

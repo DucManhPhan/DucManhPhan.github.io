@@ -2,7 +2,7 @@
 layout: post
 title: Understanding about stream in Java 8
 bigimg: /img/image-header/ravashing-beach.jpg
-tags: [Java]
+tags: [Functional Programming]
 ---
 
 In this article, we will understanding about what is stream, and how to use stream in Java 8. Usually apply stream in java 8 makes our code understandable, maintainable, ...

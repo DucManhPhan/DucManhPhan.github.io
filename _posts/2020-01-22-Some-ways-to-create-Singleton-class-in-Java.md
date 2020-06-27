@@ -2,7 +2,7 @@
 layout: post
 title: Some ways to create Singleton class in Java
 bigimg: /img/image-header/factory.jpg
-tags: [Java, Design Pattern]
+tags: [Design Pattern]
 ---
 
 In this article, we will find something out about ways to create Singleton class in Java. Before understanding it, we should read up on this [Singleton class](https://ducmanhphan.github.io/2019-10-28-Singleton-Pattern/).

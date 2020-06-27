@@ -2,7 +2,7 @@
 layout: post
 title: Atomic variables in Java
 bigimg: /img/path.jpg
-tags: [Java, Multithreading]
+tags: [Multithreading]
 ---
 
 

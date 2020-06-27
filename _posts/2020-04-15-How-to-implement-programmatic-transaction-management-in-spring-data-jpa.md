@@ -2,7 +2,7 @@
 layout: post
 title: How to implement programmatic transaction management in Spring Data JPA
 bigimg: /img/image-header/yourself.jpeg
-tags: [Java, Spring]
+tags: [Spring]
 ---
 
 In this article, we will learn how to write code ourself to work with transactions in Spring Data JPA.

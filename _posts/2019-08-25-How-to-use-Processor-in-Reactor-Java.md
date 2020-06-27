@@ -2,7 +2,7 @@
 layout: post
 title: How to use Processor in Java's Reactor
 bigimg: /img/image-header/yourself.jpeg
-tags: [Java, Reactive Programming, Spring]
+tags: [Reactive Programming, Spring]
 ---
 
 In this article, we will go through processors in reactor of java. In Reactive programming, or especially Spring webflux, to use Processor is important to do with it.

@@ -2,7 +2,7 @@
 layout: post
 title: Some problems when using multithreading in Java
 bigimg: /img/path.jpg
-tags: [Java, Multithreading]
+tags: [Multithreading]
 ---
 
 

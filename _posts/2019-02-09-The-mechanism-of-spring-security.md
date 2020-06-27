@@ -2,7 +2,7 @@
 layout: post
 title: The mechanism of Spring security
 bigimg: /img/image-header/home-office-1.jpg
-tags: [Java, Spring]
+tags: [Spring]
 ---
 
 Using Spring security is very useful for our website development. It reduces risks from attacker, protect our data with cryptography.

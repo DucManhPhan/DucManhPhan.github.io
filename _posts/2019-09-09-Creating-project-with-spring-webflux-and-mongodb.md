@@ -2,7 +2,7 @@
 layout: post
 title: Creating project with Spring Webflux and MongoDB
 bigimg: /img/image-header/california.jpg
-tags: [Java, Spring, Reactive Programming, MongoDB]
+tags: [Spring, Reactive Programming, MongoDB]
 ---
 
 Normally, we will use Spring MVC for our project, but Spring webflux was born in 2017, it makes our web application stronger and more elastic. It takes advantage of asynchronous property, non-blocking IO to reduce the number of threads when receiving multiple requests.
