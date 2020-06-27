@@ -2,7 +2,7 @@
 layout: post
 title: How to use scheduling in Spring boot
 bigimg: /img/path.jpg
-tags: [Java, Spring]
+tags: [Spring]
 ---
 
 

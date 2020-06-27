@@ -13,7 +13,7 @@ tags: [Java]
 - [For-each loop](#for-each-loop)
 - [Using iterator](#using-iterator)
 - [Utilizing traditional for loop](#utilizing-traditional-for-loop)
-- [Using some methods to loop from Iterable, Stream](#using-some-methods-to-loop-from-iterable,-stream)
+- [Using Stream API](#using-stream-api)
 
 
 <br>
@@ -58,7 +58,7 @@ tags: [Java]
 
 <br>
 
-## Using some methods to loop from Iterable, Stream
+## Using Stream API
 
 
 

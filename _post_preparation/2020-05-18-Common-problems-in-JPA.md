@@ -2,7 +2,7 @@
 layout: post
 title: Common problems in JPA
 bigimg: /img/image-header/ravashing-beach.jpg
-tags: [Database]
+tags: [JPA]
 ---
 
 
