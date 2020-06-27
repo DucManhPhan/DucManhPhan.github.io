@@ -2,7 +2,7 @@
 layout: post
 title: Remove multiple elements with the given value
 bigimg: /img/image-header/yourself.jpeg
-tags: [Two-Pointer]
+tags: [Two-Pointers]
 ---
 
 
