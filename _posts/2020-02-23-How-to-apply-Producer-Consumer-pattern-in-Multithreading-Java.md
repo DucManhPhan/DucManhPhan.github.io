@@ -1,8 +1,8 @@
 ---
 layout: post
-title: How to apply Producer/Consumer pattern in Java's multithreading
+title: Producer/Consumer Pattern
 bigimg: /img/image-header/factory.jpg
-tags: [Multithreading, Java, Concurrency Pattern]
+tags: [Concurrency Pattern]
 ---
 
 
