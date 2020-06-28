@@ -89,15 +89,6 @@ HDFS contains a single Name Node and a set of Data Node.
 
 <br>
 
-## 
-
-
-
-
-
-
-<br>
-
 ## Wrapping up
 
 
