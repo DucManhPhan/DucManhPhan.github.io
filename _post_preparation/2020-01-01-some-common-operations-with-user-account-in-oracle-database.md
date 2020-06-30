@@ -7,7 +7,6 @@ tags: [Oracle]
 
 
 
-
 <br>
 
 ## Table of contents
@@ -140,8 +139,7 @@ GRANT CONNECT, RESOURCE, DBA TO weblogic123;
 
 ## Wrapping up
 
-
-
+- Understanding about how to create user account and grant privilege for users in Oracle database.
 
 <br>
 
