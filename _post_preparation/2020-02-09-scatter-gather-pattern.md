@@ -2,7 +2,7 @@
 layout: post
 title: Scatter and Gather pattern
 bigimg: /img/path.jpg
-tags: [Multithreading, Java, Concurrency Pattern]
+tags: [Concurrency Pattern]
 ---
 
 
