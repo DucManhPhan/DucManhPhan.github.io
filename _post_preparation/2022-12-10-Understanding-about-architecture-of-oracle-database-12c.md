@@ -1,6 +1,9 @@
-
-
-
+---
+layout: post
+title: Understanding about architecture of Oracle database 12c
+bigimg: /img/image-header/yourself.jpeg
+tags: [Oracle]
+---
 
 
 
