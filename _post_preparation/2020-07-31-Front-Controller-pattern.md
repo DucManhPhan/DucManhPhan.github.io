@@ -2,7 +2,7 @@
 layout: post
 title: Front controller pattern
 bigimg: /img/image-header/california.jpg
-tags: [Design Pattern, Enterprise Pattern]
+tags: [Enterprise Pattern]
 ---
 
 
@@ -13,7 +13,7 @@ tags: [Design Pattern, Enterprise Pattern]
 - [Given problem](#given-problem)
 - [Solution for this problem](#solution-for-this-problem)
 - [Front Controller Pattern](#Front-controller-pattern) 
-- [Code sample with Servlet in Java](#code-sample-with-servlet-in-java)
+- [Source code](#source-code)
 - [Benefits and Drawbacks](#benefits-and-drawbacks)
 - [Wrapping up](#wrapping-up)
 
@@ -36,6 +36,7 @@ tags: [Design Pattern, Enterprise Pattern]
 <br>
 
 ## Front Controller Pattern
+
 According to [martinfowler.com](https://martinfowler.com/eaaCatalog/frontController.html), we have:
 
 ```
@@ -47,7 +48,7 @@ A controller that handles all requests for a website.
 
 <br>
 
-## Code sample with Servlet in Java
+## Source code
 
 
 
@@ -74,6 +75,7 @@ A controller that handles all requests for a website.
 <br>
 
 ## Relations with other design patterns
+
 - ```Mediator pattern```
 
     The Front controller pattern is a specialized kind of Mediator pattern.
