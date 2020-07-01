@@ -2,7 +2,7 @@
 layout: post
 title: Distributed transaction
 bigimg: /img/image-header/yourself.jpeg
-tags: []
+tags: [Database]
 ---
 
 

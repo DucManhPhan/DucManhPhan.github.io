@@ -24,7 +24,11 @@ tags: [Creational Pattern, Design Pattern]
 <br>
 
 ## Given Problem
+
 In our program, 
+
+
+
 
 
 <br>
@@ -33,9 +37,13 @@ In our program,
 
 
 
+
+
+
 <br>
 
 ## When to use
+
 - When create object has too expensive cost.
 - When the frequence to creat objects is high.
 - When the number of objects in use is small.
@@ -44,9 +52,11 @@ In our program,
 <br>
 
 ## Benefits & Drawbacks
+
 1. Benefits
-- Boot performance of system when we can reuse objects of pool because creating object is too expensive.
-- 
+
+    - Boot performance of system when we can reuse objects of pool because creating object is too expensive.
+    - 
 
 
 
@@ -66,6 +76,7 @@ In our program,
 <br>
 
 ## Application & Examples
+
 - Use this pattern to manage resources such as connections to database because it is an expensive operation, and when there are too many connections opened, it will takes longer to create a new one, the database server will become overloaded; or threads.
 
 
