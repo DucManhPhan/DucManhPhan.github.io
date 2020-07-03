@@ -12,6 +12,8 @@ tags: [Backtracking]
 ## Table of contents
 - [Given problem](#given-problem)
 - [Using backtracking algorithm](#using-backtracking-algorithm)
+- [Using recursion version](#using-recursion-version)
+- [Using iteration version](#using-iteration-version)
 - [Wrapping up](#wrapping-up)
 
 
