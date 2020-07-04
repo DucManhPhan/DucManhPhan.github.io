@@ -2,7 +2,7 @@
 layout: post
 title: How to use binary search
 bigimg: /img/image-header/yourself.jpeg
-tags: [Algorithm, Binary Search]
+tags: [Binary Search]
 ---
 
 ## Table of contents

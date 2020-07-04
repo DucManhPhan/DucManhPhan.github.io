@@ -2,16 +2,18 @@
 layout: post
 title: Count number of nice subarrays
 bigimg: /img/path.jpg
-tags: [Two-Pointers]
+tags: [Two-Pointers, Prefix Sum]
 ---
+
 
 
 <br>
 
 ## Table of contents
-- [Given problem]()
+- [Given problem](#given-problem)
 - [Using brute force algorithm](#using-brute-force-algorithm)
 - [Using two-pointers technique](#using-two-pointers-technique)
+- [Using prefix sum](#using-prefix-sum)
 - [Wrapping up](#wrapping-up)
 
 

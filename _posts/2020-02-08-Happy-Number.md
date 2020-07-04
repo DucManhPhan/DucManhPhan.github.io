@@ -2,7 +2,7 @@
 layout: post
 title: Happy Number
 bigimg: /img/image-header/yourself.jpeg
-tags: [Algorithm, Slow-Fast Pointers]
+tags: [Slow-Fast Pointers]
 ---
 
 

@@ -83,5 +83,3 @@ The complexity of this algorithm:
 
 - Understanding about our case to apply Kadane algorithm.
 
-
-

@@ -2,7 +2,7 @@
 layout: post
 title: Search the specific element in the rotated array
 bigimg: /img/image-header/yourself.jpeg
-tags: [Algorithm, Binary Search, Array]
+tags: [Binary Search, Array]
 ---
 
 In this article, we will solve the problem about finding element in the rotated array.

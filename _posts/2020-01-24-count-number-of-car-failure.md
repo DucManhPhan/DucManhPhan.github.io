@@ -2,7 +2,7 @@
 layout: post
 title: Count number of car failure
 bigimg: /img/image-header/factory.jpg
-tags: [Algorithm, Two-Pointers]
+tags: [Two-Pointers]
 ---
 
 

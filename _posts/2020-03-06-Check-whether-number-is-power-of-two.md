@@ -2,7 +2,7 @@
 layout: post
 title: Check whether number if power of two
 bigimg: /img/path.jpg
-tags: [Algorithm, Bit Manipulation]
+tags: [Bit Manipulation]
 ---
 
 In this article, we will learn how to check the number is power of two. Let's get started.

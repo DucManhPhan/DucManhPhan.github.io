@@ -2,7 +2,7 @@
 layout: post
 title: Prefix sum
 bigimg: /img/image-header/yourself.jpeg
-tags: [Algorithm, Prefix Sum]
+tags: [Prefix Sum]
 ---
 
 

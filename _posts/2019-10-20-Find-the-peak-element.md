@@ -2,7 +2,7 @@
 layout: post
 title: Find the peak element
 bigimg: /img/image-header/yourself.jpeg
-tags: [Algorithm, Binary Search, Array]
+tags: [Binary Search, Array]
 ---
 
 

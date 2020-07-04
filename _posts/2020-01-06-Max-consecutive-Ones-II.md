@@ -2,7 +2,7 @@
 layout: post
 title: Max consecutive Ones II
 bigimg: /img/image-header/yourself.jpeg
-tags: [Algorithm, Array, Sliding Window]
+tags: [Array, Sliding Window]
 ---
 
 

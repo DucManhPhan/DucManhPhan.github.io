@@ -2,7 +2,7 @@
 layout: post
 title: Minimum value to get positive step by step sum
 bigimg: /img/image-header/yourself.jpeg
-tags: [Algorithm, Prefix Sum]
+tags: [Prefix Sum, Binary Search]
 ---
 
 
@@ -14,6 +14,8 @@ tags: [Algorithm, Prefix Sum]
 - [Given problem](#given-problem)
 - [Using brute force algorithm](#using-brute-force-algorithm)
 - [Using prefix sum technique](#using-prefix-sum-technique)
+- [Using binary search algorithm](#using-binary-search-algorithm)
+- [Using Kadane algorithm](#using-kadane-algorithm)
 - [Wrapping up](#wrapping-up)
 
 

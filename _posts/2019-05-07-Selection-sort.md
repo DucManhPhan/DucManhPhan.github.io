@@ -2,7 +2,7 @@
 layout: post
 title: Selection sort
 bigimg: /img/image-header/yourself.jpeg
-tags: [Algorithm, Sorting]
+tags: [Sorting]
 ---
 
 

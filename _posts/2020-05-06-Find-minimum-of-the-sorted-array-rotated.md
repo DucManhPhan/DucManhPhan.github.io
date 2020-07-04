@@ -2,7 +2,7 @@
 layout: post
 title: Find minimum of the sorted array rotated
 bigimg: /img/image-header/home-office-2.jpg
-tags: [Algorithm, Binary Search, Array]
+tags: [Binary Search, Array]
 ---
 
 In this article, we will find something out about the rotated array and how to find its minimum element.

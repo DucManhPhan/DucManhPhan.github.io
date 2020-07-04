@@ -2,7 +2,7 @@
 layout: post
 title: Insertion sort
 bigimg: /img/image-header/yourself.jpeg
-tags: [Algorithm, Sorting]
+tags: [Sorting]
 ---
 
 

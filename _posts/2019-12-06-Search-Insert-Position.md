@@ -2,7 +2,7 @@
 layout: post
 title: Search insert position
 bigimg: /img/image-header/yourself.jpeg
-tags: [Algorithm, Binary Search]
+tags: [Binary Search]
 ---
 
 
