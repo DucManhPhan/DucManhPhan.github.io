@@ -50,13 +50,11 @@ Explanation: Minimum start value should be positive.
 Example 3:
 Input: nums = [1,-2,-3]
 Output: 5
-```
 
 Constraints:
-
 1 <= nums.length <= 100
 -100 <= nums[i] <= 100
-
+```
 
 <br>
 
@@ -99,8 +97,23 @@ public int minStartValue(int[] nums) {
 
 Before jump directly into source code of this section, we need to read an article about [Prefix sum](https://ducmanhphan.github.io/2019-06-30-Prefix-sum/).
 
-```java
+The idea here is that we will calculate the sum of elements at specific index, then we will find the minimum sum in prefix sum array. 
 
+And the minimum value of start value that satisfies **start value + minimum sum = 1**.
+
+```java
+public int minStartValue(int[] nums) {
+    int[] prefixSum = new int[nums.length];
+    prefixSum[0] = nums[0];
+    int minSum = prefixSum[0];
+
+    for (int i = 1; i < nums.length; ++i) {
+        prefixSum[i] += prefixSum[i - 1] + nums[i];
+        minSum = Math.min(minSum, prefixSum[i]);
+    }
+
+    return 1 - minSum < 1 ? 1 : 1 - minSum;
+}
 ```
 
 
@@ -109,8 +122,11 @@ Before jump directly into source code of this section, we need to read an articl
 
 ## Using binary search algorithm
 
+Our idea is that we need to find the value of startValue variable from 1 to N. It means that its value is belong to a sorted array. So we can use Binary Search for this problem.
 
+```java
 
+```
 
 
 <br>
@@ -118,6 +134,9 @@ Before jump directly into source code of this section, we need to read an articl
 ## Using Kadane algorithm
 
 
+```java
+
+```
 
 
 <br>
