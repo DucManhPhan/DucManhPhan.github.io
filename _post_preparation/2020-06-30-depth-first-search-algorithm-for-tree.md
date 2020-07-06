@@ -2,7 +2,7 @@
 layout: post
 title: Depth First Search algorithm for Tree
 bigimg: /img/image-header/yourself.jpeg
-tags: [Algorithm, Tree, Graph]
+tags: [Algorithm, Tree]
 ---
 
 
