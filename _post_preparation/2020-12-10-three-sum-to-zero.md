@@ -2,7 +2,7 @@
 layout: post
 title: Three sum to Zero
 bigimg: /img/image-header/yourself.jpeg
-tags: [Two-Pointers]
+tags: [Two-Pointers, Hash-Map]
 ---
 
 
@@ -75,7 +75,51 @@ The complexity of this solution:
 
 ## Using hashmap data structure
 
+```java
+public static List<List<Integer>> searchTriplets(int[] arr) {
+    List<List<Integer>> triplets = new ArrayList<>();
+    Arrays.sort(arr);
+
+    for (int i = 0; i < arr.length; ++i) {
+        if (i > 0 && arr[i] == arr[i - 1]) {
+            continue;
+        }
+
+        searchPair(arr, -arr[i], i + 1, triplets);
+    }
+
+    return triplets;
+}
+
+private static void searchPair(int[] arr, int targetSum, int left, List<List<Integer>> triplets) {
+    Map<Integer, Integer> valueIndexMap = new HashMap<>();
+
+    for (int i = left; i < arr.length; ++i) {
+        if (valueIndexMap.containsKey(targetSum - arr[i])) {
+            List<Integer> tmp = new ArrayList<>(Arrays.asList(-targetSum, arr[i], targetSum - arr[i]));
+            if (triplets.size() > 0 && tmp.equals(triplets.get(triplets.size() - 1))) {
+                continue;
+            }
+
+            triplets.add(tmp);
+        }
+
+        valueIndexMap.put(arr[i], i);
+    }
+}
 ```
+
+The complexity of this solution:
+- Time complexity: O(n^2)
+- Space complexity: O(n)
+
+
+<br>
+
+## Using two pointers technique
+
+```java
+
 
 ```
 
