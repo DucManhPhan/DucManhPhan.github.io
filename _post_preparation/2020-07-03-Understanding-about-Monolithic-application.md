@@ -9,17 +9,12 @@ tags: [Architecture pattern]
 <br>
 
 ## Table of contents
-- [Given problem](#given-problem)
-- [Solution with Intercepting Filter pattern](#solution-with-intercepting-filter-pattern)
-- [Source code](#source-code)
-- [Benefits and Drawbacks](#benefits-and-drawbacks)
-- [The relationship with other patterns](#the-relationship-with-other-patterns)
-- [Wrapping up](#wrapping-up)
+
 
 
 <br>
 
-## Given problem
+## 
 
 
 
@@ -28,7 +23,7 @@ tags: [Architecture pattern]
 
 <br>
 
-## Solution with Intercepting Filter pattern
+## 
 
 
 
@@ -37,7 +32,7 @@ tags: [Architecture pattern]
 
 <br>
 
-## Source code
+## 
 
 
 
@@ -51,7 +46,7 @@ tags: [Architecture pattern]
 
 <br>
 
-## The relationship with other patterns
+## 
 
 
 
@@ -66,3 +61,5 @@ tags: [Architecture pattern]
 <br>
 
 Refer:
+
+[]()
