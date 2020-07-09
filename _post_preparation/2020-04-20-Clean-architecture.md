@@ -98,14 +98,6 @@ Bad or messy architecture is architecture that is complex, but due to accidental
 
 <br>
 
-## Source code
-
-
-
-
-
-<br>
-
 ## Benefits and Drawbacks
 
 1. Benefits
