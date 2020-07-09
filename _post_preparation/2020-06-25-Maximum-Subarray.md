@@ -12,6 +12,7 @@ tags: [HashMap, Priority Queue, Divide & Conquer]
 
 ## Table of contents
 - [Given problem](#given-problem)
+- [Using brute force algorithm](#using-brute-force-algorithm)
 - [Using HashMap and Priority Queue](#using-hashmap-and-priority-queue)
 - [Using Divide and Conquer algorithm](#using-divide-and-conquer-algorithm)
 - [Wrapping up](#wrapping-up)
@@ -30,6 +31,13 @@ Input: [-2, 1, -3, 4, -1, 2, 1, -5, 4],
 Output: 6
 Explanation: [4,-1,2,1] has the largest sum = 6.
 ```
+
+<br>
+
+## Using brute force algorithm
+
+
+
 
 <br>
 

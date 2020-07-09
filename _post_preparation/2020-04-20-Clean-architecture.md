@@ -1,6 +1,6 @@
 ---
 layout: post
-title: Clean architecture
+title: Clean Architecture
 bigimg: /img/image-header/yourself.jpeg
 tags: [Architecture Pattern]
 ---
@@ -23,66 +23,51 @@ tags: [Architecture Pattern]
 
 ## Given problem
 
-1. What is software architecture
+Normally, we use the three layer architecture, for example, MVC architecture pattern, to organize our project. Below is the background of this pattern.
 
-    ![](../img/Architecture-pattern/clean-architecture/software-architecture-definition.png)
+![](../img/Architecture-pattern/clean-architecture/software-architecture-definition.png)
 
-    There are a few general concepts that we can probably all agree upon. First, it's high level or at least higher level than the code we write. Second, it has to do with the structure of software or how things are organized. Third, it typically involves layers, which are vertical partitions of the system. Fourth, it typically involves components of some kind, which are  typically horizontal partitions within each layer. Finally, it involves the relationships between these things, that is how they're all wired together.
+Below is the functionalities of each layer in an above image.
+- User Interface layer or Web Service layer
 
-2. Levels of architectural abstraction
+    This layer will manage all user interface that can be interacted with users. Or it can communicate with the other system by using SOAP API or Restful API.
 
-    ![](../img/Architecture-pattern/clean-architecture/levels-of-architectural-abstraction.png)
+    After receiving requests from users, it will transfer requests to the below layers.
 
-    Starting at the top, that is the most abstract representation of software, we have the system, which can be represented as a set of one or more subsystems, which are typically divided into one or more layers, which are often subdivided into one or more components, which contains classes that contains data and methods.
+- Business Logic layer
 
-    Our primary focus for the conceptual information will mainly be at the abstraction levels of layers and components. In addition, we'll also see an alternative representation of components as small subsystems when we get into microservice architectures.
+    This layer will process requests that satisfy all business rules. If requests violate some business rules, this layer will return the result for the WebService layer or response result to users.
 
-3. Messy and clean architecture
+    If requests pass some rules, they will be pushed to the Data Access layer to persistence their states. Or this layer will call Data Access layer to get data to check information that it wants.
 
-    - Bad architecture
+- Data Access layer
 
-        Bad or messy architecture is architecture that is complex, but due to accidental complexity rather that necessary complexity.
-        
-        - It's incoherent in the sense that the parts do not seem like they fit together.
-        
-        - It's rigid, that is the architecture resists change or makes it difficult to evolve the architecture over time.
-        
-        - It's brittle, touching a part of the code might break another part of the code somewhere else.
+    Data Access layer will interac with the physical system such as database or redis, search engine, ... It will be used to save the requests's states permanently. Or it will query SQL to get the result based on the need of Business Logic layer.
 
-        - It's untestable.
-        
-        - Ultimately, all of these things lead to an architecture that's unmaintainable over the life of the project 
+    We use some ORM frameworks such as Hibernate, EclipseLink, ... to map fields of object to the table's columns. These object is called entities.
 
-    - Good architecture
+Then, we will design database for our application based on some normalizations. After we have tables, we will create entities and repositories or DAO with CRUD operations in the Data Access layer or Persistence layer.
 
-        We have good, clean architecture when it is simple or at least it's only as complex as is necessary, and that complexity is not accidental.
+In Business Logic layer, we will use directly entities from Data Access layer. So Business Logic layer will have strong coupling with Data Access layer. It means that we are utilizing entities as the business model. But Web Service layer or User Inteface also depends on Business Logic layer.
 
-        - It's understandable, that is it's easy to reason about the software as a whole.
+So our application, currently, depends on the database. Customer's requirements always change, then our database design is also modified. Our layers will break down. We need to write code again. This is a bad architecture when coping with the changes.
 
-        - It's flexible, we can easily adapt the system to meet changing requirements.
+The another drawback of layered architecture is its rules. The current layer only knows about the beneath layers. Sometimes, we want to use common layers such as util, shared, ..., then we need to push it into the most bottom layer, it is Persistence layer. It makes Persistence layer growing rapidly. Our code becomes mess.
 
-        - It's emergent, the architecture evolves over the life of the project.
-
-        - It's testable, the architecture makes testing easier, not harder.
-
-        - Ultimately, all of these leads to an architecture that's more maintainable over the life of the project.
+Bad or messy architecture is architecture that is complex, but due to accidental complexity rather that necessary complexity. Belows are some drawbacks of bad architecture that we need to know.
+- It's incoherent in the sense that the parts do not seem like they fit together.
+- It's rigid, that is the architecture resists change or makes it difficult to evolve the architecture over time.
+- It's brittle, touching a part of the code might break another part of the code somewhere else.
+- It's untestable.
+- Ultimately, all of these things lead to an architecture that's unmaintainable over the life of the project 
 
 --> So, based on the bad architecture's characteristics, we need the clean architecture.
-
 
 <br>
 
 ## Solution with Clean architecture
 
-Clean architecture is architecture that is designed for the inhabitants of the architecture, not for the architect or for the machine. Clean architecture is philosophy of architectural essentialism.
 
-It's about focusing on what is truly essentail to the software's architecture versus what is just an implemenation detail. By designing for the inhabitants we mean the people that will be living within the architecture during the life of the project. This means the users of the system, the developers building the system, and the developers maintaining the system.
-
-By not designing for the architect, we mean that the architect should not put aside his or her own desires, preferences, and wishes, and only consider what is best for the inhabitants of the architecture with each decision that is made.
-
-By not designing for the machine, we mean that we should optimize the architecture first for the needs of the inhabitants, that is the users and the developers, and only optimize for the machine when the cost of performance issues to the users, who are inhabitants of the architecture, outweights the benefits of a clean design to the developers who are also inhabitants of the architecture.
-
-Essentially, we want to avoid premature optimization, which as visionary computer scientist Donald Knuth says, is the root of of all evil in software development.
 
 
 <br>
@@ -97,8 +82,22 @@ Essentially, we want to avoid premature optimization, which as visionary compute
 
 ## Benefits and Drawbacks
 
+1. Benefits
+
+    We have good, clean architecture when it is simple or at least it's only as complex as is necessary, and that complexity is not accidental.
+
+        - It's understandable, that is it's easy to reason about the software as a whole.
+
+        - It's flexible, we can easily adapt the system to meet changing requirements.
+
+        - It's emergent, the architecture evolves over the life of the project.
+
+        - It's testable, the architecture makes testing easier, not harder.
+
+        - Ultimately, all of these leads to an architecture that's more maintainable over the life of the project.
 
 
+2. Drawbacks
 
 
 <br>
@@ -118,5 +117,7 @@ Essentially, we want to avoid premature optimization, which as visionary compute
 <br>
 
 Refer:
+
+[Get Your Hands Dirty on Clean Architecture book](https://subscription.packtpub.com/book/programming/9781839211966)
 
 [Clean Architecture: Patterns, Practices, and Principles](https://app.pluralsight.com/library/courses/clean-architecture-patterns-practices-principles/table-of-contents)
