@@ -7,13 +7,14 @@ tags: [Two-Pointers, Hash-Map]
 
 
 
-
 <br>
 
 ## Table of contents
-
-
-
+- [Given problem](#given-problem)
+- [Using brute force algorithm](#using-brute-force-algorithm)
+- [Using hashmap data structure](#using-hashmap-data-structure)
+- [Using two pointers technique](#using-two-pointers-technique)
+- [Wrapping up](#wrapping-up)
 
 
 <br>
@@ -44,7 +45,7 @@ In the brute force algorithm, we will use three loops to get all cases of subarr
 Below is the source code of this algorithm.
 
 ```java
-public static List<List<Integer>> searchTripletsNormal(int[] arr) {
+public static List<List<Integer>> searchTriplets(int[] arr) {
     List<List<Integer>> triplets = new ArrayList<>();
 
     for (int i = 0; i < arr.length - 2; ++i) {
@@ -74,6 +75,10 @@ The complexity of this solution:
 <br>
 
 ## Using hashmap data structure
+
+Before jumping into this solution, we need to refer the two sum problem. Then, continue applying hashmap data structure, we will need to sort an array.
+
+Finally, we will consider the three sum problem is the expansion way of the two sum problem.
 
 ```java
 public static List<List<Integer>> searchTriplets(int[] arr) {
@@ -118,13 +123,42 @@ The complexity of this solution:
 
 ## Using two pointers technique
 
+To apply the two pointers technique, we also need to sort an array. Then, we will find two values that satisfies their sum is equal to the choosen element's value.
+
 ```java
+public static List<List<Integer>> searchTriplets(int[] nums) {
+    if (nums == null) {
+        return null;
+    }
 
+    Arrays.sort(nums);
+    List<List<Integer>> res = new ArrayList<List<Integer>>();
 
+    for (int i = 0; i < nums.length - 2; i++) {
+        int begin = i + 1;
+        int end = nums.length - 1;
+
+        while (begin < end) {
+            if (nums[begin] + nums[end] == -nums[i]) {
+                List<Integer> arr = new ArrayList<Integer>(Arrays.asList(nums[i], nums[end], nums[begin]));
+                res.add(arr);
+
+                ++begin;
+                --end;
+            } else if (nums[begin] + nums[end] < -nums[i]) {
+                begin++;
+            } else {
+                end--;
+            }
+        }
+    }
+
+    return res;
+}
 ```
 
 The complexity of this solution:
-- Time complexity: O(n^2)
+- Time complexity: O(nlogn + n^2) --> O(n^2)
 - Space complexity: O(n)
 
 
@@ -132,11 +166,4 @@ The complexity of this solution:
 
 ## Wrapping up
 
-
-
-
-<br>
-
-Refer:
-
-[]()
+- To apply the two pointers technique, we need an array is sorted or the relationship between the elements's value at index = begin or end that satisfies any conditions.
