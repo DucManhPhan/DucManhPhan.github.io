@@ -2,7 +2,7 @@
 layout: post
 title: Quick Find
 bigimg: /img/image-header/california.jpg
-tags: [Data Structure]
+tags: [Union-Find]
 ---
 
 In this tutorial, we will find out about quick find - one of implementations in Union-Find. And understanding Quick Find has advantages and disadvantages that will make us confidence to implement.

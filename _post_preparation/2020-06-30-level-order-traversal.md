@@ -2,9 +2,8 @@
 layout: post
 title: Level Order Traversal
 bigimg: /img/image-header/yourself.jpeg
-tags: [Data Structure, Tree]
+tags: [Tree]
 ---
-
 
 
 
@@ -15,7 +14,6 @@ tags: [Data Structure, Tree]
 - [Using recursive version](#using-recursive-version)
 - [Using iterative version](#using-iterative-version)
 - [When to use](#when-to-use)
-- [Benefits and Drawbacks](#benefits-and-drawbacks)
 - [Wrapping up](#wrapping-up)
 
 
@@ -37,63 +35,106 @@ The output of the above binary tree is:
 
 ## Using recursive version
 
-Belows are some steps that we use.
-1. The first action we need to do is to calculate the maximum level of the tree.
+1. First way
 
-2. After we had the tree's maximum level, we will iterate from level 1 to the maximum level, then get all elements of each level.
+    Belows are some steps that we use.
+    - The first action we need to do is to calculate the maximum level of the tree.
 
-```java
-public class MaxLevelTraversal {
+    - After we had the tree's maximum level, we will iterate from level 1 to the maximum level, then get all elements of each level.
 
-    private static int maxLevel = Integer.MIN_VALUE;
+    ```java
+    public class MaxLevelTraversal {
 
-    public static List<Integer> levelOrderTraversal(TreeNode root) {
-        List<Integer> nodes = new ArrayList<>();
-        getMaxLevelTopDown(root, 1);
+        private static int maxLevel = Integer.MIN_VALUE;
 
-        for (int level = 1; level <= maxLevel; ++level) {
-            getNodesInSameLevel(root, level, 1, nodes);
+        public static List<Integer> levelOrderTraversal(TreeNode root) {
+            List<Integer> nodes = new ArrayList<>();
+            getMaxLevelTopDown(root, 1);
+
+            for (int level = 1; level <= maxLevel; ++level) {
+                getNodesInSameLevel(root, level, 1, nodes);
+            }
+
+            return nodes;
         }
 
-        return nodes;
+        public static void getNodesInSameLevel(TreeNode root, int currentLevel, int level, List<Integer> nodes) {
+            if (root == null) {
+                return;
+            }
+
+            if (level == currentLevel) {
+                nodes.add(root.val);
+            }
+
+            getNodesInSameLevel(root.left, currentLevel, level + 1, nodes);
+            getNodesInSameLevel(root.right, currentLevel, level + 1, nodes);
+        }
+
+        private static void getMaxLevelTopDown(TreeNode root, int level) {
+            if (root == null) {
+                return;
+            }
+
+            if (root.left == null && root.right == null) {
+                maxLevel = Math.max(maxLevel, level);
+            }
+
+            getMaxLevelTopDown(root.left, level + 1);
+            getMaxLevelTopDown(root.right, level + 1);
+        }
     }
+    ```
 
-    public static void getNodesInSameLevel(TreeNode root, int currentLevel, int level, List<Integer> nodes) {
-        if (root == null) {
-            return;
+2. Second way
+
+    We will use hashmap to save nodes at each level.
+
+    ```java
+    public class MaxLevelTraversal {
+
+        private static Map<Integer, List<Integer>> nodesPerLevel = new HashMap<>();
+
+        public static List<Integer> levelOrderTraversalRecursiveVersion1(TreeNode root) {
+            recursiveVersion(root, 0);
+
+            // convert hash map to list
+            if (nodesPerLevel.isEmpty()) {
+                return Collections.emptyList();
+            }
+
+            return nodesPerLevel.values().stream()
+                                .flatMap(valNodes -> Stream.of(valNodes.toArray()))
+                                                           .map(value -> (Integer) value)
+                                .collect(Collectors.toList());
         }
 
-        if (level == currentLevel) {
-            nodes.add(root.val);
+        public static void recursiveVersion(TreeNode root, int level) {
+            if (root == null) {
+                return;
+            }
+
+            if (nodesPerLevel.size() == level) {
+                nodesPerLevel.put(level, new ArrayList<>());
+            }
+
+            // add the value of current node with the same level
+            nodesPerLevel.get(level).add(root.val);
+
+            recursiveVersion(root.left, level + 1);
+            recursiveVersion(root.right, level + 1);
         }
+    ```
 
-        getNodesInSameLevel(root.left, currentLevel, level + 1, nodes);
-        getNodesInSameLevel(root.right, currentLevel, level + 1, nodes);
-    }
-
-    private static void getMaxLevelTopDown(TreeNode root, int level) {
-        if (root == null) {
-            return;
-        }
-
-        if (root.left == null && root.right == null) {
-            maxLevel = Math.max(maxLevel, level);
-        }
-
-        getMaxLevelTopDown(root.left, level + 1);
-        getMaxLevelTopDown(root.right, level + 1);
-    }
-}
-```
 
 <br>
 
 ## Using iterative version
 
-In this version, we will use Queue to save the children nodes of the current node.
+In this version, we will use **Queue** to save the children nodes of the current node.
 
 ```java
-public static 
+
 ```
 
 
@@ -102,13 +143,6 @@ public static
 ## When to use
 
 - 
-
-
-<br>
-
-## Benefits and Drawbacks
-
-
 
 
 <br>
