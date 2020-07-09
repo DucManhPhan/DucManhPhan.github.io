@@ -67,8 +67,34 @@ Bad or messy architecture is architecture that is complex, but due to accidental
 
 ## Solution with Clean architecture
 
+1. History of Clean Architecture
 
 
+
+2. Introduction to Clean Architecture
+
+    ![](../img/Architecture-pattern/clean-architecture/clean-architecture.jpg)
+
+    Belows are some explanations for each part in the above image.
+    - Entities
+
+        It is used to describe the business objects of our system. It can contains the nested complex objects.
+
+        Uncle Bob considers an entity can be an object with methods, or it can be a set of data structures and functions. It is different than the objects in DDD.
+
+        In the layered architecture pattern, entities is put in the Persistence layer. But in clean architecture, Domain-driven Design, Hexgonal architecture, entities is pulled up to the Domain layer. This way will seperate the dependence of Domain layer to the Persistence layer. When our system is more complex, it can overcome the changes.
+
+    - Use Case
+
+        Use Cases are some business behaviors when the system receives requests. It can be considered as the Service layer in the layered architecture pattern.
+
+    - Interface adapters
+
+        This layer can contain Presenters, Views, and Controllers. In this layer, we will convert the format data between the format most convenient for the use cases, entities and the format most convenient for some external agency such as the Database or the Web.
+
+    - Frameworks and drivers
+
+        This layer will be relevant to the external system such as Database, web framework, ... Normally, we do not need to take care about it.
 
 <br>
 
@@ -86,26 +112,21 @@ Bad or messy architecture is architecture that is complex, but due to accidental
 
     We have good, clean architecture when it is simple or at least it's only as complex as is necessary, and that complexity is not accidental.
 
-        - It's understandable, that is it's easy to reason about the software as a whole.
+    - It's understandable, that is it's easy to reason about the software as a whole.
 
-        - It's flexible, we can easily adapt the system to meet changing requirements.
+    - It's flexible, we can easily adapt the system to meet changing requirements.
 
-        - It's emergent, the architecture evolves over the life of the project.
+    - It's emergent, the architecture evolves over the life of the project.
 
-        - It's testable, the architecture makes testing easier, not harder.
+    - It's testable, the architecture makes testing easier, not harder.
 
-        - Ultimately, all of these leads to an architecture that's more maintainable over the life of the project.
-
+    - Ultimately, all of these leads to an architecture that's more maintainable over the life of the project.
 
 2. Drawbacks
 
+    - If our Entities that managed by ORM framework in Persistence layer is as same as the Domain Objects in Domain layer or Business Logic layer because we only use database without using other systems, it makes redundancy, the cost about memory, the time to convert between Entities and Domain Objects.
 
-<br>
-
-## The relationship with other patterns
-
-
-
+    - We need to create so many interfaces, it makes our performance not good. To understand about this trait, we need to find some resources that talk about the internal implementations of inheritance and polymorphism of OOP.
 
 <br>
 
@@ -117,6 +138,14 @@ Bad or messy architecture is architecture that is complex, but due to accidental
 <br>
 
 Refer:
+
+[https://blog.cleancoder.com/uncle-bob/2012/08/13/the-clean-architecture.html](https://blog.cleancoder.com/uncle-bob/2012/08/13/the-clean-architecture.html)
+
+[https://blog.ndepend.com/introduction-clean-architecture/](https://blog.ndepend.com/introduction-clean-architecture/)
+
+[https://www.insaneprogramming.be/article/2017/02/14/thoughts-on-clean-architecture/](https://www.insaneprogramming.be/article/2017/02/14/thoughts-on-clean-architecture/)
+
+[https://dzone.com/articles/clean-architecture-is-screaming](https://dzone.com/articles/clean-architecture-is-screaming)
 
 [Get Your Hands Dirty on Clean Architecture book](https://subscription.packtpub.com/book/programming/9781839211966)
 

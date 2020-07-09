@@ -113,7 +113,10 @@ Therefore, how do we deal with it?
 2. Drawbacks
 
     - Degrade performance of system when we have so many layers.
+
     - When the business logic of system increases quickly, it makes us creating multiple packages for each layer. So it's difficult to control it.
+
+    - In the layered architecture pattern, sometimes, we use the soft rule to implement, so it can cause that our business logic can be scattered throughout the layers. Then, it is difficult to code when we need to add a new functionality.
 
 <br>
 

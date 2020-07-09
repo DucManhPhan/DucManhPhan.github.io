@@ -11,20 +11,17 @@ tags: [Architecture Pattern]
 <br>
 
 ## Table of contents
-- [Problem of Layered architecture](#problem-of-layered-architecture)
+- [Given problem of Layered architecture](#given-problem-of-layered-architecture)
 - [Solution of Hexagonal architecture](#solution-of-hexagonal-architecture)
-- [History of Hexagonal](#history-of-hexagonal)
-- [Ports and Adapters](#ports-and-adapters)
-- [How to create Domain Model](#how-to-create-domain-model)
+- [Source code](#source-code)
 - [When to use](#when-to-use)
 - [Benefis and Drawbacks](#benefits-and-drawbacks)
-- [Source code Java](#source-code-java)
 - [Wrapping up](#wrapping-up)
 
 
 <br>
 
-## Problem of Layered architecture
+## Given problem of Layered architecture
 
 Normally, when we want to make our website, in back-end, we use layer architecture to separate our project into components that each component will be taken on one responsibility.
 
@@ -61,33 +58,21 @@ How to deal with it?
 
 ## Solution of Hexagonal architecture
 
+1. History of Hexagonal
 
+    The hexagonal architecture was invented by ```Alistair Cockburn``` in an attempt to avoid known structural pitfalls in object-oriented software design, such as undesired dependencies between layers and contamination of user interface code with business logic, and published in **2005**.
 
+2. Introduction to Hexagonal architecture
 
+    - Ports
 
+        Ports form the outer layer of the architecture. They acts as an interface, an API to all the external requests. They prevent any external request to have any sort of direct interaction with an application resource.
 
-<br>
-
-## History of Hexagonal
-
-The hexagonal architecture was invented by ```Alistair Cockburn``` in an attempt to avoid known structural pitfalls in object-oriented software design, such as undesired dependencies between layers and contamination of user interface code with business logic, and published in **2005**.
-
-
-
-<br>
-
-## Ports and Adapters
-1. Ports
-
-    Ports form the outer layer of the architecture. They acts as an interface, an API to all the external requests. They prevent any external request to have any sort of direct interaction with an application resource.
-
-
-2. Adapters
-
+    - Adapters
 
 <br>
 
-## How to create Domain Model
+## Source code
 
 
 
@@ -110,13 +95,6 @@ The hexagonal architecture was invented by ```Alistair Cockburn``` in an attempt
 
 
 2. Drawbacks
-
-
-<br>
-
-## Source code Java
-
-
 
 
 <br>
