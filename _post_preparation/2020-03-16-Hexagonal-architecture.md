@@ -162,6 +162,8 @@ Refer:
 
 **Sample of Hexagonal architecture**
 
+[Get Your Hands Dirty on Clean Architecture book](https://subscription.packtpub.com/book/programming/9781839211966)
+
 [https://github.com/thombergs/buckpal](https://github.com/thombergs/buckpal)
 
 [https://medium.com/codefountain/a-quick-introduction-to-hexagonal-architecture-484358c038b8](https://medium.com/codefountain/a-quick-introduction-to-hexagonal-architecture-484358c038b8)

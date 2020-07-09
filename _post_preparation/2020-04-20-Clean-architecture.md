@@ -98,6 +98,14 @@ Bad or messy architecture is architecture that is complex, but due to accidental
 
 <br>
 
+## Source code
+
+
+
+
+
+<br>
+
 ## Benefits and Drawbacks
 
 1. Benefits
@@ -139,6 +147,6 @@ Refer:
 
 [https://dzone.com/articles/clean-architecture-is-screaming](https://dzone.com/articles/clean-architecture-is-screaming)
 
-[Get Your Hands Dirty on Clean Architecture book](https://subscription.packtpub.com/book/programming/9781839211966)
+[https://www.slideshare.net/mattiabattiston/real-life-clean-architecture-61242830](https://www.slideshare.net/mattiabattiston/real-life-clean-architecture-61242830)
 
 [Clean Architecture: Patterns, Practices, and Principles](https://app.pluralsight.com/library/courses/clean-architecture-patterns-practices-principles/table-of-contents)
