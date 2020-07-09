@@ -122,7 +122,7 @@ public int minStartValue(int[] nums) {
 
 ## Using binary search algorithm
 
-Our idea is that we need to find the value of startValue variable from 1 to N. It means that its value is belong to a sorted array. So we can use Binary Search for this problem.
+Our idea is that we need to find the value of **startValue** variable from 1 to N. It means that its value is belong to a sorted array. So we can use Binary Search for this problem.
 
 ```java
 
@@ -143,11 +143,7 @@ Our idea is that we need to find the value of startValue variable from 1 to N. I
 
 ## Wrapping up
 
-- 
-
-
-
-
+- Identify some particular traits to apply algorithms, techniques such as prefix sum, binary search, kadane algorithm. 
 
 <br>
 
