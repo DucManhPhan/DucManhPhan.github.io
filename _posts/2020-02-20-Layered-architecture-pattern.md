@@ -72,9 +72,27 @@ Therefore, how do we deal with it?
     - depends on the layers beneath it.
     - is independent of the layers on top of it, having no knowledge of the layers using it.
 
-    If we applied this rule strictly, it means that a layer only knows about the layer directly beneath it, it makes us to create multiple proxy classes in the intermediate layers.
+    If we applied this rule strictly, it means that a layer only knows about the layer directly beneath it, it makes us to create multiple proxy classes in the intermediate layers and the performance of our system decreases when we need to go though a bunch of unneccessary layers.
 
-    So, to deal with it, we can use the soft rule: a layer can access any layer beneath it.
+    To deal with it, we can use the soft rule: a layer can access any layer beneath it. But it has some problems when using this soft rule.
+    - If we allow the Web layer access directly to the Persistence layer, then modifications by using SQL query within the Persistence layer would influence both the Domain layer and the Web layer. Then it produces tightly coupled application with lots of interdependencies between components.
+
+    So, we have some concepts to reduce the above problems.
+    - Layers of isolation
+
+        The layers of isolation means that changes made in one layer of the architecture generally do not impact or affect components in other layers.
+
+        It also means that each layer is independent of the other layers, thereby having little or no knowledge of the inner workings of other layers in the architecture.
+
+    - Closed layer
+
+        A closed layer means that as a request moves from layer to layer, it must go through the layer right below it to get the next layer below that one.
+
+    - Opened layer
+
+        A opened layer means that requests are allowed to by pass this layer and go directly to the layer below it.
+
+    To make document about the layered architecture pattern, we need to use these concepts to define the relationship between layers and request flows, helps people to understand the various layer access restrictions.
 
 <br>
 
