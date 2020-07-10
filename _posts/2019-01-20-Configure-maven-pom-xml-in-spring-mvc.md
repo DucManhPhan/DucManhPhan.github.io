@@ -394,6 +394,23 @@ And Spring Boot Maven Plugin provides some convenient features:
 
     By default, Maven does not create the settings.xml file under **.m2** folder. To solve this problem, we can copy the **settings.xml** file from folder ```%MAVEN_HOME%\conf``` to **.m2** folder.
 
+3. Set up the Maven Archetype Catalogs plugin
+
+    - Go to File -> Settings -> Plugins -> Browse, then we have:
+
+        ![](../img/Java/maven/problems/setup-maven-archetype-catalogs-plugin.png)
+
+        Select File -> Invalidate Caches/Restart ... item.  
+
+    - Then, go to File -> Settings -> Build, Execution, Deployment -> Build Tools -> Maven Archetype Catalogs.
+
+        ![](../img/Java/maven/problems/add-maven-catalogs-file-1.png)
+
+        Find a **archetype-catalog.xml** file in **C:\Users\hi\.m2\repository** folder.
+
+        ![](../img/Java/maven/problems/add-maven-catalogs-file-2.png)
+
+
 <br>
 
 ## Wrapping up

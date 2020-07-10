@@ -88,13 +88,19 @@ Bad or messy architecture is architecture that is complex, but due to accidental
 
         Use Cases are some business behaviors when the system receives requests. It can be considered as the Service layer in the layered architecture pattern.
 
-    - Interface adapters
+    - Interface/Adapters
 
         This layer can contain Presenters, Views, and Controllers. In this layer, we will convert the format data between the format most convenient for the use cases, entities and the format most convenient for some external agency such as the Database or the Web.
 
+        To communicate Web Services such as Restful API or SOAP API, each controller will need to inject instances of the specific use cases.
+
+        To interact with database or other systems that contain data, we will define some classes that implement the interfaces in Use Cases.
+
     - Frameworks and drivers
 
-        This layer will be relevant to the external system such as Database, web framework, ... Normally, we do not need to take care about it.
+        This layer will be relevant to the external system such as Database, web framework, ... Normally, we do not need to take care about it. Normally, it is used to combine everything together.
+
+        Supposed in Spring framework, this layer will define main class, and some configuration classes.
 
 <br>
 
@@ -144,14 +150,13 @@ Bad or messy architecture is architecture that is complex, but due to accidental
 
     - If our Entities that managed by ORM framework in Persistence layer is as same as the Domain Objects in Domain layer or Business Logic layer because we only use database without using other systems, it makes redundancy, the cost about memory, the time to convert between Entities and Domain Objects.
 
-    - We need to create so many interfaces, it makes our performance not good. To understand about this trait, we need to find some resources that talk about the internal implementations of inheritance and polymorphism of OOP.
+    - We need to create so many interfaces such as define multiple use cases that our system needs multiple business action, it makes our performance not good. To understand about this trait, we need to find some resources that talk about the internal implementations of inheritance and polymorphism of OOP.
 
 <br>
 
 ## Wrapping up
 
-
-
+- Understanding some particular parts in Clean Architecture such as Entities, Use Cases, Interfaces/Adapters, and Frameworks && Drivers.
 
 <br>
 
@@ -168,3 +173,17 @@ Refer:
 [https://www.slideshare.net/mattiabattiston/real-life-clean-architecture-61242830](https://www.slideshare.net/mattiabattiston/real-life-clean-architecture-61242830)
 
 [Clean Architecture: Patterns, Practices, and Principles](https://app.pluralsight.com/library/courses/clean-architecture-patterns-practices-principles/table-of-contents)
+
+[https://medium.com/@tiagoflores_23976/how-choose-the-appropriate-ios-architecture-mvc-mvp-mvvm-viper-or-clean-architecture-2d1e9b87d48](https://medium.com/@tiagoflores_23976/how-choose-the-appropriate-ios-architecture-mvc-mvp-mvvm-viper-or-clean-architecture-2d1e9b87d48)
+
+[https://de.slideshare.net/HimanshuDudhat1/mvp-clean-architecture](https://de.slideshare.net/HimanshuDudhat1/mvp-clean-architecture)
+
+[https://softwareengineering.stackexchange.com/questions/336677/what-is-the-difference-between-mvp-and-clean-architecture](https://softwareengineering.stackexchange.com/questions/336677/what-is-the-difference-between-mvp-and-clean-architecture)
+
+[https://engineering.21buttons.com/clean-architecture-in-django-d326a4ab86a9](https://engineering.21buttons.com/clean-architecture-in-django-d326a4ab86a9)
+
+[https://gist.github.com/ygrenzinger/14812a56b9221c9feca0b3621518635b](https://gist.github.com/ygrenzinger/14812a56b9221c9feca0b3621518635b)
+
+[https://medium.freecodecamp.org/how-to-write-robust-apps-consistently-with-the-clean-architecture-9bdca93e17b](https://medium.freecodecamp.org/how-to-write-robust-apps-consistently-with-the-clean-architecture-9bdca93e17b)
+
+[https://marconijr.com/posts/clean-architecture-practice/](https://marconijr.com/posts/clean-architecture-practice/)
