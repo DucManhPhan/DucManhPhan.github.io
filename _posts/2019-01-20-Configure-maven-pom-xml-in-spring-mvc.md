@@ -27,7 +27,7 @@ In this article, we will find informations about configuring POM file.
 - [POM file in Maven project](#pom-file-in-maven-project)
 - [Add specific package into project through pom file](#add-specific-package-into-project-through-pom-file)
 - [How the Maven works](#how-the-maven-works)
-- [Important note](#important-note)
+- [Wrapping up](#wrapping-up)
 
 <br>
 
@@ -348,10 +348,52 @@ And Spring Boot Maven Plugin provides some convenient features:
 
 - It provides a built-in dependency resolver that sets the version number to match ```Spring Boot dependencies```. You can override any version you wish, but it will default to Boot’s chosen set of versions.
 
+<br>
+
+## Some problems when using Maven
+
+1. Unable to find valid certification path to requested target
+
+    When using command line **mvn clean install** for our project, we will encounter a problem that look at an below image.
+
+    ![](../img/Java/maven/problems/trusted-certificates.png)
+
+    The cause of this problem:
+    - This is due to the fact that we want to access the server ```http://repo.maven.apache.org/maven2```, but Java's security policy does not find some certificates in its security files of a folder **%JAVA_HOME%\jre\lib\security**.
+
+        So, it will throw an exception.
+
+    Solution for this problem:
+    - In this case, we will use keytool that is provided by JDK.
+
+    - To list all certificates in cacerts file, we can use the following command.
+
+        ```java
+        keytool -list -keystore cacerts
+        ```
+
+        When we cope with the prompt ```Enter keystore password```, it's the first time that we set up password for this keytool. So we only type our password for it.
+
+    - Then, we will connect to the server that we want to get certificates. In our current case, it is ```http://repo.maven.apache.org/maven2```.
+
+        ```java
+        keytool -printcert -rfc -sslserver repo.maven.apache.org/maven2
+        ```
+
+        After typing this command line in cmd window, we need to save the content of these certificates in a file that is in the same folder with **cacerts** file.
+
+        Assuming that we named this file that is ```mpdcertificates.pem``` file.
+
+    - Import these above certificates into cacerts file.
+
+        ```java
+        keytool -importcert -file ./mpdcertificates.pem -keystore ./cacerts
+        ```
 
 <br>
 
-## Important note
+## Wrapping up
+
 - Understanding about structure folder in Maven project.
 - The important parameters in POM file such as parent, packaging, dependencies, properties, name, scope, ...
 - How to add libraries into our project with Maven.

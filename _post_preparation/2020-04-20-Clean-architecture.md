@@ -100,8 +100,26 @@ Bad or messy architecture is architecture that is complex, but due to accidental
 
 ## Source code
 
+1. Given problem
 
 
+
+2. Analysis entities and use cases - core layer
+
+
+
+3. Analysis the interface adapters layer
+
+
+
+4. Analysis the framework and drivers layer
+
+
+
+5. Structure of code
+
+
+6. Source code
 
 
 <br>
