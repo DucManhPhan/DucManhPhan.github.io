@@ -390,6 +390,10 @@ And Spring Boot Maven Plugin provides some convenient features:
         keytool -importcert -file ./mpdcertificates.pem -keystore ./cacerts
         ```
 
+2. The specified user settings file does not exist: ```C:\Users\hi\.m2\settings.xml```
+
+    By default, Maven does not create the settings.xml file under **.m2** folder. To solve this problem, we can copy the **settings.xml** file from folder ```%MAVEN_HOME%\conf``` to **.m2** folder.
+
 <br>
 
 ## Wrapping up
@@ -450,3 +454,5 @@ Refer:
 **Create empty maven project in eclipse**
 
 [https://o7planning.org/vi/11253/tao-maven-web-app-project-rong-tren-eclipse](https://o7planning.org/vi/11253/tao-maven-web-app-project-rong-tren-eclipse)
+
+[https://commandlinefanatic.com/cgi-bin/showarticle.cgi?article=art032](https://commandlinefanatic.com/cgi-bin/showarticle.cgi?article=art032)
