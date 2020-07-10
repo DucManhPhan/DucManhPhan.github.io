@@ -2,7 +2,7 @@
 layout: post
 title: The comparison between MySQL and PostgreSQL
 bigimg: /img/image-header/factory.jpg
-tags: [Database]
+tags: [MySQL, PostgreSQL]
 ---
 
 All content of this article is refer from the website [https://employment.en-japan.com/engineerhub/entry/2017/09/05/110000](https://employment.en-japan.com/engineerhub/entry/2017/09/05/110000).

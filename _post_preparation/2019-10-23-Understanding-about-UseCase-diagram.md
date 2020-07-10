@@ -2,7 +2,7 @@
 layout: post
 title: Understanding about UseCase diagram
 bigimg: /img/image-header/california.jpg
-tags: [Uml diagram]
+tags: [UML Diagram]
 ---
 
 
@@ -10,14 +10,16 @@ tags: [Uml diagram]
 <br>
 
 ## Table of contents
-
-
-
+- [Introduction to Use case diagram](#introduction-to-use-case-diagram)
+- [When to use](#when-to-use)
+- [Some necessary parts in Use Case diagram](#some-necessary-parts-in-use-case-diagram)
+- [How to use CRUD operations in UML diagram](#how-to-use-crud-operations-in-uml-diagram)
+- [Wrapping up](#wrapping-up)
 
 
 <br>
 
-## What is Use case diagram
+## Introduction to Use case diagram
 
 
 

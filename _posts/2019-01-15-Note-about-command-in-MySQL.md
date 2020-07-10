@@ -2,7 +2,7 @@
 layout: post
 title: Note about commands in MySQL
 bigimg: /img/image-header/home-office-2.jpg
-tags: [Database, MySQL]
+tags: [MySQL]
 ---
 
 In MySQL, there are so many commands that you need to master to implement the most difficult statements in the real world. Understanding the tricky is always necessary to improve the speed when writing commands.

@@ -2,7 +2,7 @@
 layout: post
 title: Some common implementation with MongoDB
 bigimg: /img/path.jpg
-tags: [Database, MongoDB]
+tags: [MongoDB]
 ---
 
 MongoDB is the most compatible tool in NoSQL for Node.js. Because in Node.js, it use the JSON object to exchange data among the component. And Javascript also supports many things for JSON object.

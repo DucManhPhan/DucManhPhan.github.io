@@ -2,7 +2,7 @@
 layout: post
 title: How to use command line to do with MySQL
 bigimg: /img/image-header/california.jpg
-tags: [MySQL, Database]
+tags: [MySQL]
 ---
 
 When we are working with database, we usually use UI to interact with database such as MySQL Workbench, PgAdmin 3, 4, ... But when we want to do something deeper with databases such as granting permission for people to access our database, what did we do?

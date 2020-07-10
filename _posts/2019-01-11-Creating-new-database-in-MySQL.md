@@ -2,7 +2,7 @@
 layout: post
 title: Creating new databases in MySQL
 bigimg: /img/image-header/ravashing-beach.jpg
-tags: [MySQL, Database]
+tags: [MySQL]
 ---
 
 After designing the database that based on some standard rules such as 1NF, 2NF, 3NF, 3.5NF, 4NF, you will have a schema about relationship between each table.
