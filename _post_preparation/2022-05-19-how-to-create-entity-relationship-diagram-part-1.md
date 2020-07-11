@@ -22,7 +22,11 @@ tags: [Database]
 
 ## Introduction to ER diagram
 
+1. What is ER diagram
 
+
+
+2. History of ER diagram
 
 
 
