@@ -28,7 +28,7 @@ tags: [Hibernate]
 
 ## How to use @OneToMany annotation
 
-
+To understand how @OneToMany annotation work, we can read about the article [The best way to map a @OneToMany relationship with JPA and Hibernate](https://vladmihalcea.com/the-best-way-to-map-a-onetomany-association-with-jpa-and-hibernate/).
 
 
 
