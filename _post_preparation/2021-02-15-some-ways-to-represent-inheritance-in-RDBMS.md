@@ -13,7 +13,10 @@ tags: [Database]
 ## Table of contents
 - [Given problem](#given-problem)
 - [Solution for this problem](#solution-of-this-problem)
-- []()
+- [Single Table Inheritance](#single-table-inheritance)
+- [Class Table Inheritance](#class-table-inheritance)
+- [Concrete Table Inheritance](#concrete-table-inheritance)
+- [Shared Primary Key](#shared-primary-key)
 - [Wrapping up](#wrapping-up)
 
 <br>
@@ -36,7 +39,31 @@ tags: [Database]
 
 <br>
 
-## 
+## Single Table Inheritance
+
+
+
+
+
+<br>
+
+## Class Table Inheritance
+
+
+
+
+
+<br>
+
+## Concrete Table Inheritance
+
+
+
+
+
+<br>
+
+## Shared Primary Key
 
 
 
