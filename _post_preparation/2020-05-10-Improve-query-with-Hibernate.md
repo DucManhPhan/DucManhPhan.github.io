@@ -2,7 +2,7 @@
 layout: post
 title: Improve query with Hibernate
 bigimg: /img/image-header/california.jpg
-tags: [Java, Hibernate]
+tags: [Hibernate]
 ---
 
 
