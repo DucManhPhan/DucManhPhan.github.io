@@ -68,6 +68,13 @@ Belows are some steps that is used to customize annotation.
 
     - **@Constraint** annotation
 
+3. Define its validator class for managing the validation
+
+    ```java
+
+    ```
+
+
 <br>
 
 ## Using annotations from validation framework
@@ -104,3 +111,11 @@ Refer:
 [http://dolszewski.com/java/custom-validation-annotation-for-multiple-types/](http://dolszewski.com/java/custom-validation-annotation-for-multiple-types/)
 
 [https://www.baeldung.com/java-custom-annotation](https://www.baeldung.com/java-custom-annotation)
+
+[http://dolszewski.com/java/custom-parametrized-validation-annotation/](http://dolszewski.com/java/custom-parametrized-validation-annotation/)
+
+[http://dolszewski.com/spring/custom-validation-annotation-in-spring/](http://dolszewski.com/spring/custom-validation-annotation-in-spring/)
+
+[https://docs.oracle.com/javaee/7/api/javax/validation/Constraint.html](https://docs.oracle.com/javaee/7/api/javax/validation/Constraint.html)
+
+[https://web-engineering.info/tech/JavaJpaJsf/book/ch06s07.html](https://web-engineering.info/tech/JavaJpaJsf/book/ch06s07.html)
