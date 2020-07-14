@@ -2,7 +2,7 @@
 layout: post
 title: Some ways to use annotation for validation in Java
 bigimg: /img/image-header/yourself.jpeg
-tags: [Java]
+tags: [Annotation]
 ---
 
 
@@ -10,28 +10,63 @@ tags: [Java]
 <br>
 
 ## Table of contents
-
-
-
+- [Given problem](#given-problem)
+- [Using customize annotation for validation](#using-customize-annotation-for-validation)
+- [Using annotations from validation framework](#using-annotations-from-validation-framework)
+- [Benefits and Drawbacks](#benefits-and-drawbacks)
+- [Wrapping up](#wrapping-up)
 
 
 <br>
 
 ## Given problem
 
+Normally, the step that validate all our inputs is very crucial in our code. It ensures our flows that work correctly when encourtering some abnormal cases.
 
+In the reality, we have multiple ways to overcome this problem. Belows are some articles that we need to read before using annotations.
 
-
-
+- [Clean code with validate input](https://ducmanhphan.github.io/2019-12-22-Clean-code-with-validate-input/)
+- [Using frameworks for validation in Java](https://ducmanhphan.github.io/2019-12-24-Using-frameworks-for-validation-in-Java/)
+- [Working with Nulls in Java](https://ducmanhphan.github.io/2020-02-01-Working-with-Nulls-in-Java/)
 
 
 <br>
 
 ## Using customize annotation for validation
 
+Belows are some steps that is used to customize annotation.
 
+1. Define the class that we want to apply our annotation
 
+    Use annotation for the specific field that we want to validate.
 
+    ```java
+    @Data
+    @AllArgsConstructor
+    @NoArgConstructor
+    public class Transaction {
+
+        @
+        private String cardNumber;
+
+        // ...
+
+    }
+
+    ```
+
+2. Define our annotation
+
+    ```java
+
+    ```
+
+    This annotation uses three annotations such as **@Target**, **@Retention**, **@Constraint**. Below is the meaning of each annotation.
+    - **@Target** annotation
+
+    - **@Retention** annotation
+
+    - **@Constraint** annotation
 
 <br>
 
