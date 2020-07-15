@@ -111,3 +111,5 @@ Refer:
 [https://apireference.aspose.com/words/java/com.aspose.words/Document](https://apireference.aspose.com/words/java/com.aspose.words/Document)
 
 [https://www.itread01.com/content/1547886273.html](https://www.itread01.com/content/1547886273.html)
+
+[https://www.tutorialspoint.com/guava/index.htm](https://www.tutorialspoint.com/guava/index.htm)
