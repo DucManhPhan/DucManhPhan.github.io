@@ -10,9 +10,11 @@ tags: [Apache POI]
 <br>
 
 ## Table of contents
-
-
-
+- [Given problem](#given-problem)
+- []()
+- []()
+- []()
+- [Wrapping up](#wrapping-up)
 
 
 <br>
@@ -53,3 +55,5 @@ tags: [Apache POI]
 Refer:
 
 [https://www.javatpoint.com/apache-poi-architecture](https://www.javatpoint.com/apache-poi-architecture)
+
+[https://www.tutorialspoint.com/apache_poi_word/apache_poi_word_quick_guide.htm](https://www.tutorialspoint.com/apache_poi_word/apache_poi_word_quick_guide.htm)
