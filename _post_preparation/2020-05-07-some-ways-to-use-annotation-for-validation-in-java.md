@@ -65,7 +65,7 @@ Belows are some steps that is used to customize annotation.
     - **@Target** annotation
 
     - **@Retention** annotation
-
+    
     - **@Constraint** annotation
 
 3. Define its validator class for managing the validation
