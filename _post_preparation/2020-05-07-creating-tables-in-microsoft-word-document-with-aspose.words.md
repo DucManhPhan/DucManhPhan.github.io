@@ -22,7 +22,7 @@ tags: [Aspose]
 ## Given problem
 
 
-
+![](../img/Java/aspose/table-examples.png)
 
 
 
@@ -56,7 +56,7 @@ tags: [Aspose]
 
 - Understanding about the hierarchy structure of Aspose.Words makes us confident to work with it.
 
-- Using DocumentBuilder helps our code more concise.
+- Using **DocumentBuilder** helps our code more concise.
 
 
 <br>
@@ -72,3 +72,5 @@ Refer:
 [https://apireference.aspose.com/words/java/com.aspose.words/Row](https://apireference.aspose.com/words/java/com.aspose.words/Row)
 
 [https://apireference.aspose.com/words/java/com.aspose.words/Document](https://apireference.aspose.com/words/java/com.aspose.words/Document)
+
+[https://www.itread01.com/content/1547886273.html](https://www.itread01.com/content/1547886273.html)
