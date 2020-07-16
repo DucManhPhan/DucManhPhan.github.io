@@ -2,9 +2,8 @@
 layout: post
 title: Three sum closet
 bigimg: /img/image-header/yourself.jpeg
-tags: [Two-Pointers, HashMap]
+tags: [Two-Pointers]
 ---
-
 
 
 
@@ -12,8 +11,9 @@ tags: [Two-Pointers, HashMap]
 
 ## Table of contents
 - [Given problem](#given-problem)
+- [Using brute force algorithm](#using-brute-force-algorithm)
+- [Using backtracking algorithm](#using-backtracking-algorithm)
 - [Using Two Pointers technique](#using-two-pointers-technique)
-- []()
 - [Wrapping up](#wrapping-up)
 
 
@@ -53,35 +53,76 @@ Constraints:
 
 ## Using brute force algorithm
 
+In this way, we will use three loop to check sum of three elements.
 
 ```java
+public static int searchTriplet(int[] arr, int targetSum) {
+    int minDistance = Integer.MAX_VALUE;
+    for (int i = 0; i < arr.length; ++i) {
+        for (int j = i + 1; j < arr.length; ++j) {
+            for (int k = j + 1; k < arr.length; ++k) {
+                int diff = targetSum - arr[i] - arr[j] - arr[k];
+                if (diff == 0) {
+                    return targetSum;
+                }
 
+                if (Math.abs(diff) < Math.abs(minDistance)) {
+                    minDistance = diff;
+                }
+            }
+        }
+    }
+
+    return targetSum - minDistance;
+}
 ```
 
 The complexity of this solution:
-- Time complexity: 
-- Space complexity: 
+- Time complexity: O(n^3)
+- Space complexity: O(1)
 
 
 <br>
 
 ## Using backtracking algorithm
 
+The idea of this solution is as same as the brute force algorithm that we want to iterate all cases of subarray with 3 elements. Then we will check the difference between a target sum and a current three sum.
 
 ```java
+public static int searchTriplet(int[] arr, int targetSum) {
+    searchTriplet(arr, targetSum, 0, 0, new ArrayList<>());
 
+    return targetSum - smallestDistance;
+}
+
+public static void searchTriplet(int[] arr, int targetSum, int sum, int num, List<Integer> triplets) {
+    if (triplets.size() == 3) {
+        int diff = targetSum - sum;
+        if (Math.abs(diff) < Math.abs(smallestDistance)) {
+            smallestDistance = diff;
+        }
+
+        return;
+    }
+
+    for (int i = num; i < arr.length; ++i) {
+        triplets.add(arr[i]);
+        searchTriplet(arr, targetSum, sum + arr[i], i + 1, triplets);
+        triplets.remove(triplets.size() - 1);
+    }
+}
 ```
 
 
 The complexity of this solution:
-- Time complexity: 
-- Space complexity: 
+- Time complexity: O(n * C(k, n))
+- Space complexity: O(k)
 
 <br>
 
 ## Using Two Pointers technique
 
-
+This problem is an extension of the problem [Two Sum](). Then, we can apply Two-Pointers technique with **a + b = -c**.
 
 ```java
 public static int searchTriplet(int[] nums, int target) {
@@ -123,7 +164,7 @@ The complexity of this solution:
 
 ## Wrapping up
 
-
+- Understanding how to apply the two-pointers technique.
 
 
 <br>
