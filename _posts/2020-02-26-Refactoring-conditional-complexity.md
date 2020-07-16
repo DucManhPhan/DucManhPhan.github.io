@@ -15,7 +15,8 @@ tags: [Refactoring]
 - [Reducing nested code](#reducing-nested-code)
 - [Replace conditionals with polymorphism](#replace-conditionals-with-polymorphism)
 - [Using Strategy pattern](#using-strategy-pattern)
-- [Using functional progrmaming](#using-functional-programming)
+- [Using functional programming](#using-functional-programming)
+- [Using Enum type](#using-enum-type)
 - [Wrapping up](#wrapping-up)
 
 
@@ -74,6 +75,7 @@ Belows are some solutions to refactor our code.
 - Replace conditional with polymorphism
 - Strategy pattern
 - Using functional programming
+- Using enum type
 
 To understand deeper each solution, we will implement it.
 
@@ -359,6 +361,16 @@ So, in this case, we will use polymorphism to refactor it.
     }
     ```
 
+6. Benefits and Drawbacks
+
+    - Benefits
+
+        - Overcome the problems when we have new requirements. We only need to use Open/Close principle to adapt these new requirements.
+
+    - Drawbacks
+
+        - When we have a small code of if/else statement, use this way makes our code verbose.
+
 <br>
 
 ## Using Strategy pattern
@@ -526,7 +538,7 @@ So, in this case, we will use polymorphism to refactor it.
 
 <br>
 
-## Using functional progrmaming
+## Using functional programming
 
 1. Given problem
 
@@ -651,6 +663,96 @@ So, in this case, we will use polymorphism to refactor it.
         System.out.println(sortDescending(wordStats));
     }
     ```
+
+<br>
+
+## Using Enum type
+
+1. Given problem
+
+    The original article is [Clean Code with Java: Replace the logical condition using ENUM(if / else statements)](https://medium.com/@roanmonteiro/clean-code-with-java-replace-the-logical-condition-using-enum-if-else-statements-898bd6a85327).
+
+    Assuming that we have multiple if/else statements for many type, below is the source code that describe its intention.
+
+    ```java
+    if ("type1".equalsIgnoreCase(operationType)) {
+        // ...
+    } else if ("type2".equalsIgnoreCase(operationType)) {
+        // ...
+    } else if ("type3".equalsIgnoreCase(operationType)) {
+        // ...
+    } else if ("type4".equalsIgnoreCase(operationType)) {
+        // ...
+    }
+    ```
+
+2. Solution
+
+    - Define the enum type for these above types and its abstract method for their type's behaviors.
+
+        ```java
+        public enum SpecialType {
+
+            TYPE_1,
+
+            TYPE_2,
+
+            TYPE_3,
+
+            TYPE_4;
+
+            public abstract void doOperation(Param params);
+        }
+        ```
+
+    - Then, with each type, we need to override an above abstract method.
+
+        ```java
+        public enum SpecialType {
+
+            TYPE_1 {
+                @Override
+                public void doOperation(Param params) {
+                    // implement its operation
+                }
+            },
+
+            TYPE_2 {
+                @Override
+                public void doOperation(Param params) {
+                    // implement its operation
+                }
+            },
+
+            TYPE_3 {
+                @Override
+                public void doOperation(Param params) {
+                    // implement its operation
+                }
+            },
+
+            TYPE_4 {
+                @Override
+                public void doOperation(Param params) {
+                    // implement its operation
+                }
+            };
+
+            public abstract void doOperation(Param params);
+        }
+        ```
+
+3. Benefits and Drawbacks
+
+    - Benefits
+
+        - Seperate all logic code in if/else statements into each specific type of Enum --> satisfy the Single Responsibility principle.
+
+        - Easily add a new functionality when we have a new requirement.
+
+    - Drawbacks
+
+        - Embedded the business logic code into Enum type because normally enum type is used to define the limited value of the enumeration type.
 
 <br>
 
