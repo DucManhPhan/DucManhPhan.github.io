@@ -2,7 +2,7 @@
 layout: post
 title: How to use AsyncRestTemplate 
 bigimg: /img/image-header/yourself.jpeg
-tags: [Java]
+tags: [Http Client]
 ---
 
 
