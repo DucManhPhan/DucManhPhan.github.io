@@ -10,9 +10,13 @@ tags: [Refactoring]
 <br>
 
 ## Table of contents
-
-
-
+- [Given problem](#given-problem)
+- [Solution for refactoring conditional code](#solution-for-refactoring-conditional-code)
+- [Reducing nested code](#reducing-nested-code)
+- [Replace conditionals with polymorphism](#replace-conditionals-with-polymorphism)
+- [Using Strategy pattern](#using-strategy-pattern)
+- [Using functional progrmaming](#using-functional-programming)
+- [Wrapping up](#wrapping-up)
 
 
 <br>
