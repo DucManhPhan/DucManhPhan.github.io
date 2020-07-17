@@ -119,6 +119,7 @@ tags: [Docker]
 
 6. **ENTRYPOINT** command
 
+    If the **ENTRYPOINT** isn't specified, Docker will use **/bin/sh -c** as the default. However, if we want to override some of the system defaults, we can specify our own entrypoint and therefore manipulate the environment.
 
 
 7. **ENV** command
