@@ -11,9 +11,9 @@ tags: [MySQL]
 
 ## Table of contents
 - [Given problem](#given-problem)
-- []()
-- []()
-- []()
+- [Mapping data type table between MySQL and Java](#mapping-data-type-table-between-mysql-and-java)
+- [Understanding about Decimal type in SQL and BigDecimal type in Java](#understanding-about-decimal-type-in-sql-and-bigdecimal-type-in-java)
+- [Wrapping up](#wrapping-up)
 
 
 <br>
