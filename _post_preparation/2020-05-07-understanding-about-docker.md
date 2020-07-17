@@ -12,9 +12,8 @@ tags: [Docker]
 ## Table of contents
 - [Given problem](#given-problem)
 - [Introduction to Docker](#introduction-to-docker)
-- [How to setup Docker in Windows](#how-to-setup-docker-in-windows)
+- [How to setup Docker](#how-to-setup-docker)
 - [Some commands in Docker CLI](#some-commands-in-docker-cli)
-- [The difference between Docker and Virtual Machine](#the-differences-between-docker-and-virtual-machine)
 - [Wrapping up](#wrapping-up)
 
 
@@ -22,10 +21,13 @@ tags: [Docker]
 
 ## Given problem
 
+Before Docker was born, we usually use Virtual Machine software such as VMWare, Virtual Box, ... But to use it, we need to install the Operating System that we want to simulate the webserver's environment that we want to use. 
 
+Then, we have to install softwares that we really need in out project. Installing these softwares takes so much our time. 
 
+Supposed that we had the environment that we want, but our softwares that has multiple versions, different environment variables to configure. They can conflict together. It is the worst thing that we do not want to touch.
 
-
+How do we overcome these problems?
 
 <br>
 
@@ -35,7 +37,12 @@ tags: [Docker]
 
 
 
-2. The architecture of Docker
+2. Some concepts in Docker
+
+
+
+
+3. The architecture of Docker
 
 
 
@@ -43,8 +50,14 @@ tags: [Docker]
 
 <br>
 
-## How to setup Docker in Windows
+## How to setup Docker
 
+1. In Windows
+
+
+
+
+2. In Ubuntu
 
 
 
@@ -202,14 +215,6 @@ tags: [Docker]
     ```python
     docker build --file <dockerfile_name> .
     ```
-
-<br>
-
-## The difference between Docker and Virtual Machine
-
-
-
-
 
 <br>
 
