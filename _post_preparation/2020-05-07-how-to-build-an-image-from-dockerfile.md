@@ -247,3 +247,7 @@ Refer:
 [https://thenewstack.io/docker-basics-how-to-use-dockerfiles/](https://thenewstack.io/docker-basics-how-to-use-dockerfiles/)
 
 [https://kapeli.com/cheat_sheets/Dockerfile.docset/Contents/Resources/Documents/index](https://kapeli.com/cheat_sheets/Dockerfile.docset/Contents/Resources/Documents/index)
+
+[https://viblo.asia/p/docker-nhung-kien-thuc-co-ban-phan-1-bJzKmM1kK9N](https://viblo.asia/p/docker-nhung-kien-thuc-co-ban-phan-1-bJzKmM1kK9N)
+
+[https://phoenixnap.com/kb/docker-cmd-vs-entrypoint](https://phoenixnap.com/kb/docker-cmd-vs-entrypoint)
