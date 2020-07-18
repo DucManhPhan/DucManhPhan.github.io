@@ -54,8 +54,14 @@ tags: [Docker]
 
     ```python
     # use ubuntu as os to setup our image
+    # parent image
     FROM ubuntu:18.04
+
+    # base image
+    FROM scratch
     ```
+
+    Most DockerFiles start from a parent image. If we want to completely control the contents of our image, we might need to create a base image instead.
 
 2. **MAINTAINER** command
 
@@ -223,6 +229,13 @@ tags: [Docker]
 
 ## Create an easy DockerFile
 
+
+
+
+
+<br>
+
+## Why we need to use base image
 
 
 

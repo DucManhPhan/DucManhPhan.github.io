@@ -35,18 +35,53 @@ How do we overcome these problems?
 
 1. History of Docker
 
+    Accroding to the [wikipedia.com](https://en.wikipedia.org/wiki/Docker_(software)), we have:
 
+    ```
+    Docker Inc. was founded by Solomon Hykes and Sebastien Pahl during the Y Combinator Summer 2010 startup incubator group and lauched in 2011.
+
+    Hykes started the Docker project in France as an internal project within dotCloud, a platform-as-a-service company.
+
+    In 2017, Docker created the Moby project for open research and development.
+    ```
+
+    Below is an image that describes the development of containers.
+
+    ![](../img/CI-CD/docker/history-containers.png)
 
 2. Some concepts in Docker
 
+    - Docker is a software that helps us to build, deploy, and run our applications.
 
+        Docker will package our applications into containers.
+        
+        For example, in our Java project, we need to use redis, mysql, mongodb, glassfish application server. Then, each application will be run in other containers. To be easily maintainable, we can create an image by using DockerFile.
 
+        To combine containers into a completely system, we need to use Docker Compose.
+
+    - Docker Image basically contains executable application source code as well as the tools, libraries, and dependencies that our application code needs to run as a container.
+
+        Every Docker Image consists of one or more file system layers that generally have a direct one-to-one mapping to each individual build step used to create that image.
+
+        ![](../img/CI-CD/docker/multiple-layers-docker-images.png)
+
+    - Docker Container is an instance of Docker Image.
+
+        This relationship is as same as the relationship between program and process.
+
+        A container runs inside the Docker Host isolated from the other containers and even the Host OS. It can not see the other containers, physical storage, ... It contains everything it needs to run: OS, packages, runtimes, files, environment variables, standard IO.
+
+    - DockerFile is a script file that guide Docker how to build an image.
+
+        To be aware more about DockerFile, we can read about an article [How to build an image from DockerFile](http://ducmanhphan.github.io/2020-05-07-how-to-build-an-image-from-dockerfile).
+
+    - Registry is a place that contains multiple images.
 
 3. The architecture of Docker
 
+    ![](../img/CI-CD/docker/architecture-docker.jpg)
 
-
-
+    This article [Docker Architecture Tutorial for Beginners](https://morioh.com/p/47719a08c1e8) will show the details of Docker's architecture.
 
 <br>
 
@@ -54,6 +89,21 @@ How do we overcome these problems?
 
 1. In Windows
 
+    - Download Docker Desktop for Windows
+
+        To install Docker for Windows, we need to download docker desktop from [https://hub.docker.com/editions/community/docker-ce-desktop-windows/](https://hub.docker.com/editions/community/docker-ce-desktop-windows/).
+
+        ![](../img/CI-CD/docker/setup-docker-1.png)
+
+        Click **Get Stable** button to download Docker.
+
+    - Setup Docker desktop for Windows
+
+        ![](../img/CI-CD/docker/setup-docker-2.png)
+
+        After setting up Docker completely, we need to restart Windows OS.
+
+        ![](../img/CI-CD/docker/setup-docker-3.png)
 
 
 
@@ -220,7 +270,7 @@ How do we overcome these problems?
 
 ## Wrapping up
 
-
+-
 
 
 <br>
@@ -230,3 +280,11 @@ Refer:
 [https://medium.com/edumall/vi%E1%BA%BFt-dockerfile-hi%E1%BB%87u-qu%E1%BA%A3-77a6603b8f8](https://medium.com/edumall/vi%E1%BA%BFt-dockerfile-hi%E1%BB%87u-qu%E1%BA%A3-77a6603b8f8)
 
 [https://viblo.asia/p/docker-nhung-kien-thuc-co-ban-phan-1-bJzKmM1kK9N](https://viblo.asia/p/docker-nhung-kien-thuc-co-ban-phan-1-bJzKmM1kK9N)
+
+[https://en.wikipedia.org/wiki/Docker_(software)](https://en.wikipedia.org/wiki/Docker_(software))
+
+[https://medium.com/@ITsolutions/containers-101-starting-the-journey-from-os-virtualization-to-workload-virtualization-1ce0b32df473](https://medium.com/@ITsolutions/containers-101-starting-the-journey-from-os-virtualization-to-workload-virtualization-1ce0b32df473)
+
+[https://stackoverflow.com/questions/20274162/why-do-you-need-a-base-image-with-docker](https://stackoverflow.com/questions/20274162/why-do-you-need-a-base-image-with-docker)
+
+[https://www.educative.io/courses/docker-for-developers](https://www.educative.io/courses/docker-for-developers)
