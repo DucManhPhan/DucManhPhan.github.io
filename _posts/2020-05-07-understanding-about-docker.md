@@ -105,11 +105,19 @@ How do we overcome these problems?
 
         ![](../img/CI-CD/docker/setup-docker-3.png)
 
+    - Check Docker is setup completely by using a below command line.
 
+        ```
+        docker --version
+        ```
+
+        Then, we have:
+
+        ![](../img/CI-CD/docker/setup-docker-4.png)
 
 2. In Ubuntu
 
-
+    To install Docker in Ubuntu, we can read the article [How To Install and Use Docker on Ubuntu 18.04](https://www.digitalocean.com/community/tutorials/how-to-install-and-use-docker-on-ubuntu-18-04). It's very detailed and easy to track steps.
 
 <br>
 
@@ -270,7 +278,7 @@ How do we overcome these problems?
 
 ## Wrapping up
 
--
+- Understanding about Docker and common commands that we usually use to communicate with it.
 
 
 <br>
