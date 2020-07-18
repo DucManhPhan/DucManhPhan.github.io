@@ -10,9 +10,10 @@ tags: [Docker]
 <br>
 
 ## Table of contents
-
-
-
+- [Given problem](#given-problem)
+- [Solution with Docker Compose](#solution-with-docker-compose)
+- [How to create docker-compose.yaml file](#how-to-create-docker-compose.yaml-file)
+- [Wrapping up](#wrapping-up)
 
 
 <br>

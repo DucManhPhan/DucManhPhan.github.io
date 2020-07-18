@@ -237,7 +237,7 @@ tags: [Docker]
 
 ## Why we need to use base image
 
-
+https://www.youtube.com/watch?v=FaR1rwX4YfU
 
 
 <br>
