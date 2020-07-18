@@ -274,6 +274,18 @@ How do we overcome these problems?
     docker build --file <dockerfile_name> .
     ```
 
+12. Search an image from Docker Hub
+
+    ```python
+    docker search <image_name>
+    ```
+
+    For example:
+
+    ```python
+    docker search mysql
+    ```
+
 <br>
 
 ## Wrapping up
