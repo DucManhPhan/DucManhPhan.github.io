@@ -13,6 +13,8 @@ tags: [Docker]
 - [Introduction to DockerFile](#introduction-to-dockerfile)
 - [Common commands in DockerFile](#common-commands-in-dockerfile)
 - [Create an easy DockerFile](#create-an-easy-dockerfile)
+- [Some rules for creating DockerFile](#some-rules-for-creating-dockerfile)
+- [Why we need to use base image](#why-we-need-to-use-base-image)
 - [Wrapping up](#wrapping-up)
 
 
@@ -20,10 +22,9 @@ tags: [Docker]
 
 ## Introduction to DockerFile
 
+DockerFile is a script file that will guide Docker to build an image from some instructions.
 
-
-
-
+With DockerFile, it has a set of commands that we need to know. To know more about these commands, we can jump into the section [Common commands in DockerFile](#common-commands-in-dockerfile).
 
 <br>
 
@@ -229,6 +230,16 @@ tags: [Docker]
 
 ## Create an easy DockerFile
 
+Below is the content of DockerFile that create image contains MySQL.
+
+```python
+
+```
+
+<br>
+
+## Some rules for creating DockerFile
+
 
 
 
@@ -244,7 +255,7 @@ https://www.youtube.com/watch?v=FaR1rwX4YfU
 
 ## Wrapping up
 
-
+- Understanding all commands that we listed the above section.
 
 
 <br>
