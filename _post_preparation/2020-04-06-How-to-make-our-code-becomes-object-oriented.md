@@ -1021,6 +1021,12 @@ So, based on two fundamental ideas, we can make object-oriented with C code, ass
 
     ![](../img/refactoring/more-object-oriented/account-new-design.png)
 
+6. Benefits from turning state into an object
+
+    - Class remains focused on primary role.
+    - Other roles delegated to state objects.
+    - Each state class also handles one role.
+
 <br>
 
 ## 
