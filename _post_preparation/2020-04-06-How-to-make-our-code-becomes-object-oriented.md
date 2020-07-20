@@ -535,7 +535,7 @@ So, based on two fundamental ideas, we can make object-oriented with C code, ass
     }
     ```
 
-    For example, an active account would be implemented by the freezable active class. It would do nothing special in the deposit() and withdraw() methods, because it already models the active state of the account, but the freezeAccount() operation would cause us troubles, as the state would have to become frozen.
+    For example, an active account would be implemented by the **FreezableActive** class. It would do nothing special in the **deposit()** and **withdraw()** methods, because it already models the active state of the account, but the **freezeAccount()** operation would cause us troubles, as the state would have to become frozen.
 
     An object cannot change its own runtime type though. When we have such a need, then we normally return a new object to tell the caller that current object must be substituted. Another type would model the frozen state and that object would have to turn itself into active state when deposit or withdraw is invoked.
 
@@ -556,6 +556,470 @@ So, based on two fundamental ideas, we can make object-oriented with C code, ass
     }
     ```
 
+    The first two methods will be trivial to complete because we have nothing to do when the account is already active. Simply the current state will remain, but the freeAccount() method will cost us some thinking. For now, it will remain simple as we only want to turn the state into frozen.
+
+    ```java
+    public class FreezableActive implements Freezable {
+        @Override
+        public Freezable deposit() {
+            return this;
+        }
+
+        @Override
+        public Freezable withdraw() {
+            return this;
+        }
+
+        @Override
+        public Freezable freezeAccount() {
+            return new FreezableFrozen();
+        }
+    }
+    ```
+
+    This new class will be another implementation of the Freezable interface.
+    
+    ```java
+    public class FreezableFrozen implements Freezable {
+        private AccountUnfrozen onUnfrozen;
+
+        public FreezableFrozen(AccountUnfrozen onUnfrozen) {
+            this.onUnfrozen = onUnfrozen;
+        }
+
+        @Override
+        public Freezable deposit() {
+            return this.unfreeze();
+        }
+
+        @Override
+        public Freezable withdraw() {
+            return this.unfreeze();
+        }
+
+        private Freezable unfreeze() {
+            this.onUnfrozen.handle();
+            return new FreezableActive();
+        }
+
+        @Override
+        public Freezable freezeAccount() {
+            return this;
+        }
+    }
+    ```
+
+    This is where that logic regarding account unfreezing will move in. It will have to know about the callback we used before, and it will effectively call it from the deposit and withdraw before telling the caller that the state has changed to active.
+
+    The **freezeAccount()** method, however, will have nothing to do because the account is already frozen. Even though the frozen state looks done, it has caused an error in the active state. In order to be able to advance the frozen state, the active state also has to know about that mandatory callback.
+
+    ```java
+    public class FreezableActive implements Freezable {
+        private AccountUnfrozen onUnfrozen;
+
+        public FreezableActive(AccountUnfrozen onUnfrozen) {
+            this.onUnfrozen = onUnfrozen;
+        }
+
+        @Override
+        public Freezable deposit() {
+            return this;
+        }
+
+        @Override
+        public Freezable withdraw() {
+            return this;
+        }
+
+        @Override
+        public Freezable freezeAccount() {
+            return new FreezableFrozen(this.onUnfrozen);
+        }
+    }
+    ```
+
+    Then, the **unfreeze()** method in **FreezableFrozen** class is also changed because the constructor of **FreezableActive** need a **AccountUnfrozen** class's instance as parameter.
+
+    ```java
+    // before version
+    private Freezable unfreeze() {
+        this.onUnfrozen.handle();
+        return new FreezableActive();
+    }
+
+    // after changed version
+    private Freezable unfreeze() {
+        this.onUnfrozen.handle();
+        return new FreezableActive(this.unfrozen);
+    }
+    ```
+
+    Now let's look at the Account class.
+
+    ```java
+    public class Account {
+        private boolean isVerified;
+        private boolean isClosed;
+        private BigDecimal balance;
+        private Freezable freezable;
+
+        public Account(AccountUnfrozen onUnfrozen) {
+            this.balance = BigDecimal.ZERO;
+            this.freezable = new FreezableActive(onUnfrozen);
+        }
+
+        public void holderVerified() {
+            this.isVerified = true;
+        }
+
+        public void closeAccount() {
+            this.isClosed = true;
+        }
+
+        public void freezeAccount() {
+            if (this.isClosed) {
+                return;
+            }
+
+            if (!this.isVerified) {
+                return;
+            }
+
+            this.freezable = this.freezable.freezeAccount();
+        }
+
+        public void deposit(BigDecimal amount) {
+            if (this.isClosed) {
+                return;
+            }
+
+            this.freezable = this.freezable.deposit();
+            this.balance = this.balance.add(amount);
+        }
+
+        public void withdraw(BigDecimal amount) {
+            if (!this.isVerified) {
+                return;
+            }
+
+            if (this.isClosed) {
+                return;
+            }
+
+            this.freezable = this.freezable.withdraw();
+            this.balance = this.balance.subtract(amount);
+        }
+    }
+    ```
+
+    Bottom line at this moment is that we have achieved two important improvements in the Account class.
+    - The first removal of any explicit logic that deals with freezing. The entire logic was wrapped in seperate classes.
+    - Another improvement is that all other stuff that had to do with freezing and unfreezing is now moved to those other classes, in particular calling the injected behavior when the account is unfrozen.
+
+
+5. Moving all state-related Functions int State Objects
+
+    Now, what are the responsibilities of Account class? From its state, we can tell the account is managing **balance** and also managing **closing**, **verifying**, and **freezing**. Why not move the responsibilities where freezable state is implemented? We can defined even more states like closed or not verified, like frozen and active, which are there already.
+
+    So, we will rename the **Freezable** interface to **AccountState**.
+
+    ```java
+    public interface AccountState {
+        AccountState deposit();
+        AccountState withdraw();
+        AccountState freezeAccount();
+
+        // added methods
+        AccountState holderVerified();
+        AccountState closeAccount();
+    }
+    ```
+
+    Then, we will rename the **FreezableActive** class to **Active** class, **FreezableFrozen** class to **Frozen** to represent the **Account** class's states. And we also defined some other states such as **Closed**, **NotVerified**.
+
+    ![](../img/refactoring/more-object-oriented/account-states.png)
+
+    Below is the source code of Closed state of an account.
+
+    ```java
+    public class Closed implements AccountState {
+        @Override
+        public AccountState deposit() {
+            return this;
+        }
+
+        @Override
+        public AccountState withdraw() {
+            return this;
+        }
+
+        @Override
+        public AccountState freezeAccount() {
+            return this;
+        }
+
+        @Override
+        public AccountState holderVerified() {
+            return this;
+        }
+
+        @Override
+        public AccountState closeAccount() {
+            return this;
+        }
+    }
+    ```
+
+    Below is the source code of NotVerified state of an account.
+
+    ```java
+    public class NotVerified implements AccountState {
+        @Override
+        public AccountState deposit() {
+            return this;
+        }
+
+        @Override
+        public AccountState withdraw() {
+            return this;
+        }
+
+        @Override
+        public AccountState freezeAccount() {
+            return this;
+        }
+
+        @Override
+        public AccountState holderVerified() {
+            return this;
+        }
+
+        @Override
+        public AccountState closeAccount() {
+            return new Closed();
+        }
+    }
+    ```
+
+    The trouble is that the account cannot tell whether it accepts or rejects the deposit. There is one technique, callback, will be used in this situation. In Java 8, we will use functional interface to implement it.
+
+    State knows whether the deposit should be accepted or not, but it does not know how to make it happen. We need to change the deposit() method's signature and make it receive a money consumer.
+
+    ```java
+    public interface AccountState {
+        AccountState deposit(BigDecimal amount, Consumer<BigDecimal> addToBalance);
+        AccountState withdraw();
+        AccountState freezeAccount();
+
+        // added methods
+        AccountState holderVerified();
+        AccountState closeAccount();
+    }
+    ```
+
+    This object addToBalance will be invoked when the situation is right to add money to the balance.
+
+    So, in the NotVerified state, we have:
+
+    ```java
+    public class NotVerified implements AccountState {
+        private AccountUnfrozen onUnfrozen;
+
+        public NotVerified(AccountUnfrozen onUnfrozen) {
+            this.onUnfrozen = onUnfrozen;
+        }
+
+        @Override
+        public AccountState deposit(BigDecimal amount, Consumer<BigDecimal> addToBalance) {
+            addToBalance.accept(amount);
+            return this;
+        }
+
+        @Override
+        public AccountState withdraw() {
+            return this;
+        }
+
+        @Override
+        public AccountState freezeAccount() {
+            return this;
+        }
+
+        @Override
+        public AccountState holderVerified() {
+            return this;
+        }
+
+        @Override
+        public AccountState closeAccount() {
+            return new Closed();
+        }
+    }
+    ```
+
+    In the **NotVerified** state, deposit should be accepted and account should remain not verified. Withdraw will not be allowed on the non-verified account, so it only remains on-verified. Freezing will supposedly make no effect on non-verified accounts either. If a customer wanted to change that, we would have to introduce a new state, something like FrozenNotVerified and once the account holder is verified, the state will step to Active.
+
+    ```java
+    public class NotVerified implements AccountState {
+        @Override
+        // The Active's constructor requires that notification object.
+        public AccountState holderVerified() {
+            return new Active();
+        }
+    }
+    ```
+
+    After changing the signature of deposit() method of AccountState, we also need to change it in the other states. We will do similar things for withdraw() method of states.
+
+    ```java
+    public interface AccountState {
+        AccountState deposit(BigDecimal amount, Consumer<BigDecimal> addToBalance);
+        AccountState withdraw(BigDecimal balance, BigDecimal amount, Consumer<BigDecimal> subtractFromBalance);
+
+        // other states will remain
+    }
+    ```
+
+    ```java
+    public class Active implements AccountState {
+        private AccountUnfrozen onUnfrozen;
+
+        public Active(AccountUnfrozen onUnfrozen) {
+            this.onUnfrozen = onUnfrozen;
+        }
+
+        @Override
+        public AccountState deposit(BigDecimal amount, Consumer<BigDecimal> addToBalance) {
+            addToBalance(amount);
+            return this;
+        }
+
+        @Override
+        public AccountState withdraw(BigDecimal balance, BigDecimal amount, Consumer<BigDecimal> subtractFromBalance) {
+            if (balance.compareTo(amount) >= 0) {
+                subtractFromBalance.accept(amount);
+            }
+
+            return this;
+        }
+
+        @Override
+        public AccountState freezeAccount() {
+            return new Frozen(this.onUnfrozen);
+        }
+
+        @Override
+        public AccountState holderVerified() {
+            return this;
+        }
+
+        @Override AccountState closeAccount() {
+            return new Closed();
+        }
+    }
+    ```
+
+    ```java
+    public class Frozen implements AccountState {
+        private AccountUnfrozen onUnfrozen;
+
+        public Frozen(AccountUnfrozen onUnfrozen) {
+            this.onUnfrozen = onUnfrozen;
+        }
+
+        @Override
+        public AccountState deposit(BigDecimal amount, Consumer<BigDecimal> addToBalance) {
+            return this.unfreeze();
+        }
+
+        @Override
+        public AccountState withdraw(BigDecimal balance, BigDecimal amount, Consumer<BigDecimal> subtractFromBalance) {
+            if (balance.compareTo(amount) >= 0) {
+                subtractFromBalance.accept(amount);
+            }
+
+            return this.unfreeze();
+        }
+
+        private AccountState unfreeze() {
+            this.onUnfrozen.handle();
+            return new Active(this.onUnfrozen);
+        }
+
+        @Override
+        public AccountState freezeAccount() {
+            return this;
+        }
+
+        @Override
+        public AccountState holderVerified() {
+            return this;
+        }
+
+        @Override AccountState closeAccount() {
+            return new Closed();
+        }
+    }
+    ```
+
+    ```java
+    public class NotVerified implements AccountState {
+        @Override
+        public AccountState withdraw(BigDecimal balance, BigDecimal amount, Consumer<BigDecimal> subtractFromBalance) {
+            return this;
+        }
+
+        // other methods will be remained.
+    }
+    ```
+
+    Finally, the Account class remains to be cleaned up.
+
+    ```java
+    public class Account {
+        private BigDecimal balance;
+        private AccountState state;
+
+        public Account(AccountUnfrozen onUnfrozen) {
+            this.balance = BigDecimal.ZERO;
+            this.state = new Active(onUnfrozen);
+        }
+
+        public void holderVerified() {
+            this.state = this.state.holderVerified();
+        }
+
+        public void closeAccount() {
+            this.state = this.state.closeAccount();
+        }
+
+        public void freezeAccount() {
+            this.state = this.state.freezeAccount();
+        }
+
+        public void deposit(BigDecimal amount) {
+            this.state = this.state.deposit(amount, this::addToBalance);
+        }
+
+        private void addToBalance(BigDecimal amount) {
+            this.balance = this.balance.add(amount);
+        }
+
+        public void withdraw(BigDecimal amount) {
+            this.state = this.state.withdraw(amount);
+        }
+
+        public void subtractFromBalance(BigDecimal amount) {
+            this.balance = this.balance.subtract(amount);
+        }
+    }
+    ```
+
+    We have the new design for this Account class.
+
+    ![](../img/refactoring/more-object-oriented/account-original-design.png)
+
+    ![](../img/refactoring/more-object-oriented/account-new-design.png)
 
 <br>
 
