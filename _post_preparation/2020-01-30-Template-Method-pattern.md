@@ -22,10 +22,12 @@ tags: [Behavioral Pattern, Design Pattern]
 
 ## Given Problem
 
+Suppose we have a system that tracks progress of a game and determines if someone has won. If we implement it for checkers, and the again for chess, and again for battleship, we might see a lot of duplication in the logic that could be pulled up into some common classes.
 
+Likewise, following certain kinds of recipes might have similar steps involving prep, cooking, and presentation.
 
-
-
+Many UI frameworks, especially those with controls, make use of this pattern too.
+The original ASP.NET paradigm, now known as Web Forms, used Template method heavily. Every control and page had a series of events in its lifecycle that developers could extend, but application developers didn't have control over the lifecycle itself. If data is more our thing, think about tools and diagrams for moving data between two systems.
 
 <br>
 
