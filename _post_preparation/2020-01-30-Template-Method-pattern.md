@@ -31,7 +31,13 @@ tags: [Behavioral Pattern, Design Pattern]
 
 ## Solution of Template Method Pattern
 
+A template method is a method in a superclass that defines the skeleton of an operation in terms of higher level steps. Subclasses implement these steps.
 
+Basically, it's a way of locking in the steps and their sequence while allowing the details of each step to vary through inheritance. Template methods are categorized as a behavioral design pattern because they help organize the behavior of our application. They're frequently used to eliminate duplication and to provide extensibility points.
+
+Template methods are a fundamental technique for code reuse. This is directly from the Design Pattern Gang of Four book, published in 1994, and is still just as relevant today. Template methods are particularly useful for class libraries because they provide a mechanism for factoring common code out into these libraries. Framework authors can use this pattern to provide specific extensibility points while retaining control over the overall process.
+
+Template method is a great pattern for reducing duplicate code and enforcing design constraints. It's also frequently used to produce extensible frameworks and plugins.
 
 
 
