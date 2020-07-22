@@ -252,12 +252,13 @@ The last important ```java.time``` class is ```Period```, which encapsulates a f
 
 ## Benefits and Drawbacks
 1. Benefits
-- Classes in ```java.time``` package are immutable, which means they can be used without precautions in multithread applications.
-- allows caching.
-- works well with Java 8 streams and lambdas.
-- Methods are designed to allow fluent programming so that statements using them read very naturally.
-- The API is type-safe, so that class cast exceptions are usually prevented by detection of type errors at compile time.
-- The library's extensible so that features that the designers didn't foresee or that didn't belong in the core API can be added.
+
+    - Classes in ```java.time``` package are immutable, which means they can be used without precautions in multithread applications.
+    - allows caching.
+    - works well with Java 8 streams and lambdas.
+    - Methods are designed to allow fluent programming so that statements using them read very naturally.
+    - The API is type-safe, so that class cast exceptions are usually prevented by detection of type errors at compile time.
+    - The library's extensible so that features that the designers didn't foresee or that didn't belong in the core API can be added.
 
 
 <br>
@@ -295,6 +296,7 @@ System.out.println(schedule);
 <br>
 
 ## Wrapping up
+
 - Understanding why we use java.time package in Java 8.
 - Some benefits of java.time classes.
 - Below is the predefined DateTimeFormatters
