@@ -27,7 +27,36 @@ Suppose we have a system that tracks progress of a game and determines if someon
 Likewise, following certain kinds of recipes might have similar steps involving prep, cooking, and presentation.
 
 Many UI frameworks, especially those with controls, make use of this pattern too.
-The original ASP.NET paradigm, now known as Web Forms, used Template method heavily. Every control and page had a series of events in its lifecycle that developers could extend, but application developers didn't have control over the lifecycle itself. If data is more our thing, think about tools and diagrams for moving data between two systems.
+The original ASP.NET paradigm, now known as Web Forms, used Template method heavily. Every control and page had a series of events in its lifecycle that developers could extend, but application developers didn't have control over the lifecycle itself. If data is more our thing, think about tools and diagrams for moving data between two systems. Extract, transform, load, or ETL, processes have a candidate for a simple template method in their name. Another example is a system designed to load and work with a certain kind of document, like a PDF. When we find we need to do the same thing, but now for spreadsheets and then again for images, we may find that the general process is the same across each kind of application.
+
+Template method could be a useful pattern to consider. Consider an application that works with documents of varying formats.
+
+```java
+public Stream openDocument() {
+    if (!canOpen()) throw;
+
+    var doc = doCreateDocument();
+    if (doc != null) {
+        addDocument();
+        preOpenDocument(); // hook
+        doc.open();
+        return doc.read();
+    }
+}
+```
+
+The basic steps involved in working with these documents might be pretty standard, regardless of whether the document was a PDF, a CSV, an XML or some other format. The specific details of what to do with each format and file would need to vary with each specific implementation, but the high-level process could be dictated by a method like the one shown here. Note that this method calls several other methods.
+- It acts as a generic method in the Application class.
+
+- The first thing it does is it tries to open the file by calling canOpen() method.
+
+- Next, it tries to create the specific document that we need using the doCreateDocument() method. 
+
+- After that, if it was successful, it will try and add the document, and then there's an operation called a hook. The hook is a place where we could add additional behavior if we need to in the future, but inside of this generic operation, we don't have anything that we need to do currently.
+
+- After that, we can open and then read the document an complete the operation.
+
+This method calls several other methods such as canOpen(), doCreateDocument(), addDocument(), and preOpenDocument(). All of these methods are defined inside of the base class along with this 
 
 <br>
 
