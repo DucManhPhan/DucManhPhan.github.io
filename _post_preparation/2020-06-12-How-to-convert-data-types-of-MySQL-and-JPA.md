@@ -1,7 +1,7 @@
 ---
 layout: post
 title: How to convert data types of MySQL and JPA
-bigimg: /img/image-header/yourself.jpeg
+bigimg: /img/image-header/california.jpg
 tags: [Java]
 ---
 
