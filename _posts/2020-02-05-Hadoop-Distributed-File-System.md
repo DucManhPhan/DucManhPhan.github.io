@@ -2,7 +2,7 @@
 layout: post
 title: MapReduce in Hadoop
 bigimg: /img/image-header/factory.jpg
-tags: [Big Data, Hadoop]
+tags: [Big Data]
 ---
 
 
@@ -11,6 +11,7 @@ tags: [Big Data, Hadoop]
 
 ## Table of contents
 - [Introduction to HDFS](#introduction-to-hdfs)
+- [HDFS architecture](#hdfs-architecture)
 - [How HDFS works](#how-hdfs-works)
 - [How to configure factors of HDFS](#how-to-configure-factors-of-hdfs)
 - [Wrapping up](#wrapping-up)
@@ -91,10 +92,7 @@ HDFS contains a single Name Node and a set of Data Node.
 
 ## Wrapping up
 
-
-
-
-
+- Understanding about the architecture of HDFS and how HDFS works.
 
 <br>
 
