@@ -118,6 +118,10 @@ Therefore, how do we deal with it?
 
     - In the layered architecture pattern, sometimes, we use the soft rule to implement, so it can cause that our business logic can be scattered throughout the layers. Then, it is difficult to code when we need to add a new functionality.
 
+        Normally, we want to run all the business logic on the server because it is the best choice for ease of maintainance, upgrade and fix. In the desktop applications, we do not worry about deployment to many desktop and keeping them all in sync with the server. But the drawback of this solution is the cost of roundtrip network between client and server.
+
+        Somtimes, to reduce the roundtrip problem and improve responsiveness, reduce the number of disconnected case , we can embedded the business logic into the presentation layer. Its drawback is difficult to maintain.
+
 <br>
 
 ## Wrapping up
@@ -130,6 +134,8 @@ Therefore, how do we deal with it?
 Refer:
 
 [Software architecture pattern]()
+
+[Patterns of Enterprise Application Architecture of Martin Fowler]()
 
 [Learning modular programming](http://file.allitebooks.com/20170627/Learning%20Modular%20Java%20Programming.pdf)
 
