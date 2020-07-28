@@ -103,4 +103,7 @@ tags: [Java]
 
 Refer:
 
-[]()
+[https://mkyong.com/java8/java-8-how-to-convert-string-to-localdate/](https://mkyong.com/java8/java-8-how-to-convert-string-to-localdate/)
+
+[https://mkyong.com/java8/java-8-how-to-format-localdatetime/](https://mkyong.com/java8/java-8-how-to-format-localdatetime/)
+
