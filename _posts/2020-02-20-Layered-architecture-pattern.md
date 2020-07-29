@@ -124,6 +124,20 @@ Therefore, how do we deal with it?
 
 <br>
 
+## Some best practices for Layered architecture
+
+In the section [Solution of Layered architecture pattern](#solution-of-layered-architecture-pattern), we will look at that image. Our current context is that we only want to work with web service project, it means that we will interact with the other systems through Restful APIs, or SOAP, or gRPC.
+
+In the web layer's source code, we will define multiple controllers to receive requests from other systems. Belows are some good rules for controllers.
+- Controllers should not do anything remotely related to the business logic, and directly access data stores.
+- The controller's only purpose is to receive a request and return a response. Everything that goes in between is not its responsibility.
+
+    It means that we need all validations, business logic to the Domain service of Domain layer. In the Controller classes, only call that services.
+
+- Controllers should be super thin.
+
+<br>
+
 ## Wrapping up
 
 - Understanding the Seperation of Concerns principle to apply into Layered architecture pattern.
@@ -140,3 +154,5 @@ Refer:
 [Learning modular programming](http://file.allitebooks.com/20170627/Learning%20Modular%20Java%20Programming.pdf)
 
 [https://herbertograca.com/2017/08/03/layered-architecture/](https://herbertograca.com/2017/08/03/layered-architecture/)
+
+[https://medium.com/swlh/your-controllers-are-doing-too-much-this-is-how-to-simplify-them-7f7d0ea0a810](https://medium.com/swlh/your-controllers-are-doing-too-much-this-is-how-to-simplify-them-7f7d0ea0a810)
