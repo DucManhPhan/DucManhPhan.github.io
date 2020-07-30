@@ -195,7 +195,7 @@ With DockerFile, it has a set of commands that we need to know. To know more abo
     Syntax:
 
     ```python
-
+    ARG <name>[=<default value>]
     ```
 
 13. **LABEL** command
@@ -209,8 +209,6 @@ With DockerFile, it has a set of commands that we need to know. To know more abo
     ```
 
 14. **CMD** command
-
-
 
     Syntax:
 
@@ -233,6 +231,9 @@ With DockerFile, it has a set of commands that we need to know. To know more abo
 Below is the content of DockerFile that create image contains MySQL.
 
 ```python
+# pull mysql:5.6 image
+FROM mysql:5.6
+
 
 ```
 
@@ -275,3 +276,7 @@ Refer:
 [https://viblo.asia/p/docker-nhung-kien-thuc-co-ban-phan-1-bJzKmM1kK9N](https://viblo.asia/p/docker-nhung-kien-thuc-co-ban-phan-1-bJzKmM1kK9N)
 
 [https://phoenixnap.com/kb/docker-cmd-vs-entrypoint](https://phoenixnap.com/kb/docker-cmd-vs-entrypoint)
+
+[https://phoenixnap.com/kb/mysql-docker-container](https://phoenixnap.com/kb/mysql-docker-container)
+
+[https://phoenixnap.com/kb/list-of-docker-commands-cheat-sheet#htoc-docker-commnads-for-container-and-image-information](https://phoenixnap.com/kb/list-of-docker-commands-cheat-sheet#htoc-docker-commnads-for-container-and-image-information)
