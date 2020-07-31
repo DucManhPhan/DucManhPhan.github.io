@@ -240,7 +240,7 @@ To utilize Spring Data Jpa, we will have two ways to configure dependencies.
 
     - Using DataSourceBuilder instance.
 
-        Apart from using DataSourceProperties instance, we can have another way to build DataSource relied on DataSourceBuilder.
+        Apart from using **DataSourceProperties** instance, we can have another way to build DataSource relied on DataSourceBuilder.
 
         ```java
         @Bean(name = "mainDataSource")
@@ -250,6 +250,8 @@ To utilize Spring Data Jpa, we will have two ways to configure dependencies.
             return DataSourceBuilder.create().build();
         }
         ```
+
+        By default, Spring Boot 2.x will choose HirakiCP, so we do not need to setup it in **dataSource()** method here.
 
 2. Using programming with fixed value
 
