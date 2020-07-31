@@ -18,7 +18,7 @@ tags: [Java]
 
 <br>
 
-## 
+## Given problem
 
 
 
@@ -45,6 +45,7 @@ tags: [Java]
 <br>
 
 ## Wrapping up
+
 - The **java.sql** package has three date/time types:
 
     - **java.sql.Date** - A date only (no time part)
