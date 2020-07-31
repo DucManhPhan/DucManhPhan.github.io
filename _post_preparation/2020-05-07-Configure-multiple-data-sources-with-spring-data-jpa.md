@@ -13,7 +13,7 @@ tags: [Spring]
 - [Given problem](#given-problem)
 - [Solution of Spring Data JPA](#solution-of-spring-data-jpa)
 - [Configure DataSource](#configure-datasource)
-- []()
+- [Some problems that we encounter](#some-problems-that-we-encounter)
 - [Wrapping up](#wrapping-up)
 
 
@@ -201,6 +201,8 @@ To utilize Spring Data Jpa, we will have two ways to configure dependencies.
 
 1. Using annotations with external file
 
+    Below is the content of application.properties file or the other external file.
+
     ```java
     // configure parameters in application.properties file
     primary.datasource.default.enable=true
@@ -211,13 +213,56 @@ To utilize Spring Data Jpa, we will have two ways to configure dependencies.
     primary.datasource.default.configuration.maximum-pool-size=30
     ```
 
+    There are two ways to build the **dataSource()** method.
+    - Using DataSourceProperties to map all properties.
 
+        ```java
+        @Bean
+        @Primary
+        @ConfigurationProperties("app.datasource.default")
+        public DataSourceProperties defaultDataSourceProperties() {
+            return new DataSourceProperties();
+        }
+
+        @Bean(name = "mainDataSource")
+        @Primary
+        @ConfigurationProperties(prefix = "app.datasource.default.configuration")
+        public DataSource dataSource() {
+            return defaultDataSourceProperties().initializeDataSourceBuilder()
+                                                .type(HikariDataSource.class)
+                                                .build();
+        }
+        ```
+
+        By using **@ConfigurationProperties** annotation, Spring will map each property with **prefix = app.datasource.default** into each field of **DataSourceProperties**.
+
+        Then based on an instance of **DataSourceProperties**, we will use Builder pattern to mock with HikariCP into its DataSource.
+
+    - Using DataSourceBuilder instance.
+
+        Apart from using DataSourceProperties instance, we can have another way to build DataSource relied on DataSourceBuilder.
+
+        ```java
+        @Bean(name = "mainDataSource")
+        @Primary
+        @ConfigurationProperties(prefix = "app.datasource.default.configuration")
+        public DataSource dataSource() {
+            return DataSourceBuilder.create().build();
+        }
+        ```
 
 2. Using programming with fixed value
 
     ```java
 
     ```
+
+
+<br>
+
+## Configure EntityManagerFactory
+
+
 
 
 <br>
@@ -251,6 +296,8 @@ Refer:
 
 [https://www.baeldung.com/spring-data-jpa-multiple-databases](https://www.baeldung.com/spring-data-jpa-multiple-databases)
 
+[https://howtodoinjava.com/spring-boot2/datasource-configuration/](https://howtodoinjava.com/spring-boot2/datasource-configuration/)
+
 [https://springframework.guru/how-to-configure-multiple-data-sources-in-a-spring-boot-application/](https://springframework.guru/how-to-configure-multiple-data-sources-in-a-spring-boot-application/)
 
 [https://raymondhlee.wordpress.com/2015/10/31/configuring-multiple-jpa-entity-managers-in-spring-boot/](https://raymondhlee.wordpress.com/2015/10/31/configuring-multiple-jpa-entity-managers-in-spring-boot/)
@@ -258,5 +305,9 @@ Refer:
 [https://stackoverflow.com/questions/52333614/two-databases-configured-in-spring-boot-application](https://stackoverflow.com/questions/52333614/two-databases-configured-in-spring-boot-application)
 
 [https://blog.netgloo.com/2014/10/27/using-mysql-in-spring-boot-via-spring-data-jpa-and-hibernate/](https://blog.netgloo.com/2014/10/27/using-mysql-in-spring-boot-via-spring-data-jpa-and-hibernate/)
+
+[https://stackoverflow.com/questions/55664804/hikari-cp-properties-are-not-working-with-multiple-datasource-configuration-in-s](https://stackoverflow.com/questions/55664804/hikari-cp-properties-are-not-working-with-multiple-datasource-configuration-in-s)
+
+[https://github.com/dijalmasilva/spring-boot-multitenancy-datasource-liquibase](https://github.com/dijalmasilva/spring-boot-multitenancy-datasource-liquibase)
 
 [https://springframework.guru/run-spring-boot-on-docker/](https://springframework.guru/run-spring-boot-on-docker/)
