@@ -280,3 +280,15 @@ Refer:
 [https://phoenixnap.com/kb/mysql-docker-container](https://phoenixnap.com/kb/mysql-docker-container)
 
 [https://phoenixnap.com/kb/list-of-docker-commands-cheat-sheet#htoc-docker-commnads-for-container-and-image-information](https://phoenixnap.com/kb/list-of-docker-commands-cheat-sheet#htoc-docker-commnads-for-container-and-image-information)
+
+<br>
+
+**The environment variables of MySQL and Mariadb**
+
+[https://hub.docker.com/r/mariadb/server](https://hub.docker.com/r/mariadb/server)
+
+[https://hub.docker.com/_/mysql](https://hub.docker.com/_/mysql)
+
+[https://dev.mysql.com/doc/mysql-installation-excerpt/8.0/en/docker-mysql-getting-started.html](https://dev.mysql.com/doc/mysql-installation-excerpt/8.0/en/docker-mysql-getting-started.html)
+
+[https://phoenixnap.com/kb/mysql-docker-container](https://phoenixnap.com/kb/mysql-docker-container)
