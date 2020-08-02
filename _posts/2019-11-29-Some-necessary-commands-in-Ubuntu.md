@@ -408,7 +408,26 @@ Let's get started.
 - Shutdown Ubuntu
 
     ```bash
+    # 1st way - shutdown immediately system
+    sudo power off
+
+    # 2nd way
+    shutdown -h now
+
+    # 3rd way - shutdown that asks for a password
     sudo poweroff
+
+    # 4th way - shutdown after n minutes
+    shutdown -h <time_in_minutes>
+
+    shutdown +<time_in_minutes>
+
+    # Cancel shutdown
+    shutdown -c
+
+    # shutdown at the specific time
+    # Ex: shutdown -h 20:3
+    shutdown -h HH:MM
     ```
 
 <br>
