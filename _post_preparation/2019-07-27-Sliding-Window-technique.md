@@ -2,7 +2,7 @@
 layout: post
 title: Sliding window technique
 bigimg: /img/image-header/home-office-1.jpg
-tags: [Coding Patterns, Algorithm]
+tags: [Sliding Window]
 ---
 
 
