@@ -166,6 +166,8 @@ In order to push the usage of VIM, we should learn something about command in mo
 - Y : yank (copy) the current line.
 - p : put the yanked content. Notice that yanking will move text to a special VIM reserved buffer, and not to your usual clipboard. We can manage two different clipboards. The first way, we can paste from with **Ctrl + Shift + v** in editing mode. The second way, with **p** (in the normal mode).
 
+    For example, if we want to duplicate multiple line, then we will combine to the Y character with this p. So, we have: **Yp**.
+    
 - d : delete text specified by motion (!important)
 - dd : delete the current line
 - c : delete text specified by motion and go to insert mode (!important)
