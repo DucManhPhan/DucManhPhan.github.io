@@ -2,7 +2,7 @@
 layout: post
 title: Screen command in Ubuntu
 bigimg: /img/image-header/road-to-solution.jpeg
-tags: [Ubuntu, Linux]
+tags: [Ubuntu]
 ---
 
 
