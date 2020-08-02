@@ -276,7 +276,12 @@ Let's get started.
     For example:
 
     ```bash
+    # shutdown OS in 60 seconds
     shutdown -s -t 60
+
+    # sleep OS
+    powercfg /h on
+    shutdown /h
     ```
 
 2. Operations with PATH environment
