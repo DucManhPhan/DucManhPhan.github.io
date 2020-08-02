@@ -77,12 +77,23 @@ VIM supplies the three building blocks of text objects: words, sentences, and pa
 ## Adverbs
 - i --> inside
 
+    For example:
+    - yiw - yank the current word (excluding surrounding whitespace).
+
 - a --> around
+
+    For example:
+    - yaw - yank the current word (including the leading or trailing whitespace).
 
 - t --> till
 
+    For example:
+    - ytx - yank the current cursor position up to and before the character (till x).
+
 - f --> till (inclusive)
 
+    For example:
+    - yfx - yank the current cursor position up to and including the character (find x).
 
 <br>
 
@@ -162,13 +173,31 @@ In order to push the usage of VIM, we should learn something about command in mo
 
 ## Commands in Normal Mode
 - y : yank (copy) text specified by motion (!important)
+
+    For example, if we want to copy from the current position to the end of line, then we have:
+    - The normal mode command to move to the end of line is $. So we can copy to the end of the line with **y$** and paste with **p**.
+    - To copy/paste between different instances, we can use the system clipboard by selecting the * register, so the commands become ```*y$``` for copying and ```*p``` for pasting.
+
 - yy : yank (copy) the current line
 - Y : yank (copy) the current line.
-- p : put the yanked content. Notice that yanking will move text to a special VIM reserved buffer, and not to your usual clipboard. We can manage two different clipboards. The first way, we can paste from with **Ctrl + Shift + v** in editing mode. The second way, with **p** (in the normal mode).
+- p : put the yanked content after the cursor.
+
+    Notice that yanking will move text to a special VIM reserved buffer, and not to your usual clipboard. We can manage two different clipboards. The first way, we can paste from with **Ctrl + Shift + v** in editing mode. The second way, with **p** (in the normal mode).
 
     For example, if we want to duplicate multiple line, then we will combine to the Y character with this p. So, we have: **Yp**.
-    
+
+    gp and gP - paste content and move the cursor after that content. 
+     
+- P: put the copied content before the cursor.
+
 - d : delete text specified by motion (!important)
+
+    For example, d{motion} with motion can be: j, k, $, 0.
+    - dj - delete from the current line to the below line.
+    - dk - delete from the current line to the above line.
+    - d$ - delete from the current cursor to the end of line.
+    - d0 - delete from the current cursor the the begin of line.
+
 - dd : delete the current line
 - c : delete text specified by motion and go to insert mode (!important)
 - x : delete character under the cursor
@@ -309,7 +338,7 @@ Below is commands about working with file in VIM editor.
 - cw : delete word and enter the insert mode
 - dw : delete word and staying in the normal mode
 - cfx : change all text till the 'x' (includes the 'x') 
-- ctx : change all text tille the 'x'
+- ctx : change all text till the 'x'
 - dtx : delete all text till the next 'x'
 - dfx : same, but include the 'x'
 - Yp : duplicate lines 

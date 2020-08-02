@@ -10,10 +10,10 @@ tags: [Sliding Window]
 <br>
 
 ## Table of contents
-- []()
-- []()
-- []()
-- []()
+- [Given problem](#given-problem)
+- [Using brute force algorithm](#using-brute-force-algorithm)
+- [Using Sliding Window technique](#using-sliding-window-technique)
+- [Wrappng up](#wrapping-up)
 
 
 <br>
@@ -41,7 +41,7 @@ Note:
 
 <br>
 
-## Using brute force algorith
+## Using brute force algorithm
 
 
 
