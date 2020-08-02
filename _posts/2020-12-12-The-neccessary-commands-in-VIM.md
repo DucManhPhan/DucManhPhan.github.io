@@ -113,7 +113,7 @@ VIM also provides some text objects based on common programming language constru
     - at: a tag block
     - it: inner tag block 
 
-    Or something will not happen. So we can try to use the other way: 
+Or something will not happen. So we can try to use the other way: 
     - a>: a single tag
     - i>: inner single tag
 
@@ -319,6 +319,9 @@ Below is commands about working with file in VIM editor.
 
 ## Wrapping up
 
+- Understanding about the action and objects in VIM.
+
+- Practice all commands makes us better to code.
 
 
 <br>
