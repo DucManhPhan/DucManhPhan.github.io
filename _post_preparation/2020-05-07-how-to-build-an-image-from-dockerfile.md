@@ -249,8 +249,9 @@ FROM mysql:5.6
 
 ## Why we need to use base image
 
-https://www.youtube.com/watch?v=FaR1rwX4YfU
+Normally, when we want to install our new software, we need to know what environment that we are using such as which Operating System - Ubuntu, Windows, MacOS, ... And then, we will start downloading software that we need from Internet. After downloaded completely, we will execute that installer. Finally, we will begin to use it.
 
+The base image is as same as the environment that our current image need to live on it.
 
 <br>
 
