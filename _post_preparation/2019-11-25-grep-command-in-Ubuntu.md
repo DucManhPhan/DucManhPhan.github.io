@@ -1,6 +1,6 @@
 ---
 layout: post
-title: Nohup command in Ubuntu
+title: grep command in Ubuntu
 bigimg: /img/image-header/road-to-solution.jpeg
 tags: [Ubuntu]
 ---
@@ -11,9 +11,10 @@ tags: [Ubuntu]
 <br>
 
 ## Table of contents
-
-
-
+- [Intention of screen command](#intention-of-screen-command)
+- []()
+- []()
+- [Wrapping up](#wrapping-up)
 
 
 <br>
@@ -63,3 +64,4 @@ Thanks for your reading.
 <br>
 
 Refer:
+

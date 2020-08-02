@@ -1,6 +1,6 @@
 ---
 layout: post
-title: Nohup command in Ubuntu
+title: ps command in Ubuntu
 bigimg: /img/image-header/road-to-solution.jpeg
 tags: [Ubuntu]
 ---
@@ -27,7 +27,6 @@ tags: [Ubuntu]
 <br>
 
 ## 
-
 
 
 
