@@ -76,11 +76,13 @@ Thanks for your reading.
 
 Refer:
 
-[]()
+[https://medium.com/swlh/change-data-capture-cdc-with-embedded-debezium-and-springboot-6f10cd33d8ec](https://medium.com/swlh/change-data-capture-cdc-with-embedded-debezium-and-springboot-6f10cd33d8ec)
 
-[]()
+[https://debezium.io/documentation/reference/0.9/connectors/mysql.html](https://debezium.io/documentation/reference/0.9/connectors/mysql.html)
 
-[]()
+[https://www.postgresql.org/docs/9.6/logicaldecoding-explanation.html](https://www.postgresql.org/docs/9.6/logicaldecoding-explanation.html)
+
+[https://github.com/debezium/debezium/tree/master/debezium-connector-mysql](https://github.com/debezium/debezium/tree/master/debezium-connector-mysql)
 
 <br>
 
