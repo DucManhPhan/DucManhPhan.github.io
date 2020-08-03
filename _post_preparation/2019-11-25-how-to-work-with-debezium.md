@@ -11,15 +11,17 @@ tags: [Ubuntu]
 <br>
 
 ## Table of contents
-- []()
-- []()
-- []()
+- [Given problem](#given-problem)
+- [Solution with Debezium](#solution-with-debezium)
+- [Using Docker Compose to define all softwares](#using-docker-compose-to-define-all-softwares)
+- [Source code](#source-code)
+- [Some problems happen in this project](#some-problems-happen-in-this-project)
 - [Wrapping up](#wrapping-up)
 
 
 <br>
 
-## 
+## Given problem
 
 
 
@@ -27,7 +29,7 @@ tags: [Ubuntu]
 
 <br>
 
-## 
+## Solution with Debezium
 
 
 
@@ -35,7 +37,7 @@ tags: [Ubuntu]
 
 <br>
 
-## 
+## Using Docker Compose to define all softwares
 
 
 
@@ -43,7 +45,16 @@ tags: [Ubuntu]
 
 <br>
 
-## 
+## Source code
+
+
+
+
+
+<br>
+
+## Some problems happen in this project
+
 
 
 
