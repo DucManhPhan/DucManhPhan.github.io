@@ -55,16 +55,20 @@ tags: [Ubuntu]
 
 ## Some problems happen in this project
 
+1. Timeout with Kafka
 
 
 
+2. Error configuring an instance of KafkaDatabaseHistory; check the logs for details
+
+https://stackoverflow.com/questions/62965307/debezium-mysql-connector-kinesis-service-not-starting
 
 
 <br>
 
 ## Wrapping up
 
-
+- ```table.whitelist``` should be set to to ```<schema>.<table>``` so in your case source.customer
 
 
 
@@ -83,6 +87,8 @@ Refer:
 [https://www.postgresql.org/docs/9.6/logicaldecoding-explanation.html](https://www.postgresql.org/docs/9.6/logicaldecoding-explanation.html)
 
 [https://github.com/debezium/debezium/tree/master/debezium-connector-mysql](https://github.com/debezium/debezium/tree/master/debezium-connector-mysql)
+
+[https://debezium.io/documentation/reference/1.2/operations/debezium-server.html#debezium-source-database-history-class](https://debezium.io/documentation/reference/1.2/operations/debezium-server.html#debezium-source-database-history-class)
 
 <br>
 
