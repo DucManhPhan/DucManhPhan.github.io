@@ -54,7 +54,12 @@ Debezium will contain some important parts:
 
 - Intermediate components
 
-    This part contains Debezium 
+    This part contains:
+    - Debezium library will read binlog file of MySQL, or transaction log of the other databases to convert CRUD operations in database into events of Debezium.
+
+    - Kafka Connect will receive data from Debezium. Then it pushes data into the specific topic that we configure.
+
+    - Apache Kafka
 
 <br>
 
