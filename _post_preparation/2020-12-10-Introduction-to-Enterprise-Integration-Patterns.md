@@ -121,6 +121,11 @@ Belows are 65 messaging patterns, organized as follows:
 
 
 
+5. Spring Integration
+
+
+
+
 <br>
 
 ## Wrapping up
