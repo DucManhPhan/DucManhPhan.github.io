@@ -11,8 +11,15 @@ tags: [Enterprise Integration Pattern]
 <br>
 
 ## Table of contents
-
-
+- [Introduction to Enterprise Integration Patterns](#introduction-to-enterprise-integration-patterns)
+- [Messaging Channels](#messaging-channels)
+- [Message Constructions](#message-constructions)
+- [Message Routing](#message-routing)
+- [Message Transformation](#message-transformation)
+- [Messaging Endpoints](#message-endpoints)
+- [System Management](#system-management)
+- [Some open source frameworks that implement EIP](#some-open-source-frameworks-that-implement-EIP)
+- [Wrapping up](#wrapping-up)
 
 
 
@@ -20,11 +27,8 @@ tags: [Enterprise Integration Pattern]
 
 ## Introduction to Enterprise Integration Patterns
 
-
 EIPs splits into some types.
 - Messaging Systems
-
-
 
 - Messaging Channels
 
