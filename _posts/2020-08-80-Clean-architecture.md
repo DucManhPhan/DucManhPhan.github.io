@@ -88,19 +88,70 @@ Bad or messy architecture is architecture that is complex, but due to accidental
 
         Use Cases are some business behaviors when the system receives requests. It can be considered as the Service layer in the layered architecture pattern.
 
+        In the reality, in our project, we usually define the operations that interact with the outside such as databases, memory caches, ... as the interfaces. It helps us to abstract all things from outside as much as possible. If the customer wants to changes a place that we want to persistent data from database to cache, we can easily switch them without influencing the current businesses of our system.
+
+        Normally, we expect one use case for each business action. And in each use case, we will include some interfaces that we need to communicate with the other system.
+
+        And one thing that we need to know is that throw business exceptions for validations of fields. If we encounter the cases about null pointer exception, throws the sytem exceptions.
+
     - Interface/Adapters
 
-        This layer can contain Presenters, Views, and Controllers. In this layer, we will convert the format data between the format most convenient for the use cases, entities and the format most convenient for some external agency such as the Database or the Web.
+        This layer is used to interact with the other systems. It can be splited two smaller layers.
+        - DataProviders
 
-        To communicate Web Services such as Restful API or SOAP API, each controller will need to inject instances of the specific use cases.
+            To interact with database or other systems that contain data, we will define some classes that implement the interfaces in Use Cases.
 
-        To interact with database or other systems that contain data, we will define some classes that implement the interfaces in Use Cases.
+        - EntryPoints
+
+            To communicate Web Services such as Restful API, SOAP API, JPos ISO, gRPC, each controller will need to inject instances of the specific use cases.
+
+            All data from the other services, we need to convert to our DTO objects.
 
     - Frameworks and drivers
 
-        This layer will be relevant to the external system such as Database, web framework, ... Normally, we do not need to take care about it. Normally, it is used to combine everything together.
+        This layer will be relevant to the external system such as Database, web framework, ... Normally, we do not need to take care about it. But it is used to combine everything together.
 
         Supposed in Spring framework, this layer will define main class, and some configuration classes.
+
+3. The package structure of Clean Architecture
+
+    From the above section, we understood the theory of Clean architecture. But how do we transform this thought into the package and implement with source code.
+
+    Below is the structure of package in Clean architecture.
+
+    ```
+    com.manhpd
+        |
+        |
+        |--- configuration
+        |    |
+        |    |--- database
+        |    |
+        |    |--- redis
+        |    |
+        |    |--- elastic_search
+        |
+        |--- core
+        |    |
+        |    |--- entity
+        |    |
+        |    |--- usecase
+        |
+        |--- dataprovider
+        |    |
+        |    |--- database
+        |    |
+        |    |--- redis
+        |    |
+        |    |--- elastic_search
+        |
+        |--- entrypoints
+        |    |
+        |    |--- rest
+        |    |
+        |    |--- job
+        |
+    ```
 
 <br>
 
@@ -108,25 +159,28 @@ Bad or messy architecture is architecture that is complex, but due to accidental
 
 1. Given problem
 
-
+    Supposed that we want to simulate how an Account can transfer Money to an another Account.
 
 2. Analysis entities and use cases - core layer
 
+    There are some entities in this problem:
+    - Account
+    - Activity
 
+    And we have one use case - send money. In this SendMoneyUseCase, we need to check the balance of this Account with the transfered money.
 
 3. Analysis the interface adapters layer
 
+    - With DataProvider layer, we have some actions with database:
 
+        - Load information about this account.
+        - Update that account's information when it satisfied about the balance and the transfered money.
 
-4. Analysis the framework and drivers layer
+    - With EntryPoint layer, we have SendMoneyEndPoint business action.
 
+4. Source code
 
-
-5. Structure of code
-
-
-6. Source code
-
+    
 
 <br>
 
@@ -187,3 +241,9 @@ Refer:
 [https://medium.freecodecamp.org/how-to-write-robust-apps-consistently-with-the-clean-architecture-9bdca93e17b](https://medium.freecodecamp.org/how-to-write-robust-apps-consistently-with-the-clean-architecture-9bdca93e17b)
 
 [https://marconijr.com/posts/clean-architecture-practice/](https://marconijr.com/posts/clean-architecture-practice/)
+
+<br>
+
+**The referenced source code**
+
+[https://github.com/mattia-battiston/clean-architecture-example/](https://github.com/mattia-battiston/clean-architecture-example/)

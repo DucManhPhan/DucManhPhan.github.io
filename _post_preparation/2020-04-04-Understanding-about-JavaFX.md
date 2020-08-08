@@ -356,12 +356,7 @@ newWindow.show();
 
 ## Wrapping up
 
-
-
-
-
-
-
+- Understanding about how to create the basic components in Java FX.
 
 <br>
 
