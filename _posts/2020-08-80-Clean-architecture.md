@@ -206,6 +206,8 @@ Bad or messy architecture is architecture that is complex, but due to accidental
 
     - We need to create so many interfaces such as define multiple use cases that our system needs multiple business action, it makes our performance not good. To understand about this trait, we need to find some resources that talk about the internal implementations of inheritance and polymorphism of OOP.
 
+        If we remove this drawback about that we have multiple interfaces, we can find a benefit here. We are decoupling between Domain and some persistence frameworks such as Hibernate, Eclipse Link, ... when we want to change accroding to the customer's requirements.
+
 <br>
 
 ## Wrapping up
