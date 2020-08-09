@@ -2,7 +2,7 @@
 layout: post
 title: How to work with Debezium
 bigimg: /img/image-header/road-to-solution.jpeg
-tags: [Ubuntu]
+tags: [Database]
 ---
 
 
