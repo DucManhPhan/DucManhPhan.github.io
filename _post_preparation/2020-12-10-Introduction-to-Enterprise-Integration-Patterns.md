@@ -108,6 +108,10 @@ So, how can we apply design pattern in the integration of system?
 
     ![](../img/Architecture-pattern/eip/eip-background.png)
 
+3. Some common definitions in EIPs
+
+    - Message
+
 <br>
 
 ## Messaging Channels
