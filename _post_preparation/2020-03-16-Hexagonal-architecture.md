@@ -64,6 +64,8 @@ How to deal with it?
 
 2. Introduction to Hexagonal architecture
 
+    ![](../img/Architecture-pattern/hexagonal/hexagonal-architecture.jpg)
+
     - Ports
 
         Ports form the outer layer of the architecture. They acts as an interface, an API to all the external requests. They prevent any external request to have any sort of direct interaction with an application resource.
