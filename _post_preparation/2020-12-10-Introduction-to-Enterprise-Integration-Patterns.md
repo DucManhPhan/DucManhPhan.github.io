@@ -62,9 +62,20 @@ Belows are 65 messaging patterns, organized as follows:
 
 ## Messaging Channels
 
+If our system want to communicate with the other systems by decoupling them, we need to use these patterns to deal with it.
 
+![](../img/Architecture-pattern/EIP/messaging-channels/MessageChannelSolution.gif)
 
-
+Belows are some messaging channel patterns that we need to know.
+- Point-to-Point Channel
+- Publish-Subscribe Channel
+- Datatype Channel
+- Invalid Message Channel
+- Dead Letter Channel
+- Guaranteed Delivery
+- Channel Adapter
+- Messaging Bridge
+- Message Bus
 
 
 <br>
