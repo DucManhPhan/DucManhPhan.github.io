@@ -199,9 +199,12 @@ To understand the meaning of each parameter in Debezium's configuration, we need
 
         In order to create KafkaDatabaseHistory right away, we need to configure some important options for Kafka.
         - **database.history.kafka.topic** option
+
+            The value of this option is equal to the topic that we are configured in kafka.
+
         - **database.history.kafka.bootstrap.servers** option
 
-            This 
+            The value of this option is the IP address of Kafka. 
 
         - **debezium.source.database.history** option for the mysql connector
 
