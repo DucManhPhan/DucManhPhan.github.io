@@ -31,7 +31,7 @@ Supposed that many companies have many different software systems and applicatio
 
 Integrating systems is not always easy, because the systems may have fastly different interfaces and use different data formats. Some of the ways in which systems can be connected together include Web services, messaging systems, exchanging files, FTP, shared databases, email and even custom application level networking protocols. Integration is about connecting systems using these mechanisms and also about translating data between different formats.
 
-![](../img/Architecture-pattern/eip/given-problem.png)
+![](../img/Architecture-pattern/EIP/given-problem.png)
 
 So, how can we apply design pattern in the integration of system?
 
@@ -46,21 +46,21 @@ So, how can we apply design pattern in the integration of system?
     One common way to let software components communicate with each other is through Web services, especially Restful API.
     - Synchronous
 
-        ![](../img/Architecture-pattern/eip/synchronous.png)
+        ![](../img/Architecture-pattern/EIP/synchronous.png)
 
         With JSON as the common data format are frequently used, webservies work in synchronous way. The client sends a request to the server and then waits until the server has processed it and sends back reponses. However, communication does not always need to be synchronous. In many cases, it can be asynchronous instead.
 
     - Asynchronous
 
-        ![](../img/Architecture-pattern/eip/asynchronous-1.png)
+        ![](../img/Architecture-pattern/EIP/asynchronous-1.png)
 
         When using asynchronous messaging system, the sender sends a message and immediately continues processing, not waiting for a response. The messaging system will make sure that the message is delivered to the receiver at some point in the future.
 
-        ![](../img/Architecture-pattern/eip/asynchronous-2.png)
+        ![](../img/Architecture-pattern/EIP/asynchronous-2.png)
 
         If the response is needed, a message might be sent back to the original sender in the same way.
 
-        ![](../img/Architecture-pattern/eip/asynchronous-3.png)
+        ![](../img/Architecture-pattern/EIP/asynchronous-3.png)
         
     It's the same as the difference between talking to someone on the phone and sending someone a text message. Talking on the phone is synchronous, we say something and then wait for the other person to respond to what we said.
 
@@ -108,7 +108,7 @@ So, how can we apply design pattern in the integration of system?
 
     Belows are 65 messaging patterns, organized as follows:
 
-    ![](../img/Architecture-pattern/eip/eip-background.png)
+    ![](../img/Architecture-pattern/EIP/eip-background.png)
 
 3. Some common definitions in EIPs
 
