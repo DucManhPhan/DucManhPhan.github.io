@@ -144,6 +144,8 @@ Below is an image that describe the coordination between CAP properties.
     Some AP databases:
     - Cassandra
     - DynamoDB
+    - Riak
+    - CouchDB
 
     When to use:
     - When the system needs to continue to function in spite of external errors.
@@ -151,7 +153,8 @@ Below is an image that describe the coordination between CAP properties.
 
 3. Consistency - Availability Databases
 
-    This database type does not exist in the reality. Because Partition Tolerance property does not remove or calculate in the real projects.
+    Some database types:
+    - All relational databases.
 
 <br>
 

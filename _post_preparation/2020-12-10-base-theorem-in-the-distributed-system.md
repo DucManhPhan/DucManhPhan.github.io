@@ -20,7 +20,6 @@ tags: [Distributed system]
 
 ## Given problem
 
-https://mytechnetknowhows.wordpress.com/2016/05/31/cap-theorem-consistency-availability-and-partition-tolerance/
 
 
 

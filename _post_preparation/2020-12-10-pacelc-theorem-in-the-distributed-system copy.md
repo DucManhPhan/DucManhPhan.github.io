@@ -18,11 +18,11 @@ tags: [Distributed system]
 
 <br>
 
-## 
+## Given problem
 
+https://hub.packtpub.com/the-cap-theorem-in-practice-the-consistency-vs-availability-trade-off-in-distributed-databases/
 
-
-
+https://mytechnetknowhows.wordpress.com/2016/05/31/cap-theorem-consistency-availability-and-partition-tolerance/
 
 
 <br>
