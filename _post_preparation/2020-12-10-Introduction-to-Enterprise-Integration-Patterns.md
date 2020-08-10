@@ -112,6 +112,10 @@ So, how can we apply design pattern in the integration of system?
 
     - Message
 
+        It's very important to understand what exactly a message is. Because it's a data unit to transmit between systems.
+
+
+
 <br>
 
 ## Messaging Channels
