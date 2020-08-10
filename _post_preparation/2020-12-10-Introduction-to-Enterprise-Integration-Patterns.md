@@ -11,56 +11,129 @@ tags: [Enterprise Integration Pattern]
 <br>
 
 ## Table of contents
+- [Introduction to Enterprise Integration Patterns](#introduction-to-enterprise-integration-patterns)
+- [Messaging Channels](#messaging-channels)
+- [Message Constructions](#message-constructions)
+- [Message Routing](#message-routing)
+- [Message Transformation](#message-transformation)
+- [Messaging Endpoints](#message-endpoints)
+- [System Management](#system-management)
+- [Some open source frameworks that implement EIP](#some-open-source-frameworks-that-implement-EIP)
+- [Wrapping up](#wrapping-up)
 
 
 
+<br>
 
+## Given problem
+
+Supposed that many companies have many different software systems and applications to run their business. The systems often have to be connected to work with each other and also two systems outside of the company itself. Connecting these different systems is what we mean by integration. Integrating systems is not always easy, because the systems may have fastly different interfaces and use different data formats. Some of the ways in which systems can be connected together include Web services, messaging systems, exchanging files, FTP, shared databases, email and even custom application level networking protocols. Integration is about connecting systems using these mechanisms and also about translating data between different formats.
+
+![](../img/Architecture-pattern/eip/given-problem.png)
+
+So, how can we apply design pattern in the integration of system?
 
 <br>
 
 ## Introduction to Enterprise Integration Patterns
 
+1. Enterprise Integration Patterns
+    
+    The EIPs focus on asynchronous messaging. In the below, we will compare the difference between asynchronous and synchronous, and the advantages of asynchronous way.
 
-EIPs splits into some types.
-- Messaging Systems
+    One common way to let software components communicate with each other is through Web services, especially Restful API.
+    - Synchronous
+
+        ![](../img/Architecture-pattern/eip/synchronous.png)
+
+        With JSON as the common data format are frequently used, webservies work in synchronous way. The client sends a request to the server and then waits until the server has processed it and sends back reponses. However, communication does not always need to be synchronous. In many cases, it can be asynchronous instead.
+
+    - Asynchronous
+
+        ![](../img/Architecture-pattern/eip/asynchronous-1.png)
+
+        When using asynchronous messaging system, the sender sends a message and immediately continues processing, not waiting for a response. The messaging system will make sure that the message is delivered to the receiver at some point in the future.
+
+        ![](../img/Architecture-pattern/eip/asynchronous-2.png)
+
+        If the response is needed, a message might be sent back to the original sender in the same way.
+
+        ![](../img/Architecture-pattern/eip/asynchronous-3.png)
+        
+    It's the same as the difference between talking to someone on the phone and sending someone a text message. Talking on the phone is synchronous, we say something and then wait for the other person to respond to what we said.
+
+    Sending a text message is asynchronous. We send a message and continue doing other things. At some point in the future, the other person will read our message.
+
+    Some advantages of Asynchronous:
+    - More responsive system because sender does not have to wait.
+    - Message buffering makes the system resilient to failure.
+
+        For example, in the queue. This makes it possible for the system to continue working. If the reciever is temporarily unavailable when the receiver is back up again, it continues to process messages that are waiting it in the queue. This makes system to be able to deal with temporary failures withou losing data.
+
+    - Receier processes messages at its own rate.
+
+        A queue also helps to prevent the receiver being overwhemed with requests because the receiver can get messages from the queue and process them at a rate that is independent of how fast the sender is putting messages into the queue.
 
 
+2. Some types of EIPs
 
-- Messaging Channels
+    EIPs splits into some types.
+    - Messaging Systems
 
-    It deals with various different types of channels which enable messages to be exchanged between applications.
+    - Messaging Channels
 
-- Message Constructions
+        It deals with various different types of channels which enable messages to be exchanged between applications.
 
-    It describes how messages can be constructed.
+    - Message Constructions
 
-- Message Routing
+        It describes how messages can be constructed.
 
-    It describes ways how message can be routed from a source to one or more destination applications.
+    - Message Routing
 
-- Message Transformation
+        It describes ways how message can be routed from a source to one or more destination applications.
 
-    It deals with transformation issues for messages.
+    - Message Transformation
 
-- Messaging endpoints
+        It deals with transformation issues for messages.
 
-    It shows different ways how applications can be connected to messaging system.
+    - Messaging endpoints
 
-- System management
+        It shows different ways how applications can be connected to messaging system.
 
-    It deals with management and governance issues of message-based EAI (Enterprise Application Integration) solutions.
+    - System management
 
-Belows are 65 messaging patterns, organized as follows:
+        It deals with management and governance issues of message-based EAI (Enterprise Application Integration) solutions.
 
-![](../img/Architecture-pattern/eip/eip-background.png)
+    Belows are 65 messaging patterns, organized as follows:
+
+    ![](../img/Architecture-pattern/eip/eip-background.png)
+
+3. Some common definitions in EIPs
+
+    - Message
+
+        It's very important to understand what exactly a message is. Because it's a data unit to transmit between systems.
+
+
 
 <br>
 
 ## Messaging Channels
 
+If our system want to communicate with the other systems by decoupling them, we need to use these patterns to deal with it.
 
+![](../img/Architecture-pattern/EIP/messaging-channels/MessageChannelSolution.gif)
 
-
+Belows are some messaging channel patterns that we need to know.
+- Point-to-Point Channel
+- Publish-Subscribe Channel
+- Datatype Channel
+- Invalid Message Channel
+- Dead Letter Channel
+- Guaranteed Delivery
+- Channel Adapter
+- Messaging Bridge
+- Message Bus
 
 
 <br>
@@ -119,6 +192,14 @@ Belows are 65 messaging patterns, organized as follows:
 4. Apache ServiceMix
 
 
+
+
+5. Spring Integration
+
+    Some benefits of using Spring Integration:
+    - Integrate many different kinds of systems without writing plumbing code.
+    - Separate integration code from business logic.
+    - Use EIPs in our Spring-based applications.
 
 
 <br>

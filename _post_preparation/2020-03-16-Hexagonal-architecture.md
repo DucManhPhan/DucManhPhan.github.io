@@ -56,7 +56,7 @@ How to deal with it?
 
 <br>
 
-## Solution of Hexagonal architecture
+## Solution of Hexagonal Architecture
 
 1. History of Hexagonal
 
@@ -64,11 +64,41 @@ How to deal with it?
 
 2. Introduction to Hexagonal architecture
 
+    ![](../img/Architecture-pattern/hexagonal/hexagonal-architecture.jpg)
+
     - Ports
 
         Ports form the outer layer of the architecture. They acts as an interface, an API to all the external requests. They prevent any external request to have any sort of direct interaction with an application resource.
 
     - Adapters
+
+
+3. The package structure of Hexagonal Architecture
+
+    ```
+    com.manhpd
+        |
+        |--- bounded_context_name
+        |           |
+        |           |--- adapter
+        |           |       |--- in
+        |           |       |     |--- web  
+        |           |       |
+        |           |       |--- out
+        |           |             |
+        |           |             |--- persistence
+        |           |             
+        |           |--- domain             
+        |           |
+        |           |--- application
+        |           |         |--- service  
+        |           |         |
+        |           |         |--- port
+        |           |         |      |
+        |           |         |      |--- in
+        |           |         |      |  
+        |           |         |      |--- out
+    ```
 
 <br>
 

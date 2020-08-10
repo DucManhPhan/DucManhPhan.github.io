@@ -73,5 +73,3 @@ Refer:
 [https://medium.com/faun/four-event-driven-patterns-4b1cad5ac5e3](https://medium.com/faun/four-event-driven-patterns-4b1cad5ac5e3)
 
 [https://medium.com/swlh/event-sourcing-as-a-ddd-pattern-fea6de35fcca](https://medium.com/swlh/event-sourcing-as-a-ddd-pattern-fea6de35fcca)
-
-[]()

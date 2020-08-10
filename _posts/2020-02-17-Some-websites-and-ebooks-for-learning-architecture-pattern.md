@@ -77,7 +77,6 @@ In order to learn about architecture pattern, we should note about some interest
         - Interactive systems --> MVC, Presentation-Abstraction-Control.
         - Adaptable systems --> Microkernel, Reflection.
 
-
         This book gives us some ways to choose the suitable architecture pattern for specific system.
 
     - [Architectural Patterns_ Uncover essential patterns in the most indispensable realm of enterprise architecture]()

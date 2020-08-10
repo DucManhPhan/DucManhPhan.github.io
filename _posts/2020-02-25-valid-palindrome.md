@@ -10,9 +10,10 @@ tags: [Two-Pointers]
 <br>
 
 ## Table of contents
-
-
-
+- [Given problem](#given-problem)
+- [Using recursive version](#using-recursive-version)
+- [Using Two-Pointers technique](#using-two-pointers-technique)
+- [Wrapping up](#wrapping-up)
 
 
 <br>
@@ -38,16 +39,48 @@ Constraints:
 
 <br>
 
-## Using brute force algorithm
+## Using recursive version
 
 
+```java
+public static boolean isPalindrome0(String s) {
+    int left = 0;
+    int right = s.length() - 1;
 
+    return isPalindrome0(s, left, right);
+}
+
+public static boolean isPalindrome0(String s, int left, int right) {
+    if (left >= right) {
+        return true;
+    }
+
+    while (!Character.isLetterOrDigit(s.charAt(left))) {
+        ++left;
+    }
+
+    while (!Character.isLetterOrDigit(s.charAt(right))) {
+        --right;
+    }
+
+    if (Character.toLowerCase(s.charAt(left)) != Character.toLowerCase(s.charAt(right))) {
+        return false;
+    }
+
+    return isPalindrome0(s, ++left, --right);
+}
+```
+
+The complexity of this solution:
+- Time complexity: O(n)
+- Space complexity: O(n)
 
 
 <br>
 
 ## Using Two-Pointers technique
 
+Based on the definition of palindrome string, so we can use two pointers technique to solve it.
 
 ```java
 public boolean isPalindrome(String s) {
@@ -80,6 +113,9 @@ public boolean isPalindrome(String s) {
 }
 ```
 
+The complexity of this solution:
+- Time complexity: O(n)
+- Space complexity: O(1)
 
 
 <br>
@@ -87,9 +123,6 @@ public boolean isPalindrome(String s) {
 ## Wrapping up
 
 - Understanding the traits that we can apply two pointers technique.
-
-
-
 
 
 <br>
