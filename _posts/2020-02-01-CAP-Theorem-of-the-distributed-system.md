@@ -121,23 +121,33 @@ Below is an image that describe the coordination between CAP properties.
 
     Our expectation is that we need consistency property, even if the partition tolerence property happens. It means that we get the same lastest data for this case.
 
-    For example, in e-commercial website, when a user orders some products, the system needs to subtract immediately the number of these products in data warehouse. If the number of these products will not reflect to other users, it makes users need to do multiple operations before identifying these products has remained or not. It's very bad UX. 
+    But if a node goes down, the system will be wait for all nodes that are available. If they're available, the synchronization about data will happen between nodes. So when we send request to this system, we can receive timeout error because this system does not respond something.
+
+    For example, MySQL has Replication mode with one master and multiple slave. When a write request to a master, this will be pass to all slaves. If a slave does not respond, our system will wait for it in available state.
 
     Some database types that we can use:
     - Big Table
     - MongoDB
     - HBase
     - Redis
+    - CockroachDB
+
+    When to use:
+    - When our business requirements want the atomic reads and writes.
 
 2. Availability - Partition Tolerance Databases
 
-    In the case that our databases where a place that contains log information, or activity of users, ..., we only want to capture as much information as possible about what a user or customer is doing.
+    In the case that our databases where a place that contains log information, or activity of users, ..., we only want to capture as much information as possible about what a user or customer is doing. The information could be stale.
 
-    It means that we only need to access these databases when the connection of nodes break down. The growing demand for offline application use is also one reason why we might use a NoSQL database that prioritizes availability over consistency.
+    It means that we only need to access these databases when the connection of nodes break down. After their connection will be resolved, the synchronization about data between nodes will be applied. But it does not guarantee that the data that we capture from the partitioned node is the latest data.
 
     Some AP databases:
     - Cassandra
     - DynamoDB
+
+    When to use:
+    - When the system needs to continue to function in spite of external errors.
+    - When the system only want to access data without the status of that data, it can be stale or not.
 
 3. Consistency - Availability Databases
 
@@ -159,18 +169,15 @@ Below is an image that describe the coordination between CAP properties.
 
     - It helps us to think about the effective way to choose, design database systems.
 
-
 2. Drawbacks
 
-
+    - The CAP theorem only offers us to choose between Consistency and Availability. It does not provide a way that is balance between Consistency and Availability.
 
 <br>
 
 ## Wrapping up
-- To summarize this CAP theorem, it can be described in the below image.
 
-    ![](../img/distributed-system/CAP-theorem/availability-consistency-partition_tolerance.png)
-
+- Understanding about the CP/AP databases, which types that our application needs.
 
 <br>
 
