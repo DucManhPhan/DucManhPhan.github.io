@@ -207,6 +207,14 @@ Belows are some patterns in Message Transformation.
 
 ## Messaging Endpoints
 
+When we work with a messaging system, senders and receivers of messages need to connect in some way to be able to send and receive messages. A message endpoint is the part of the code of a sender and a receiver that connects to the messaging system.
+
+![](../img/Architecture-pattern/EIP/message-endpoint/message-endpoint.png)
+
+Some patterns in Messaging Endpoints:
+- Channel Adapter
+- Gateway
+- Service Activator
 
 
 <br>
