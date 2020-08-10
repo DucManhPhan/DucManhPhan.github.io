@@ -27,7 +27,9 @@ tags: [Enterprise Integration Pattern]
 
 ## Given problem
 
-Supposed that many companies have many different software systems and applications to run their business. The systems often have to be connected to work with each other and also two systems outside of the company itself. Connecting these different systems is what we mean by integration. Integrating systems is not always easy, because the systems may have fastly different interfaces and use different data formats. Some of the ways in which systems can be connected together include Web services, messaging systems, exchanging files, FTP, shared databases, email and even custom application level networking protocols. Integration is about connecting systems using these mechanisms and also about translating data between different formats.
+Supposed that many companies have many different software systems and applications to run their business. The systems often have to be connected to work with each other and also two systems outside of the company itself. Connecting these different systems is what we mean by integration.
+
+Integrating systems is not always easy, because the systems may have fastly different interfaces and use different data formats. Some of the ways in which systems can be connected together include Web services, messaging systems, exchanging files, FTP, shared databases, email and even custom application level networking protocols. Integration is about connecting systems using these mechanisms and also about translating data between different formats.
 
 ![](../img/Architecture-pattern/eip/given-problem.png)
 
@@ -114,13 +116,23 @@ So, how can we apply design pattern in the integration of system?
 
         It's very important to understand what exactly a message is. Because it's a data unit to transmit between systems.
 
+        Message contains two parts:
+        - header
 
+            The header contains metadata, which can be anything that the messaging system needs to deliver the message to a receiver, for example, timestamp.
 
+            If we know how Http works, then this model of a message will look familiar. An Http request and response also consists of headers with metadata and optionally, a body that contains application-specific data to get messages from a sender to receiver.
+
+        - payload
+
+            A payload is the actual content of the message. This can be any kind of data, and the meaning of the payload is application specific.
 <br>
 
 ## Messaging Channels
 
-If our system want to communicate with the other systems by decoupling them, we need to use these patterns to deal with it.
+If our system want to communicate with the other systems by decoupling them, we need to use Message Channel's patterns to deal with it.
+
+A message channel is an abstract idea of something that carries messages from a sender to receiver. There are many different ways to implement message channel. For example, queue, but a message channel is not always a queue.
 
 ![](../img/Architecture-pattern/EIP/messaging-channels/MessageChannelSolution.gif)
 
@@ -135,6 +147,14 @@ Belows are some messaging channel patterns that we need to know.
 - Messaging Bridge
 - Message Bus
 
+But we can only look at the two main types of message channel, which are point-to-point channel and publish-subscribe channel.
+- A Point-to-Point channel is a message channel that connect exactly one sender with exactly one receiver.
+
+    For example, a queue.
+
+- A Publish-Subscribe channel is used to broadcast messages from one sender to multiple receivers.
+
+    One common scenario where we would want to use a publish-subscribe channel is to broadcast event notifications to parts of our software that are interested in particular types of events.
 
 <br>
 
@@ -148,15 +168,39 @@ Belows are some messaging channel patterns that we need to know.
 
 ## Message Routing
 
+There might be some situations where the receiver of a message that gets sent to a Message Channel is not always fixed. We might want to decide, for example, based on a specific header value in the message, which receiver should process the message.
 
+![](../img/Architecture-pattern/EIP/message-routing/message-routing.png)
 
+A message router is a component in the messaging system that makes such decisions. The messaging system might even decide to drop a message all together and not deliver to any receiver. A component that makes such decisions is a message filter.
+
+Below is some patterns in Message Routing.
+- Message Router
+- Message Filter
+- Splitter
+- Dynamic Router
 
 
 <br>
 
 ## Message Transformation
 
+The different systems often produce and consume data in different formats.
 
+For example, a sender might produce messages in JSON format, and a receiver expects XML, we need a message translator between them to convert messages from JSON to XML.
+
+![](../img/Architecture-pattern/EIP/message-transformation/message-transformation.png)
+
+Other kinds of message transformers work on the headers rather than the payload of a message, or enriched the content of a message with the document from another source, such as a database.
+
+Belows are some patterns in Message Transformation.
+- Message Translator
+- Content Enricher
+- Envelope Wrapper
+- Content Filter
+- Claim Check
+- Normalizer
+- Canonical Data Model
 
 
 <br>
@@ -206,7 +250,9 @@ Belows are some messaging channel patterns that we need to know.
 
 ## Wrapping up
 
+- Understanding some types of Enterprise Integration Patterns.
 
+- Some frameworks that we can use to apply EIPs.
 
 
 <br>
