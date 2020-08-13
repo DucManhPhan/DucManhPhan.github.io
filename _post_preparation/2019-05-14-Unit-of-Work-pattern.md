@@ -80,6 +80,8 @@ So, how do we overcome this problem?
 
     - improve the performance of system when we are working with bulk of data, not iterately each record.
 
+        Because this pattern reduces the amount of calls to the database.
+
     - It's really suitable for DDD because our Aggregate object will contains multiple Domain Models. Then, we need to consider the persistence operations for this Aggregate object as one operation.
 
 
