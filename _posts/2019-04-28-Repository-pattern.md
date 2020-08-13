@@ -2,7 +2,7 @@
 layout: post
 title: Repository pattern
 bigimg: /img/image-header/california.jpg
-tags: [Enterprise Pattern, Design Pattern]
+tags: [Enterprise Pattern]
 ---
 
 In this article, we will find out something about Repository pattern such as the context's problem, when to use Repository pattern, the advantages and disadvantages, ...
@@ -27,27 +27,60 @@ The context of this problem is as same as the problem of DAO pattern. But in ord
 
 After we read this part, we will gain the background about how to use and when to use DAO pattern and Repository pattern, simply because both DAO pattern and Repository pattern used to separate between Persistence layer and Business Logic layer.
 
+Belows are some specific problems when we don't use Repository pattern.
+
+![](../img/design-pattern/repository-pattern/without-repository-pattern.png)
+
+In this case, we are trying to fetch some data from our Data Access Layer, which then goes to the native queries to our database. The Data Access Layer will then get all the data back to it. In this case, we're loading some orders, and then those orders are returned back to the Controller in our web application.
+
+Some problems without using Repository pattern:
+- The controller is tightly coupled with the Data Access layer.
+
+    It means that the controller has to know about the ORM or the way that we work with our database. For example, in this case, it might know that we are leveraging frameworks.
+
+- It's difficult to write a test for the Controller without side effect.
+
+- Hard to extend entities with domain specific behaviour before they're returned back to the Controller.
+
+    And it's also hard to directly communicate with a Data Access layer, out of Controller.
+
 <br>
 
 ## Solution of Repository Pattern
-Repository pattern was first introduced as a part of Domain Drive Design in 2004.
 
-In the book **Patterns of Enterprise Application Architecture**, Martin Fowler describes a repository as follows:
+1. Solve the above problem
 
-```
-A repository performs the tasks of an intermediary between the domain model layers and data mapping, acting in a similar way to a set of domain objects in memory. Client objects declaratively build queries and send them to the repositories for answers. Conceptually, a repository encapsulates a set of objects stored in the database and operations that can be performed on them, providing a way that is closer to the persistence layer. Repositories, also, support the purpose of separating, clearly and in one direction, the dependency between the work domain and the data allocation or mapping.
-```
+    ![](../img/design-pattern/repository-pattern/apply-repository-pattern.png)
 
-![](../img/design-pattern/repository-pattern/Interactions-of-the-repository.png)
+    Applying Repository pattern simply means that we introduce a layer that encapsulate our data access code. This means that our repository will know how to communicate with, for instance, hibernate or our file on disk or the other types of databases. This means that the controller can now leverage our repository to ask for data without having to worry about how that data is fetched from our data store.
 
-It is important note about Repository pattern: Repositories play an important part in DDD, they speak the language of the domain and act as mediators between the domain and data mapping layers. They provide a common language to all team members by translating technical terminology into business terminology.
+    So, from an above image, we have some benefits when using Repository pattern:
+    - The Controller is now seperated (decoupled) from the data access.
+    - It's easy to write a test without side-effects because the Controller can simply replace our repository at runtime using, for instance, the Strategy pattern.
+    - Modify and extend entities before they are passed on to the Controller.
+    - A sharable abstraction resulting in less duplication of code.
+    - Improved maintainability.
 
-In a nutshell, a Repository:
-- Is not a data access layer
-- Provides a higher level of data manipulation
-- Is persistence ignorance
-- Is a collection of aggregate roots
-- Offers a mechanism to manage entities
+2. Introduction to Repository pattern
+
+    Repository pattern was first introduced as a part of Domain Drive Design in 2004.
+
+    In the book **Patterns of Enterprise Application Architecture**, Martin Fowler describes a repository as follows:
+
+    ```
+    A repository performs the tasks of an intermediary between the domain model layers and data mapping, acting in a similar way to a set of domain objects in memory. Client objects declaratively build queries and send them to the repositories for answers. Conceptually, a repository encapsulates a set of objects stored in the database and operations that can be performed on them, providing a way that is closer to the persistence layer. Repositories, also, support the purpose of separating, clearly and in one direction, the dependency between the work domain and the data allocation or mapping.
+    ```
+
+    ![](../img/design-pattern/repository-pattern/Interactions-of-the-repository.png)
+
+    It is important note about Repository pattern: Repositories play an important part in DDD, they speak the language of the domain and act as mediators between the domain and data mapping layers. They provide a common language to all team members by translating technical terminology into business terminology.
+
+    In a nutshell, a Repository:
+    - Is not a data access layer
+    - Provides a higher level of data manipulation
+    - Is persistence ignorance
+    - Is a collection of aggregate roots
+    - Offers a mechanism to manage entities
 
 <br>
 
@@ -114,6 +147,8 @@ If we have an anemic domain, the repository will be just a DAO.
 <br>
 
 ## Wrapping up
+
+- A Repository encapsulates the data access, so the consumer no longer has to know about the underlying data structure.
 
 - In Domain Driven Design, it's important to emphasize that we should only define one repository for each aggregate root. 
 

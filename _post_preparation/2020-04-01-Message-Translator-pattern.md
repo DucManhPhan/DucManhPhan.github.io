@@ -19,8 +19,6 @@ tags: [Enterprise Integration Pattern]
 - [Wrapping up](#wrapping-up)
 
 
-
-
 <br>
 
 ## Given problem
