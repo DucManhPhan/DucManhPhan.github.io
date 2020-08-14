@@ -46,7 +46,7 @@ So, how do we overcome this problem?
 
 2. Introduction to Unit of Work pattern
 
-    According to website [https://martinfowler.com](https://martinfowler.com/eaaCatalog/unitOfWork.html), we have a definition of it:
+    According to website [https://martinfowler.com](https://martinfowler.com/eaaCatalog/unitOfWork.html), we have its definition:
 
     ```
     Maintains a list of objects affected by a business transaction and coordinatess the writing out of changes and the resolution of concurrency problems.
@@ -56,7 +56,7 @@ So, how do we overcome this problem?
 
     ![](../img/Architecture-pattern/Domain-driven-design/relationship-repositories-aggregate-db-table.png)
 
-    
+    It means that we merge multiple operations of database into a single batch to improve the performance of system. This is one of the many ways to get the high performance in Data Access Layer with Hibernate.
 
 <br>
 
@@ -80,7 +80,7 @@ So, how do we overcome this problem?
 
     - improve the performance of system when we are working with bulk of data, not iterately each record.
 
-        Because this pattern reduces the amount of calls to the database.
+        Because this pattern reduces the amount of calls to the database, and the round-trip networks.
 
     - It's really suitable for DDD because our Aggregate object will contains multiple Domain Models. Then, we need to consider the persistence operations for this Aggregate object as one operation.
 
