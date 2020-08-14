@@ -73,6 +73,8 @@ tags: [Java, Redis]
 
 Refer:
 
+[https://www.baeldung.com/guava-rate-limiter](https://www.baeldung.com/guava-rate-limiter)
+
 [https://www.dr-josiah.com/2014/11/introduction-to-rate-limiting-with.html](https://www.dr-josiah.com/2014/11/introduction-to-rate-limiting-with.html)
 
 [https://www.dr-josiah.com/2014/11/introduction-to-rate-limiting-with.html](https://www.dr-josiah.com/2014/11/introduction-to-rate-limiting-with.html)
