@@ -227,6 +227,34 @@ Let's get started.
 
     In order to configure some external connection pools in our Hibernate project, we can reference to [our project](https://github.com/DucManhPhan/J2EE/tree/master/src/Java_Spring/Hibernate/connection-pool-hibernate).
 
+3. Setting **validation-query** and **test-on-borrow** properties to DataSource
+
+    - Given problem
+
+        Normally, some databases can find connections that are idle. These will be killed. So, our appliation always tries to connect to these database, because all connections died.
+
+        It makes our application that does not run smoothly.
+
+    - Solution
+
+        To solve this problem, we will set some properties. From the documentation of [Tomcat Apache](https://tomcat.apache.org/tomcat-8.0-doc/jdbc-pool.html), we will have.
+        - validation-query
+
+            The SQL query that will be used to validate connections from this pool before returning them to the caller. If specified, this query does not have to return any data, it just can't throw a **SQLException**. The default value is null. If not specified, connections will be validation by the **isValid()** method.
+
+            For example:
+            - With MySQL: **SELECT 1**
+            - With Oracle: **SELECT 1 FROM DUAL**
+            - With Ms SQL Server: **SELECT 1**
+
+        - test-on-borrow
+
+            The indication of whether objects will be validated before being borrowed from the pool. If the object fails to validate, it will be dropped from the pool, and we will attempt to borrow another. In order to have a more efficient validation, see **validationInterval**. Default value is **false**.
+
+        - validation-interval
+
+            avoid excess validation, only run validation at most at this frequency - time in milliseconds. If a connection is due for validation, but has been validated previously within this interval, it will not be validated again. The default value is 3000 (3 seconds).
+
 <br>
 
 ## Some dialects of Hibernate for other databases
@@ -303,6 +331,10 @@ Below is a table that list all drivers that Hibernate supports.
 <br>
 
 Refer:
+
+**Properties of Spring Boot**
+
+[https://docs.spring.io/spring-boot/docs/1.1.2.RELEASE/reference/html/common-application-properties.html](https://docs.spring.io/spring-boot/docs/1.1.2.RELEASE/reference/html/common-application-properties.html)
 
 [Java Hibernate cook book](https://www.amazon.com/Java-Hibernate-Cookbook-Yogesh-Prajapati-ebook/dp/B012B1H8J6)
 

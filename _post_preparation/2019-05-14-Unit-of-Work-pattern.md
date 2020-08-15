@@ -91,6 +91,7 @@ So, how do we overcome this problem?
 <br>
 
 ## Wrapping up
+
 - Examples of Unit of Work pattern are: 
     - ```DbContext``` class represents a combination of the Unit of Work and Repository patterns such that it can be used to query from a database and group together changes that will then be written back to the store as a unit. And ```DbSet``` represents a Repository pattern.
 
@@ -102,6 +103,9 @@ So, how do we overcome this problem?
 
     - EclipseLink Transactions 
 
+- Use **Session-per-Request** is preferred than **Session-per-Operation**.
+
+    It means that all database operations should be executed in the one session.
 
 <br>
 

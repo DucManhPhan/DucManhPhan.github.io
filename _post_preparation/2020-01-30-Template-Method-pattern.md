@@ -14,7 +14,6 @@ tags: [Behavioral Pattern, Design Pattern]
 - [Given Problem](#given-problem)
 - [Solution of Template Method Pattern](#solution-of-template-method-pattern)
 - [When to use](#when-to-use)
-- [Code C++/Java](#code-C++/Java)
 - [Application & Examples](#application-&-examples)
 - [Wrapping up](#wrapping-up)
 
@@ -89,13 +88,6 @@ Template method is a great pattern for reducing duplicate code and enforcing des
     
 
 2. Drawbacks
-
-
-<br>
-
-## Code C++/Java
-
-
 
 
 <br>
