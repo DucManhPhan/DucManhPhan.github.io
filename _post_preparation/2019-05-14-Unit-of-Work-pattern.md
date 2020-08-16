@@ -15,6 +15,7 @@ tags: [Enterprise Pattern]
 - [When to use](#when-to-use)
 - [Source code](#source-code)
 - [Benefits & Drawback](#benefits-and-drawbacks)
+- [Application and Examples](#application-and-examples)
 - [Wrapping up](#wrapping-up)
 
 
@@ -90,9 +91,12 @@ So, how do we overcome this problem?
 
 <br>
 
-## Wrapping up
+## Application and Examples
+
+- The concept of Unit of Work is a central concept of ORMs and has been described by Scott Ambler.
 
 - Examples of Unit of Work pattern are: 
+
     - ```DbContext``` class represents a combination of the Unit of Work and Repository patterns such that it can be used to query from a database and group together changes that will then be written back to the store as a unit. And ```DbSet``` represents a Repository pattern.
 
     - ```ITransaction``` interface in ```NHibernate```
@@ -101,7 +105,19 @@ So, how do we overcome this problem?
 
     - ```ObjectContext``` class in the ```Entity Framework```.
 
-    - EclipseLink Transactions 
+    - ```EclipseLink``` Transactions
+
+    - ```UnitOfWork``` in ```TopLink```
+
+    - ```PersistenceManager``` in ```JDO```
+
+    - ```Session``` in ```Hibernate```
+
+    - ```EntityManager``` in ```JPA```
+
+<br>
+
+## Wrapping up
 
 - Use **Session-per-Request** is preferred than **Session-per-Operation**.
 
@@ -117,6 +133,8 @@ Refer:
 
 [https://www.programmingwithwolfgang.com/repository-and-unit-of-work-pattern/](https://www.programmingwithwolfgang.com/repository-and-unit-of-work-pattern/)
 
+<br>
+
 **Patterns in Practice - The Unit Of Work Pattern And Persistence Ignorance**
 
 [https://msdn.microsoft.com/en-us/magazine/dd882510.aspx](https://msdn.microsoft.com/en-us/magazine/dd882510.aspx)
@@ -126,3 +144,17 @@ Refer:
 [https://coding4food.net/2018/07/10/repository-va-unit-of-work-pattern/](https://coding4food.net/2018/07/10/repository-va-unit-of-work-pattern/)
 
 [https://docs.microsoft.com/en-us/dotnet/api/system.data.entity.dbcontext?redirectedfrom=MSDN&view=entity-framework-6.2.0](https://docs.microsoft.com/en-us/dotnet/api/system.data.entity.dbcontext?redirectedfrom=MSDN&view=entity-framework-6.2.0)
+
+<br>
+
+**Documentation about ORMs**
+
+[http://www.ambysoft.com/downloads/persistenceLayer.pdf](http://www.ambysoft.com/downloads/persistenceLayer.pdf)
+
+[The Design of a Robust Persistence Framework for Relational Databases](http://www.ambysoft.com/essays/persistenceLayer.html)
+
+[The Object-Relational Impedance Mismatchl](http://www.agiledata.org/essays/impedanceMismatch.html)
+
+[Mapping Objects to Relational Databases: O/R Mapping In Detaill](http://www.agiledata.org/essays/mappingObjects.html)
+
+[Choosing a Primary Key: Natural or Surrogate?](http://www.agiledata.org/essays/keys.html)
