@@ -33,6 +33,8 @@ Let's get started.
         spring.datasource.url=jdbc:mysql://<ip-address>:<port>/<database-name>?useUnicode=true&characterEncoding=utf8
         spring.datasource.username=<username>
         spring.datasource.password=<password>
+
+        #Use validation-query and test-on-borrow properties only for Tomcat connection pool
         spring.datasource.validationQuery=SELECT 1
         spring.datasource.testOnBorrow=true
         ```
@@ -119,17 +121,15 @@ Let's get started.
         }
         ```
 
-
-
 2. Normal project
 
     - Configuration in properties file
 
-        When we create an instance of the Configuration class, it will look for hibernate.cfg.xml or hibernate.properties in our classpath. If we use a .properties file, it will get all of the property defined in a file, rather than create a Configuration object.
+        When we create an instance of the Configuration class, it will look for **hibernate.cfg.xml** or **hibernate.properties** in our classpath. If we use a **.properties** file, it will get all of the property defined in a file, rather than create a Configuration object.
         
-        The difference between an XML and properties file is that, in an XML file, you can directly map classes using the <Mapping> tag, but there is no way to configure it in a properties file. So, you can use this methodology when you use a programmatic configuration.
+        The difference between an XML and properties file is that, in an XML file, you can directly map classes using the **<Mapping>** tag, but there is no way to configure it in a properties file. So, you can use this methodology when you use a programmatic configuration.
 
-        So, we have the content of hibernate.properties file.
+        So, we have the content of **hibernate.properties** file.
 
         ```PHP
         hibernate.connection.driver_class=com.mysql.jdbc.Driver
@@ -255,6 +255,8 @@ Let's get started.
 
             avoid excess validation, only run validation at most at this frequency - time in milliseconds. If a connection is due for validation, but has been validated previously within this interval, it will not be validated again. The default value is 3000 (3 seconds).
 
+        These above properties only exist in the Tomcat connection pool. They are unknown properties to [Hikari connection pool](https://github.com/brettwooldridge/HikariCP).
+
 <br>
 
 ## Some dialects of Hibernate for other databases
@@ -371,3 +373,7 @@ Refer:
 [https://www.mchange.com/projects/c3p0/#configuration](https://www.mchange.com/projects/c3p0/#configuration)
 
 [https://developer.jboss.org/wiki/HowToConfigureTheC3P0ConnectionPool](https://developer.jboss.org/wiki/HowToConfigureTheC3P0ConnectionPool)
+
+[https://stackoverflow.com/questions/53870473/hikari-and-test-on-borrow-option](https://stackoverflow.com/questions/53870473/hikari-and-test-on-borrow-option)
+
+[https://github.com/brettwooldridge/HikariCP/issues/181](https://github.com/brettwooldridge/HikariCP/issues/181)
