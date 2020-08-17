@@ -1,8 +1,8 @@
 ---
 layout: post
-title: Understanding about ManyToMany relationship with Hibernate
+title: Understanding about ManyToMany relationship with JPA
 bigimg: /img/image-header/yourself.jpeg
-tags: [Hibernate]
+tags: [JPA]
 ---
 
 

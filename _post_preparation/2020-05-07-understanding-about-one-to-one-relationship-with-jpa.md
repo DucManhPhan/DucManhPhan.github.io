@@ -1,8 +1,8 @@
 ---
 layout: post
-title: Understanding about OneToOne relationship with Hibernate
+title: Understanding about OneToOne relationship with JPA
 bigimg: /img/image-header/yourself.jpeg
-tags: [Hibernate]
+tags: [JPA]
 ---
 
 

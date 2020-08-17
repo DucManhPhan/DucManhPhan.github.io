@@ -1,8 +1,8 @@
 ---
 layout: post
-title: Understanding about OneToMany relationship with Hibernate
+title: Understanding about OneToMany relationship with JPA
 bigimg: /img/image-header/yourself.jpeg
-tags: [Hibernate]
+tags: [JPA]
 ---
 
 
@@ -56,11 +56,15 @@ To understand how @OneToMany annotation work, we can read about the article [The
 
 3. Bidirectional relationship
 
+    It means that both entities will reference to each other.
 
+    For example, the relationship between Student and Teacher is bidirectional.
+    - One Student can be teach from the multiple Teacher. Then in Student entity, it can contain the multiple Teacher entity's instances.
+    - On Teach can teach the multiple students. So in Teach entity, it can point to the multiple Student entity's instances.
 
 4. Unidirectional relationship
 
-
+    It means that only one entity will reference to the other.
 
 <br>
 
