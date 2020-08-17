@@ -57,3 +57,5 @@ tags: [JPA]
 <br>
 
 Refer:
+
+[https://www.baeldung.com/jpa-many-to-many](https://www.baeldung.com/jpa-many-to-many)

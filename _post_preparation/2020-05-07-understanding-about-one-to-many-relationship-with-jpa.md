@@ -35,7 +35,7 @@ tags: [JPA]
 
 ## How to use one-to-many relationship
 
-To understand how @OneToMany annotation work, we can read about the article [The best way to map a @OneToMany relationship with JPA and Hibernate](https://vladmihalcea.com/the-best-way-to-map-a-onetomany-association-with-jpa-and-hibernate/).
+To understand how **@OneToMany** annotation work, we can read about the article [The best way to map a @OneToMany relationship with JPA and Hibernate](https://vladmihalcea.com/the-best-way-to-map-a-onetomany-association-with-jpa-and-hibernate/).
 
 
 
@@ -44,15 +44,19 @@ To understand how @OneToMany annotation work, we can read about the article [The
 
 ## Some concepts that we need to know about relationships
 
-
 1. The owning side
 
+    The owning side is the side contains the foreign key that is primary key in the other side.
 
+    For example, the relationship between Football club and Player is the one-to-many relationship. One Football Club will contain the multiple the Players. And one Players will be contained by one Football club.
 
+    So, in our database, the Player table will contain the primary key of Football club table as a foreign key.
+
+    --> The owning side is the Player entity, and absolutely, the inverse side is the Football club entity.
 
 2. The inverse side
 
-
+    The inverse side is the remained side when we determined the owning side.
 
 3. Bidirectional relationship
 
@@ -70,7 +74,7 @@ To understand how @OneToMany annotation work, we can read about the article [The
 
 ## Understanding parameters of @JoinColumn annotation
 
-Below is the definition of @JoinColumn annotation.
+Below is the definition of **@JoinColumn** annotation.
 
 ```java
 @Repeatable(JoinColumns.class)
