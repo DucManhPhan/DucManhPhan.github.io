@@ -78,10 +78,12 @@ But in this article, we will concentrate on the components of JPA.
 2. EntityManagerFactory
 
     It is a factory class of EntityManager. It is used to create multiple instances of EntityManager class.
+    
+    If we need to access multiple databases, we must configure one EntityManagerFactory per a database.
 
 3. EntityManager
 
-    It provides some operations to interact with database through database driver such as CRUD operations, ... 
+    EntityManager manages the entities of the application. It provides some operations to interact with database through database driver such as CRUD operations, ... 
 
     EntityManager can use multiples instances of Query.
 
@@ -96,6 +98,17 @@ But in this article, we will concentrate on the components of JPA.
 5. Query
 
     This interface is implemented by each JPA vendor to find persistence objects that meet the certain criteria.
+
+6. Entity
+
+    An entity is a persistent domain object. Each entity class will represent a table in our database, and an entity's instance will contain the data of a single row of that table.
+
+    Each entity will have an id field that represents the primary key in the table.
+
+7. Persistence Unit
+
+    A persistence unit specifies all entity tables, which are managed by the EntityManagers of the application. Each persistence unit contains all classes representing the data stored in a single database.
+
 
 <br>
 
@@ -162,13 +175,13 @@ In JPA, all specific exceptions are subclasses of **PersistenceException** class
     - Low maintaince code.
     - Optmizes the performance by providing caching.
     - Provides ways for automatic versioning and timestamping.
+    - Abstract all operations that interact with databases. So we can switch the other databases without any concerns.
 
 <br>
 
 ## Wrapping up
 
 - In Hibernate, the ```Session``` interface follows the ```Repository``` pattern. However, by introducing our own repository interfaces, we decouple our domain objects from the hibernate implementation, make the domain model package easy to test and reuse.
-
 
 <br>
 
