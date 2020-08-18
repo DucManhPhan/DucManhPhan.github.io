@@ -26,14 +26,44 @@ tags: [JPA]
 
 ## Given problem
 
+Supposed that we have the relationship between football club and player is the one-to-many relationship. It can look like the below image.
 
+![](../img/Java-Common/jpa/club-player-one-to-many.png)
 
+After we analyzed the relationship between entities, then we need to use JPA to implement it in our code.
 
-
+So how do we solve it?
 
 <br>
 
 ## How to use one-to-many relationship
+
+Before jumping directly to write JPA code for the above problem, we need to create Football club, and Player tables in our database. The relationship between them will be described through the foreign key.
+
+```sql
+CREATE TABLE IF NOT EXISTS FOOTBALL_CLUB (
+    club_id INT NOT NULL AUTO_INCREMENT,
+    name VARCHAR(255) NOT NULL,
+    stadium_name VARCHAR(255) NOT NULL,
+    owner_id INT NOT NULL,
+
+    PRIMARY KEY (club_id),
+    FOREIGN KEY (owner_id) REFERENCES OWNER(owner_id)
+);
+
+CREATE TABLE IF NOT EXISTS PLAYER (
+    player_id INT NOT NULL AUTO_INCREMENT,
+    name VARCHAR(255) NOT NULL,
+    number INT NOT NULL,
+    address VARCHAR(255) NOT NULL,
+    club_id INT NOT NULL,
+
+    PRIMARY KEY (player_id),
+    FOREIGN KEY (club_id) REFERENCES FOOTBALL_CLUB(club_id)
+);
+```
+
+
 
 To understand how **@OneToMany** annotation work, we can read about the article [The best way to map a @OneToMany relationship with JPA and Hibernate](https://vladmihalcea.com/the-best-way-to-map-a-onetomany-association-with-jpa-and-hibernate/).
 
@@ -317,9 +347,46 @@ To understand their meaning of parameters, we need to read up on the section [Un
 
 1. The difference between **orphanRemoval** parameter and **cascade.REMOVE** parameter
 
+    Assuming that we have the one-to-many relationship between FootballClub and Player, it can be described in the below code.
 
+    ```java
+    public class FootballClubEntity {
+        @Id
+        @Column(name = "id")
+        private Long id;
 
+        @OneToMany(mappedBy = "footballClub", cascade = CascadeType.REMOVE)
+        private List<PlayerEntity> players;
+    }
 
+    // This PlayerEntity has foreign key football_club_id
+    public class PlayerEntity {
+
+        @Id
+        @Column(name = "id")
+        private Long id;
+
+        @ManyToOne(fetch = FetchType.LAZY)
+        @JoinColumn(name = "football_club_id", referencedColumnName="id")
+        private FootballClubEntity footballClub;
+    }
+    ```
+
+    The difference between the cascade.REMOVE parameter and the orphanRemoval parameter is in the response to disconnecting a relationship.
+
+    For example:
+
+    ```java
+    // get the FootballClubEntity from something
+    FootballClubEntity footballEntity = ...;
+
+    // disconnect the footballEntity with the player entities
+    footballEntity.setPlayers(null);
+    ```
+
+    The response for each case:
+    - If we use the orphanRemoval parameter, all related player entities will be removed in database automatically.
+    - If we use the cascade.REMOVE parameter, all related player entities will not be remove in database automatically.
 
 2. The difference between **CascadeType.Detach** and **CascadeType.Remove**
 
@@ -403,7 +470,7 @@ To understand their meaning of parameters, we need to read up on the section [Un
 
 ## Wrapping up
 
-
+- Understanding the one-to-many relationship and some parameters of @OneToMany, @ManyToOne annotations.
 
 
 <br>
