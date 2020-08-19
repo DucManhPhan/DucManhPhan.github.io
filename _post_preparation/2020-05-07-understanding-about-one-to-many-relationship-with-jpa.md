@@ -45,10 +45,8 @@ CREATE TABLE IF NOT EXISTS FOOTBALL_CLUB (
     club_id INT NOT NULL AUTO_INCREMENT,
     name VARCHAR(255) NOT NULL,
     stadium_name VARCHAR(255) NOT NULL,
-    owner_id INT NOT NULL,
 
     PRIMARY KEY (club_id),
-    FOREIGN KEY (owner_id) REFERENCES OWNER(owner_id)
 );
 
 CREATE TABLE IF NOT EXISTS PLAYER (
@@ -63,12 +61,49 @@ CREATE TABLE IF NOT EXISTS PLAYER (
 );
 ```
 
+Then, we will use JPA to map entity with the record of the corresponding table.
 
+```java
+@Entity
+@Table(name = "FOOTBALL_CLUB")
+public class FootballClubEntity {
 
-To understand how **@OneToMany** annotation work, we can read about the article [The best way to map a @OneToMany relationship with JPA and Hibernate](https://vladmihalcea.com/the-best-way-to-map-a-onetomany-association-with-jpa-and-hibernate/).
+    @Id
+    @Column(name = "club_id")
+    private int id;
 
+    @Column(name = "name")
+    private String name;
 
+    @Column(name = "stadium_name")
+    private String stadiumName;
 
+    @OneToMany(mappedBy = "footballClub", cascade = CascadeType.ALL, orphanRemoval = true)
+    private List<PlayerEntity> players;
+}
+
+@Entity
+@Table(name = "PLAYER")
+public class PlayerEntity {
+
+    @Id
+    @Column(name = "player_id")
+    private int id;
+
+    @Column(name = "name")
+    private String name;
+
+    @Column(name = "number")
+    private int number;
+
+    @Column(name = "address")
+    private String address;
+
+    @ManyToOne(fetch = FetchType.LAZY)
+    @JoinColumn(name = "football_club_id", referencedColumnName="id")
+    private FootballClubEntity footballClub;
+}
+```
 
 <br>
 
@@ -141,7 +176,7 @@ public class FootballClubEntity {
     private List<PlayerEntity> players;
 }
 
-public class Player {
+public class PlayerEntity {
     @ManyToOne(fetch = FetchType.LAZY)
     @JoinColumn(name = "football_club_id", referencedColumnName="id")
     private FootballClubEntity footballClub;
@@ -462,9 +497,20 @@ To understand their meaning of parameters, we need to read up on the section [Un
 
 ## Best practices for one-to-many relationship
 
+To understand how **@OneToMany** annotation work, we can read about the article [The best way to map a @OneToMany relationship with JPA and Hibernate](https://vladmihalcea.com/the-best-way-to-map-a-onetomany-association-with-jpa-and-hibernate/).
 
+But here we have some notes:
+- If we use only the unidirectional @OneToMany, it will create the temporary third table. So it is not efficiency, and it will reduce the system's performance.
 
+- To fix the above problem, we should use @JoinColumn annotation to accompany with @OneToMany annotation.
 
+    The @JoinColumn annotation helps Hibernate to figure out that there is a Foreign Key column in the child table that defines this association.
+
+    In this case, we need to take a closer look at [Hibernate flush order](https://vladmihalcea.com/hibernate-facts-knowing-flush-operations-order-matters/).
+
+- The best way to implement the one-to-many relationship is using both @OneToMany and @ManyToOne annotations.
+
+- The problem of using @OneToMany annotation is that we need to maintain a collection of child entities.
 
 <br>
 
