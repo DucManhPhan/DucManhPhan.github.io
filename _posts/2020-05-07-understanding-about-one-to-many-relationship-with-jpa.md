@@ -510,14 +510,15 @@ But here we have some notes:
 
 - The best way to implement the one-to-many relationship is using both @OneToMany and @ManyToOne annotations.
 
-- The problem of using @OneToMany annotation is that we need to maintain a collection of child entities.
+- The problem of using @OneToMany annotation is that we need to maintain a collection of child entities. The problem with collections is that we can only use them when the number of child records is rather limited.
+
+    So, in this case, we only use @ManyToOne annotation. To use the collection of child entities, we use the native sql.
 
 <br>
 
 ## Wrapping up
 
 - Understanding the one-to-many relationship and some parameters of @OneToMany, @ManyToOne annotations.
-
 
 <br>
 

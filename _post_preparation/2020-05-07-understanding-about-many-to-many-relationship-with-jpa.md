@@ -59,3 +59,5 @@ tags: [JPA]
 Refer:
 
 [https://www.baeldung.com/jpa-many-to-many](https://www.baeldung.com/jpa-many-to-many)
+
+[https://www.objectdb.com/api/java/jpa/MapsId](https://www.objectdb.com/api/java/jpa/MapsId)
