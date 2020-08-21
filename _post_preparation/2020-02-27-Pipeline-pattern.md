@@ -5,7 +5,7 @@ bigimg: /img/path.jpg
 tags: [Behavioral Pattern, Design Pattern]
 ---
 
-In this article, we will talk about Pipeline pattern, and some interesting information about it such as applying it in which real problems, when to use, how to use, the disadvantages and advantages.
+
 
 <br>
 
@@ -22,7 +22,8 @@ In this article, we will talk about Pipeline pattern, and some interesting infor
 
 <br>
 
-## Given Problem 
+## Given Problem
+
 In ```Chain of Responsibility``` pattern, when we have a new handler, 3 operations are required: 
 - unlinking an existing handler
 - relinking the new handler with its successor
@@ -42,12 +43,14 @@ The major difference with the **Chain Of Responsibility** pattern is the introdu
 
 Then, we will go to the definition and characteristic of pipeline:
 - A pipeline is a linear sequence of stages.
+
 - Data flows through the pipeline
     - From stage 1 to the last stage.
     - Each stage performs some task
         - uses the result from the previous stage.
     - Data is thought of as being composed of units (items).
     - Each data unit can be processed separately in pipeline.
+
 - Pipeline computation is a special form of ```producer-consumer``` parallelism.
     - Producer tasks output data ...
     - ... used as input by consumer tasks.
@@ -64,6 +67,14 @@ Then, we will go to the definition and characteristic of pipeline:
 <br>
 
 ## Benefits & Drawback
+
+1. Benefits
+
+
+
+
+2. Drawbacks
+
 
 
 
@@ -230,10 +241,6 @@ public class Program
 - The **Pipeline pattern** is similar to the **Event-Based Coordination pattern** in that both patterns apply to problems where it is natural to decompose the computation into a collection of semi-independent tasks. 
 
     The difference is that the **Event-Based Coordination pattern** is irregular and asynchronous where the **Pipeline pattern** is regular and synchronous: In the **Pipeline pattern**, the semi-independent tasks represent the stages of the pipeline, the structure of the pipeline is static, and the interaction between successive stages is regular and loosely synchronous. In the **Event-Based Coordination pattern**, however, the tasks can interact in very irregular and asynchronous ways, and there is no requirement for a static structure. 
-
-- 
-
-
 
 
 <br>
