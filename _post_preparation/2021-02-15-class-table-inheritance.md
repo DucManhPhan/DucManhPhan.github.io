@@ -2,7 +2,7 @@
 layout: post
 title: Class Table Inheritance Pattern
 bigimg: /img/image-header/yourself.jpeg
-tags: [Relational Database Pattern]
+tags: [Enterprise Pattern]
 ---
 
 
@@ -18,7 +18,7 @@ tags: [Relational Database Pattern]
 
 <br>
 
-## 
+## Given problem
 
 
 
@@ -53,4 +53,4 @@ tags: [Relational Database Pattern]
 
 Refer:
 
-[]()
+[Patterns of Enterprise Application Architecture - Martin Fowler]()
