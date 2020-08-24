@@ -109,8 +109,6 @@ When having problems, it takes so much time to resolve them. So, in this article
         git push -f origin master
         ```
 
-        
-
         If you have already made some commits, you can do the following
 
         ```git pull --rebase```
@@ -144,7 +142,7 @@ When having problems, it takes so much time to resolve them. So, in this article
 
     - Fourth way:
 
-        Use [BFG Repo Cleaner](https://rtyley.github.io/bfg-repo-cleaner/)
+        Use [BFG Repo Cleaner](https://rtyley.github.io/bfg-repo-cleaner/).
 
 <br>
 
@@ -162,6 +160,7 @@ git remote set-url origin <link_git_project>
 
 ## Wrapping up
 
+- Understanding the problem that we want to apply our solution.
 
 <br>
 

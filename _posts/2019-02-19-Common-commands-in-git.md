@@ -181,7 +181,7 @@ Other solution: Try with this:
 rm -f ./.git/index.lock
 ```
 
-Note: Such problems may occur when you execute two git commands simultaneously maybe one from command prompt and one from IDE. So deleting ```.lock``` file in your ```.git```directory can work.
+Note: Such problems may occur when you execute two git commands simultaneously maybe one from command prompt and one from IDE. So deleting ```.lock``` file in your ```.git``` directory can work.
 
 Or 
 
@@ -219,11 +219,18 @@ git reset --hard origin/master
 
 ## Remove remote repository
 We have to be in this repository by git.
-Syntax: 
-    git remote rm repository_name
+
+Syntax:
+
+```
+git remote rm repository_name
+```
 
 Ex: Delete "Data structure" repository.
-    git remote rm Data-structure
+
+```
+git remote rm Data-structure
+```
 
 <br>
 
@@ -261,6 +268,35 @@ When we want to rewrite the message in the previous commit, we can do something 
 git commit -v --amend
 ```
 
+<br>
+
+## Update braches in local repository when any branches were deleted in the remote repository
+
+1. Given problem
+
+    Gitlab has a functionality that it will remove a branch when this branch is merged to the other branches.
+
+    But when we check branches in local repository by typing:
+
+    ```
+    git branch -a
+    ```
+
+    It will list all branches that we interact that include some branches that is deleted in the remote repository.
+
+2. Solution
+
+    To remove remote tracking branches for deleted branches, we need to issue:
+
+    ```
+    git remote prune origin
+    ```
+
+    If we just want to list such stale branches (and not remove them), use this:
+
+    ```
+    git remote prune origin --dry-run
+    ```
 
 <br>
 
