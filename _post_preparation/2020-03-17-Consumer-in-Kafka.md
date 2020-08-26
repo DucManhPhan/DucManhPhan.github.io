@@ -13,7 +13,6 @@ In this article, we will learn what is Consumer, how to use Consumer of Kafka wi
 - [The definition of Kafka Consumer](#the-definition-of-kafka-consumer)
 - [How Kafka Consumer works](#how-kafka-consumer-works)
 - [Source code Java for Kafka consumer](#source-code-java-for-kafka-consumer)
-- [The meaning of parameters in consumer client](#the-meaning-of-parameters-in-consumer-client)
 - [Coordinator in Kafka](#coordinator-in-kafka)
 - [Rebalancing in Kafka](#rebalancing-in-kafka)
 - [Heartbeat thread in Kafka](#heartbeat-thread-in-kafka)
@@ -98,10 +97,7 @@ public static void main(String[] args) {
 }
 ```
 
-<br>
-
-## The meaning of parameters in consumer client
-
+The meaning of parameters in consumer client:
 - Parameter **bootstrap.servers** is servers that run Kafka.
 
 - Parameter **key.deserializer**, **value.deserializer** is used to deserialize the binary format of record in Kafka broker.
