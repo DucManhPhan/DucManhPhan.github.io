@@ -46,7 +46,7 @@ class Order {
 ```
 
 We can find some problems of **issueRewards()** method:
-- it's hard to understand what this method does at a glance.
+- It's hard to understand what this method does at a glance.
 - This method does two things
 
     - sets the value of the order status
@@ -328,6 +328,14 @@ But remember, it's not the language, it's the way we write code.
     - Recursion
 
     - Lazy evaluation
+
+- The atomic thing in OOP is class, but in functional programming, it is the pure function.
+
+    It has some properties that we need to remember;
+    - input-output only
+    - the same input always generates the same output
+    - no side-effects
+    - no explicit changing of state
 
 
 <br>
