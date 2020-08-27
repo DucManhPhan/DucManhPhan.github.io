@@ -298,6 +298,23 @@ git commit -v --amend
     git remote prune origin --dry-run
     ```
 
+    But using the above commands, we only delete the remote braches that has tracked in local repository, we do not delete the branches that used in the local repository.
+
+    To delete these branches, we can use the following commands:
+
+    ```
+    git branch --merged >/tmp/merged-branches && \
+    vi /tmp/merged-branches && xargs git branch -d </tmp/merged-branches
+    ```
+
+    But the above command will delete both master branch in the local repository. If we do not want to do that, we have two solutions for this case:
+    - Use ```git branch -d``` for specific branches.
+    - Just use grep to exclude master:
+    
+        ```
+        git branch --merged | grep -v "master" >/tmp/merged-branches && vi /tmp/merged-branches && xargs git branch -d </tmp/merged-branches 
+        ```
+
 <br>
 
 Thanks for your reading.
