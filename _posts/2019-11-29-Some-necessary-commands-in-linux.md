@@ -1,8 +1,8 @@
 ---
 layout: post
-title: Some necessary commands in Ubuntu
+title: Some necessary commands in Linux
 bigimg: /img/image-header/road-to-solution.jpeg
-tags: [Ubuntu, Linux]
+tags: [Linux]
 ---
 
 In this article, we will introduce some basic commands that we need to know when programming with bash script. Practice fluently all this commands makes us to be possible to write scripting in a large project.

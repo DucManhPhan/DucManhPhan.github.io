@@ -1,8 +1,8 @@
 ---
 layout: post
-title: How to setup Kafka in Ubuntu
+title: How to setup Kafka in Linux
 bigimg: /img/path.jpg
-tags: [Kafka, Ubuntu]
+tags: [Kafka]
 ---
 
 In this article, we will learn how to setup Kafka in Ubuntu. Let's get started.

@@ -1,8 +1,8 @@
 ---
 layout: post
-title: How to write simple scripts in Ubuntu
+title: How to write simple scripts in Linux
 bigimg: /img/image-header/road-to-solution.jpeg
-tags: [Ubuntu, Linux]
+tags: [Linux]
 ---
 
 In this article, we will learn the most basic knowledge to program with bash script. Understanding them makes us strong into shell scripting.
