@@ -167,7 +167,98 @@ In order to push the usage of VIM, we should learn something about command in mo
 <br>
 
 ## Commands in Visual Mode
-- If we want to switch to visual mode in VIM, we will type **v**.
+
+1. Some modes in Visual mode
+
+    There are three visual mode in VIM.
+    - v - character-wise visual mode
+
+        It is used to select the individual characters or words.
+
+    - V - line-wise visual mode
+
+        It is used to select lines.
+
+    - Ctrl + v - block wise visual mode
+
+        It helps us select columns or rows in editor.
+
+    To switch between multiple visual modes, pressing v, or V, or Ctrl + v.
+
+    To exist our current visual mode, typing the below keys:
+    - ESC
+    - Ctrl + c
+    - Use the same key that we use to enter the visual mode.
+
+2. Some operators in Visual mode
+
+    - u --> convert to lower case
+    - U --> convert to upper case
+    - d --> delete
+    - c --> change
+    - y --> yank
+    - **>** --> indent
+    - **<** --> dedent
+
+3. Some useful commands in Visual mode
+
+    - Replace multiple lines
+
+        For example:
+
+        ```
+        int a = 2;
+        int b = 3;
+        ```
+
+        Now, we want to change **int** to **float**. First, we will use line-wise visual mode with V character. Then, use replace and find command to substitute **int** with **float** word.
+
+        ```bash
+        # change the current lines
+        :s/int/float/g
+        ```
+
+    - Change texts in the multiple rows with same column
+
+        Assuming that we want to change the name of a and b in the above text to **inta**, **intb**.
+
+        - First, jump the pointer to the position of a character.
+
+        - Then, use block-wise in visual mode with Ctrl+v.
+
+        - Next, use j character to go down the below line of **b** variable.
+        
+        - Use Shitf + I to enter the Insert mode.
+
+        - Finally, typing ESC key to insert the remained lines that we choose.
+
+    - Insert ; to the end of line.
+
+        Supposed that we have:
+
+        ```
+        int a = 2
+        int b = 3
+        ```
+
+        We can easily find that we need to fill the ; character to the last lines.
+
+        Belows are some steps to aim that.
+        - Go to the first line with i character --> O.
+        - Choose block-wise visual mode
+
+            Ctrl + v
+
+        - Go down two lines with --> jj.
+        - Select from start to end of lines with --> $.
+        - Append character --> A
+        - Typing --> ;
+        - Exit visual mode with --> ESC.
+
+    - To increment number or characters in alphabet table
+
+        + First, we will select block-wise visual mode.
+        + Then, Typing g Ctrl+a
 
 <br> 
 

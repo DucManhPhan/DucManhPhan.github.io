@@ -131,6 +131,11 @@ To run our script file, there are two ways:
     | $HOME                  | The home directory of the current user |
     | $PATH                  | A colon-seperated list of directories to search for command |
     | $PS1                   | A command prompt, frequently $, but in bash we can use some more complex values. |
+    | $PS2                   | A secondary prompt, used when prompting for additional input; usually > |
+    | $IFS                   | An input field seperator. This is a list of characters that are used to seperate words when the shell is reading input, usually space, tab, and newline characters. |
+    | $0                     | The name of the shell script |
+    | $#                     | The number of parameters passed |
+    | $$                     | The process ID of the shell script, often used inside a script for generating unique temporary filenames; for example: /tmp/tmpfile_$$ |
 
 <br>
 
@@ -326,6 +331,39 @@ To run our script file, there are two ways:
         ;;
     esac
     ```
+
+    Belows are a table that describes some operators in shell script.
+
+    |          String Comparison        |          Result             |
+    | --------------------------------- | --------------------------- |
+    | string1 = string2                 | True if the strings are equal |
+    | string1 != string2                | True if the strings are not equal |
+    | -n string                         | True if the string is not null |
+    | -z string                         | True if the string is null (an empty string) |
+
+
+    |       Arithmetic Comparison       |         Result           |
+    | --------------------------------- | ------------------------ |
+    | expression1 -eq expression2       | True if the expressions are equal |
+    | expression1 -ne expression2       | True if the expressions are not equal |
+    | expression1 -gt expression2       | True if expression1 is greater than expression2 |
+    | expression1 -ge expression2       | True if expression1 is greater than or equal to expression2 |
+    | expression1 -lt expression2       | True if expression1 is less than to expression2 |
+    | expression1 -le expression2       | True if expression1 is less than or equal to expression2 |
+    | !expression                       | True if the expression is false, and vice versa |
+
+    |       File Conditional            |           Result             |
+    | --------------------------------- | ---------------------------- |
+    | -d file                           | True if the file is a directory |
+    | -e file                           | True if the file exists. Note that historically the -e option has not been portable, so -f is usually used. |
+    | -f file                           | True if the file is a regular file |
+    | -g file                           | True if set-group-id is set on file |
+    | -r file                           | True if the file is readable  |
+    | -s file                           | True if the file nonzero size |
+    | -u file                           | True if set-under-id is set on file |
+    | -w file                           | True if the file is writable |
+    | -x file                           | True if the file is executable |
+
 
 <br>
 
