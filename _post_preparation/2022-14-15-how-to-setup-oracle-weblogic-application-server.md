@@ -1,13 +1,21 @@
-
-
+---
+layout: post
+title: How to setup Oracle Weblogic application server
+bigimg: /img/image-header/yourself.jpeg
+tags: [Weblogic]
+---
 
 
 <br>
 
 ## Table of Contents
-
-
-
+- [Introduction to Oracle Weblogic](#introduction-to-oracle-weblogic)
+- [Steps to install oracle weblogic](#steps-to-install-oracle-weblogic)
+- [Steps to install DataSource](#steps-to-install-datasource)
+- [Steps to install WAR file](#steps-to-install-war-file)
+- [Steps to configure security realms for users](#steps-to-configure-security-realms-for-users)
+- [Some problems when working weblogic](#some-problems-when-working-weblogic)
+- [Wrapping up](#wrapping-up)
 
 
 <br>
