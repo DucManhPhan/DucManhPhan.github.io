@@ -1,6 +1,6 @@
 ---
 layout: post
-title: How to write simple scripts in Linux
+title: How to write simple shell scripts in Linux
 bigimg: /img/image-header/road-to-solution.jpeg
 tags: [Linux]
 ---
@@ -22,7 +22,24 @@ Let's get started.
 
 <br>
 
-## Use different interpreter in script file 
+## Introduction to Shell
+
+A Shell is a program that works between us and the Linux system, enabling us to enter commands for the OS to execute.
+
+In Linux, the standard shell is **bash** - the GNU Bourne-Again SHell, from the GNU suite of tools, is installed in the **/bin/sh**. In the most Linux distributions, the program **/bin/sh**, the default shell, is actually a link to the program **/bin/bash**.
+
+Belows are some shell programs that we can use.
+
+|           Shell Name            |                history               |
+| ------------------------------- | ------------------------------------ |
+| sh (Bourne)                     | The original shell from early version of UNIX |
+| csh, tcsh, zsh                  | The C shell, and its derivatives, originally created by Bill Joy of Berkeley UNIX fame. The C Shell is probably the third most popular type of shell after bash and the Korn shell |
+| ksh, pdksh                      | The Korn shell and its public domain cousin. Written by David Korn, this is the default shell on many commercial UNIX versions. |
+| bash                            | The Linux staple shell from the GNU project. bash, or Bourne Again SHell, has the advantage that the source  code is freely available, and even if it's not currently running on our UNIX system, it has probably been ported to it. bash has many similarities to the Korn shell. |
+
+<br>
+
+## Use different interpreter in script file
 
 - Use bash script
 
@@ -39,12 +56,86 @@ Let's get started.
     ...
     ```
 
+The **#!** characters tell the system that the argument that follows on the line is the program to be used to execute this file.
+
 ```#!/bin/bash``` or ```#!/usr/bin/python``` is known as hash bang, or shebang. Basically, it just tells the shell which interpreter to use to run the commands inside the script.
 
 <br>
 
+## How to provide permission to run script file
+
+To run our script file, there are two ways:
+- Invoke the shell with the name of the script file as a parameter
+
+    For example, **/bin/sh hello-world.sh**
+
+- Running our script file by calling its name
+
+    Before doing it, we need to change the file mode to make the file executable for all users by using the **chmod** command.
+
+    ```
+    chmod +x hello-world.sh
+    ```
+
+    Then, we can run this script file by calling ```./hello-world.sh```.
+
+<br>
+
+## Variables
+
+1. The declaration of variables
+
+    In Linux, we do not need to declare variables in the shell before using them. The easiest way is that when we want to use them, create them such as assigning an initial value to them.
+
+    By default, all variables are stored as strings, even when they are assigned numeric values. The shell and some utilities will convert numeric strings to their values in order to operate on them as required.
+
+2. Access their value
+
+    To get the the variables's value, we insert **$** symbol before their name.
+
+    For example:
+
+    ```sh
+    strHelloWorld="hello world"
+    echo $strHelloWorld
+    ```
+
+    A string must be surrounded with double quotes if it contain spaces.
+
+    Note:
+    - The behavior of variables inside quotes depends on the type of quotes we use.
+
+        - If we enclose a $ variable expression in double quotes, then it's replaced with its value when the line is executed.
+
+        - If we enclose it in single quotes, then no substitution takes place.
+
+        - We can remove the special meaning of the **$** symbol by prefacing it with a **\**.
+
+        For example:
+
+        ```sh
+        #!/bin/sh
+
+        str="Hello, world!"
+
+        echo $str
+        echo "$str"
+        echo '$str'
+        echo \$str
+        ```
+
+3. Environment variables
+
+    |  Environment variable  |          Description           |
+    | ---------------------- | ------------------------------ |
+    | $HOME                  | The home directory of the current user |
+    | $PATH                  | A colon-seperated list of directories to search for command |
+    | $PS1                   | A command prompt, frequently $, but in bash we can use some more complex values. |
+
+<br>
+
 ## Loop statements in bash script
-- While loop
+- **While** loop
 
     Syntax:
     
@@ -253,6 +344,18 @@ function function_name {
 }
 ```
 
+- Parameter variables
+
+    If no parameters are passed, the environment variable **$#** exists but has a value of 0.
+
+    Belows are some parameter variables that we need to know.
+
+    |          Parameter variable         |                  Description               |
+    | ----------------------------------- | ------------------------------------------ |
+    | $1, $2, ...                         | The parameters given to the script         |
+    | $*                                  | A list of all the parameters, in a single variable, seperated by the first character in the environment variable IFS. If IFS is modified, then the way $* seperates the command line into parameters will change. |
+    | $@                                  | A subtle variation on $*; it does not use the IFS environment variable, so parameters are not run together even if IFS is empty |
+
 - Pass arguments and return value to function
 
     We supply the arguments directly after the function name. In function, we can access the value of arguments by using ```$1```, ```$2```, ...
@@ -366,6 +469,7 @@ fi
 <br>
 
 ## Wrapping up
+
 - Understanding some basic statements and operators in Bash script.
 - Split function into smaller function to help us easily maintainable and readable code.
 
