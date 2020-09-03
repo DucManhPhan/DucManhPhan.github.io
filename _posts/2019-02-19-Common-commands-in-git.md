@@ -278,7 +278,7 @@ git commit -v --amend
 
     But when we check branches in local repository by typing:
 
-    ```
+    ```bash
     git branch -a
     ```
 
@@ -288,13 +288,13 @@ git commit -v --amend
 
     To remove remote tracking branches for deleted branches, we need to issue:
 
-    ```
+    ```bash
     git remote prune origin
     ```
 
     If we just want to list such stale branches (and not remove them), use this:
 
-    ```
+    ```bash
     git remote prune origin --dry-run
     ```
 
@@ -302,7 +302,7 @@ git commit -v --amend
 
     To delete these branches, we can use the following commands:
 
-    ```
+    ```bash
     git branch --merged >/tmp/merged-branches && \
     vi /tmp/merged-branches && xargs git branch -d </tmp/merged-branches
     ```
@@ -311,8 +311,52 @@ git commit -v --amend
     - Use ```git branch -d``` for specific branches.
     - Just use grep to exclude master:
     
-        ```
+        ```bash
         git branch --merged | grep -v "master" >/tmp/merged-branches && vi /tmp/merged-branches && xargs git branch -d </tmp/merged-branches 
+        ```
+
+<br>
+
+## Push the current branch in origin master to the other repositories
+
+1. Given problem
+
+    Sometimes, we need to change our current repository to the new repository. Then, we need to move all branches in the old repository to the new repository.
+
+2. Solution
+
+    Belows are some steps that we need to follow:
+    - Add the new repository
+
+        ```bash
+        git remote add <new-repository-name> <link-new-repository>
+
+        # example
+        git remote add new-repository http://gitlab.com/new-project.git
+        ```
+
+    - Update local with new repository
+
+        ```bash
+        git fetch <new-repository-name>
+        ```
+
+    - Check all current branches
+
+        ```bash
+        git branch -a
+        ```
+
+    - To push a branch into the new repository, we need to switch to that branch.
+
+        ```bash
+        git checkout <repository-name>/<branch-name>
+        ```
+
+    - Then, in order to push the current branch to the new repository, we do some following commands.
+
+        ```bash
+        git push -u <new-repository-name> <new-branch-name>
         ```
 
 <br>
