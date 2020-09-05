@@ -2,7 +2,7 @@
 layout: post
 title: Annotations in Java
 bigimg: /img/image-header/ravashing-beach.jpg
-tags: [Annotation]
+tags: [Java]
 ---
 
 I were a beginner in programming with Java web, especially Spring MVC, Spring Boot. When I saw about **@Configuration**, **@PropertySource**, **@Component**, ..., it makes me confused to understand what it is doing here.

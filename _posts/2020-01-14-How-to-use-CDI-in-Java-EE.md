@@ -2,7 +2,7 @@
 layout: post
 title: How to use CDI in JavaEE
 bigimg: /img/image-header/factory.jpg
-tags: [J2EE, CDI]
+tags: [J2EE]
 ---
 
 In this article, we will learn how to use CDI in JavaEE. Let's get started.
