@@ -17,6 +17,7 @@ So, in this article, we will answer these question to remove our concern.
 <br>
 
 ## Introduction to serialization and deserialization
+
 - Serialization is a mechanism of converting the state of an object into a byte stream. 
 - Deserialization is the reverse process where the byte stream is used to recreate the actual Java object in memory.
 

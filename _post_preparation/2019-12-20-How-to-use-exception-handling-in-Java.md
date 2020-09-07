@@ -2,7 +2,7 @@
 layout: post
 title: How to use exception handling in Java
 bigimg: /img/image-header/factory.jpg
-tags: [Java, Exception handling]
+tags: [Java]
 ---
 
 
@@ -68,7 +68,7 @@ The only times ```finally``` won't be called are:
 
 <br>
 
-## Advantages of Exception handling
+## Benefits and Drawbacks
 
 
 

@@ -2,7 +2,7 @@
 layout: post
 title: How to use Generics in Java
 bigimg: /img/image-header/factory.jpg
-tags: [Java, Generics]
+tags: [Java]
 ---
 
 
@@ -11,6 +11,13 @@ tags: [Java, Generics]
 
 ## Table of contents
 
+
+
+
+
+<br>
+
+## Given problem
 
 
 
@@ -123,7 +130,7 @@ tags: [Java, Generics]
 <br>
 
 ## Wrapping up
-- Generics are compiled by erasure, at run time the classes List<Integer>, List<String>, and List<List<String>> are implemented by a single class, namely List.
+- Generics are compiled by erasure, at run time the classes **List<Integer>**, **List<String>**, and **List<List<String>>** are implemented by a single class, namely List.
     
     So, we can check by the following code:
 
