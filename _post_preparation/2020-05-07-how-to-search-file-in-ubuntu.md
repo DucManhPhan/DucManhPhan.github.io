@@ -1,8 +1,8 @@
 ---
 layout: post
-title: How to search file in Ubuntu
+title: How to search file in Linux 
 bigimg: /img/image-header/yourself.jpeg
-tags: [Ubuntu]
+tags: [Linux]
 ---
 
 

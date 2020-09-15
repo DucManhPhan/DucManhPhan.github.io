@@ -5,14 +5,14 @@ bigimg: /img/path.jpg
 tags: [Kafka]
 ---
 
-In this article, we will learn what is Consumer, how to use Consumer of Kafka with Java source code. Let's get started.
+
 
 <br>
 
 ## Table of contents
-- [The definition of Kafka Consumer](#the-definition-of-kafka-consumer)
+- [Introduction to Kafka Consumer](#introduction-to-kafka-consumer)
 - [How Kafka Consumer works](#how-kafka-consumer-works)
-- [Source code Java for Kafka consumer](#source-code-java-for-kafka-consumer)
+- [Source code](#source-code)
 - [Coordinator in Kafka](#coordinator-in-kafka)
 - [Rebalancing in Kafka](#rebalancing-in-kafka)
 - [Heartbeat thread in Kafka](#heartbeat-thread-in-kafka)
@@ -23,7 +23,7 @@ In this article, we will learn what is Consumer, how to use Consumer of Kafka wi
 
 <br>
 
-## The definition of Kafka Consumer
+## Introduction to Kafka Consumer
 
 A Kafka consumer is an application that subscribes a specific topic. It will get messages from this topic and process them.
 
@@ -51,7 +51,7 @@ If a leader partition goes down, then another ISR, in-sync replicated partition 
 
 <br>
 
-## Source code Java for Kafka consumer
+## Source code
 
 ```java
 public static KafkaConsumer<String, String> initConsumer(String connection, String group, String topic) {
@@ -180,7 +180,7 @@ To understand more detail about how heartbeat mechanism works, we can reference 
     - Drawbacks
 
         - More consumers means more TCP connections to the cluster (one per thread). In general Kafka handles connections very efficiently so this is generally a small cost.
-        - Multiple consumers means more requests being sent to the server and slightly less batching of data which can cause some drop in I/O throughput.The number of total threads across all processes will be limited by the total number of partitions.
+        - Multiple consumers means more requests being sent to the server and slightly less batching of data which can cause some drop in I/O throughput. The number of total threads across all processes will be limited by the total number of partitions.
 
 2. Decouple consumption and processing
 

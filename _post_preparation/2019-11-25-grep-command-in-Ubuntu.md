@@ -1,8 +1,8 @@
 ---
 layout: post
-title: grep command in 
+title: grep command in Linux
 bigimg: /img/image-header/road-to-solution.jpeg
-tags: [Ubuntu]
+tags: [Linux]
 ---
 
 
