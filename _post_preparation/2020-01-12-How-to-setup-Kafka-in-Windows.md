@@ -7,7 +7,6 @@ tags: [Kafka]
 
 
 
-
 <br>
 
 ## Table of contents
