@@ -13,7 +13,6 @@ tags: [Linux]
 ## Table of contents
 - [Given problem](#given-problem)
 - [Solution of grep command](#solution-of-grep-command)
-- []()
 - [Wrapping up](#wrapping-up)
 
 
@@ -21,9 +20,13 @@ tags: [Linux]
 
 ## Given problem
 
+In Linux, we usually have to search keyword in text, or file, or folders, or the result from the other commands. It is difficult to deal with it when we have to jump directly in these files or folders to check.
 
+The drawbacks of this solution:
+- It takes so much times to search.
+- We do not automatically search our keywords that accepts input from the other sources.
 
-
+So how do we solve these problems?
 
 <br>
 
@@ -103,36 +106,10 @@ tags: [Linux]
 
 <br>
 
-## 
-
-
-
-
-
-<br>
-
-## 
-
-
-
-
-
-<br>
-
 ## Wrapping up
 
-
-
-
+- Understanding about how to use, when to use grep command in Linux.
 
 <br>
 
 Thanks for your reading.
-
-<br>
-
-Refer:
-
-[]()
-
-[]()
