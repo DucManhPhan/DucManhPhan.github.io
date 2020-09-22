@@ -11,9 +11,10 @@ tags: [Linux]
 <br>
 
 ## Table of contents
-
-
-
+- [Given problem](#given-problem)
+- [Solution with AWK command](#solution-with-awk-command)
+- [Source code](#source-code)
+- [Wrapping up](#wrapping-up)
 
 
 <br>
@@ -28,7 +29,7 @@ tags: [Linux]
 
 ## Solution with AWK command
 
-1. 
+1. Syntax of AWK
 
 
 

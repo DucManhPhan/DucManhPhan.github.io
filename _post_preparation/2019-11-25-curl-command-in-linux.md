@@ -1,8 +1,8 @@
 ---
 layout: post
-title: curl command in Ubuntu
+title: curl command in Linux
 bigimg: /img/image-header/road-to-solution.jpeg
-tags: [Ubuntu]
+tags: [Linux]
 ---
 
 
@@ -11,15 +11,23 @@ tags: [Ubuntu]
 <br>
 
 ## Table of contents
-- []()
-- []()
+- [Given problem](#given-problem)
+- [Source code](#source-code)
 - []()
 - [Wrapping up](#wrapping-up)
 
 
 <br>
 
-## 
+## Given problem
+
+
+
+
+
+<br>
+
+## Solution of curl command 
 
 
 
@@ -35,15 +43,7 @@ tags: [Ubuntu]
 
 <br>
 
-## 
-
-
-
-
-
-<br>
-
-## 
+## Source code
 
 
 

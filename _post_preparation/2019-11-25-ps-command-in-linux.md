@@ -1,8 +1,8 @@
 ---
 layout: post
-title: ps command in Ubuntu
+title: ps command in Linux 
 bigimg: /img/image-header/road-to-solution.jpeg
-tags: [Ubuntu]
+tags: [Linux]
 ---
 
 
@@ -62,3 +62,5 @@ Thanks for your reading.
 <br>
 
 Refer:
+
+[]()
