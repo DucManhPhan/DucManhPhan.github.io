@@ -286,6 +286,24 @@ How do we overcome these problems?
     docker search mysql
     ```
 
+13. Stop all running containers
+
+    ```python
+    docker stop $(docker ps -aq)
+    ```
+
+14. Remove all containers
+
+    ```python
+    docker rm $(docker ps -aq)
+    ```
+
+15. Remove all images
+
+    ```python
+    docker rmi $(docker images -q)
+    ```
+
 <br>
 
 ## Wrapping up
