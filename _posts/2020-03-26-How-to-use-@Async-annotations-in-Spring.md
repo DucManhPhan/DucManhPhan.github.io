@@ -22,7 +22,7 @@ In this article, we will learn how to use @Async annotation in Spring. Let's get
 
 ## Introduction to @Async annotation
 
-@Async annotation is introduced to Spring framework with 3.0 version. When using @Async annotation with specific methods, our methods will be executed in a seperate thread. It means that @Async annotation is using the fire and forget pattern.
+@Async annotation is introduced to Spring framework with 3.0 version. When using @Async annotation with specific methods, our methods will be executed in a seperate thread. It means that **@Async** annotation is using the fire and forget pattern.
 
 To delve deeper into the fire and forget pattern, we can go to the [Improving performance of application by running processes in the background](https://ducmanhphan.github.io/2020-02-24-Improving-performance-of-application-by-running-processes-in-the-background/#the-fire-and-forget-pattern).
 
@@ -30,16 +30,16 @@ To delve deeper into the fire and forget pattern, we can go to the [Improving pe
 
 ## How @Async works
 
-When you put an **@Async** annotation on a method underlying it, it creates a proxy of that object where Async is defined (JDK Proxy/CGlib) based on the proxyTargetClass property. Then, Spring tries to find a thread pool associated with the context to submit this method's logic as a separate path of execution. To be exact, it searches a unique TaskExecutor bean or a bean named as taskExecutor. If it is not found, then use the default SimpleAsyncTaskExecutor.
+When you put an **@Async** annotation on a method underlying it, it creates a proxy of that object where Async is defined (JDK Proxy/CGlib) based on the **proxyTargetClass** property. Then, Spring tries to find a thread pool associated with the context to submit this method's logic as a separate path of execution. To be exact, it searches a unique **TaskExecutor** bean or a bean named as **taskExecutor**. If it is not found, then use the default **SimpleAsyncTaskExecutor**.
 
-Now, as it creates a proxy and submits the job to the TaskExecutor thread pool, it has a few limitations that have to know.
+Now, as it creates a proxy and submits the job to the **TaskExecutor** thread pool, it has a few limitations that have to know.
 
 <br>
 
 ## How to use @Async annotation
 Belows are some steps to use **@Async** annotation in our project.
 
-1. Configure package in pom.xml to use @Async annotation
+1. Configure package in **pom.xml** to use **@Async** annotation
 
     If we want to experience maven project with @Async annotation, not use Spring boot, we can use some the below packages.
 
@@ -69,7 +69,7 @@ Belows are some steps to use **@Async** annotation in our project.
     }
     ```
 
-    By default, **@EnableAsync** detects Spring's @Async annotation.
+    By default, **@EnableAsync** detects Spring's **@Async** annotation.
 
 3. Use **@Async** annotation for our methods
 
@@ -87,7 +87,7 @@ Belows are some steps to use **@Async** annotation in our project.
 
         This problem is as same as calling **run()** method of Thread object directly, without calling **start()** method.
 
-    The **@Async** used with public method that have void return type or return type **Future<T>**, **CompletableFuture<T>**.
+    The **@Async** used with public method that have **void** return type or return type **Future<T>**, **CompletableFuture<T>**.
 
     ```java
     @Component
