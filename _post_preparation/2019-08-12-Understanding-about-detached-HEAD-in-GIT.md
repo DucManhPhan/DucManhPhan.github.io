@@ -2,7 +2,7 @@
 layout: post
 title: Understanding about detached HEAD in GIT
 bigimg: /img/image-header/tailor-1.jpg
-tags: [git]
+tags: [Git]
 ---
 
 
