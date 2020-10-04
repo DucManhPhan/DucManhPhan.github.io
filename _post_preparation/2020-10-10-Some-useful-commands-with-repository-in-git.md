@@ -60,7 +60,7 @@ tags: [Git]
 
 Refer:
 
-[]()
+[https://kipalog.com/posts/Dung-bo-qua-10-cau-lenh-GIT-nay-neu-ban-la-developer](https://kipalog.com/posts/Dung-bo-qua-10-cau-lenh-GIT-nay-neu-ban-la-developer)
 
 []()
 

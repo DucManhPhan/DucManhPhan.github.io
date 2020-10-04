@@ -59,8 +59,8 @@ tags: [Git]
 
 Refer:
 
-[]()
+[https://www.tutorialspoint.com/git/git_move_operation.htm](https://www.tutorialspoint.com/git/git_move_operation.htm)
 
-[]()
+[https://www.tutorialspoint.com/git/git_rename_operation.htm](https://www.tutorialspoint.com/git/git_rename_operation.htm)
 
-[]()
+[https://www.tutorialspoint.com/git/git_update_operation.htm](https://www.tutorialspoint.com/git/git_update_operation.htm)
