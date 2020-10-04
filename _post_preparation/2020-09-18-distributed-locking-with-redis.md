@@ -96,3 +96,5 @@ Refer:
 [https://dzone.com/articles/distributed-java-locks-with-redis](https://dzone.com/articles/distributed-java-locks-with-redis)
 
 [https://martin.kleppmann.com/2016/02/08/how-to-do-distributed-locking.html](https://martin.kleppmann.com/2016/02/08/how-to-do-distributed-locking.html)
+
+[https://dodangquan.blogspot.com/2018/07/su-dung-lock-trong-he-thong-phan-tan-voi-redis.html](https://dodangquan.blogspot.com/2018/07/su-dung-lock-trong-he-thong-phan-tan-voi-redis.html)
