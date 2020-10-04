@@ -133,7 +133,7 @@ When having problems, it takes so much time to resolve them. So, in this article
 
     - Third way:
 
-        ```
+        ```bash
         git rm --cached name_of_a_giant_file
         git rm --cached name_of_another_giant_file
         git commit --amend -CHEAD

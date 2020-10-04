@@ -19,7 +19,7 @@ tags: [Git]
 <br>
 
 ## Given the problem
-Assuming that we have two branches: feature and master. Of course, feature branch is separate from master branch at a specific commit. feature branch is used to develop some new functionalities.
+Assuming that we have two branches: feature and master. Of course, feature branch is separated from master branch at a specific commit. feature branch is used to develop some new functionalities.
 
 So, our responsibility is to merge master branch to feature branch. 
 

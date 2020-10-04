@@ -114,7 +114,7 @@ If we want to pull code from Ronaldo branch, so we can implement to follow some 
 <br>
 
 ## Push code to other branch
-- Go to Ronaldo branch.
+- Go to the new Ronaldo branch.
 
   - git checkout -b Ronaldo
 
@@ -159,39 +159,25 @@ git config --global user.email "Your_email"
 <br>
 
 ## Solution for common error
-When you cope with the error which something like that:
-"Another git process seems to be running in this repository, e.g.
-an editor opened by 'git commit'. 
-Please make sure all processes
-are terminated then try again. If it still fails, a git process
-may have crashed in this repository earlier:
-remove the file manually to continue."
+1. Given problem
 
-Solution: 
+    When you cope with the error which something like that:
+    "Another git process seems to be running in this repository, e.g.
+    an editor opened by 'git commit'. 
+    Please make sure all processes
+    are terminated then try again. If it still fails, a git process
+    may have crashed in this repository earlier:
+    remove the file manually to continue."
 
-try deleting ```index.lock``` file in your .git directory.
+2. Solution
 
-Generally such problems occurs when you execute two git commands simultaneously maybe one from command prompt and one from IDE.
+    Try deleting ```index.lock``` file in your ```.git``` directory.
 
-Or 
+    Generally such problems occurs when you execute two git commands simultaneously maybe one from command prompt and one from IDE. So deleting ```.lock``` file in your ```.git``` directory can work.
 
-Other solution: Try with this:
-
-```
-rm -f ./.git/index.lock
-```
-
-Note: Such problems may occur when you execute two git commands simultaneously maybe one from command prompt and one from IDE. So deleting ```.lock``` file in your ```.git``` directory can work.
-
-Or 
-
-Other solution: Use the below command in the root directory of the application. 
-
-This will delete the index.lock file and release the active lock.
-
-```
-rm .git/index.lock
-```
+    ```bash
+    rm -f ./.git/index.lock
+    ```
 
 <br>
 
@@ -205,12 +191,11 @@ Syntax:
 
 --> This statement will replace the changes in the working "tree" with the newest data in HEAD (Remote machine).
 
-If you want to take off the changes and the local commit in "Local Directory", 
-and get the latest history from remote machine, point to the local master branch. 
+If you want to take off the changes and the local commit in "Local Directory", and get the latest history from remote machine, point to the local master branch. 
 
 Syntax: 
 
-```
+```bash
 git fetch origin
 git reset --hard origin/master
 ```
@@ -226,7 +211,7 @@ Syntax:
 git remote rm repository_name
 ```
 
-Ex: Delete "Data structure" repository.
+For example: Delete "Data structure" repository.
 
 ```
 git remote rm Data-structure
@@ -236,28 +221,24 @@ git remote rm Data-structure
 
 ## Add remote repository
 
-```
-git remote add name_of_repository url
+```bash
+git remote add <name_of_repository> url
 ```
 
 url: means the path that points to repo, the tail of url is ".git"
 
-Ex: git remote add Website https://github.com/manhpd/Data-Structure.git
+For example:
+
+```bash
+git remote add Website https://github.com/manhpd/Data-Structure.git
+```
 
 To check this remote whether it makes or not, use the syntax:
 
-    git remote
-
-or 
-
-    git remote -v
-
-<br>
-
-## Merge parent branch into child branch
-
-
-
+```bash
+git remote
+git remote -v
+```
 
 <br>
 
