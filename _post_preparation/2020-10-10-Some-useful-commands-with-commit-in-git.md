@@ -11,11 +11,12 @@ tags: [Git]
 
 ## Table of Contents
 - [Given problem](#given-problem)
-- []()
-- []()
-- []()
-- []()
-- []()
+- [The structure of Git](#the-structure-of-git)
+- [Push commits to the remote branch](#push-commits-to-the-remote-branch)
+- [Take a commit from a branch to the other branch](#take-a-commit-from-a-branch-to-the-other-branch)
+- [Revert commits of a branch](#revert-commits-of-a-branch)
+- [Remove a commit](#remove-a-commit)
+- [Wrapping up](#wrapping-up)
 
 
 <br>
@@ -85,14 +86,47 @@ So, belows are actions of **git commit** command.
 
 ## Take a commit from a branch to the other branch
 
-1. Syntax
+In order to solve our problem, use **git cherry-pick** command. Belows are some cases that we usually encounter.
+
+- Pick a commit from a branch to master branch
 
     ```bash
-    git cherry-pick
+    git checkout master
+
+    # 1st - get the previous commit of HEAD pointer of <branch-name>
+    git cherry-pick <branch-name>~1
+
+    # 2nd - specify the hash code of the commit that we want
+    git cherry-pick <commit>
     ```
 
-2. 
+- Pick n commits from a branch to master branch
 
+    ```bash
+    git checkout master
+
+    # specify many commits
+    git cherry-pick <commit1> <commit2>
+
+    # specify from commit 1 to commit n by using ... symbol
+    # commit1 will not be included to the other branch
+    git cherry-pick <commit1>...<commitn> 
+
+    # to reduce the limitation of an above statement.
+    git cherry-pick <commit1>^..<commitn>
+    ```
+
+3. Pick a commit to the two branches
+
+    ```bash
+    # assuming that we have some changes in branch 1
+    git add .
+    git commit -m "This is commit of branch 1"
+
+    # switch to the branch 2 that we want to apply the latest commit of branch 1
+    git checkout branch-2
+    git cherry-pick branch-1
+    ```
 
 <br>
 
@@ -109,17 +143,39 @@ So, belows are actions of **git commit** command.
 3. Using git revert command
 
 
+    - Revert initial git commit
+
+        ```bash
+        git update-ref -d HEAD
+        ```
+
 
 <br>
 
 ## Remove a commit
 
-1. Syntax
+1. Using git rm command
 
     ```bash
-    
+    git rm 
     ```
 
+2. Using git reset command
+
+    ```bash
+    # revert to HEAD pointer will get rid of work in progress,
+    # it will erase all the changes in our working tree and index.
+    git reset --hard HEAD
+
+    # revert to the previous commit of HEAD
+    git reset --hard HEAD~1
+
+    # or if we want to revert to the specific commit
+    git reset --hard <commit>
+
+    # finally, synchronize with the remote repository
+    git push origin HEAD --force
+    ```
 
 
 <br>
@@ -164,3 +220,4 @@ Refer:
 
 [https://www.programmersought.com/article/60051711556/](https://www.programmersought.com/article/60051711556/)
 
+[https://viblo.asia/p/git-nang-cao-git-cherry-pick-RQqKLQ9pZ7z](https://viblo.asia/p/git-nang-cao-git-cherry-pick-RQqKLQ9pZ7z)

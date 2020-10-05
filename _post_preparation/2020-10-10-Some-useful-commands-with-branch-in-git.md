@@ -42,10 +42,25 @@ tags: [Git]
 
 <br>
 
-## 
+## Delete a branch
 
+1. In a local repository
 
+    ```bash
+    git branch -d <branch-name>
+    ```
 
+2. In the remote repository
+
+    ```bash
+
+    ```
+
+3. Using pattern
+
+    ```bash
+    git branch --list 'pattern*' | sed 's/^* //' | xargs -r git branch -D
+    ```
 
 
 <br>
