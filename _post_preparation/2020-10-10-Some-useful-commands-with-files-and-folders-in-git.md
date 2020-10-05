@@ -57,6 +57,28 @@ tags: [Git]
 
 <br>
 
+## Other operations
+
+1. Restore a file that is moved to the staging area.
+
+    ```bash
+    git restore --staged <file-path>
+    ```
+
+2. 
+
+
+
+<br>
+
+## Wrapping up
+
+
+
+
+
+<br>
+
 Refer:
 
 [https://www.tutorialspoint.com/git/git_move_operation.htm](https://www.tutorialspoint.com/git/git_move_operation.htm)
@@ -64,3 +86,5 @@ Refer:
 [https://www.tutorialspoint.com/git/git_rename_operation.htm](https://www.tutorialspoint.com/git/git_rename_operation.htm)
 
 [https://www.tutorialspoint.com/git/git_update_operation.htm](https://www.tutorialspoint.com/git/git_update_operation.htm)
+
+[https://dodangquan.blogspot.com/2017/11/tim-kiem-voi-git.html](https://dodangquan.blogspot.com/2017/11/tim-kiem-voi-git.html)
