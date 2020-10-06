@@ -236,17 +236,17 @@ To run our script file, there are two ways:
     Syntax:
 
     ```bash
-    if [ conditionals ]
+    if [ conditionals ];
     then
         commands
     fi
     ```
 
     ```bash
-    if [ conditionals ]
+    if [ conditionals ];
     then
         commands
-    elif [ conditionals ]
+    elif [ conditionals ];
     then
         commands
     else
@@ -260,7 +260,7 @@ To run our script file, there are two ways:
     #!/bin/bash
 
     # $1 means the first command line argument
-    if [ $1 -gt 100 ]
+    if [ $1 -gt 100 ];
     then
         echo 'Your number is greater than one hundred.'
         pwd
@@ -276,7 +276,7 @@ To run our script file, there are two ways:
         ```bash
         #!/bin/bash
 
-        if [ "$1" -gt 100 ]
+        if [ "$1" -gt 100 ];
         then
             echo Hey that\'s a large number
 
@@ -341,6 +341,8 @@ To run our script file, there are two ways:
     | --------------------------------- | --------------------------- |
     | string1 = string2                 | True if the strings are equal |
     | string1 != string2                | True if the strings are not equal |
+    | string1 \\< string2                | True if the string1 is less than string2 |
+    | string1 \\> string2                | True if the string1 is greater than string2 |
     | -n string                         | True if the string is not null |
     | -z string                         | True if the string is null (an empty string) |
 

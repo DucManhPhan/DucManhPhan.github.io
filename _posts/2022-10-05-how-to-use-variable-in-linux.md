@@ -11,9 +11,11 @@ tags: [Linux]
 <br>
 
 ## Table of contents
-
-
-
+- [How to define variables](#how-to-define=variables)
+- [Declaration of an array](#declaration-of-an-array)
+- [Declaration of an associative data structure](#declaration-of-associate-data-structure)
+- [Some useful objects](#some-useful-objects)
+- [Wrapping up](#wrapping-up)
 
 
 <br>
@@ -138,16 +140,106 @@ To understand the basic thing of variables in Linux, we can visit the article [H
 
 1. Syntax
 
+    ```bash
+    # declaration without initialization
+    declare -A map
 
+    map[foo]=bar
+    map[baz]=google
+
+    echo ${map[foo]}
+
+    # declaration with initialization
+    declare -A map=( [foo]=bar [baz]=google )
+    echo ${map[foo]}
+    ```
 
 2. Some useful operations
 
+    - loop all keys
+
+        ```bash
+        for key in "${!map[@]}"; do
+            echo $key
+        done
+        ```
+
+    - loop all values
+
+        ```bash
+        for value in "${map[@]}"; do
+            echo $value
+        done
+        ```
+
+    - loop all keys and values
+
+        ```bash
+        for key in "${!map[@]}"; do
+            echo "$key --- ${map[$key]}"
+        done
+        ```
+
+    - remove a key
+
+        ```bash
+        # remove this map
+        unset map
+
+        # remove a key
+        unset map[foo]
+        ```
+
+    - show the length of this map
+
+        ```bash
+        echo ${#map[@]}
+        ```
+
+    - get an array of keys
+
+        ```bash
+        keys=("${!map[@]}")
+        echo ${keys[0]}
+
+        for (( idx=0; idx < ${#map[@]}; idx++ )); do
+            key=${keys[$idx]}
+
+            echo "$key --- ${map[$key]}"
+        done
+        ```
+
+<br>
+
+## Some useful scripts
+
+1. Receive input from user
+
+    ```bash
+    # 1st way - using read function and $REPLY variable
+    echo -n "What is your name?: "
+    read
+
+    echo "Hello $RERPLY"
+
+    # 2nd way - using read function with -p option
+    # The argument that follows the option is the text that appear in the prompt.
+    # The last argument supplied is the variable we want to populate.
+    # If we do not supply the last argument, we can store the user's response in $REPLY variable.
+    read -p "What is your name: " name
+    ```
+
+2. Validation with the number of parameter in function
+
+    ```bash
+    [ $# -gt 0]
+    ```
 
 <br>
 
 ## Wrapping up
 
-
+- Understanding about variables in shell script.
 
 
 <br>
