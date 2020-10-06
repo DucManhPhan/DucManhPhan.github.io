@@ -73,7 +73,7 @@ To run our script file, there are two ways:
 
     Before doing it, we need to change the file mode to make the file executable for all users by using the **chmod** command.
 
-    ```
+    ```bash
     chmod +x hello-world.sh
     ```
 

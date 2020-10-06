@@ -1,8 +1,8 @@
 ---
 layout: post
-title: Screen command in Ubuntu
+title: Screen command in Linux
 bigimg: /img/image-header/road-to-solution.jpeg
-tags: [Ubuntu]
+tags: [Linux]
 ---
 
 
@@ -11,15 +11,16 @@ tags: [Ubuntu]
 <br>
 
 ## Table of contents
-- [Intention of screen command](#intention-of-screen-command)
-- []()
-- []()
+- [Given problem](#given-problem)
+- [Solution with screen command](#solution-with-screen-command)
+- [When to use](#when-to-use)
+- [Some options of screen command](#some-options-of-screen-command)
 - [Wrapping up](#wrapping-up)
 
 
 <br>
 
-## Intention of screen command
+## Given problem
 
 
 
@@ -27,30 +28,41 @@ tags: [Ubuntu]
 
 <br>
 
-## Install screen package
-- In Centos
+## Solution with screen command
 
-    ```bash
-    # check whether screen command is installed
-    which screen
+1. How to use
 
-    # install screen
-    yum install screen
-    ```
+    - Syntax
 
-- In Ubuntu
 
-    ```bash
-    # check whether screen command is installed
-    which screen
+    - For example
 
-    # install screen
-    sudo apt-get install screen
-    ```
+
+2. Install screen package
+
+    - In Centos
+
+        ```bash
+        # check whether screen command is installed
+        which screen
+
+        # install screen
+        yum install screen
+        ```
+
+    - In Ubuntu
+
+        ```bash
+        # check whether screen command is installed
+        which screen
+
+        # install screen
+        sudo apt-get install screen
+        ```
 
 <br>
 
-## 
+## When to use
 
 
 
@@ -58,8 +70,22 @@ tags: [Ubuntu]
 
 <br>
 
-## 
+## Some options of screen command
 
+
+
+
+
+<br>
+
+## Some useful scripts with screen command
+
+1. 
+
+
+
+
+2. 
 
 
 

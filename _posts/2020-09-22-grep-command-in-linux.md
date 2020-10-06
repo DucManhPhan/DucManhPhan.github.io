@@ -43,7 +43,7 @@ So how do we solve these problems?
     - file, folder: The file or folder that we want to search in it.
 
 
-2. Some options of grep command
+2. Some options of **grep** command
 
     Belows are the list of options that grep will use.
     - ```-r``` or ```-R```: recursive
@@ -78,7 +78,7 @@ So how do we solve these problems?
         ```
 
 
-3. Some flags that accompany with grep command
+3. Some flags that accompany with **grep** command
 
     - ```--exclude```: search all files that exclude these files that satisfy pattern in this flag.
 

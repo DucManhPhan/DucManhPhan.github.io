@@ -1,6 +1,6 @@
 ---
 layout: post
-title: How to search file in Linux 
+title: Find command in Linux
 bigimg: /img/image-header/yourself.jpeg
 tags: [Linux]
 ---
@@ -10,8 +10,12 @@ tags: [Linux]
 <br>
 
 ## Table of contents
-
-
+- [Given problem](#given-problem)
+- []()
+- []()
+- []()
+- []()
+- [Wrapping up](#wrapping-up)
 
 
 

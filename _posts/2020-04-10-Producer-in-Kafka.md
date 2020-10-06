@@ -1,6 +1,6 @@
 ---
 layout: post
-title: Consumer in Kafka
+title: Producer in Kafka
 bigimg: /img/path.jpg
 tags: [Kafka]
 ---

@@ -11,9 +11,9 @@ tags: [Algorithm]
 
 ## Table of contents
 - [Given problem](#given-problem)
-- []()
-- []()
-- []()
+- [Using brute force algorithm ](#using-brute-force-algorithm)
+- [Improve the brute force algorithm](#improve-the-brute-force-algorithm)
+- [Using regex pattern](#using-regex-pattern)
 - [Wrapping up](#wrapping-up)
 
 

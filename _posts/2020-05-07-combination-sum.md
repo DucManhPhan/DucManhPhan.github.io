@@ -12,6 +12,7 @@ tags: [Backtracking]
 ## Table of contents
 - [Given problem](#given-problem)
 - [Using Backtracking algorithm](#using-backtracking-algorithm)
+- [Using Unbounded Knapsack version](#using-unbounded-knapsack-version)
 - [Wrapping up](#wrapping-up)
 
 
