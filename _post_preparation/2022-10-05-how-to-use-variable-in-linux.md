@@ -18,9 +18,9 @@ tags: [Linux]
 
 <br>
 
-## 
+## How to define variables
 
-
+To understand the basic thing of variables in Linux, we can visit the article [How to write simple shell scripts in Linux](https://ducmanhphan.github.io/2019-11-02-How-to-write-simple-scripts-in-linux/).
 
 
 

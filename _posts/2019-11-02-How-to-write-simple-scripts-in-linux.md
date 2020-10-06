@@ -12,7 +12,10 @@ Let's get started.
 <br>
 
 ## Table of contents
+- [Introduction to Shell](#introduction-to-shell)
 - [Use different interpreter in script file](#use-different-interpreter-in-script-file)
+- [How to provide permission to run script file](#how-to-provide-permission-to-run-script-file)
+- [Variables](#variables)
 - [Loop statements in bash script](#loop-statements-in-bash-script)
 - [Condition statements in bash script](#condition-statement-in-bash-script)
 - [Functions](#functions)
