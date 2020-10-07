@@ -2,7 +2,7 @@
 layout: post
 title: Exchanger in Java's Multithreading
 bigimg: /img/image-header/yourself.jpeg
-tags: [Java, Multithreading]
+tags: [Multithreading]
 ---
 
 

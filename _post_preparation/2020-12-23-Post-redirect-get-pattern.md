@@ -2,7 +2,7 @@
 layout: post
 title: Post/Redirect/Get pattern
 bigimg: /img/image-header/yourself.jpeg
-tags: [Java, Web Pattern]
+tags: [Web Pattern]
 ---
 
 

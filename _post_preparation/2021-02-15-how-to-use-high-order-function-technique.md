@@ -18,7 +18,7 @@ tags: [Functional Programming]
 
 <br>
 
-## 
+## Given problem
 
 
 

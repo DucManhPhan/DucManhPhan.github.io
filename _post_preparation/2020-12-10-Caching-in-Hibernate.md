@@ -2,7 +2,7 @@
 layout: post
 title: Caching in Hibernate
 bigimg: /img/image-header/yourself.jpeg
-tags: [Java, Hibernate]
+tags: [Hibernate]
 ---
 
 

@@ -2,7 +2,7 @@
 layout: post
 title: Understanding about B-Tree index in RDBMS
 bigimg: /img/image-header/yourself.jpeg
-tags: [MySQL, Index, Database]
+tags: [Database]
 ---
 
 

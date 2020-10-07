@@ -1,6 +1,6 @@
 ---
 layout: post
-title: How load balancer works in web development
+title: How load balancer works
 bigimg: /img/image-header/california.jpg
 tags: [Load Balancer]
 ---
