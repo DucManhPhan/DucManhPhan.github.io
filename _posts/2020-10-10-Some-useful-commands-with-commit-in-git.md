@@ -181,7 +181,7 @@ In order to solve our problem, use **git cherry-pick** command. Belows are some 
         ```
 
         When using **git reset** command, we need to notice about some types of mode.
-        - **--soft**
+        - **- -soft**
 
             This mode will only change HEAD to commit in local repository, not affect to our workspace, and the staging area. So, if we use **git add**, and **git commit** command, our branch will go to the previous reset commit.
 
@@ -189,7 +189,7 @@ In order to solve our problem, use **git cherry-pick** command. Belows are some 
             git reset --soft HEAD
             ```
 
-        - **--hard**
+        - **- -hard**
 
             This mode will change our workspace such as untracked files, modified files, the staging area, and the local repository.
 
@@ -212,7 +212,7 @@ In order to solve our problem, use **git cherry-pick** command. Belows are some 
             git reset --hard HEAD@{1}
             ```
 
-        - **--mixed**
+        - **- -mixed**
 
             This mode will change both the local repository and the staging area, but still remain the changes in our working space.
 
@@ -222,8 +222,8 @@ In order to solve our problem, use **git cherry-pick** command. Belows are some 
             git reset HEAD
             ```
 
-        - **--merge**
-        - **--keep**
+        - **- -merge**
+        - **- -keep**
 
     Finally, to synchronize commits between the local repository and the remote repository, we need to use the following command:
 
