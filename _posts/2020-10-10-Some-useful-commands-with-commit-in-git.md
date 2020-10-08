@@ -94,7 +94,7 @@ This command is very crucial because it is used to rebuild a branch after removi
     git push -u origin <branch-name>
     ```
 
-    **-u** means **--set-upstream**.
+    **-u** means **- -set-upstream**.
 
 <br>
 
