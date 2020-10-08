@@ -34,6 +34,20 @@ tags: [Git]
 
 <br>
 
+## Show URL of the remote repository
+
+Problem: We want to check URL of our remote repository.
+
+```bash
+# first way
+git config --get remote.origin.url
+
+# 2nd way
+git remote show origin
+```
+
+<br>
+
 ## 
 
 
@@ -43,14 +57,6 @@ tags: [Git]
 <br>
 
 ## 
-
-
-
-
-
-<br>
-
-## Move operation
 
 
 

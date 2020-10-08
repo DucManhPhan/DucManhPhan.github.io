@@ -16,7 +16,7 @@ tags: [Git]
 - [Rename operation](#rename-operation)
 - [Move operation](#move-operation)
 - [Search operation](#search-operation)
-- [Other operations](#other-operations)
+- [Undo operations](#undo-operations)
 - [Wrapping up](#wrapping-up)
 
 
@@ -41,9 +41,53 @@ tags: [Git]
 
 ## Delete operation
 
+1. Stop tracking a file from the staging area
 
+    ```bash
+    git rm --cached <file-path>
+    ```
 
+2. Remove a file from the local repository
 
+    - First, we need to revert to the previous commit.
+
+        ```bash
+        git reset --soft HEAD^1
+        ```
+
+        So, our files that are in the staging area.
+
+    - Second, we will remove them from the staging area.
+
+        ```bash
+        git rm --cached <file-path>
+        ```
+
+        Now, our files appear in the untracking files section. Then, we will remove directly that file.
+
+    - Finally, commit the remaining files.
+
+        ```bash
+        git commit -m "message"
+        ```
+
+3. Remove files that are not tracked by the staging area
+
+    ```bash
+    git clean -f
+
+    # delete folder
+    git clean -f -d
+
+    # watch files before deleting
+    git clean -n -f -d
+    ```
+
+4. Delete local's all removed files in repository
+
+    ```bash
+    git rm $(git ls-files --deleted)
+    ```
 
 <br>
 
@@ -123,43 +167,67 @@ tags: [Git]
 
 <br>
 
-## Other operations
+## Undo operation
 
-1. Restore a file that is moved to the staging area.
+1. Restore a file that does not add to the staging area
 
     ```bash
+    # 1st way - use git checkout
+    git checkout -- <file-path>
+
+    # 2nd way - use git reset
+    git reset 
+    ```
+
+2. Restore a file that is added to the staging area.
+
+    ```bash
+    # 1st way - using git restore
     git restore --staged <file-path>
+
+    # 2nd way - using git reset in mixed mode
+    # the local respority and the staging area will be reset, but the changes in working space are still remained
+    git reset -- <file-path>
     ```
 
-2. Remove a file from the staging area
+3. Restore a file that is pushed to the local/remote repository
+
+    Sometimes we push the changes of a files as the 2 commits to the local/remote repository. But now we want to revert this file to the previous state of the 2 commits.
 
     ```bash
-    git rm --cached <file-path>
+    # commits of a file in the master of the local/remote repository
+               HEAD (refers to branch 'master')
+                |
+                v
+    a --- b --- c  branch 'master' (refers to commit 'c')
     ```
 
-3. Remove a file from the local repository
+    ```bash
+    # switch to the master branch
+    git checkout master
 
-    - First, we need to revert to the previous commit.
+    # reverts to two revision back
+    git checkout master~2
 
-        ```bash
-        git reset --soft HEAD^1
-        ```
+    # delete file in the workspace
+    rm -f <file-name>
 
-        So, our files that are in the staging area.
+    # restore <file-name> from the staging area
+    git checkout <file-name>
 
-    - Second, we will remove them from the staging area.
+    # push to the remote repository
+    git push -f origin master
+    ```
 
-        ```bash
-        git rm --cached <file-path>
-        ```
+    OR we can use the below way:
 
-        Now, our files appear in the untracking files section. Then, we will remove directly that file.
+    ```bash
+    git checkout master
 
-    - Finally, commit the remaining files.
-
-        ```bash
-        git commit -m "message"
-        ```
+    # In git, -- before the file tells git that all the next arguments should be interpreted as filenames,
+    # not as branch-names or anything else.
+    git checkout <commit-id> -- <file-name>
+    ```
 
 <br>
 
