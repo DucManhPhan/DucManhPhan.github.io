@@ -49,23 +49,23 @@ So, belows are actions of **git commit** command.
     ```
 
     The meaning of some options:
-    - **-a** ot **--all**: automatically stage files that have been modified or deleted. It does not affect to the new files.
+    - **-a** ot **- -all**: automatically stage files that have been modified or deleted. It does not affect to the new files.
 
-    - **-C <commit>** or **--reuse-message=<commit>**: use the message of the specific commit.
+    - **-C \<commit\>** or **- -reuse-message=\<commit\>**: use the message of the specific commit.
 
-    - **-c <commit>** or **--reedit-message=<commit>**: edit the commit message by using editor.
+    - **-c \<commit\>** or **- -reedit-message=\<commit\>**: edit the commit message by using editor.
 
-    - **-m** or **--message=<msg>**: define a message for our commit.
+    - **-m** or **- -message=\<msg\>**: define a message for our commit.
 
-    - **--allow-empty-message**: when using script files with git, we can use this option.
+    - **- -allow-empty-message**: when using script files with git, we can use this option.
 
-    - **--amend**: it will modify the last commit by adding the current changes to it.
+    - **- -amend**: it will modify the last commit by adding the current changes to it.
 
         ```bash
         git commit --amend -m "<our-message>"
         ```
 
-        The **--amend** option is used when we want to rewrite the comment, and change the content of its commit.
+        The **- -amend** option is used when we want to rewrite the comment, and change the content of its commit.
 
 <br>
 
