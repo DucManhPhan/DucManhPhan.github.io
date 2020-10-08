@@ -1,7 +1,7 @@
 ---
 layout: post
 title: Some useful commands with branch in Git
-bigimg: /img/image-header/unsplash.jpg
+bigimg: /img/image-header/unsplash.jpeg
 tags: [Git]
 ---
 
@@ -79,7 +79,7 @@ git clone -b R<branch-name> --single-branch <>
     **git rebase master** does a couple of things:
     - First it locates the common ancestor between your currently-checked-out branch and master.
     - Then it resets the currently-checked-out branch to that ancestor, holding all later commits in a temporary holding area.
-    - Then it advances the currently-checked-out-branch to the end of master and replays the commits from the holding area after master’s last commit.
+    - Then it advances the currently-checked-out-branch to the end of master and replays the commits from the holding area after masterï¿½s last commit.
 
 <br>
 
