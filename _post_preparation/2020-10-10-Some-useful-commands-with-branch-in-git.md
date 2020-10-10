@@ -12,6 +12,7 @@ tags: [Git]
 ## Table of Contents
 - [Understanding about branch in git](#understanding-about-branch-in-git)
 - [Create a new brach](#create-a-new-branch)
+- [Clone single branch](#clone-single-branch)
 - [Pull/Update data from branches](#pull/update-data-from-branches)
 - [Rename a branch's name](#rename-a-branch's-name)
 - [Delete a branch](#delete-a-branch)
@@ -69,17 +70,12 @@ git clone -b R<branch-name> --single-branch <>
 
     This section will refer from [How to undo (almost) anything with Git](https://github.blog/2015-06-08-how-to-undo-almost-anything-with-git/).
 
-    Problem: We have created a new branch feature from master branch, but master branch was pretty far behind origin/master. Now that master branch is in sync with origin/master, we wish commits on feature were starting now, instead of being so far behind.
+    Problem: We have created a new branch **feature** from **master** branch, but **master** branch was pretty far behind **origin/master**. Now that **master** branch is in sync with **origin/master**, we wish commits on **feature** were starting now, instead of being so far behind.
 
     ```bash
     git checkout feature
     git rebase master
     ```
-
-    **git rebase master** does a couple of things:
-    - First it locates the common ancestor between your currently-checked-out branch and master.
-    - Then it resets the currently-checked-out branch to that ancestor, holding all later commits in a temporary holding area.
-    - Then it advances the currently-checked-out-branch to the end of master and replays the commits from the holding area after master�s last commit.
 
 <br>
 
@@ -145,6 +141,43 @@ git push <remote-name> :<old-name> <new-name>
     git merge master
     ```
 
+    How git merge works:
+    - Firstly, git merge will find the common base commit between commits.
+    - Then, it will create a new **merge commit** that combines multiple sequences of commits of the feature branch into one unify history.
+
+    The drawbacks of git merge command:
+    - Supposed that we have a git flow like the below:
+
+        ```bash
+        # the starting git flow
+        a --- b --- c --- d --- e (master branch refer to the commit e)
+        |
+        x
+         \
+          y --- z (HEAD refers commit z of the feature branch)
+        
+        git checkout master
+
+        # use git merge command
+        git merge feature
+
+        # result
+                                   (HEAD refers to the new commit f of the feature branch)
+                                     |
+                                     v
+        a --- b --- c --- d --- e -- f (master branch refer to the new commit f)
+        |                          /    
+        x                         /
+         \                       /
+          y --- z --------------  
+        ```
+
+        From the above images, we can find that:
+        - When creating a merge commit, Git will attempt to auto magically merge the seperate histories.
+
+    To refer the detail of git merge command, read the article [https://www.atlassian.com/git/tutorials/using-branches/git-merge](https://www.atlassian.com/git/tutorials/using-branches/git-merge).
+
+
 2. When merging branches, there are multiple conflicts
 
     To search all conflicts, we can use the below commands:
@@ -186,13 +219,3 @@ git show COMMIT_ID
 git rev-list HEAD --count
 git rev-list COMMIT_ID --count
 ```
-
-<br>
-
-Refer:
-
-[]()
-
-[]()
-
-[]()

@@ -1,7 +1,7 @@
 ---
 layout: post
 title: Some useful commands with commit in Git
-bigimg: /img/image-header/unsplash.jpg
+bigimg: /img/image-header/unsplash.jpeg
 tags: [Git]
 ---
 
