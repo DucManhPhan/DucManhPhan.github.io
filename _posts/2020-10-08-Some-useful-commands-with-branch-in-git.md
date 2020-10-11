@@ -94,13 +94,16 @@ Belows are some concepts that we want to take care:
 ## Clone single branch
 
 ```bash
-git clone -b <branch-name> --single-branch <>
+git clone -b <branch-name> --single-branch <https://github.com/repo-name.git>
 
 # OR
 
-git clone -b R<branch-name> --single-branch <>
+git clone -b <branch-name> --single-branch <https://username:password@github.com/repo-name.git>
 ```
 
+With Git 1.7.10 and later, add –single-branch to prevent fetching of all branches.
+
+-–> We should clone master branch because all other branches is created from master branch. So, we will easily switch to the other branches to work on them.
 
 <br>
 

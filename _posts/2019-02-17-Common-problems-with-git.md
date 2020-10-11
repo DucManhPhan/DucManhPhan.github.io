@@ -1,6 +1,6 @@
 ---
 layout: post
-title: Common problems with GIT
+title: Common problems with Git 
 bigimg: /img/path.jpg
 tags: [Git]
 ---
@@ -16,7 +16,7 @@ When having problems, it takes so much time to resolve them. So, in this article
 - [The following untracked working tree files would be overwritten by merge](#the-following-untracked-working-tree-files-would-be-overwritten-by-merge)
 - [Updates were rejected because the tip of your current branch is behind its remote counter part](#updates-were-rejected-because-the-tip-of-your-current-branch-is-behind-its-remote-counter-part)
 - [The file exceeds Github's file size limit of 100.00 MB](#the-file-exceeds-github's-file-size-limit-of-100.00-MB)
-- [Reconfigure URL of git in local repository](#reconfigure-url-of-git-in-local-repository)
+- [Run multiple git process](#run-multiple-git-processes)
 - [Wrapping up](#wrapping-up)
 
 
@@ -146,15 +146,27 @@ When having problems, it takes so much time to resolve them. So, in this article
 
 <br>
 
-## Reconfigure URL of git in local repository
+## Run multiple git process
 
-Assuming that we have a case that we changed the Git's URL. So, in local repository, how do we also change this url that do not have to pull it again?
+1. Given problem
 
-To solve this problem, we will type the following command:
+    When you cope with the error which something like that:
+    "Another git process seems to be running in this repository, e.g.
+    an editor opened by 'git commit'. 
+    Please make sure all processes
+    are terminated then try again. If it still fails, a git process
+    may have crashed in this repository earlier:
+    remove the file manually to continue."
 
-```
-git remote set-url origin <link_git_project>
-```
+2. Solution
+
+    Try deleting ```index.lock``` file in your ```.git``` directory.
+
+    Generally such problems occurs when you execute two git commands simultaneously maybe one from command prompt and one from IDE. So deleting ```.lock``` file in your ```.git``` directory can work.
+
+    ```bash
+    rm -f ./.git/index.lock
+    ```
 
 <br>
 

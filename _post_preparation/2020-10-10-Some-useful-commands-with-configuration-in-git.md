@@ -58,7 +58,15 @@ git remote show origin
     git config --global user.email "our-email"
     ```
 
-2. 
+2. Reconfigure URL of git in local repository
+
+    Assuming that we have a case that we changed the Git's URL. So, in local repository, how do we also change this url that do not have to pull it again?
+
+    To solve this problem, we will type the following command:
+
+    ```
+    git remote set-url origin <link_git_project>
+    ```
 
 <br>
 
