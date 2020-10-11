@@ -259,7 +259,45 @@ git push <remote-name> :<old-name> <new-name>
     To refer the detail of git merge command, read the article [https://www.atlassian.com/git/tutorials/using-branches/git-merge](https://www.atlassian.com/git/tutorials/using-branches/git-merge).
 
 
-2. When merging branches, there are multiple conflicts
+2. Using git rebase command
+
+    In the section [Using git merge command](#using-git-merge-command), w
+
+    ```bash
+    # using git merge command
+    a --- b --- c --- d --- e -- f (master branch refer to the new commit f)
+    |                          /    
+    x                         /
+    \                       /
+    y --- z --------------  (feature branch)
+
+    # but we really want
+    a --- b --- c --- d --- e --- f --- x
+                                         \
+                                          y --- z 
+    ```
+
+    Benefits of this merging commits are:
+    - The commits's history is sequential, so we can easily track them.
+
+    ```bash
+    # work in the feature branch
+    git checkout feature
+
+    git rebase master
+
+    # if there are multiple conflicts, resolve a conflict and continue applying commits
+    git rebase --continue
+
+    # if we want to skip a commit
+    git rebase --skip
+
+    # if we want to stop applying the remained commits
+    git rebase --abort
+    ```
+
+
+3. When merging branches, there are multiple conflicts
 
     To search all conflicts, we can use the below commands:
 
