@@ -10,32 +10,12 @@ tags: [Git]
 <br>
 
 ## Table of Contents
-- [Given problem](#given-problem)
-- [Some operations with files and folders](#some-operations-with-files-and-folders)
 - [Delete operation](#delete-operation)
 - [Rename operation](#rename-operation)
 - [Move operation](#move-operation)
 - [Search operation](#search-operation)
 - [Undo operations](#undo-operations)
 - [Wrapping up](#wrapping-up)
-
-
-
-<br>
-
-## Given problem
-
-
-
-
-
-<br>
-
-## Some operations with files and folders
-
-
-
-
 
 <br>
 
@@ -110,16 +90,19 @@ tags: [Git]
 
 ## Rename operation
 
-
-
+```bash
+# rename a file
+git mv <file-name> <new-file-name>
+```
 
 
 <br>
 
 ## Move operation
 
-
-
+```bash
+git mv <file-path> <folder-path>
+```
 
 
 <br>
@@ -250,18 +233,10 @@ tags: [Git]
 
 ## Wrapping up
 
-
-
-
+- To use above commands effectively, we need to think about what object that we cope with, and then action for it.
 
 <br>
 
 Refer:
-
-[https://www.tutorialspoint.com/git/git_move_operation.htm](https://www.tutorialspoint.com/git/git_move_operation.htm)
-
-[https://www.tutorialspoint.com/git/git_rename_operation.htm](https://www.tutorialspoint.com/git/git_rename_operation.htm)
-
-[https://www.tutorialspoint.com/git/git_update_operation.htm](https://www.tutorialspoint.com/git/git_update_operation.htm)
 
 [https://dodangquan.blogspot.com/2017/11/tim-kiem-voi-git.html](https://dodangquan.blogspot.com/2017/11/tim-kiem-voi-git.html)
