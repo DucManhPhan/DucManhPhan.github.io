@@ -411,12 +411,26 @@ Below is commands about working with file in VIM editor.
 
 ## Commands with tab
 
+1. Create/Close new tabs
 
+    |        Command        |              Description              |
+    | --------------------- | ------------------------------------- |
+    | :tabedit file-name    | Open a file in a new tab              |
+    | :tabclose             | Close the current tabl                |
+    | :tabonly or :tabo     | Close the other tabs, but still open the current tab |
 
+2. Switch between tabs
+
+    |        Command        |              Description              |
+    | --------------------- | ------------------------------------- |
+    | gt                    | Move to the next tab                  |
+    | gT                    | Move to the previous tab              |
+    | ngt                   | Move to the specific tab              |
+    | :tabmove              | Move to the end tab                   |
 
 <br>
 
-## Some interesting commands
+## some interesting commands
 - ciw : change the inside word - delete the whole word under cursor and switches to insert mode, unlike cw which deletes a word from cursor to the end of this word.
 - cis : change inside sentence
 - ci" : change inside " brace - delete all text between " braces.
@@ -424,7 +438,7 @@ Below is commands about working with file in VIM editor.
 - vip : visual inside paragraph - selects all paragraph.
 - ctp : change till p - delete everything from here to letter p.
 - d$ : delete to the end of line
-- yG : copy everything through the end of the file
+- yg : copy everything through the end of the file
 - cf) : change through the next closing parentheses or the next other character
 - cw : delete word and enter the insert mode
 - dw : delete word and staying in the normal mode
@@ -432,14 +446,14 @@ Below is commands about working with file in VIM editor.
 - ctx : change all text till the 'x'
 - dtx : delete all text till the next 'x'
 - dfx : same, but include the 'x'
-- Yp : duplicate lines 
+- yp : duplicate lines 
 - 3dk : delete current line and 4 lines in the upward direction.
 - :-3,.d : delete 3 lines above and the current line.
-- 2iHello <ESC> : insert Hello 2 times.
+- 2ihello <esc> : insert hello 2 times.
 
 <br>
 
-## Wrapping up
+## wrapping up
 
 - Understanding about the action and objects in VIM.
 
