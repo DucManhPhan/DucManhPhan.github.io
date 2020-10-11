@@ -1,6 +1,6 @@
 ---
 layout: post
-title: Some useful commands with repository in Git
+title: Some useful commands with configuration in Git
 bigimg: /img/image-header/unsplash.jpeg
 tags: [Git]
 ---
