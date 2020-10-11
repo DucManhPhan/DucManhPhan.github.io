@@ -75,9 +75,26 @@ Below is an image about UML diagram of State pattern:
 
 ![](../img/design-pattern/state-pattern/State-Pattern.png)
 
-- Each state of a process or an object will be represented with implementation of State interface. So, we can easily expand states by implementing State interface.
+Some elements of the State pattern:
+- Context
 
-- The Context will delegate state-specific behavior to different State implementation.
+    The Context will maintain an instance of a concrete state as the current state.
+
+    The Context will delegate state-specific behavior to different State implementation.
+
+- Abstract State
+
+    It will define an interface which encapsulate all state-specific behaviors.
+
+- Concrete State
+
+    A concrete state is a subclass of the abstract state that implements behaviors specific to a particular state of the Context.
+
+Below is the State pattern approach:
+- a list of possible states
+- the conditions for transitioning between those states
+- the state of our object when it's initialized or it's initial state.
+
 
 <br>
 
