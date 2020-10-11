@@ -81,8 +81,31 @@ public void clickCancelBtn() {
 
 public void clickDatePassedBtn() {
     this.currentState = BookingState.DATE_PASSED;
-    System.out.println("Bookign expired");
+    System.out.println("Booking expired");
 }
+```
+
+The above implementation seems normal, but it exists issues such as a canceled booking can expire or even be re-canceled, and an expired booking can also be canceled or re-expired.
+
+A common way to address these types of issues in the absence of the state pattern is to use a simple Boolean field.
+
+```java
+private boolean isNew = true;
+
+public void clickCancelBtn() {
+    if (isNew) {
+        this.currentState = BookingState.Canceled;
+        System.out.println("Canceled by user");
+    } else {
+        System.out.println("Closed bookings cannot be canceled");
+    }
+}
+
+public void clickDatePassedBtn() {
+    this.currentState = BookingState.DATE_PASSED;
+    System.out.println("Booking expired");
+}
+
 ```
 
 <br>
