@@ -116,17 +116,45 @@ With Java, we can refer to this [link](https://github.com/DucManhPhan/Design-Pat
     We have to handle playing, paused, buffering, connecting, seeking and even other states.
 
     When the player is in playing or paused states, it is responsive to user interaction events.
+
     When the player is in "connecting" state, it might not have enough data to know the video duration and so the seek bar should be disabled.
+
     Once the player is connected, it will move to buffering state. In buffering state, the user can seek, or stop the video. But if he tries to pause or play the video, the command is saved for later, so that when the buffering is done, the video is either paused or start playing. etc.
+
+- As developers, we face questions of state all the time.
+
+    Supposed that we are working on an order processing application. Is an order in an order processing application:
+    - New
+    - Processing
+    - Canceled
+    - Complete
+
+    And we implement behaviors based on these states. Can a user edit a canceled order, or can a completed order be canceled?
 
 <br>
 
 ## Wrapping up
+
 - Always to make State objects in singletons.
 
-- There are really two key aspects to consider in working with the state pattern: enumeration and transition. Enumeration simply means identifying the set of possible states (e.g. days of the week), or more abstractly the types of states (i.e. meta states) such as starting, ending, and in between for a workflow engine.Transition means deciding how to model movement between states where this is typically either done by capturing all possible transitions in a tabular representation (i.e. Finite State Machine) or make each state know its possible "transitions" to other states.
+- There are really two key aspects to consider in working with the state pattern
 
-    Typically transitions go hand in hand with meta states because its not possible to know all states and relationships ahead of time in such a dynamic system where new states, and thus transitions, can be added at runtime. In addition, with the transition approach, certain behavior - notifications for instance - becomes part of the transition, instead of the state itself.
+    - Enumeration
+
+        Enumeration simply means identifying the set of possible states (e.g. days of the week), or more abstractly the types of states (i.e. meta states) such as starting, ending, and in between for a workflow engine. 
+    
+    - Transition
+
+        Transition means deciding how to model movement between states where this is typically either done by capturing all possible transitions in a tabular representation (i.e. Finite State Machine) or make each state know its possible "transitions" to other states.
+
+        Typically transitions go hand in hand with meta states because its not possible to know all states and relationships ahead of time in such a dynamic system where new states, and thus transitions, can be added at runtime. In addition, with the transition approach, certain behavior - notifications for instance - becomes part of the transition, instead of the state itself.
+
+- Belows are two challenges that State pattern solve:
+
+    - How can an object change its behavior when its internal state changes?
+
+    - How can state-specific behaviors be defined so that states can be added without altering the behavior of existing states?
+
 
 <br>
 
