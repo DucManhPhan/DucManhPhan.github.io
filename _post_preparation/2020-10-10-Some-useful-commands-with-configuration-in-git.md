@@ -64,7 +64,7 @@ git remote show origin
 
     To solve this problem, we will type the following command:
 
-    ```
+    ```bash
     git remote set-url origin <link_git_project>
     ```
 
