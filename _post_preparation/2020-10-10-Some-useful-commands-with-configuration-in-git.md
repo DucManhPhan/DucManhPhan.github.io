@@ -48,15 +48,21 @@ git remote show origin
 
 <br>
 
-## 
+## Fill configuration to Git
 
+1. Configure user's information at the first time
 
+    ```bash
+    git config --global user.name "our-name"
 
+    git config --global user.email "our-email"
+    ```
 
+2. 
 
 <br>
 
-## 
+## Remove 
 
 
 

@@ -44,7 +44,12 @@ tags: [Git]
 1. Stop tracking a file from the staging area
 
     ```bash
+    # with a file
     git rm --cached <file-path>
+
+    # with a folder
+    # -r option means recursive
+    git rm -r --cached <folder-path>
     ```
 
 2. Remove a file from the local repository
@@ -65,10 +70,12 @@ tags: [Git]
 
         Now, our files appear in the untracking files section. Then, we will remove directly that file.
 
-    - Finally, commit the remaining files.
+    - Finally, commit the remaining files and push them to the remote repository.
 
         ```bash
         git commit -m "message"
+
+        git push origin <branch-name>
         ```
 
 3. Remove files that are not tracked by the staging area
@@ -87,6 +94,16 @@ tags: [Git]
 
     ```bash
     git rm $(git ls-files --deleted)
+    ```
+
+5. Remove a folder in the remote repository
+
+    ```bash
+    git rm -rf <folder-name>
+
+    git commit -m "message"
+
+    git push -f origin <branch-name>
     ```
 
 <br>

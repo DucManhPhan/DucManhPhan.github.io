@@ -33,15 +33,61 @@ Belows are some concepts that we want to take care:
 
 ## Create a new brach
 
-```bash
-# first way: use git checkout
-git checkout -b new_branch_name     // --> create new branch and switch to it
+1. In the same repository
 
-# second way: use git branch
-git checkout master // --> create new branch from master branch
-git branch new_branch_name  // --> we are in master branch
-git checkout new_branch_name
-```
+    ```bash
+    # first way: use git checkout
+    git checkout -b <new-branch-name>     // --> create new branch and switch to it
+
+    # second way: use git branch
+    git checkout master // --> create new branch from master branch
+    git branch <new_branch_name>  // --> we are in master branch
+    git checkout <new-branch-name>
+
+    git push -u origin <new-branch-name>
+    ```
+
+2. Push a branch of a repository to the other repository
+
+    - Given problem
+
+        Sometimes, we need to change our current repository to the new repository. Then, we need to move all branches in the old repository to the new repository.
+
+    - Solution
+
+        Belows are some steps that we need to follow:
+        - Add the new repository
+
+            ```bash
+            git remote add <new-repository-name> <link-new-repository>
+
+            # example
+            git remote add new-repository http://gitlab.com/new-project.git
+            ```
+
+        - Update local with new repository
+
+            ```bash
+            git fetch <new-repository-name>
+            ```
+        
+        - Check all current branches
+
+            ```bash
+            git branch -a
+            ```
+
+        - To push a branch into the new repository, we need to switch to that branch.
+
+            ```bash
+            git checkout <repository-name>/<branch-name>
+            ```
+
+        - Then, in order to push the current branch to the new repository, we do some following commands.
+
+            ```bash
+            git push -u <new-repository-name> <new-branch-name>
+            ```
 
 <br>
 
@@ -76,6 +122,38 @@ git clone -b R<branch-name> --single-branch <>
     git checkout feature
     git rebase master
     ```
+
+3. Update braches in local repository when any branches were deleted in the remote repository
+
+    - Problem
+
+        Sometimes, in our project, we create a new merge request. Git always has an option that it will delete our feature branch after successfully merging. The problem is that in the remote repository, these branches removed but in the local repository, the corresponding branches does not.
+
+    - Solution
+
+        ```bash
+        # list all branches in the local repository
+        git branch -a
+
+        # To remove remote tracking branches for deleted branches, we need to issue:
+        git remote prune origin
+
+        # If we just want to list such stale branches (and not remove them), use this:
+        git remote prune origin --dry-run
+
+        # But using the above commands, we only delete the remote braches that has tracked in local repository, we do not delete the branches that used in the local repository.
+        # To delete these branches, we can use the following commands:
+        git branch --merged >/tmp/merged-branches && \
+        vi /tmp/merged-branches && xargs git branch -d </tmp/merged-branches
+        ```
+
+        But the above command will delete both master branch in the local repository. If we do not want to do that, we have two solutions for this case:
+        - Use **git branch -d** for specific branches.
+        - Just use grep to exclude master:
+
+            ```bash
+            git branch --merged | grep -v "master" >/tmp/merged-branches && vi /tmp/merged-branches && xargs git branch -d </tmp/merged-branches 
+            ```
 
 <br>
 

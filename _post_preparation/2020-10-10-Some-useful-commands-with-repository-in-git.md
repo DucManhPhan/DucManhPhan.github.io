@@ -25,7 +25,7 @@ tags: [Git]
 
 <br>
 
-## 
+## Create a new repository
 
 
 
@@ -34,17 +34,35 @@ tags: [Git]
 
 <br>
 
-## 
+## Remove the remote repository
 
+```bash
+# syntax
+git remote rm <repository-name>
 
-
-
+# for example
+git remote rm sample-repo
+```
 
 <br>
 
-## 
+## Add the new remote repository
 
+```bash
+git remote add <name_of_repository> url
+```
 
+url: means the path that points to repo, the tail of url is **.git**.
+
+To check this remote whether it makes or not, use the syntax:
+
+```bash
+git remote
+git remote -v
+```
+
+When to use:
+- when we want to merge a repository's branches to the other repository's branches.
 
 
 
