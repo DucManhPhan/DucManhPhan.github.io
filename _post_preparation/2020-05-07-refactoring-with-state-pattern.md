@@ -63,6 +63,11 @@ tags: [Refactoring]
 3. Success state
 4. Booked state
 5. Closed state
+
+    With this state, our application will do:
+    - display the booking state
+    - display the reason why the booking was closed
+
 6. Date Passed state
 7. User Canceled state
 
@@ -340,7 +345,8 @@ The drawbacks of the naive approach:
     ```java
     public class NewState extends BookingState {
         public void enterState(BookingContext booking) {
-
+            booking.bookingID = new Random().next();
+            booking.showState("New");
         }
 
         public void cancel(BookingContext booking) {
@@ -352,7 +358,9 @@ The drawbacks of the naive approach:
         }
 
         public void enterDetails(BookingContext booking, String attendee, int ticketCount) {
-
+            booking.attendee = attendee;
+            booking.ticketCount = ticketCount;
+            booking.transitionToState(new PendingState());
         }
     }
 
@@ -393,6 +401,8 @@ The drawbacks of the naive approach:
     }
 
     public class ClosedState extends BookingState {
+        private String reasonClosed;
+
         public void enterState(BookingContext booking) {
 
         }
