@@ -350,11 +350,11 @@ The drawbacks of the naive approach:
         }
 
         public void cancel(BookingContext booking) {
-
+            booking.transitionToState(new ClosedState("Booking Canceled"));
         }
 
         public void datePassed(BookingContext booking) {
-
+            booking.transitionToState(new ClosedState("Booking Expired"));
         }
 
         public void enterDetails(BookingContext booking, String attendee, int ticketCount) {
@@ -384,15 +384,15 @@ The drawbacks of the naive approach:
 
     public class BookedState extends BookingState {
         public void enterState(BookingContext booking) {
-
+            booking.showState("Booked");
         }
 
         public void cancel(BookingContext booking) {
-
+            booking.transitionToState(new ClosedState("Booking Canceled: Expect a refund"));
         }
 
         public void datePassed(BookingContext booking) {
-
+            booking.transitionToState(new ClosedState("We hope you enjoyed the event!"));
         }
 
         public void enterDetails(BookingContext booking, String attendee, int ticketCount) {
@@ -403,20 +403,25 @@ The drawbacks of the naive approach:
     public class ClosedState extends BookingState {
         private String reasonClosed;
 
-        public void enterState(BookingContext booking) {
+        public ClosedState(String reasonClosed) {
+            this.reasonClosed = reasonClosed;
+        }
 
+        public void enterState(BookingContext booking) {
+            booking.showState("Closed");
+            // show reason closed
         }
 
         public void cancel(BookingContext booking) {
-
+            booking.showError("Invalid action for this state");
         }
 
         public void datePassed(BookingContext booking) {
-
+            booking.showError("Invalid action for this state");
         }
 
         public void enterDetails(BookingContext booking, String attendee, int ticketCount) {
-
+            booking.showError("Invalid action for this state");
         }
     }
     ```
@@ -427,6 +432,11 @@ Benefits of State pattern:
 - Easier to read and maintain
 - Less difficult to debug
 - More extensible
+
+Disadvantages:
+- Takes time to setup
+- More moving parts
+- Potentially less performant
 
 <br>
 

@@ -22,10 +22,14 @@ tags: [Linux]
 
 1. Syntax
 
+    ```bash
+    function func_name() {
+        # nothing to do
+    }
+    ```
 
 
-
-2. 
+2. For example
 
 
 
