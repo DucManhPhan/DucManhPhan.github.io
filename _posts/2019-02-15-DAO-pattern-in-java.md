@@ -16,9 +16,9 @@ Let's get started!
 ## Table of Contents
 - [Given Problem](#given-problem)
 - [Solution with DAO pattern](#solution-with-dao-pattern)
-- [Source code C++ / Java / Javascript](#source-code-c++-/-java-/-javascript)
-- [When to use DAO pattern](#when-to-use-dao-pattern)
-- [The advantages / disadvantages](#the-advantages-/-disadvantages)
+- [Source code](#source-code)
+- [When to use](#when-to-use)
+- [Advantages and Disadvantages](#advantages-and-disadvantages)
 - [Related Design Patterns](#related-design-patterns)
 - [Wrapping up](#wrapping-up)
 
@@ -48,7 +48,7 @@ DAO pattern can be represented with many ways such as Java Persistence API (JPA)
 
 <br>
 
-## Source code C++ / Java / Javascript
+## Source code
 Now, we will use Java language to describe the DAO pattern. And based on these code, we will analyze the advantages and disadvantages of DAO pattern.
 
 ```java
@@ -99,14 +99,14 @@ public class StudentDAOImpl implements StudentDAO {
 
 
 // Main Application
-int Main(String[] args) {
+public void main(String[] args) {
     ...
 }
 ```
 
 <br>
 
-## When to use DAO pattern
+## When to use
 - When we need to change the current database to the other database such as Oracle, MySQL, MariaDB, SQL Server, MongoDB.
 - We want to separate a data source's client interface from its data access mechanism.
 - We want to adapt a specific data resource's access API to a generic client interface.
@@ -114,7 +114,7 @@ int Main(String[] args) {
 
 <br>
 
-## The advantages / disadvantages
+## Advantages and Disadvantages
 1. Advantages
     - It separeates the domain logic that use it from any particular persistence mechanism or APIs --> loose coupling between layers.
 
@@ -148,11 +148,11 @@ int Main(String[] args) {
 
 - Transfer Object
     
-    The DAO pattern offten uses a Transfer Object to send data source to its client and vice versa.
+    DAO pattern often uses a Transfer Object to send data source to its client and vice versa.
 
 - Broker pattern
 
-    The DAO pattern is related to the Broker pattern, which describes approaches for decoupling clients and servers in distributed systems. The DAO pattern more specifically applies this pattern to decouple the resouce tier from clients in another tier, such as the business or presentation tier.
+    DAO pattern is related to the Broker pattern, which describes approaches for decoupling clients and servers in distributed systems. DAO pattern more specifically applies this pattern to decouple the resouce tier from clients in another tier, such as the business or presentation tier.
 
 <br>
 
