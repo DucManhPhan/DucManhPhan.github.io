@@ -262,16 +262,22 @@ Some thoughts about Value Objects:
 
 ## When to use
 
+- 
 
+- 
 
-
+- 
 
 <br>
 
 ## Benefits and Drawbacks
 
+1. Benefits
 
 
+
+
+2. Drawbacks
 
 
 
@@ -324,7 +330,7 @@ Some thoughts about Value Objects:
 
     ```
 
-- They must override hashCode() method
+- They must override **hashCode()** method
 
     hash code must be stable and uniform.
 
