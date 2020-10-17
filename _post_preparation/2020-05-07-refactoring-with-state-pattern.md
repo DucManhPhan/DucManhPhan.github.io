@@ -426,17 +426,22 @@ The drawbacks of the naive approach:
     }
     ```
 
+<br>
 
-Benefits of State pattern:
-- More modular
-- Easier to read and maintain
-- Less difficult to debug
-- More extensible
+## Benefits and Drawbacks of State pattern
 
-Disadvantages:
-- Takes time to setup
-- More moving parts
-- Potentially less performant
+1. Benefits
+
+    - More modular
+    - Easier to read and maintain
+    - Less difficult to debug
+    - More extensible
+
+2. Drawbacks
+
+    - Takes time to setup
+    - More moving parts
+    - Potentially less performant
 
 <br>
 

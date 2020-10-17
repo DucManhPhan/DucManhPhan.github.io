@@ -126,7 +126,6 @@ The output of the above binary tree is:
         }
     ```
 
-
 <br>
 
 ## Using iterative version
