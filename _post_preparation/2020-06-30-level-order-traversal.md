@@ -141,8 +141,7 @@ In this version, we will use **Queue** to save the children nodes of the current
 
 ## When to use
 
-- 
-
+- When we want to work with the nodes that are in the same level such as applying in the peer-to-peer network, ...
 
 <br>
 
@@ -158,3 +157,5 @@ Refer:
 [https://www.geeksforgeeks.org/level-order-tree-traversal/](https://www.geeksforgeeks.org/level-order-tree-traversal/)
 
 [https://leetcode.com/problems/binary-tree-level-order-traversal/](https://leetcode.com/problems/binary-tree-level-order-traversal/)
+
+[https://www.educative.io/m/level-order-traversal-binary-tree](https://www.educative.io/m/level-order-traversal-binary-tree)
