@@ -52,6 +52,8 @@ tags: [Distributed system]
     | best                | 100 ms --> 200 ms          |
     | worst               | 30 s --> 60 s              |
 
+    Nowadays, the systems communicate through restful api, then, we need to set timeout for this calling.
+
 2. Using WebSocket
 
 
