@@ -15,6 +15,7 @@ tags: [Graph]
 - [Definition of Graph](#definition-of-graph)
 - [Using recursive version](#using-recursive-version)
 - [Using iterative version](#using-iterative-version)
+- [Applications of DFS](#applications-of-dfs)
 - [Wrapping up](#wrapping-up)
 
 <br>
@@ -255,6 +256,24 @@ Assuming that we have a graph that is described in a below image.
         }
     }
     ```
+
+<br>
+
+## Applications of DFS
+
+- Minimum spanning tree
+
+- Detecting cycle in the graph
+
+- Find path between the two vertices
+
+- Topological sorting
+
+- Check bipartite graph
+
+- Find the strongly connected components
+
+- Maze solution
 
 <br>
 
