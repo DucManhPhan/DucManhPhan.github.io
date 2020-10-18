@@ -14,6 +14,7 @@ tags: [Enterprise Pattern]
 - [Solution with Value Objects pattern](#solution-with-value-objects-pattern)
 - [When to use](#when-to-use)
 - [Benefits and Drawbacks](#benefits-and-drawbacks)
+- [Differences between Values and Entities](#differences-between-values-and-entities)
 - [Wrapping up](#wrapping-up)
 
 
@@ -97,7 +98,7 @@ public class Currency implements Comparable<Currency> {
 }
 ```
 
-In our buy() method, we will define the reserve() method that we want to reserve an item before selling it. 
+In our **buy()** method, we will define the **reserve()** method that we want to reserve an item before selling it. 
 
 ```java
 public class Customer {
@@ -131,14 +132,14 @@ public class Customer {
 }
 ```
 
-In this case, it is assuming that the **reserve()** method does not change its argument. But unfortunately, we have a new requirement that might introduce a sale off in the holiday. Using isHoliday variable for this feature and our **reserve()** method might cut the price to half during the sale off time.
+In this case, it is assuming that the **reserve()** method does not change its argument. But unfortunately, we have a new requirement that might introduce a sale off in the holiday. Using **isHappyHour** variable for this feature and our **reserve()** method might cut the price to half during the sale off time.
 
 ```java
 public class Customer {
-    private boolean isHoliday;
+    private boolean isHappyHour;
 
     private void reserve(Money cost) {
-        if (this.isHoliday) {
+        if (this.isHappyHour) {
             cost.scale(0.5);
         }
 
@@ -157,7 +158,7 @@ public class Customer {
         //this.buy(usd7, usd10);
 
         //System.out.println();
-        this.isHoliday = true;
+        this.isHappyHour = true;
         this.buy(usd7, usd10);
     }
 }
@@ -189,7 +190,7 @@ The first object reads the shared object, then the second object writes the new 
 
 Later, the first object continues doing things based on the earlier assumption. Unfortunately, the state of the shared object is now different. Another read would reveal that, but the object has out of luck. It is not reading anything, it is already advancing in firm steps, and the overall result will be incorrect. That is how aliasing bugs manifest.
 
-![](../img/refactoring/more-object-oriented/alias-bugs-2.png)
+![](../img/refactoring/more-object-oriented/alias-bugs-3.png)
 
 Basic technique to avoid them is to not modify shared objects. A method argument is a good example of a shared reference. The cost argument is a reference passed from the outside. The **reserve()** method has every right to believe that somebody else is still keeping a valid reference to the same object, and to avoid the risk of an aliasing bug, this method must refrain from modifying the argument. This is a slight ambiguity here. Having an alias doesn't mean that there is an aliasing bug around. That is precisely the reason why aliasing bugs are so difficult to find in production code. There is nothing wrong with any part of the system. Only sometimes and only if the system is assembled in some specific way, those seemingly correct parts will not work together as expected.
 
@@ -212,11 +213,6 @@ public class Money implements Comparable<Money> {
         }
 
         return new Money(this.amount.add(other.amount), this.currency);
-    }
-
-    @Override
-    public boolean equals(Object other) {
-        if (other == this) 
     }
 
     // ...
@@ -257,16 +253,172 @@ Some thoughts about Value Objects:
 
 - Construct them again when needed.
 
+<br>
+
+## Using the equivalence relation
+
+1. The equivalence relation
+
+    Normally, we always want to compare the two value objects each other. So, in Java, we need to override the **equals()** method.
+
+    Before going to define the **equals()** method for **Money** class and **Currency** class, we should remember some properties of the equivalence relation:
+    - reflexive: a = a
+    - Symmetric: a = b --> b = a
+    - Transitive: a = b and b = c --> a = c    
+
+    In **Money** class, we define the **equals()** method like the below.
+
+    ```java
+    @Override
+    public boolean equals(Object other) {
+        // reflexive property
+        if (other == this) return true;
+
+        // satisfy transitive property
+        return other instanceof Money && this.equals((Money) other);
+    }
+
+    private boolean equals(Money other) {
+        return this.amount.equals(other.amount) && this.currency.equals(other.currency);
+    }
+    ```
+
+    Analysis about properties of the equivalence relation in **Money** class:
+    - With the reflexive property, we will use **= =** operator to compare their references. But in our case, it's redundant because we never call the same objects many times, then it makes our code slower. So we can remove it.
+
+        ```java
+        if (other == this) return true;
+        ``
+
+    - With the transitive property, it always satisfy because **String** data type in **Currency** class and **BigDecimal** data type in **amount** variable provide the transitive property.
+
+    - With symmetric property
+
+        Two objects must return the same result from their **equals()** methods.
+
+        The instanceof operator is reflexive, and transitive, but it is not symmetric. It will evaluate to true when applied to an object of a derived class.
+
+        For example:
+        - baseObj instanceof BaseType = true
+        - derivedObj instanceof BaseType = true
+
+        But it won't work when we have **baseObj instanceof DerivedType = false**.
+
+        It means that our symmetric property will break down.
+
+        To satisfy the symmetric property, we should use:
+        - With classes and its sub-type, we need to compare by using **getClass()** method.
+        - If our class does not have any derived classes, we should use final modifier in the class's definition. Then we can use **instanceof** operator to compare.
+
+    So, we have the **equals()** method of **Money** class and **Currency** class.
+
+    ```java
+    public class Money {
+        @Override
+        public boolean equals(Object other) {
+            return other != null && other.getClass() == this.getClass() && this.equals((Money) other);
+        }
+
+        private boolean equals(Money other) {
+            return this.amount.equals(other.amount) && this.currency.equals(other.currency);
+        }
+    }
+
+
+    public final class Currency implements Comparable<Currency> {
+        private String symbol;
+
+        // ...
+
+        @Override
+        public boolean equals(Object other) {
+            return other instanceof Currency && this.equals((Currency) other);
+        }
+
+        private boolean equals(Currency other) {
+            return this.symbol.equals(other.symbol);
+        }
+    }
+    ```
+
+    The pitfalls of the equivalence relation:
+    - **equals()** method implements equivalence relation.
+    - Base and derived objects are not equivalent.
+    - Otherwise, they would violate symmetric.
+    - Objects of the same type are equal if their components are equal.
+    - Value object only consists of values.
+
+2. The total order relation
+
+    ```java
+    @Override
+    public int compareTo(Money other) {
+        // nothing to do
+    }
+    ```
+
+    **compareTo()** method is implementing the relation of total order over the set of all **Money** objects.
+
+    Below is the total order relation:
+    - Antisymmetric: a <= b and b <= a --> a = b
+    - Transitive: a <= b and b <= c --> a <= c
+    - Connexive: a <= b or b <= a
+
+    Java specification correctly mandates that **equals()** and **compareTo()** methods should behave consistently.
+
+    It means that:
+    - When a.compareTo(b) = 0, then a.equals(b) = true, and vice versa.
+
+<br>
+
+## Using Value Objects as Keys
+
+To use our Value Objects as keys in collections such as Map, ..., we need to override the hashCode() method.
+
+```java
+@Override
+public int hashCode() {
+    // nothing to do
+}
+```
+
+Belows is the hashCode() method of Money and Currency classes.
+
+```java
+public class Money implements Comparable<Money> {
+
+    // ...
+
+    @Override
+    public int hashCode() {
+        // 1st way
+        // faster to use bitwise operator
+        // return this.amount.hashCode() ^ this.currency.hashCode();
+
+        // 2nd way
+        // since hashcode is the consequence of object's content,
+        // we would usually combine hash codes of contained objects,
+        // multiplying by some small prime number is a common strategy.
+        return this.amount.hashCode() * 17 + this.currency.hashCode();
+    }
+}
+
+public final class Currency implements Comparable<Currency> {
+    // Implementing hashCode is mandatory whenever custom equals is implemented.
+    @Override
+    public int hashCode() {
+        return this.symbol.hashCode();
+    }
+}
+```
+
+The hash code must not change and should be dispersed.
 
 <br>
 
 ## When to use
 
-- 
-
-- 
-
-- 
+- When we want to model the real primitive values such as money, request id, ...
 
 <br>
 
@@ -274,12 +426,15 @@ Some thoughts about Value Objects:
 
 1. Benefits
 
+    - Immutability is simple to implement.
 
+    - Avoid aliasing bug when taking advantage of the immutable objects.
 
+    - Makes code easy to maintain.
 
 2. Drawbacks
 
-
+    - Take so much memory when we have many operations to change the its value.
 
 <br>
 
@@ -318,24 +473,10 @@ Some thoughts about Value Objects:
 
 - They are immutable. All their operations only return a new object. They only consist of other immutable components.
 
-    Not only the Money object doesn't change itself, but it only consists of value objects. The Currency object is also immutable and BigDecimal class is immutable as well. When developing a complex object model, we will recognize many value objects, objects that have all the qualities of plain intergers, only that they are reference types, instances of classes.
-
-- They must override the equals method.
-
-    equals is reflexive, symmetric, and transitive.
-
-    For example:
-
-    ```
-
-    ```
-
-- They must override **hashCode()** method
-
-    hash code must be stable and uniform.
+    Not only the **Money** object doesn't change itself, but it only consists of value objects. The Currency object is also immutable and BigDecimal class is immutable as well. When developing a complex object model, we will recognize many value objects, objects that have all the qualities of plain intergers, only that they are reference types, instances of classes.
 
 <br>
 
 Refer:
 
-[]()
+[Making Your Java Code More Object-oriented by Zoran Horvat](https://app.pluralsight.com/library/courses/object-oriented-java-code/table-of-contents)
