@@ -53,6 +53,9 @@ A thread can contains all this information in a **Thread Control Block (TCB)**:
 <br>
 
 ## The difference between process and thread
+
+Below is a table that describe the difference between them.
+
 |          Type           |         Process        |             Thread              |
 | ----------------------- | ---------------------- | ------------------------------- |
 | Definition              | A process is a program under execution | A thread is a lightweight process that can be managed independently by a scheduler |
