@@ -53,7 +53,7 @@ A thread can contains all this information in a **Thread Control Block (TCB)**:
 <br>
 
 ## The difference between process and thread
-|                         |         Process        |             Thread              |
+|          Type           |         Process        |             Thread              |
 | ----------------------- | ---------------------- | ------------------------------- |
 | Definition              | A process is a program under execution | A thread is a lightweight process that can be managed independently by a scheduler |
 | Context switching time  | Processes require more time for context switching as they are more heavy | Threads require less time for context switching as they are lighter than processes |
