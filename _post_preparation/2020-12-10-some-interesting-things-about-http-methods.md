@@ -11,26 +11,23 @@ tags: [Network]
 <br>
 
 ## Table of contents
-
-
-
+- [About GET method](#about-get-method)
+- [About POST method](#about-post-method)
+- []()
+- []()
+- [Wrapping up](#wrapping-up)
 
 
 <br>
 
 ## About GET method
 
-1. 
+1. Do not use GET method to send sensitive data to server
 
 
 
 
-2. 
-
-
-
-
-3. 
+2. Size of path in GET method
 
 
 
@@ -39,7 +36,11 @@ tags: [Network]
 
 ## About POST method
 
+1. 
 
+
+
+2. 
 
 
 
