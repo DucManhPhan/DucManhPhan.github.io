@@ -30,10 +30,15 @@ So, in this article, we will list some ways to optimize query database.
 <br>
 
 ## Table of Contents
-
-
-
-
+- [Introduction to performance tuning](#introduction-to-performance-tuning)
+- [Introduction to MySQL's Query Manager](#introduction-to-mysql's-query-manager)
+- [Some reasons that makes a query perform slow](#some-reasons-that-makes-a-query-perform-slow)
+- [Solution with SELECT command](#solution-with-select-command)
+- [Solution with MySQL's logical operators](#solution-with-mysql's-logical-operators)
+- [Solution with conditional opertors](#solution-with-conditional-operators)
+- [Solution with ORDER BY command](#solution-with-order-by-command)
+- [Solution with functions](#solution-with-functions)
+- [Wrapping up](#wrapping-up)
 
 <br>
 

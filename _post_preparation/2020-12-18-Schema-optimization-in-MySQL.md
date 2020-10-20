@@ -11,9 +11,11 @@ tags: [Database]
 <br>
 
 ## Table of contents
-
-
-
+- [Solution with Data types](#solution-with-data-types)
+- [Solution with Default value](#solution-with-default-value)
+- []()
+- []()
+- [Wrapping up](#wrapping-up)
 
 
 <br>
