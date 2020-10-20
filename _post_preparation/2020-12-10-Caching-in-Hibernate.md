@@ -11,23 +11,16 @@ tags: [Hibernate]
 <br>
 
 ## Table of contents
-
-
-
-
-
-<br>
-
-## 
-
-
-
-
-
+- [Given problem](#given-problem)
+- [Solution with Caching in Hibernate](#solution-with-caching-in-hibernate)
+- [Source code](#source-code)
+- [When to use](#when-to-use)
+- [Benefits and Drawbacks](#benefits-and-drawbacks)
+- [Wrapping up](#wrapping-up)
 
 <br>
 
-## 
+## Given problem
 
 
 
@@ -36,8 +29,31 @@ tags: [Hibernate]
 
 <br>
 
-## 
+## Solution with Caching in Hibernate
 
+
+
+
+
+
+<br>
+
+## Source code
+
+
+
+
+
+<br>
+
+## When to use
+
+
+
+
+<br>
+
+## Benefits and Drawbacks
 
 
 
