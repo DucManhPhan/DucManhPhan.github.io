@@ -71,7 +71,7 @@ import com.manhpd.domain.Employee;
 
     Belows are some common attributes that Drools makes.
 
-    ![](../img/drools/attributes-drools.png)
+    ![](../img/drools/attributes-drools.jpg)
 
 2. The structure of Rule
 
