@@ -110,7 +110,7 @@ import com.manhpd.domain.Employee;
 
     - Use OR construct
 
-        Classname(condition1 || condition 2 || ...)
+        Classname(condition1 \|\| condition 2 \|\| ...)
 
     - Value correction
 
