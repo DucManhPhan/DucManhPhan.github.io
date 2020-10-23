@@ -42,6 +42,29 @@ tags: [Drools]
 
 <br>
 
+## 
+
+
+
+
+
+<br>
+
+## 
+
+
+
+
+
+<br>
+
+## 
+
+
+
+
+
+<br>
 
 
 ## Wrapping up

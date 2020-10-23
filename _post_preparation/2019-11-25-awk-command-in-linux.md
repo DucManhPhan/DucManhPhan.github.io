@@ -1,6 +1,6 @@
 ---
 layout: post
-title: ps command in Linux
+title: awk command in Linux
 bigimg: /img/image-header/road-to-solution.jpeg
 tags: [Linux]
 ---
@@ -76,3 +76,7 @@ Thanks for your reading.
 <br>
 
 Refer:
+
+[https://linuxize.com/post/awk-command/](https://linuxize.com/post/awk-command/)
+
+[https://www.geeksforgeeks.org/awk-command-unixlinux-examples/?ref=lbp](https://www.geeksforgeeks.org/awk-command-unixlinux-examples/?ref=lbp)
