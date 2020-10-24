@@ -17,6 +17,7 @@ tags: [Git]
 - [Rename a branch's name](#rename-a-branch's-name)
 - [Delete a branch](#delete-a-branch)
 - [Merge branches](#merge-branches)
+- [Tracking branches](#tracking-branches)
 - [Find all changes in a branch](#find-all-changes-in-a-branch)
 
 <br>
@@ -182,11 +183,18 @@ git push <remote-name> :<old-name> <new-name>
 
     ```bash
     git branch -d <branch-name>
+
+    # or
+    git branch -D <branch-name>
     ```
 
 2. In the remote repository
 
     ```bash
+    # 1st way
+    git branch -d origin/remote-branch-name
+
+    # 2nd way
     git push origin --delete remote-branch-name
     ```
 
@@ -307,6 +315,46 @@ git push <remote-name> :<old-name> <new-name>
     grep -H -r '^=======$' *
     ```
 
+4. Fast-forward merge
+
+    Assuming that there are two branches such as **master** and **feature**, our context will be described in the below image.
+
+    ![](../img/Git-guide/branch/fast-forward/problem-fast-forward-merge.png)
+
+    The **feature** branch is turned from the **master** branch, the **feature**'s commits - **commit3** are sequential from the **master**'s commits - **commit2**. It means that **commit2** is the parent commit of **commit3**.
+
+    Now, we want to merge the feature branch to master branch, we have the **master** branch will point to the head commit of the **feature** branch.
+
+    ![](../img/Git-guide/branch/fast-forward/problem-fast-forward-merge.png)
+
+    So, the fast-forward merge means that it simply move the HEAD pointer of the **master** branch to the last commit of the **feature** branch that is being merge.
+
+<br>
+
+## Tracking branches
+
+1. Tracking branches
+
+    If we want a branch that track another branch, using below commands:
+
+    ```bash
+    # 1st way
+    git checkout -b <new-branch> origin/branch-to-track
+
+    # 2nd way
+    git branch <new-branch> origin/master
+    git branch --track <new-branch> origin/master
+    ```
+
+2. Untrack branches
+
+    ```bash
+    git branch --no-track <new-branch> origin/master
+
+    # then, we can later update this branch and track origin/master
+    git branch -u origin/master <new-brach>
+    ```
+    
 <br>
 
 ## Find all changes in a branch
@@ -338,3 +386,4 @@ git show COMMIT_ID
 git rev-list HEAD --count
 git rev-list COMMIT_ID --count
 ```
+
