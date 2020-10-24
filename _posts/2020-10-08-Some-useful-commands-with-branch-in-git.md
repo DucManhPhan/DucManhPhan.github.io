@@ -24,7 +24,7 @@ tags: [Git]
 ## Understanding about branch in git
 
 Belows are some concepts that we want to take care:
-- **origin** is a remote.
+- **origin** is a remote repository's name.
 - **master** is a local branch.
 - **origin/master** is a remote branch (which is a local copy of the branch named **master** on the remote named **origin**).
 
