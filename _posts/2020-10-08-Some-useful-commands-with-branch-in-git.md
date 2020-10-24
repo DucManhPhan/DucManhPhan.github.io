@@ -329,6 +329,12 @@ git push <remote-name> :<old-name> <new-name>
 
     So, the fast-forward merge means that it simply move the HEAD pointer of the **master** branch to the last commit of the **feature** branch that is being merge.
 
+5. The differences between **merge** command and **rebase** command
+
+    - The **merge** command will create a new commit when merging two branches.
+
+    - The **rebase** command will apply the commits from one branch to another.
+
 <br>
 
 ## Tracking branches
@@ -385,5 +391,8 @@ git show COMMIT_ID
 # Count the number of commits
 git rev-list HEAD --count
 git rev-list COMMIT_ID --count
+
+# find the difference between two branches
+git diff master feature
 ```
 

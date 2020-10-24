@@ -12,6 +12,7 @@ tags: [Git]
 ## Table of Contents
 - [Given problem](#given-problem)
 - [The structure of Git](#the-structure-of-git)
+- [Options of git commit command](#options-of-git-commit-command)
 - [Push commits to the remote branch](#push-commits-to-the-remote-branch)
 - [Take a commit from a branch to the other branch](#take-a-commit-from-a-branch-to-the-other-branch)
 - [Undo commits of a branch](#undo-commits-of-a-branch)
@@ -39,7 +40,24 @@ Before going straight forward to our problems, we will look at an image that des
 
 ![](../img/Git-guide/commit/commit-flows.png)
 
-So, belows are actions of **git commit** command.
+Some command places of git:
+1. workspace
+
+    This is our current working directory.
+
+2. The staging area
+
+    The staging area or index is a virtual place that collects all the files that we want to include in the next commit.
+
+3. Local repository
+
+4. Remote repository
+
+<br>
+
+## Options of git commit command
+
+Belows are actions of **git commit** command.
 - Using **git add** command to index all untracked or modified files before using **git commit** command.
 
 - Syntax
