@@ -165,6 +165,24 @@ git mv <file-path> <folder-path>
     git log -Sgoogle --diff-filter=M --patch
     ```
 
+7. Search for commits by a particular author
+
+    ```bash
+    git log --author="<pattern>"
+    ```
+
+8. Search for commits with a commit message that matches \<pattern\>
+
+    ```bash
+    git log --grep="<pattern>"
+    ```
+
+9. Display commits that have the specified file
+
+    ```bash
+    git log -- <file-path>
+    ```
+
 <br>
 
 ## Undo operation
