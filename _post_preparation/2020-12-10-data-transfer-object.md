@@ -11,23 +11,16 @@ tags: [Enterprise Pattern]
 <br>
 
 ## Table of contents
-
-
-
-
-
-<br>
-
-## 
-
-
-
-
+- [Given problem](#given-problem)
+- [Solution with Data transfer pattern](#solution-with-data-transfer-pattern)
+- [Source code](#source-code)
+- [Benefits and Drawbacks](#benefits-and-drawbacks)
+- [Wrapping up](#wrapping-up)
 
 
 <br>
 
-## 
+## Given problem
 
 
 
@@ -36,7 +29,32 @@ tags: [Enterprise Pattern]
 
 <br>
 
-## 
+## Solution with Data transfer pattern
+
+
+
+
+
+
+<br>
+
+## Source code
+
+
+
+
+
+<br>
+
+## When to use
+
+
+
+
+
+<br>
+
+## Benefits and Drawbacks
 
 
 
@@ -52,5 +70,12 @@ tags: [Enterprise Pattern]
 <br>
 
 Refer:
+
+
+[]()
+
+[]()
+
+[]()
 
 []()

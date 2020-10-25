@@ -16,6 +16,7 @@ tags: [Architecture Pattern]
 - [Source code](#source-code)
 - [Benefits and Drawbacks](#benefits-and-drawbacks)
 - [The relationship with other patterns](#the-relationship-with-other-patterns)
+- [Some implementations of Event Bus pattern](#some-implementations-of-event-bus-pattern)
 - [Wrapping up](#wrapping-up)
 
 
@@ -60,6 +61,14 @@ tags: [Architecture Pattern]
 
 <br>
 
+## Some implementations of Event Bus pattern 
+
+
+
+
+
+<br>
+
 ## Wrapping up
 
 
@@ -69,3 +78,12 @@ tags: [Architecture Pattern]
 
 Refer:
 
+[https://hackernoon.com/event-bus-implementation-s-d2854a9fafd5](https://hackernoon.com/event-bus-implementation-s-d2854a9fafd5)
+
+[https://code.google.com/archive/p/simpleeventbus/](https://code.google.com/archive/p/simpleeventbus/)
+
+[]()
+
+[]()
+
+[]()
