@@ -82,7 +82,7 @@ tags: [Algorithm]
 
         The alpha part performs the constant tests on the WMEs. Its output is stored in the Alpha Memories - AM, each of which holds the current set of WMEs passing all the constant tests of an individual condition.
 
-        ![](../img/drools/rete-algorithm/alpha-network.png)
+        ![](../img/drools/rete-algorithm/alpha-network.jpg)
 
         In most versions of Rete, the alpha network performs not only constant tests but also intra-condition variable binding consistency tests, where one variable occurs more than once in a single condition.
 
