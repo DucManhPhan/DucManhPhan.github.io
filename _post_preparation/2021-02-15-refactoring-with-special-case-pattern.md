@@ -1,6 +1,6 @@
 ---
 layout: post
-title: Refactoring with Null Object/Special Case Pattern
+title: Refactoring with Special Case Pattern
 bigimg: /img/image-header/yourself.jpeg
 tags: [Refactoring]
 ---
