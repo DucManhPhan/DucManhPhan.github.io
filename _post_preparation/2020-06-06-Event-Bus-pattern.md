@@ -82,7 +82,7 @@ Refer:
 
 [https://code.google.com/archive/p/simpleeventbus/](https://code.google.com/archive/p/simpleeventbus/)
 
-[]()
+[https://hackernoon.com/event-bus-implementation-s-d2854a9fafd5](https://hackernoon.com/event-bus-implementation-s-d2854a9fafd5)
 
 []()
 
