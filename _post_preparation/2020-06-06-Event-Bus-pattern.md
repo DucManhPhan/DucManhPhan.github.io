@@ -52,6 +52,10 @@ tags: [Architecture Pattern]
 
 
 
+
+
+
+
 <br>
 
 ## The relationship with other patterns
