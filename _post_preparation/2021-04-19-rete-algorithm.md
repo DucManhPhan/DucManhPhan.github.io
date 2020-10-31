@@ -89,7 +89,7 @@ tags: [Algorithm]
         So, in the Alpha part, we will have some classes:
         - AlphaMemory
 
-            It contains a list of WMEs and its successors.
+            It contains a list of WMEs and a list of its successors (join nodes attached to it).
 
         - ConstantTestNode
         
@@ -98,6 +98,12 @@ tags: [Algorithm]
         - AlphaTopNode
 
             It saves the root node of the Alpha Network.
+
+        - WME - A Working Memory Element
+
+            It contains three fields that satisfy: **id ^attribute value**.
+
+            Whenever a new WME is filtered through the alpha network and reaches an alpha memory, we simply add it to the list of other WMEs in that memory, and inform each of the attached join nodes.
 
     - Beta part
 
@@ -109,6 +115,13 @@ tags: [Algorithm]
 
         In the Beta part, we have:
         - BetaMemory
+
+            A beta memory node stores a list of the tokens it contains, plus a list of its children (other nodes in the beta part of the network).
+
+            Whenever a beta memory is informed of a new match (consisting of an existing token and some WMEs), we build a token, add it to the list of the beta memory, and inform each of the beta memory's children.
+
+            Every time a beta memory node is activated, it creates and stores a new token.
+
         - JoinNode
         - TestAtJoinNode
 
