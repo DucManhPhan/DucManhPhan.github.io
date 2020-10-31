@@ -86,17 +86,35 @@ tags: [Algorithm]
 
         In most versions of Rete, the alpha network performs not only constant tests but also intra-condition variable binding consistency tests, where one variable occurs more than once in a single condition.
 
+        So, in the Alpha part, we will have some classes:
+        - AlphaMemory
+
+            It contains a list of WMEs and its successors.
+
+        - ConstantTestNode
+        
+            It contains a pattern, Alpha Memory, and the children of ConstantTestNode.
+        
+        - AlphaTopNode
+
+            It saves the root node of the Alpha Network.
+
     - Beta part
 
         The beta part of the network contains join nodes and beta memories.
 
         Join nodes perform the tests for consistency of variable bindings between conditions.
 
-        Beta memories store partial instantiations of productions, for example, combinations of WMEs which match some but not all of the conditions of a production. These partial instantiations are called tokens.
+        Beta memories store partial instantiations of productions, for example, combinations of WMEs which match some but not all of the conditions of a production. These partial instantiations are called tokens. So, **each token represents a sequence of WMEs** - specially, a sequence of k WMEs (for some k) satisfying the first k conditions (with consistent variable bindings) of some productions.
+
+        In the Beta part, we have:
+        - BetaMemory
+        - JoinNode
+        - TestAtJoinNode
 
     Working memory changes are sent through the alpha network and the appropriate alpha memories are updated. These updates are then propagated over to the attached join nodes, activating those nodes. If any new partial instantiations are created, they are added to the appropriate beta memories and then propagated down the beta part of the network, activating other nodes. Whenever the propagation reaches the bottom of the network, it indicates that a production's conditions are completely matched. This is commonly implemented by having a specical node for each production (called its production node) at the bottom of the network.
 
-    The bulk of the code for the Rete algorithm consists of procedures for handling the various node activations.
+    **The bulk of the code for the Rete algorithm consists of procedures for handling the various node activations**.
     - The activation of an alpha memory node is handled by adding a given WME to the memory, then passing the WME on to the memory's successors (the join nodes attached to it).
     - The activation of a beta memory node is handled by adding a given token to the memory and passing it on to the node's children (join nodes).
 
