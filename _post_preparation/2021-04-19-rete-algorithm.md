@@ -123,7 +123,34 @@ tags: [Algorithm]
             Every time a beta memory node is activated, it creates and stores a new token.
 
         - JoinNode
+
+            A join node can incur in a right activation when a WME is added to its alpha memory, or a left activation when a token is added to its beta memory. In either case, the node's other memory is searched for items having variable bindings consistent with the new item; if any are found, they are passed on to the join node's children.
+
+            From the data common to all nodes (the Rete node structure), we already have the children, the parent field automatically gives us a pointer to the join node's beta memory (the beta memory is always its parent).
+
+            Then, we need two extra fields for a join node such as the alpha memory, and a list of TestAtJoinNodes.
+
         - TestAtJoinNode
+
+            The TestAtJoinNode structure specifies the locations of the two fields whose values must be equal in order for some varibles to be bound consistently.
+
+            ```java
+            public class TestAtJoinNode {
+                private WMEFieldType fieldArg1;
+                private WMEFieldType fieldArg2;
+                private int condNumberOfArg2;
+            }
+            ```
+
+            **fieldArg1** is one the three fields in the WME (in the alpha memory), while **fieldArg2** is a field from a WME that matched some earlier conditions in the production (i.e, part of the token in the beta memory).
+
+        - ProductionNode
+
+            A production node may store tokens, just as beta memories do; these tokens represent complete matches for the production's conditions. In traditional production system, the set of all tokens at all production nodes represents the **conflict set**.
+
+            On a left activation, a production node will build a new token, or some similar representation of the newly found complete match. It then signals the new match in some appropriate way.
+
+            In general, a production node also contains a specification of what production it corresponds to - the name of the production, its right-hand-side actions, ... A production node also contains information about the names of the variables that occur in the production.
 
     Working memory changes are sent through the alpha network and the appropriate alpha memories are updated. These updates are then propagated over to the attached join nodes, activating those nodes. If any new partial instantiations are created, they are added to the appropriate beta memories and then propagated down the beta part of the network, activating other nodes. Whenever the propagation reaches the bottom of the network, it indicates that a production's conditions are completely matched. This is commonly implemented by having a specical node for each production (called its production node) at the bottom of the network.
 
