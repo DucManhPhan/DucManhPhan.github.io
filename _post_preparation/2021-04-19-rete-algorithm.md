@@ -11,9 +11,13 @@ tags: [Algorithm]
 <br>
 
 ## Table of contents
-
-
-
+- [Given problem](#given-problem)
+- [Brute force approach](#brute-force-approach)
+- [Solution with Rete algorithm](#solution-with-rete-algorithm)
+- [The differences between Rete algorithm and Brute force approach](#the-differences-between-rete-algorithm-brute-force-approach)
+- [When to use](#when-to-use)
+- [Benefits and Drawbacks](#benefits-and-drawbacks)
+- [Wrapping up](#wrapping-up)
 
 
 <br>
@@ -164,10 +168,6 @@ tags: [Algorithm]
     - a right activation when a WME is added to its alpha memory(i.e, the alpha memory that feeds into it)
     - a left activation when a token is added to its beta memory (the beta memory that feeds into it).
 
-3. 
-
-
-
 <br>
 
 ## The differences between Rete algorithm and Brute force approach
@@ -186,48 +186,65 @@ Belows are the two reasons that Rete algorithm runs faster than naive approach.
 
 <br>
 
-## 
+## When to use
 
+- 
 
-
-
-
-
-<br>
-
-## 
-
-
-
-
+- 
 
 
 <br>
 
-## 
+## Benefits and Drawbacks
 
+1. Benefits
 
+    - high performance
 
+        Many rules often contain similar patterns or group of patterns. Rete algorithm pools the common components so that they need not be computed again.
 
+2. Drawbacks
 
+    - memory intensive
 
-<br>
+        Saving the state of the system using pattern matches and partial matches considerable amount of memory.
 
-## 
-
-
-
-
-
+        The space complexity of Rete is of the order of O(RFP), where R is the number of rules, F is the number of asserted facts, and P is the average number of patterns per rule.
 
 <br>
 
 ## Wrapping up
 
+- 
 
-
+- 
 
 <br>
 
 Refer:
 
+[https://en.wikipedia.org/wiki/Rete_algorithm](https://en.wikipedia.org/wiki/Rete_algorithm)
+
+[https://techondec.wordpress.com/2013/11/05/writing-simpler-rules/](https://techondec.wordpress.com/2013/11/05/writing-simpler-rules/)
+
+[https://techondec.wordpress.com/2011/03/14/rete-algorithm-demystified-part-2/](https://techondec.wordpress.com/2011/03/14/rete-algorithm-demystified-part-2/)
+
+[https://www.sparklinglogic.com/rete-algorithm-demystified-part-2/](https://www.sparklinglogic.com/rete-algorithm-demystified-part-2/)
+
+[https://medium.com/@tekaround/rete-algorithm-and-drools-fd57b3290f1d](https://medium.com/@tekaround/rete-algorithm-and-drools-fd57b3290f1d)
+
+[https://www.sap.com/documents/2015/09/703d5a24-577c-0010-82c7-eda71af511fa.html](https://www.sap.com/documents/2015/09/703d5a24-577c-0010-82c7-eda71af511fa.html)
+
+[https://www.drdobbs.com/architecture-and-design/the-rete-matching-algorithm/184405218](https://www.drdobbs.com/architecture-and-design/the-rete-matching-algorithm/184405218)
+
+[https://jess.sandia.gov/docs/71/rete.html](https://jess.sandia.gov/docs/71/rete.html)
+
+[https://docs.oracle.com/middleware/1221/bpm/rules-reference/GUID-0C04037C-6D1F-4DA8-A6C0-91DEB9A92DF1.htm#RLJAR347](https://docs.oracle.com/middleware/1221/bpm/rules-reference/GUID-0C04037C-6D1F-4DA8-A6C0-91DEB9A92DF1.htm#RLJAR347)
+
+<br>
+
+**EBook**
+
+[Production Matching for Large Learning Systems by Robert B. Doorenbos - January 31, 1995]()
+
+[A Fast Algorithm for the Many Pattern/Many Object Pattern Match Problem* by Charles L. Forgy - 1982]()
