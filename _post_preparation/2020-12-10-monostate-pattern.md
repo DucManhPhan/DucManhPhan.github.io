@@ -15,6 +15,7 @@ tags: [Enterprise Pattern]
 - [Solution with Monostate pattern](#solution-with-monostate-pattern)
 - [Source code](#source-code)
 - [Benefits and Drawbacks](#benefits-and-drawbacks)
+- [The differences between Singleton and Monostate pattern](#the-differences-between-singleton-and-monostate-pattern)
 - [Wrapping up](#wrapping-up)
 
 
@@ -62,6 +63,12 @@ tags: [Enterprise Pattern]
 
 <br>
 
+## The differences between Singleton and Monostate pattern
+
+
+
+<br>
+
 ## Wrapping up
 
 
@@ -72,10 +79,8 @@ tags: [Enterprise Pattern]
 Refer:
 
 
-[]()
+[http://staff.cs.utu.fi/~jounsmed/doos_06/material/SingletonAndMonostate.pdf](http://staff.cs.utu.fi/~jounsmed/doos_06/material/SingletonAndMonostate.pdf)
 
-[]()
+[https://wiki.c2.com/?MonostatePattern](https://wiki.c2.com/?MonostatePattern)
 
-[]()
-
-[]()
+[https://riptutorial.com/design-patterns/example/21458/the-monostate-pattern](https://riptutorial.com/design-patterns/example/21458/the-monostate-pattern)
