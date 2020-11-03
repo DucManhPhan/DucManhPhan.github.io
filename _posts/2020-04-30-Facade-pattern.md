@@ -73,7 +73,7 @@ There are some specific situations that the Facade pattern can be used.
 
     - It makes an API easier to use, oftentimes we will encounter a poorly designed API. We can wrap a facade around it to hide the details from the client.
 
-    - It also helps to reduce dependencies on outside code, reduce complexity.
+    - It also helps to reduce dependencies on outside code, reduce complexity. It means that this facade pattern promotes weak coupling between our application with the other subsystems that we need to use.
 
     - It will simplify the interface or client usage. We typically want to wrap the complex code with an interface using this facade to make it simpler for the end-user.
 
