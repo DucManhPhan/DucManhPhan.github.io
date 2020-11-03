@@ -84,3 +84,5 @@ Refer:
 [https://wiki.c2.com/?MonostatePattern](https://wiki.c2.com/?MonostatePattern)
 
 [https://riptutorial.com/design-patterns/example/21458/the-monostate-pattern](https://riptutorial.com/design-patterns/example/21458/the-monostate-pattern)
+
+[http://simpletechtalks.com/monostate-design-pattern-explained-with-simple-example/](http://simpletechtalks.com/monostate-design-pattern-explained-with-simple-example/)
