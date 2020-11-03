@@ -69,9 +69,11 @@ There are some specific situations that the Facade pattern can be used.
 ## Benefits & Drawback
 1. Benefits
 
+    - It's a higher-level interface.
+
     - It makes an API easier to use, oftentimes we will encounter a poorly designed API. We can wrap a facade around it to hide the details from the client.
 
-    - It also helps to reduce dependencies on outside code.
+    - It also helps to reduce dependencies on outside code, reduce complexity.
 
     - It will simplify the interface or client usage. We typically want to wrap the complex code with an interface using this facade to make it simpler for the end-user.
 
@@ -211,7 +213,9 @@ class Address {
 
         The URL class is an interesting example of the Facade pattern. It's doing a lot of stuff here, opening and closing connections, making sure we've got things formatted the right way, handling streams on the backend, ...
 
-    - javax.faces.context.FacesContext. Now, Faces is part of the J2EE pattern, Faces has a fairly complex API, and interacting with the context can be quite difficult. So this is an great example of the Facade pattern.
+    - javax.faces.context.FacesContext
+        
+        Now, Faces is part of the J2EE pattern, Faces has a fairly complex API, and interacting with the context can be quite difficult. So this is an great example of the Facade pattern.
 
 <br>
 
