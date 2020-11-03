@@ -71,7 +71,7 @@ if a == []:
 
 <br>
 
-## Swap values of two variable
+## Swap values of two variables
 
 ```python
 a, b = b, a
