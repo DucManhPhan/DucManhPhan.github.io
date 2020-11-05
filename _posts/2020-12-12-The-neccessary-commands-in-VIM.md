@@ -270,6 +270,7 @@ In order to push the usage of VIM, we should learn something about command in mo
     - To copy/paste between different instances, we can use the system clipboard by selecting the * register, so the commands become ```*y$``` for copying and ```*p``` for pasting.
 
 - yy : yank (copy) the current line
+- y} : yank text from the cursor to the next paragraph 
 - Y : yank (copy) the current line.
 - p : put the yanked content after the cursor.
 
@@ -430,7 +431,7 @@ Below is commands about working with file in VIM editor.
 
 <br>
 
-## some interesting commands
+## Some interesting commands
 - ciw : change the inside word - delete the whole word under cursor and switches to insert mode, unlike cw which deletes a word from cursor to the end of this word.
 - cis : change inside sentence
 - ci" : change inside " brace - delete all text between " braces.
@@ -450,6 +451,7 @@ Below is commands about working with file in VIM editor.
 - 3dk : delete current line and 4 lines in the upward direction.
 - :-3,.d : delete 3 lines above and the current line.
 - 2ihello <esc> : insert hello 2 times.
+- \>% - indent text between a pair of parenthes ([{}])
 
 <br>
 
@@ -467,3 +469,7 @@ Refer:
 [Vim Text Objects: The Definitive Guide](https://blog.carbonfive.com/2011/10/17/vim-text-objects-the-definitive-guide/)
 
 [Wikipedia about VIM](http://vim.wikia.com/wiki/Tutorial)
+
+[https://whileimautomaton.net/2008/11/vimm3/operator](https://whileimautomaton.net/2008/11/vimm3/operator)
+
+[https://learnvimscriptthehardway.stevelosh.com/](https://learnvimscriptthehardway.stevelosh.com/)

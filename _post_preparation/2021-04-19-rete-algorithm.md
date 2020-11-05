@@ -130,7 +130,7 @@ tags: [Algorithm]
 
             A join node can incur in a right activation when a WME is added to its alpha memory, or a left activation when a token is added to its beta memory. In either case, the node's other memory is searched for items having variable bindings consistent with the new item; if any are found, they are passed on to the join node's children.
 
-            From the data common to all nodes (the Rete node structure), we already have the children, the parent field automatically gives us a pointer to the join node's beta memory (the beta memory is always its parent).
+            From the data common to all nodes (the Rete node structure), we already have the children, the **parent** field automatically gives us a pointer to the join node's beta memory (the beta memory is always its parent).
 
             Then, we need two extra fields for a join node such as the alpha memory, and a list of TestAtJoinNodes.
 
@@ -146,7 +146,7 @@ tags: [Algorithm]
             }
             ```
 
-            **fieldArg1** is one the three fields in the WME (in the alpha memory), while **fieldArg2** is a field from a WME that matched some earlier conditions in the production (i.e, part of the token in the beta memory).
+            **fieldArg1** is one of the three fields in the WME (in the alpha memory), while **fieldArg2** is a field from a WME that matched some earlier conditions in the production (i.e, part of the token in the beta memory).
 
         - ProductionNode
 
