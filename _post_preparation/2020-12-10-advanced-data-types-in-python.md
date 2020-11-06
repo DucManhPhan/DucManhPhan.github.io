@@ -53,10 +53,9 @@ tags: [Python]
 
 Refer:
 
-[https://xebia.com/blog/why-did-hibernate-update-my-database/](https://xebia.com/blog/why-did-hibernate-update-my-database/)
+[https://www.geeksforgeeks.org/inbuilt-data-structures-python/](https://www.geeksforgeeks.org/inbuilt-data-structures-python/)
 
-[https://thoughts-on-java.org/common-hibernate-mistakes-cripple-performance/](https://thoughts-on-java.org/common-hibernate-mistakes-cripple-performance/)
+[https://www.programiz.com/python-programming/set](https://www.programiz.com/python-programming/set)
 
-[https://thoughts-on-java.org/hibernate-logging-guide/](https://thoughts-on-java.org/hibernate-logging-guide/)
+[https://docs.python.org/3/tutorial/datastructures.html](https://docs.python.org/3/tutorial/datastructures.html)
 
-[https://thoughts-on-java.org/hibernate-tip-how-to-control-cache-invalidation-for-native-queries/](https://thoughts-on-java.org/hibernate-tip-how-to-control-cache-invalidation-for-native-queries/)
