@@ -64,7 +64,7 @@ So, we have class diagram of this pattern:
 
 ## When to use
 
-- when we want to add new functionalities for objets without utilizing inheritance property.
+- when we want to add new functionalities for objets without utilizing inheritance property. It's a better approach than adding many subclasses with little variations, it's also better than adding many properties to a higher level class but because we many wind up with many decorators, consider using the Factory and Builder pattern to return the decorated objects.
 
 <br>
 

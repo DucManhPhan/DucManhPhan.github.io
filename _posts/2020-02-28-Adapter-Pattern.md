@@ -56,9 +56,49 @@ So, we will have Adapter pattern, and below is UML class diagram of it.
 
         With object adapter, we will use composition to contains all instances of Adaptee classes. This way is more flexible than class adapter because we delegate an Adaptee object at runtime, and a class adapter binds an Adaptee object at compile time.
 
+- Pros and Cons of Object Adapter and Class Adapter
+
+    - Object Adapter
+        
+        - Composition over Inheritance
+
+            So, it can be more flexible and leads to a flatter class hierarchy.
+
+        - Delegate to the Adaptee
+
+            It gives great flexibility.
+
+        - Works with all Adaptee subclasses
+
+            It satisfies the L in the SOLID principles. However, if some subclasses add a new behavior, the Adapter would also need to change to support it, breaking the Opened-Closed principle.
+
+    - Class Adapter
+
+        - Using subclassing
+
+            This thing allows it to adapt to a specific class or subclass.
+
+        - Overrides adaptee methods which keeps it simple
+
+        - Committed to one Adaptee subclass
+
+            If a new behavior is added to the subclass, the Adapter needs no work to support it, thereby obeying the Opened-Closed Principle 
+
+- Which one does we use?
+
+    It depends upon our application, existing and new libraries, and business requirements. However, all things being equal, consider using the object adapter as it can be the more flexible approach.
+
 <br>
 
 ## When to use
+- When we need to use some classes but the interface does not match what we need.
+
+    We can use it to create reusable code that works with new unrelated or unforeseen interfaces.
+
+    The object adapter works with several subclasses, and is useful when it is impractical to subclass each one.
+
+    The class adapter works with a specific subclass and can be simpler to implement.
+
 - When we need subsystems/componenets/classes are incompatible together that can communicate.
 
     For example, we have a subsystem that is written in C++, other system is written in C#. We need to embbed C++ subsytem into C# subsystem. So, we will create a thin layer between them. This thin layer uses C++/CLR that play a role as Object Adapter class. Target interface will be define in C# subsystem. C++ subsystem will play as Adaptee class.
