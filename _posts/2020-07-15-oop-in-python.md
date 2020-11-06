@@ -252,3 +252,5 @@ Belows are some steps that we will follow to define abstract class.
 - Understanding how to work with class in Python.
 
 - Take advantage of OOP in Python to implement the GOF's design patterns.
+
+- In Java, C++, string and number data types can be implicitly combined to a string. However, Python does not allow this way, we need to cast data types explicitly.
