@@ -69,7 +69,7 @@ x = 5 > 9
         ```
 
     In order to use the quotes in a string, there are some ways:
-    - Using **\** character
+    - Using **\\** character
 
         ```python
         tmp = 'Hello, \"world\"'
