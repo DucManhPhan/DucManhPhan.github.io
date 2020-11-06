@@ -59,3 +59,6 @@ Refer:
 
 [https://docs.python.org/3/tutorial/datastructures.html](https://docs.python.org/3/tutorial/datastructures.html)
 
+[https://realpython.com/python-data-structures/](https://realpython.com/python-data-structures/)
+
+[https://realpython.com/python-data-structures/#list-simple-built-in-stacks](https://realpython.com/python-data-structures/#list-simple-built-in-stacks)
