@@ -39,7 +39,29 @@ tags: [Linux]
 2. For example
 
     ```bash
+    #!/bin/bash
 
+    function is_dir_git_repo {
+        if git rev-parse --git-dir > /dev/null 2>&1; then
+            echo 'using git repo'
+            return 1
+        else
+            echo 'not using git repo'
+            return 0
+        fi 
+    }
+
+    is_directory() {
+        if [ -d "$1" ]; then
+            return 1
+        else
+            return 0
+        fi
+    }
+
+    is_directory() {
+        [ -d "$1" ]
+    }
     ```
 
 <br>
