@@ -12,7 +12,7 @@ tags: [MySQL]
 
 ## Table of contents
 - [Given problem](#given-problem)
-- [Solution with uing BinLog](#solution-with-using-binlog)
+- [Solution with using BinLog](#solution-with-using-binlog)
 - [Some parameters for configuring BinLog file in MySQL](#some-parameters-for-configuring-binlog-file-in-mysql)
 - [How to check BinLog with Command Line](#how-to-check-binlog-with-command-line)
 - [How to use Docker to configure BinLog](#how-to-use-docker-to-configure-binlog)
@@ -30,7 +30,7 @@ tags: [MySQL]
 
 <br>
 
-## Solution with uing BinLog
+## Solution with using BinLog
 
 1. 
 
@@ -86,3 +86,4 @@ Thanks for your reading.
 
 Refer:
 
+[]()
