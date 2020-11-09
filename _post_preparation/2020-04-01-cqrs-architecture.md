@@ -146,6 +146,8 @@ tags: [Architecture Pattern]
 
 Refer:
 
+[Clean Architecture: Patterns, Practices, and Principles by Matthew Renze](https://app.pluralsight.com/library/courses/clean-architecture-patterns-practices-principles/table-of-contents)
+
 [https://www.slideshare.net/HanoiItlc/itlc-hanoi-cqrs-es-2210-2015](https://www.slideshare.net/HanoiItlc/itlc-hanoi-cqrs-es-2210-2015)
 
 [https://medium.com/faun/why-we-failed-implementing-cqrs-in-microservice-architecture-5c39a2d0b2dd](https://medium.com/faun/why-we-failed-implementing-cqrs-in-microservice-architecture-5c39a2d0b2dd)
