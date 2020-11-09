@@ -118,6 +118,15 @@ tags: [Algorithm]
         Beta memories store partial instantiations of productions, for example, combinations of WMEs which match some but not all of the conditions of a production. These partial instantiations are called tokens. So, **each token represents a sequence of WMEs** - specially, a sequence of k WMEs (for some k) satisfying the first k conditions (with consistent variable bindings) of some productions.
 
         In the Beta part, we have:
+        - Token
+
+            ```java
+            public class Token {
+                private Token parent;   // points to the higher token 1, ..., i - 1
+                private WME wme;    // contents of token i
+            }
+            ```
+
         - BetaMemory
 
             A beta memory node stores a list of the tokens it contains, plus a list of its children (other nodes in the beta part of the network).
@@ -125,6 +134,12 @@ tags: [Algorithm]
             Whenever a beta memory is informed of a new match (consisting of an existing token and some WMEs), we build a token, add it to the list of the beta memory, and inform each of the beta memory's children.
 
             Every time a beta memory node is activated, it creates and stores a new token.
+
+            ```java
+            public class BetaMemory extends ReteNode {
+                private List<Token> tokens;
+            }
+            ```
 
         - JoinNode
 
