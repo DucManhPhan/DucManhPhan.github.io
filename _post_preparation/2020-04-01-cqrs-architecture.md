@@ -105,9 +105,9 @@ tags: [Architecture Pattern]
 
 ## When to use
 
+- When avoiding the locking problem in database, and improve performance of the system.
 
-
-
+- Use CQRS when we want to specify command and query for each use case. It makes our design clearly.
 
 <br>
 
