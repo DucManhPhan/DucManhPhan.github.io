@@ -93,11 +93,13 @@ tags: [Algorithm]
         So, in the Alpha part, we will have some classes:
         - AlphaMemory
 
-            It contains a list of WMEs and a list of its successors (join nodes attached to it).
+            It contains a list of WMEs that match each condition in each node in a given node branch and a list of its successors (join nodes attached to it). 
 
         - ConstantTestNode
         
             It contains a pattern, Alpha Memory, and the children of ConstantTestNode.
+
+            This is a node that contains a specific pattern from a condition. This node's functionality is to minimise condition redundancy. 
         
         - AlphaTopNode
 
@@ -183,6 +185,8 @@ tags: [Algorithm]
     - a right activation when a WME is added to its alpha memory(i.e, the alpha memory that feeds into it)
     - a left activation when a token is added to its beta memory (the beta memory that feeds into it).
 
+    After using Rete algorithm, its output is a conflict set. Conflict set mans, for the same fact or condition, it might be possible that more than one rule is satisfied. So it returns the set of conflict rules.
+
 <br>
 
 ## The differences between Rete algorithm and Brute force approach
@@ -203,9 +207,9 @@ Belows are the two reasons that Rete algorithm runs faster than naive approach.
 
 ## When to use
 
-- 
+- The Rete algorithm is suited to scenarios where forward chaining and inferencing is used to calculate new facts from existing facts, or to filter and discard facts in order to arrive at some conclusions.
 
-- 
+- It is also exploited as a reasonably efficient mechanism for performing highly combinatorial evaluations of facts where large numbers of joins must be performed between fact tuples.
 
 
 <br>
@@ -228,11 +232,22 @@ Belows are the two reasons that Rete algorithm runs faster than naive approach.
 
 <br>
 
+## Some questions about Rete algorithm
+
+1. Why do AlphaMemory, BetaMemory needs to contains WMEs?
+
+
+
+2. 
+
+
+
+<br>
+
 ## Wrapping up
 
-- 
+- Other approaches to perform rule evaluation, such as the rule of [decision trees](https://en.wikipedia.org/wiki/Decision_trees), or the implementation of sequential engines, may be more appropriate for simple scenarios, and should be considered as possible alternatives.
 
-- 
 
 <br>
 
@@ -256,6 +271,12 @@ Refer:
 
 [https://docs.oracle.com/middleware/1221/bpm/rules-reference/GUID-0C04037C-6D1F-4DA8-A6C0-91DEB9A92DF1.htm#RLJAR347](https://docs.oracle.com/middleware/1221/bpm/rules-reference/GUID-0C04037C-6D1F-4DA8-A6C0-91DEB9A92DF1.htm#RLJAR347)
 
+[https://www.flexrule.com/archives/forward-chain-inference-engine-with-rete](https://www.flexrule.com/archives/forward-chain-inference-engine-with-rete)
+
+[https://docs.jboss.org/drools/release/5.3.0.Final/drools-expert-docs/html/ch01.html](https://docs.jboss.org/drools/release/5.3.0.Final/drools-expert-docs/html/ch01.html)
+
+[https://salaboy.com/2011/06/06/drools-reteoo-for-dummies-1-intro/](https://salaboy.com/2011/06/06/drools-reteoo-for-dummies-1-intro/)
+
 <br>
 
 **EBook**
@@ -263,3 +284,5 @@ Refer:
 [Production Matching for Large Learning Systems by Robert B. Doorenbos - January 31, 1995]()
 
 [A Fast Algorithm for the Many Pattern/Many Object Pattern Match Problem* by Charles L. Forgy - 1982]()
+
+[http://ceur-ws.org/Vol-2438/paper10.pdf](http://ceur-ws.org/Vol-2438/paper10.pdf)
