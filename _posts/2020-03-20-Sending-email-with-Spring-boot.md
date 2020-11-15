@@ -260,6 +260,30 @@ Belows are some basic steps that we need to configure to run Spring Mail:
 
 <br>
 
+## Some problems when running Spring Mail
+
+1. Username and password are not accepted
+
+    When we are encountering with this error message, we need to access to our account's [Less secure app access](https://myaccount.google.com/lesssecureapps).
+
+    In local environment, we want to test, so turn on this feature.
+
+2. Do not display value of each variable in thymeleaf page
+
+    Supposed that we are define an element with:
+
+    ```html
+    <h1>Hello, ${name}</h1>
+    ```
+
+    It cann't display the name variable. So, we can use **th:text** element that is supported by Thymeleaf.
+
+    ```html
+    <h1 th:text="'Hello, ' + ${name}"></h1>
+    ```
+
+<br>
+
 ## Wrapping up
 
 - Understanding some command steps to send email
