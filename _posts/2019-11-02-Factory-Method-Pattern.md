@@ -13,7 +13,7 @@ tags: [Creational Pattern, Design Pattern]
 - [Given Problem](##given-problem)
 - [Solution of Factory Method Pattern](##solution-of-factory-method-pattern)
 - [When to use](##when-to-use)
-- [Benefits & Drawbacks](##benefits-and-drawbacks)
+- [Benefits and Drawbacks](##benefits-and-drawbacks)
 - [Source code](##source-code)
 - [Relations with other design patterns](##relations-with-other-design-patterns)
 - [Application & Examples](##application-&-examples)
@@ -72,13 +72,15 @@ Below is an image that describe how factory method pattern works
 
 - When the client wants the subclass to specify the concrete class name from which to create an object.
 
-- Factory method pattern is used when subclasses do not need to know how they are created.
+- When subclasses do not need to know how they are created.
 
-- We can use factory method pattern where we have to create an object of any one of subclasses depending on the data provided.
+- When we have to create an object of any one of subclasses depending on the data provided.
+
+- When we have less types of classes.
 
 <br>
 
-## Benefits & Drawbacks
+## Benefits and Drawbacks
 
 1. Benefits
 
@@ -91,6 +93,10 @@ Below is an image that describe how factory method pattern works
     - If we add some types of classes, normally we will add some cases into the method of Factory method pattern. But it will violate the Open-Close principle.
 
         The solution for this problem is that we can use abstract factory pattern.
+
+    - When our problem that has multiple classes and their derived classes, normally, we will use Factory Method to create them. But having to write all that factory code is tedious.
+
+        Solution for this case is that using DI pattern such as CDI, Spring IoC, Guice, ...
 
 <br>
 
