@@ -7,7 +7,6 @@ tags: [Linux]
 
 
 
-
 <br>
 
 ## Table of contents
@@ -76,9 +75,14 @@ tags: [Linux]
 
     |    Parameter variable      |                 Description             |
     | -------------------------- | --------------------------------------- |
+    | $0                         | The file name of the current script     |
     | $1, $2, ...                | The parameters given to the script      |
+    | $#                         | The number of arguments supplied to a script |
     | $*                         | A list of all the parameters, in a single variable, seperated by the first character in the environment variable IFS. If IFS is modified, then the way $* seperates the command line into parameters will change. |
     | $@                         | A subtle variation on $*; it does not use the IFS environment variable, so parameters are not run together even if IFS is empty |
+    | $$                         | The process number of the current shell. |
+    | $?                         | The exit status of the last command      |
+    | $!                         | The process number of the last background command |
 
 2. Pass arguments and return value to function
 
@@ -162,6 +166,40 @@ tags: [Linux]
     passVarAsParam result
     echo $result
     ```
+
+4. Out of all above ways, we can use **$?** symbol to get the result from a command.
+
+    **$?** symbol is the exit status of the last command. Exit status is a numerical value that is returned by a command.
+
+    ```bash
+    0 - successful
+    1 - fail
+    ```
+
+    ```bash
+    run_some_command
+    EXIT_STATUS=$?
+
+    if [ "$EXIT_STATUS" -eq "0" ]
+    then
+        # Do work when command exists on success
+    else
+        # Do work for when command has a failure exit
+    fi
+    ```
+
+    Or we can embedded a command in a condition of if, while statements.
+
+    ```bash
+    if run_some_command
+    then
+        # Do work when command exists on success
+    else
+        # Do failure exit work
+    fi
+    ```
+
+    Use the second way is faster because we does not use temporary variable to receive our result.
 
 <br>
 
