@@ -27,7 +27,7 @@ In Spring Webflux, Websession is defined as a simplified Map of name-value pairs
 
 <br>
 
-## Some problems with Session
+## 
 
 
 
@@ -92,6 +92,14 @@ public Mono<String> login(AuthenticationRequest request, WebSession session) {
     ...
 }
 ```
+
+<br>
+
+## Some problems with Session
+
+
+
+
 
 <br>
 
