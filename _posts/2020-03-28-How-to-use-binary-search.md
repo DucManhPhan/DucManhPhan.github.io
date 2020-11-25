@@ -214,7 +214,8 @@ Note:
             }
         }
 
-        // End Condition: left > right
+        // End Condition: left > right, exactly right + 1 == left
+        // No more candidate
         return -1;
     }
     ```
@@ -247,6 +248,7 @@ Note:
 
         // Post-processing:
         // End Condition: left == right
+        // 1 more candidate
         if(left != nums.length && nums[left] == target) return left;
         return -1;
     }
@@ -287,6 +289,7 @@ Note:
 
         // Post-processing:
         // End Condition: left + 1 == right
+        // 2 more candidates
         if(nums[left] == target) return left;
         if(nums[right] == target) return right;
         return -1;
