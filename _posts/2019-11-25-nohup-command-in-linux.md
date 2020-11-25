@@ -54,13 +54,19 @@ ssh -L <local_port>:<host_db>:<port_db> <ssh_username>:<ssh_host>
 
     ```bash
     # To maintain connection, use command yes
-    nohup ssh username:host -t "yes"
+    nohup ssh username@host -t "yes"
 
     # After typing the ssh server's password, our process will be stopped
     bg
     ```
 
     If we does not want to use nohup command to run in the background, we can press ```Ctrl + Z``` to suspend our process. Then, using ```bg``` command to put it into the background.
+
+    When using the above nohup command, it will always save data to nohup command, then our disk's space is no longer taken full. To solve this problem, we will redirect the output of the command somewhere else, including /dev/null.
+
+    ```bash
+    nohup ssh username@host -t "yes" > /dev/null 2>&1   # does not create nohup.out
+    ```
 
 2. Now, we want to run an above command again, but it is running in the background. Belows are some steps that satsify our needs.
 
