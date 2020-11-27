@@ -128,19 +128,37 @@ In an above image, we need to select **Manual proxy configuration**, then config
 
 ## Configure the certificate in the keytool of JDK
 
-This is the final step. We need to configure certificate for JDK by using **keytool**.
+1. Why we need to configure keytool
 
-Belows are some command that we use to create keystore.
+    According to [the document of Oracle](https://docs.oracle.com/javase/7/docs/technotes/tools/solaris/keytool.html), we have:
 
-```bash
-# Java 8
-keytool -import -trustcacerts -alias <named-file> -file <certificate-file-path> -keystore "$JAVA_HOME/jre/lib/security/cacerts"
+    ```
+    keytool is a key and certificate management utility. It allows users to administer their own public/private key pairs and associated certificates for use in self-authentication (where the user authenticates himself/herself to other users/services) or data integrity and authentication services, using digital signatures. It also allows users to cache the public keys (in the form of certificates) of their communicating peers.
+        
+    A certificate is a digitally signed statement from one entity (person, company, etc.), saying that the public key (and some other information) of some other entity has a particular value. When data is digitally signed, the signature can be verified to check the data integrity and authenticity. Integrity means that the data has not been modified or tampered with, and authenticity means the data indeed comes from whoever claims to have created and signed it.
 
-# Java 11
-keytool -import -trustcacerts -alias <named-file> -file <certificate-file-path> -keystore "$JAVA_HOME/lib/security/cacerts"
-```
+    keytool also enables users to administer secret keys used in symmetric encryption/decryption (e.g. DES).
 
-In some cases, we need to use username/password of admin to configure certificate. And our certificate should be put in the public folder that have been seen by the other users.
+    keytool stores the keys and certificates in a keystore.
+    ```
+
+2. Steps to configure
+
+    This is the final step. We need to configure certificate for JDK by using **keytool**.
+
+    Belows are some command that we use to create keystore.
+
+    ```bash
+    # Java 8
+    keytool -import -trustcacerts -alias <named-file> -file <certificate-file-path> -keystore "$JAVA_HOME/jre/lib/security/cacerts"
+
+    # Java 11
+    keytool -import -trustcacerts -alias <named-file> -file <certificate-file-path> -keystore "$JAVA_HOME/lib/security/cacerts"
+    ```
+
+    If the keytool needs to provide the password, we can type the default password for cacerts keystore is **changeit**.
+
+    In some cases, we need to use username/password of admin to configure certificate. And our certificate should be put in the public folder that have been seen by the other users.
 
 <br>
 

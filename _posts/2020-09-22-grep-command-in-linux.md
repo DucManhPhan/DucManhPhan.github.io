@@ -77,6 +77,15 @@ So how do we solve these problems?
         grep -C 3 'greeting' welcome.sh
         ```
 
+    - ```-o```: prints only the matched parts of a matching line.
+
+        For example:
+
+        ```bash
+        echo "text with number -2.56325" | grep -Eo '[+-]?[0-9]+([.][0-9]+)?'
+        ```
+
+        To use **-o** option correctly, we should utilize with **-E** option that means extended regex.
 
 3. Some flags that accompany with **grep** command
 
