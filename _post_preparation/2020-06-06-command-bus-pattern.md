@@ -50,7 +50,12 @@ tags: [Enterprise Pattern]
 
 ## Benefits and Drawbacks
 
+1. Benefits
 
+
+
+
+2. Drawbacks
 
 
 
