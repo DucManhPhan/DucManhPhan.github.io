@@ -16,7 +16,6 @@ tags: [Enterprise Pattern]
 - [Source code](#source-code)
 - [Benefits and Drawbacks](#benefits-and-drawbacks)
 - [The relationship with other patterns](#the-relationship-with-other-patterns)
-- [Some implementations of Command Bus pattern](#some-implementations-of-command-bus-pattern)
 - [Wrapping up](#wrapping-up)
 
 
@@ -64,14 +63,6 @@ tags: [Enterprise Pattern]
 <br>
 
 ## The relationship with other patterns
-
-
-
-
-<br>
-
-## Some implementations of Command Bus pattern 
-
 
 
 
