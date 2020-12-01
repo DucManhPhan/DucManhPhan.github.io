@@ -34,7 +34,7 @@ tags: [Spring]
 
 ## How to use Scheduling
 
-1. Use @EnableScheduling annnotation for our configuration class or main class with @SpringBootApplication
+1. Use **@EnableScheduling** annnotation for our configuration class or main class with **@SpringBootApplication**
 
     ```java
     @Configuration
@@ -63,7 +63,7 @@ tags: [Spring]
     - Our methods will not have any parameters.
     - Our methods's return type is void.
 
-    To dig deeper into the definition of @Scheduled annotation, we have:
+    To dig deeper into the definition of **@Scheduled** annotation, we have:
 
     ```java
     @Target({ElementType.METHOD, ElementType.ANNOTATION_TYPE})
