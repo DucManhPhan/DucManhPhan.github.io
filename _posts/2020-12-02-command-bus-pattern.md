@@ -51,7 +51,9 @@ In this pattern, there are three classes that is utilized.
 
 2. CommandHandler class
 
-    CommandHandler's responsibility is to execute an action based on the business logic when taking a Command object as input.
+    CommandHandler's responsibility is to execute the appropriate domain behavior when taking a specific Command object as input. The CommandHandler should not be doing any domain logic itself. If we need to do more than this, we should define a service to wrap that logic.
+
+    The domain behavior should be executed in an AggregateRoot. So, CommandHandler class will load an AggregateRoot by using the repository, and pass its data to an AggregateRoot.
 
 3. CommandBus class
 
@@ -216,6 +218,8 @@ Belows are steps that we need to implement in Command Bus pattern.
 
     - This pattern is suitable for Domain-Driven Design pattern. It only focuses on what actions that Client can do by defining Command. So our business logic does not leak in another layers.
 
+        The communication between user and developer is really smoothly. Because they can easily understand what other says.
+
     - Take advantage of the other patterns, we can extend the CommandBus's behaviors.
 
     - With CommandBus class, we can handle Command objects in asynchronous way.
@@ -242,7 +246,11 @@ Belows are steps that we need to implement in Command Bus pattern.
     
     If we implement the multiple secondary actions in our CommandHandler. It makes our CommandHandler class pollution, and it does not satisfy the Single Responsibility Principle.
 
-    Our solution for this case is that define an event for each secondary action. It means that we will use Event Bus pattern.
+    Our solution for this case is that define an global event for each secondary action. It means that we will use Event Bus pattern.
+
+    Also, we need to be aware of the difference between the global event and domain event.
+    - With the external behavior, we should use the global event.
+    - With the domain behavior, we should fire the domain event.
 
 <br>
 

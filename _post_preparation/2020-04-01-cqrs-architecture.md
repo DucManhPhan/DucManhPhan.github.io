@@ -36,6 +36,8 @@ tags: [Architecture Pattern]
 
 1. History about CQS, CQRS
 
+    CQS - Command Query Separation pattern is introduced by Bertrand Meyer in [Object Oriented Software Construction book](https://www.amazon.com/Object-Oriented-Software-Construction-Book-CD-ROM/dp/0136291554). And CQS pattern only used for class/component in the coding aspect. It does not influence to the architectural of the system.
+
     Below is a table that describes the Command and Query.
 
     |        Command        |          Query         |
@@ -113,6 +115,43 @@ tags: [Architecture Pattern]
 
 ## Source code
 
+The structure of packages in our source code will look like:
+
+```bash
+
+```
+
+Belows are some steps that we need to implement in Event-Sourcing CQRS architectural pattern.
+
+1. Define Command Bus pattern
+
+    To know more about how to build this pattern, we can read about the article [Command Bus pattern](https://ducmanhphan.github.io/2020-12-02-command-bus-pattern/).
+
+2. Define Event Bus pattern
+
+    To know more about how to build this pattern, we can read about the article [Event Bus pattern]().
+
+3. Define Domain Model
+
+    Domain aggregate root is responsible for publishing domain events indicating that some internal states has changed.
+
+
+
+4. Define an interface Domain Repository and its implementation
+
+    The domain repository is responsible for publishing the events, this would normally be inside a single transaction together with storing the events in the event store.
+
+    ```java
+    public interface IDomainRepository {
+
+        <T> T getById(String id);
+
+        <T> void add(T aggregateRoot);
+
+    }
+    ```
+
+5. 
 
 
 
@@ -129,6 +168,14 @@ tags: [Architecture Pattern]
 
     - By using event sourcing, we gain all of the benefits we discussed previously, and a few more that were not discussed. As systems become more complex or require high degrees of auditability, these features can become highly valuable to both the business and to the developers.
 
+    - By persisting all happened events, we have some advantages:
+
+        - We have an audit log for free, the events are stored and used in builiding up the Aggregate Roots they are guaranteed in sync with each other.
+        - These events are write only, we will never add, alter or remove an event. So, if we encounter a bug in our system, the only way to correct it is to generate a new compensating event correcting the results of the bug.
+        - We can replay all events.
+
+    - Using CQRS architecture, we can split our work into multiple smaller parts. Then, assign them to the other teams in the project.
+
 2. Drawbacks
 
     - There is an intentional inconsistency in the design of the command stack versus the query stack. Inconsistency in general makes software more complex and difficult to reason about, however we gain consistency within each stack as a tradeoff.
@@ -139,12 +186,19 @@ tags: [Architecture Pattern]
 
 ## Wrapping up
 
+- 
 
+- 
 
+- 
 
 <br>
 
 Refer:
+
+[CQRS The example ebook - Mark Nijhof](http://leanpub.com/cqrs)
+
+[Exploring CQRS and Event Sourcing - A journey into high scalability, availability, and maintainability with Window Azure ebook of Grey Young]()
 
 [Clean Architecture: Patterns, Practices, and Principles by Matthew Renze](https://app.pluralsight.com/library/courses/clean-architecture-patterns-practices-principles/table-of-contents)
 
