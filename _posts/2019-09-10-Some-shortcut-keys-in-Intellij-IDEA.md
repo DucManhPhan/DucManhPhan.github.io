@@ -17,6 +17,8 @@ Let's get started.
 - [Operations with tabs](#operations-with-tabs)
 - [Compile and Run](#compile-and-run)
 - [Debug](#debug)
+- [Some useful statements](#some-useful-statements)
+- [Creating something](#creating-something)
 - [Wrapping up](#wrapping-up)
 
 <br>
@@ -53,6 +55,7 @@ Let's get started.
 | Alt + Arrow Up/Arrow Down	| Go to previous/next method                                   |
 | Ctrl + ]/[	         | Move to code block end / move to code start                     |
 | Ctrl + Shift + Alt + Insert	| Create new scratch file                                  |
+| Ctrl + Alt + Left Arrow / Right Arrow | Go back to the previous location; Go forward     |
 
 <br>
 
@@ -60,18 +63,20 @@ Let's get started.
 
 |       Command          |                             Action                              |
 | ---------------------- | --------------------------------------------------------------- |
-|    Double ```Shift```  | search everything in our project                                |
 | Ctrl + Shift + A       | find action that is a command and execute it                    |
 | Ctrl + N               | find classes in our project                                     |
 | Ctrl + Shift + N       | find files                                                      |
 | Ctrl + Shift + Alt + N | find symbols that are methods in classes                        |
 | Ctrl + R               | open replace functionality                                      |
-| Alt + Shift + Mouse Click	 | add/remove a selection                                          |
+| Alt + Shift + Mouse Click	 | add/remove a selection                                      |
 | Alt + J	             | Select the next occurrence                                      |
 | Shift + Alt + J	         | Unselect the next occurrence                                |
 | Shift + Ctrl + Alt + J | Select all occurrences                                          |
 | Esc	                 | Remove all selections                                           |
-
+| Shift + Shift          | Search everywhere                                               |
+| Alt + F7               | Search all places where something is used                       | 
+| Ctrl + B               | Go to the declaration of a symbol                               |                                             
+| Ctrl + Alt + B         | Go to the implementation of a symbol                            |                                             
 
 <br>
 
@@ -83,7 +88,6 @@ Let's get started.
 | Ctrl + F4               | closes active tab                                               |
 | Ctrl + E                | Recent files popup                                              |
 | Ctrl + Tab              | Switch between tabs and tool window                             |
-| 
 
 <br>
 
@@ -119,7 +123,7 @@ Let's get started.
 
 <br>
 
-## Some statements
+## Some useful statements
 
 |       Short keys        |                 Statement                     |            Description           |
 | ----------------------- | --------------------------------------------- | -------------------------------- |
@@ -129,6 +133,8 @@ Let's get started.
 | soutp                   | System.out.println($FORMAT$);                 | Prints method parameter names and values to System.out |
 | soutv                   | System.out.println("$EXPR_COPY$ = " + $EXPR$); | Prints a value to System.out |
 | variable.sout           | System.out.println(variable);                 | variable exists in our scope     |
+| Shift + Ctrl + Enter    |                                               | Add semicolon to the end of the code; add curly braces to for, if statements, then place cursor inside the block |
+
 
 <br>
 
@@ -140,13 +146,13 @@ Let's get started.
 | Alt + 1                 | Go to Project View                                              |
 | Alt + Insert            | Create file in the Project View                                 |
 | Ctrl + Alt + Insert     | Create a new file in the same directory as the current one      |
-| 
+
 
 <br>
 
 ## Wrapping up
 
-
+- Take advantages of the shortcut key in Intellij makes us coding smoothly.
 
 
 <br>
