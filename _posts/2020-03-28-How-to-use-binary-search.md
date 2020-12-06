@@ -31,10 +31,9 @@ Output: 4
 
 How can we solve this problem in the logarithmic time?
 
-
 <br>
 
-## Solution of Binary Search
+## Sequential search
 
 The brute force way to solve an above problem is that we will use the linear search.
 
@@ -56,7 +55,41 @@ In this way, we have the complexity:
 - Time complexity: O(n)
 - Space complexity: O(1)
 
-So, to reduce the time complexity of linear search, we will base on the condition of this array is the sorted array. We will use Binary Search to deal with it.
+<br>
+
+## Quick Sequential search
+
+In the sequential search way, we can find that it has two branch conditions such as a condition in **for** loop, and a remained condition in **if** statement.
+
+So, we can optimize these by only using one condition.
+
+```java
+public int search(int[] nums, int target) {
+    int end = nums.length - 1;
+    int last = nums[end];
+    nums[end] = target;
+
+    int index = 0;
+    while (nums[index] != target) {
+        ++index;
+    }
+
+    nums[end] = last;
+    if (index < end) {
+        return index;
+    } else if (last == target) {
+        return end;
+    }
+
+    return -1;
+}
+```
+
+<br>
+
+## Solution of Binary Search
+
+To reduce the time complexity of linear search, we will base on the condition of this array is the sorted array. We will use Binary Search to deal with it.
 
 ```java
 public int search(int[] nums, int target) {
