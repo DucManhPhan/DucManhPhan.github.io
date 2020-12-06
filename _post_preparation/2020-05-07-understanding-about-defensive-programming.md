@@ -1,0 +1,59 @@
+---
+layout: post
+title: Understanding about defensive programming
+bigimg: /img/image-header/yourself.jpeg
+tags: [Clean Code]
+---
+
+
+
+<br>
+
+## Table of contents
+- [Given problem](#given-problem)
+- []()
+- []()
+- []()
+- [Wrapping up](#wrapping-up)
+
+
+<br>
+
+## Given problem
+
+
+
+
+
+
+<br>
+
+## 
+
+
+
+
+
+
+<br>
+
+## 
+
+
+
+
+
+<br>
+
+## Wrapping up
+
+
+
+
+<br>
+
+Refer:
+
+[https://www.javatpoint.com/apache-poi-architecture](https://www.javatpoint.com/apache-poi-architecture)
+
+[https://www.tutorialspoint.com/apache_poi_word/apache_poi_word_quick_guide.htm](https://www.tutorialspoint.com/apache_poi_word/apache_poi_word_quick_guide.htm)
