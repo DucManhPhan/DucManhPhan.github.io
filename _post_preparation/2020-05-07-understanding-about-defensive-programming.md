@@ -188,10 +188,27 @@ Before jumping into Defensive programming, we need to read up on the traditional
 <br>
 
 
-## 
+## Source code
 
+Below is the source code that use defensive coding.
 
+```java
+if (data.any()) {
+    int min = data.min();
+    reportSuccess(min);
+} else {
+    reportFailure();
+}
+```
 
+Then, we will apply Defensive Programming.
+
+```java
+Action toDo = data.firstOrNone()
+                  .map(() -> reportSuccess(data.min()))
+                  .reduce(reportFailure());
+toDo();
+```
 
 
 <br>
@@ -213,7 +230,7 @@ Before jumping into Defensive programming, we need to read up on the traditional
 
 Refer:
 
-[]()
+[Advanced Defensive Programming Techniques by Zoran Horvat](https://app.pluralsight.com/library/courses/advanced-defensive-programming-techniques/table-of-contents)
 
 []()
 
