@@ -14,9 +14,9 @@ tags: [Enterprise Pattern]
 - [Given problem](#given-problem)
 - [Solution with Event bus pattern](#solution-with-event-bus-pattern)
 - [Source code](#source-code)
+- [How to implement Event Bus pattern with Guava and Vert.x](#how-to-implement-event-bus-pattern-with-guava-and-vert.x)
 - [Benefits and Drawbacks](#benefits-and-drawbacks)
 - [The relationship with other patterns](#the-relationship-with-other-patterns)
-- [How to implement Event Bus pattern in Reactive programming](#how-to-implement-event-bus-pattern-in-reactive-programming)
 - [Wrapping up](#wrapping-up)
 
 
@@ -63,18 +63,32 @@ Some components in this pattern:
 
 <br>
 
+## How to implement Event Bus pattern with Guava and Vert.x
+
+1. Guava
+
+
+
+
+2. Vert.x
+
+
+
+
+<br>
+
 ## Benefits and Drawbacks
 
 1. Benefits
 
-    - 
+    - Decoupling between Event Publishers and Event Subscribers.
     - 
     - 
 
 
 2. Drawbacks
 
-    - 
+    - All weird things in the Event Bus pattern's implementation will be hidden in Event Bus component. Sometimes, it's difficult to understand.
     - 
     - 
 
@@ -98,23 +112,9 @@ Some components in this pattern:
 
 <br>
 
-## How to implement Event Bus pattern in Reactive programming
-
-
-
-
-
-
-
-
-
-
-<br>
-
 ## Wrapping up
 
-
-
+- Understanding about how to implement Event Bus pattern from scratch, and build it based on Guava and Vert.x library.
 
 <br>
 
