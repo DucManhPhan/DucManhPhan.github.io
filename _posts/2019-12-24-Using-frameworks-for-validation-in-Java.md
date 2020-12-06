@@ -76,7 +76,7 @@ Let's get started.
 ```Objects``` class provides some useful methods for us to validate method's inputs.
 1. For object
 
-    - ```equals()```
+    - equals() method
 
         ```java
         public static boolean equals(Object a, Object b);
@@ -96,7 +96,7 @@ Let's get started.
             ```
 
 
-    - ```deepEquals()```
+    - deepEquals() method
 
         ```java
         public static boolean deepEquals(Object a, Object b);
@@ -105,7 +105,7 @@ Let's get started.
         - Both arguments are deeply equal, then return true, otherwise false.
         - Both arguments are arrays, use ```Arrays.deepEquals()``` method to determine quality.
 
-    - ```isNull()```
+    - isNull() method
 
         ```java
         // 1.8
@@ -114,7 +114,7 @@ Let's get started.
 
         - Return true if the argument is null, otherwise false.
 
-    - ```nonNull()```
+    - nonNull() method
 
         ```java
         // 1.8
@@ -123,7 +123,7 @@ Let's get started.
 
         - Return true if the argument is non-null, otherwise false.
 
-    - ```requireNonNull()```
+    - requireNonNull() method
 
         ```java
         public static <T> T requireNonNull(T obj);
@@ -134,7 +134,7 @@ Let's get started.
         - This method is designed primarily for doing parameter validation in methods and constructors.
         - Throw ```NullPointerException``` exception when the argument is null.
 
-    - ```requireNonNullElse()```
+    - requireNonNullElse() method
 
         ```java
         // 9
@@ -150,7 +150,7 @@ Let's get started.
 
 2. For array
 
-    - ```checkIndex()```
+    - checkIndex() method
 
         ```java
         // 9
@@ -160,7 +160,7 @@ Let's get started.
         - Checks if the ```index``` is within the bounds of the range from 0 (inclusive) to ```length``` (exclusive).
         - Throws ```IndexOutOfBoundsException``` - if the index is out-of-bounds.
 
-    - ```checkFromToIndex()```
+    - checkFromToIndex() method
 
         ```java
         // 9
@@ -170,7 +170,7 @@ Let's get started.
         - Checks if the sub-range from ```fromIndex``` (inclusive) to ```toIndex``` (exclusive) is within the bounds of range from 0 (inclusive) to ```length``` (exclusive).
         - Throws ```IndexOutOfBoundsException``` - if the sub-range is out-of-bounds.
 
-    - ```checkFromIndexSize()```
+    - checkFromIndexSize() method
 
         ```java
         public static int checkFromIndexSize(int fromIndex, int size, int length);
