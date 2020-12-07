@@ -17,7 +17,7 @@ tags: [Redis]
 
 <br>
 
-## 
+## Given problem
 
 
 
@@ -26,7 +26,7 @@ tags: [Redis]
 
 <br>
 
-## 
+## Understanding about Redis Cluster
 
 
 
@@ -34,7 +34,7 @@ tags: [Redis]
 
 <br>
 
-## 
+## How to configure Redis cluster
 
 
 
@@ -42,10 +42,13 @@ tags: [Redis]
 
 <br>
 
-## 
+## Benefits and Drawbacks
+
+1. Benefits
 
 
 
+2. Drawbacks
 
 
 
@@ -53,13 +56,12 @@ tags: [Redis]
 
 ## Wrapping up
 
-
-
-
-
+- 
+- 
+- 
 
 <br>
 
 Refer:
 
-[]()
+[https://laptrinhx.com/docker-builds-redis-cluster-3020548882/](https://laptrinhx.com/docker-builds-redis-cluster-3020548882/)
