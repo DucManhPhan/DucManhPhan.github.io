@@ -10,20 +10,11 @@ tags: [Clean Code]
 <br>
 
 ## Table of contents
-- [Given problem](#given-problem)
-- []()
-- []()
-- []()
+- [Introduction to Defensive Programming](#introduction-to-defensive-programming)
+- [Some traditional defensive techniques](#some-traditional-defensive-techniques)
+- [Some ways to represent Defensive programming](#some-ways-to-represent-defensive-programming)
+- [Source code](#source-code)
 - [Wrapping up](#wrapping-up)
-
-
-<br>
-
-## Given problem
-
-
-
-
 
 
 <br>
@@ -32,7 +23,16 @@ tags: [Clean Code]
 
 1. Definition of Defensive programming
 
+    According to [wikipedia.com](), we have the definition of Defensive Programming.
 
+    ```
+    Defensive programming is a form of defensive design intended to ensure the continuing function of a piece of software under unforeseen circumstances. Defensive programming practices are often used where high availability, safety, or security is needed.
+
+    Defensive programming is an approach to improve software and source code, in terms of:
+    - General quality – reducing the number of software bugs and problems.
+    - Making the source code comprehensible – the source code should be readable and understandable so it is approved in a code audit.
+    - Making the software behave in a predictable manner despite unexpected inputs or user actions.
+    ```
 
 2. The first law of Defensive programming
 
@@ -187,7 +187,6 @@ Before jumping into Defensive programming, we need to read up on the traditional
 
 <br>
 
-
 ## Source code
 
 Below is the source code that use defensive coding.
@@ -213,17 +212,9 @@ toDo();
 
 <br>
 
-## 
-
-
-
-
-
-<br>
-
 ## Wrapping up
 
-
+- Understanding about how to work with Defensive programming and how to think about it.
 
 
 <br>
@@ -232,6 +223,12 @@ Refer:
 
 [Advanced Defensive Programming Techniques by Zoran Horvat](https://app.pluralsight.com/library/courses/advanced-defensive-programming-techniques/table-of-contents)
 
-[]()
+[https://devmethodologies.blogspot.com/2012/05/defensive-programming.html](https://devmethodologies.blogspot.com/2012/05/defensive-programming.html)
 
-[]()
+[https://www.codeproject.com/Articles/7904/Defensive-programming](https://www.codeproject.com/Articles/7904/Defensive-programming)
+
+[http://danielroop.com/blog/2009/10/15/why-defensive-programming-is-rubbish/](http://danielroop.com/blog/2009/10/15/why-defensive-programming-is-rubbish/)
+
+[https://scottdorman.blog/2008/07/04/what-is-defensive-programming/](https://scottdorman.blog/2008/07/04/what-is-defensive-programming/)
+
+[https://app.pluralsight.com/guides/intro-defensive-programming-in-python](https://app.pluralsight.com/guides/intro-defensive-programming-in-python)
