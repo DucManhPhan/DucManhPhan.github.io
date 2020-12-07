@@ -26,8 +26,7 @@ tags: [Clean Code]
 
 <br>
 
-## 
-
+## Solution with Consistent Objects
 
 
 
@@ -35,13 +34,20 @@ tags: [Clean Code]
 
 <br>
 
-## 
+## Some problems with Constructors
+
+1. Defining multiple constructors
+
+
+
+
+2. Drawbacks of Constructor
 
 
 
 <br>
 
-## Understanding parameters of @OneToOne annotation 
+## Using Builder pattern to solve Constructors's problem
 
 
 
@@ -57,3 +63,5 @@ tags: [Clean Code]
 <br>
 
 Refer:
+
+[]()
