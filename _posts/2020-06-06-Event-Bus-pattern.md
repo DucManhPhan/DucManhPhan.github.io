@@ -284,11 +284,15 @@ Belows are some steps that we need to implement Event Bus pattern with Spring fr
 
 1. Benefits
 
-    - Decoupling between Event Publishers and Event Subscribers.
+    - Decoupling between Event Publishers and Event Subscribers. Then it makes our project easy to maintain, scale when we have to receive new requirements.
 
 2. Drawbacks
 
     - All weird things in the Event Bus pattern's implementation will be hidden in Event Bus component. Sometimes, it's difficult to understand.
+
+    - In the [Source code](#source-code) section, we find that each event was fired, we will create an **EventDataObject** object to pass the corresponding **Subscriber** object. It means that we replicate the event data to subscribers. So memory will increase when we have lots of Subscribers.
+
+        Solution for this problem is that we should use local cache or using the same reference with **EventDataObject** object.
 
 <br>
 
