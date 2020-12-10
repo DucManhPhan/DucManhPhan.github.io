@@ -1,8 +1,8 @@
 ---
 layout: post
-title: Data Transfer Object
+title: Immutable Object pattern
 bigimg: /img/image-header/yourself.jpeg
-tags: [Enterprise Pattern]
+tags: [Concurrency Pattern]
 ---
 
 
@@ -12,7 +12,7 @@ tags: [Enterprise Pattern]
 
 ## Table of contents
 - [Given problem](#given-problem)
-- [Solution with Data transfer pattern](#solution-with-data-transfer-pattern)
+- [Solution with Immutable Object pattern](#solution-with-immutable-object-pattern)
 - [Source code](#source-code)
 - [Benefits and Drawbacks](#benefits-and-drawbacks)
 - [Wrapping up](#wrapping-up)
@@ -29,7 +29,7 @@ tags: [Enterprise Pattern]
 
 <br>
 
-## Solution with Data transfer pattern
+## Solution with Immuable Object pattern
 
 
 
@@ -70,11 +70,6 @@ tags: [Enterprise Pattern]
 <br>
 
 Refer:
-
-
-[]()
-
-[]()
 
 []()
 

@@ -49,11 +49,16 @@ tags: [OOP]
     So belows are some important properties of OOP that Alan Kay suggests:
     - Message Passing
     - Encapsulation
+
+        About encapsulation concept, we can read up on the article [Encapsulation in Object Oriented Programming](https://ducmanhphan.github.io/2019-12-19-encapsulation-in-object-oriented-programming)
+
     - Dynamic Binding
+
+        It can also be called Late binding concept.
 
 2. Message Passing concept
 
-    
+
 
 
 <br>
@@ -83,6 +88,8 @@ tags: [OOP]
 
 Refer:
 
+[https://en.wikipedia.org/wiki/Message_passing](https://en.wikipedia.org/wiki/Message_passing)
+
 [https://martinfowler.com/bliki/TellDontAsk.html](https://martinfowler.com/bliki/TellDontAsk.html)
 
 [https://medium.com/@douglasbellonrocha/functional-object-oriented-programming-with-message-passing-71979ca9d097](https://medium.com/@douglasbellonrocha/functional-object-oriented-programming-with-message-passing-71979ca9d097)
@@ -96,6 +103,10 @@ Refer:
 [http://wiki.c2.com/?AlanKayOnMessaging](http://wiki.c2.com/?AlanKayOnMessaging)
 
 [https://www.hillelwayne.com/post/alan-kay/](https://www.hillelwayne.com/post/alan-kay/)
+
+[https://softwareengineering.stackexchange.com/questions/140602/what-is-message-passing-in-oo](https://softwareengineering.stackexchange.com/questions/140602/what-is-message-passing-in-oo)
+
+[https://www.panonit.com/blog/overview-message-passing-object-oriented-programming](https://www.panonit.com/blog/overview-message-passing-object-oriented-programming)
 
 <br>
 
