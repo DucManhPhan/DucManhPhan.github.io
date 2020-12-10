@@ -227,7 +227,7 @@ When our system can become complex, the changes of state will make us difficult 
 
 ## CRC process to avoid violating encapsulation
 
-CRC word is acronym of Class Responsibility Collaboration, this CRC process will be used to describe:
+CRC word is acronym of **Class Responsibility Collaboration**, this CRC process will be used to describe:
 - The responsibilities of a class
 - Other classes that interact with it
 

@@ -326,16 +326,38 @@ From the above example, we have some conclusions:
 
         ```java
         class ExamApplication {
-            public ExamApplication(Student candidate, Subject subject, Professor admin) {
-                if (<any argument null>) {
+            private Subject onSubject;
+            private Professor administeredBy;
+            private Student takenBy;
+
+            public ExamApplication(Subject onSubject, Professor administrator, Student candidate) {
+                if (onSubject != null) {
                     throw new IllegalArgumentException();
                 }
 
-                if (<any other rule violated>) {
+                if (administrator != null) {
                     throw new IllegalArgumentException();
                 }
 
-                // ...
+                if (candidate != null) {
+                    throw new IllegalArgumentException();
+                }
+
+                this.onSubject = onSubject;
+                this.administeredBy = administrator;
+                this.takenBy = candidate;
+            }
+
+            public Subject onSubject() {
+                return this.onSubject;
+            }
+
+            public Professor administeredBy() {
+                return this.administeredBy;
+            }
+
+            public Student takenBy() {
+                return this.takenBy;
             }
         }
         ```
@@ -357,7 +379,187 @@ From the above example, we have some conclusions:
 
 ## Using Builder pattern to solve Constructors's problem
 
+1. Promoting Constructor into Builder
 
+    Based on the above example, we can find that to remove exception handling mechanism when we call the Constructor of ExamApplication, we need to define Alright() method to validate all its fields.
+
+    ```java
+    if (alright(professor, subject, student)) {
+        ExamApplication appl = new ExamApplication(student, subject, professor);
+        dealWith(appl);
+    } else {
+        displayWarning();
+    }
+    ```
+
+    The above code is the same as the process with exception handling. Only this time we're fully prepared for the negative scenario. This code segment is acknowledging that there are two ways to proceed and none of them is in any way exceptional. However, this code is indicated another subtle issue.
+    - It turns that both alright() method and ExamApplication Constructor are now to contain the same validation logic.
+
+        That is the clear case of code duplication, which is a bad idea when it comes to the main rules. We must keep rules in only one place because that is the only way to guarantee that the same rules will be observed by all objects in the system.
+
+    - We can deal with code duplication by turning defensive part of this code into an object which would control the rules and then constructed a target object.
+
+    After ensuring that whole rules are obeyed in perspective, that object will replace both the alright() method and the constructor validation in the ExampleApplication class, we will call the new class as ExamApplicationBuilder class.
+
+    ```java
+    public class ExamApplicationBuilder {
+        private Professor administrator;
+        private Subject subject;
+        private Student candidate;
+
+        public void administeredBy(Professor administrator) {
+            this.administrator = administrator;
+        }
+
+        public void onSubject(Subject subject) {
+            this.subject = subject;
+        }
+
+        public void takenBy(Student candidate) {
+            this.candidate = candidate;
+        }
+
+        /**
+         * It indicates whether it's safe to call build() or not
+         */
+        public boolean canBuild() {
+            return this.administrator != null && this.subject != null && this.candidate != null &&
+                   this.candidate.getEnrolled() == this.subject.getTaughtDuring() &&
+                   !this.candidate.hasPassedExam(this.subject) &&
+                   this.subject.getTaughtBy() == this.administrator;
+        }
+
+        public ExamApplication build() {
+            if (!this.canBuild()) {
+                throw new InvalidOperationException();
+            }
+
+            return new ExamApplication(this.subject, this.administrator, this.candidate);
+        }
+    }
+    ```
+
+    This code is probably the simplest way of externalizing rules that must be satisfied before an object comes into being.
+
+    Belows are some rules that we need to know:
+    - Existential Precondition
+
+        A rule which must be satisfied before an object can be constructed.
+
+        It means that we won't have to type any of that defensive code in the remainder of the demonstration.
+
+    - Reinforcing the Object rule
+
+        If we have an object, then it's fine.
+
+        It means that we should not have to check any subsequent rules after an object has been constructed. Those checks would be the defensive coding.
+
+2. Variations in the Builder implementation
+
+    For example:
+
+    ```java
+    public ExamApplication build() {
+        if (!this.canBuild()) {
+            throw new InvalidOperationException();
+        }
+
+        return new ExamApplication(this.subject, this.administrator, this.candidate);
+    }
+    ```
+
+    In the build() method, the builder is still instancing the ExamApplication object from the constructor, which is somewhat strange. It indicates that anyone else might also choose to instance the same class and leave the builder out of the equation.
+
+    ```java
+    public class Student {
+        // ...
+
+        public void enroll(Semester semester) {
+            if (!this.canRoll(semester)) {
+                throw new ArgumentException();
+            }
+
+            this.enrolled = semester;
+
+            // construct ExamApplicationBuilder or ExamApplication classes
+            // ...
+        }
+    }
+    ```
+
+    For example, in the Student class, we might try to instance it. We have accessed to both the ExamApplication and ExamApplicationBuilder classes. This may lead to confusion and bugs. The trick to use is to move the concrete class stated by the builder into a separate package. Consumer will not reference that class anymore, but, for instance, some interfaces.
+    - The first step is to create something like implementation package. 
+
+        Then move ExamApplication class to this implementation package. So consumers won't have to think about.
+
+    - Then, we will remove any validation from its ExamApplication constructor.
+
+        ```java
+        public class ExamApplication {
+            // ...
+
+            public ExamApplication(Subject onSubject, Professor administrator, Student candidate) {
+                this.onSubject = onSubject;
+                this.administeredBy = administrator;
+                this.takenBy = candidate;
+            }
+        }
+        ```
+
+        This class is now part of the infrastructure, and we don't want to perform any validation in its constructor that will all be the builder duty. On the other hand, in the same package with a builder, we will create an interface which represents IExamApplication. This interface will only declare property getters and that will be its only responsibility.
+
+        ```java
+        public interface IExamApplication {
+            Subject onSubject();
+            Professor administeredBy();
+            Student takenBy();
+        }
+        ```
+
+        The concrete ExamApplication class will implement this interface.
+
+        ```java
+        public class ExamApplication implements IExamApplication {
+            // ...            
+        }
+        ``` 
+
+        Then, in the ExamApplicationBuilder class's build() method, we will return the interface.
+
+        ```java
+        public IExamApplication build() {
+            if (!this.canBuild()) {
+                throw new InvalidOperationException();
+            }
+
+            return new ExamApplication(this.subject, this.administrator, this.candidate);
+        }
+        ```
+
+        With this change, concrete class, the one which doesn't contain any validation will be removed from sight. And in the Student class, we have:
+
+        ```java
+        public class Student {
+            // ...
+
+            /**
+             * Take advantage of lazy load of stream or functional interface in java
+             */   
+            public IExamApplication applyFor(Subject examOn, Professor administeredBy) {
+                ExamApplicationBuilder builder = new ExamApplicationBuilder();
+                builder.onSubject(examOn);
+                builder.administeredBy(administeredBy);
+                builder.takenBy(this);
+
+                if (builder.canBuild()) {
+                    return builder.build();
+                } else {
+                    // do somthing smarter
+                    throw new ArgumentException();
+                }
+            }
+        }
+        ```
 
 
 
@@ -365,7 +567,15 @@ From the above example, we have some conclusions:
 
 ## Wrapping up
 
+- To address complex validation rules
 
+    - Abandon constructor validation
+    - Introduce a Builder
+
+- With the Builder concept
+
+    - Wrap validation and construction into an object itself.
+    - Builder implementation can vary in complexity.
 
 
 <br>
