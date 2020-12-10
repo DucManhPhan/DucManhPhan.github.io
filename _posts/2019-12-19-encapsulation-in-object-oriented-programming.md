@@ -193,7 +193,7 @@ When our system can become complex, the changes of state will make us difficult 
 
     Belows are some strategies about implementing encapsulation right away.
     - Using **private** access specifier for all fields.
-    - Provide getter/setter methods property.
+    - Provide getter/setter methods properly.
     - Using CRC process when designing classses.
 
 <br>
