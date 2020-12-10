@@ -180,7 +180,7 @@ When our system can become complex, the changes of state will make us difficult 
 
     - When our system becomes complex, which benefits does encapsulation provide?
 
-        The primary benefit of using encapsulation is that loose coupling. Because it does not expose the object's data, the implementation detail, it only show its neccessary behaviors. And the internal state is hidden through **private** access specifier, there is less dependency of external elements to that internal state. Less dependency is loose coupling.i According to Alan Kay about OOP, the interaction between objects is about passing message.
+        The primary benefit of using encapsulation is that loose coupling. Because it does not expose the object's data, the implementation detail, it only show its neccessary behaviors. And the internal state is hidden through **private** access specifier, there is less dependency of external elements to that internal state. Less dependency is loose coupling. According to Alan Kay about OOP, the interaction between objects is about passing message.
 
         Based on that, when any system becomes complex, it can easily scale up.
 
