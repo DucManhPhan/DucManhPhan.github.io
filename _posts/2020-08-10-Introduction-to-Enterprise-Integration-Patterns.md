@@ -16,7 +16,6 @@ tags: [Enterprise Integration Pattern]
 - [Message Routing](#message-routing)
 - [Message Transformation](#message-transformation)
 - [Messaging Endpoints](#message-endpoints)
-- [System Management](#system-management)
 - [Some open source frameworks that implement EIP](#some-open-source-frameworks-that-implement-EIP)
 - [Wrapping up](#wrapping-up)
 
@@ -206,13 +205,6 @@ Some patterns in Messaging Endpoints:
 - Channel Adapter
 - Gateway
 - Service Activator
-
-
-<br>
-
-## System Management
-
-
 
 
 <br>
