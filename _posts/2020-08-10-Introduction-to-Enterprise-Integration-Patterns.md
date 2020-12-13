@@ -13,7 +13,6 @@ tags: [Enterprise Integration Pattern]
 ## Table of contents
 - [Introduction to Enterprise Integration Patterns](#introduction-to-enterprise-integration-patterns)
 - [Messaging Channels](#messaging-channels)
-- [Message Constructions](#message-constructions)
 - [Message Routing](#message-routing)
 - [Message Transformation](#message-transformation)
 - [Messaging Endpoints](#message-endpoints)
@@ -155,14 +154,6 @@ But we can only look at the two main types of message channel, which are point-t
 - A Publish-Subscribe channel is used to broadcast messages from one sender to multiple receivers.
 
     One common scenario where we would want to use a publish-subscribe channel is to broadcast event notifications to parts of our software that are interested in particular types of events.
-
-<br>
-
-## Message Constructions
-
-
-
-
 
 <br>
 
