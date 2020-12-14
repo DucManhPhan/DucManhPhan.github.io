@@ -17,6 +17,7 @@ tags: [Enterprise Integration Pattern]
 - [Message Transformation](#message-transformation)
 - [Messaging Endpoints](#message-endpoints)
 - [Some open source frameworks that implement EIP](#some-open-source-frameworks-that-implement-EIP)
+- [Benefits and Drawbacks](#benefits-and-drawbacks)
 - [Wrapping up](#wrapping-up)
 
 
@@ -235,6 +236,19 @@ Some patterns in Messaging Endpoints:
     - Integrate many different kinds of systems without writing plumbing code.
     - Separate integration code from business logic.
     - Use EIPs in our Spring-based applications.
+
+
+<br>
+
+## Benefits and Drawbacks
+
+1. Benefits
+
+    - These patterns address the rigidity commonly found in point-to-point integration solutions.
+    - Improving the agility of the overall enterprise system changes are no longer costly endeavors. They allow business processes to change quickly at the need of the enterprise.
+    - EIPs bring stability to business processes by decoupling interconnected systems often through the introduction of a queue or middle platform for guaranteeing delivery of messages.
+
+2. Drawbacks
 
 
 <br>
