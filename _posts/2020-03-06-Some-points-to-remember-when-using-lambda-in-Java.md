@@ -258,7 +258,7 @@ How to deal with this problem?
 
 - When we're dealing with the primitive types, we need to remember that we have specialized lambda expressions that are going to be much faster than the regular ones.
 
-    It's faster to use an int predicate rather than a Predicate of Integer because we do not have to pay the price of bosing and unboxing.
+    It's faster to use an int predicate rather than a Predicate of Integer because we do not have to pay the price of boxing and unboxing.
 
 <br>
 

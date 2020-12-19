@@ -113,8 +113,18 @@ Refer:
 
 [https://youtu.be/ZhuHCtR3xq8](https://youtu.be/ZhuHCtR3xq8)
 
-[https://medium.com/@willymyfriend/java-io-monad-reality-or-fiction-5ae9078c9b44](https://medium.com/@willymyfriend/java-io-monad-reality-or-fiction-5ae9078c9b44)
-
 [https://www.youtube.com/watch?v=OSuu8zBBNAA&t=2500s](https://www.youtube.com/watch?v=OSuu8zBBNAA&t=2500s)
 
 [https://www.youtube.com/watch?v=0if71HOyVjY&t=1722s](https://www.youtube.com/watch?v=0if71HOyVjY&t=1722s)
+
+[https://apocalisp.wordpress.com/2011/07/01/monads-are-dominoes/](https://apocalisp.wordpress.com/2011/07/01/monads-are-dominoes/)
+
+[https://apocalisp.wordpress.com/2011/03/20/towards-an-effect-system-in-scala-part-1/](https://apocalisp.wordpress.com/2011/03/20/towards-an-effect-system-in-scala-part-1/)
+
+<br>
+
+**IO Monad**
+
+[https://medium.com/@willymyfriend/java-io-monad-reality-or-fiction-5ae9078c9b44](https://medium.com/@willymyfriend/java-io-monad-reality-or-fiction-5ae9078c9b44)
+
+[https://apocalisp.wordpress.com/2011/12/19/towards-an-effect-system-in-scala-part-2-io-monad/](https://apocalisp.wordpress.com/2011/12/19/towards-an-effect-system-in-scala-part-2-io-monad/)

@@ -98,7 +98,7 @@ A mathematical function that calculates, for example, a 10% discount of the tota
 f(total) = total * 0.1
 ```
 
-So, if a function receives everything that it needs to fulfill its responsibility, it will have no reason to use or change anything outside its scope. In mathematics, a function cannot depend on anything but its input. On the other hand, in programming, a method can reference and modify things outside its scope. Take, for example, the code we had in the previous section.
+So, if a function receives everything that it needs to fulfill its responsibility, it will have no reason to use or change anything outside its scope. In mathematics, a function cannot depend on anything but its input. On the other hand, in OOP programming, a method can reference and modify things outside its scope. Take, for example, the code we had in the previous section.
 
 ```java
 public void issueRewards() {
@@ -109,7 +109,7 @@ public void issueRewards() {
 }
 ```
 
-The method issueRewards() is modifying the customer object, an object that did not receive as input. When we call this method, just by looking at its definition, we cannot know that the customer is being updated.
+The method **issueRewards()** is modifying the customer object, an object that did not receive as input. When we call this method, just by looking at its definition, we cannot know that the customer is being updated.
 
 For example,
 
@@ -120,12 +120,13 @@ order.issueRewards();
 customer.getOrderRewards();     // 15
 ```
 
-If we get the reward balance of the customer and it turns out to be 10, probably calling the issueRewards() method and finding out the reward balance has changed will be unexpected.
+If we get the reward balance of the customer and it turns out to be 10, probably calling the **issueRewards()** method and finding out the reward balance has changed will be unexpected.
 
 When a method changes something outside its scope, we call that a side effect. In functional programming, there are no side effect. Among other things, side effects include:
 - Mutation of variables
 - Printing to the console
 - Writing to the files, databases, or anything in the outside world
+- Throwing an exception.
 
 In practice, it's impossible to have no side effects at all. However, the goal is not to eliminate side effects. When we say that in functional programming, there can be no side effects, we mean no observable side effects, side effects that are not part of the outcome of the program.
 
@@ -173,7 +174,7 @@ Functional programming tends to prefer objects that just hold data, but we still
 
 Given a same argument, a mathematical function always outputs the same result regardless of when we called it. It's like asking a fact question. Asking it twice should not change the answer. We have learned that the output of a function must depend only on its argument. As a consequence, it's always possible to replace a function call with its value. This is called referential transparency.
 
-In object-oriented programming, it is common to use public methods to update the state of an object. Take the updateBalanceReward() method as an example.
+In object-oriented programming, it is common to use public methods to update the state of an object. Take the **updateBalanceReward()** method as an example.
 
 ```java
 public void updateBalanceReward(Order order) {
@@ -189,7 +190,7 @@ public void addToRewardBalance(Integer rewardBalance) {
 
 If we call it twice with the same order instance, the reward balance increases after each call. Calling the same method at different times with the same input yields different results, which is the opposite of referential transparency. This is common in object-oriented programming because object-oriented programming values encapsulation. But functional programming values referential transparency.
 
-So the first thing we need to do is move **updateBalanceReward()** method to the class ProcessReward, passing the order and customer objects as parameters.
+So the first thing we need to do is move **updateBalanceReward()** method to the class **ProcessReward**, passing the order and customer objects as parameters.
 
 Now, to avoid modifying the customer, **updateBalanceReward()** method must return a new customer object, leaving the original unchanged.
 
@@ -206,7 +207,7 @@ public class Customer {
 }
 ```
 
-So let's add to the Customer class a constructor where we can pass a reward balance and change the **updateBalanceReward()** method, so it can create and return a new customer object with the updated balance or return the original customer if there are no rewards to udpate. This is how the caller code looks now.
+So let's add to the **Customer** class a constructor where we can pass a reward balance and change the **updateBalanceReward()** method, so it can create and return a new **Customer** object with the updated balance or return the original customer if there are no rewards to udpate. This is how the caller code looks now.
 
 ```java
 customer.getRewardBalance();        // 10
@@ -216,7 +217,7 @@ newCustomer.getRewardBalance();     // 15
 customer.getRewardBalance();        // 10
 ```
 
-The caller now holds references to both customers, the the original customer is not modified. The updateBalanceReward() method always returns another customer with an updated balance. We can call updateBalanceReward() method with the same arguments any number of times, and the output will always be an object with the same balance. And that's because updateBalanceReward() method treats customers as immutable. That makes the difference. To achieve referential transparency, we need immutable data.
+The caller now holds references to both customers, the the original customer is not modified. The **updateBalanceReward()** method always returns another customer with an updated balance. We can call **updateBalanceReward()** method with the same arguments any number of times, and the output will always be an object with the same balance. And that's because **updateBalanceReward()** method treats customers as immutable. That makes the difference. To achieve referential transparency, we need immutable data.
 
 - The problem with Assignment Statements
 
@@ -249,7 +250,7 @@ The caller now holds references to both customers, the the original customer is 
 
     public class ProcessReward {
         public static Order issueRewards(Order order) {
-            return new Order(OrderStatus.REWARDS_ISSUED, order.orderRewards;
+            return new Order(OrderStatus.REWARDS_ISSUED, order.orderRewards);
         }
 
         public static Customer updateBalanceReward(Order order, Customer customer) {
@@ -262,7 +263,7 @@ The caller now holds references to both customers, the the original customer is 
     }
     ```
 
-    In Customer and Order classes, we remove the getter/setter methods and expose the properties directly to make the data more transparent. The properties can be final. To guarantee once a value via the constructor is assigned, it cannot be reassigned. This may look strange at first because in object-oriented programming, we are used to hiding data, but in functional programming, we protect the data by making it immutable.
+    In **Customer** and **Order** classes, we remove the **getter/setter** methods and expose the properties directly to make the data more transparent. The properties can be final. To guarantee once a value via the constructor is assigned, it cannot be reassigned. This may look strange at first because in object-oriented programming, we are used to hiding data, but in functional programming, we protect the data by making it immutable.
 
     The goal is the same in object-oriented and functional programming. What the different is the way it is achieved. However, in Java, the amount of effort needed to keep the data immutable is significant. Think of object with many nested properties or a list with thousands of elements. This raises many concerns, like that performance will be negatively affected or that the memory usage will have a huge increase. These are valid concerns.
 
@@ -281,11 +282,11 @@ Pure functions has some benefits.
 
     For example, in languages that do not enforce immutability like Java, it's valid to modify a variable inside a function as long as this mutation is not visible externally. However, working with immutable data is a good practice and always safer.
 
-- And working with functions also makes our program more modular Writing a functional program means combining or composing functions.
+- And working with functions also makes our program more modular. Writing a functional program means combining or composing functions.
 
     For example, we can start with many base functions and then combine them into higher-level ones and even reuse functions from other programs, as they are referentially transparent.
 
-Inside pure functions, we can use imperative code like if statement or for loops, if side effects are not observable from outside. But it's not common to find such a style of coding in functional programming. When programming in an imperative style, we have to express step by step how we are going to achieve what we want.
+Inside pure functions, we can use imperative code like **if** statement or **for** loops, if side effects are not observable from outside. But it's not common to find such a style of coding in functional programming. When programming in an imperative style, we have to express step by step how we are going to achieve what we want.
 
 ```java
 // imperative programming
