@@ -114,12 +114,55 @@ In functional programming, there are a set of techniques that we need to know:
     - Benefits
 
         - Using referential transparency concept makes our code highly deterministic because it doesn't change the output implicitly.
+        - Based on referential transparency, a language optimizer would do well to simply cache the result, rather than perform the calculation, to save time.
         - It does not have side effect, then less bug, easy to maintain and testign.
         - It allows the programmer and the compiler to reason about program behavior. This can help in proving correctness, simplifying an algorithm, assisting in modifying code without breaking it, or optimizing code by means of memoization, common subexpression elimination, lazy evaluation, or parallelization.
 
     - Drawbacks
 
         - It can always make a new instance, so it takes so much memory if we don't use it suitable.
+
+4. Some types of side effect without referential transparency
+
+    - I/O side effect
+
+        - Input
+
+            Supposed that when we have a question to ask a user such as *What's your name?* in multiple times. Normally, we can receive multiple answers depends on user. It means that it produces a different result with each call is a side effect.
+
+        - Output
+
+            When a function makes a query to the user by outputing text to the console, it has changed the state of the system. The state is permanently changed because returning the system to its previous state is not possible. Even removing the characters would mean making a subsequent change.
+
+        And to implement I/O functionality, many languages provide I/O in the separated threads to improve the throughput of the system. The act of creating a thread changes the system state. So, it is another type of side effect. Using the thread need us to take care about the system's incapability to support the thread or knowing whether any other problems arose with the thread, and the communication between threads.
+
+    - Unintetional side effect
+
+        For example:
+
+        ```java
+        public int add(int a, int b) {
+            return a + b;
+        }
+        ```
+
+        Take the first glance at the above code, we don't see something strange. But it can be caused overflow when the sum of a and b is greater than the value of the integer's maximum.
+
+        So, it will change the state of the system, then it is unintentional side effect.
+
+    - Intentional side effect
+
+        For example:
+
+        ```java
+        public void divide(int a, int b) {
+            return a/b;
+        }
+        ```
+
+        With the division between two integers, we need to take care about the divided integer, it can have value is equal to zero. So, an exception will be thrown.
+
+        It is intentional side effect.
 
 <br>
 
@@ -138,6 +181,8 @@ In functional programming, there are a set of techniques that we need to know:
 <br>
 
 Refer:
+
+[Functional Programming fro Dummies ebook]()
 
 [http://blog.higher-order.com/blog/2012/09/13/what-purity-is-and-isnt/](http://blog.higher-order.com/blog/2012/09/13/what-purity-is-and-isnt/)
 
