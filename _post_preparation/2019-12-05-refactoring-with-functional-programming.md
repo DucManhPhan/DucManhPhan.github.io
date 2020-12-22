@@ -16,10 +16,20 @@ tags: [Refactoring]
 
 <br>
 
-## 
+## Prevent side effects in a method
 
+Supposed that we go to a shop, and we want to buy donuts here. Below is the source code that describe it.
 
+```java
+public class DonutShop {
+    public static Donut buyDonut(CreditCard creditCard) {
+        Donut donut = new Donut();
+        creditCard.charge(donut.getPrice());
 
+        return donut;
+    }
+}
+```
 
 
 
@@ -41,6 +51,8 @@ tags: [Refactoring]
 <br>
 
 Refer:
+
+[Functional Programming in Java - How functional techniques improve ebook]()
 
 [https://www.oncehub.com/blog/moving-from-functional-to-object-oriented-programming](https://www.oncehub.com/blog/moving-from-functional-to-object-oriented-programming)
 

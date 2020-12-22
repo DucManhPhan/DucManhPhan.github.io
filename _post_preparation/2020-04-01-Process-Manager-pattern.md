@@ -7,7 +7,6 @@ tags: [Enterprise Integration Pattern]
 
 
 
-
 <br>
 
 ## Table of Contents

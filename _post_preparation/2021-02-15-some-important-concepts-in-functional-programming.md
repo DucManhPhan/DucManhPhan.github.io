@@ -114,8 +114,8 @@ In functional programming, there are a set of techniques that we need to know:
     - Benefits
 
         - Using referential transparency concept makes our code highly deterministic because it doesn't change the output implicitly.
-        - Based on referential transparency, a language optimizer would do well to simply cache the result, rather than perform the calculation, to save time.
-        - It does not have side effect, then less bug, easy to maintain and testign.
+        - It does not have side effect, then less bug, easy to maintain and testing.
+        - It does not depend on the external devices such as database, file system, or network. The only thing to take care is its arguments.
         - It allows the programmer and the compiler to reason about program behavior. This can help in proving correctness, simplifying an algorithm, assisting in modifying code without breaking it, or optimizing code by means of memoization, common subexpression elimination, lazy evaluation, or parallelization.
 
     - Drawbacks
@@ -175,6 +175,7 @@ In functional programming, there are a set of techniques that we need to know:
 
 ## Wrapping up
 
+- To write a functional program, we have to start by writing the various base functions we need and then combine these base functions into higher-level ones, repeating the process until we have a single function corresponding to the program that we want to build. As all these functions are referential transparent, they can then be reused to build other programs without any modifications.
 
 
 
@@ -182,7 +183,7 @@ In functional programming, there are a set of techniques that we need to know:
 
 Refer:
 
-[Functional Programming fro Dummies ebook]()
+[Functional Programming in Java - How functional techniques improve ebook]()
 
 [http://blog.higher-order.com/blog/2012/09/13/what-purity-is-and-isnt/](http://blog.higher-order.com/blog/2012/09/13/what-purity-is-and-isnt/)
 
