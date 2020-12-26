@@ -13,9 +13,9 @@ tags: [Functional Programming]
 ## Table of contents
 - [Given problem](#given-problem)
 - [Solution of Railway-oriented programming](#solution-of-railway-oriented-programming)
-- []()
-- []()
-
+- [Defining the Either and Try types](#defining-the-either-and-try-types)
+- [Benefits and Drawbacks](#benefits-and-drawbacks)
+- [Wrapping up](#wrapping-up)
 
 
 <br>
