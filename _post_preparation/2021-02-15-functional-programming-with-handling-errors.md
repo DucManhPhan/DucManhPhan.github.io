@@ -433,6 +433,13 @@ So, we can extend the implemented Result type
 
 ## Benefits and Drawbacks
 
+1. Benefits
+
+
+
+2. Drawbacks
+
+
 
 
 <br>
@@ -447,5 +454,3 @@ So, we can extend the implemented Result type
 Refer:
 
 [Applying Functional Programming Techniques in Java by Esteban Herrera](https://app.pluralsight.com/library/courses/applying-functional-programming-techniques-java/table-of-contents)
-
-[]()
