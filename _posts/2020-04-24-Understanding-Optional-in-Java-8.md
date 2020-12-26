@@ -232,6 +232,42 @@ Some methods are added to Optional in JDK's versions:
 
 <br>
 
+## Lift method - lacked method of Optional type
+
+Lifting is a concept that allows us to transform a function of plain types to a function of the same types wrapped in a container type.
+
+For example:
+
+```java
+public static <T, U> Function<Optional<T>, Optional<U>> lift(Function<T, U> f) {
+    return optional -> optional.map(f);
+}
+
+public static <T, U> Function<T, Optional<U>> liftOne(Function<T, U> f) {
+    return val -> {
+        try {
+            return Optional.ofNullable(val).map(f);
+        } catch(Exception ex) {
+            return Optional.empty();
+        }
+    };
+}
+
+public static void main(String[] args) {
+    Function<Integer, Integer> doubler = x -> x * 2;
+    Function<Optional<Integer>, Optional<Integer>> doublerOptional = lift(doubler);
+
+    System.out.println(doublerOptional.apply(Optional.of(1)));
+    System.out.println(doublerOptional.apply(Optional.empty()));
+
+    Function<Integer, Optional<Integer>> doublerOptional2 = liftOne(doubler);
+
+    System.out.println(doublerOptional2.apply(2));
+    System.out.println(doublerOptional2.apply(null));
+}
+```
+<br>
+
 ## Benefits and Drawbacks
 1. Benefits
 
@@ -254,10 +290,23 @@ Some methods are added to Optional in JDK's versions:
 
 ## Wrapping up
 
-- Understanding about how to use Optional in Java.
+- Optional explicitly indicates the potential absence of a value. It is based on the Maybe type in functional languages. It's not a full implementation, but it has some methods that allow us to code in a declarative and functional style.
+
+- The Optional's main methods are filter(), map(), flatMap(), and orElse(), orElseGet methods.
+
+    - It can be useful to think of an Optional as a stream with one element.
+
+    The best way to use Optional is through composition.
+    - Always start from an Optional.
+    - Apply a chain of filter, map, or flatMap methods.
+    - At the end, use orElse or orElseGet to unwrap the value.
+
+- Don't use Optional as a method argument. It's not necessary. However, one of the biggest limitations of the Optional and Maybe types is that they cannot hold information about errors.
 
 <br>
 
 Refer:
 
 [https://dzone.com/articles/functional-programming-in-java-8-part-2-optionals?fromrel=true](https://dzone.com/articles/functional-programming-in-java-8-part-2-optionals?fromrel=true)
+
+[Applying Functional Programming Techniques in Java by Esteban Herrera](https://app.pluralsight.com/library/courses/applying-functional-programming-techniques-java/table-of-contents)
