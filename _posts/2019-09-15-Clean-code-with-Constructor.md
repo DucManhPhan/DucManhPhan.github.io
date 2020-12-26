@@ -12,10 +12,20 @@ Let's get started.
 <br>
 
 ## Table of contents
+- [Given problem](#given-problem)
 - [Use static factory method](#use-static-factory-method)
 - [Constructor chaining](#constructor-chaining)
 - [Constructor Telescoping](#constructor-telescoping)
 - [Wrapping up](#wrapping-up)
+
+<br>
+
+## Given problem
+
+
+
+
+
 
 <br>
 
@@ -80,6 +90,20 @@ Let's get started.
     ```Java
     GregorianCalendar.getInstance();
     ```
+
+3. Benefits and Drawbacks
+
+    - Benefits
+
+        - 
+        - 
+        - 
+
+    - Drawbacks
+
+        - 
+        - 
+        - 
 
 <br>
 
