@@ -21,7 +21,7 @@ In this article, we will learn how to use Optional functionality in Java 8. Let'
 
 ## Why do we need to use Optional in Java
 
-In Java, all instances are the reference types, except primitive types such as int, long, boolean, ... So, in our methods, with reference types, we need to check null before calling something in it. Because if we use an instance has null value, NullPointerException are Runtime exceptions which are thrown by the JVM at the runtime.
+In Java, all instances are the reference types, except primitive types such as int, long, boolean, ... So, in our methods, with reference types, we need to check null before calling something in it. Because if we use an instance has null value, **NullPointerException** are Runtime exceptions which are thrown by the JVM at the runtime.
 
 For example:
 
@@ -43,9 +43,9 @@ So, how do we deal with this problem?
 
 ## Introduction to Optional concept
 
-Optional is an concept that is introduced in Java 8 based on the idea of functional programming. Internally, Optional is an class with generic type that wraps our real object and it provides multiple useful methods that we need to deal with null check.
+**Optional** is a concept that is introduced in Java 8 based on the idea of functional programming. Internally, **Optional** is a class with generic type that wraps our real object and it provides multiple useful methods that we need to solve null check.
 
-Next, we will go into the definition of Optional class.
+Next, we will go into the definition of **Optional** class.
 
 ```java
 // since Java 8
@@ -181,12 +181,18 @@ public final class Optional<T> {
 }
 ```
 
-Take a closer look at Optional class's definition, we can understand how Optional's methods is implemented and how to use it correctly.
+Take a closer look at Optional class's definition, we can understand how **Optional**'s methods is implemented and how to use it correctly.
+
+Some methods are added to Optional in JDK's versions:
+- Java 9 - **or()**, **ifPresentOrElse()**, **stream()**
+- Java 10 - **orElseThrow()**
+- Java 11 - **isEmpty()**
+
 
 <br>
 
 ## How to use Optional right way
-1. Use of() static method
+1. Use **of()** static method
 
     If we use **of()** method with null value, it will throw **NullPointerException**. So, the solution for it is to utilize **ofNullable()** method.
 
@@ -195,7 +201,7 @@ Take a closer look at Optional class's definition, we can understand how Optiona
     Optional<String> optString = Optional.ofNullable(probablyNullValue);
     ```
 
-2. Use isPresent() method
+2. Use **isPresent()** method
 
     If we check whether our instances of Optional class have value or not, we usually use **isPresent()** method and **get()** method, but we can find that it is as same as with checking null for these instances. It means that it also creates boilerplate code.
 
@@ -212,9 +218,9 @@ Take a closer look at Optional class's definition, we can understand how Optiona
     }
     ```
 
-3. Use orElse() method
+3. Use **orElse()** method
 
-    If we want to get value of Optional instance, normally, we will choose **get()** method, but when it has null value, **get()** method will throw **NoSuchElementException**.
+    If we want to get value of **Optional** instance, normally, we will choose **get()** method, but when it has null value, **get()** method will throw **NoSuchElementException**.
 
     To deal with this problem, we can use **orElse()** method.
 
@@ -248,7 +254,7 @@ Take a closer look at Optional class's definition, we can understand how Optiona
 
 ## Wrapping up
 
-
+- Understanding about how to use Optional in Java.
 
 <br>
 
