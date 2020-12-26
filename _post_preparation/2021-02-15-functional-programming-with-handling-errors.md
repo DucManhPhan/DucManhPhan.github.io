@@ -427,8 +427,6 @@ So, we can extend the implemented Result type
 
 - onSuccess() and onFailure() methods to execute a consumer at the end of the chain.
 
-
-
 <br>
 
 ## Benefits and Drawbacks
