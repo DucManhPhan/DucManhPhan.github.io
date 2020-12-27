@@ -166,9 +166,92 @@ In functional programming, there are a set of techniques that we need to know:
 
 <br>
 
-## Substitution model concept
+## Lazines concept
 
+1. Introduction to Laziness concept
 
+    Laziness is about evaluating data only when it's needed or when it's first accessed. Laziness is the opposite of strictness.
+
+    For example, when talking about method calls, laziness means that the getString() method is called only if and when the String variable is used. Strictness means that the method is immediately called, which is what Java does because Java is mostly a strict language.
+
+    ```java
+    String s = getString();
+
+    // ...
+
+    String getString() {
+        return "...";
+    }
+    ```
+
+    However, Java is not always strict. For example, we can say that a loop is lazy if it terminates early due to some conditions.
+
+    ```java
+    for (int i = 0; ; ++i) {
+        if (i > 1_000_000) break;
+    }
+    ```
+
+    Sources with boolean operators can be considered lazy in some cases because they don't always evaluate both operands. Lazines is not limited to evaluating arguments, methods, or expressions. The real difference between strictness and laziness is that strictness is about doing something, while laziness is about indicating that we may do something sometime in the future.
+
+2. Implementing Laziness
+
+    In Java, we can implement Laziness by using functional interfaces like:
+    - **Supplier** when we need to return a value sometime in the future
+
+        ```java
+        public interface Supplier<T> {
+            T get();
+        }
+        ```
+
+    - **Consumer** when need to execute an action taking a parameter
+
+        ```java
+        public interface Consumer<T> {
+            void accept(T t);
+        }
+        ```
+
+    - **Runnable** when we just need to execute an action.
+
+        ```java
+        public interface Runnable {
+            void run();
+        } 
+        ```
+
+    However, Runnable is for working with threads, so it is better to create an interface for Effect.
+
+    ```java
+    public interface Effect {
+        void run();
+    }
+    ```
+
+    For example, we can make this expression lazy by wrapping the method call into a lambda expression representing a **Supplier** of type String.
+
+    ```java
+    Supplier<String> s = () -> getString();
+    ```
+
+    When Java parses this expression, the **getString()** method is not executed. We are just indicating that the method should be called sometime in the future, when we call the method **get()** on the Supplier.
+
+    ```java
+    // 1st program
+    Supplier<String> s = () -> getString();
+    System.out.println(s.get());
+    ```
+
+    By the way, printing to the console is a side effect, but indicating that we should print to the console sometime in the future is not because we are returning something that will be executed later if it ever gets executed.
+
+    ```java
+    // 2nd program
+    Supplier<String> s = () -> getString();
+    Effect e = () -> System.out.println(s.get());
+    ```
+
+    If we execute both of these program, they won't produce the same results. The output of the second program is equivalent to the first program itself, but only if we decide to run the effect. This is the key to handle effects in functional programming.
 
 
 <br>
