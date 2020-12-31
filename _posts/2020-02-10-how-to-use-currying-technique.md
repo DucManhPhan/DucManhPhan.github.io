@@ -6,8 +6,6 @@ tags: [Functional Programming]
 ---
 
 
-
-
 <br>
 
 ## Table of contents
@@ -93,7 +91,9 @@ It will work fine for our example, but what if we need three arguments or more. 
 
 1. History of Currying
 
-    The name comes from the mathematician Haskell Curry, as well as the name of the programming language, Haskell.
+    According to the [wikipedia.com](https://en.wikipedia.org/wiki/Currying), we have:
+
+    This concept was introduced by Gottlob Frege, developed by Moses Schönfinkel, and further developed by Hashkell Curry, his name is used to name the programming language, Haskell.
 
 2. Introduction to Currying
 
