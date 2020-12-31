@@ -36,13 +36,13 @@ tags: [Functional Pattern]
 
     This computational context gives us a way to put a value inside of it and a way to apply a function to that value within the context. In more formal words, a monad is:
     - parameterized type **M\<T\>**
-    - it has a function called Unit to put a value inside of it
+    - it has a function called **Unit** to put a value inside of it
 
         ```java
         T -> M<T>
         ```
 
-    - it has another function bind() to apply a function to transform the value
+    - it has another function **bind()** to apply a function to transform the value
 
         ```java
         M<T> bind T -> M<U> = M<U>
@@ -52,12 +52,12 @@ tags: [Functional Pattern]
     - Optional can be considered a monad because:
 
         - It's a parameterized type: **Optional\<T\>**
-        - Its of() method represents the Unit function
-        - flatMap() method represents the bind() function
+        - Its **of()** method represents the **Unit** function
+        - **flatMap()** method represents the **bind()** function
 
-            flatMap() method returns the value in a container, in this case, an Optional, as the bind() function requires it, unlike map that returns the plain value. However, map() is such a useful function that in most cases, it's also included in monads.
+            **flatMap()** method returns the value in a container, in this case, an Optional, as the **bind()** function requires it, unlike map that returns the plain value. However, **map()** is such a useful function that in most cases, it's also included in monads.
 
-            In any cases, bind(), or flatMap(), if we prefer, is an important function because it allows us to chain monads together, transforming the values they contain.
+            In any cases, **bind()**, or **flatMap()**, if we prefer, is an important function because it allows us to chain monads together, transforming the values they contain.
 
 2. Law of Monads
 
@@ -98,6 +98,54 @@ tags: [Functional Pattern]
     - **Optional** to deal with the absence of values
     - **CompletableFuture** for asynchronous operations
     - **Stream** for collections
+
+<br>
+
+## How Monads handle side effects
+
+We know that:
+- Effect is anything that can be observed from outside the program by a user or another program.
+- A side effect is anything besides the value returned by the function, that is observed from outside the function.
+
+Pure functions does not have side effects, so the first step towards handling side effects is to make the effect the only result of the function. However, an effect can still violate referential transparency, an important principle of pure functions.
+
+For example:
+
+```java
+String x = read();
+```
+
+The read() function will get input from the keyboard. It's an impure function because it can return a different result every time it's called, depending on what the user enters. So how do we make effects like input and output, or I/O operations functional?
+
+The answer is we don't because there's no way to do it. However, the way functional languages handle this problem is by clearly separating the part of the program that is pure and the part of the program is impure. By using laziness and monads, we can handle the impure part as if it were pure.
+
+Back to the above example, what if the call to this **read()** function, instead of getting a value from the keyboard, returns a lazy functions that will read from the keyboard.
+
+```java
+public interface Effect {
+    void run();
+}
+
+Effect x = read();
+```
+
+This will honor the principle of referential transparency because when called with the same argument, the function will always return the same effect. And what if effect were a monad? For example, if we have two functions, one that reads from the keyboard, and one that writes something to the console, using the Effect Mondad, we could bind or combine these functins to create another monad that executes both as if it were a program. This will follow the principles of functional programming because no effect happens until the program is run.
+
+```java
+Effect program = Effect.of(() -> read())
+                       .flatMap(x -> write(x));
+program.run();
+```
+
+So instead of directly executing a side effect, we'll return a lazy function that when executed, will produce the side effect. This gives us purity via laziness because nothing happens, we don't have side effect. The lazy function is treated as a value, honoring referential transparency if we always return the same lazy function given the same arguments. We can use Monads to compose side effects and create a program. This will not make the lazy function pure, but it will allow us to handle side effects functionally and keep the rest of the application pure.
+
+<br>
+
+## How to implement IO Monad
+
+
+
+
 
 <br>
 
@@ -234,6 +282,7 @@ public static String format2(String s) {
 
 - Monad allows us to capture a value in a context with the Unit() function and compose different functions with the bind() function.
 
+- With I/O operations, Monads use laziness concept to handle these side effects.
 
 <br>
 

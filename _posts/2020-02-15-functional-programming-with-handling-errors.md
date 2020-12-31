@@ -171,6 +171,7 @@ Now, look at the big picture, we have a series of functions forming a two-track 
 ## Defining the Either and Try types
 
 1. Either type
+
     Many functional languages have a data type called Either that represents one of two possible subtypes, left and right.
 
     ![](../img/Java/functional-programming/error-handling/railways-oriented-5.png)
@@ -374,7 +375,6 @@ public abstract class Result<T> {
         public String toString() {
             return "Empty";
         }
-        
     }
 }
 ```
@@ -433,19 +433,16 @@ So, we can extend the implemented Result type
 
 1. Benefits
 
-
-
-2. Drawbacks
-
-
-
+    - It makes our code concise, easy to follow.
+    - Reducing our side effects.
 
 <br>
 
 ## Wrapping up
 
+- Understanding the total function, the partial or partial-applied function, it is a cause that functional programming deal with errors.
 
-
+- We should reference to the Scala, Erlang, even Hashkell to learn their syntax in the functional languages to improve the thinking about it.
 
 <br>
 
