@@ -118,6 +118,7 @@ For example:
 
     offspring (n): the immediate descendants of a person
 
+    obey /ə'beɪ/ = follow /'fɒləʊ/
 
 <br>
 
