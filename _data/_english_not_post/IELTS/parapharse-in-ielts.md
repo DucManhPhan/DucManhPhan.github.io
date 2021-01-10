@@ -5,9 +5,14 @@
 <br>
 
 ## Table of Contents
-
-
-
+- [Introduction to parapharse in English]()
+- [Inverse words in a sentence]()
+- [Use the synonyms or antonyms]()
+- [Convert to passive voice and vice versa]()
+- [Use the other word forms]()
+- [Use the enumerative way]()
+- [Use the dummy subject]()
+- [Some exercise about parapharsing a sentence]()
 
 <br>
 
@@ -122,6 +127,36 @@ For example:
 
 <br>
 
+## Some exercise about parapharsing a sentence
+
+1. The position of women in society has changed greatly in the past 20 years.
+
+2. The amount of fish consumed in the world has increased dramatically.
+
+3. Some people believe that car emissions have a massive impact on the environment.
+
+4. Technological advances have replaced people in the workforce.
+
+5. Staff have a tendency to dislike their workplace.
+
+6. The way the child plays may provide information about possible medical problems.
+
+7. More attention should be paid to how much we eat.
+
+8. Internet could be seen as a great source of entertainment.
+
+9. Governments should support local businesses.
+
+10. Junk food may harm your health.
+
+11. Programs with violence content should be limited.
+
+12. Governments should spend money on measures to save languages that are used by few speakers.
+
+
+
 Refer:
 
 [Paraphrase là gì? 6 Cách Paraphrasing trong IELTS Writing siêu hay](https://www.ieltsvietop.vn/tu-hoc-ielts/writing/cach-paraphrasing-trong-ielts-writing/)
+
+[5 CÁCH PARAPHRASE “DỄ NHƯ XƠI KẸO”](http://mysheo.com/5-cach-paraphrase-de-nhu-xoi-keo/)
