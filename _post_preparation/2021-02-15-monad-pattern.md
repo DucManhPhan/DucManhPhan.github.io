@@ -13,6 +13,8 @@ tags: [Functional Pattern]
 ## Table of contents
 - [Given problem](#given-problem)
 - [Solution with Monad pattern](#solution-with-monad-pattern)
+- [How Monads handle side effects](#how-monads-handle-side-effects)
+- [How to implement IO Monad](#how-to-implement-io-monad)
 - [Source code](#source-code)
 - [When to use](#when-to-use)
 - [Wrapping up](#wrapping-up)
@@ -261,7 +263,11 @@ public static String format2(String s) {
 
 ## When to use
 
+- 
 
+- 
+
+- 
 
 
 <br>

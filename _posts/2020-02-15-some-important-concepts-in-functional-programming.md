@@ -11,41 +11,41 @@ tags: [Functional Programming]
 <br>
 
 ## Table of contents
-
-
-
-
-
-<br>
-
-## Given problem
-
-
-
-
+- [Pure function](#pure-function)
+- [Referential transparency](#referential-transparency)
+- [Lazines](#laziness)
+- [High-order function](#high-order-function)
+- [Currying](#currying)
+- [Wrapping up](#wrapping-up)
 
 
 <br>
 
-## Introduction to Functional Programming
+## Pure function
 
-In functional programming, there are a set of techniques that we need to know:
-- First-class functions
-- Anonymous functions
-- Closures
-- Currying
-- Lazy evaluation
-- Parametric polymorphism
-- Algebraic data types
+Pure function is the function that:
+- only do one thing
+- no side-effects
+- its return value is the same for the same arguments
 
+For example:
 
+```java
+public static void square(int x) {
+    return x * x;
+}
+```
 
+Comparison between pure function and referential transparency:
+- If a function is a pure function, then it is also referential transparency, and vice versa.
 
+    To bear out this statement, we can refer these links about [Pure function](https://en.wikipedia.org/wiki/Pure_function) and [Referential transparency](https://en.wikipedia.org/wiki/Referential_transparency) in [wikipedia.com] website.
 <br>
 
-## Referential transparency concept
+## Referential transparency
 
 1. Introduction to Referential Transparency
+
     This concept means that when we pass an argument with multiple times to a function, we will always receive the same output.
 
     For example:
@@ -83,7 +83,7 @@ In functional programming, there are a set of techniques that we need to know:
 
     After each time we call the **bonusScore()** method with the same input, then calling **getScore()** method will display the different results. It satisfied some properties of OOP such as encapsulation, abstraction.
 
-    But with functional programming, it doesn't. Because it can be right for pure function - Single Responsibility Principle, but this **receiveBonusScore()** method does not depend on only its input, it's utilizing the **score** field, and change this field. And the **receiveBonusScore()** method returns void, so this method still violates the way that functional programming's construction - built by composing functions that take an argument and return a value. Returning void type means that we do not take advantage of chaining between compose methods with pipeline way.
+    But with functional programming, it doesn't. Because it can be right for pure function - Single Responsibility Principle, but this **receiveBonusScore()** method does not depend on only its input, it's utilizing the **score** field, and change this field. And the **receiveBonusScore()** method returns **void**, so this method still violates the way that functional programming's construction - built by composing functions that take an argument and return a value. Returning void type means that we do not take advantage of chaining between compose methods with pipeline way.
 
     Continuously, the **receiveBonusScore()** method is still illegal with referential transparency because each the same input, our **score** field's value will increment, it doesn't return the same output. To make this method works with referential transparency, use **immutable object pattern**.
 
@@ -166,7 +166,7 @@ In functional programming, there are a set of techniques that we need to know:
 
 <br>
 
-## Lazines concept
+## Lazines
 
 1. Introduction to Laziness concept
 
@@ -256,11 +256,21 @@ In functional programming, there are a set of techniques that we need to know:
 
 <br>
 
+## High-order function
+
+To understand more about high-order function, we can refer to [How to use High-Order function technique](https://ducmanhphan.github.io/2020-07-15-how-to-use-high-order-function-technique/).
+
+<br>
+
+## Currying
+
+To know more about currying, refer to [How to use currying technique](https://ducmanhphan.github.io/2020-02-10-how-to-use-currying-technique/).
+
+<br>
+
 ## Wrapping up
 
 - To write a functional program, we have to start by writing the various base functions we need and then combine these base functions into higher-level ones, repeating the process until we have a single function corresponding to the program that we want to build. As all these functions are referential transparent, they can then be reused to build other programs without any modifications.
-
-
 
 <br>
 
@@ -277,3 +287,11 @@ Refer:
 [https://www.sitepoint.com/what-is-referential-transparency/](https://www.sitepoint.com/what-is-referential-transparency/)
 
 [https://sookocheff.com/post/fp/why-functional-programming/](https://sookocheff.com/post/fp/why-functional-programming/)
+
+<br>
+
+**Compare between Purity and Referential transparency**
+
+[https://stackoverflow.com/questions/4865616/purity-vs-referential-transparency](https://stackoverflow.com/questions/4865616/purity-vs-referential-transparency)
+
+[https://levelup.gitconnected.com/pure-function-vs-referential-transparency-7192553d9d1](https://levelup.gitconnected.com/pure-function-vs-referential-transparency-7192553d9d1)
