@@ -16,17 +16,20 @@ tags: [Functional Pattern]
 - [How Monads handle side effects](#how-monads-handle-side-effects)
 - [How to implement IO Monad](#how-to-implement-io-monad)
 - [Source code](#source-code)
-- [When to use](#when-to-use)
+- [Benefits and Drawbacks](#benefits-and-drawbacks)
 - [Wrapping up](#wrapping-up)
 
 <br>
 
 ## Given problem
 
+Normally, in functional programming, we want our methods as the pure functions. It means that we need to abide by some rules:
+- No mutation of variables such as its arguments, external variables.
+- Use the external systems such as file system, database, logging, ...
+- Its return value is the same when receiving the same input.
+- The result of the pure functions depends only on its argurments.
 
-
-
-
+So how we can remove side effects in our methods?
 
 <br>
 
@@ -145,9 +148,45 @@ So instead of directly executing a side effect, we'll return a lazy function tha
 
 ## How to implement IO Monad
 
+```java
+public class IO<A> {
+    private final Effect<A> effect;
 
+    private IO(Effect<A> effect) {
+        this.effect = effect;
+    }
 
+    public A unsafeRun() {
+        return this.effect.run();
+    }
 
+    public static <T> IO<T> apply(Effect<T> effect) {
+        return new IO<>(effect);
+    }
+
+    public <B> IO<B> flatMap(Function<A, IO<B>> function) {
+        return IO.apply(() -> function.apply(effect.run()).unsafeRun());
+    }
+
+    public <B> IO<B> mapToVoid(Function<A, B> function) {
+        return this.flatMap(result -> IO.apply(() -> function.apply(result)));
+    }
+
+    public IO<Void> map(Consumer<A> consumer) {
+        return this.flatMap(result -> IO.apply(() -> {
+            consumer.accept(result);
+            return null;
+        }));
+    }
+}
+
+public static void main() {
+    IO.apply(() -> "Hello, world!")
+      .mapToVoid(String::toUpperCase)
+      .map(System.out::println)
+      .unsafeRun();
+}
+```
 
 <br>
 
@@ -261,26 +300,17 @@ public static String format2(String s) {
 
 <br>
 
-## When to use
-
-- 
-
-- 
-
-- 
-
-
-<br>
-
 ## Benefits and Drawbacks
 
 1. Benefits
 
+    - Using Monad pattern to makes our code become referential transparency because it reduces side effects by using laziness concept.
 
+    - concise code
 
 2. Drawbacks
 
-
+    - Java doesn't support completely Monad pattern in the part of functional programming in JDK.
 
 <br>
 
@@ -302,6 +332,8 @@ Refer:
 
 [https://youtu.be/ZhuHCtR3xq8](https://youtu.be/ZhuHCtR3xq8)
 
+[https://github.com/siy/reactive-toolbox](https://github.com/siy/reactive-toolbox)
+
 [https://www.youtube.com/watch?v=OSuu8zBBNAA&t=2500s](https://www.youtube.com/watch?v=OSuu8zBBNAA&t=2500s)
 
 [https://www.youtube.com/watch?v=0if71HOyVjY&t=1722s](https://www.youtube.com/watch?v=0if71HOyVjY&t=1722s)
@@ -317,5 +349,7 @@ Refer:
 [https://medium.com/@willymyfriend/java-io-monad-reality-or-fiction-5ae9078c9b44](https://medium.com/@willymyfriend/java-io-monad-reality-or-fiction-5ae9078c9b44)
 
 [https://apocalisp.wordpress.com/2011/12/19/towards-an-effect-system-in-scala-part-2-io-monad/](https://apocalisp.wordpress.com/2011/12/19/towards-an-effect-system-in-scala-part-2-io-monad/)
+
+[https://sergiy-yevtushenko.medium.com/beautiful-world-of-mondas-e0801905fe02](https://sergiy-yevtushenko.medium.com/beautiful-world-of-mondas-e0801905fe02)
 
 [Applying Functional Programming Techniques in Java by Esteban Herrera](https://app.pluralsight.com/library/courses/applying-functional-programming-techniques-java/table-of-contents)

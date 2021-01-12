@@ -26,7 +26,15 @@ tags: [Functional Programming]
 Pure function is the function that:
 - only do one thing
 - no side-effects
+
+    It means that:
+    - no mutation of variables
+    - no printing to the console or to any device
+    - no writing to files, databases, networks, or whatever
+    - no exception handling.
+
 - its return value is the same for the same arguments
+- the result of a pure function depends on its arguments
 
 For example:
 
@@ -40,6 +48,7 @@ Comparison between pure function and referential transparency:
 - If a function is a pure function, then it is also referential transparency, and vice versa.
 
     To bear out this statement, we can refer these links about [Pure function](https://en.wikipedia.org/wiki/Pure_function) and [Referential transparency](https://en.wikipedia.org/wiki/Referential_transparency) in [wikipedia.com] website.
+
 <br>
 
 ## Referential transparency
