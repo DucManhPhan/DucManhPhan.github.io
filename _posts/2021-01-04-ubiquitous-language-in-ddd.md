@@ -111,6 +111,8 @@ So, how Domain-Driven Design solve these problems?
 
 Refer:
 
+[Domain-Driven Design in Practice by Vladimir Khorikov](https://app.pluralsight.com/library/courses/domain-driven-design-in-practice/table-of-contents)
+
 [Domain Driven Design Quickly ebook]()
 
 [Implementing Domain Driven Design ebook]()
