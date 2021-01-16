@@ -74,7 +74,7 @@ So how we can remove side effects in our methods?
         Monad.of(value)
              .flatMap(f)
              .flatMap(g)
-             .equals(monad.flatMap(x -> f.apply(x).flatMap(g)));
+             .equals(Monad.flatMap(x -> f.apply(x).flatMap(g)));
         ```
 
     - Left Identity law

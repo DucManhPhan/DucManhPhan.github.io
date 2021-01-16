@@ -222,6 +222,7 @@ interface CurriedFunction extends Function<Short, Function<Integer, Function<Lon
     Function<A, Function<B, Function<C, Integer>>>
     ```
 
+- When a curried function is applied to only some of its arguments, it's partially applied.
 
 <br>
 
