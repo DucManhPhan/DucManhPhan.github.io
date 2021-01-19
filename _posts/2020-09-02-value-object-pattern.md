@@ -480,3 +480,5 @@ The hash code must not change and should be dispersed.
 Refer:
 
 [Making Your Java Code More Object-oriented by Zoran Horvat](https://app.pluralsight.com/library/courses/object-oriented-java-code/table-of-contents)
+
+[https://enterprisecraftsmanship.com/posts/hierarchy-value-objects/](https://enterprisecraftsmanship.com/posts/hierarchy-value-objects/)

@@ -123,4 +123,4 @@ Refer:
 
 [https://www.slideshare.net/PascalLaurin/implementing-ddd-with-c](https://www.slideshare.net/PascalLaurin/implementing-ddd-with-c)
 
-
+[https://labs.septeni-technology.jp/design-2/domain-driven-design/domain-driven-design-cho-moi-nguoi/](https://labs.septeni-technology.jp/design-2/domain-driven-design/domain-driven-design-cho-moi-nguoi/)

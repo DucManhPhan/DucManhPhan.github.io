@@ -93,9 +93,9 @@ So, these are the three sets of rules.
 
 Refer:
 
-[]()
+[https://labs.septeni-technology.jp/design-2/domain-driven-design/domain-driven-design-cho-moi-nguoi/](https://labs.septeni-technology.jp/design-2/domain-driven-design/domain-driven-design-cho-moi-nguoi/)
 
-[]()
+[https://enterprisecraftsmanship.com/posts/classes-internal-to-an-aggregate-entities-or-value-objects/](https://enterprisecraftsmanship.com/posts/classes-internal-to-an-aggregate-entities-or-value-objects/)
 
 []()
 
