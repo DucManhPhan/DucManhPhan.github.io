@@ -128,26 +128,47 @@ Below is the source code of bottom-up approach in Dynamic programming.
 ```java
 public class Solution {
     public int lengthOfLIS(int[] nums) {
-        int[] subLengths = new int[nums.length];        // save the longest length of the subset at i index
-        Arrays.fill(subLengths, 1);
-        int[] trackers = new int[nums.length];  // save the previous index of an element to T[i]
-        
-        for (int i = 1; i < nums.length; ++i) {
-            int lmax = 1;
+        int leng = nums.length;
+        int[] L = new int[leng];     // save the longest length of the subset at i index
+        L[0] = 1;
+
+        int[] tracker = new int[leng];  // save the previous index of an element to T[i]
+        Arrays.fill(tracker, -1);
+
+        for (int i = 1; i < leng; ++i) {
+            int lmax = 0;
             int jmax = -1;
-            
+
             for (int j = 0; j < i; ++j) {
-                if (nums[j] < nums[i] && lmax < subLengths[j] + 1) {
-                    lmax = subLengths[j] + 1;
+                if (nums[j] < nums[i] && lmax < L[j]) {
+                    lmax = L[j];
                     jmax = j;
                 }
             }
-            
-            subLengths[i] = lmax;
-            trackers[i] = jmax;
+
+            L[i] = lmax + 1;
+            tracker[i] = jmax;
         }
-        
-        return Arrays.stream(subLengths).max().getAsInt();
+
+        this.printSubsequence(nums, L, tracker);
+
+        return Arrays.stream(L).max().getAsInt();
+    }
+
+    public void printSubsequence(int[] nums, int[] L, int[] tracker) {
+        int idxMaxElem = IntStream.range(0, L.length)
+                                  .reduce((i, j) -> L[i] < L[j] ? j : i)
+                                  .getAsInt();
+        int i = idxMaxElem;
+        int j = 0;
+
+        while (true) {
+            System.out.println(nums[i]);
+            j = tracker[i];
+
+            if (j == -1) break;
+            i = j;
+        }
     }
 }
 ```
