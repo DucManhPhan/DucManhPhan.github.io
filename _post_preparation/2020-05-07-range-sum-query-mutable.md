@@ -2,7 +2,7 @@
 layout: post
 title: Range Sum Query - Mutable
 bigimg: /img/image-header/yourself.jpeg
-tags: [Segment Tree]
+tags: [Segment Tree, Fenwick Tree]
 ---
 
 
@@ -14,7 +14,7 @@ tags: [Segment Tree]
 - [Using brute force algorithm](#using-brute-force-algorithm)
 - [Using prefix sum](#using-prefix-sum)
 - [Using Segment Tree](#using-segment-tree)
-- [Using Binary Indexed Tree](#using-binary-indexed-tree)
+- [Using Fenwick Tree](#using-fenwick-tree)
 - [Using MO algorithm](#using-mo-algorithm)
 - [Wrapping up](#wrapping-up)
 
@@ -32,19 +32,16 @@ Implement the NumArray class:
  
 ```java
 Example 1:
+Input:  ["NumArray", "sumRange", "update", "sumRange"]
+        [[[1, 3, 5]], [0, 2], [1, 2], [0, 2]]
+Output: [null, 9, null, 8]
 
-Input
-["NumArray", "sumRange", "update", "sumRange"]
-[[[1, 3, 5]], [0, 2], [1, 2], [0, 2]]
-Output
-[null, 9, null, 8]
-
-Explanation
-NumArray numArray = new NumArray([1, 3, 5]);
-numArray.sumRange(0, 2); // return 9 = sum([1,3,5])
-numArray.update(1, 2);   // nums = [1,2,5]
-numArray.sumRange(0, 2); // return 8 = sum([1,2,5])
-``` 
+Explanation:
+    NumArray numArray = new NumArray([1, 3, 5]);
+    numArray.sumRange(0, 2); // return 9 = sum([1,3,5])
+    numArray.update(1, 2);   // nums = [1,2,5]
+    numArray.sumRange(0, 2); // return 8 = sum([1,2,5])
+```
 
 Constraints:
 - 1 <= nums.length <= 3 * 104
@@ -53,8 +50,6 @@ Constraints:
 - -100 <= val <= 100
 - 0 <= left <= right < nums.length
 - At most 3 * 104 calls will be made to update and sumRange.
-
-
 
 <br>
 
@@ -190,9 +185,9 @@ The complexity of this solution:
 
 <br>
 
-## Using Binary Indexed Tree
+## Using Fenwick Tree
 
-Below is the source code that utilizes Binary Indexed Tree.
+Below is the source code that utilizes Fenwick Tree.
 
 ```java
 
