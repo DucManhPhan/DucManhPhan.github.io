@@ -15,6 +15,7 @@ tags: [Database]
 - [Solution of locking in RDBMS](#solution-of-locking-in-rdbms)
 - [Pessimistic locking](#pessimistic-locking)
 - [Optimistic locking](#optimistic-locking)
+- [How to choose Pessimistic locking or Optimistic locking](#how-to-choose-pessimistic-locking-or-optimistic-locking)
 - [Wrapping up](#wrapping-up)
 
 <br>
@@ -63,42 +64,98 @@ Belows are some problems that we have to deal with.
 
 ## Solution of locking in RDBMS
 
-To overcome this problem, we need to protect our data from multiple requests that interact the same table or row. So we need locking.
+To overcome this problem, we need to protect our data from multiple requests that interact the same table or row. So we need locking. 
+
+There are two types of locking in RDBMS:
+1. Shared lock
+2. Exclusive lock
+
+And then we have some level lockings:
+1. Database level locking
+
+    This level locking does not use frequently in reality because it impacts to our system when encountering multiple session at the same time.
+
+    But it is useful in some specific cases:
+    - Our DBMS want to upgrade to a new version.
+
+2. Table level locking
+
+    The table level locking will be used in cases:
+    - When we have some modifications in all table.
+    
+        For example: Use in some DDL operations such as ALTER, CREATE, DROP.
+
+3. Page or Block level locking
+
+4. Row level locking
+
+5. Column level locking
 
 
-
+In this article, we only need to consider the strategies of Locking:
+- Pessimistic locking
+- Optimistic locking
 
 <br>
 
 ## Pessimistic locking
 
-1. Given problem
+1. Introduction to Pessimistic locking
 
+    Pessimistic locking is a locking strategy that it will lock a record at the first accessing time. It ensures that only one user can do something with this record at any given time.
 
+    Pessimistic locking exists until the transaction commits or rolls back.
 
-2. Solution
+2. Benefits and Drawbacks
 
+    - Benefits
+        - Processes know immediately when a locking violation occurs, rather than after the transaction is complete.
 
+    - Drawbacks
+        - It is not fully supported by all databases.
+        - It consumes extra database resources.
+        - It can be caused deadlocks.
+        - It decreases the concurrency of connection pooling when using the server session, which affects the overall scalability of your application.
 
-3. Implementations of pessimistic locking
+3. Some implementations of Pessimistic locking
 
     - Two phase locking
+
+4. Pessimistic locking with the other RDBMS
+
+    - Oracle TopLink, an ORM framework, implements pessimistic locking by using database row-level locks, such that attempts to read a locked row either fail or are blocked until the row is unlocked, depending on the database.
+
+    - 
 
 
 <br>
 
 ## Optimistic locking
 
-1. Given problem
+1. Introduction to Optimistic locking
 
+    Optimistic locking is a strategy locking that will lock record when a user commited or saved, not at the first time - accessing it. It is a way that a database checks whether the original record and the updated record can be conflicted or not by using signals.
 
+    These signals can be calculated by some approaches:
+    - Use an additional column with integer type or timestamp type to save the version of a record.
 
-2. Solution
+        It means that the database will check the version column of the original record and the updated record. If it is equal together, this updated operation will be processed successfully. Otherwise, it will be aborted.
 
+    - Use the checksum or hash function to get a value based on the original record.
 
+        In this approach, a database will need a checksum or hash function to calculate from the current record. It takes too much time or not depends on the algorithm that we choose.
 
+2. Benefits and Drawbacks
 
-2. Some implementations of optimistic locking
+    - Benefits
+        - It doesn't require us to lock up the database resource.
+        - It improves concurrency because a record is not actually locked when at first time, it is accessed by a transaction. So, the multiple applications can read and write a record.
+        - Without locking database when reading, writing a record, it prevents deadlocks.
+
+    - Drawbacks
+        - 
+
+3. Some implementations of optimistic locking
 
     - The timestamp-based concurrecy control
 
@@ -108,33 +165,26 @@ To overcome this problem, we need to protect our data from multiple requests tha
 
         The multi-version approach maintains multiple versions of each object, each one corresponding to a transaction. As a result, the multi-version approach manages to have fewers aborts than the first approach, since a potentially conflicting transaction can write a new version, instead of aborting in some cases. However, this is achieved at the cost of more storage required for all the versions.
 
-<br>
+4. Optimistic locking with the other RDBMS
 
-## Comparison between Pessimistic locking and Optimistic locking
+    - In Oracle 10g or above, it uses the hidden **ORA_ROWSCN** based on the internal **Oracle System Clock** (SCN) that is as same as checksum, but it does not take the calculation cost when updated. In order to use this functionality, our table will need to setup in **ROWDEPENDENCIES** mode.
 
-
-
-
+    - In MySQL, 
 
 <br>
 
-## Understanding about transaction management
+## How to choose Pessimistic locking or Optimistic locking
 
-Database transactions are designed to prevent the database being left in an inconsistent state regardless of the circumstances of the attempted update.
 
-A transaction is a group of database operations that is treated as an atomic unit, for example: they are all completed or none of them is completed.
 
-The commit statement signals the successful end of a series of updates within one transaction. It tells the DBMS to save all the amended data and to terminate the current transaction.
-
-The rollback statement aborts the current transaction. All updates, within the current transaction, are cancelled and the database reverts to its state before the start of transaction.
 
 
 <br>
 
 ## Wrapping up
 
-
-
+- The optimistic lock is obtained only after the transaction has committed.
+- The pessimistic lock is obtained at the first accessing time.
 
 <br>
 
@@ -159,3 +209,31 @@ Refer:
 [https://vladmihalcea.com/how-does-mvcc-multi-version-concurrency-control-work/](https://vladmihalcea.com/how-does-mvcc-multi-version-concurrency-control-work/)
 
 [https://labs.septeni-technology.jp/technote/optimistic-hay-pessimistic-locking/](https://labs.septeni-technology.jp/technote/optimistic-hay-pessimistic-locking/)
+
+[https://nguyenminhdung.wordpress.com/2009/07/14/khoa-locking/](https://nguyenminhdung.wordpress.com/2009/07/14/khoa-locking/)
+
+[https://docs.oracle.com/cd/B14099_19/web.1012/b15901/dataaccs008.htm](https://docs.oracle.com/cd/B14099_19/web.1012/b15901/dataaccs008.htm)
+
+<br>
+
+**Page or Block level locking**
+
+[https://www.programmerinterview.com/database-sql/page-versus-block/](https://www.programmerinterview.com/database-sql/page-versus-block/)
+
+[https://blog.couchbase.com/optimistic-or-pessimistic-locking-which-one-should-you-pick/](https://blog.couchbase.com/optimistic-or-pessimistic-locking-which-one-should-you-pick/)
+
+[https://learning-notes.mistermicheels.com/data/sql/optimistic-pessimistic-locking-sql/](https://learning-notes.mistermicheels.com/data/sql/optimistic-pessimistic-locking-sql/)
+
+[https://pingcap.com/blog/pessimistic-locking-better-mysql-compatibility-fewer-rollbacks-under-high-load](https://pingcap.com/blog/pessimistic-locking-better-mysql-compatibility-fewer-rollbacks-under-high-load)
+
+[https://www.infoworld.com/article/2075406/optimistic-locking-pattern-for-ejbs.html](https://www.infoworld.com/article/2075406/optimistic-locking-pattern-for-ejbs.html)
+
+<br>
+
+**Two-phase locking**
+
+[https://www.geeksforgeeks.org/two-phase-locking-protocol/?ref=rp](https://www.geeksforgeeks.org/two-phase-locking-protocol/?ref=rp)
+
+[https://www.geeksforgeeks.org/two-phase-locking-2-pl-concurrency-control-protocol-set-3/?ref=rp](https://www.geeksforgeeks.org/two-phase-locking-2-pl-concurrency-control-protocol-set-3/?ref=rp)
+
+[https://www.geeksforgeeks.org/moss-concurrency-control-protocol-distributed-locking-in-database/?ref=rp](https://www.geeksforgeeks.org/moss-concurrency-control-protocol-distributed-locking-in-database/?ref=rp)
