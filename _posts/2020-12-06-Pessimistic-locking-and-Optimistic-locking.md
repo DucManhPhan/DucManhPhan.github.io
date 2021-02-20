@@ -1,8 +1,8 @@
 ---
 layout: post
-title: Pessimistic locking and Optimistic locking in RDBMS
+title: Pessimistic locking and Optimistic locking
 bigimg: /img/image-header/yourself.jpeg
-tags: [Database]
+tags: [Database, Enterprise Pattern]
 ---
 
 
@@ -66,11 +66,7 @@ Belows are some problems that we have to deal with.
 
 To overcome this problem, we need to protect our data from multiple requests that interact the same table or row. So we need locking. 
 
-There are two types of locking in RDBMS:
-1. Shared lock
-2. Exclusive lock
-
-And then we have some level lockings:
+Belows are some level lockings that we need to know:
 1. Database level locking
 
     This level locking does not use frequently in reality because it impacts to our system when encountering multiple session at the same time.
@@ -85,14 +81,23 @@ And then we have some level lockings:
     
         For example: Use in some DDL operations such as ALTER, CREATE, DROP.
 
+    In MySQL 8.0, InnoDB engine uses intention locks, are table-level locks that indicate that which type of lock (shared or exclusive) a transaction requires later for a row in a table.
+    - An intention shared lock (IS) indicates that a transaction intends to set a shared lock on individual rows in a table.
+    - An intention exclusive lock (IX) indicates that a transaction intends to set an exclusive lock on individual rows in a table.
+
+    Intention locks do not block anything except full table requests (for example, LOCK TABLES ... WRITE). The main purpose of intention locks is to show that someone is locking a row, or going to lock a row in the table.
+
 3. Page or Block level locking
 
 4. Row level locking
 
+    There are two types of row-level lockings in RDBMS:
+    - Shared lock permits a transaction that hold a lock to read a row.
+    - Exclusive lock permits a transaction that hold a lock to update or delete a row.
+
 5. Column level locking
 
-
-In this article, we only need to consider the strategies of Locking:
+In this article, we only need to consider the strategies of row-level locking:
 - Pessimistic locking
 - Optimistic locking
 
@@ -101,6 +106,8 @@ In this article, we only need to consider the strategies of Locking:
 ## Pessimistic locking
 
 1. Introduction to Pessimistic locking
+
+    The idea of pessimistic locking is that it assumes that the concurrency conflicts usually happen in our database.
 
     Pessimistic locking is a locking strategy that it will lock a record at the first accessing time. It ensures that only one user can do something with this record at any given time.
 
@@ -113,7 +120,7 @@ In this article, we only need to consider the strategies of Locking:
 
     - Drawbacks
         - It is not fully supported by all databases.
-        - It consumes extra database resources.
+        - It consumes extra database resources because we need to remain the connection between the application and the database.
         - It can be caused deadlocks.
         - It decreases the concurrency of connection pooling when using the server session, which affects the overall scalability of your application.
 
@@ -125,14 +132,22 @@ In this article, we only need to consider the strategies of Locking:
 
     - Oracle TopLink, an ORM framework, implements pessimistic locking by using database row-level locks, such that attempts to read a locked row either fail or are blocked until the row is unlocked, depending on the database.
 
-    - 
+    - MySQL utilizes the auto commit mode by default. It means that after we completed an update operation, it will commit data. So if we need to use Pessimistic locking, we must change this auto commit mode. 
 
+        Beside above statements, MySQL cluster uses pessimistic record locking.
+
+5. When to use
+
+    - when the chance of conflict is high.
+    - when the cost of locking is less than the cost of rolling back transaction.
 
 <br>
 
 ## Optimistic locking
 
 1. Introduction to Optimistic locking
+
+    The idea of optimistic locking is that it assumes that the concurrency conflicts rarely happen in our database, so we don't need to lock it immediately after a user enters a record.
 
     Optimistic locking is a strategy locking that will lock record when a user commited or saved, not at the first time - accessing it. It is a way that a database checks whether the original record and the updated record can be conflicted or not by using signals.
 
@@ -145,15 +160,25 @@ In this article, we only need to consider the strategies of Locking:
 
         In this approach, a database will need a checksum or hash function to calculate from the current record. It takes too much time or not depends on the algorithm that we choose.
 
+    So, belows are some operations of Optimistic locking:
+    - No locks when data is read
+    - After the data is saved, our database will check for conflicts.
+
+        If the data was changed by another transaction since it was read earlier, it usually does this by checking some version numbers on the data or by checking the individual fields.
+
+        If there was a change, the transaction won't complete, then it will be rolled back.
+
+    - This locking will notify the user, show them the updated values from the database and give them a chance to overwrite those values with their own changes.
+
 2. Benefits and Drawbacks
 
     - Benefits
         - It doesn't require us to lock up the database resource.
-        - It improves concurrency because a record is not actually locked when at first time, it is accessed by a transaction. So, the multiple applications can read and write a record.
+        - It improves concurrency because a record is not actually locked when at first time, it is accessed by a transaction. So, the multiple applications can read a record.
         - Without locking database when reading, writing a record, it prevents deadlocks.
 
     - Drawbacks
-        - 
+        - With this locking, some applications need to take time to calculate the version of each column.
 
 3. Some implementations of optimistic locking
 
@@ -169,21 +194,39 @@ In this article, we only need to consider the strategies of Locking:
 
     - In Oracle 10g or above, it uses the hidden **ORA_ROWSCN** based on the internal **Oracle System Clock** (SCN) that is as same as checksum, but it does not take the calculation cost when updated. In order to use this functionality, our table will need to setup in **ROWDEPENDENCIES** mode.
 
-    - In MySQL, 
+    - In MS SQL server, it uses READ_COMMITTED isolation level by default, Optimistic locking will allow readers and writers threads to work concurrently, but writers will block write until the blocking thread commits.
+
+5. When to use
+
+    - when the chance of conflict is low
+    - when the cost of rolling back is lower than the cost of locking data
 
 <br>
 
 ## How to choose Pessimistic locking or Optimistic locking
 
+1. Pessimistic locking
 
+    - Use this locking in the stateful or the long connection between the server and the database.
 
+        --> So, we need to increase the connection pool of the system, and affect to the system's performance when there are the large amount of connection.
 
+        --> Increase software and hardware to adapt it.
+
+2. Optimistic locking
+
+    - Take the high storage of database because we must utilize an additional version column or using checksum function --> affect to the performance of the system.
+
+        With a table that contains fields such as LONG, RAW, BLOB, the checksum function isn't useful.
+
+Therefore, analysis carefully our system's demand --> choose the right tools for the right jobs.
 
 <br>
 
 ## Wrapping up
 
 - The optimistic lock is obtained only after the transaction has committed.
+
 - The pessimistic lock is obtained at the first accessing time.
 
 <br>
@@ -214,6 +257,8 @@ Refer:
 
 [https://docs.oracle.com/cd/B14099_19/web.1012/b15901/dataaccs008.htm](https://docs.oracle.com/cd/B14099_19/web.1012/b15901/dataaccs008.htm)
 
+[https://blog.mimacom.com/handling-pessimistic-locking-jpa-oracle-mysql-postgresql-derbi-h2/](https://blog.mimacom.com/handling-pessimistic-locking-jpa-oracle-mysql-postgresql-derbi-h2/)
+
 <br>
 
 **Page or Block level locking**
@@ -227,6 +272,12 @@ Refer:
 [https://pingcap.com/blog/pessimistic-locking-better-mysql-compatibility-fewer-rollbacks-under-high-load](https://pingcap.com/blog/pessimistic-locking-better-mysql-compatibility-fewer-rollbacks-under-high-load)
 
 [https://www.infoworld.com/article/2075406/optimistic-locking-pattern-for-ejbs.html](https://www.infoworld.com/article/2075406/optimistic-locking-pattern-for-ejbs.html)
+
+<br>
+
+**InnoDB locking**
+
+[https://dev.mysql.com/doc/refman/8.0/en/innodb-locking.html](https://dev.mysql.com/doc/refman/8.0/en/innodb-locking.html)
 
 <br>
 

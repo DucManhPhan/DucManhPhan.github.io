@@ -1,8 +1,8 @@
 ---
 layout: post
-title: Improve query with Hibernate
+title: How to use Pessimistic Locking
 bigimg: /img/image-header/california.jpg
-tags: [Hibernate]
+tags: [Hibernate, Database]
 ---
 
 
@@ -12,8 +12,9 @@ tags: [Hibernate]
 
 ## Table of contents
 - [Given problem](#given-problem)
-
-
+- [Solution with Pessimistic Locking](#solution-with-pessimistic-locking)
+- [When to use](#when-to-use)
+- [Wrapping up](#wrapping-up)
 
 
 <br>
@@ -27,7 +28,17 @@ tags: [Hibernate]
 
 <br>
 
-## 
+## Solution with Pessimistic Locking
+
+
+
+
+
+
+
+<br>
+
+## When to use
 
 
 
