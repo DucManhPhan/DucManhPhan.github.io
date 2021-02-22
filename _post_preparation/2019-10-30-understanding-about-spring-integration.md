@@ -12,7 +12,7 @@ tags: [Spring]
 ## Table of Contents
 - [Given problem](#given-problem)
 - [Solution of Spring Integration](#solution-of-spring-integration)
-- []()
+- [When to use](#when-to-use)
 - [Benefits and Drawbacks](#benefits-and-drawbacks)
 - [Wrapping up](#wrapping-up)
 
@@ -52,7 +52,7 @@ We may have the inventory system checking to see that our items available, the b
 
         Using these Domain-Specific Language, we can configure Spring Integration components in a readable way.
 
-    Some approachs of enterprise integration 
+    Some approaches of enterprise integration 
     - Promotes the exchange of data between systems.
 
         The way it is promoted is really be abstracting the problems that we encounter when we attempt to integrate our systems. We want to eliminate rigid data exchanges or rigid interoperability problems and to do that we need to use a more robust approach. And this is where the different enterprise integration patterns come into play.
@@ -113,7 +113,7 @@ We may have the inventory system checking to see that our items available, the b
 
 <br>
 
-## 
+## When to use
 
 
 
@@ -158,7 +158,7 @@ We may have the inventory system checking to see that our items available, the b
 
 Refer:
 
-[The Ultimate Spring Integration course on Udemy](https://ascend.udemy.com/course/ultimate-spring-integration/learn/lecture/17376986#overview)
+[The Ultimate Spring Integration course on Udemy](https://udemy.com/course/ultimate-spring-integration/learn/lecture/17376986#overview)
 
 [Spring Integration: Getting Started By Jesper De Jong](https://app.pluralsight.com/library/courses/spring-integration-getting-started/table-of-contents)
 

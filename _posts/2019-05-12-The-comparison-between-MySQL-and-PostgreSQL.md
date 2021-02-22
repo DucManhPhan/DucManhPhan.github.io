@@ -81,7 +81,6 @@ Below is some particular features that we want to compare between MySQL and Post
 7. Convenient function only in either DB
 8. Looseness of data type, type conversion, character string comparison
 
-
 <br>
 
 ## Non-blocking of DDL operation
@@ -139,7 +138,7 @@ There are three types of commonly used table join algorithms:
 - Hash Join
 - Sort Merge Join
 
-MySQL basically supports only nested loop joins. This is because MySQL is based on the design philosophy of "I do not support complex algorithms as much as possible". MySQL was originally used in embedded systems before it was used in web applications. It's necessary to run the Database in a disk or memory with a very small capacity of the embedded device, and it has been designed with the policy of the dropping complicated algorithms as much as possible.
+MySQL basically supports only nested loop joins. This is because MySQL is based on the design philosophy of "I do not support complex algorithms as much as possible". MySQL was originally used in embedded systems before it was used in web applications. It's necessary to run the database in a disk or memory with a very small capacity of the embedded device, and it has been designed with the policy of the dropping complicated algorithms as much as possible.
 
 But PostgreSQL will support three join types.
 

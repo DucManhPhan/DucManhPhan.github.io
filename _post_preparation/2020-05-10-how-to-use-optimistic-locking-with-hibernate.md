@@ -1,8 +1,8 @@
 ---
 layout: post
-title: Improve query with Hibernate
+title: How to use Optimistic Locking
 bigimg: /img/image-header/california.jpg
-tags: [Hibernate]
+tags: [Hibernate, Database]
 ---
 
 
@@ -12,8 +12,9 @@ tags: [Hibernate]
 
 ## Table of contents
 - [Given problem](#given-problem)
-
-
+- [Solution with Optimistic Locking](#solution-with-optimistic-locking)
+- [When to use](#when-to-use)
+- [Wrapping up](#wrapping-up)
 
 
 <br>
@@ -27,7 +28,7 @@ tags: [Hibernate]
 
 <br>
 
-## 
+## Solution with Optimistic Locking
 
 
 
@@ -36,7 +37,7 @@ tags: [Hibernate]
 
 <br>
 
-## 
+## When to use
 
 
 
