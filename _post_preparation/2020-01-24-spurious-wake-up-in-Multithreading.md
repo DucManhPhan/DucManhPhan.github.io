@@ -10,7 +10,7 @@ tags: [Multithreading]
 <br>
 
 ## Table of contents
-- [Introduction to Spurious wake up](#introduction-to-Spurious-wake-up)
+- [Given problem](#given-problem)
 - [Solution for this problem](#solution-for-this-problem)
 - [Some types of monitors](#some-types-of-monitors)
 - [How to overcome Spurious wake up](#how-to-overcome-Spurious-wake-up)
@@ -19,10 +19,43 @@ tags: [Multithreading]
 
 <br>
 
-## Introduction to Spurious wake up
+## Given problem
 
+Before going straight into the concept of Supurious wake up problem, we will look at the below example:
 
+```java
+class Resource {
 
+    private Object lock = new Object();
+
+    public synchronized void doSomething1() {
+        wait();
+
+        // after switching to active status, do something else
+        ...
+    }
+
+    public synchronized void doSomething2() {
+        if (satisfies-condition) {
+            notify();
+        }
+
+        // do something
+        ...
+    }
+}
+```
+
+Belows are the meaning of the source code:
+- Assuming that we have two thread T1, and T2, and T1 takes the intrinsic lock object that is faster than T2 thread.
+- Firstly, T1 enters the **doSomething1()** method, so it calls **wait()** method, then T1 will be pushed into the waiting queue, also it releases that intrinsic lock object.
+- Secondly, after the intrinsic lock was released, T2 will take it and implement **doSomething2()** method.
+
+    If our **satisfies-condition** is true, then **notify()** method can be called. So Thread Scheduler will select one of threads in the waiting queue or blocking queue to alive.
+
+    After the **notify()** method is called, our intrinsic lock object wasn't out of control of the thread T2. When thread T2 has just gone out of the **doSomething2()** method, this lock will be released automatically. Then, thread T1 will continue working in **doSomething1()** method.
+
+The above operations are luckly a happy case, but in the concurrency programming, there still is a chance that a thread wakes up without notified, interrupted, or timming out. It is called as the supurious wakeup problem.
 
 The drawbacks of Spurious wake up:
 - 
@@ -33,11 +66,20 @@ The drawbacks of Spurious wake up:
 
 <br>
 
-## Solution for this problem
+## Solution for spurious wakeup problem
 
+To prevent the supurious wakeup problem, we need to use **wait()** method in a while loop that tests for the condition holding and reexecutes **wait()** method when the condition still doesn't hold.
 
+```java
+public synchronized void doSomething1() {
+    while (condition) {
+        wait();
+    }
 
-
+    // after switching to active status, do something else
+    ...
+}
+```
 
 <br>
 
@@ -74,5 +116,11 @@ The drawbacks of Spurious wake up:
 <br>
 
 Refer:
+
+[https://en.wikipedia.org/wiki/Spurious_wakeup](https://en.wikipedia.org/wiki/Spurious_wakeup)
+
+[https://errorprone.info/bugpattern/WaitNotInLoop](https://errorprone.info/bugpattern/WaitNotInLoop)
+
+[]()
 
 []()
