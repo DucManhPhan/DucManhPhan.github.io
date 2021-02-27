@@ -48,21 +48,36 @@ class Resource {
 
 Belows are the meaning of the source code:
 - Assuming that we have two thread T1, and T2, and T1 takes the intrinsic lock object that is faster than T2 thread.
-- Firstly, T1 enters the **doSomething1()** method, so it calls **wait()** method, then T1 will be pushed into the waiting queue, also it releases that intrinsic lock object.
+
+- Firstly, T1 enters the **doSomething1()** method, so it calls **wait()** method.
+
+    Some operations that will be implemented after called **wait()** method.
+    - T1 will release that intrinsic lock object.
+    - Then, its state is set to WAITING state. In some other references, this state is BLOCKING state.
+    - Finally, it will be pushed into the waiting queue of the corresponding that monitor lock object.
+
 - Secondly, after the intrinsic lock was released, T2 will take it and implement **doSomething2()** method.
 
-    If our **satisfies-condition** is true, then **notify()** method can be called. So Thread Scheduler will select one of threads in the waiting queue or blocking queue to alive.
+    If our **satisfies-condition** is true, then **notify()** method can be called.
+    
+    Some operations that are listed after called **notify()** method.
+    - Thread Scheduler will select one of threads in that lock object's the **waiting queue** to alive.
+    - Moves that thread from the **waiting queue** to the **entry queue**.
+    - Sets the state of the selected thread from **WAITING** or **BLOCKING** to **RUNNALBE**.
 
     After the **notify()** method is called, our intrinsic lock object wasn't out of control of the thread T2. When thread T2 has just gone out of the **doSomething2()** method, this lock will be released automatically. Then, thread T1 will continue working in **doSomething1()** method.
 
-The above operations are luckly a happy case, but in the concurrency programming, there still is a chance that a thread wakes up without notified, interrupted, or timming out. It is called as the supurious wakeup problem.
+The above operations are luckly a happy case, but in the concurrency programming, there still is a chance that a thread wakes up without being notified, interrupted, or timming out. It is called as the supurious wakeup problem.
+
+The relationship between Thread Scheduler with Spurious wake up problem:
+- 
+- 
+- 
 
 The drawbacks of Spurious wake up:
-- 
-- 
-- 
-- 
+- This problem can cause a hidden bug that we don't find it easily.
 
+    In a huge project, it's difficult to track, and reproduce that bug because of rarely happenning.
 
 <br>
 
@@ -108,7 +123,7 @@ public synchronized void doSomething1() {
 
 ## Wrapping up
 
-
+- 
 
 
 
@@ -121,6 +136,6 @@ Refer:
 
 [https://errorprone.info/bugpattern/WaitNotInLoop](https://errorprone.info/bugpattern/WaitNotInLoop)
 
-[]()
+[https://pubs.opengroup.org/onlinepubs/009604599/functions/pthread_cond_timedwait.html](https://pubs.opengroup.org/onlinepubs/009604599/functions/pthread_cond_timedwait.html)
 
 []()
