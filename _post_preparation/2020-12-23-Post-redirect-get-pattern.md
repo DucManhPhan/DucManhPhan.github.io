@@ -11,8 +11,11 @@ tags: [Web Pattern]
 <br>
 
 ## Table of contents
-
-
+- [Given problem](#given-problem)
+- [Solution of Post/Redirect/Get pattern](#solution-of-post/redirect-get-pattern)
+- [When to use](#when-to-use)
+- [Benefits and Drawbacks](#benefits-and-drawbacks)
+- [Wrapping up](#wrapping-up)
 
 
 
