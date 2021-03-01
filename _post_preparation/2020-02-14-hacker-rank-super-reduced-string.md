@@ -1,6 +1,6 @@
 ---
 layout: post
-title: Super Reduced String
+title: Hacker Rank - Super Reduced String
 bigimg: /img/path.jpg
 tags: [Stack]
 ---
