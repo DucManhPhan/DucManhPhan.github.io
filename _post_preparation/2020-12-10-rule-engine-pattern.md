@@ -96,7 +96,7 @@ public class DiscountCalculator {
 
 A rules engine processes a set of rules and applies them to produce a result. The engine is one part of the pattern. The engine's responsibility is to process and apply the rules to a given context or situation, typically producing a result.
 
-A rule may describes a condition and may calculate a value. Rules are grouped together into collections for use in rules engines. Different algorithms and approaches may involve every rule and operating on their results or ordering the rules in a particular manner based on some precedence.
+A rule may describe a condition and may calculate a value. Rules are grouped together into collections for use in rules engines. Different algorithms and approaches may involve every rule and operating on their results or ordering the rules in a particular manner based on some precedence.
 
 The rules engine pattern is categorized as a behavioral design pattern because it can be used to model the behavior of part of a system. In some cases, companies may purchase an off-the-shell business rules system, but for the purposes of this design pattern, we're going to look at how we can easily build our own simple rules engine to improve and simplify the design of our application.
 
