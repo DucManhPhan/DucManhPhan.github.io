@@ -28,7 +28,7 @@ tags: [Apache POI]
 
 <br>
 
-## 
+## Solution with Apache Poi
 
 
 
@@ -37,7 +37,16 @@ tags: [Apache POI]
 
 <br>
 
-## 
+## When to use
+
+
+
+
+
+<br>
+
+## Benefits and Drawbacks
+
 
 
 
