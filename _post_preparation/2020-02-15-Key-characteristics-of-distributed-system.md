@@ -2,7 +2,7 @@
 layout: post
 title: Key characteristics of Distributed system
 bigimg: /img/image-header/factory.jpg
-tags: [System design]
+tags: [System Design]
 ---
 
 
