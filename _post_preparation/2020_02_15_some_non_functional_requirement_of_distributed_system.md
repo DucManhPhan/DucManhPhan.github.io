@@ -60,7 +60,30 @@ In system design interview, belows are some important NFRs that we need to take 
 
 ## Availability
 
+Availability is the probability that a system is operational at a given point in time under some conditions. In reality, we can use **uptime** word to describe the amount of time that a system is available, and **downtime** word for the contrast case.
 
+It means that availability is calculated by the below formular:
+
+```java
+availability = uptime / (uptime + downtime)
+```
+
+Normally, availability is usually expressed as a percentage of uptime in a given year. To know more about the percentage of availability, read other article [https://en.wikipedia.org/wiki/High_availability](https://en.wikipedia.org/wiki/High_availability). After read it, we can find that the number of nines is used to measure availability.
+
+High availability is the ability of the system guaratees that it's always working regardless of having failures at the infrastructural level in real time. The gold standard of high availability is five nines availability 99.999%, it takes 6 minutes downtime in a year. This percentage of availability is clearly written in the SLA - Service Level Aggreements of cloud platforms. 
+
+To make a system satisfy high availability, there are some principles that we need to follow:
+1. Elimination of Single point of failure
+
+    
+
+2. Reliable crossover 
+
+    In redundant systems, the crossover point itself tends to become a single point of failure. Reliable systems must provide for reliable crossover.
+
+3. Dectection of failures as they occur
+
+    If two principles above are observed, then user may never see a failure, but the maintainance activity must.
 
 
 
@@ -131,6 +154,8 @@ Belows are some essential parameters for performance requirements:
 Refer:
 
 [https://thinhnotes.com/chuyen-nghe-ba/23-loai-non-functional-requirement-troi-noi-it-ai-de-y/](https://thinhnotes.com/chuyen-nghe-ba/23-loai-non-functional-requirement-troi-noi-it-ai-de-y/)
+
+[https://towardsdatascience.com/availability-in-distributed-systems-adb43df78b9a](https://towardsdatascience.com/availability-in-distributed-systems-adb43df78b9a)
 
 <br>
 
