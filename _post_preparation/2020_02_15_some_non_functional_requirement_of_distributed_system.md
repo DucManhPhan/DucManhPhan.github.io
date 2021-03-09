@@ -74,17 +74,13 @@ High availability is the ability of the system guaratees that it's always workin
 
 To make a system satisfy high availability, there are some principles that we need to follow:
 1. Elimination of Single point of failure
-
-    
-
 2. Reliable crossover 
-
-    In redundant systems, the crossover point itself tends to become a single point of failure. Reliable systems must provide for reliable crossover.
-
 3. Dectection of failures as they occur
 
-    If two principles above are observed, then user may never see a failure, but the maintainance activity must.
-
+Belows are some ways to achieve high availability.
+- Fault Tolerance
+- Redundancy
+- Replication
 
 
 <br>
