@@ -83,6 +83,7 @@ Belows are some ways to achieve high availability.
 - Replication
 
 
+
 <br>
 
 ## Scalability
