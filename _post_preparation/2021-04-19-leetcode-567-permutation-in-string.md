@@ -1,6 +1,6 @@
 ---
 layout: post
-title: Permutation in String
+title: LeetCode - 567 - Permutation in String
 bigimg: /img/image-header/yourself.jpeg
 tags: [Two-Pointers]
 ---
