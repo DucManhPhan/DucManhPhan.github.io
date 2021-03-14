@@ -90,7 +90,6 @@ But using the above code, we can find that it has some wrong approaches. So ther
 
 - About Dependee's operation, what will happen to others if an object publicly exposes inconsistent state ?
 
-
 <br>
 
 ## Solution with Consistent Objects
@@ -267,7 +266,6 @@ From the above example, we have some conclusions:
 
     }
 
-
     public class RegularStudent extends Student {
         public RegularStudent(String name) {
             super(name);
@@ -381,7 +379,7 @@ From the above example, we have some conclusions:
 
 1. Promoting Constructor into Builder
 
-    Based on the above example, we can find that to remove exception handling mechanism when we call the Constructor of ExamApplication, we need to define Alright() method to validate all its fields.
+    Based on the above example, we can find that to remove exception handling mechanism when we call the Constructor of ExamApplication, we need to define **alright()** method to validate all its fields.
 
     ```java
     if (alright(professor, subject, student)) {
@@ -393,13 +391,13 @@ From the above example, we have some conclusions:
     ```
 
     The above code is the same as the process with exception handling. Only this time we're fully prepared for the negative scenario. This code segment is acknowledging that there are two ways to proceed and none of them is in any way exceptional. However, this code is indicated another subtle issue.
-    - It turns that both alright() method and ExamApplication Constructor are now to contain the same validation logic.
+    - It turns out that both **alright()** method and **ExamApplication** constructor are now to contain the same validation logic.
 
         That is the clear case of code duplication, which is a bad idea when it comes to the main rules. We must keep rules in only one place because that is the only way to guarantee that the same rules will be observed by all objects in the system.
 
     - We can deal with code duplication by turning defensive part of this code into an object which would control the rules and then constructed a target object.
 
-    After ensuring that whole rules are obeyed in perspective, that object will replace both the alright() method and the constructor validation in the ExampleApplication class, we will call the new class as ExamApplicationBuilder class.
+    After ensuring that whole rules are obeyed in perspective, that object will replace both the **alright()** method and the constructor validation in the **ExampleApplication** class, we will call the new class as ExamApplicationBuilder class.
 
     ```java
     public class ExamApplicationBuilder {
@@ -560,8 +558,6 @@ From the above example, we have some conclusions:
             }
         }
         ```
-
-
 
 <br>
 
