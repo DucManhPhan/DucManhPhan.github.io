@@ -13,6 +13,7 @@ tags: [Distributed System]
 - [Given problem](#given-problem)
 - [Solution of using Restful system](#solution-of-using-restful-system)
 - [Idempotency in Restful API](#idempotency-in-restful-api)
+- [HATEOAS constraints in Restful API](#hateoas-constraints-in-restful-api)
 - [When to use](#when-to-use)
 - [Benefits and Drawbacks](#benefits-and-drawbacks)
 - [Wrapping up](#wrapping-up)
@@ -29,6 +30,41 @@ tags: [Distributed System]
 <br>
 
 ## Solution of using Restful system
+
+1. Definition of Restful API
+
+
+
+2. Principles of Restful API
+
+    - Client-server
+
+        Use this architecture to split the responsibilities between client and server. The client will only take care about UI, display information for the end user, does not contain business logic. And the server will process the business logic, communicate with the other external systems such as databases, caches, ...
+
+        Through the Restful API, it hides all complicated implementation to the server.
+
+        Benefits:
+        - easy to scale servers when processing multiple requests at the same time.
+        - improve the availability.
+        - support multiple types of client such as mobile, web, other systems.
+
+        Drawbacks:
+        - less security when comparing to 1-tier architecture.
+
+    - Stateless
+
+        The server will not save all information of requests, so that it reduces the lack of security when the server is hacked.
+
+    - Cacheable
+
+    - Uniform interface
+
+    - Layered system
+
+
+<br>
+
+## HATEOAS constraints in Restful API
 
 
 
@@ -73,6 +109,8 @@ tags: [Distributed System]
 <br>
 
 Refer:
+
+[https://restfulapi.net/](https://restfulapi.net/)
 
 [https://kipalog.com/posts/Idempotency-va-Safety-trong-RESTful-web-services](https://kipalog.com/posts/Idempotency-va-Safety-trong-RESTful-web-services)
 

@@ -15,6 +15,9 @@ tags: [System Design]
 - [Availability](#availability)
 - [Scalability](#scalability)
 - [Resilience](#resilience)
+- [Reliability](#reliability)
+- [Performance](#performance)
+- [Durability](#durability)
 - [Wrapping up](#wrapping-up)
 
 
@@ -79,10 +82,13 @@ To make a system satisfy high availability, there are some principles that we ne
 
 Belows are some ways to achieve high availability.
 - Fault Tolerance
+
+    Fault tolerance is the ability of a system that still remains working when one or more components die. Then, it can recover to its original state without affecting to the other parts of a system.
+
+
 - Redundancy
+
 - Replication
-
-
 
 <br>
 
@@ -116,19 +122,64 @@ Belows are some ways to achieve high availability.
 In system design, software engineers always want to design a high performance system work smoothly under the large amount of users. It means that performance requirements define how well a system accomplishes certain functions under specific conditions.
 
 Belows are some essential parameters for performance requirements:
-- Response time
-
-    The response time is calculated from the client that starts sending a request until receiving results from this request. It means that the response time is equal to the sum of rounded-trip time between client and server, and the execution time of business operations such as the calculation time on server and the interaction time between server and the other external parts - message queue, cache, database.
-
 - Latency and Throughput
 
-    Latency 
+    Latency is the time that transfer data from the client to the server and vice versa. It is called the rounded-trip time. So, the latency is completely affected by the hardware.
+
+    Throughput is the amount of completed work per the total of work in a given period of time .
+
+- Response time
+
+    The response time is calculated from the client that starts sending a request until receiving results from this request. It means that the response time is equal to the sum of rounded-trip time or the latency between client and server, and the execution time of business operations such as the calculation time on server and the interaction time between server and the other external parts - message queue, cache, database.
+
+    So, we have the formula to calculate the response time:
+
+    ```java
+    response time = latency + execution time
+    ```
+
+    We can easily find that we do not change the latency, but we can improve the execution time by using caches, or using index, temporary memory table in database.
 
 - The number of TPS (Transaction per Second) 
 
-- Storage capacity
+- Hardware's storage capacity and network
 
+    - About network
 
+        Bandwidth is the amount of data that can be transferred throughout the network at any given time.
+        
+        In network, we also have a concept of throughput, is the amount of data that can be transferred over a given period of time.
+
+        Before jump to enhance the latency of a system, there are some causes that make the low latency and the corresponding solution for each problem.
+        - network's harware device
+
+            Firstly, it is the material that makes a cable. And then the router, takes time to analysis the header of a packet and then find the optimal path to send a destination.
+
+            Solution for this problem:
+            - Choose the suitable partner that provides good hardware devices and services, fix the problems quickly.
+
+        - Distance between the client and the server
+
+            Because we don't take care about the hardware devices problem, so the distance can be solvable problem. To deal with it, we will look at the below solutions.
+
+            Solution:
+            - Using CDN because it will choose resources closer to the user by caching them in multiple locations around the world.
+            - Rent some supplier's servers in countries that we want to develop.
+
+        - The amount of data
+
+            When we have a large size of data, to transfer that data to a destination, we need to split it into enormous packets. So the latency will increase so much time.
+
+            Solution:
+            - With a large data, the first thing we need to solve it is to use browser caching for that data to reduce requests to the server.
+            - Beside the browser caching way, we can use encryption to optimize the size of that data. Normally, the browser also support multiple the default encryption/decryption mode, so we need to take advantage it.
+            - Using HTTP/2, gRPC, websocket, ... over HTTP/1.
+
+                HTTP protocol will pack the raw data with multiple layer according to OSI model. So gRPC, websocket, ... will reduce them to optimize the sending data. HTTP/2 helps reduce server latency by minimizing the number of of round trips from the sender to the receiver and with parallelized transfers.
+
+    - About hardware's storage device
+
+        To improve the performance of system, using the higher configuration of a server.
 
 <br>
 
@@ -154,6 +205,10 @@ Refer:
 
 [https://towardsdatascience.com/availability-in-distributed-systems-adb43df78b9a](https://towardsdatascience.com/availability-in-distributed-systems-adb43df78b9a)
 
+[https://www.slideshare.net/sumitjain2013/fault-tolerance-in-distributed-systems](https://www.slideshare.net/sumitjain2013/fault-tolerance-in-distributed-systems)
+
+[https://www.imperva.com/learn/availability/fault-tolerance/](https://www.imperva.com/learn/availability/fault-tolerance/)
+
 <br>
 
 **Latency**
@@ -165,3 +220,9 @@ Refer:
 [http://www.javidjamae.com/2005/04/07/response-time-vs-latency/](http://www.javidjamae.com/2005/04/07/response-time-vs-latency/)
 
 [https://stackoverflow.com/questions/58082389/what-is-the-difference-between-latency-and-response-time](https://stackoverflow.com/questions/58082389/what-is-the-difference-between-latency-and-response-time)
+
+[http://www.javidjamae.com/2005/04/07/response-time-vs-latency/](http://www.javidjamae.com/2005/04/07/response-time-vs-latency/)
+
+[https://www.keycdn.com/support/what-is-latency](https://www.keycdn.com/support/what-is-latency)
+
+<br>

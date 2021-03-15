@@ -13,14 +13,14 @@ tags: [System Design]
 ## Table of contents
 - [Given problem](#given-problem)
 - [Solution of Consistent Hashing](#solution-of-content-hashing)
-- []()
+- [Benefits and Drawbacks](#benefits-and-drawbacks)
 - [Wrapping up](#wrapping-up)
 
 <br>
 
 ## Given problem
 
-
+talk about hash function in hash table.
 
 
 
@@ -29,6 +29,21 @@ tags: [System Design]
 
 ## Solution of Consistent Hashing
 
+1. Classic Consistent Hashing
+
+
+2. Consistent Hashing: T tokens per node
+
+
+3. Consistent Hashing: T tokens per node and Q partitions
+
+
+4. Consistent Hashing: Q/S token per node and Q partitions
+
+
+<br>
+
+## Benefits and Drawbacks
 
 
 
@@ -36,9 +51,9 @@ tags: [System Design]
 
 <br>
 
-## 
+## Applications of Consistent Hashing
 
-
+1. AWS DynamoDB
 
 
 
@@ -52,6 +67,8 @@ tags: [System Design]
 <br>
 
 Refer:
+
+[https://medium.com/omarelgabrys-blog/consistent-hashing-beyond-the-basics-525304a12ba](https://medium.com/omarelgabrys-blog/consistent-hashing-beyond-the-basics-525304a12ba)
 
 [https://www.toptal.com/big-data/consistent-hashing](https://www.toptal.com/big-data/consistent-hashing)
 
