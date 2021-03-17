@@ -11,10 +11,12 @@ tags: [DDD]
 <br>
 
 ## Table of contents
-
-
-
-
+- [Given problem](#given-problem)
+- [Solution with Specification Pattern](#solution-with-specification-pattern)
+- [Source code](#source-code)
+- [When to use](#when-to-use)
+- [Benefits and Drawbacks](#benefits-and-drawbacks)
+- [Wrapping up](#wrapping-up)
 
 <br>
 
