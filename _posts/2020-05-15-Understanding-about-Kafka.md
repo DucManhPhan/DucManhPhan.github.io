@@ -232,6 +232,21 @@ Kafka has two important components that we need to remember.
 
 <br>
 
+## Benefits and Drawbacks
+
+1. Benefits
+
+    - Reliability - Kafka is distributed, partitioned, replicated and fault tolerance.
+    - Low latency - It is capable of handling these messages with the very low latency of the range of miliseconds, demanded by most of the new use cases.
+    - Scalability - Kafka messaging system scales by most of the new use cases.
+    - Durability - Kafka uses distributed commit log which means messages persists on disk as fast as possible, hence it is durable.
+    - Performance - Kafka has high throughput for both publishing and subscribing messages. It maintains stable performance even many TB of messages are stored.
+
+2. Drawbacks
+
+
+<br>
+
 ## Wrapping up
 
 
