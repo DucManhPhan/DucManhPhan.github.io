@@ -159,7 +159,7 @@ Like most design patterns, we can start out by approaching a new problem with th
 Refer:
 
 
-[]()
+[C# Design Patterns: Rules Engine Pattern by Steve Smith](https://app.pluralsight.com/library/courses/c-sharp-design-patterns-rules-pattern/table-of-contents)
 
 []()
 
