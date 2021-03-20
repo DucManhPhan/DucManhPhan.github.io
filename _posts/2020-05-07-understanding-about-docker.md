@@ -123,186 +123,192 @@ How do we overcome these problems?
 
 ## Some commands in Docker CLI
 
-1. List all images that are downloaded from Docker Hub
+1. Commands with images
 
-    ```python
-    # 1st way
-    docker image ls
+    - List all images that are downloaded from Docker Hub
 
-    # 2nd way
-    docker images
-    ```
+        ```python
+        # 1st way
+        docker image ls
 
-2. List all containers that are running in Docker engine
+        # 2nd way
+        docker images
+        ```
 
-    ```python
-    # 1st way
-    docker ps
+    -  Pull an image from Docker Hub and run a container
 
-    # 2nd way
-    docker container ls --all
+        ```python
+        docker run <image_name>
 
-    # call help
-    docker container --help
+        # call help
+        docker run --help
+        ```
 
-    docker container ls --help
-    ```
+        For example, below is a command that pull ngix webserver from DockerHub and run it as a container.
 
-3. Pull an image from Docker Hub and run a container
+        ```python
+        docker run --detach --publish 80:80 --name webserver ngix
+        ```
 
-    ```python
-    docker run <image_name>
+        The meaning of options in an above command:
+        - ```--detach``` or ```-d```
 
-    # call help
-    docker run --help
-    ```
+            In Docker, there are two mode:
+            - the background mode or a detach mode
+            - the default foreground mode
 
-    For example, below is a command that pull ngix webserver from DockerHub and run it as a container.
+            If we use **--detach** or **-d** option, it means that we want this container run in a detached mode.
 
-    ```python
-    docker run --detach --publish 80:80 --name webserver ngix
-    ```
+        - ```--expose```
 
-    The meaning of options in an above command:
-    - ```--detach``` or ```-d```
+            Using this flag is a way of documenting which ports are used, but does not actually map or open any ports. Exposing ports is optional.
 
-        In Docker, there are two mode:
-        - the background mode or a detach mode
-        - the default foreground mode
+        - ```--publish``` or ```-p```
 
-        If we use **--detach** or **-d** option, it means that we want this container run in a detached mode.
+            By default, when you create a container, it does not publish any of its ports to the outside world. To connect to the outside, we use ```-p``` option.
 
-    - ```--expose```
+            This option means that mapping a **host port** to a running **container port**.
 
-        Using this flag is a way of documenting which ports are used, but does not actually map or open any ports. Exposing ports is optional.
+            For example:
 
-    - ```--publish``` or ```-p```
+            ```python
+            docker run -d -p <host_port>:<container_port> --name webserver ngix
+            ```
 
-        By default, when you create a container, it does not publish any of its ports to the outside world. To connect to the outside, we use ```-p``` option.
+        - ```--name```
 
-        This option means that mapping a **host port** to a running **container port**.
+            Assign a name for this container. If we do not use a name for a container, Docker will generate a random string name for a container.
+
+        - ```-rm```
+            
+            Using this option will remove our container when it exits.
+
+        To know more about this run command, we can refer this Docker's article [https://docs.docker.com/engine/reference/commandline/run/](https://docs.docker.com/engine/reference/commandline/run/).
+
+    - Pull an image from Docker Hub
+
+        ```python
+        docker pull <image_name>
+        ```
+
+    - Remove an image
+
+        ```python
+        # Use image_id to specify which image to delete
+        docker rmi <image_id>
+
+        # Use the repository's name that combines with the tag
+        docker rmi <repository_name>:<tag>
+        ```
 
         For example:
 
         ```python
-        docker run -d -p <host_port>:<container_port> --name webserver ngix
+        # Use -f flat to forcely remove an image
+        docker rmi -f fd484f19954f
+
+        docker rmi test:latest
         ```
 
-    - ```--name```
+    - Build an image from DockerFile
 
-        Assign a name for this container. If we do not use a name for a container, Docker will generate a random string name for a container.
+        ```python
+        docker build --file <dockerfile_name> .
+        ```
 
-    - ```-rm```
-        
-        Using this option will remove our container when it exits.
+    - Search an image from Docker Hub
 
-    To know more about this run command, we can refer this Docker's article [https://docs.docker.com/engine/reference/commandline/run/](https://docs.docker.com/engine/reference/commandline/run/).
+        ```python
+        docker search <image_name>
+        ```
 
-4. Stop a container
+        For example:
 
-    ```python
-    docker container stop <container_name>
-    ```
+        ```python
+        docker search mysql
+        ```
 
+    - Remove all images
 
-5. To check version of Docker Client/Server
+        ```python
+        docker rmi $(docker images -q)
+        ```
 
-    ```python
-    # Only check version without the detailed information
-    docker --version
+2. Commands with containers
 
-    # verbose information about Docker Client/Server
-    docker version
-    ```
+    - List all containers that are running in Docker engine
 
-6. Pull an image from Docker Hub
+        ```python
+        # 1st way
+        docker ps
 
-    ```python
-    docker pull <image_name>
-    ```
+        # 2nd way
+        docker container ls --all
 
-7. Remove an image
+        # call help
+        docker container --help
 
-    ```python
-    # Use image_id to specify which image to delete
-    docker rmi <image_id>
+        docker container ls --help
+        ```
 
-    # Use the repository's name that combines with the tag
-    docker rmi <repository_name>:<tag>
-    ```
+    - Stop a container
 
-    For example:
+        ```python
+        docker container stop <container_name>
+        ```
 
-    ```python
-    # Use -f flat to forcely remove an image
-    docker rmi -f fd484f19954f
+    - List all containers with some specific states
 
-    docker rmi test:latest
-    ```
+        ```python
+        # all shutdowned containers
+        docker ps -a
 
-8. List all containers with some specific states
+        # show all shutdowned containers with only numeric IDs
+        docker -ps -a -q
 
-    ```python
-    # all shutdowned containers
-    docker ps -a
+        # show containers with disk usage
+        docker ps --size
 
-    # show all shutdowned containers with only numeric IDs
-    docker -ps -a -q
+        # filter some containers with key=value pair
+        docker ps --filter 'exited=0'
+        ```
 
-    # show containers with disk usage
-    docker ps --size
+    - Run a container
 
-    # filter some containers with key=value pair
-    docker ps --filter 'exited=0'
-    ```
+        ```python
+        docker start <container_name>
+        ```
 
-9. Run a container
+    - Restart a container
 
-    ```python
-    docker start <container_name>
-    ```
+        ```python
+        docker restart <container_name>
+        ```
 
-10. Restart a container
+    - Stop all running containers
 
-    ```python
-    docker restart <container_name>
-    ```
+        ```python
+        docker stop $(docker ps -aq)
+        ```
 
-11. Build an image from DockerFile
+    - Remove all containers
 
-    ```python
-    docker build --file <dockerfile_name> .
-    ```
+        ```python
+        docker rm $(docker ps -aq)
+        ```
 
-12. Search an image from Docker Hub
+3. Information of Docker
 
-    ```python
-    docker search <image_name>
-    ```
+    - To check version of Docker Client/Server
 
-    For example:
+        ```python
+        # Only check version without the detailed information
+        docker --version
 
-    ```python
-    docker search mysql
-    ```
+        # verbose information about Docker Client/Server
+        docker version
+        ```
 
-13. Stop all running containers
-
-    ```python
-    docker stop $(docker ps -aq)
-    ```
-
-14. Remove all containers
-
-    ```python
-    docker rm $(docker ps -aq)
-    ```
-
-15. Remove all images
-
-    ```python
-    docker rmi $(docker images -q)
-    ```
 
 <br>
 
