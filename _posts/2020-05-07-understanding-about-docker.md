@@ -125,7 +125,7 @@ How do we overcome these problems?
 
 1. Commands with images
 
-    - List all images that are downloaded from Docker Hub
+    - List all local images that are downloaded from Docker Hub
 
         ```python
         # 1st way
@@ -234,6 +234,12 @@ How do we overcome these problems?
         docker rmi $(docker images -q)
         ```
 
+    - Push an image to the Docker hub
+
+        ```python
+        docker push <username/image_name>
+        ```
+
 2. Commands with containers
 
     - List all containers that are running in Docker engine
@@ -260,7 +266,7 @@ How do we overcome these problems?
     - List all containers with some specific states
 
         ```python
-        # all shutdowned containers
+        # all the running and shutdowned containers
         docker ps -a
 
         # show all shutdowned containers with only numeric IDs
@@ -285,16 +291,37 @@ How do we overcome these problems?
         docker restart <container_name>
         ```
 
-    - Stop all running containers
+    - Stop one or more containers
+
+        This command makes Docker wait for some minutes to a container shutdown.
 
         ```python
-        docker stop $(docker ps -aq)
+        # Stop a specific container
+        docker stop <container_id>
+
+        # Stop all running containers
+        docker stop $(docker ps -a)
         ```
 
-    - Remove all containers
+    - Stop a container immediately
 
         ```python
+        docker kill <container_id>
+        ```
+
+    - Remove one or more containers
+
+        ```python
+        # Remove a stopped container
+        docker rm <container_id>
+
+        # Remove all shutdowned containers
         docker rm $(docker ps -aq)
+        ```
+    - Access to the running container
+
+        ```python
+        docker exec -it <container_name> bash
         ```
 
 3. Information of Docker
@@ -307,6 +334,12 @@ How do we overcome these problems?
 
         # verbose information about Docker Client/Server
         docker version
+        ```
+
+    - Login to the Docker hub repository
+
+        ```python
+        docker login
         ```
 
 
