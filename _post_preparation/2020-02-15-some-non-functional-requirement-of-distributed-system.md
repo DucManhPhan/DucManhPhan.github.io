@@ -85,7 +85,6 @@ Belows are some ways to achieve high availability.
 
     Fault tolerance is the ability of a system that still remains working when one or more components die. Then, it can recover to its original state without affecting to the other parts of a system.
 
-
 - Redundancy
 
 - Replication
@@ -93,6 +92,10 @@ Belows are some ways to achieve high availability.
 <br>
 
 ## Scalability
+
+
+
+
 
 
 
@@ -106,11 +109,14 @@ Belows are some ways to achieve high availability.
 
 
 
+
+
+
 <br>
 
 ## Reliability
 
-
+Reliability is the ability of the system that continues working correctly under the faults of software and hardware, human errors.
 
 
 
@@ -193,6 +199,9 @@ Belows are some essential parameters for performance requirements:
 <br>
 
 ## Wrapping up
+
+
+
 
 
 

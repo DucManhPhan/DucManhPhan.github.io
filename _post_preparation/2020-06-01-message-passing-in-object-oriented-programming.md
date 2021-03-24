@@ -92,6 +92,8 @@ Refer:
 
 [https://martinfowler.com/bliki/TellDontAsk.html](https://martinfowler.com/bliki/TellDontAsk.html)
 
+[https://www.codespeedy.com/message-passing-in-cpp/](https://www.codespeedy.com/message-passing-in-cpp/)
+
 [https://medium.com/@douglasbellonrocha/functional-object-oriented-programming-with-message-passing-71979ca9d097](https://medium.com/@douglasbellonrocha/functional-object-oriented-programming-with-message-passing-71979ca9d097)
 
 [https://programmingwords.com/home/message-passing](https://programmingwords.com/home/message-passing)
