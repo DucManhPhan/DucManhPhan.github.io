@@ -93,12 +93,7 @@ Belows are some ways to achieve high availability.
 
 ## Scalability
 
-
-
-
-
-
-
+To know more about scalability, we can refer to the following link [Understanding about Scalability in System Design](http://ducmanhphan.github.io/2020-02-10-Understanding-about-scaling-in-system-design).
 
 <br>
 
@@ -116,7 +111,14 @@ Belows are some ways to achieve high availability.
 
 ## Reliability
 
-Reliability is the ability of the system that continues working correctly under the faults of software and hardware, human errors.
+Before understanding about reliability, some concepts that are very vital for us:
+- a fault means that one component of the system deviate from its spec.
+
+    It's impossible to reduce the probability of a fault to zero, therefore it is usually best to design  fault-tolerance mechanisms that prevent faults from causing failures.
+
+- a failure means when the system as a whole stops providing the required service to the user.
+
+Reliability is the ability of the system that continues working correctly under the faults of software and hardware, human errors. 
 
 
 
@@ -209,6 +211,8 @@ Belows are some essential parameters for performance requirements:
 <br>
 
 Refer:
+
+[Designing Data-Intesive Applications by Martin Kleppmann]()
 
 [https://thinhnotes.com/chuyen-nghe-ba/23-loai-non-functional-requirement-troi-noi-it-ai-de-y/](https://thinhnotes.com/chuyen-nghe-ba/23-loai-non-functional-requirement-troi-noi-it-ai-de-y/)
 
