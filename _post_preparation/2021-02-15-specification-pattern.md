@@ -65,11 +65,27 @@ Belows are three main use cases of the Specification pattern:
 
 <br>
 
+## When not to use
+
+- When we have only one use case out of three in which the Specification pattern is applicable.
+
+    For example, if we need to build sophisticated search queries, but don't need to do in-memory validation, there is no need in specification. That would be no domain knowledge duplication in this case because that knowledge is used in a single place anyway, and so we can put all the filtration logic directly to our repositories.
+
+    Similarly, if we need to validate user requests, but don't need to write corresponding search queries, it would be just fine if we hard code the domain knowledge directly in our if statement. There would be no duplication and therefore no problem.
+
+- The second situation where we might want to pass on the specification pattern is if our application is simple enough and its complexity is not expected to grow in the near future.
+
+    In simple code base, there is not much sense in following all the best practices anyway, the maintaince cost is low enough already and the benefits of introducing the Specification pattern might not justify the initial investment, the amount of work we need to put into implementing it.
+
+    So duplicating the domain knowledge could be a viable option.
+
+<br>
+
 ## When to use
 
-
-
-
+- If our code exhibits the need in at least 2 out of 3 use cases
+- If our project is going to be complex enough, this pattern would be a good tool to keep the complexity of our code base under control.
+- 
 
 <br>
 
@@ -77,16 +93,32 @@ Belows are three main use cases of the Specification pattern:
 
 1. Benefits
 
-    - It helps reduce the duplication code.
+    - By encapsulating business logic in Specification pattern , it helps reduce the duplication code.
 
 2. Drawbacks
 
 <br>
 
+## Some common questions for Specification pattern
+
+1. When implementing the Specification pattern, how to deal with not just a single class, but an aggregate of classes.
+
+
+2. What is a strong typed specification?
+
+    A specification that contains a single piece of domain knowledge.
+
+<br>
+
 ## Wrapping up
 
+- Some general guidelines for Specification pattern:
 
+    - Avoid using ISpecification interface.
+    - Make specifications as specific as possible.
+    - Make specifications immutable.
 
+- Specification should contain the domain knowledge.
 
 <br>
 
