@@ -77,6 +77,7 @@ Therefore, how do we deal with it?
 
     So, it means that we update the Cache before updating the Database.
 
+
     Some trade-off characteristics of Write-through cache:
     1. Benefits
 
@@ -88,6 +89,8 @@ Therefore, how do we deal with it?
 
 2. Write-back cache
 
+    A write-back cache means that to hit the database directly and once we hit the database, make sure to make an entry in the cache, so either database can tell the cache that this entry is no longer valid or we hit the cache, we find that entry is evicted. Then, if there will be a query on the cache, that entry won't exist, so it's going to pull from the database, and send back to the client.
+
     Some trade-off characteristics of Write-back cache:
     1. Benefits
 
@@ -95,6 +98,8 @@ Therefore, how do we deal with it?
 
     2. Drawbacks
 
+
+3. Write-around cache
 
 
 <br>
@@ -127,4 +132,4 @@ Therefore, how do we deal with it?
 
 Refer:
 
-[]()
+[What is Distributed Caching? Explained with Redis!](https://www.youtube.com/watch?v=U3RkDLtS7uY)
