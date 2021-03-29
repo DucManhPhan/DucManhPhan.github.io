@@ -14,6 +14,7 @@ tags: [Distributed system]
 - [Solution of using Redis](#solution-of-using-redis)
 - [Understanding about RedLock algorithm](#understanding-about-redlock-algorithm)
 - [Source code](#source-code)
+- [Wrapping up](#wrapping-up)
 
 
 <br>
