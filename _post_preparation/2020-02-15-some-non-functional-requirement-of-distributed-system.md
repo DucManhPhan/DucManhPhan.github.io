@@ -120,6 +120,7 @@ Before understanding about reliability, some concepts that are very vital for us
 
 Reliability is the ability of the system that continues working correctly under the faults of software and hardware, human errors. 
 
+To improve reliability of the system, we 
 
 <br>
 
