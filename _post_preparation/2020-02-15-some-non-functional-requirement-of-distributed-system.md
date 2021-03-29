@@ -89,6 +89,11 @@ Belows are some ways to achieve high availability.
 
 - Replication
 
+
+
+    Difference between replication and caching:
+    - caches don't necessarily hold collections of objects such as files in their entirely. So caching doesn't necessarily enhance availability at the application level - a user may have one needed file but not another.
+
 <br>
 
 ## Scalability
@@ -237,3 +242,7 @@ Refer:
 [https://www.keycdn.com/support/what-is-latency](https://www.keycdn.com/support/what-is-latency)
 
 <br>
+
+**Replication**
+
+[Distributed system - Concepts and Design Fifth Edition](https://repository.dinus.ac.id/docs/ajar/George-Coulouris-Distributed-Systems-Concepts-and-Design-5th-Edition.pdf)
