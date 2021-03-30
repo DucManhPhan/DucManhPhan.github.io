@@ -15,6 +15,7 @@ tags: [Multithreading]
 - [Solution with using threads](#solution-with-using-threads)
 - [When to use](#when-to-use)
 - [Benefits and Drawbacks](#benefits-and-drawbacks)
+- [Comparison between Thread and Process](#comparison-between-thread-and-process)
 - [Wrapping up](#wrapping-up)
 
 <br>
