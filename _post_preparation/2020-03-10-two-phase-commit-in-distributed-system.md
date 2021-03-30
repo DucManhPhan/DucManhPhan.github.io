@@ -17,7 +17,7 @@ tags: [Distributed System]
 
 <br>
 
-## 
+## Given problem
 
 
 
@@ -25,18 +25,23 @@ tags: [Distributed System]
 
 <br>
 
-## 
+## Solution for using two phase commit
 
-
+Transaction manager is used to split operations across multiple resources into two phases:
+- prepare
+- commit
 
 
 
 <br>
 
-## 
+## Benefits and Drawbacks
+
+1. Benefits
 
 
 
+2. Drawbacks
 
 
 
@@ -53,3 +58,13 @@ tags: [Distributed System]
 <br>
 
 Refer:
+
+[https://medium.com/@milan.brankovic/transactions-in-microservices-49bdefdfb869](https://medium.com/@milan.brankovic/transactions-in-microservices-49bdefdfb869)
+
+[]()
+
+[]()
+
+[]()
+
+[]()

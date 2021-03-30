@@ -116,7 +116,7 @@ To know more about scalability, we can refer to the following link [Understandin
 
 ## Reliability
 
-Before understanding about reliability, some concepts that are very vital for us:
+Before understanding about reliability, some concepts that are vital for us:
 - a fault means that one component of the system deviate from its spec.
 
     It's impossible to reduce the probability of a fault to zero, therefore it is usually best to design fault-tolerance mechanisms that prevent faults from causing failures.
