@@ -37,8 +37,7 @@ Specification pattern is a pattern that helps achieve two goals.
 
 This pattern was introduced by Eric Evans and Martin Fowler in the early 2000s, and Eric referred this pattern in his book: **Domain-Driven Design: Tackling complexity in the heart of software**.
 
-The basic idea behind this pattern is that when we have some piece of domain knowledge we can encapsulate this knowledge into a single unit, specification, and then reuse in different parts of our code base.
-
+The basic idea behind this pattern is that when we have some pieces of domain knowledge, we can encapsulate this knowledge into a single unit, specification, and then reuse in different parts of our code base.
 
 Belows are three main use cases of the Specification pattern:
 1. In-memory validation
@@ -49,7 +48,7 @@ Belows are three main use cases of the Specification pattern:
 
     It means that we will find records that match the specification.
 
-3. Construction-to-order
+3. Construction of an object
 
     Creating new objects complies with the criteria. This is helpful in scenarios where we don't care about the actual content of the objects, but still need them to have certain attributes.
 
@@ -120,6 +119,8 @@ Belows are three main use cases of the Specification pattern:
 
 - Specification should contain the domain knowledge.
 
+- We should utilize a strong typed specification.
+
 <br>
 
 Refer:
@@ -133,3 +134,13 @@ Refer:
 [https://www.martinfowler.com/apsupp/spec.pdf](https://www.martinfowler.com/apsupp/spec.pdf)
 
 [https://deviq.com/design-patterns/specification-pattern](https://deviq.com/design-patterns/specification-pattern)
+
+[https://tedu.com.vn/design-pattern/trien-khai-pattern-specification-trong-c-sharp-123.html](https://tedu.com.vn/design-pattern/trien-khai-pattern-specification-trong-c-sharp-123.html)
+
+[]()
+
+[]()
+
+[]()
+
+[]()
