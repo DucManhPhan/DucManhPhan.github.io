@@ -84,7 +84,6 @@ Belows are three main use cases of the Specification pattern:
 
 - If our code exhibits the need in at least 2 out of 3 use cases
 - If our project is going to be complex enough, this pattern would be a good tool to keep the complexity of our code base under control.
-- 
 
 <br>
 
@@ -117,9 +116,9 @@ Belows are three main use cases of the Specification pattern:
     - Make specifications as specific as possible.
     - Make specifications immutable.
 
-- Specification should contain the domain knowledge.
+- Specification should contain the domain knowledge. We should utilize a strong typed specification.
 
-- We should utilize a strong typed specification.
+- Specification pattern usually used in persistence layer, and combine with the other patterns such as Repository pattern, Unit of Work pattern.
 
 <br>
 
