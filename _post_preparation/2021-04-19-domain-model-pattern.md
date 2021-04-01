@@ -31,9 +31,16 @@ tags: [DDD]
 
 ## Solution with Domain Model pattern
 
+1. Definition of Domain Model
 
 
 
+2. Types of Domain Model
+
+    - Anemic Domain Model
+
+
+    - Rich Domain Model
 
 
 <br>
