@@ -59,7 +59,7 @@ So how do we solve this problem?
 1. The meaning of Encapsulation
 
     Encapsulation is the process of protecting data from the outside changes directly. It is related to the security in OOP. From these points of view, we can see them that appears in multiple documents, websites. But we need to ask lots of question to make these points clearer.
-    - What does using **public** access specifier for all fields happen ?
+    - What does using **public** access specifier for all fields happen?
 
         For example:
 
