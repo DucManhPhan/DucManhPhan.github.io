@@ -44,8 +44,13 @@ void process2() {
 }
 ```
 
-When our system can become complex, the changes of state will make us difficult to track. So how do we solve this problem?
+When our system can become complex, the changes of state will make us difficult to track. Belows are some problems:
+- share mutable variables
+- side effects
+- hard to parallel
+- in the complex system, there are enormous share states, so it's really difficult to change.
 
+So how do we solve this problem?
 
 <br>
 
@@ -116,7 +121,7 @@ When our system can become complex, the changes of state will make us difficult 
                 public static void main(String[] args) {
                     Rectangle rect = new Rectangle(); // (1)
                     rect.setHeight(0);      // (2)
-                    rectt.setWidth(2);
+                    rect.setWidth(2);
 
                     int area = rect.getHeight() * rect.getWidth();  // (3)
                 }
@@ -154,7 +159,7 @@ When our system can become complex, the changes of state will make us difficult 
 
             - At step **(3)**, calculating the area of that rectangle.
 
-                Using **CRC process**, we can easy look at that the calculating area of the rectange should be a responsibility of a **Rectangle**. So, we need to define it in **Rectangle** class.
+                Using **CRC process**, we can easily look at that the calculating area of the rectange should be a responsibility of a **Rectangle**. So, we need to define it in **Rectangle** class.
 
 
             So, the Rectangle class will look like:
@@ -188,6 +193,7 @@ When our system can become complex, the changes of state will make us difficult 
         - Loose coupling
         - Improve scalability
         - Enhance security
+        - isolation complexity
 
 2. How to implement encapsulation in OOP
 
@@ -207,8 +213,6 @@ When our system can become complex, the changes of state will make us difficult 
 2. Local simplicity
 
     Each element should have only one responsibility.
-
-<br>
 
 <br>
 
