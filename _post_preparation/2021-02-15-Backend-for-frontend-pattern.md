@@ -54,3 +54,5 @@ tags: [Frontend Architectural Pattern]
 Refer:
 
 [https://medium.com/frontend-at-scale/frontend-architectural-patterns-backend-for-frontend-29679aba886c](https://medium.com/frontend-at-scale/frontend-architectural-patterns-backend-for-frontend-29679aba886c)
+
+[https://samnewman.io/patterns/architectural/bff/](https://samnewman.io/patterns/architectural/bff/)
