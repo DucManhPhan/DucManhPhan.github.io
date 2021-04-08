@@ -56,6 +56,10 @@ Belows are three main use cases of the Specification pattern:
 
 ## Source code
 
+1. Hard-coded
+
+
+2. 
 
 
 
