@@ -52,7 +52,11 @@ tags: [DDD]
 
             To know more about [encapsulation in object-oriented programming](https://ducmanhphan.github.io/2019-12-19-encapsulation-in-object-oriented-programming/).
 
+        - Difficult to maintain because the business logic will be used to expand in multiple layers. So when we want to add a new functionality or fix an existed feature, it is a conundrom.
+
     - Rich Domain Model
+
+
 
         ![](../img/Architecture-pattern/Domain-driven-design/domain-model/anemic_model.jpg)
 
@@ -84,8 +88,13 @@ tags: [DDD]
 
 ## Wrapping up
 
-- Domain logic contains validation, calculations, and business rules.
+- Business logic container domain logic and application logic.
 
+    - Domain logic does something purely with the problem domain such as strategies for calculating revenue recognition on a contract. Domain logic contains validation, calculations, and business rules.
+
+    - Application logic has to do with application responsibilities such as notifying contract administrators, and integrated applications, or revenue recognition calculations.
+
+        Application logic is sometimes referred to as **workflow logic**:
 
 <br>
 
