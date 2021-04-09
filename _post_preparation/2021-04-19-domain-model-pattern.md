@@ -39,17 +39,22 @@ tags: [DDD]
 
     - Anemic Domain Model
 
-        It's a model which seperates data and operation working with them from each other. In most of the time, your domain consists of two separated classes. One is the entity, which is holding data, the other is the stateless service, which operates with an entity.
+        It's a model which seperates data and operation working with them from each other. In most of the time, our domain consists of two separated classes. One is the entity, which is holding data, the other is the stateless service, which operates with an entity. We may use more than one service class to operates with an entity.
 
-        We may use more than one service class to operates with an entity.
+        Entity is simply a class that contains some necessary information that will be saved to database. Normally, we use entity to map a record from a table to an object in our program by taking advantage of ORM framework such as Hibernate, Eclipse Link, Entity framework, ...
+
+        Stateless service is a class that implements business logic, not contains data model. Normally, it is only a method, and interact with an entity. A stateless service can be called the other stateless services, or call the DAO in the persisten layer to communicate with a database.
 
         Drawbacks of Anemic Domain Model:
         - Lack of discoverability may lead to duplicate already existing code.
-        - When you don’t keep methods near to data, it is hard to say where exactly they are located. The developer forfeits the idea to write their own implementation of those methods, which results in duplicating some or all already existing logic.
+        - When you don't keep methods near to data, it is hard to say where exactly they are located. The developer forfeits the idea to write their own implementation of those methods, which results in duplicating some or all already existing logic.
         - Lack of encapsulation.
+
+            To know more about [encapsulation in object-oriented programming](https://ducmanhphan.github.io/2019-12-19-encapsulation-in-object-oriented-programming/).
 
     - Rich Domain Model
 
+        ![](../img/Architecture-pattern/Domain-driven-design/domain-model/anemic_model.jpg)
 
 <br>
 
@@ -79,7 +84,7 @@ tags: [DDD]
 
 ## Wrapping up
 
-
+- Domain logic contains validation, calculations, and business rules.
 
 
 <br>

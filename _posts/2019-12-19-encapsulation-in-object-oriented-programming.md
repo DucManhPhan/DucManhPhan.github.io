@@ -224,6 +224,10 @@ So how do we solve this problem?
 
     - Loose coupling between components/classes.
 
+    - Encapsulation protects the data integrity.
+
+    - It isolates the complexity of our program.
+
 2. Drawbacks
 
 
