@@ -39,6 +39,14 @@ tags: [DDD]
 
     - Anemic Domain Model
 
+        It's a model which seperates data and operation working with them from each other. In most of the time, your domain consists of two separated classes. One is the entity, which is holding data, the other is the stateless service, which operates with an entity.
+
+        We may use more than one service class to operates with an entity.
+
+        Drawbacks of Anemic Domain Model:
+        - Lack of discoverability may lead to duplicate already existing code.
+        - When you don’t keep methods near to data, it is hard to say where exactly they are located. The developer forfeits the idea to write their own implementation of those methods, which results in duplicating some or all already existing logic.
+        - Lack of encapsulation.
 
     - Rich Domain Model
 

@@ -270,6 +270,9 @@ And then it is the process for OOAD.
 
 - Don't ask for the information you need to do the work; ask for the object that has the information to do the work for you.
 
+- Encapsulation is an act of protecting the data integrity. It means that encapsulation prevents clients of a class from setting the internal data into an invalid or consistent state.
+
+    So, to archive the data integrity, we need to bundle data and operation together.
 
 <br>
 
