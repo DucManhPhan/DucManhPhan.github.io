@@ -10,9 +10,14 @@ tags: [Caching]
 <br>
 
 ## Table of contents
-
-
-
+- [Given problem](#given-problem)
+- [Solution of using Caching](#solution-of-using-caching)
+- [Some cache policy that we need to know](#some-cache-policy-that-we-need-to-know)
+- [Thrashing concept of Caching](#thrashing-concept-in-caching)
+- [Consistency in Caching](#consistency-in-caching)
+- [When to use](#when-to-use)
+- [Benefits and Drawbacks](#benefits-and-drawbacks)
+- [Wrapping up](#wrapping-up)
 
 
 <br>
