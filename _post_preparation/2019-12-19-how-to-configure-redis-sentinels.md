@@ -17,7 +17,7 @@ tags: [Redis]
 
 <br>
 
-## 
+## Given problem
 
 
 
@@ -26,7 +26,7 @@ tags: [Redis]
 
 <br>
 
-## 
+## Introduction to Redis sentinel
 
 
 
@@ -34,7 +34,8 @@ tags: [Redis]
 
 <br>
 
-## 
+## How to configure Redis sentinel with Docker
+
 
 
 
@@ -42,7 +43,15 @@ tags: [Redis]
 
 <br>
 
-## 
+## When to use
+
+
+
+
+
+<br>
+
+## Some common problems when installing Redis sentinel
 
 
 
@@ -61,5 +70,11 @@ tags: [Redis]
 <br>
 
 Refer:
+
+[]()
+
+[]()
+
+[]()
 
 []()
