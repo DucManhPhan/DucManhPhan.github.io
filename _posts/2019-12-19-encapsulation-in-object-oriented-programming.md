@@ -44,8 +44,13 @@ void process2() {
 }
 ```
 
-When our system can become complex, the changes of state will make us difficult to track. So how do we solve this problem?
+When our system can become complex, the changes of state will make us difficult to track. Belows are some problems:
+- share mutable variables
+- side effects
+- hard to parallel
+- in the complex system, there are enormous share states, so it's really difficult to change.
 
+So how do we solve this problem?
 
 <br>
 
@@ -54,7 +59,7 @@ When our system can become complex, the changes of state will make us difficult 
 1. The meaning of Encapsulation
 
     Encapsulation is the process of protecting data from the outside changes directly. It is related to the security in OOP. From these points of view, we can see them that appears in multiple documents, websites. But we need to ask lots of question to make these points clearer.
-    - What does using **public** access specifier for all fields happen ?
+    - What does using **public** access specifier for all fields happen?
 
         For example:
 
@@ -116,7 +121,7 @@ When our system can become complex, the changes of state will make us difficult 
                 public static void main(String[] args) {
                     Rectangle rect = new Rectangle(); // (1)
                     rect.setHeight(0);      // (2)
-                    rectt.setWidth(2);
+                    rect.setWidth(2);
 
                     int area = rect.getHeight() * rect.getWidth();  // (3)
                 }
@@ -154,7 +159,7 @@ When our system can become complex, the changes of state will make us difficult 
 
             - At step **(3)**, calculating the area of that rectangle.
 
-                Using **CRC process**, we can easy look at that the calculating area of the rectange should be a responsibility of a **Rectangle**. So, we need to define it in **Rectangle** class.
+                Using **CRC process**, we can easily look at that the calculating area of the rectange should be a responsibility of a **Rectangle**. So, we need to define it in **Rectangle** class.
 
 
             So, the Rectangle class will look like:
@@ -188,6 +193,7 @@ When our system can become complex, the changes of state will make us difficult 
         - Loose coupling
         - Improve scalability
         - Enhance security
+        - isolation complexity
 
 2. How to implement encapsulation in OOP
 
@@ -210,8 +216,6 @@ When our system can become complex, the changes of state will make us difficult 
 
 <br>
 
-<br>
-
 ## Benefits and Drawbacks
 
 1. Benefits
@@ -219,6 +223,10 @@ When our system can become complex, the changes of state will make us difficult 
     - By using encapsulation properly, it can make our application easy to maintain, scalability, having less bug because isolating other objects from local state changes, so we do not change states of lots of objects from the outside. And if code changes can be made independently without effecting other classes.
 
     - Loose coupling between components/classes.
+
+    - Encapsulation protects the data integrity.
+
+    - It isolates the complexity of our program.
 
 2. Drawbacks
 
@@ -266,6 +274,9 @@ And then it is the process for OOAD.
 
 - Don't ask for the information you need to do the work; ask for the object that has the information to do the work for you.
 
+- Encapsulation is an act of protecting the data integrity. It means that encapsulation prevents clients of a class from setting the internal data into an invalid or consistent state.
+
+    So, to archive the data integrity, we need to bundle data and operation together.
 
 <br>
 

@@ -417,7 +417,8 @@ Below is commands about working with file in VIM editor.
     |        Command        |              Description              |
     | --------------------- | ------------------------------------- |
     | :tabedit file-name    | Open a file in a new tab              |
-    | :tabclose             | Close the current tabl                |
+    | :tabclose             | Close the current tab                 |
+    | :wqa                  | Close all tabs                        |
     | :tabonly or :tabo     | Close the other tabs, but still open the current tab |
 
 2. Switch between tabs
