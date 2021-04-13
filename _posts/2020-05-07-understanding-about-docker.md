@@ -279,6 +279,8 @@ How do we overcome these problems?
         docker ps --filter 'exited=0'
         ```
 
+        **-a** flag means that we need to get all the containers with status = CREATED, RUNNING, EXITED.
+
     - Run a container
 
         ```python
