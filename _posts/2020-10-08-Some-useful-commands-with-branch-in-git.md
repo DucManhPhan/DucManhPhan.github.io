@@ -19,6 +19,9 @@ tags: [Git]
 - [Merge branches](#merge-branches)
 - [Tracking branches](#tracking-branches)
 - [Find all changes in a branch](#find-all-changes-in-a-branch)
+- [Some other operations with a branch](#some-other-operations-with-a-branch)
+- [Wrapping up](#wrapping-up)
+
 
 <br>
 
@@ -395,4 +398,30 @@ git rev-list COMMIT_ID --count
 # find the difference between two branches
 git diff master feature
 ```
+
+<br>
+
+## Some other operations with a branch
+
+1. List all branches in a repository
+
+    ```bash
+    git branch -a
+    ```
+
+2. Check the current branch's name
+
+    ```bash
+    # 1st way
+    git branch --show-current
+
+    # 2nd way
+    git status
+    ```
+
+<br>
+
+## Wrapping up
+
+- Understanding about the common operations with branch in git.
 
