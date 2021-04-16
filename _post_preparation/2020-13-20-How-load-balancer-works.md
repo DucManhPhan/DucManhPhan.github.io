@@ -2,7 +2,7 @@
 layout: post
 title: How Load Balancer works
 bigimg: /img/image-header/california.jpg
-tags: [Load Balancer]
+tags: [Distributed System]
 ---
 
 
