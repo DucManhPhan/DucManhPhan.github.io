@@ -2,7 +2,7 @@
 layout: post
 title: Some latency numbers that we need to know
 bigimg: /img/image-header/yourself.jpeg
-tags: [Distributed system]
+tags: [Distributed System]
 ---
 
 In order to design our system, we need to know exactly how many requests that our system can receive from clients, the total time to process requests, and how much memory that we need, ... But in this article, we will have some reference latency numbers to apply for creating better programs.

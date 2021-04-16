@@ -2,7 +2,7 @@
 layout: post
 title: CAP Theorem of the distributed system
 bigimg: /img/image-header/factory.jpg
-tags: [Distributed system]
+tags: [Distributed System]
 ---
 
 In this article, we will find something out about CAP theorem. Let's get started.
