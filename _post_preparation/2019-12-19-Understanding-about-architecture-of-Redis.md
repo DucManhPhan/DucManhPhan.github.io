@@ -10,9 +10,14 @@ tags: [Caching]
 <br>
 
 ## Table of contents
-
-
-
+- [Given problem]()
+- [The architecture of Redis]()
+- [Some features that Redis supports]()
+- [Data types in Redis]()
+- [When to use]()
+- [Benefits and Drawbacks]()
+- [Comparison between Redis and Memcached]()
+- [Wrapping up]()
 
 
 <br>
