@@ -2,7 +2,7 @@
 layout: post
 title: Schema optimization in MySQL
 bigimg: /img/image-header/ravashing-beach.jpg
-tags: [Database]
+tags: [MySQL]
 ---
 
 
@@ -90,5 +90,15 @@ So, to avoid the null value, we can use default value or set that column to NOT 
 
 Refer:
 
+[]()
 
+[]()
+
+[]()
+
+[]()
+
+[]()
+
+[]()
 
