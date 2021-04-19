@@ -54,3 +54,12 @@ tags: [Enterprise Pattern]
 
 Refer:
 
+[Getting started with Google Guava by Bill Bejeck](https://subscription.packtpub.com/book/application_development/9781783280155/7)
+
+[]()
+
+[]()
+
+[]()
+
+[]()
