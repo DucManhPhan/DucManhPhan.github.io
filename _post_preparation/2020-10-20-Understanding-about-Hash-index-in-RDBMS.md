@@ -22,7 +22,7 @@ In this article, we will learn how to use Hash Index and when to use it in our d
 
 ## Introduction to Hash Index
 
-Below is some characteristics of Hash Index:
+Below are some characteristics of Hash Index:
 - A Hash Index is built on a Hash Table.
 - It increases performance for exact lookups.
 - For each row, a hash code is generated.
