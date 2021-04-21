@@ -22,6 +22,7 @@ Let's get started.
 <br>
 
 ## What is Reactive programming ?
+
 In a modern web application, response speed or the latency proprety is an important property to make user come back with your website, beside UI - User Interface, UX - User Experience.
 
 When a user send a request to server such as get all cell phones's information for specific type, we have two ways to deal with it:
@@ -54,11 +55,19 @@ In Reactive concept, we use a publisher - subscriber mechanism. It can be descri
 
     ![](../img/Srping-webflux/reactive-architecture/architecture/subscribe-sequence-diagram.png)
 
-    It is important to note that there are two theoretical approaches to streaming data to a ```subscriber```: (1) the ```subscription``` holds the items or (2) the ```publisher``` holds the items. In the first case, the ```publisher``` pushes items to the ```subscription``` when they become available; when, at a later time, the ```subscriber``` requests n items, the ```subscription``` provides n or fewer items it has previously been given by the ```publisher```. This may be used when the ```publisher``` manages queued items, such as incoming HTTP requests. In the second case, the ```subscriber``` forwards requests to the ```publisher```, which pushes n or fewer items to the ```subscription```, which in turn pushes those same items to the ```subscriber```. This scenario may be more suitable for instances were items are generated as needed, such as with a prime number generator.
+    It is important to note that there are two theoretical approaches to streaming data to a ```subscriber```.
+
+    1. The ```subscription``` holds the items
+
+        The ```publisher``` pushes items to the ```subscription``` when they become available; when, at a later time, the ```subscriber``` requests n items, the ```subscription``` provides n or fewer items it has previously been given by the ```publisher```. This may be used when the ```publisher``` manages queued items, such as incoming HTTP requests.
+
+    2. The ```publisher``` holds the items.
+
+        The ```subscriber``` forwards requests to the ```publisher```, which pushes n or fewer items to the ```subscription```, which in turn pushes those same items to the ```subscriber```. This scenario may be more suitable for instances were items are generated as needed, such as with a prime number generator.
 
     It is also important to note that items do not have to be present before a request can be made. If a ```subscriber``` makes a request for n items and no items are available, the ```subscriber``` will wait until at least one item is available and is pushed to the ```subscriber```. If there are i items available when the ```subscriber``` makes a request for n items, where i is less than n, the i items are pushed to the ```subscriber```. Once j more items are available, n - i items of the j items are also pushed to the ```subscriber``` until n number of total items have been pushed to the ```subscriber``` (i + j = n), or the ```subscriber``` has requested m more items; in this case, all j number of items may be pushed to the ```subscriber``` so long as i + j is less than or equal to n + m. The number of items that a ```subscriber``` can accept at any given time (which may or may not be equal to n, depending on the number of items already pushed to the ```subscriber```) is called the ```outstanding demand```.
 
-    For example, suppose a ```subscriber``` requests 5 items and 7 are currently available in the ```publisher```. The outstanding demand for the subscriber is 5 so 5 of the 7 items are pushed to the ```subscriber```. The remaining 2 items are maintained by the ```publisher```, awaiting the ```subscriber``` to request more items. If the ```subscriber``` then requests 10 more items, the 2 remaining items are pushed to the ```subscriber```, resulting in an outstanding demand of 8. If 5 more items become available in the ```publisher```, these 5 items are pushed to the ```subscriber```, leaving an outstanding demand of 3. The outstanding demand will remain at 3 unless the ```subscriber``` requests n more items, in which case the outstanding demand will increase to 3 + n, or more i items are pushed to the ```subscriber```, in which case the outstanding demand will decrease to 3 - i (to a minimum of 0).
+    For example, suppose a ```subscriber``` requests 5 items and 7 are currently available items in the ```publisher```. The outstanding demand for the subscriber is 5 so 5 of the 7 items are pushed to the ```subscriber```. The remaining 2 items are maintained by the ```publisher```, awaiting the ```subscriber``` to request more items. If the ```subscriber``` then requests 10 more items, the 2 remaining items are pushed to the ```subscriber```, resulting in an outstanding demand of 8. If 5 more items become available in the ```publisher```, these 5 items are pushed to the ```subscriber```, leaving an outstanding demand of 3. The outstanding demand will remain at 3 unless the ```subscriber``` requests n more items, in which case the outstanding demand will increase to 3 + n, or more i items are pushed to the ```subscriber```, in which case the outstanding demand will decrease to 3 - i (to a minimum of 0).
 
 <br>
 
@@ -73,7 +82,7 @@ There are many libraries that implement the Reactive Stream specification. They 
 - Ratpack
 - Vert.x.
 
-Because of Spring that is utilizing Reactor library to implement reactive streams, so, we will see Reactor will contain which elements in it.
+Because of Spring that is utilizing Reactor library to implement reactive streams, so we will see Reactor will contain which elements in it.
 
 Below is some parts of Reactor library:
 
