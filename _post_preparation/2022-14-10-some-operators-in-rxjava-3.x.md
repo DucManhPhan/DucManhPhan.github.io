@@ -29,8 +29,12 @@ RxJava operators produce observables that are observers of the Observable they a
 
 ## Conditional operators
 
+1. takeWhile() and skipWhile()
 
 
+
+
+2. switchIfEmpty()
 
 
 
