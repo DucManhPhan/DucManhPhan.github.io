@@ -11,11 +11,14 @@ tags: [Reactive Programming]
 <br>
 
 ## Table of contents
-- [Given problem]()
-- [Introduction to RxJava3]()
-- []()
-- []()
-- []()
+- [Given problem](#given-problem)
+- [Introduction to RxJava 3.x](#introduction-to-rxjava-3.x)
+- [Observable](#observable)
+- [Observer](#observer)
+- [Emitter](#emitter)
+- [The comparison between RxJava's versions](#the-comparison-between-rxjava's-versions)
+- [Some notes about RxJava versions](#some-notes-about-rxjava-versions)
+- [Wrapping up](#wrapping-up)
 
 
 <br>
@@ -38,19 +41,10 @@ tags: [Reactive Programming]
 2. Some common classes in RxJava 3.x
 
     - Observable
-
-
     - ObservableOnSubscriber
-
-
     - ObservableEmitter
-
-
     - Emitter
-
-
     - Observer
-
 
 <br>
 
@@ -62,9 +56,9 @@ The first thing we need to do is to study how an Observable sequentially passes 
 - onError(): This communicates an error down the chain to the Observer, which typically defines how to handle it. Unless a retry() operator is used to intercept the error, the Observable chain typically terminates, and no more emissions occur.
 
 Belows are some ways to initialize an Observable.
-1. Using Observable.create()
+1. Using **Observable.create()**
 
-    A source Observable is an Observable from where emissions originiate. It is the starting point of our Observable chain (pipeline of operators). The Observable.create() factory allows us to create an Observable by providing a lambda that accepts an Observable emitter.
+    A source Observable is an Observable from where emissions originiate. It is the starting point of our Observable chain (pipeline of operators). The **Observable.create()** factory allows us to create an Observable by providing a lambda that accepts an Observable emitter.
 
     ```java
     // represents a basic, on-back pressured Observable source based interface, consumable via an Observer
@@ -81,8 +75,24 @@ Belows are some ways to initialize an Observable.
     public final class ObservableCreate<T> extends Observable<T> {
         final ObservableOnSubscriber<T> source;
 
+        @Override
+        protected void subscribeActual(Observer<? super T> observer) {
+            CreateEmitter<T> parent = new CreateEmitter<>(observer);
+            observer.onSubscribe(parent);
 
+            try {
+                source.subscribe(parent);
+            } catch (Throwable ex) {
+                Exceptions.throwIfFatal(ex);
+                parent.onError(ex);
+            }
+        }
+
+        static final class CreateEmitter<T> extends AtomicReference<Disposable> implements ObservableEmitter<T>, Disposable {}
+
+        static final class SerializedEmitter<T> extends AtomicInteger<Disposable> implements ObservableEmitter<T> {}
     }
+
     public abstract class Observable<@NonNull T> implements ObservableSource<T> {
         // ...
 
@@ -135,19 +145,94 @@ Belows are some ways to initialize an Observable.
     }
     ```
 
-    From the create() method of Observable class, we find that the create() method will accept as a parameter an object of the ObservableOnSubscriber type that has only one method, subscribe(ObservableEmitter emitter), which accepts an ObservableEmitter type, which, in turn, extends the Emitter interface that has three methods: onNext(), onError(), and onComplete().
+    From the **create()** method of Observable class, we find that the **create()** method will accept as a parameter an object of the ObservableOnSubscriber type that has only one method, subscribe(ObservableEmitter emitter), which accepts an ObservableEmitter type, which, in turn, extends the Emitter interface that has three methods: **onNext()**, **onError()**, and **onComplete()**.
 
-2. Using Observable.just()
+    We can call the **ObservableEmitter**'s **onNext()** method to pass emissions (one at a time) down the chain of operators as well as **onComplete()** to signal completion and communicate that there will be no more items. Note that the **onNext()**, **onComplete()**, and **onError()** methods of the emitter do not necessarily push the data directly to the final **Observer**. There can be another operator between the source **Observable** and its **Observer** that acts as the next step in the chain, such as **map()**, **filter()** operators. Since operators such as map() and filter() yield new observables (which internally use Observer implementations to receive emissions), we can chain all our returned observables with the next operator, rather than unnecessarily saving each one to an intermediary variable.
+
+    The **onComplete()** method is used to communicate down the chain to the **Observer** that no more items are coming. Observables are indeed be infinite, and if this is the case, the **onComplete()** event will never be called. Technically, a source could stop emitting **onNext()** calls and never call **onComplete()**. This would likely be bad design, though, if the source no longer plans to send emissions.
+
+    In RxJava 3.x, the [Observable contract] (http://reactivex.io/documentation/contract.html) dictates that emissions must be passed sequentially and one at a time. Emissions can't be passed by an Observable concurrently or in parallel. This may seem like a limitation, but it does, in fact, simplify programs and make Rx easier to reason with.
+
+2. Using **Observable.just()**
+
+    In RxJava 3.x, there are multiple versions of Observable.just() methods.
+
+    ```java
+    public abstract class Observable<@NonNull T> implements ObservableSource<T> {
+        // ...
+
+        public static <T> Observable<T> just(@NonNull T item) {
+            return RxJavaPlugins.onAssembly(new ObservableJust<>(item));
+        }
+
+        public static <T> Observable<T> just(@NonNull T item1, @NonNull T item2) {                
+            return fromArray(item1, item2);
+        }
+
+        public static <T> Observable<T> just(@NonNull T item1, @NonNull T item2, @NonNull T item3) {
+            return fromArray(item1, item2, item3);
+        }
+
+        public static <T> Observable<T> just(@NonNull T item1, @NonNull T item2, @NonNull T item3, @NonNull T item4) {}
+
+        public static <T> Observable<T> just(@NonNull T item1, @NonNull T item2, @NonNull T item3, @NonNull T item4, @NonNull T item5) {}
+
+        public static <T> Observable<T> just(@NonNull T item1, @NonNull T item2, @NonNull T item3, @NonNull T item4, @NonNull T item5, @NonNull T item6) {}
+
+        public static <T> Observable<T> just(@NonNull T item1, @NonNull T item2, @NonNull T item3, @NonNull T item4, @NonNull T item5, @NonNull T item6, @NonNull T item7) {}
+
+        public static <T> Observable<T> just(@NonNull T item1, @NonNull T item2, @NonNull T item3, @NonNull T item4, @NonNull T item5, @NonNull T item6, @NonNull T item7, @NonNull T item8) {}
+
+        public static <T> Observable<T> just(@NonNull T item1, @NonNull T item2, @NonNull T item3, @NonNull T item4, @NonNull T item5, @NonNull T item6, @NonNull T item7, @NonNull T item8, @NonNull T item9) {}
+
+        public static <T> Observable<T> just(@NonNull T item1, @NonNull T item2, @NonNull T item3, @NonNull T item4, @NonNull T item5, @NonNull T item6, @NonNull T item7, @NonNull T item8, @NonNull T item9, @NonNull T item10) {}
+
+        /**
+         * Converts an array into an ObservableSource that emits the items in the array
+        **/
+        public static <T> Observable<T> fromArray(@NonNull T... items) {
+            Objects.requireNonNull(items, "items is null");
+            if (items.length == 0) {
+                return empty();
+            }
+            if (items.length == 1) {
+                return just(items[0]);
+            }
+            return RxJavaPlugins.onAssembly(new ObservableFromArray<>(items));
+        }
+    }
+    ```
+
+    From the above definition of **Observable.just()** method, we can pass into it up to 10 items that we want to emit. This will invoke **onNext()** for each one and then invoke **onComplete()** when they have all been pushed.
 
 
-3. 
+3. Using **Observable.fromIterable()**
 
+    Below is the definition of Observable.fromIterable() method in RxJava 3.x.
+
+    ```java
+    public abstract class Observable<@NonNull T> implements ObservableSource<T> {
+        // ...
+
+        public static <T> Observable<T> fromIterable(@NonNull Iterable<@NonNull ? extends T> source) {
+            return RxJavaPlugins.onAssembly(new ObservableFromIterable<>(source));
+        }
+    }
+    ```
+
+    So we can easily find that **Observable.fromIterable()** is used to emit the items from nay Iterable type, such as List, ... It will call **onNext()** for each element and then call **onComplete()** once all elements are emitted.
 
 <br>
 
 ## Observer
 
+1. Some common methods of Observer interface
 
+
+
+
+
+2. Some types of Observer interface
 
 
 
@@ -167,7 +252,7 @@ public interface Emitter<@NonNull T> {
 ```
 
 Note:
-- The onNext(), onError() and onComplete() methods provided to the function via the Emitter instance should be called synchronously, never concurrently. Calling them from multiple threads is not supported and leads to an undefined behavior.
+- The **onNext()**, **onError()** and **onComplete()** methods provided to the function via the Emitter instance should be called synchronously, never concurrently. Calling them from multiple threads is not supported and leads to an undefined behavior.
 
 Below is the definition of **ObservableEmitter** classs.
 
@@ -217,7 +302,6 @@ All RxJava versions can be run on Java 1.6 or above.
 
 - In RxJava 1.x, **onComplete()** event is actually called **onCompleted()**. In RxJava 1.x, ensure that we use Observable.fromEmitter() instead of Observable.create(). The latter is something entirely different in RxJava 1.x and is intended to be used only by advanced RxJava users.
 
-- In RxJava 3.x, the [Observable contract] (http://reactivex.io/documentation/contract.html) dictates that emissions must be passed sequentially and one at a time. Emissions can't be passed by an Observable concurrently or in parallel. This may seem like a limitation, but it does, in fact, simplify programs and make Rx easier to reason with.
 
 <br>
 
