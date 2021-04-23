@@ -249,6 +249,17 @@ Belows are some ways to initialize an Observable.
     onSubscribe onNext* (onError | onComplete)?
     ```
 
+    From the Observable's perspective, an Observer is the end consumer thus it is the Observer's responsibility to handle the error case and signal it "further down". This means unreliable code in the **onXXX** methods should be wrapped into ```try-catch```es, specifically in **onError(Throwable)** or **onComplete()**, and handled there (for example, by logging it or presenting the user with an error dialog). However, if the error would be thrown from **onNext(Object)**, [Rule 2.13](https://github.com/reactive-streams/reactive-streams-jvm#2.13)  mandates the implementation calls **Disposable.dispose()** and signals the exception in a way that is adequate to the target context, for example, by calling **onError(Throwable)** on the same Observer instance.
+
+    If, for some reasons, the Observer won't follow [Rule 2.13](https://github.com/reactive-streams/reactive-streams-jvm#2.13), the Observable.safeSubscribe(Observer) can wrap it with the necessary safeguards and route exceptions thrown from onNext into onError and route exceptions thrown from onError and onComplete into the global error handler via io.reactivex.rxjava3.plugins.RxJavaPlugins.onError(Throwable).
+
+    Each Observable returned by an operator is internally an Observer that receives, transforms, and relays emissions to the next Observer downstream. It does not know whether the next Observer is another operator or the final Observer at the end of the chain. When we talk about the Observer, we are often talking about the final Observer at the end of the processing chain that consumes the emissions. But each operator, such as map() and filter(), also implements Observer internally.
+
+    In fact, **Observable** implements the functional interface **ObservableSource**, which has only one method, **void subscribe(Observer<T> observer)**. When we call the **subscribe()** method on Observable and pass into it an object that implements the Observer interface or just a lambda expression that represents the Observable implementation, we subscribe this **Observer** to the emissions (data and events) of the Observable.
+
+    When you call the **subscribe()** method on an **Observable**, an **Observer** receives three events: **onNext**, **onError**, and **onComplete**, that are processed by the corresponding methods. An error that happens anywhere in the chain will propagate to onError() to be handled and then terminate the Observable with no more emissions. If you do not specify an action for onError, the chain will stop processing anyway, but the error will not be handled by the application and propagate all the way into the JVM, and most likely will force the application's exit. We can use retry() operators to attempt recovery and resubscribe to an Observable if an error occurs.
+
+    It is critical to note that most of the subscribe() overload variants (including the shorthand lambda we have just covered) return a Disposable that we did not do anything with. A Disposable allows the Observable to be disconnected from its Observer so emissions are terminated early, which is critical for an infinite or a long-running Observable.
 
 2. Some types of Observer interface
 
