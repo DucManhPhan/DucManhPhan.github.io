@@ -34,7 +34,7 @@ tags: [Reactive Programming]
 
 ## Introduction to RxJava 3.x
 
-1. 
+1. Introduction to RxJava 3.x
 
 
 
@@ -51,9 +51,9 @@ tags: [Reactive Programming]
 ## Observable
 
 The first thing we need to do is to study how an Observable sequentially passes items down the chain to an Observer. At the highest level, an Observer works by passing three types of events:
-- onNext(): This passes each item one at a time from the source Observable all the way down to the Observer.
-- onComplete(): This communicates a completion event all the way down to the Observer, indicating that no more onNext() calls will occur.
-- onError(): This communicates an error down the chain to the Observer, which typically defines how to handle it. Unless a retry() operator is used to intercept the error, the Observable chain typically terminates, and no more emissions occur.
+- **onNext()**: This passes each item one at a time from the source Observable all the way down to the Observer.
+- **onComplete()**: This communicates a completion event all the way down to the Observer, indicating that no more onNext() calls will occur.
+- **onError()**: This communicates an error down the chain to the Observer, which typically defines how to handle it. Unless a **retry()** operator is used to intercept the error, the Observable chain typically terminates, and no more emissions occur.
 
 Belows are some ways to initialize an Observable.
 1. Using **Observable.create()**
@@ -228,13 +228,38 @@ Belows are some ways to initialize an Observable.
 
 1. Some common methods of Observer interface
 
+    Below is the definition of Observer interface.
 
+    ```java
+    public interface Observer<@NonNull T> {
+        void onSubscribe(@NonNull Disposable d);
+        void onNext(@NonNull T t);
+        void onError(@NonNull Throwable e);
+        void onComplete();
+    }
+    ```
 
+    Observer provides a mechanism for receiving push-based notifications.
+
+    When an Observer is subscribed to an ObservableSource through the ObservableSource.subscribe(Observer) method, the ObservableSource calls onSubscribe(Disposable) with a Disposable that allows disposing the sequence at any time, then the ObservableSource may call the Observer's onNext method any number of times to provide notifications. A well-behaved ObservableSource will call an Observer's onComplete method exactly once or the Observer's onError method exactly once.
+    
+    Calling the Observer's method must happen in a serialized fashion, that is, they must not be invoked concurrently by multiple threads in an overlapping fashion and the invocation pattern must adhere to the following protocol:
+
+    ```python
+    onSubscribe onNext* (onError | onComplete)?
+    ```
 
 
 2. Some types of Observer interface
 
 
+
+
+3. Some notes about Observer interface's implementations
+
+    - Subscribing an Observer to multiple ObservableSources is not recommended. If such reuse happens, it is the duty of the Observer implementation to be ready to receive multiple calls to its methods and ensure proper concurrent behavior of its business logic.
+
+    - Calling onSubscribe(Disposable), onNext(Object) or onError(Throwable) with a null argument is forbidden.
 
 <br>
 
@@ -271,7 +296,18 @@ public interface ObservableEmitter<@NonNull T> extends Emitter<T> {
 
 <br>
 
-## 
+## When to use
+
+
+
+
+
+
+
+<br>
+
+## Benefits and Drawbacks
+
 
 
 
@@ -322,4 +358,8 @@ Refer:
 
 []()
 
-[]()
+<br>
+
+**Some rules for reactive programming of RxJava 1.x**
+
+[https://github.com/reactive-streams/reactive-streams-jvm#2.13](https://github.com/reactive-streams/reactive-streams-jvm#2.13)
