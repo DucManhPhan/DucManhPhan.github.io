@@ -464,12 +464,17 @@ public interface ObservableEmitter<@NonNull T> extends Emitter<T> {
 
 ## Benefits and Drawbacks
 
+1. Benefits
 
+    - lower memory usage
+    - flexible concurrency
+    - disposability
 
+2. Drawbacks
 
-
-
-
+    - 
+    - 
+    - 
 
 <br>
 

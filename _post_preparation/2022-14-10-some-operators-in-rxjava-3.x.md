@@ -20,7 +20,7 @@ tags: [Architecture Pattern]
 
 ## Introduction to Operators in RxJava 3.x
 
-
+RxJava operators produce observables that are observers of the Observable they are called on. If you call map() on an Observable, the returned Observable will subscribe to it. It will then transform each emission and, in turn, be a producer for observers downstream, including other operators and the terminal Observer itself.
 
 
 
