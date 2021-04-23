@@ -50,177 +50,268 @@ tags: [Reactive Programming]
 
 ## Observable
 
-The first thing we need to do is to study how an Observable sequentially passes items down the chain to an Observer. At the highest level, an Observer works by passing three types of events:
-- **onNext()**: This passes each item one at a time from the source Observable all the way down to the Observer.
-- **onComplete()**: This communicates a completion event all the way down to the Observer, indicating that no more onNext() calls will occur.
-- **onError()**: This communicates an error down the chain to the Observer, which typically defines how to handle it. Unless a **retry()** operator is used to intercept the error, the Observable chain typically terminates, and no more emissions occur.
+1. Some types of Observable
 
-Belows are some ways to initialize an Observable.
-1. Using **Observable.create()**
+    - Cold Observable
 
-    A source Observable is an Observable from where emissions originiate. It is the starting point of our Observable chain (pipeline of operators). The **Observable.create()** factory allows us to create an Observable by providing a lambda that accepts an Observable emitter.
+        **A cold observable replays the emissions to each Observer**, ensuring that it gets all the data. Most data-driven observables are cold, and this includes the observables produced by the **Observable.just()** and **Observable.fromIterable()** factories. It means that **Observable** sources that emit finite datasets are usually cold.
 
-    ```java
-    // represents a basic, on-back pressured Observable source based interface, consumable via an Observer
-    @FunctionalInterface
-    public interface ObservableSource<@NonNull T> {
-        void subscribe(@NonNull Observer<? super T> observer);
-    }
+        Using operations such as **map()** and **filter()** against a cold Observable preserves the cold nature of the produced observables.
 
-    @FunctionalInterface
-    public interface ObservableOnSubscriber<@NonNull T> {
-        void subscribe(@NonNull ObservableEmitter<T> emitter) throws Throwable;
-    }
+    - Hot Observable
 
-    public final class ObservableCreate<T> extends Observable<T> {
-        final ObservableOnSubscriber<T> source;
+        A hot observable is more like a radio station. It broadcasts the same emissions to all observers at the same time. If an Observer subscribes to a hot Observable, receives some emissions, and then another Observer subscribes later, that second Observer will have missed those emissions. Just like a radio station, if we tune in too late, we will have missed that song.    
 
-        @Override
-        protected void subscribeActual(Observer<? super T> observer) {
-            CreateEmitter<T> parent = new CreateEmitter<>(observer);
-            observer.onSubscribe(parent);
+        Logically, a hot Observable often represent events rather than finite datasets. The events can carry data with them, but there is a time-sensitive component, and late subscribers can miss previously emitted data.
 
-            try {
-                source.subscribe(parent);
-            } catch (Throwable ex) {
-                Exceptions.throwIfFatal(ex);
-                parent.onError(ex);
+        Below is the type of hot Observable.
+        - ConnectableObservable
+
+            It takes any **Observable**, even if it is cold, and makes it hot so that all emissions are played to all observers at once. To do this conversion, we simply need to call **publish()** on an **Observable**, and it will yield a **ConnectableObservable** object.
+
+            Subscribing does not start the emission. We need to call the **connect()** method on the **ConnectableObservable** object to start it. This allows us to setup all our observers first, before the first value is emitted. It means that each emission goes to all observers simultaneously. Using ConnectableObservable to force each emission to go to all observers is known as multicasting.
+
+            The **ConnectableObservable** is helpful in preventing the replaying of data to each Observer. You may want to do this when the replaying is expensive and you decide that emissions should go to all observers at the same time. You may also do it simply to force the operators upstream to use a single stream instance, even if there are multiple observers downstream.
+
+            Multiple observers normally result in multiple stream instances upstream. But using publish() to return ConnectableObservable consolidates all the upstream operations into a single stream. For now, remember that ConnectableObservable is hot, and therefore, if new subscriptions occur after connect() is called, they will have missed emissions fired earlier.
+
+2. How to create an Observable
+
+    The first thing we need to do is to study how an Observable sequentially passes items down the chain to an Observer. At the highest level, an Observer works by passing three types of events:
+    - **onNext()**: This passes each item one at a time from the source Observable all the way down to the Observer.
+    - **onComplete()**: This communicates a completion event all the way down to the Observer, indicating that no more onNext() calls will occur.
+    - **onError()**: This communicates an error down the chain to the Observer, which typically defines how to handle it. Unless a **retry()** operator is used to intercept the error, the Observable chain typically terminates, and no more emissions occur.
+
+    Belows are some ways to initialize an Observable.
+    - Using **Observable.create()**
+
+        A source Observable is an Observable from where emissions originiate. It is the starting point of our Observable chain (pipeline of operators). The **Observable.create()** factory allows us to create an Observable by providing a lambda that accepts an Observable emitter.
+
+        ```java
+        // represents a basic, on-back pressured Observable source based interface, consumable via an Observer
+        @FunctionalInterface
+        public interface ObservableSource<@NonNull T> {
+            void subscribe(@NonNull Observer<? super T> observer);
+        }
+
+        @FunctionalInterface
+        public interface ObservableOnSubscriber<@NonNull T> {
+            void subscribe(@NonNull ObservableEmitter<T> emitter) throws Throwable;
+        }
+
+        public final class ObservableCreate<T> extends Observable<T> {
+            final ObservableOnSubscriber<T> source;
+
+            @Override
+            protected void subscribeActual(Observer<? super T> observer) {
+                CreateEmitter<T> parent = new CreateEmitter<>(observer);
+                observer.onSubscribe(parent);
+
+                try {
+                    source.subscribe(parent);
+                } catch (Throwable ex) {
+                    Exceptions.throwIfFatal(ex);
+                    parent.onError(ex);
+                }
+            }
+
+            static final class CreateEmitter<T> extends AtomicReference<Disposable> implements ObservableEmitter<T>, Disposable {}
+
+            static final class SerializedEmitter<T> extends AtomicInteger<Disposable> implements ObservableEmitter<T> {}
+        }
+
+        public abstract class Observable<@NonNull T> implements ObservableSource<T> {
+            // ...
+
+            protected abstract void subscribeActual(@NonNull Observer<? super T> observer);
+
+            public final Disposable subscribe() {
+                return subscribe(Functions.emptyConsumer(), Functions.ON_ERROR_MISSING, Functions.EMPTY_ACTION);
+            }
+
+            public final Disposable subscribe(@NonNull Consumer<? super T> onNext) {
+                return subscribe(onNext, Functions.ON_ERROR_MISSING, Functions.EMPTY_ACTION);
+            }
+
+            public final Disposable subscribe(@NonNull Consumer<? super T> onNext, @NonNull Consumer<? super Throwable> onError) {
+                return subscribe(onNext, onError, Functions.EMPTY_ACTION);
+            }
+
+            public final Disposable subscribe(@NonNull Consumer<? super T> onNext, @NonNull Consumer<? super Throwable> onError,
+                                            @NonNull Action onComplete) {
+                LambdaObserver<T> ls = new LambdaObserver<>(onNext, onError, onComplete, Functions.emptyConsumer());
+                subscribe(ls);
+                return ls;
+            }
+
+            public final void subscribe(@NonNull Observer<? super T> observer) {
+                Objects.requireNonNull(observer, "observer is null");
+                try {
+                    observer = RxJavaPlugins.onSubscribe(this, observer);
+
+                    Objects.requireNonNull(observer, "The RxJavaPlugins.onSubscribe hook returned a null Observer. Please change the handler provided to RxJavaPlugins.setOnObservableSubscribe for invalid null returns. Further reading: https://github.com/ReactiveX/RxJava/wiki/Plugins");
+
+                    subscribeActual(observer);
+                } catch (NullPointerException e) { // NOPMD
+                    throw e;
+                } catch (Throwable e) {
+                    Exceptions.throwIfFatal(e);
+                    // can't call onError because no way to know if a Disposable has been set or not
+                    // can't call onSubscribe because the call might have set a Subscription already
+                    RxJavaPlugins.onError(e);
+
+                    NullPointerException npe = new NullPointerException("Actually not, but can't throw other exceptions due to RS");
+                    npe.initCause(e);
+                    throw npe;
+                }
+            }
+
+            public static <T> Observable create(@NonNull ObservableOnSubscriber<T> source) {
+                return RxJavaPlugins.onAssembly(new ObservableCreate(source));
             }
         }
+        ```
 
-        static final class CreateEmitter<T> extends AtomicReference<Disposable> implements ObservableEmitter<T>, Disposable {}
+        From the **create()** method of Observable class, we find that the **create()** method will accept as a parameter an object of the ObservableOnSubscriber type that has only one method, subscribe(ObservableEmitter emitter), which accepts an ObservableEmitter type, which, in turn, extends the Emitter interface that has three methods: **onNext()**, **onError()**, and **onComplete()**.
 
-        static final class SerializedEmitter<T> extends AtomicInteger<Disposable> implements ObservableEmitter<T> {}
-    }
+        We can call the **ObservableEmitter**'s **onNext()** method to pass emissions (one at a time) down the chain of operators as well as **onComplete()** to signal completion and communicate that there will be no more items. Note that the **onNext()**, **onComplete()**, and **onError()** methods of the emitter do not necessarily push the data directly to the final **Observer**. There can be another operator between the source **Observable** and its **Observer** that acts as the next step in the chain, such as **map()**, **filter()** operators. Since operators such as map() and filter() yield new observables (which internally use Observer implementations to receive emissions), we can chain all our returned observables with the next operator, rather than unnecessarily saving each one to an intermediary variable.
 
-    public abstract class Observable<@NonNull T> implements ObservableSource<T> {
-        // ...
+        The **onComplete()** method is used to communicate down the chain to the **Observer** that no more items are coming. Observables are indeed be infinite, and if this is the case, the **onComplete()** event will never be called. Technically, a source could stop emitting **onNext()** calls and never call **onComplete()**. This would likely be bad design, though, if the source no longer plans to send emissions.
 
-        protected abstract void subscribeActual(@NonNull Observer<? super T> observer);
+        In RxJava 3.x, the [Observable contract] (http://reactivex.io/documentation/contract.html) dictates that emissions must be passed sequentially and one at a time. Emissions can't be passed by an Observable concurrently or in parallel. This may seem like a limitation, but it does, in fact, simplify programs and make Rx easier to reason with.
 
-        public final Disposable subscribe() {
-            return subscribe(Functions.emptyConsumer(), Functions.ON_ERROR_MISSING, Functions.EMPTY_ACTION);
-        }
+    - Using **Observable.just()**
 
-        public final Disposable subscribe(@NonNull Consumer<? super T> onNext) {
-            return subscribe(onNext, Functions.ON_ERROR_MISSING, Functions.EMPTY_ACTION);
-        }
+        In RxJava 3.x, there are multiple versions of Observable.just() methods.
 
-        public final Disposable subscribe(@NonNull Consumer<? super T> onNext, @NonNull Consumer<? super Throwable> onError) {
-            return subscribe(onNext, onError, Functions.EMPTY_ACTION);
-        }
+        ```java
+        public abstract class Observable<@NonNull T> implements ObservableSource<T> {
+            // ...
 
-        public final Disposable subscribe(@NonNull Consumer<? super T> onNext, @NonNull Consumer<? super Throwable> onError,
-                                          @NonNull Action onComplete) {
-            LambdaObserver<T> ls = new LambdaObserver<>(onNext, onError, onComplete, Functions.emptyConsumer());
-            subscribe(ls);
-            return ls;
-        }
+            public static <T> Observable<T> just(@NonNull T item) {
+                return RxJavaPlugins.onAssembly(new ObservableJust<>(item));
+            }
 
-        public final void subscribe(@NonNull Observer<? super T> observer) {
-            Objects.requireNonNull(observer, "observer is null");
-            try {
-                observer = RxJavaPlugins.onSubscribe(this, observer);
+            public static <T> Observable<T> just(@NonNull T item1, @NonNull T item2) {                
+                return fromArray(item1, item2);
+            }
 
-                Objects.requireNonNull(observer, "The RxJavaPlugins.onSubscribe hook returned a null Observer. Please change the handler provided to RxJavaPlugins.setOnObservableSubscribe for invalid null returns. Further reading: https://github.com/ReactiveX/RxJava/wiki/Plugins");
+            public static <T> Observable<T> just(@NonNull T item1, @NonNull T item2, @NonNull T item3) {
+                return fromArray(item1, item2, item3);
+            }
 
-                subscribeActual(observer);
-            } catch (NullPointerException e) { // NOPMD
-                throw e;
-            } catch (Throwable e) {
-                Exceptions.throwIfFatal(e);
-                // can't call onError because no way to know if a Disposable has been set or not
-                // can't call onSubscribe because the call might have set a Subscription already
-                RxJavaPlugins.onError(e);
+            public static <T> Observable<T> just(@NonNull T item1, @NonNull T item2, @NonNull T item3, @NonNull T item4) {}
 
-                NullPointerException npe = new NullPointerException("Actually not, but can't throw other exceptions due to RS");
-                npe.initCause(e);
-                throw npe;
+            public static <T> Observable<T> just(@NonNull T item1, @NonNull T item2, @NonNull T item3, @NonNull T item4, @NonNull T item5) {}
+
+            public static <T> Observable<T> just(@NonNull T item1, @NonNull T item2, @NonNull T item3, @NonNull T item4, @NonNull T item5, @NonNull T item6) {}
+
+            public static <T> Observable<T> just(@NonNull T item1, @NonNull T item2, @NonNull T item3, @NonNull T item4, @NonNull T item5, @NonNull T item6, @NonNull T item7) {}
+
+            public static <T> Observable<T> just(@NonNull T item1, @NonNull T item2, @NonNull T item3, @NonNull T item4, @NonNull T item5, @NonNull T item6, @NonNull T item7, @NonNull T item8) {}
+
+            public static <T> Observable<T> just(@NonNull T item1, @NonNull T item2, @NonNull T item3, @NonNull T item4, @NonNull T item5, @NonNull T item6, @NonNull T item7, @NonNull T item8, @NonNull T item9) {}
+
+            public static <T> Observable<T> just(@NonNull T item1, @NonNull T item2, @NonNull T item3, @NonNull T item4, @NonNull T item5, @NonNull T item6, @NonNull T item7, @NonNull T item8, @NonNull T item9, @NonNull T item10) {}
+
+            /**
+            * Converts an array into an ObservableSource that emits the items in the array
+            **/
+            public static <T> Observable<T> fromArray(@NonNull T... items) {
+                Objects.requireNonNull(items, "items is null");
+                if (items.length == 0) {
+                    return empty();
+                }
+                if (items.length == 1) {
+                    return just(items[0]);
+                }
+                return RxJavaPlugins.onAssembly(new ObservableFromArray<>(items));
             }
         }
+        ```
 
-        public static <T> Observable create(@NonNull ObservableOnSubscriber<T> source) {
-            return RxJavaPlugins.onAssembly(new ObservableCreate(source));
-        }
-    }
-    ```
+        From the above definition of **Observable.just()** method, we can pass into it up to 10 items that we want to emit. This will invoke **onNext()** for each one and then invoke **onComplete()** when they have all been pushed.
 
-    From the **create()** method of Observable class, we find that the **create()** method will accept as a parameter an object of the ObservableOnSubscriber type that has only one method, subscribe(ObservableEmitter emitter), which accepts an ObservableEmitter type, which, in turn, extends the Emitter interface that has three methods: **onNext()**, **onError()**, and **onComplete()**.
 
-    We can call the **ObservableEmitter**'s **onNext()** method to pass emissions (one at a time) down the chain of operators as well as **onComplete()** to signal completion and communicate that there will be no more items. Note that the **onNext()**, **onComplete()**, and **onError()** methods of the emitter do not necessarily push the data directly to the final **Observer**. There can be another operator between the source **Observable** and its **Observer** that acts as the next step in the chain, such as **map()**, **filter()** operators. Since operators such as map() and filter() yield new observables (which internally use Observer implementations to receive emissions), we can chain all our returned observables with the next operator, rather than unnecessarily saving each one to an intermediary variable.
+    - Using **Observable.fromIterable()**
 
-    The **onComplete()** method is used to communicate down the chain to the **Observer** that no more items are coming. Observables are indeed be infinite, and if this is the case, the **onComplete()** event will never be called. Technically, a source could stop emitting **onNext()** calls and never call **onComplete()**. This would likely be bad design, though, if the source no longer plans to send emissions.
+        Below is the definition of Observable.fromIterable() method in RxJava 3.x.
 
-    In RxJava 3.x, the [Observable contract] (http://reactivex.io/documentation/contract.html) dictates that emissions must be passed sequentially and one at a time. Emissions can't be passed by an Observable concurrently or in parallel. This may seem like a limitation, but it does, in fact, simplify programs and make Rx easier to reason with.
+        ```java
+        public abstract class Observable<@NonNull T> implements ObservableSource<T> {
+            // ...
 
-2. Using **Observable.just()**
-
-    In RxJava 3.x, there are multiple versions of Observable.just() methods.
-
-    ```java
-    public abstract class Observable<@NonNull T> implements ObservableSource<T> {
-        // ...
-
-        public static <T> Observable<T> just(@NonNull T item) {
-            return RxJavaPlugins.onAssembly(new ObservableJust<>(item));
-        }
-
-        public static <T> Observable<T> just(@NonNull T item1, @NonNull T item2) {                
-            return fromArray(item1, item2);
-        }
-
-        public static <T> Observable<T> just(@NonNull T item1, @NonNull T item2, @NonNull T item3) {
-            return fromArray(item1, item2, item3);
-        }
-
-        public static <T> Observable<T> just(@NonNull T item1, @NonNull T item2, @NonNull T item3, @NonNull T item4) {}
-
-        public static <T> Observable<T> just(@NonNull T item1, @NonNull T item2, @NonNull T item3, @NonNull T item4, @NonNull T item5) {}
-
-        public static <T> Observable<T> just(@NonNull T item1, @NonNull T item2, @NonNull T item3, @NonNull T item4, @NonNull T item5, @NonNull T item6) {}
-
-        public static <T> Observable<T> just(@NonNull T item1, @NonNull T item2, @NonNull T item3, @NonNull T item4, @NonNull T item5, @NonNull T item6, @NonNull T item7) {}
-
-        public static <T> Observable<T> just(@NonNull T item1, @NonNull T item2, @NonNull T item3, @NonNull T item4, @NonNull T item5, @NonNull T item6, @NonNull T item7, @NonNull T item8) {}
-
-        public static <T> Observable<T> just(@NonNull T item1, @NonNull T item2, @NonNull T item3, @NonNull T item4, @NonNull T item5, @NonNull T item6, @NonNull T item7, @NonNull T item8, @NonNull T item9) {}
-
-        public static <T> Observable<T> just(@NonNull T item1, @NonNull T item2, @NonNull T item3, @NonNull T item4, @NonNull T item5, @NonNull T item6, @NonNull T item7, @NonNull T item8, @NonNull T item9, @NonNull T item10) {}
-
-        /**
-         * Converts an array into an ObservableSource that emits the items in the array
-        **/
-        public static <T> Observable<T> fromArray(@NonNull T... items) {
-            Objects.requireNonNull(items, "items is null");
-            if (items.length == 0) {
-                return empty();
+            public static <T> Observable<T> fromIterable(@NonNull Iterable<@NonNull ? extends T> source) {
+                return RxJavaPlugins.onAssembly(new ObservableFromIterable<>(source));
             }
-            if (items.length == 1) {
-                return just(items[0]);
-            }
-            return RxJavaPlugins.onAssembly(new ObservableFromArray<>(items));
         }
-    }
-    ```
+        ```
 
-    From the above definition of **Observable.just()** method, we can pass into it up to 10 items that we want to emit. This will invoke **onNext()** for each one and then invoke **onComplete()** when they have all been pushed.
+        So we can easily find that **Observable.fromIterable()** is used to emit the items from nay Iterable type, such as List, ... It will call **onNext()** for each element and then call **onComplete()** once all elements are emitted.
 
+    - Using Observable.range()
 
-3. Using **Observable.fromIterable()**
+        It creates an Observable that emits a consecutive range of integers. It emits each number from a start value and increments each subsequent value by one until the specified count is reached. These numbers are all passed through the onNext() event, followed by the onComplete() event.
 
-    Below is the definition of Observable.fromIterable() method in RxJava 3.x.
+        ```java
+        Observable.range(1, 5)
+            .subscribe(s -> System.out.println("RECEIVED: " + s));
+        ```
 
-    ```java
-    public abstract class Observable<@NonNull T> implements ObservableSource<T> {
-        // ...
+        The two arguments for Observable.range() are not lower and upper bounds. The first argument is the initial value. The second argument is the total count of emissions, which will include both the initial value and subsequent incremented values. It means that we can call **Observable.range(5, 3);**.
 
-        public static <T> Observable<T> fromIterable(@NonNull Iterable<@NonNull ? extends T> source) {
-            return RxJavaPlugins.onAssembly(new ObservableFromIterable<>(source));
-        }
-    }
-    ```
+        There is also a long equivalent called **Observable.rangeLong()** if we need to emit larger numbers.
 
-    So we can easily find that **Observable.fromIterable()** is used to emit the items from nay Iterable type, such as List, ... It will call **onNext()** for each element and then call **onComplete()** once all elements are emitted.
+    - Using Observable.interval()
+
+        As we have seen, **Observable** produces emissions over time. Emissions are handed from the source down to the **Observer** sequentially. The emissions can be spaced out over time depending on when the source provides them.
+
+        **Obserable.interval()** emits consecutive long values (starting at 0) with the specified time interval between emissions.
+
+        **Observable.interval()** emits infinitely at the specified interval. However, because it operates on a timer, it needs to run on a separate thread, which is the computation scheduler by default. It means that our main method kicks off the Observable, but does not wait for it to finish. The Observable starts emitting on a seperate thread.
+
+        To keep our main() method from finishing and exiting the application before our Observable has a chance to finish emitting, we use the sleep() method to keep this application alive for 3 seconds (from now on, we are going to use this method throughout the book without presenting its source code anymore). This gives our Observable enough time to fire all emissions before the application quits. When you create production applications, you likely will not run into this issue often because non-daemon threads for tasks such as web services.
+
+    - Using Observable.future()
+
+        The RxJava Observable is much more robust and expressive than **java.util.concurrent.Future**, but if we have existing libraries that yield **Future**, we can easily turn it into an Observable using **Observable.future()**.
+
+    - Using Observable.empty()
+
+        Although this may not seem useful yet, it is sometimes helpful to create an Observable that emits nothing and calls onComplete().
+
+        Empty observables typically represent empty datasets. They can also result from operators such as filter() when none of the emitted values pass the criterion. Sometimes, you need to deliberately create an empty Observable using Observable.empty().
+
+        An empty **Observable** is essentially RxJava's concept of null. It represents an absence of value or, technically, values. However, it is more elegant than null because operations do not throw **NullPointerExceptions**. The **onComplete** event is emitted, and the processing stops. Then, we have to trace through the chain of operators to find which one caused the flow of emissions to become empty.
+
+    - Using Observable.never()
+
+        A close cousin of Observable.empty() is Observable.never(). The only difference between them is that the never() method does not generate the onComplete event, thus leaving the observer waiting for an emission forever.
+
+        This Observable is primarily used for testing and not that often in production. We have to use with sleep() because the main thread is not going to wait for it after kicking it off.
+
+    - Using Observable.error()
+
+        This is something that uses only with testing. It creates an Observable that immediately generates an onError event with the specified exception.
+
+    - Using Observable.defer()
+
+        **Observable.defer()** is a powerful factory due to its ability to create a separate state for each Observer. When using certain **Observable** factories, we may run into some nuances if our source is stateful and we want to create a separate state for each Observer. Our source **Observable** may not capture something that has changed regarding its parameters and send emissions that are obsolete.
+
+        If we subscribe to this Observable, modify the count, and then subscribe again, you will find that the second Observer does not see this change.
+
+        When your Observable source is not capturing changes to the things driving it, try putting it in Observable.defer(). If your Observable source was implemented naively and behaves in a broken manner with more than one Observer (for example, it reuses an Iterator that only iterates data once), Observable.defer() provides a quick workaround for this as well.
+    
+    - Using Observable.fromCallable()
+
+        If you need to perform a calculation or some other action and then emit the result, you can use Observable.just() (or Single.just() or Maybe.just(). But sometimes, we want to do this in a lazy or deferred manner.
+
+        Problem when not using Observable.fromCallable():
+        -  if the expression in Observable.just(), Single.just(), or Maybe.just() throws an error, no emission (data or event) happens, and the exception propagates in the traditional Java fashion. So, onError event from the source Observable will not emit to the Observer. So, the error handler part of the Observer won't notified.
+
+            That is because the Observable was not even created. So if we want it to be emitted down the Observable chain along with an onError event, even if thrown during the emission initialization, use Observable.fromCallable() instead. It accepts a functional interface, Supplier<T>.
+
+        So if initializing our emission has a likelihood of throwing an error, use Observable.fromCallable() instead of Observable.just().
 
 <br>
 
