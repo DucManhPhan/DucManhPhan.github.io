@@ -313,6 +313,60 @@ tags: [Reactive Programming]
 
         So if initializing our emission has a likelihood of throwing an error, use Observable.fromCallable() instead of Observable.just().
 
+3. Some specialized flavors of Observable
+
+    Belows are some flavors of Observable that we need to know.
+    - Single
+
+        The Single<T> class is essentially an Observable<T> that emits only one item and, as such, is limited only to operators that make sense for a single emission. Similar to the Observable class (which implements ObservableSource), the Single class implements the SingleSource functional interface, which has only one method, void subscribe(SingleObserver observer).
+
+        There is the SingleObserver interface as well:
+
+        ```java
+        interface SingleObserver<T> {
+            void onSubscribe(@NonNull Disposable d);
+            void onSuccess(T value);
+            void onError(@NonNull Throwable error);
+        }
+        ```
+
+        In contrast with the Observer interface, it does not have the onNext() method and has the onSuccess() method instead of onComplete(). This makes sense because Single can emit one value at the most. onSuccess() essentially consolidates onNext() and onComplete() into a single event. When you call subscribe() on a Single object, you provide one lambda expression for onSuccess() and, optionally, another lambda expression for onError().
+
+        There are operators on Single that turn it into an Observable, such as toObservable(). And, in the opposite direction, certain Observable operators return a Single. For instance, the first() operator will return a Single because that operator is logically concerned with a single item. However, it accepts a default value as a parameter if the Observable comes out empty.
+
+        The Single must have one emission, so you can use it only if you have only one emission to provide. But if there are 0 or 1 emissions, you should use Maybe instead.
+
+    - Maybe
+
+        The Maybe is just like a Single, except that it also allows no emissions to occur at all (hence Maybe). The MaybeObserver is much like a standard Observer, but onNext() is called onSuccess() instead:
+
+        ```java
+        public interface MaybeObserver<T> {
+            void onSubscribe(@NonNull Disposable d);
+            void onSuccess(T value);
+            void onError(@NonNull Throwable e);
+            void onComplete();
+        }
+        ```
+
+        A given Maybe<T> emits 0 or 1 items. It will pass the possible emission to onSuccess(), and in either case, it will call onComplete() when done. Maybe.just() can be used to create a Maybe emitting a single item. Maybe.empty() creates a Maybe that emits nothing.
+
+        To get a Maybe object from an Observable object, use Observable.firstElement() method.
+
+    - Completable
+
+        Completable is simply concerned with an action being executed, but it does not receive any emissions. Logically, it does not have onNext() or onSuccess() to receive emissions, but it does have onError() and onComplete().
+
+        ```java
+        interface CompletableObserver<T> {
+            void onSubscribe(@NonNull Disposable d);
+            void onComplete();
+            void onError(@NonNull Throwable error);
+        }
+        ```
+
+        Completable is something you likely will not use often. You can construct one quickly by calling Completable.complete() or Completable.fromRunnable(). The former immediately calls onComplete() without doing anything, while fromRunnable() executes the specified action before calling onComplete().
+
 <br>
 
 ## Observer
