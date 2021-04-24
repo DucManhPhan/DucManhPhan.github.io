@@ -68,8 +68,25 @@ Conditional operators emit or transform Observable conditionally.
 
 ## Supressing operators
 
+These are operators that suppress emissions that do not meet a specified criterion. These operators work by simply not calling the onNext() function downstream for a disqualified emission, and therefore it doesn't go down the chain to Observer.
+
+Belows are some common suppressing operators.
+- filter()
 
 
+- take()
+
+
+- skip()
+
+
+- distinct()
+
+
+- distinctUntilChanged()
+
+
+- elementAt()
 
 
 <br>
@@ -78,13 +95,48 @@ Conditional operators emit or transform Observable conditionally.
 
 
 
+- map()
+
+
+- cast()
+
+
+- startWithItem()
+
+
+- sorted()
+
+
+- scan()
+
 
 
 <br>
 
 ## Reducing operators
 
+- count()
 
+
+- reduce()
+
+
+- all()
+
+
+- any()
+
+
+- isEmpty()
+
+
+- contains()
+
+
+- sequenceEqual()
+
+
+- 
 
 
 
