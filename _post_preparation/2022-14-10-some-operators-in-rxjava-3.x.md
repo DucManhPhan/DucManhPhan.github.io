@@ -145,6 +145,17 @@ Belows are some common suppressing operators.
 ## Collection operators
 
 
+- toList()
+
+
+- toSortedList()
+
+
+- toMap() and toMultiMap()
+
+
+
+- collect()
 
 
 
@@ -153,6 +164,13 @@ Belows are some common suppressing operators.
 ## Error recovery operators
 
 
+- onErrorReturnItem() and onErrorReturn()
+
+
+- onErrorResumeWith()
+
+
+- retry()
 
 
 
@@ -161,7 +179,20 @@ Belows are some common suppressing operators.
 ## Action operators
 
 
+- doOnNext() and doAfterNext()
 
+
+- doOnComplete() and doOnError()
+
+
+
+- doOnEach()
+
+
+- doOnSubscribe() and doOnDispose()
+
+
+- doOnSuccess()
 
 
 <br>
@@ -169,7 +200,19 @@ Belows are some common suppressing operators.
 ## Utility operators
 
 
+- delay()
 
+
+- repeat()
+
+
+- single()
+
+
+- timestamp()
+
+
+- timeInterval()
 
 
 
@@ -184,3 +227,4 @@ Belows are some common suppressing operators.
 
 Refer:
 
+[Learning RxJava, second edition]()
