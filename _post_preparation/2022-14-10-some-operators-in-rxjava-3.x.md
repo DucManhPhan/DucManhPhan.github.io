@@ -29,14 +29,40 @@ RxJava operators produce observables that are observers of the Observable they a
 
 ## Conditional operators
 
+Conditional operators emit or transform Observable conditionally.
+
 1. takeWhile() and skipWhile()
 
+    - **takeWhile()** operator takes emissions while a condition derived from each emission is true. The moment it encounters a condition that is **false**, it will generate the **onComplete** event and dispose of the used resources.
+
+        ```java
+        Observable.range(1, 100)
+                .takeWhile(i -> i < 5)
+                .subscribe(i -> System.out.println(i));
+        ```
+
+        Similarly, there is also **takeUntil()** operator that accepts another **Observable** as a parameter. It keeps taking emissions until that other **Observable** pushes an emission.
+
+    - **skipWhile()** operator keeps skipping emissions while they comply with the condition. The moment that condition produces **false**, the emissions start flowing through.
+
+        ```java
+        Observable.range(1, 100)
+                .skipWhile(i -> i <= 95)
+                .subscribe(i -> System.out.println(i));
+        ```
+
+        Similarly, there is also **skipUntil()** operator that accepts another Observable as a parameter. It keeps skipping emissions until that other **Observable** emits something.
+
+2. defaultIfEmpty()
+
+    defaultIfEmpty() operator will be used when our source Observalbe can be empty, then without using defaultIfEmpty() we can have nothing to do.
 
 
+3. switchIfEmpty()
 
-2. switchIfEmpty()
+    Similar to defaultIfEmpty() operator, switchIfEmpty() specifies a different Observable to emit values from if the source Observable is empty. This allows us to specify a different sequence of emissions in the event that the source is empty rather than emitting just one value, as in the case of defaultIfEmpty().
 
-
+    If the preceding Observable is not empty, then switchIfEmpty() will have no effect and that second specified Observable will not be used.
 
 <br>
 
