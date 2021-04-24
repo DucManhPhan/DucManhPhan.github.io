@@ -178,13 +178,27 @@ Belows are some common suppressing operators.
 
 ## Action operators
 
+These operators don't modify the Observable, but use it for side effect such as debugging as well as getting visibility into an Observable chain.
 
+Belows are some action operators that we need to know.
 - doOnNext() and doAfterNext()
+
+    - doOnNext() operator allows a peek at each received value before letting it flow into the next operator. It doesn't affect the processing or transform the emission in any way. We can use it just to create a side effect for each received value.
+
+    - doAfterNext() operator performs the action after the item is passed downstream rather than before.
+
+        It means that the action of doAfterNext() operator will be processed after the Observer completely finishes.
 
 
 - doOnComplete() and doOnError()
 
+    - doOnComplete() operator
 
+        The onComplete() operator allows us to fire off an action when an onComplete event is emitted at the point in the Observable chain. This can be helpful in seeing which points of the Observable chain have completed.
+
+    - doOnError() operator
+
+        The onError() will peek at the error being emitted up the chain, and we can perform an action with it. This can helpful to put between operators to see which one is to blame for an error.
 
 - doOnEach()
 
