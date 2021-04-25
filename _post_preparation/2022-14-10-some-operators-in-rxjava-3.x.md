@@ -202,12 +202,40 @@ Belows are some action operators that we need to know.
 
 - doOnEach()
 
+    **doOnEacḥ()** operator is similar to **doOnNext()**.
+
+    The only difference is that in **doOnEach()**, the emitted item comes wrapped inside a **Notification** that also contains the type of the event. This means we can check which of the three events - **onNext()**, **onComplete()**, or **onError()** has happened and select an appropriate action.
+
+    The **subscribe()** method accepts these three actions as lambda arguments or an entire **Observer<T>**. So, using **doOnEach()** is like putting **subscribe()** right in the middle of our **Observable** chain.
+
+    The error and the value (the emitted item) can be extracted from Notification in the same way.
+
+    ```java
+    Observable.just("One", "Two", "Three")
+              .doOnEach(s -> System.out.println("doOnEach: " + 
+                             s.getError() + ", " + s.getValue()))
+              .subscribe(i -> System.out.println("Received: " + i));
+    ```
 
 - doOnSubscribe() and doOnDispose()
 
+    - doOnSubscribe(Consumer<Disposable> onSubscribe) executes the function provided at the moment subscription occurs. It provides access to the Disposable object in case we want to call dispose() in that action.
+
+    - doOnDispose(Action onDispose) operator performs the specified action when diposal is executed. To dispose a Subscription or a stream internally in Observable-Observer, call dispose() method immediately.
+
+    We use both operators to print when subscription and disposal occur, then the emitted values go through, and then disposal is finally fired.
+
+    Another option is to use the doFinally() operator, which will fire after either onComplete() or onError() is called or disposed of by the chain.
 
 - doOnSuccess()
 
+    Maybe and Single types don't have an onNext() event, but rather an onSucess() operator to pass a single emission. The doOnSuccess() operator usage should effectively feel like doOnNext().
+
+- doFinally()
+
+    The doFinally() operator is executed when onComplete(), onError(), or disposal happens. It is executed under the same conditions as doAfterTerminate(), plus it is also executed after the disposal.
+
+    The doFinally() operator guarantees that the action is executed exactly once per subscription. And, by the way, the location of these operators in the chain does not matter, because they are driven by the events, not by the emitted data.
 
 <br>
 
