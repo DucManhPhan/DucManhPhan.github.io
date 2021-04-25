@@ -136,10 +136,6 @@ Belows are some common suppressing operators.
 - sequenceEqual()
 
 
-- 
-
-
-
 <br>
 
 ## Collection operators
