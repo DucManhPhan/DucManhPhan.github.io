@@ -21,6 +21,7 @@ tags: [Multithreading, Java]
 
 ## Introduction to volatile keyword
 
+Volatile only guarantees that any read after a write will retrieve the last written value.
 
 
 
