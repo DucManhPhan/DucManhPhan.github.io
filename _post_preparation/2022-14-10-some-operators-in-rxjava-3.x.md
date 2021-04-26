@@ -2,7 +2,7 @@
 layout: post
 title: Some operators in RxJava 3.x
 bigimg: /img/image-header/yourself.jpeg
-tags: [Architecture Pattern]
+tags: [Reactive Programming]
 ---
 
 
