@@ -568,3 +568,5 @@ Refer:
 **Some rules for reactive programming of RxJava 1.x**
 
 [https://github.com/reactive-streams/reactive-streams-jvm#2.13](https://github.com/reactive-streams/reactive-streams-jvm#2.13)
+
+[https://viblo.asia/p/rxjava-su-khac-biet-giua-flatmap-switchmap-concatmap-924lJrv8lPM](https://viblo.asia/p/rxjava-su-khac-biet-giua-flatmap-switchmap-concatmap-924lJrv8lPM)
