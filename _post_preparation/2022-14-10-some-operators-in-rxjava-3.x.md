@@ -159,11 +159,23 @@ Belows are some common suppressing operators.
 
 ## Error recovery operators
 
+To handle exceptions in the chain of the Observable operators, use onError event that is communicated down the Observable chain to the Observer. After that, the subscription terminates and no more emissions occur. But in fact, we still want to intercept exceptions before they get to the Observer and attempt some form of recovery.
 
 - onErrorReturnItem() and onErrorReturn()
 
+    - onErrorReturnItem() operator is used when we want to resort to a default value if an exception occurs.
+
+        The emissions stopped after the error anyway, but the error itself didn't flow down to the Observer. Instead, the default value was received by it as if emitted by the source Observable.
+
+    - onErrorReturn(Function<Throwable, T> valueSupplier) operator is used to dynamically produce the value using the specified function. This gives us access to a Throwable object, which we can use while calculating the returned value.
+
+        We also take care about the location of onErrorReturn() operator in the chain of the operators matters. If we put it before the operator that doesn't throw an exception, the error wouldn't be caught because it happened downstream. To intercept the emitted error, it must originate upstream from the onErrorReturn() operator.
+
+    onErrorReturnItem() and onErrorReturn() operators happened, then the emissions will be terminated because onError event was pushed from Observable to Observer. So, the remaining items doesn't emit to the Observer. If we want to resume emissions, we can handle the error by using try/catch within the operators where the error occurs.
 
 - onErrorResumeWith()
+
+    
 
 
 - retry()
