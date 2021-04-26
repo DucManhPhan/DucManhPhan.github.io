@@ -11,9 +11,10 @@ tags: [Reactive Programming]
 <br>
 
 ## Table of contents
-
-
-
+- [Given problem](#given-problem)
+- [Solution with Concatenation operators](#solution-with-concatenation-operators)
+- [When to use](#when-to-use)
+- [Wrapping up](#wrapping-up)
 
 
 <br>
