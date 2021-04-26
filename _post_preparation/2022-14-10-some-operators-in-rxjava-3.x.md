@@ -11,16 +11,16 @@ tags: [Architecture Pattern]
 <br>
 
 ## Table of contents
-- [Introduction to Operators in RxJava 3.x]()
-- [Conditional operators]()
-- [Supressing operators]()
-- [Transforming operators]()
-- [Reducing operators]()
-- [Collection operators]()
-- [Error recovery operators]()
-- [Action operators]()
-- [Utility operators]()
-- [Wrapping up]()
+- [Introduction to Operators in RxJava 3.x](#introduction-to-operators-in-rxjava-3.x)
+- [Conditional operators](#conditional-operators)
+- [Supressing operators](#supressing-operators)
+- [Transforming operators](#transforming-operators)
+- [Reducing operators](#reducing-operators)
+- [Collection operators](#collection-operators)
+- [Error recovery operators](#error-recovery-operators)
+- [Action operators](#action-operators)
+- [Utility operators](#utility-operators)
+- [Wrapping up](#wrapping-up)
 
 
 <br>
