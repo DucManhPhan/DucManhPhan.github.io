@@ -367,6 +367,50 @@ tags: [Reactive Programming]
 
         Completable is something you likely will not use often. You can construct one quickly by calling Completable.complete() or Completable.fromRunnable(). The former immediately calls onComplete() without doing anything, while fromRunnable() executes the specified action before calling onComplete().
 
+4. Some common operations with Observables
+
+    - Merging observables
+
+        A common task done in ReactiveX is taking two or more Observable<T> instances and merging them into one Observable<T>. This merged Observable<T> subscribes to all of its merged sources simultaneously, making it effective for merging both finite and infinite observables.
+
+        - Using merge() factory method
+
+            The Observable.merge() factory will take two or more Observable<T> sources emitting the same type T and then consolidate them into a single Observable<T>.
+
+            Another way to use merge() factory method is that this method accepts a collection of Observables or an instance of Iterable.
+
+            This factory method can works with infinite observables. Since it will subscribe to all observables and fire their emissions as soon as they are available, you can merge multiple infinite sources into a single stream.
+
+            To summarize, Observable.merge() combines multiple Observable<T> sources emitting the same type T and consolidates them into a single Observable<T>. It works on infinite Observable instances and does not necessarily guarantee that the emissions come in any order.
+
+        - Using mergeWith() method
+
+            If we want to merge only two Observables each other, utilize mergeWith() operator.
+
+        The Observable.merge() factory and the mergeWith() operator will subscribe to all the specified sources simultaneously, but will likely fire the emissions in order if they are cold and on the same thread. This is just an implementation detail that is not guaranteed to work the same way every time. If you want to fire elements of each Observable sequentially and keep their emissions in sequential order, you should use Observable.concat().
+
+        If we have more than four Observable<T> sources, we can use Observable.mergeArray() to pass an array of Observable instances that we want to merge. The reason mergeArray() gets its own method and is not a merge() overload instead is to avoid ambiguity. This is true for all the xxxArray() operators.
+
+        To make the emissions from Observable in strictly order, use Observable.concat() operator.
+
+    - flatMap()
+
+        - flatMap()
+
+            It performs a dynamic Observable.merge() by taking each emission and mapping it to an Observable. Then, it merges the resulting observables into a single stream. The simplest application of flatMap() is to map one emission to many emissions.
+
+            Just like Observable.merge(), flatMap() can also map emissions to infinite instances of Observable and merge them. For instance, it can receive simple Integer values from Observable<Integer> but use flatMap() on them to drive an Observable.interval(), where each Integer value serves as the period argument.
+
+            The Observable.merge() operator accepts a fixed number of Observable sources. However, flatMap() dynamically adds new Observable sources for each value that comes in. This means that you can keep merging new incoming Observable sources all the time.
+
+        - flatMap() with combiner
+
+            The flatMap() operator has an overloaded version, flatMap(Function<T,Observable<R>> mapper, BiFunction<T,U,R> combiner), that allows the provision of a combiner along with the mapper function. This second combiner function associates the originally emitted T value with each flat-mapped U value and turns both into an R value.
+
+            We can also use flatMapIterable() to map each T value into an Iterable<R> instead of an Observable<R>. It will then emit all the R values for each Iterable<R>, saving us the step and overhead of converting it into an Observable.
+
+            There is also flatMapSingle() that maps the input to Single, flatMapMaybe() that maps to Maybe, and flatMapCompletable() that maps to Completable.
+
 <br>
 
 ## Observer
