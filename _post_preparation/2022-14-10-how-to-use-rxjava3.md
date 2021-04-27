@@ -86,8 +86,6 @@ tags: [Reactive Programming]
 
         Multiple observers normally result in multiple stream instances upstream. But using publish() to return ConnectableObservable consolidates all the upstream operations into a single stream. For now, remember that ConnectableObservable is hot, and therefore, if new subscriptions occur after connect() is called, they will have missed emissions fired earlier.
 
-
-
 2. How to create an Observable
 
     The first thing we need to do is to study how an Observable sequentially passes items down the chain to an Observer. At the highest level, an Observer works by passing three types of events:
@@ -309,11 +307,19 @@ tags: [Reactive Programming]
 
     - Using **Observable.defer()**
 
-        **Observable.defer()** is a powerful factory due to its ability to create a separate state for each Observer. When using certain **Observable** factories, we may run into some nuances if our source is stateful and we want to create a separate state for each Observer. Our source **Observable** may not capture something that has changed regarding its parameters and send emissions that are obsolete.
+        - Given problem:
 
-        If we subscribe to this Observable, modify the count, and then subscribe again, you will find that the second Observer does not see this change.
+            Normally, we will use Observable.just() to create a new Observable, but Observable.just() is evaluated as soon as it's invoked, so it will create a sequence using the exact value when the Observable is created.
 
-        When your Observable source is not capturing changes to the things driving it, try putting it in Observable.defer(). If your Observable source was implemented naively and behaves in a broken manner with more than one Observer (for example, it reuses an Iterator that only iterates data once), Observable.defer() provides a quick workaround for this as well.
+            But sometimes, there is a problem that we can change the data that it need to be reflected while an Observer is subscribed that Observable.
+
+        - Solution
+
+            **Observable.defer()** is a powerful factory due to its ability to create a separate state for each Observer. When using certain **Observable** factories, we may run into some nuances if our source is stateful and we want to create a separate state for each Observer. Our source **Observable** may not capture something that has changed regarding its parameters and send emissions that are obsolete.
+
+            If we subscribe to this Observable, modify the count, and then subscribe again, you will find that the second Observer does not see this change.
+
+            When your Observable source is not capturing changes to the things driving it, try putting it in Observable.defer(). If your Observable source was implemented naively and behaves in a broken manner with more than one Observer (for example, it reuses an Iterator that only iterates data once), Observable.defer() provides a quick workaround for this as well.
     
     - Using **Observable.fromCallable()**
 
