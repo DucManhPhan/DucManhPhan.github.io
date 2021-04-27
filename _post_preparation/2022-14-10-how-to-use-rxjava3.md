@@ -50,6 +50,14 @@ tags: [Reactive Programming]
 
 ## Observable
 
+0. Definition of Observable
+
+    An Observable is an object that emits a sequence (or stream) of events. It represents a push-based collection, which is a collection in which events are pushed when they are created.
+
+    An Observable emits a sequence that can be empty, finite, or infinite. When the sequence is finite, a complete event is emitted after the end of the sequence. At any time during the emission (but no after the end of it) an error event can be emitted, stopping the emission and cacelling the emission of the complete event.
+
+    When the sequence is empty, only the complete event is emitted, without emitting any item. With an infinite sequence, the complete event is never emitted.
+
 1. Some types of Observable
 
     - Cold Observable
@@ -415,6 +423,18 @@ tags: [Reactive Programming]
 
 ## Observer
 
+0. Definition of Observer
+
+    An Observer is an object that subscribes to an Observable. It listens and reacts to whatever sequence of items is emitted by the Observable.
+
+    The Observer is not blocked while waiting for new emitted items, so in concurrent operations, no blocking occurs. It just wakes up when a new item is emitted.
+
+    This is one of the core principles of reactive programming: instead of executing instructions one at a time (always waiting for the previous instruction to be completed), the observable provides a mechanism to retrieve and transform data, and the Observer activates this mechanism, all in a concurrent way.
+
+    In order to connect an Observable with an Observer, we must use the subscribe() method.
+
+    An Observable can't notify both onCompleted and onError methods, only one of them. It will always be the last method invoked.
+
 1. Some common methods of Observer interface
 
     Below is the definition of Observer interface.
@@ -423,7 +443,17 @@ tags: [Reactive Programming]
     public interface Observer<@NonNull T> {
         void onSubscribe(@NonNull Disposable d);
         void onNext(@NonNull T t);
+
+        /**
+         * It notifies the Observer when the Observable raises
+         * an error and stops emitting items, even if the sequence is not completed.
+         */
         void onError(@NonNull Throwable e);
+
+        /**
+         * It notifies the Observer when the Observable stops emitting items
+         * because the sequence is completed normally.
+         */
         void onComplete();
     }
     ```
@@ -460,6 +490,35 @@ tags: [Reactive Programming]
     - Subscribing an Observer to multiple ObservableSources is not recommended. If such reuse happens, it is the duty of the Observer implementation to be ready to receive multiple calls to its methods and ensure proper concurrent behavior of its business logic.
 
     - Calling onSubscribe(Disposable), onNext(Object) or onError(Throwable) with a null argument is forbidden.
+
+4. Some common problems when using Observers
+
+    - Using only method for onNext event
+
+        ```java
+        observable.subscribe(item -> doSomething());
+        ```
+
+        When using this signature of subscribe() method, we won't get notified when the sequence completes. More importantly, if an error occurs, an exception will be thrown by RxJava because no implementation of onError can be found, and our app will crash.
+
+    - How to disconnect between Observable and Observer
+
+        When calling **Observable.subscribe()** method, normally RxJava will create an Subscription object to connect between Observable and Observer. To know more about this architecture, we can read about the following link [What is Reactive programming in Java](https://ducmanhphan.github.io/2019-12-01-What-is-Reactive-programming-in-Java/).
+
+        ```java
+        Subscription subscription = Observable.just("Hello", "world", "reactive", "programming")
+                                              .subscribe(System.out::println);  
+        ```
+
+        So to disconnect Observable and Observer, calling unsubscribe() method of Subscription.
+
+        ```java
+        subscription.unsubscribe();
+        ```
+
+        The unsubscribe() method can be called at any time during items emissions. After the call to unsubscribe() method, onNext() won't receive any other item, and the other two methods, onCompleted and onError won't be notified. After unsubscription, the observable can stop or continue with item emission, but the observer will not be notified about it.
+
+        To check whether the subscription has been unsubscribed or Observer and Observable are no longer connected, use Subscription.isUnsubscribed() method.
 
 <br>
 
