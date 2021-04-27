@@ -62,26 +62,31 @@ tags: [Reactive Programming]
 
     - Cold Observable
 
+        An Observable begins emitting a sequence of times when the Observer subscribes to it, they are called cold observables. Cold observables always wait to have at least one observer subscribed to start emitting items.
+
         **A cold observable replays the emissions to each Observer**, ensuring that it gets all the data. Most data-driven observables are cold, and this includes the observables produced by the **Observable.just()** and **Observable.fromIterable()** factories. It means that **Observable** sources that emit finite datasets are usually cold.
 
         Using operations such as **map()** and **filter()** against a cold Observable preserves the cold nature of the produced observables.
 
     - Hot Observable
 
+        An Observable that begins emitting items before being connected to an observer is called a hot observable. With hot observables, an observer can subscribe and start receiving items at any time during the emission. With hot observables, the observer may received the complete sequence of items starting from the beginning or not.
+
         A hot observable is more like a radio station. It broadcasts the same emissions to all observers at the same time. If an Observer subscribes to a hot Observable, receives some emissions, and then another Observer subscribes later, that second Observer will have missed those emissions. Just like a radio station, if we tune in too late, we will have missed that song.    
 
         Logically, a hot Observable often represent events rather than finite datasets. The events can carry data with them, but there is a time-sensitive component, and late subscribers can miss previously emitted data.
 
-        Below is the type of hot Observable.
-        - ConnectableObservable
+    - ConnectableObservable
 
-            It takes any **Observable**, even if it is cold, and makes it hot so that all emissions are played to all observers at once. To do this conversion, we simply need to call **publish()** on an **Observable**, and it will yield a **ConnectableObservable** object.
+        It takes any **Observable**, even if it is cold, and makes it hot so that all emissions are played to all observers at once. To do this conversion, we simply need to call **publish()** on an **Observable**, and it will yield a **ConnectableObservable** object.
 
-            Subscribing does not start the emission. We need to call the **connect()** method on the **ConnectableObservable** object to start it. This allows us to setup all our observers first, before the first value is emitted. It means that each emission goes to all observers simultaneously. Using ConnectableObservable to force each emission to go to all observers is known as multicasting.
+        Subscribing does not start the emission. We need to call the **connect()** method on the **ConnectableObservable** object to start it. This allows us to setup all our observers first, before the first value is emitted. It means that each emission goes to all observers simultaneously. Using ConnectableObservable to force each emission to go to all observers is known as multicasting.
 
-            The **ConnectableObservable** is helpful in preventing the replaying of data to each Observer. You may want to do this when the replaying is expensive and you decide that emissions should go to all observers at the same time. You may also do it simply to force the operators upstream to use a single stream instance, even if there are multiple observers downstream.
+        The **ConnectableObservable** is helpful in preventing the replaying of data to each Observer. You may want to do this when the replaying is expensive and you decide that emissions should go to all observers at the same time. You may also do it simply to force the operators upstream to use a single stream instance, even if there are multiple observers downstream.
 
-            Multiple observers normally result in multiple stream instances upstream. But using publish() to return ConnectableObservable consolidates all the upstream operations into a single stream. For now, remember that ConnectableObservable is hot, and therefore, if new subscriptions occur after connect() is called, they will have missed emissions fired earlier.
+        Multiple observers normally result in multiple stream instances upstream. But using publish() to return ConnectableObservable consolidates all the upstream operations into a single stream. For now, remember that ConnectableObservable is hot, and therefore, if new subscriptions occur after connect() is called, they will have missed emissions fired earlier.
+
+
 
 2. How to create an Observable
 
@@ -257,7 +262,7 @@ tags: [Reactive Programming]
 
         So we can easily find that **Observable.fromIterable()** is used to emit the items from nay Iterable type, such as List, ... It will call **onNext()** for each element and then call **onComplete()** once all elements are emitted.
 
-    - Using Observable.range()
+    - Using **Observable.range()**
 
         It creates an Observable that emits a consecutive range of integers. It emits each number from a start value and increments each subsequent value by one until the specified count is reached. These numbers are all passed through the onNext() event, followed by the onComplete() event.
 
@@ -270,7 +275,7 @@ tags: [Reactive Programming]
 
         There is also a long equivalent called **Observable.rangeLong()** if we need to emit larger numbers.
 
-    - Using Observable.interval()
+    - Using **Observable.interval()**
 
         As we have seen, **Observable** produces emissions over time. Emissions are handed from the source down to the **Observer** sequentially. The emissions can be spaced out over time depending on when the source provides them.
 
@@ -280,11 +285,11 @@ tags: [Reactive Programming]
 
         To keep our main() method from finishing and exiting the application before our Observable has a chance to finish emitting, we use the sleep() method to keep this application alive for 3 seconds (from now on, we are going to use this method throughout the book without presenting its source code anymore). This gives our Observable enough time to fire all emissions before the application quits. When you create production applications, you likely will not run into this issue often because non-daemon threads for tasks such as web services.
 
-    - Using Observable.future()
+    - Using **Observable.future()**
 
         The RxJava Observable is much more robust and expressive than **java.util.concurrent.Future**, but if we have existing libraries that yield **Future**, we can easily turn it into an Observable using **Observable.future()**.
 
-    - Using Observable.empty()
+    - Using **Observable.empty()**
 
         Although this may not seem useful yet, it is sometimes helpful to create an Observable that emits nothing and calls onComplete().
 
@@ -292,17 +297,17 @@ tags: [Reactive Programming]
 
         An empty **Observable** is essentially RxJava's concept of null. It represents an absence of value or, technically, values. However, it is more elegant than null because operations do not throw **NullPointerExceptions**. The **onComplete** event is emitted, and the processing stops. Then, we have to trace through the chain of operators to find which one caused the flow of emissions to become empty.
 
-    - Using Observable.never()
+    - Using **Observable.never()**
 
         A close cousin of Observable.empty() is Observable.never(). The only difference between them is that the never() method does not generate the onComplete event, thus leaving the observer waiting for an emission forever.
 
         This Observable is primarily used for testing and not that often in production. We have to use with sleep() because the main thread is not going to wait for it after kicking it off.
 
-    - Using Observable.error()
+    - Using **Observable.error()**
 
         This is something that uses only with testing. It creates an Observable that immediately generates an onError event with the specified exception.
 
-    - Using Observable.defer()
+    - Using **Observable.defer()**
 
         **Observable.defer()** is a powerful factory due to its ability to create a separate state for each Observer. When using certain **Observable** factories, we may run into some nuances if our source is stateful and we want to create a separate state for each Observer. Our source **Observable** may not capture something that has changed regarding its parameters and send emissions that are obsolete.
 
@@ -310,7 +315,7 @@ tags: [Reactive Programming]
 
         When your Observable source is not capturing changes to the things driving it, try putting it in Observable.defer(). If your Observable source was implemented naively and behaves in a broken manner with more than one Observer (for example, it reuses an Iterator that only iterates data once), Observable.defer() provides a quick workaround for this as well.
     
-    - Using Observable.fromCallable()
+    - Using **Observable.fromCallable()**
 
         If you need to perform a calculation or some other action and then emit the result, you can use Observable.just() (or Single.just() or Maybe.just(). But sometimes, we want to do this in a lazy or deferred manner.
 
@@ -480,10 +485,20 @@ tags: [Reactive Programming]
 
     It is critical to note that most of the subscribe() overload variants (including the shorthand lambda we have just covered) return a Disposable that we did not do anything with. A Disposable allows the Observable to be disconnected from its Observer so emissions are terminated early, which is critical for an infinite or a long-running Observable.
 
-2. Some types of Observer interface
+2. Some event types of Observer interface
 
+    The Observable provides three event types that contains onNext(), onCompleted(), and onError(). So the Observer also needs to react to three types of events.
+    - Item emissions by the Observable
 
+        It occurs zero, one, or more times. If the sequence completes correctly, the onNext() method will be invoked as many times as the number of items in the sequence. If an error occurs at a certain point, the onNext() method won't be invoked any further.
 
+    - The completion of items emission
+
+        Only when all items in the sequence are emitted correctly, the onCompleted() method will be invoked. It's invoked only once, and after the last item has been emitted. It also can never happen if we're working with an infinite sequence.
+
+    - An error
+
+        Error can occur in every moment of the sequence, and the sequence will stop immediately. In this case, the method onError will be invoked, passing the error as a Throwable object. The other two methods, onNext and onCompleted, won't be invoked.
 
 3. Some notes about Observer interface's implementations
 
