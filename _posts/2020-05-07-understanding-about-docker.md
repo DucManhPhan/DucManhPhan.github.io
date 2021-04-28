@@ -344,6 +344,46 @@ How do we overcome these problems?
         docker login
         ```
 
+4. Read log of a container
+
+    ```bash
+    docker logs -f <container-name>
+    ```
+
+5. Access to the docker container
+
+    Assuming that we want to create a MySQL database that attaches its internal **/var/lib/mysql** directory to a volume within the host directory **mysql-data**.
+
+    ```bash
+    docker run --name mysql -v mysql-data:/var/lib/mysql -e MYSQL_ROOT_PASSWORD=passwd -d mysql:latest
+    ```
+
+    To access the mysql's environment, typing the below command:
+
+    ```bash
+    docker exec -it <container-id/name> /bin/bash
+
+    ls /var/lib/mysql
+    ```
+
+    The meaning of the above command:
+    - **docker exec [OPTIONS] CONTAINER COMMAND [ARG...]** command runs a new command in a running container.
+
+        COMMAND will run in the default directory of the container. If the underlying image has a custom directory specified with the WORKDIR directive in its Dockerfile, this will be used instead.
+
+        Belows are some options of docker exec command.
+
+        |           Name         |                  Description                |
+        | --detach, -d           | Detach mode: run command in the background  |
+        | --env, -e              | set environment variables                   |
+        | --interactive, -i      | keep STDIN open even if not attached        |
+        | --tty, -t              | Allocate a pseudo-TTY                       |
+
+    - **docker exec -it mysql /bin/bash** command
+
+        We will execute an interactive bash shell on the container. This will create a new bash session in the mysql container.
+
+    To check where the mounted data from mysql container, we can go to the following **/var/lib/docker/volumes/mysql-data/** directory. If we mount from the host directory such as **-v ~/mysql-data:/var/lib/mysql**, then the host directory **~/mysql-data** will have the full path - **/home/username/mysql-data**.
 
 <br>
 
@@ -367,3 +407,5 @@ Refer:
 [https://stackoverflow.com/questions/20274162/why-do-you-need-a-base-image-with-docker](https://stackoverflow.com/questions/20274162/why-do-you-need-a-base-image-with-docker)
 
 [https://www.educative.io/courses/docker-for-developers](https://www.educative.io/courses/docker-for-developers)
+
+[https://docs.docker.com/engine/reference/commandline/exec/](https://docs.docker.com/engine/reference/commandline/exec/)
