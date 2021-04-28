@@ -50,7 +50,7 @@ Let's get started.
 
 ## Connect with local/remote redis server
 
-By default
+By default, Redis runs without username and password, the default port is: 6379.
 
 ```bash
 # Go to the folder of Redis
