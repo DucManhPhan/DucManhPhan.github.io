@@ -12,6 +12,7 @@ Let's get started.
 <br>
 
 ## Table of contents
+- [How to install redis-cli](#how-to-install-redis-cli)
 - [Connect with local/remote redis server](#connect-with-local/remote-redis-server)
 - [Get/set commands](#get/set-commands)
 - [Check commands](#check-commands)
@@ -22,7 +23,34 @@ Let's get started.
 
 <br>
 
+## How to install redis-cli
+
+1. Install redis-cli on Windows
+
+    To install it on Windows, we can visit some webpages to download a redis executable file.
+    - [tporadowski/redis](https://github.com/tporadowski/redis/releases)
+    - [microsoftarchive/redis](https://github.com/MicrosoftArchive/redis/releases)
+
+2. Install redis-cli on Ubuntu
+
+    Belows are some steps to install redis-cli in Ubuntu.
+    1. Update the apt package
+
+        ```bash
+        sudo apt update
+        ```
+
+    2. Install redis-tools
+
+        ```bash
+        sudo apt install -y redis-tools 
+        ```
+
+<br>
+
 ## Connect with local/remote redis server
+
+By default
 
 ```bash
 # Go to the folder of Redis
