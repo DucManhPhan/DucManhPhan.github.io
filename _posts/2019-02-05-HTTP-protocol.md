@@ -55,11 +55,11 @@ There are 4 parts in a URL:
 
 For example: 
 
-In the URL https://techmaster.vn/posts/34914/sql-performance-explained-part-1, the communication protocol is HTTPS; the hostname is techmaster.vn. 
+In the URL [https://ducmanhphan.github.io/2019-02-05-HTTP-protocol], the communication protocol is **HTTPS**; the hostname is **ducmanhphan.github.io**. 
 
 The port number was not specified in the URL, and takes on the default number, which is TCP port 80 for HTTP.
 
-The path and file name for the resource to be located is "posts/34914/sql-performance-explained-part-1"
+The path and file name for the resource to be located is **2019-02-05-HTTP-protocol**.
 
 **Encoded URL**
 
@@ -189,6 +189,7 @@ For example:
 <br>
 
 ## HTTP Response Message
+
 The format of the HTTP response message is as follows:
 
 ![HTTP Response message](../img/network-protocol/http-protocol/http-response.png)
@@ -240,6 +241,7 @@ For example:
 <br>
 
 ## The brief conversation about how HTTP protocol works
+
 In this part, we will describe how HTTP protocol works with POST method, in the form data.
 
 In many Internet applications, such as e-commerce and search engine, the clients are required to submit additional information to the server (e.g., the name, address, the search keywords). Based on the data submitted, the server takes an appropriate action and produces a customized response.
@@ -331,9 +333,9 @@ with html:
 
 When the browser encountered an \<input\> tag with attribute type="file", it displays a text box and a "browse..." button, to allow user to choose the file to be uploaded.
 
-When the user clicks the submit button, the browser send the form data and the content of the selected file(s). The old encoding type "application/x-www-form-urlencoded" is inefficient for sending binary data and non-ASCII characters. A new media type "multipart/form-data" is used instead.
+When the user clicks the submit button, the browser send the form data and the content of the selected file(s). The old encoding type "application/x-www-form-urlencoded" is inefficient for sending binary data and non-ASCII characters. A new media type **multipart/form-data** is used instead.
 
-Each part identifies the input name within the original HTML form, and the content type if the media is known, or as application/octet-stream otherwise.
+Each part identifies the input name within the original HTML form, and the content type if the media is known, or as **application/octet-stream otherwise.
 
 The original local file name could be supplied as a "filename" parameter, or in the "Content-Disposition: form-data" header.
 
