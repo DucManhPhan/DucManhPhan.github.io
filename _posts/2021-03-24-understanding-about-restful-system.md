@@ -255,3 +255,5 @@ Refer:
 [https://www.codeproject.com/Tips/788823/Advantages-of-Making-Your-Methods-Idempotent-and-S](https://www.codeproject.com/Tips/788823/Advantages-of-Making-Your-Methods-Idempotent-and-S)
 
 [https://en.wikipedia.org/wiki/HATEOAS](https://en.wikipedia.org/wiki/HATEOAS)
+
+[https://blog.stackpath.com/proxy-caching/](https://blog.stackpath.com/proxy-caching/)
