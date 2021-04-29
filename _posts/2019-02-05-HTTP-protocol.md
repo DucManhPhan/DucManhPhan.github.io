@@ -23,6 +23,7 @@ So, in this article, we will discuss about HTTP protocol to explain all of thing
 <br>
 
 ## Introduction to HTTP protocol
+
 HTTP is abbreviation of **Hypertext Transfer Protocol**, and it is perhaps the most popular application protocol used in the Internet.
 
 - HTTP is an asymmetric request-response client-server protocol as illustrated.  An HTTP client sends a request message to an HTTP server.  The server, in turn, returns a response message.  In other words, HTTP is a pull protocol, the client pulls information from the server (instead of server pushes information down to the client). 

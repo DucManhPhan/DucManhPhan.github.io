@@ -1,8 +1,8 @@
 ---
 layout: post
-title: Learn RESTful web service design
+title: RESTful web service design
 bigimg: /img/image-header/california.jpg
-tags: [API Design, Restful API]
+tags: [API Design]
 ---
 
 
