@@ -63,11 +63,28 @@ Now, let's get started.
 
     - Stateless
 
-        The server will not save all information of requests, and the relationship among requests is independent, so that it reduces the lack of security when the server is hacked.
+        The server will not save all information of requests, and the relationship among requests is independent.
+        
+        Benefits:
+        - It reduces the lack of security when the server is hacked.
+        - It improves the scalability because our servers doesn't need to manage a state across multiple requests.
 
     - Cacheable
 
-        When a result is calculated from the heavy operations on the server, it can be cacheable in the other external systems such as Redis, memcache, ...
+        It means that the RESTful system will support a caching system. And the data will be cached in different levels such as:
+        - client
+
+            In some browsers, we can use an HTTP header **cache-control** to specify caching policies in both client requests and server responses. Policies include how a resource is cached, where it's cached and its maximum age before expiring.
+
+        - server
+
+            When a result is calculated from the heavy operations on the server, it can be cacheable in the other external systems such as Redis, memcache, ...
+
+            If we use Hibernate or other ORM frameworks, it also supports caching query responses.
+
+        - proxy
+
+        - gateway
 
     - Uniform interface
 
@@ -109,6 +126,14 @@ Now, let's get started.
         - The cache servers will contain the result of expensive calculation operations from the previous requests, so with the other requests, our application server only need to access the cache server to get it.
 
         ![](../img/restful-api/layered-system.png)
+
+        Benefits:
+        - It improves scalability by enabling load balancing.
+        - It improves the performance by providing shared caches at different levels.
+
+    - Code on demand
+
+        This constraint is optional. It means that the functionality of the clients can be applied dynamically at the runtime based on the server.
 
 <br>
 
@@ -203,10 +228,13 @@ After sending GET request **/accounts/12345**, there are four next actions that 
 
 - Nowadays, we always cope with the systems that utilizes RESTful API, so understanding so deep about it is really necessary.
 
+- RESTful is not a protocol, it is only a set of constraints that help us to build RESTful system.
 
 <br>
 
 Refer:
+
+[https://www.ics.uci.edu/~fielding/pubs/dissertation/top.htm](https://www.ics.uci.edu/~fielding/pubs/dissertation/top.htm)
 
 [https://restfulapi.net/](https://restfulapi.net/)
 
