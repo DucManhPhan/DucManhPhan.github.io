@@ -84,6 +84,8 @@ Now, let's get started.
 
         - proxy
 
+            Normally, we can cache the static content such as media, javascript or css files.
+
         - gateway
 
     - Uniform interface
