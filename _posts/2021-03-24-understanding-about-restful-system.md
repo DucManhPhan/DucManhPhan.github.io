@@ -230,7 +230,7 @@ After sending GET request **/accounts/12345**, there are four next actions that 
 
 - Nowadays, we always cope with the systems that utilizes RESTful API, so understanding so deep about it is really necessary.
 
-- RESTful is not a protocol, it is only a set of constraints that help us to build RESTful system.
+- RESTful is not a protocol, it is only a set of constraints that help us to build RESTful system. And RESTful architectural style is not specific to any protocol, because of depending on the uniform resource with URI, so any protocols that support URI, then RESTful can work on it.
 
 <br>
 
