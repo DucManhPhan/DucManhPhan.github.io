@@ -89,8 +89,6 @@ Belows are some ways to achieve high availability.
 
 - Replication
 
-
-
     Difference between replication and caching:
     - caches don't necessarily hold collections of objects such as files in their entirely. So caching doesn't necessarily enhance availability at the application level - a user may have one needed file but not another.
 

@@ -35,7 +35,7 @@ From the above image, we can find that we have:
 
 Belows are some drawbacks of the above system design:
 - If there are many users that require the same information that is calculated for a long time, it makes us recomputation.
-- Otherwise, we also need to access the other external system, so it will increases network calls and the database load.
+- Otherwise, we also need to access the other external system, so it will increases the round-trip of network calls and the database load.
 
 Therefore, how do we deal with it?
 
@@ -46,6 +46,40 @@ Therefore, how do we deal with it?
 
 
 
+
+<br>
+
+## Some types of caching
+
+1. Local cache
+
+    A local cache means that we will use available memory in our current application server to store data.
+
+    For example:
+    - JCache
+    - EhCache
+    - Guava Cache
+    - Spring Caching
+
+    In local cache, there are two common types:
+    - On-heap local cache
+
+        On-heap caching refers to storing data in a Java heap, where it's managed automatically by GC.
+
+    - Off-heap local cache
+
+        Off-heap caching refers to storing the data outside the heap. This data is not automatically handled by GC. Since it's stored outside the Java heap, the data needs to be stored as an array of bytes. Hence, there's an additional overhead of serializing and de-serializing the data.
+
+2. Remote cache
+
+    A remote cache is a seperated server that uses in-memory stores.
+
+    Belows are some remote caches that we can usually use to design a system.
+    - Redis
+
+    - Memcached
+
+    Then, 
 
 <br>
 
@@ -78,10 +112,9 @@ Therefore, how do we deal with it?
 
 1. Write-through cache
 
-    A write-through cache means that when we need to make an update to the data that we have, now, our data is put on both cache and database. In this case, the first, we will update that data on Cache, but it causes the data inconsistency between Cache and Database. Then, we also push that update to the Database. 
+    A write-through cache means that when we need to make an update to the data, now, our data is put on both cache and database. In this case, the first, we will update that data on Cache, but it causes the data inconsistency between Cache and Database. Then, we also push that update to the Database. 
 
     So, it means that we update the Cache before updating the Database.
-
 
     Some trade-off characteristics of Write-through cache:
     1. Benefits
@@ -140,3 +173,5 @@ Refer:
 [What is Distributed Caching? Explained with Redis!](https://www.youtube.com/watch?v=U3RkDLtS7uY)
 
 [Understanding write-through, write-around and write-back caching (with Python)](https://shahriar.svbtle.com/Understanding-writethrough-writearound-and-writeback-caching-with-python)
+
+[https://betterprogramming.pub/introduction-and-strategies-to-handle-challenges-in-caching-c619d51882c0](https://betterprogramming.pub/introduction-and-strategies-to-handle-challenges-in-caching-c619d51882c0)
