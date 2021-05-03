@@ -1,6 +1,6 @@
 ---
 layout: post
-title: The lifecycle of Entity in Hibernate
+title: The lifecycle of Entity's state in Hibernate
 bigimg: /img/image-header/yourself.jpeg
 tags: [Hibernate]
 ---
