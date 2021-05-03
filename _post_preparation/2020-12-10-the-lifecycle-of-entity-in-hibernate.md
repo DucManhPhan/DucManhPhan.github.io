@@ -11,9 +11,10 @@ tags: [Hibernate]
 <br>
 
 ## Table of contents
-
-
-
+- [Given problem](#given-problem)
+- [Solution of Hibernate framework](#solution-of-hibernate-framework)
+- [Benefits and Drawbacks](#benefits-and-drawbacks)
+- [Wrapping up](#wrapping-up)
 
 
 <br>
