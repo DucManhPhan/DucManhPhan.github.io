@@ -51,7 +51,7 @@ Before jumping directly into the lifecycle of the entity's state in Hibernate, w
 
 5. Entity
 
-    An entity is a persistent domain object. Each entity class will represent a table in our database, and an entity’s instance will contain the data of a single row of that table.
+    An entity is a persistent domain object. Each entity class will represent a table in our database, and an entity's instance will contain the data of a single row of that table.
 
     Each entity will have an id field that represents the primary key in the table.
 
