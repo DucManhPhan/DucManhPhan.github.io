@@ -2,7 +2,7 @@
 layout: post
 title: Some useful commands in Redis
 bigimg: /img/image-header/factory.jpg
-tags: [Redis]
+tags: [Caching]
 ---
 
 Redis is important component when we want to design scalable system. It is used as cache for our system. So, in this article, we will learn how to use some commands in Redis.
@@ -45,7 +45,6 @@ Let's get started.
         ```bash
         sudo apt install -y redis-tools 
         ```
-
 <br>
 
 ## Connect with local/remote redis server
@@ -60,7 +59,6 @@ redis-cli
 # 2nd - Connect to the remote server
 redis-cli -h <ip_addr> -p <port_number> -a <password>
 ```
-
 
 <br>
 
@@ -168,7 +166,24 @@ redis-cli -h <ip_addr> -p <port_number> -a <password>
     type phone_type
     ```
 
+4. Get the value of a key depends on its type
 
+    ```bash
+    # string data type
+    get <key>
+
+    # hash data type
+    hgetall <key>
+
+    # list data type
+    lrange <key> 0 -1
+
+    # set data type
+    smembers <key>
+
+    # zset data type
+    zrange <key> 0 -1 withscores
+    ```
 
 <br>
 
