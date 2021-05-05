@@ -68,10 +68,10 @@ tags: [Multithreading]
 
 Refer:
 
-[]()
+[https://www.baeldung.com/java-threadlocal](https://www.baeldung.com/java-threadlocal)
 
-[]()
+[https://dzone.com/articles/an-alternative-approach-to-threadlocal-using-sprin-1](https://dzone.com/articles/an-alternative-approach-to-threadlocal-using-sprin-1)
 
-[]()
+[https://stackoverflow.com/questions/2218282/should-i-put-my-threadlocals-in-a-spring-injected-singleton](https://stackoverflow.com/questions/2218282/should-i-put-my-threadlocals-in-a-spring-injected-singleton)
 
 []()
