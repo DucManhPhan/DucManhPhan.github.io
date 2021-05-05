@@ -23,17 +23,23 @@ tags: [Multithreading]
 
 ## Given problem
 
+Suppose that in a multithreading project, we need to create a data structure that is only used in each thread. When a new thread is created, that data structure is also created to contain that thread's information.
 
+But according to Java memory model, we knew that corresponding each thread, there is an its own stack on RAM. From our current requirement, this data structure has to bring the characteristics of global variable and local variable. Because it needs to exist in global scope in a thread, but the other threads can't access to it. And it's also a representation of local scope, only in its stack. When a thread completely finishes its job, it automatically releases from JVM or RAM.
 
+If we define a data structure with the **static** modifier, it will be shared by the multiple threads. To avoid the race condition happens in that data structure, we will use implicit lock with synchronized key word, or explicit lock with [Reentrant lock](http://ducmanhphan.github.io/2019-12-31-Reentrant-lock-in-Java/). The drawbacks of using implicit lock or explicit lock are that the performance of an application. So, utilizing lock is not a good option.
 
+How do we deal with this problem?
 
 <br>
 
 ## Solution of ThreadLocal
 
+From the above section [Given problem](#given-problem), there are some problems that we need to solve.
+- prevent the access from the other threads to that data structure in a thread.
+- it only exists in a duration that a thread works.
 
-
-
+Therefore, from Java 7, 
 
 
 <br>
@@ -53,13 +59,32 @@ tags: [Multithreading]
 
 2. Alternative way for ThreadLocal in Spring project
 
+    In Spring, we can use a request-scoped bean that looks like the below code.
+
+    ```java
+    @Component
+    @Scope(value = "request", proxyMode = ScopedProxyMode.INTERFACES)
+    public class SpecificComponent {
+        // do something
+
+        ...
+    }
+    ```
+
+    Belows are the meaning of some options in the annotation @Scope.
+    - value
+    - proxyMode
+
 
 
 <br>
 
 ## Benefits and Drawbacks
 
+1. Benefits
 
+
+2. Drawbacks
 
 
 <br>
@@ -79,4 +104,14 @@ Refer:
 
 [https://stackoverflow.com/questions/2218282/should-i-put-my-threadlocals-in-a-spring-injected-singleton](https://stackoverflow.com/questions/2218282/should-i-put-my-threadlocals-in-a-spring-injected-singleton)
 
-[]()
+[https://automationrhapsody.com/avoid-multithreading-problems-java-using-threadlocal/](https://automationrhapsody.com/avoid-multithreading-problems-java-using-threadlocal/)
+
+[https://medium.com/javarevisited/async-process-using-spring-and-injecting-user-context-6f1af16e9759](https://medium.com/javarevisited/async-process-using-spring-and-injecting-user-context-6f1af16e9759)
+
+[https://www.javaguides.net/2018/09/threadlocal-class-in-java.html](https://www.javaguides.net/2018/09/threadlocal-class-in-java.html)
+
+[https://www.javaer101.com/en/article/1411450.html](https://www.javaer101.com/en/article/1411450.html)
+
+[https://howtodoinjava.com/java/multi-threading/when-and-how-to-use-thread-local-variables/](https://howtodoinjava.com/java/multi-threading/when-and-how-to-use-thread-local-variables/)
+
+[https://smartbear.com/blog/how-and-when-to-use-javas-threadlocal-object/](https://smartbear.com/blog/how-and-when-to-use-javas-threadlocal-object/)
