@@ -19,9 +19,10 @@ In this article, we will learn how to manage application cache from Spring frame
 <br>
 
 ## Introduction to memory in computer
+
 Before diving into Spring caching, we need to understand about how many ways to contains data in computer. Generally speaking, we have a picture that discribe the speed and amount of each part.
 
-![The structure of memory computer](../img/Java-common/spring-caching/memory-structure.gif)
+![The structure of memory computer](../img/Java-Common/spring-caching/memory-structure.gif)
 
 At the top of pyramid, it is CPU Register. It is nearest to the CPU, so it has the highest speed in all of components, and it has the smallest amount of memory when compared with other memories, simply because CPU always need to optimize the space.
 
@@ -29,7 +30,7 @@ The contents of a register are lost if power to the CPU is turned off, so regist
 
 The second thing is Cache (this is not relevant to our cache in this article). Modern computers have both L1 and L2 caches, and may now also have L3 cache. To understand why these cache is faster than RAM, permanent storage such as HDD, SSD, ... we need to see the below image:
 
-![Cache memory](../img/Java-common/spring-caching/cache-memory.jpg)
+![Cache memory](../img/Java-Common/spring-caching/cache-memory.jpg)
 
 RAM - Random Access Memory is the most commom form of Main Memory. RAM is normally located on the motherboard. Although slower than register, L-cache, the contents of any location in RAM can still be read or written very quickly.The time to read or write is referred to as the access time and is the same for all RAM locations. 
 
@@ -39,11 +40,12 @@ ROM is often used to store the **boot** or start-up program that a computer exec
 
 Here is the summary of characteristic about memories.
 
-![Summary of Characteristic](../img/Java-common/spring-caching/summary-of-characteristic.png)
+![Summary of Characteristic](../img/Java-Common/spring-caching/summary-of-characteristic.png)
 
 <br>
 
 ## The cause to create cache
+
 Our cache is not the same as L-cache in hardware. Our cache is a part of RAM memory.
 
 In web development, we always to interact with database. This implementation with database takes so much time mainly because we have to access to disk memory such as HDD, SSD, ... 
@@ -55,6 +57,7 @@ Therefore, to remove this limitation, we will use the concept - Cache.
 <br>
 
 ## Introduction to caching
+
 Caching is a mechanism to enhace the performance of system. It is a temporary memory that lies between the application and the persistent database. 
 
 Cache memory stores recently used data items in order to reduce the number of database hits as much as possible.
@@ -64,10 +67,11 @@ Data access from memory is always faster in comparison to fetching from storage 
 <br>
 
 ## Types of cache
+
 There are some following types of cache:
 - In-memory caching
 
-     This is the most frequently used area where caching is used extensively to increase performance of the application.
+    This is the most frequently used area where caching is used extensively to increase performance of the application.
      
     In-memory caches such as Memcached and Radis are key-value stores between your application and your data storage. Since the data is held in RAM, it is much faster than typical databases where data is stored on disk.
 
@@ -88,9 +92,10 @@ There are some following types of cache:
 <br>
 
 ## How Spring Caching mechanism works
+
 The below image is used to describe the mechanism of Spring Caching.
 
-![The mechanism of Spring Caching](../img/Java-common/spring-caching/spring-caching-mechanism.jpg)
+![The mechanism of Spring Caching](../img/Java-Common/spring-caching/spring-caching-mechanism.jpg)
 
 1. Server receives requests from user.
 
