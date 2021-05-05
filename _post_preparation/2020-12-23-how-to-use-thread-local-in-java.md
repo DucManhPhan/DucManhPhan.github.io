@@ -47,6 +47,11 @@ tags: [Multithreading]
 
 ## Source code
 
+1. Using ThreadLocal in Java project
+
+
+
+2. Alternative way for ThreadLocal in Spring project
 
 
 
