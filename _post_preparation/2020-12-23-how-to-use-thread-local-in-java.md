@@ -43,6 +43,17 @@ Therefore, from Java 2, it provides the ThreadLocal concept to solve this proble
 
 1. How ThreadLocal works
 
+    - How ThreadLocal is created
+
+
+
+
+    - How ThreadLocal and ThreadPool interact
+
+
+
+        Then, there are two solutions for solving the problem of utilizing the other threads's data again.
+        - First, after finishing our job in a thread, should we call remove() method.
 
 
 2. Some methods of ThreadLocal
@@ -63,12 +74,6 @@ Therefore, from Java 2, it provides the ThreadLocal concept to solve this proble
 
     
 
-3. Best practices for ThreadLocal
-
-
-
-
-
 <br>
 
 ## When to use
@@ -82,7 +87,11 @@ Therefore, from Java 2, it provides the ThreadLocal concept to solve this proble
 
 1. Using ThreadLocal in Java project
 
+    To use ThreadLocal correctly, its instances are typically **private static fields** in classes that wish to associate state with a thread.
 
+    ```java
+
+    ```
 
 2. Alternative way for ThreadLocal in Spring project
 
