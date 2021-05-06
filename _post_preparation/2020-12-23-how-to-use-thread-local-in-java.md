@@ -49,9 +49,13 @@ Therefore, from Java 2, it provides the ThreadLocal concept to solve this proble
 
     - How ThreadLocal and ThreadPool interact
 
+        From Java 1.5, it provides the Executor framework to support Java developers to manage multiple threads, then, after finishing a thread's job, this thread will be reclaimed from Thread Pool. So the Thread Pool continues to assign other tasks to the available threads.
 
+        In our case, due to the fact that after reclaiming a thread, it also means take the thread-local variable to the Thread Pool, the thread-local variable's data is available, not removed by anothing. Therefore, when assigning a new task for an reclaimed thread, that thread will use a stale data of the thread-local variable.
 
-        Then, there are two solutions for solving the problem of utilizing the other threads's data again.
+        Finally, it is a bug that we don't want to encounter. So, how do we overcome this problem?
+
+        There are two solutions for solving the problem of utilizing the other threads's data again.
         - First, after finishing our job in a thread, should we call **remove()** method.
         - Second, if we don't need to call **ThreadLocal.remove()** method manually, we can create a new **ExecutorService** that is subclassed from **ThreadPoolExecutor** class.
 
@@ -176,7 +180,6 @@ Therefore, from Java 2, it provides the ThreadLocal concept to solve this proble
     Belows are the meaning of some options in the annotation @Scope.
     - value
     - proxyMode
-
 
 
 <br>
