@@ -54,7 +54,7 @@ Therefore, from Java 2, it provides the ThreadLocal concept to solve this proble
 
         Then, there are two solutions for solving the problem of utilizing the other threads's data again.
         - First, after finishing our job in a thread, should we call **remove()** method.
-        - Second, if we don't need to call **ThreadLocal.remove()** method manually, we can create a new ExecutorService that is subclassed from ThreadPoolExecutor class.
+        - Second, if we don't need to call **ThreadLocal.remove()** method manually, we can create a new **ExecutorService** that is subclassed from **ThreadPoolExecutor** class.
 
             ```java
             public interface Executor {
@@ -85,8 +85,29 @@ Therefore, from Java 2, it provides the ThreadLocal concept to solve this proble
                 protected <T> RunnableFuture<T> newTaskFor(Runnable runnable, T value);
                 protected <T> RunnableFuture<T> newTaskFor(Callable runnable, T value);
             }
+
+            public class ThreadPoolExecutor extends AbstractExecutorService {
+                ...
+
+                protected void afterExecute(Runnable r, Throwable t);
+
+                protected void beforeExecute(Thread t, Runnable r);
+
+                protected void terminated();
+            }
             ```
 
+            The **ThreadPoolExecutor** class offers two hook methods, contains **beforeExecute()** and **afterExecute()** methods, that are called before and after execution of each task. These can be used to manipulate the execution environment, for example, reinitializing ThreadLocals, gather statistics, or adding log entries.
+
+            The method **terminated()** can be overriden to perform any special processing that needs to be done once the Executor has fully terminated. By default, this **terminated()** method does nothing.
+            
+            If our current **ThreadPoolExecutor** is subclassed from multiple parent classes, we need to call **super.terminated()**, **super.beforeExecute()**, and **super.afterExecute()** method within this method.
+
+            If hook or callback methods throw exceptions, internal worker threads may in turn fail and abruptly terminate.
+            
+            ```java
+            
+            ```
 
 2. Some methods of ThreadLocal
 
@@ -183,3 +204,5 @@ Refer:
 [https://howtodoinjava.com/java/multi-threading/when-and-how-to-use-thread-local-variables/](https://howtodoinjava.com/java/multi-threading/when-and-how-to-use-thread-local-variables/)
 
 [https://smartbear.com/blog/how-and-when-to-use-javas-threadlocal-object/](https://smartbear.com/blog/how-and-when-to-use-javas-threadlocal-object/)
+
+[https://docs.oracle.com/javase/7/docs/api/java/util/concurrent/ThreadPoolExecutor.html](https://docs.oracle.com/javase/7/docs/api/java/util/concurrent/ThreadPoolExecutor.html)
