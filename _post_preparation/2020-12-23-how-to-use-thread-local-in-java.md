@@ -53,7 +53,39 @@ Therefore, from Java 2, it provides the ThreadLocal concept to solve this proble
 
 
         Then, there are two solutions for solving the problem of utilizing the other threads's data again.
-        - First, after finishing our job in a thread, should we call remove() method.
+        - First, after finishing our job in a thread, should we call **remove()** method.
+        - Second, if we don't need to call **ThreadLocal.remove()** method manually, we can create a new ExecutorService that is subclassed from ThreadPoolExecutor class.
+
+            ```java
+            public interface Executor {
+                void execute(Runnable command);
+            }
+
+            public interface ExecutorService extends Executor {
+                boolean awaitTermination(long timeout, TimeUnit unit) throws InterruptedException;
+                <T> Future<T> submit(Callable<T> task);
+                <T> Future<T> submit(Runnable<T> task, T result);
+                Future<?> submit(Runnable task);
+
+                <T> List<Future<T>> invokeAll(Collection<? extends Callable<T>> tasks);
+                <T> List<Future<T>> invokeAll(Collection<? extends Callable<T>> tasks, long timeout, TimeUnit unit);
+
+                <T> List<Future<T>> invokeAny(Collection<? extends Callable<T>> tasks);
+                <T> List<Future<T>> invokeAny(Collection<? extends Callable<T>> tasks, long timeout, TimeUnit unit);
+
+                boolean isTerminated();
+                boolean isShutdown();
+                List<Runnable> shutdownNow();
+                void shutdown();
+            }
+
+            // AbstractExecutorService class implements submit(), invokeAny(), and invokeAll() methods
+            // using a RunnableFuture returned by newTaskFor()
+            public class AbstractExecutorService extends Object implements ExecutorService {
+                protected <T> RunnableFuture<T> newTaskFor(Runnable runnable, T value);
+                protected <T> RunnableFuture<T> newTaskFor(Callable runnable, T value);
+            }
+            ```
 
 
 2. Some methods of ThreadLocal
