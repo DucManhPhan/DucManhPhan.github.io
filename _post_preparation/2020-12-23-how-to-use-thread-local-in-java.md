@@ -39,7 +39,34 @@ From the above section [Given problem](#given-problem), there are some problems 
 - prevent the access from the other threads to that data structure in a thread.
 - it only exists in a duration that a thread works.
 
-Therefore, from Java 7, 
+Therefore, from Java 2, it provides the ThreadLocal concept to solve this problem.
+
+1. How ThreadLocal works
+
+
+
+2. Some methods of ThreadLocal
+
+    Belows are method that ThreadLocal supports.
+
+    ```java
+    public class ThreadLocal<T> extends Object {
+        public ThreadLocal();
+        protected T initialValue();
+        public T get();
+        public void set(T value);
+
+        # since java 1.5
+        public void remove();
+    }
+    ```
+
+    
+
+3. Best practices for ThreadLocal
+
+
+
 
 
 <br>
