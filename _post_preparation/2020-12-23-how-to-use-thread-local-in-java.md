@@ -106,7 +106,7 @@ Therefore, from Java 2, it provides the ThreadLocal concept to solve this proble
             If hook or callback methods throw exceptions, internal worker threads may in turn fail and abruptly terminate.
             
             ```java
-            
+
             ```
 
 2. Some methods of ThreadLocal
@@ -125,14 +125,25 @@ Therefore, from Java 2, it provides the ThreadLocal concept to solve this proble
     }
     ```
 
-    
+    Each thread holds an implicit reference to its copy of a thread-local variable as long as the thread is alive and the ThreadLocal instance is accessible. After a thread goes away, all of its copies of thread-local instance are subject to garbage collection (unless other references to these copies exist).
+
+    Then, the usage of TheadLocal's methods:
+    - By default, the internal value of ThreadLocal is null.
+
+    - If the set() method doesn't use to construct the ThreadLocal's value or after the remove() method is called, calling the get() method will invoke initialValue() method to return its value.
+
+    - The get() method will return the current thread's copy of this thread-local variable.
+
+    - The set() method will set the current thread's copy of this thread-local variable to the specified value.
+
+    - The remove() method will remove the current thread's value for this thread-local variable.
+
 
 <br>
 
 ## When to use
 
-
-
+- When our data is only used in a thread, not share to the other threads.
 
 <br>
 
@@ -172,9 +183,12 @@ Therefore, from Java 2, it provides the ThreadLocal concept to solve this proble
 
 1. Benefits
 
+    - improve the performance of an application when we don't need to use the implicit/explicit locks.
+    - reduce the boilerplate code, dirty signature of methods because we move the shared data within a thread to a singleton object.
 
 2. Drawbacks
 
+    - If we miss to clear the ThreadLocal's data, the other threads can utilize in its business logic. So, it can produce a bug.
 
 <br>
 
