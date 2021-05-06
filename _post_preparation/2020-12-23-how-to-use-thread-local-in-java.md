@@ -43,8 +43,7 @@ Therefore, from Java 2, it provides the ThreadLocal concept to solve this proble
 
 1. How ThreadLocal works
 
-    - How ThreadLocal is created
-
+    - How ThreadLocal is created internally
 
 
 
@@ -120,8 +119,11 @@ Therefore, from Java 2, it provides the ThreadLocal concept to solve this proble
         public T get();
         public void set(T value);
 
-        # since java 1.5
+        // since java 1.5
         public void remove();
+
+        // since java 1.8
+        public static <S> ThreadLocal<S> withInitial(Supplier<? extends S> supplier)
     }
     ```
 
