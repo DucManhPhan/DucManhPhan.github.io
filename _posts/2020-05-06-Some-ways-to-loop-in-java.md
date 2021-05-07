@@ -74,11 +74,6 @@ Benefits of using for-each loop:
 Drawbacks of using for-each loop:
 - Don't remove or update an item, it can throw a ConcurrentModificationException exception.
 
-When to use:
-- 
-- 
-- 
-
 <br>
 
 ## Using iterator pattern
@@ -112,64 +107,53 @@ Drawbacks of using iterator pattern:
 
 ## Using stream API
 
+From Java 8, we can work with some concepts of functional programming such as lambda, stream, higher-order function, currying, ... To take advantage of functional programming such as reduce complexity - it doesn't like object oriented programming that only isolate complexity from other things, remove side effect, enhance defensive coding.
 
+From the above points, we will try to use stream api.
 
 For example:
 
 ```java
-
+List<String> strings = Arrays.asList("Hello, ", "world", "!");
+strings.stream().forEach(str -> System.out.println(str));
 ```
 
 Benefits of using Stream API:
-- 
-- 
-- 
+- our code is concise and easy to understand --> declarative programming.
+- If each business logic doesn't create a side effect, use parallel stream to improve the performance.
 
 Drawbacks of using Stream API:
-- 
-- 
-- 
+- It's difficult to debug when using functional programming.
 
-When to use:
-- 
-- 
-- 
 
 <br>
 
 ## Using reactive stream with RxJava, Reactor core
 
+For example:
 
+```java
+// using RxJava 3.0.12
+List<String> strings = Arrays.asList("Hello, ", "world", "!");
+Observable<String> observable = Observable.fromIterable(strings);
 
-
-
+observable.doOnNext(str -> System.out.println("Emitted: " + str))
+          .doOnComplete(() -> System.out.println("Completed"))
+          .subscribe(str -> System.out.println(str));
+```
 
 Benefits of using reactive stream:
-- 
-- 
-- 
+- To clarify the advantages of reative stream, we need to read about [Reactive Manifesto](https://www.reactivemanifesto.org/).
 
 Drawbacks of using reactive stream:
-- 
-- 
-- 
-
-When to use:
-- 
-- 
-- 
-
-
+- To beginner about reactive programming, this programming can difficult to understand how it works.
 
 <br>
 
 ## Wrapping up
+
 - The basic loop is not recommended as we do not know the implementation of the list.
 
     If that was a ```LinkedList```, each call to ```list.get(i)``` would be iterating over the list, resulting in ```N^2``` time complexity.
 
 - The performance of each type loop depends largely on the type of the data structures.
-
-Refer:
-
-[https://stackoverflow.com/questions/18410035/ways-to-iterate-over-a-list-in-java](https://stackoverflow.com/questions/18410035/ways-to-iterate-over-a-list-in-java)
