@@ -126,6 +126,7 @@ Benefits of using Stream API:
 
 Drawbacks of using Stream API:
 - It's difficult to debug when using functional programming.
+- Once the **Stream.forEach()** method starts, we can't break out of the iteration.
 
 
 <br>
