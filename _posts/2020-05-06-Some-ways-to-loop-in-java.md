@@ -44,6 +44,8 @@ Drawbacks of using traditional for loop:
 
     With the small, easy tasks and business logic, this way isn't suitable.
 
+- quite difficult to parallelize.
+
 When to use:
 - When we want to our code base is suitable with multiple Java's versions, and other languages can use without any modifications.
 - When coding in competitive programming
@@ -157,3 +159,5 @@ Drawbacks of using reactive stream:
     If that was a ```LinkedList```, each call to ```list.get(i)``` would be iterating over the list, resulting in ```N^2``` time complexity.
 
 - The performance of each type loop depends largely on the type of the data structures.
+
+- With the traditional for loop, for-each loop, iterator pattern, it violates the **Tell, don't ask** principle. This principle is what the declarative programming abide by, it only concentrates on what to do, not how to do.
