@@ -10,55 +10,69 @@ tags: [Java]
 <br>
 
 ## Table of contents
+- [Utilizing traditional for loop](#utilizing-traditional-for-loop)
 - [For-each loop](#for-each-loop)
 - [Using iterator](#using-iterator)
-- [Utilizing traditional for loop](#utilizing-traditional-for-loop)
 - [Using Stream API](#using-stream-api)
+- [Using Reactive stream with RxJava, Reactor core](#using-reactive-stream-with-rxjava,-reactor-core)
+- [Wrapping up](#wrapping-up)
 
-
-<br>
-
-## For-each loop
-1. 
-
-
-
-2. Map data structure
-
-    ```java
-    private static Map<String, Object> propsToMap(Properties properties) {
-        Map<String, Object> map = new HashMap<>(properties.size());
-        for (Map.Entry<Object, Object> entry : properties.entrySet()) {
-            if (entry.getKey() instanceof String) {
-                String k = (String) entry.getKey();
-                map.put(k, properties.get(k));
-            } else {
-                throw new ConfigException(entry.getKey().toString(), entry.getValue(), "Key must be a string.");
-            }
-        }
-
-        return map;
-    }
-    ```
-
-
-<br>
-
-## Using iterator
-- 
-- 
-- We can only modify the list contents by removing the current element, and then only if we do it through the ```remove()``` method of iterator itself.
 
 <br>
 
 ## Utilizing traditional for loop
 
+When using traditional **for** loop means that we utilize index-based iteration, we're free to modify the list in any way.
 
-- When using traditional for loop means that we utilize index-based iteration, we're free to modify the list in any way.
+For example:
+
+```java
+List<String> strings = Arrays.asList("", "", "");
+```
+
+
+<br>
+
+## For-each loop
+
+Under the hood, the for-each loop utilizes the Iterator interface and calls into its hasNext() and next() methods.
+
+
+
+
+
+
+
+<br>
+
+## Using iterator
+
+We can only modify the list contents by removing the current element, and then only if we do it through the ```remove()``` method of iterator itself.
+
+
+
+
+
+
+
 
 <br>
 
 ## Using Stream API
+
+
+
+
+
+
+<br>
+
+## Using Reactive stream with RxJava, Reactor core
+
+
+
+
+
 
 
 
