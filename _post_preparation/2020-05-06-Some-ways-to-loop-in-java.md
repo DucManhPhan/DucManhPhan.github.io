@@ -27,21 +27,57 @@ When using traditional **for** loop means that we utilize index-based iteration,
 For example:
 
 ```java
-List<String> strings = Arrays.asList("", "", "");
+List<String> strings = Arrays.asList("Hello, ", "world", "!");
+
+for (int i = 0; i< strings.size(); ++i) {
+
+}
 ```
 
+Benefits of using traditional for loop:
+- 
+- 
+- 
+
+
+Drawbacks of using traditional for loop:
+- 
+- 
+- 
+
+When to use:
+- 
+- 
+- 
 
 <br>
 
 ## Using for-each loop
 
-Under the hood, the for-each loop utilizes the Iterator interface and calls into its hasNext() and next() methods.
+Under the hood, the for-each loop utilizes the **Iterator** interface and calls into its **hasNext()** and **next()** methods.
+
+For example:
+
+```java
 
 
+```
+
+Benefits of using for-each loop:
+- 
+- 
+- 
 
 
+Drawbacks of using for-each loop:
+- 
+- 
+- 
 
-
+When to use:
+- 
+- 
+- 
 
 <br>
 
@@ -53,6 +89,21 @@ We can only modify the list contents by removing the current element, and then o
 
 
 
+Benefits of using for-each loop:
+- 
+- 
+- 
+
+
+Drawbacks of using for-each loop:
+- 
+- 
+- 
+
+When to use:
+- 
+- 
+- 
 
 
 
@@ -62,8 +113,26 @@ We can only modify the list contents by removing the current element, and then o
 
 
 
+For example:
 
+```java
 
+```
+
+Benefits of using Stream API:
+- 
+- 
+- 
+
+Drawbacks of using Stream API:
+- 
+- 
+- 
+
+When to use:
+- 
+- 
+- 
 
 <br>
 
@@ -73,6 +142,21 @@ We can only modify the list contents by removing the current element, and then o
 
 
 
+
+Benefits of using reactive stream:
+- 
+- 
+- 
+
+Drawbacks of using reactive stream:
+- 
+- 
+- 
+
+When to use:
+- 
+- 
+- 
 
 
 
