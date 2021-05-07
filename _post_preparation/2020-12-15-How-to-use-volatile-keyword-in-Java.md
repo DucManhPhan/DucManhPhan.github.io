@@ -50,12 +50,14 @@ Volatile only guarantees that any read after a write will retrieve the last writ
 ## Benefits and drawbacks
 1. Benefits
 
-
+    - 
+    - 
 
 
 2. Drawbacks
-- 
 
+    - 
+    - 
 
 <br>
 
