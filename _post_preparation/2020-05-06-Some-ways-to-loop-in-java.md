@@ -10,9 +10,9 @@ tags: [Java]
 <br>
 
 ## Table of contents
-- [Utilizing traditional for loop](#utilizing-traditional-for-loop)
-- [For-each loop](#for-each-loop)
-- [Using iterator](#using-iterator)
+- [Using traditional for loop](#using-traditional-for-loop)
+- [Using for-each loop](#using-for-each-loop)
+- [Using iterator pattern](#using-iterator-pattern)
 - [Using Stream API](#using-stream-api)
 - [Using Reactive stream with RxJava, Reactor core](#using-reactive-stream-with-rxjava,-reactor-core)
 - [Wrapping up](#wrapping-up)
@@ -20,7 +20,7 @@ tags: [Java]
 
 <br>
 
-## Utilizing traditional for loop
+## Using traditional for loop
 
 When using traditional **for** loop means that we utilize index-based iteration, we're free to modify the list in any way.
 
@@ -33,7 +33,7 @@ List<String> strings = Arrays.asList("", "", "");
 
 <br>
 
-## For-each loop
+## Using for-each loop
 
 Under the hood, the for-each loop utilizes the Iterator interface and calls into its hasNext() and next() methods.
 
@@ -45,7 +45,7 @@ Under the hood, the for-each loop utilizes the Iterator interface and calls into
 
 <br>
 
-## Using iterator
+## Using iterator pattern
 
 We can only modify the list contents by removing the current element, and then only if we do it through the ```remove()``` method of iterator itself.
 
@@ -58,7 +58,7 @@ We can only modify the list contents by removing the current element, and then o
 
 <br>
 
-## Using Stream API
+## Using stream API
 
 
 
@@ -67,7 +67,7 @@ We can only modify the list contents by removing the current element, and then o
 
 <br>
 
-## Using Reactive stream with RxJava, Reactor core
+## Using reactive stream with RxJava, Reactor core
 
 
 
