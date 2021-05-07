@@ -136,13 +136,13 @@ Therefore, from Java 2, it provides the ThreadLocal concept to solve this proble
     Then, the usage of TheadLocal's methods:
     - By default, the internal value of ThreadLocal is null.
 
-    - If the set() method doesn't use to construct the ThreadLocal's value or after the remove() method is called, calling the get() method will invoke initialValue() method to return its value.
+    - If the **set()** method doesn't use to construct the ThreadLocal's value or after the **remove()** method is called, calling the get() method will invoke **initialValue()** method to return its value.
 
-    - The get() method will return the current thread's copy of this thread-local variable.
+    - The **get()** method will return the current thread's copy of this thread-local variable.
 
-    - The set() method will set the current thread's copy of this thread-local variable to the specified value.
+    - The **set()** method will set the current thread's copy of this thread-local variable to the specified value.
 
-    - The remove() method will remove the current thread's value for this thread-local variable.
+    - The **remove()** method will remove the current thread's value for this thread-local variable.
 
 
 <br>
