@@ -1,6 +1,6 @@
 ---
 layout: post
-title: How to use the terminal operators in Java's functional programming
+title: How to use the terminal operators in Java's stream
 bigimg: /img/image-header/yourself.jpeg
 tags: [Functional Programming]
 ---
