@@ -11,9 +11,11 @@ tags: [Functional Programming]
 <br>
 
 ## Table of contents
-
-
-
+- [Given problem](#given-problem)
+- [Solution of the terminal operators ]()
+- []()
+- [Benefits and Drawbacks](#benefits-and-drawbacks)
+- [Wrapping up](#wrapping-up)
 
 
 <br>
@@ -42,9 +44,16 @@ tags: [Functional Programming]
 
 <br>
 
-## 
+## Reduce operator
 
 
+For example:
+
+```java
+List<Integer> prices = Arrays.asList(6, 3, 5, 9, 12);
+final int max = prices.stream()
+                      .reduce(0, Math::max);  
+```
 
 
 <br>
