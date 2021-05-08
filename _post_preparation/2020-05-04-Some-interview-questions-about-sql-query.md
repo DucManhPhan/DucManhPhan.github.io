@@ -47,7 +47,7 @@ tags: [Database, Interview question]
 
     |      employeeId       |       Salary       |
     | --------------------- | ------------------ |
-    
+    | 101
 
 
 
