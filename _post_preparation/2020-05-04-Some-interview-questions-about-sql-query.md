@@ -10,9 +10,12 @@ tags: [Database, Interview question]
 <br>
 
 ## Table of contents
-
-
-
+- [The difference between WHERE clause and HAVING clause](#the-difference-between-where-clause-and-having-clause)
+- []()
+- []()
+- []()
+- []()
+- [Wrapping up](#wrapping-up)
 
 
 <br>
@@ -81,3 +84,9 @@ tags: [Database, Interview question]
 <br>
 
 Refer:
+
+[SQL "difference between" interview questions (part 1)](https://www.youtube.com/watch?v=RZc4QSRRk98&t=10s)
+
+[]()
+
+[]()
