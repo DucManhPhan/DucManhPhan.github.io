@@ -1,6 +1,6 @@
 ---
 layout: post
-title: What is thread in Java
+title: What is a thread in Java
 bigimg: /img/image-header/yourself.jpeg
 tags: [Multithreading]
 ---
