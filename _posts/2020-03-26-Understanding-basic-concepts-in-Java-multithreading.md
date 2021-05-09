@@ -38,21 +38,23 @@ Let's get started.
 
 <br>
 
-## Multithreading, Concurrency, Parallel
-- Multithreading is the ability to run several threads of computation at the same time in the same process.
+## The basic concepts of multithreading, concurrency, Parallelism
 
-- Concurrency means when a task is broken down into smaller pieces and run simultaneously.
+- Multithreading is the ability of an application that can handle multiple tasks at a time and to synchronize those tasks.
+
+- Concurrency is the ability of an application to handle the multiple tasks it works on. The program or application can process one task at a time (sequence processing with context switching) or process multiple tasks at the same time (concurrent processing).
 
 - Parallel
 
 <br>
 
 ## Race condition
-When two different threads are trying to read or write the the same variable or the same field, at the same time, so, this concurrent reading and writing is what is called a race condition.
+
+When two different threads are trying to read or write the same variable or the same field, at the same time, so this concurrent reading and writing is what is called a race condition.
 
 Several threads can be able to read the same variable at the same time, if the value of this variable does not change, it will not raise an issue. But if they are reading and writing the same variable, then it may raise a problem.
 
-```same time``` does not mean the same thing on a single core and on a multi core CPU.
+```The same time``` does not mean the same thing on a single core and on a multi core CPU.
 
 In order to give an example of race condition, we will go into Singleton pattern in multithreading.
 
@@ -90,12 +92,14 @@ So, we have a questions about the above code of Singleton pattern - What is happ
 
 ```*``` --> Because T1 is in the **if** block, it will not check if the instance field has been initialized one more time. So, it will create another instance of singleton, and copy it in the **private static field instance**, thus erasing the instance that has beeen created by the thread T2.
 
-Solution
+Solution:
 - In order to prevent the race condition, we need to use synchronization.
 
 <br>
 
-## Characteristic of thread
+## Characteristic of a thread
+
+Belows are some characteristics of a thread.
 - Need its own stack
 - Have some memory overhead
 - Creating and destroying takes time
@@ -105,12 +109,15 @@ Solution
 
     There are three reasons for the scheduler to pause a thread, and to tell a thread --> now, it is the time to run another thread, so we should stop running.
     - First, the CPU resource should be share equally among the thread, and there are sometimes very sophisticated priority stuff that are taken into account to share equally the CPU as a resouce.
+
     - A thread might be waiting for some more data. Think about a thread that is doing some input output, reading or writing data to a disk or to a network. We know that writing or reading from a disk is a slow process. If the CPU is very fast, it might pause a thread waiting for the data to be available.
+
     - A thread might be waiting for another thread to do something. For instance, to release a resource.
 
 <br>
 
 ## How to use correct concurrent code
+
 1. Check for race conditions
 
     - We need to have a look at our code and especially what is happening to the fields of our classes because race conditions cannot occur on variables inside methods nor parameters.
@@ -140,11 +147,10 @@ Solution
 
 <br>
 
-## Benefits and drawback for using threads
+## Benefits and Drawbacks for using threads
 1. Benefits
 
     - Improve performance of system when we choose the compatible number of threads.
-
 
 2. Drawbacks when using too many threads
 
@@ -156,13 +162,20 @@ Solution
 
 ## Some consequences of multithreading when using it improperly
 
-Depending on the consequences, the problems caused by concurrency can be categorized into three types:
-1. **race conditions**: the program ends with an undesired output, resulting from the sequence of execution among the processes.
+Depending on the consequences, the problems caused by concurrency can be categorized into some types:
+1. **race conditions**
 
-2. **deadlocks**: the concurrent processes wait for some necessary resources from each other. As a result, none of them can make progress.
+    The program ends with an undesired output, resulting from the sequence of execution among the processes.
 
-3. **resource starvation**: a process is perpetually denied necessary resources to progress its works.
+2. **deadlocks**
 
+    The concurrent processes wait for some necessary resources from each other. As a result, none of them can make progress.
+
+3. **resource starvation**
+
+    A process is perpetually denied necessary resources to progress its works.
+
+4. **live lock**
 
 <br>
 
@@ -182,3 +195,5 @@ Refer:
 [https://takuti.me/note/parallel-vs-concurrent/](https://takuti.me/note/parallel-vs-concurrent/)
 
 [https://medium.com/swift-india/concurrency-parallelism-threads-processes-async-and-sync-related-39fd951bc61d](https://medium.com/swift-india/concurrency-parallelism-threads-processes-async-and-sync-related-39fd951bc61d)
+
+[The complete coding interview guide in Java](https://packtpub.com)

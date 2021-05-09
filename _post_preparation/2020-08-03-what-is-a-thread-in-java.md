@@ -31,10 +31,11 @@ tags: [Multithreading]
 
 ## Solution with using threads
 
+Before going to the concept of a thread, it's crucial for being aware of a process. A process is an executing instance of a program. Each process has its own memmory space. The communication between processes is complicated, difficult.
 
+A thread is a lightweight subprocess that represents a smallest executable unit of work of a process. Multiple threads in a process shares the common memory.
 
-
-
+Belows are some descriptions about threads in Java.
 1. Threads that are managed by JVM
 
 
@@ -66,9 +67,12 @@ tags: [Multithreading]
 
 1. Benefits
 
-    - Reduced memory utilization. The memory overhead of creatign another thread is limited to the stack plus some bookkeeping memory needed by the thread manager. 
+    - Reduced memory utilization. The memory overhead of creatign another thread is limited to the stack plus some bookkeeping memory needed by the thread manager.
+
     - No advanced techniques required to access server global-data. If the data could possibly be modified by another concurrently running thread, all that threads to be done is to protect the relevant section with a mutual exclusion lock or mutex. In the absence of such a possibility, the global data is accessed as if there were no threads to worry about.
+
     - Creating a thread takes much less time than creating a process because there is no need to copy the heap segment, which could be very large.
+
     - The kernel spends less time in the scheduler on context switches between threads than between processes. This leaves more CPU time for the heavily loaded server to do its job.
 
 2. Drawbacks
@@ -81,8 +85,7 @@ tags: [Multithreading]
 
 ## Comparison between Thread and Process
 
-
-
+The main difference between Thread and Process is that the threads use the same memory but processes don't do that.
 
 
 <br>
