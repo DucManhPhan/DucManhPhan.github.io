@@ -40,11 +40,38 @@ Let's get started.
 
 ## The basic concepts of multithreading, concurrency, Parallelism
 
-- Multithreading is the ability of an application that can handle multiple tasks at a time and to synchronize those tasks.
+- Multithreading is the ability of an application that can handle multiple tasks at a time and to synchronize those tasks. 
+
+    This means that multithreading allows the maximum utilization of a CPU by executing two or more tasks virtually at the same time. It means that the tasks only look like they are running simultanenously; however, essentially, they can't do that. They take advantage of CPU context switching or the time slicing feature of the OS. In other words, CPU time is shared across all running tasks, and each tasks is scheduled to run for a certain period of time.
 
 - Concurrency is the ability of an application to handle the multiple tasks it works on. The program or application can process one task at a time (sequence processing with context switching) or process multiple tasks at the same time (concurrent processing).
 
-- Parallel
+- Parallelism
+
+So, to recap about concurrency and parallelism, we have:
+- Concurrency is about handling (not doing) lots of things at once; while parallelism is about doing lots of things at once.
+
+    ![](../img/Java/Multithreading/basic-concepts/parallel-concurrent-both.jpg)
+
+- With a single core CPU, we may achieve concurrency but not parallelism.
+
+- An application can be splitted into some types:
+
+    - Concurrent but not parallel
+
+        It handles more than one task at the same time, but no two tasks are executed at the same time.
+
+    - Parallel but not concurrent
+
+        It executes multiple subtasks of a task in a multicore CPU at the same time.
+
+    - Neither parallel nor concurrent
+
+        It executes all of the tasks at a time (sequential execution).
+
+    - Both parallel and concurrent
+
+        It executes multiple tasks concurrently in a multicore CPU at the same time.
 
 <br>
 
@@ -187,6 +214,8 @@ Depending on the consequences, the problems caused by concurrency can be categor
     - Multiple threads executing inside a method is not a problem in itself, problem arises when these threads try to access the same resource.
 
         For instance, class variables, record in a table, a file.
+
+- The synchronization of a multithreaded environment is achieved by locking. Locking is used to orchestrate and limit access to a resource in a multithreaded environment.
 
 <br>
 
