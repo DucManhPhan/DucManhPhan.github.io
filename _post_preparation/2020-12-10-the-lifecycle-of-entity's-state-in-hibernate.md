@@ -39,7 +39,12 @@ Before jumping directly into the lifecycle of the entity's state in Hibernate, w
 
 2. Persistence Context
 
-    
+    A persistence context is a place that manages entities that currently, we are working with. When a persistence context releases, entities under that persistence context will be in the detached state.
+
+    Belows are some types of Persistence Context that we need to know.
+    - Transaction persistence context
+
+    - Extended persistence context
 
 3. EntityManager
 
@@ -368,3 +373,11 @@ Refer:
 [https://docs.oracle.com/javaee/7/api/javax/persistence/EntityManager.html](https://docs.oracle.com/javaee/7/api/javax/persistence/EntityManager.html)
 
 [https://docs.oracle.com/javaee/7/tutorial/persistence-intro003.htm](https://docs.oracle.com/javaee/7/tutorial/persistence-intro003.htm)
+
+[https://docs.oracle.com/cd/E19798-01/821-1841/6nmq2cpai/index.html](https://docs.oracle.com/cd/E19798-01/821-1841/6nmq2cpai/index.html)
+
+[https://docs.oracle.com/cd/E19798-01/821-1841/bnbqn/index.html](https://docs.oracle.com/cd/E19798-01/821-1841/bnbqn/index.html)
+
+[https://docs.oracle.com/cd/E16439_01/doc.1013/e13981/usclient005.htm](https://docs.oracle.com/cd/E16439_01/doc.1013/e13981/usclient005.htm)
+
+[https://stackoverflow.com/questions/31964927/does-jpas-commit-method-make-entity-detached](https://stackoverflow.com/questions/31964927/does-jpas-commit-method-make-entity-detached)
