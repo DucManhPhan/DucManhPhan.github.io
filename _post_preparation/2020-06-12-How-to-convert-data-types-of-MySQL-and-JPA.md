@@ -61,6 +61,8 @@ tags: [Java]
 
 Refer:
 
+[https://docs.oracle.com/cd/E19798-01/821-1841/6nmq2cpai/index.html](https://docs.oracle.com/cd/E19798-01/821-1841/6nmq2cpai/index.html)
+
 [https://thoughts-on-java.org/persist-localdate-localdatetime-jpa/](https://thoughts-on-java.org/persist-localdate-localdatetime-jpa/)
 
 [https://thoughts-on-java.org/map-date-time-api-jpa-2-2/](https://thoughts-on-java.org/map-date-time-api-jpa-2-2/)

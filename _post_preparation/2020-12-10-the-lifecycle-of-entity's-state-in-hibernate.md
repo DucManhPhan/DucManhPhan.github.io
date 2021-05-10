@@ -37,9 +37,13 @@ Before jumping directly into the lifecycle of the entity's state in Hibernate, w
 
     If we need to access multiple databases, we must configure one EntityManagerFactory per a database.
 
-2. Entity Manager
+2. EntityManager
 
-    EntityManager manages the entities of the application. It provides some operations to interact with database through database driver such as CRUD operations, ...
+    EntityManager is an interface provides some operations to interact with entities that are managed by Persistence Context. An EntityManager is associated with a persistence context.
+
+    There are two types of Entity Manager:
+    - Container-managed
+    - Application-managed
 
 3. Persistence Context
 
@@ -51,9 +55,25 @@ Before jumping directly into the lifecycle of the entity's state in Hibernate, w
 
 5. Entity
 
-    An entity is a persistent domain object. Each entity class will represent a table in our database, and an entity's instance will contain the data of a single row of that table.
+    An entity is a lightweight persistent domain object. Each entity class will represent a table in our database, and an entity's instance will contain the data of a single row of that table.
 
-    Each entity will have an id field that represents the primary key in the table.
+    Each entity will have an **id** field that represents the primary key in the table.
+
+    To define correctly an Entity class, we need to follow [some requirements](https://docs.oracle.com/cd/E19798-01/821-1841/6nmq2cpai/index.html):
+    - The class must be annotated with the javax.persistence.Entity annotation.
+
+    - The class must have a public or protected, no-argument constructor. The class may have other constructors.
+
+    - The class must not be declared final. No methods or persistent instance variables must be declared final.
+
+    - If an entity instance is passed by value as a detached object, such as through a session bean’s remote business interface, the class must implement the Serializable interface.
+
+    - Entities may extend both entity and non-entity classes, and non-entity classes may extend entity classes.
+
+    - Persistent instance variables must be declared private, protected, or package-private and can be accessed directly only by the entity class’s methods. Clients must access the entity’s state through accessor or business methods.
+
+
+
 
 <br>
 
@@ -85,3 +105,5 @@ Refer:
 [https://stackoverflow.com/questions/19930152/what-is-persistence-context](https://stackoverflow.com/questions/19930152/what-is-persistence-context)
 
 [https://docs.jboss.org/hibernate/entitymanager/3.6/reference/en/html_single/#architecture](https://docs.jboss.org/hibernate/entitymanager/3.6/reference/en/html_single/#architecture)
+
+[https://docs.oracle.com/javaee/7/api/javax/persistence/EntityManager.html](https://docs.oracle.com/javaee/7/api/javax/persistence/EntityManager.html)
