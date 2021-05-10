@@ -39,6 +39,8 @@ Before jumping directly into the lifecycle of the entity's state in Hibernate, w
 
 2. Persistence Context
 
+
+
 3. EntityManager
 
     **EntityManager** is an interface provides some operations to interact with entities that are managed by Persistence Context. An **EntityManager** is associated with a persistence context.
@@ -132,7 +134,7 @@ Before jumping directly into the lifecycle of the entity's state in Hibernate, w
 
     - Persistent instance variables must be declared private, protected, or package-private and can be accessed directly only by the entity class’s methods. Clients must access the entity’s state through accessor or business methods.
 
-A this time, we will continue to discuss about the lifecycle of an entity or about the entity's states.
+At this time, we will continue to discuss about the lifecycle of an entity or about the entity's states.
 
 Below is an image that describe the relationship between an entity's state.
 
@@ -140,11 +142,193 @@ Below is an image that describe the relationship between an entity's state.
 
 1. Transient state
 
+    An entity object is instantiated by using new operator, that will be called as a transient object.
+
+    The Persistence Context doesn't managed it. And of course, this transient object doesn't associated with 
+
+    ```java
+    StudentEntity student = new StudentEntity();
+    student.setAge(20);
+    student.setName("Google");
+    ```
+
+    From the transient state to persistent state, there are some methods that supports:
+
+    ```java
+    // Hibernate 5.4
+    public interface Session {
+        // persist
+        void persist(Object object);
+
+        void persist(String entityName, Object object);
+
+        // refresh
+        void refresh(Object object);
+
+        void refresh(Object object, LockMode lockMode);
+
+        void refresh(Object object, LockOptions lockOptions);
+
+        void refresh(String entityName, Object object);
+
+        void refresh(String entityName, Object object, LockOptions lockOptions);
+
+        // merge
+        Object merge(Object object);
+
+        Object merge(String entityName, Object object);
+
+        // save
+        Serializable save(Object object);
+
+        Serializable save(String entityName, Object object);
+
+        // saveOrUpdate
+        void saveOrUpdate(Object object);
+
+        void saveOrUpdate(String entityName, Object object);
+    }
+    ```
+
+    If the persist() method is called on the detached object, IllegalArgumentException will be thrown.
+
 2. Persistent state
+
+    A persistent object is an object that associates with a database record. From that, the Persistence Context will manage it, and cache that object state, easily be aware of its modification.
+
+    To retrieve the persistent object from a database, some methods will supports:
+
+    ```java
+    public interface Session {
+        // load
+        <T> T load(Class<T> theClass, Serializable id);
+
+        <T> T load(Class<T> theClass, Serializable id, LockMode lockMode);
+
+        <T> T load(Class<T> theClass, Serializable id, LockOptions lockOptions);
+
+        void load(Object object, Serializable id);
+
+        Object load(String entityName, Serializable id);
+        
+        Object load(String entityName, Serializable id, LockMode lockMode);
+        
+        Object load(String entityName, Serializable id, LockOptions lockOptions);
+
+        // get
+        <T> T get(Class<T> entityType, Serializable id);
+
+        <T> T get(Class<T> entityType, Serializable id, LockMode lockMode);
+
+        <T> T get(Class<T> entityType, Serializable id, LockOptions lockOptions);
+
+        Object get(String entityName, Serializable id);
+
+        Object get(String entityName, Serializable id, LockMode lockMode);
+
+        Object get(String entityName, Serializable id, LockOptions lockOptions);
+
+        // other queries such as find, ...
+    }
+    ```
+
+    The following methods to make the persistent object become transient object.
+
+    ```java
+    public interface Session {
+        void delete(Object object);
+
+        void delete(String entityName, Object object);
+    }
+    ```
+
+    Some methods to convert the persistent object to detached object.
+
+    ```java
+    public interface Session {
+        // from EntityManager interface
+        void detach(Object entity);
+
+        void evict(Object object);
+
+        void clear();
+
+        // from EntityManager interface
+        void close();
+    }
+    ```
 
 3. Detached state
 
+    Belows are some ways that the persistent object transform to the detached object.
+    - after the transaction commits
+    - 
+    - 
+    - 
+    - 
+    - 
+
+    Some methods to convert the detached object into the persistent object:
+
+    ```java
+    public interface Session {
+
+        // update
+        void update(Object object);
+
+        void update(String entityName, Object object);
+
+        // saveOrUpdate
+        void saveOrUpdate(Object object);
+
+        void saveOrUpdate(String entityName, Object object);
+
+        // lock
+        void lock(Object object, LockMode lockMode);
+
+        void lock(String entityName, Object object, LockMode lockMode);
+
+        // replicate
+        void replicate(Object object, ReplicationMode replicationMode);
+
+        void replicate(String entityName, Object object, ReplicationMode replicationMode);
+
+        // merge
+        Object merge(Object object);
+
+        Object merge(String entityName, Object object);
+    }
+    ```
+
+    Before detaching an entity, we should remember to flush all changes in the Persistence Context to database.
+
 4. Removed state
+
+    When a delete() or remove() method are called on a persistent object, this object will be converted to the detached object.
+
+    When an object is removed, the Persistence Context deletes the object from the database. It means that we shouldn't use any references to the removed object in the application because if some modifications happen in these references, won't reflect to the database.
+
+    If the remove() method is called on the detached object, IllegalArgumentException will be thrown. Otherwise, the remove() method is called on the persistent object that is in a bidirectional relationship (using cascade = REMOVE or cascade = ALL) with the other persistent object, then remove operation will be called on that persistent object. If the remove() method is called on the removed object, nothing happens.
+
+    To move from the persistent state to the removed state, follow the below methods:
+
+    ```java
+    public interface Session {
+        void delete(Object object);
+
+        // from EntityManager interface
+        void remove(Object entity);
+    }
+    ```
+
+<br>
+
+## Synchonize Persistence Context to the Database
+
+Belows are some cases that the Persistence Context is synchronized with the database.
+1. after transaction commits.
+2. after the flush() method is called on that Session.
+
 
 <br>
 
