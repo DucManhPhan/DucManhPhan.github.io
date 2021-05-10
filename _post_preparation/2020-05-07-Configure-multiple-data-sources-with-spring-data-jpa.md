@@ -296,6 +296,8 @@ To utilize Spring Data Jpa, we will have two ways to configure dependencies.
 
 Refer:
 
+[https://o7planning.org/11653/use-multiple-datasources-with-spring-boot-and-jpa](https://o7planning.org/11653/use-multiple-datasources-with-spring-boot-and-jpa)
+
 [https://www.baeldung.com/spring-data-jpa-multiple-databases](https://www.baeldung.com/spring-data-jpa-multiple-databases)
 
 [https://howtodoinjava.com/spring-boot2/datasource-configuration/](https://howtodoinjava.com/spring-boot2/datasource-configuration/)
@@ -313,3 +315,5 @@ Refer:
 [https://github.com/dijalmasilva/spring-boot-multitenancy-datasource-liquibase](https://github.com/dijalmasilva/spring-boot-multitenancy-datasource-liquibase)
 
 [https://springframework.guru/run-spring-boot-on-docker/](https://springframework.guru/run-spring-boot-on-docker/)
+
+[https://medium.com/@joeclever/using-multiple-datasources-with-spring-boot-and-spring-data-6430b00c02e7](https://medium.com/@joeclever/using-multiple-datasources-with-spring-boot-and-spring-data-6430b00c02e7)
