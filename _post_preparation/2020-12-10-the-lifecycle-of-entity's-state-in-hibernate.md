@@ -39,7 +39,7 @@ Before jumping directly into the lifecycle of the entity's state in Hibernate, w
 
 2. Persistence Context
 
-
+    
 
 3. EntityManager
 
@@ -260,13 +260,14 @@ Below is an image that describe the relationship between an entity's state.
 
 3. Detached state
 
+    After a transaction is closed, the persistence context doesn't exist. Then the application still has the entity's reference in that persistence context. So, that object is considered as the detached object. 
+
     Belows are some ways that the persistent object transform to the detached object.
-    - after the transaction commits
-    - 
-    - 
-    - 
-    - 
-    - 
+    - When the transaction (in transaction-scoped persistent context) commits, entities managed by the persistence context become detached.
+    - If an application-managed persistence context is closed, all managed entities become detached.
+    - Using detach(), evict(), clear(), and close() methods.
+    - Rollback action will be called.
+    - In the extended persistence context, when a stateful bean is removed, all managed entities become detached.
 
     Some methods to convert the detached object into the persistent object:
 
