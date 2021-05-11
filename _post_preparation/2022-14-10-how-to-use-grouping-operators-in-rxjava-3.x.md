@@ -11,9 +11,10 @@ tags: [Reactive Programming]
 <br>
 
 ## Table of contents
-
-
-
+- [Given problem](#given-problem)
+- [Solution with grouping operators](#solution-with-grouping-operators)
+- [When to use](#when-to-use)
+- [Wrapping up](#wrapping-up)
 
 
 <br>
@@ -30,7 +31,6 @@ tags: [Reactive Programming]
 ## Solution with grouping operators
 
 Grouping operators are used to group emissions by a specified key into seperate observables.
-
 
 1. groupBy() operator
 
