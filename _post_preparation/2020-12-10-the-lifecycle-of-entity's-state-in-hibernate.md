@@ -23,10 +23,25 @@ tags: [Hibernate]
 
 ## Given problem
 
+Suppose that we have a segment of code:
 
+```java
+@PersistenceContext
+private EntityManager em;
 
+@Transactional
+public void doSomething() {
+    Student student = buildStudentInfo();
+    em.persist(student);
 
+    student.setName("Something else");
+    em.saveOrUpdate(studen);
+}
+```
 
+How do we understand about the Student entity in Hibernate internally?
+
+To be aware of the entity in Hibernate framework, we need to know more about the entity's state.
 
 <br>
 
@@ -96,7 +111,9 @@ Before jumping directly into the lifecycle of the entity's state in Hibernate, w
 
     - Extended persistence context
 
-        The lifetime of extended persistence context spans multiple transactions.
+        - The lifetime of extended persistence context spans multiple transactions.
+        - If an entity is persisted without a transaction, it is only saved on the extended persistence context, not flush to the database. To fix this problem, we need to cover that in a transaction.
+        - The extended persistence context doesn't allow persisting these entity with the same identifier.
 
 3. EntityManager
 
@@ -417,11 +434,14 @@ Below is an image that describe the relationship between an entity's state.
     Belows are some information of the persistence context's type in Container-managed EntityManager.
     - Transaction-scoped persistence context
 
+        We can read up on about the transaction-scoped persistence context in the section [Diving into some concepts in Hibernate framework](#diving-into-some-concepts-in-hibernate-framework).
+        
 
+    - Extended persistence context
 
-    - Application-managed persistence context
+        We can read up on about the extended persistence context in the section [Diving into some concepts in Hibernate framework](#diving-into-some-concepts-in-hibernate-framework).
 
-
+        A persistence context is created after calling **EntityManagerFactory.createEntityManager()** method. When a persistence context releases by calling **EntityManager.close()** method, entities under that persistence context will be in the detached state.
 
 2. Application-managed EntityManager
 
@@ -448,9 +468,6 @@ Belows are some cases that the Persistence Context is synchronized with the data
 
 - With the container-managed EntityManager, the persistence context is shared across the multiple Spring Beans or JavaEE's application components. Otherwise, it's not right for the application-managed EntityManager.
 
-- 
-
-- 
 
 <br>
 
