@@ -30,9 +30,11 @@ tags: [Hibernate, Database]
 
 ## Solution with Pessimistic Locking
 
+1. Introduction to Pessimistic Locking
 
+    To know more about pessimistic locking, we can visit the following article [Pessimistic locking and Optimistic locking](https://ducmanhphan.github.io/2020-12-06-Pessimistic-locking-and-Optimistic-locking/)
 
-
+2. How to implement Pessimistic locking in Spring Data JPA
 
 
 

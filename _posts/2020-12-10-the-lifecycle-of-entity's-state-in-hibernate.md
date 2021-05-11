@@ -462,6 +462,28 @@ Belows are some cases that the Persistence Context is synchronized with the data
 
     The refresh() updates the object model with the latest copy of the records, reading from the database.
 
+    Now, we will continue to work with the flush mode. This flush mode can affect to the performance when querying.
+
+    Consider about the FlushMode enum:
+
+    ```java
+    public enum FlushMode {
+        // The Session is flushed before every query
+        ALWAYS,
+
+        // The Session is sometimes flushed before every query execution in order to ensure that queries never return stale state
+        AUTO,
+
+        // The Session is flushed when EntityManager.commit() is called
+        COMMIT,
+
+        // The Session is only ever flushed when Session.flush() is explictly called by the application
+        MANUAL;
+    }
+    ```
+
+
+
 <br>
 
 ## Wrapping up
