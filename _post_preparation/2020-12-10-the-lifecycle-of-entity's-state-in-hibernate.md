@@ -12,7 +12,8 @@ tags: [Hibernate]
 
 ## Table of contents
 - [Given problem](#given-problem)
-- [Solution of Hibernate framework](#solution-of-hibernate-framework)
+- [Diving into some concepts in Hibernate framework](#diving-into-some-concepts-in-hibernate-framework)
+- [Introduction to the Hibernate entity's lifecycle](#introduction-to-the-hibernate-entity's-lifecycle)
 - [Combining different types of EntityManager and Persistence Context](#Combining-different-types-of-entitymanager-and-persistence-context)
 - [Synchonize Persistence Context to the Database](#synchronize-persistence-context-to-the-database)
 - [Benefits and Drawbacks](#benefits-and-drawbacks)
@@ -30,23 +31,28 @@ tags: [Hibernate]
 
 <br>
 
-## Solution of Hibernate framework
+## Diving into some concepts in Hibernate framework
 
 Before jumping directly into the lifecycle of the entity's state in Hibernate, we need to be aware of some concepts's definition.
 1. EntityManagerFactory
 
-    It is a factory class of EntityManager. It is used to create multiple instances of EntityManager class.
+    It is a factory class of EntityManager. It is used to create multiple instances of EntityManager class. It's a heavy-weight, and thread-safe object. Creating the EntityManagerFactory is an expensive operatioin, so to improve the performance, we can cache the instance.
 
     If we need to access multiple databases, we must configure one EntityManagerFactory per a database.
 
+    After reading about EntityManager, we know that there are two types of EntityManager like container-managed, and application-managed. The creation of EntityManager instance is the same in both types. But the creation of EntityManagerFactory instance is different for both types.
+    - With the container-managed option, the EntityManagerFactory instance will be automatically preinstantiated at the startup time, then subsequently creating and injecting the EntityManger under the control of container.
+
+    - With the application-managed option, it's the applicaltion's responsibility to configure and create the factory.
+
 2. Persistence Context
 
-    A persistence context is a place that manages entities that currently, we are working with. A persistence context is created after calling **EntityManagerFactory.createEntityManager()** method. When a persistence context releases by calling **EntityManager.close()** method, entities under that persistence context will be in the detached state.
+    A persistence context is a place that manages entities that currently, we are working with.
 
     Belows are some types of Persistence Context that we need to know.
-    - Transaction persistence context
+    - Transaction-scoped persistence context
 
-
+        In this type of persistence context, whenever a new transaction began, a new persistence context was created for both container-managed and application-managed EntityManager.
 
     - Extended persistence context
 
@@ -124,6 +130,8 @@ Before jumping directly into the lifecycle of the entity's state in Hibernate, w
 
     Normally, to provide the entity tables's name as a persisten unit, we should fill its name when [configured in an EntityManagerFactory](https://docs.oracle.com/cd/E19798-01/821-1841/bnbrj/index.html).
 
+    Another way to configure persistence unit is that we will create a configuration file named as **persistence.xml**, which should be placed in the META-INF folder. Obviously, add the META-INF directory to the classpath of our application. 
+
 5. Entity
 
     An entity is a lightweight persistent domain object. Each entity class will represent a table in our database, and an entity's instance will contain the data of a single row of that table.
@@ -142,6 +150,13 @@ Before jumping directly into the lifecycle of the entity's state in Hibernate, w
     - Entities may extend both entity and non-entity classes, and non-entity classes may extend entity classes.
 
     - Persistent instance variables must be declared private, protected, or package-private and can be accessed directly only by the entity class’s methods. Clients must access the entity’s state through accessor or business methods.
+
+6. Transaction
+
+
+<br>
+
+## Introduction to the Hibernate entity's lifecycle
 
 At this time, we will continue to discuss about the lifecycle of an entity or about the entity's states.
 
@@ -333,11 +348,11 @@ Below is an image that describe the relationship between an entity's state.
 
 <br>
 
-## Combining different types of EntityManager and Persistence Context
+## Understanding about the persistence context for each EntityManager's type
 
 
 
-
+A persistence context is created after calling **EntityManagerFactory.createEntityManager()** method. When a persistence context releases by calling **EntityManager.close()** method, entities under that persistence context will be in the detached state.
 
 
 <br>
@@ -346,8 +361,12 @@ Below is an image that describe the relationship between an entity's state.
 
 Belows are some cases that the Persistence Context is synchronized with the database.
 1. after transaction commits.
+
 2. after the flush() method is called on that Session.
 
+    The flush() method updates the database with the modified copies of the objects.
+
+    The refresh() updates the object model with the latest copy of the records, reading from the database.
 
 <br>
 
