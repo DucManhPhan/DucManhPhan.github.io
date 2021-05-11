@@ -393,9 +393,31 @@ Below is an image that describe the relationship between an entity's state.
 
 1. Container-managed EntityManager
 
+    To configure the persistence context in the container-managed EntityManager, use the **PersistenceContextType type** field of **@PersistenceContext** annotation.
+
+    ```java
+    @Target(value={TYPE, METHOD, FIELD})
+    @Retention(value=RUNTIME)
+    public @interface PersistenceContext {
+        String name;
+        PersistenceProperty[] properties;
+        SynchronizationType synchronization;
+        PersistenceContextType type;
+        String unitName;
+    }
+    ```
+
+    The **PersistenceContextType** enum has two value:
+    - **EXTENDED** - extended persistence context
+    - **TRANSACTION** - transaction-scoped persistence context.
+
+        By default, the value **PersistenceContextType.TRANSACTION** is used.
+    
+    
 
 2. Application-managed EntityManager
 
+    When using application-managed EntitManager, 
 
 A persistence context is created after calling **EntityManagerFactory.createEntityManager()** method. When a persistence context releases by calling **EntityManager.close()** method, entities under that persistence context will be in the detached state.
 
