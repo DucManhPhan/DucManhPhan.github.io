@@ -39,7 +39,7 @@ Before jumping directly into the lifecycle of the entity's state in Hibernate, w
 
 2. Persistence Context
 
-    A persistence context is a place that manages entities that currently, we are working with. When a persistence context releases, entities under that persistence context will be in the detached state.
+    A persistence context is a place that manages entities that currently, we are working with. A persistence context is created after calling **EntityManagerFactory.createEntityManager()** method. When a persistence context releases, entities under that persistence context will be in the detached state.
 
     Belows are some types of Persistence Context that we need to know.
     - Transaction persistence context
