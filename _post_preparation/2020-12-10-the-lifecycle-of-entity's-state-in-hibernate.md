@@ -52,7 +52,7 @@ Before jumping directly into the lifecycle of the entity's state in Hibernate, w
     Belows are some types of Persistence Context that we need to know.
     - Transaction-scoped persistence context
 
-        In this type of persistence context, whenever a new transaction began, a new persistence context was created for both container-managed and application-managed EntityManager.
+        In this type of persistence context, whenever a new transaction began, a new persistence context was created for both container-managed and application-managed EntityManager. It means that this persistence context's lifetime is accompnied with a transaction. A persistence context is created when a transaction is born, and similarly, when a transaction commits or rollbacks, a persistence context will be released.
 
     - Extended persistence context
 
