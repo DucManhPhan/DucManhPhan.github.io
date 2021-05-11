@@ -13,6 +13,8 @@ tags: [Hibernate]
 ## Table of contents
 - [Given problem](#given-problem)
 - [Solution of Hibernate framework](#solution-of-hibernate-framework)
+- [Combining different types of EntityManager and Persistence Context](#Combining-different-types-of-entitymanager-and-persistence-context)
+- [Synchonize Persistence Context to the Database](#synchronize-persistence-context-to-the-database)
 - [Benefits and Drawbacks](#benefits-and-drawbacks)
 - [Wrapping up](#wrapping-up)
 
@@ -31,7 +33,7 @@ tags: [Hibernate]
 ## Solution of Hibernate framework
 
 Before jumping directly into the lifecycle of the entity's state in Hibernate, we need to be aware of some concepts's definition.
-1. Entity Manager Factory
+1. EntityManagerFactory
 
     It is a factory class of EntityManager. It is used to create multiple instances of EntityManager class.
 
@@ -39,10 +41,12 @@ Before jumping directly into the lifecycle of the entity's state in Hibernate, w
 
 2. Persistence Context
 
-    A persistence context is a place that manages entities that currently, we are working with. A persistence context is created after calling **EntityManagerFactory.createEntityManager()** method. When a persistence context releases, entities under that persistence context will be in the detached state.
+    A persistence context is a place that manages entities that currently, we are working with. A persistence context is created after calling **EntityManagerFactory.createEntityManager()** method. When a persistence context releases by calling **EntityManager.close()** method, entities under that persistence context will be in the detached state.
 
     Belows are some types of Persistence Context that we need to know.
     - Transaction persistence context
+
+
 
     - Extended persistence context
 
@@ -329,6 +333,15 @@ Below is an image that describe the relationship between an entity's state.
 
 <br>
 
+## Combining different types of EntityManager and Persistence Context
+
+
+
+
+
+
+<br>
+
 ## Synchonize Persistence Context to the Database
 
 Belows are some cases that the Persistence Context is synchronized with the database.
@@ -381,3 +394,6 @@ Refer:
 [https://docs.oracle.com/cd/E16439_01/doc.1013/e13981/usclient005.htm](https://docs.oracle.com/cd/E16439_01/doc.1013/e13981/usclient005.htm)
 
 [https://stackoverflow.com/questions/31964927/does-jpas-commit-method-make-entity-detached](https://stackoverflow.com/questions/31964927/does-jpas-commit-method-make-entity-detached)
+
+[https://sites.google.com/site/mostlyjava/scbcd/07-persistence-units-and-persistence-contexts](https://sites.google.com/site/mostlyjava/scbcd/07-persistence-units-and-persistence-contexts)
+
