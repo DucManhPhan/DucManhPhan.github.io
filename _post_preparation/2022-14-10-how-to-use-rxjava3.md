@@ -183,7 +183,7 @@ tags: [Reactive Programming]
         }
         ```
 
-        From the **create()** method of Observable class, we find that the **create()** method will accept as a parameter an object of the ObservableOnSubscriber type that has only one method, subscribe(ObservableEmitter emitter), which accepts an ObservableEmitter type, which, in turn, extends the Emitter interface that has three methods: **onNext()**, **onError()**, and **onComplete()**.
+        From the **create()** method of Observable class, we find that the **create()** method will accept as a parameter an object of the **ObservableOnSubscriber** type that has only one method, **subscribe(ObservableEmitter emitter)**, which accepts an ObservableEmitter type, which, in turn, extends the Emitter interface that has three methods: **onNext()**, **onError()**, and **onComplete()**.
 
         We can call the **ObservableEmitter**'s **onNext()** method to pass emissions (one at a time) down the chain of operators as well as **onComplete()** to signal completion and communicate that there will be no more items. Note that the **onNext()**, **onComplete()**, and **onError()** methods of the emitter do not necessarily push the data directly to the final **Observer**. There can be another operator between the source **Observable** and its **Observer** that acts as the next step in the chain, such as **map()**, **filter()** operators. Since operators such as map() and filter() yield new observables (which internally use Observer implementations to receive emissions), we can chain all our returned observables with the next operator, rather than unnecessarily saving each one to an intermediary variable.
 
