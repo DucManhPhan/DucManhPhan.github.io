@@ -36,7 +36,11 @@ tags: [Hibernate]
 Before jumping directly into the lifecycle of the entity's state in Hibernate, we need to be aware of some concepts's definition.
 1. EntityManagerFactory
 
-    It is a factory class of EntityManager. It is used to create multiple instances of EntityManager class. It's a heavy-weight, and thread-safe object. Creating the EntityManagerFactory is an expensive operatioin, so to improve the performance, we can cache the instance.
+    It is a factory class of EntityManager. It is used to create multiple instances of EntityManager class. It's a heavy-weight, and thread-safe object.
+    
+    Creating the EntityManagerFactory is an expensive operation, so to improve the performance, we can cache the instance.
+
+    Each EntityManagerFactory maintains a metadata cache, object state cache, EntityManger pool, connection pool, ... If we don't need to use EntityManagerFactory, close it to free resources. Once an EntityManagerFactory has been closed, all its entity managers are considered to be in the closed state. While there are some active transactions working, calling EntityManagerFactory.close() method will throw an IllegalStateException exception.
 
     If we need to access multiple databases, we must configure one EntityManagerFactory per a database.
 
@@ -53,6 +57,43 @@ Before jumping directly into the lifecycle of the entity's state in Hibernate, w
     - Transaction-scoped persistence context
 
         In this type of persistence context, whenever a new transaction began, a new persistence context was created for both container-managed and application-managed EntityManager. It means that this persistence context's lifetime is accompnied with a transaction. A persistence context is created when a transaction is born, and similarly, when a transaction commits or rollbacks, a persistence context will be released.
+
+        Belows are some cases to use Transaction-scoped persistence context:
+        - If we use **@PersistenceContext** annotation without any configuration for an EntityManager instance, the default mode for persistence context is the transaction-scoped persitence context.
+
+            For example:
+
+            ```java
+            @Service
+            public class AnotherService {
+
+                @PersistenceContext
+                private EntityManager em;
+            }
+            ```
+
+        - Using EntityManager with transactional-scoped persistence context doesn't belong to a transaction.
+
+            For example:
+
+            ```java
+            @PersistenceContext
+            private EntityManager em;
+
+            public void doSomething(String studentId) {
+                Student student = em.find(Student.class, studentId);
+                student.setName("Something else");
+
+                em.saveOrUpdate(student);
+            }
+            ```
+
+            In this situation, each method invocation will create a new persistence context, performs the method action, and releases the persistence context.
+
+            From an above example, we have:
+            - with find() method, EntityManager will create a temporary persistence context, and after finishing this method, release this persistence context, and return a detached Student object.
+            - then, we do something with this detached mode such as modifies some fields's value.
+            - finally, calling **EntityManager.saveOrUpdate()** method also creates another temporary persistence context, convert a detached object to a persistent object, and release that persistence context.
 
     - Extended persistence context
 
@@ -325,7 +366,7 @@ Below is an image that describe the relationship between an entity's state.
     }
     ```
 
-    Before detaching an entity, we should remember to flush all changes in the Persistence Context to database.
+    Before detaching an entity, we should remember to **flush** all changes in the Persistence Context to database.
 
 4. Removed state
 
@@ -350,6 +391,10 @@ Below is an image that describe the relationship between an entity's state.
 
 ## Understanding about the persistence context for each EntityManager's type
 
+1. Container-managed EntityManager
+
+
+2. Application-managed EntityManager
 
 
 A persistence context is created after calling **EntityManagerFactory.createEntityManager()** method. When a persistence context releases by calling **EntityManager.close()** method, entities under that persistence context will be in the detached state.
