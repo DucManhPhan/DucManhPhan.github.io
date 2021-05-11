@@ -415,7 +415,7 @@ Below is an image that describe the relationship between an entity's state.
     Belows are some information of the persistence context's type in Container-managed EntityManager.
     - Transaction-managed EntityManager
 
-        
+
 
     - Extended EntityManager
 
@@ -423,7 +423,7 @@ Below is an image that describe the relationship between an entity's state.
 
 2. Application-managed EntityManager
 
-    When using application-managed EntitManager, we will call **createEntityManager()** method to create a new **EntityManager** instance, then, it will only used an Extended persistence context corresponding to that EntityManager.
+    When using application-managed EntitManager, we will call **createEntityManager()** method to create a new **EntityManager** instance, then, it will only used an **Extended persistence context** corresponding to that EntityManager.
 
     A persistence context is created after calling **EntityManagerFactory.createEntityManager()** method. When a persistence context releases by calling **EntityManager.close()** method, entities under that persistence context will be in the detached state.
 
@@ -479,4 +479,3 @@ Refer:
 [https://stackoverflow.com/questions/31964927/does-jpas-commit-method-make-entity-detached](https://stackoverflow.com/questions/31964927/does-jpas-commit-method-make-entity-detached)
 
 [https://sites.google.com/site/mostlyjava/scbcd/07-persistence-units-and-persistence-contexts](https://sites.google.com/site/mostlyjava/scbcd/07-persistence-units-and-persistence-contexts)
-
