@@ -55,7 +55,7 @@ Before jumping directly into the lifecycle of the entity's state in Hibernate, w
     Belows are some types of Persistence Context that we need to know.
     - Transaction-scoped persistence context
 
-        In this type of persistence context, whenever a new transaction began, a new persistence context was created for both container-managed and application-managed EntityManager. It means that this persistence context's lifetime is accompnied with a transaction. A persistence context is created when a transaction is born, and similarly, when a transaction commits or rollbacks, a persistence context will be released.
+        In this type of persistence context, whenever a new transaction began, a new persistence context was created for both container-managed and application-managed EntityManager. It means that this persistence context's lifetime is accompanied with a transaction. It means that if we use transaction-scoped persistence context for entity without a transaction, a TransactionRequiredException exception will be thrown. A persistence context is created when a transaction is born, and similarly, when a transaction commits or rollbacks, a persistence context will be released.
 
         Belows are some cases to use Transaction-scoped persistence context:
         - If we use **@PersistenceContext** annotation without any configuration for an EntityManager instance, the default mode for persistence context is the transaction-scoped persitence context.
@@ -95,6 +95,8 @@ Before jumping directly into the lifecycle of the entity's state in Hibernate, w
             - finally, calling **EntityManager.saveOrUpdate()** method also creates another temporary persistence context, convert a detached object to a persistent object, and release that persistence context.
 
     - Extended persistence context
+
+        The lifetime of extended persistence context spans multiple transactions.
 
 3. EntityManager
 
@@ -413,11 +415,11 @@ Below is an image that describe the relationship between an entity's state.
         By default, the value **PersistenceContextType.TRANSACTION** is used.
     
     Belows are some information of the persistence context's type in Container-managed EntityManager.
-    - Transaction-managed EntityManager
+    - Transaction-scoped persistence context
 
 
 
-    - Extended EntityManager
+    - Application-managed persistence context
 
 
 
