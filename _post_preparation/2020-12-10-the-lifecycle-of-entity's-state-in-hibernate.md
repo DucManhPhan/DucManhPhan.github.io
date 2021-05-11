@@ -413,13 +413,21 @@ Below is an image that describe the relationship between an entity's state.
 
         By default, the value **PersistenceContextType.TRANSACTION** is used.
     
-    
+    Belows are some information of the persistence context's type in Container-managed EntityManager.
+    - Transaction-managed EntityManager
+
+        
+
+    - Extended EntityManager
+
+
 
 2. Application-managed EntityManager
 
-    When using application-managed EntitManager, 
+    When using application-managed EntitManager, we will call **createEntityManager()** method to create a new **EntityManager** instance, then, it will only used an Extended persistence context corresponding to that EntityManager.
 
-A persistence context is created after calling **EntityManagerFactory.createEntityManager()** method. When a persistence context releases by calling **EntityManager.close()** method, entities under that persistence context will be in the detached state.
+    A persistence context is created after calling **EntityManagerFactory.createEntityManager()** method. When a persistence context releases by calling **EntityManager.close()** method, entities under that persistence context will be in the detached state.
+
 
 
 <br>
