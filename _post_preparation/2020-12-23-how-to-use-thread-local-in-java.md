@@ -109,7 +109,9 @@ Therefore, from Java 2, it provides the ThreadLocal concept to solve this proble
             If hook or callback methods throw exceptions, internal worker threads may in turn fail and abruptly terminate.
             
             ```java
-
+            public class CommonThreadPoolExecutor extends ThreadPoolExecutor {
+                
+            }
             ```
 
 2. Some methods of ThreadLocal
