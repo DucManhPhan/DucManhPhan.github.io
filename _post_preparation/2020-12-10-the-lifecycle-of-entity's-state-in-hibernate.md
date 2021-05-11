@@ -14,9 +14,8 @@ tags: [Hibernate]
 - [Given problem](#given-problem)
 - [Diving into some concepts in Hibernate framework](#diving-into-some-concepts-in-hibernate-framework)
 - [Introduction to the Hibernate entity's lifecycle](#introduction-to-the-hibernate-entity's-lifecycle)
-- [Combining different types of EntityManager and Persistence Context](#Combining-different-types-of-entitymanager-and-persistence-context)
+- [Understanding about the persistence context for each EntityManager's type](#understanding-about-the-persistence-context-for-each-entitymanager's-type)
 - [Synchonize Persistence Context to the Database](#synchronize-persistence-context-to-the-database)
-- [Benefits and Drawbacks](#benefits-and-drawbacks)
 - [Wrapping up](#wrapping-up)
 
 
@@ -428,8 +427,6 @@ Below is an image that describe the relationship between an entity's state.
 
     A persistence context is created after calling **EntityManagerFactory.createEntityManager()** method. When a persistence context releases by calling **EntityManager.close()** method, entities under that persistence context will be in the detached state.
 
-
-
 <br>
 
 ## Synchonize Persistence Context to the Database
@@ -442,14 +439,6 @@ Belows are some cases that the Persistence Context is synchronized with the data
     The flush() method updates the database with the modified copies of the objects.
 
     The refresh() updates the object model with the latest copy of the records, reading from the database.
-
-<br>
-
-## Benefits and Drawbacks
-
-
-
-
 
 <br>
 
