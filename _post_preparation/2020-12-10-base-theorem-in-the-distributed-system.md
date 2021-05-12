@@ -11,9 +11,10 @@ tags: [Distributed System]
 <br>
 
 ## Table of contents
-
-
-
+- [Given problem](#given-problem)
+- [Solution of BASE theorem](#solution-of-base-theorem)
+- [When to use](#when-to-use)
+- [Wrapping up](#wrapping-up)
 
 
 <br>
@@ -26,7 +27,7 @@ tags: [Distributed System]
 
 <br>
 
-## 
+## Solution of BASE theorem
 
 
 
@@ -35,7 +36,7 @@ tags: [Distributed System]
 
 <br>
 
-## 
+## When to use
 
 
 
