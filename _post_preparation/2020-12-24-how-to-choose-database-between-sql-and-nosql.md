@@ -17,7 +17,7 @@ tags: [Database]
 
 <br>
 
-## 
+## Given problem
 
 
 
