@@ -10,9 +10,10 @@ tags: [Distributed System]
 <br>
 
 ## Table of contents
-
-
-
+- [Given problem](#given-problem)
+- [Solution for using two phase commit](#solution-for-using-two-phase-commit)
+- [Benefits and Drawbacks](#benefits-and-drawbacks)
+- [Wrapping up](#wrapping-up)
 
 
 <br>
