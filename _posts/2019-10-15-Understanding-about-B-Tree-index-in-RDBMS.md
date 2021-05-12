@@ -12,8 +12,7 @@ tags: [Database]
 
 ## Table of contents
 - [Introduction to B-Tree Index](#introduction-to-b-tree-index)
-- [When to use]()
-- [How to use]()
+- [When to use](#when-to-use)
 - [Benefits and Drawbacks](#benefits-and-drawbacks)
 - [Applications and Examples](#applications-and-examples)
 - [Wrapping up](#wrapping-up)
@@ -40,19 +39,17 @@ B-tree index is often referred as an index. Most of the MySQL storage engines su
 
 ## When to use
 
+- Mostly B-Tree is used as a secondary-index in a database, and B+ Tree with primary key is used as a clusted index.
 
+    For example:
+    - If a table has a primary key, MySQL will automatically create a cluster index, whose leaf nodes contains pointers to the pages in a disk. 
+    - To create a B-Tree index, typing the following command:
 
+        ```java
+        CREATE INDEX idx_specific_fild ON student(specific_field);
+        ```
 
-
-
-<br>
-
-## How to use
-
-
-
-
-
+        InnoDB storage engine in MySQL support secondary indexes on virtual column.
 
 <br>
 
@@ -85,22 +82,15 @@ B-tree index is often referred as an index. Most of the MySQL storage engines su
 
 2. Drawbacks
 
+    - If the amount number of records in our database are small, using B-Tree index is more time-consuming than scanning table.
 
-
-
-<br>
-
-## Applications and Examples
-
-
+        So to index correctly data in a database, we need to find out the situtation in a database.
 
 <br>
-
 
 ## Wrapping up
 
-
-
+- Understanding about B-Tree helps us how database's query plan part works internally, how to choose the best query plan's time.
 
 <br>
 
