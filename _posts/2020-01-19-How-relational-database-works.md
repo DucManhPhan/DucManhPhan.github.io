@@ -443,7 +443,7 @@ Now, we will continue look at the interaction between common components such as 
 
 <br>
 
-## Some questions about database
+## Some common questions about database
 1. How does data save in database?
 
 
@@ -451,7 +451,7 @@ Now, we will continue look at the interaction between common components such as 
 
 ## Wrapping up
 
-
+- Understanding about how relational database works will help us confidence when optimizing database.
 
 <br>
 
