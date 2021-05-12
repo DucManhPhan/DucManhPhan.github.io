@@ -64,8 +64,8 @@ Refer:
 
 [https://vladmihalcea.com/relational-database-sql-prepared-statements/](https://vladmihalcea.com/relational-database-sql-prepared-statements/)
 
-[]()
+[https://alibaba-cloud.medium.com/tech-insights-two-phase-commit-protocol-for-distributed-transactions-ff7080eefe00](https://alibaba-cloud.medium.com/tech-insights-two-phase-commit-protocol-for-distributed-transactions-ff7080eefe00)
 
-[]()
+[https://www.cs.princeton.edu/courses/archive/fall16/cos418/docs/L6-2pc.pdf](https://www.cs.princeton.edu/courses/archive/fall16/cos418/docs/L6-2pc.pdf)
 
 []()
