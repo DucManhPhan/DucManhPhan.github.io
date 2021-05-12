@@ -13,7 +13,8 @@ tags: [Enterprise Pattern]
 ## Table of contents
 - [Given problem](#given-problem)
 - [Introduction to Guava's EventBus](#introduction-to-guava's-eventbus)
-- []()
+- [How to use Guava's EventBus](#how-to-use-guava's-eventbus)
+- [When to use](#when-to-use)
 - [Wrapping up](#wrapping-up)
 
 
@@ -37,7 +38,15 @@ tags: [Enterprise Pattern]
 
 <br>
 
-## 
+## How to use Guava's EventBus
+
+
+
+
+
+<br>
+
+## When to use
 
 
 

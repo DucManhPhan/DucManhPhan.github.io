@@ -2,7 +2,7 @@
 layout: post
 title: Understanding about clustered index in RDBMS
 bigimg: /img/image-header/yourself.jpeg
-tags: [Indexes, Database, MySQL]
+tags: [Database, MySQL]
 ---
 
 In this article, we will learn about Cluster Index that is usually in some storage engines in MySQL, SQL Server, PostgreSQL, ...
@@ -183,7 +183,13 @@ Below is a table that compares the usage way of **AUTO INCREASEMENT** and **RAND
 
 ## Wrapping up
 - Clustered Index usually use primary key to index.
+
 - We have only one clustered index per table. And all indexes other than the clustered index are known as secondary indexes. 
+
+- If a table doesn't have a primary key:
+
+    - MySQL creates a hidden clusters index.
+    - SQL Server use directly a heap table which is a table without a clustered index. Data is stored in the heap withou specifying an order.
 
 <br>
 
@@ -193,3 +199,4 @@ Refer:
 
 [https://medium.com/@genchilu/a-brief-introduction-to-cluster-index-and-secondary-index-in-innodb-9b8874d4da6a](https://medium.com/@genchilu/a-brief-introduction-to-cluster-index-and-secondary-index-in-innodb-9b8874d4da6a)
 
+[Heaps (Tables without Clustered Indexes)](https://docs.microsoft.com/en-us/sql/relational-databases/indexes/heaps-tables-without-clustered-indexes?view=sql-server-ver15)
