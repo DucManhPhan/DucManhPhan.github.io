@@ -2,7 +2,7 @@
 layout: post
 title: Understanding about Json Web Token
 bigimg: /img/image-header/california.jpg
-tags: [Javascript]
+tags: [Distributed System]
 ---
 
 
@@ -11,11 +11,64 @@ tags: [Javascript]
 
 ## Table of contents
 - []()
+- []()
+- []()
+- []()
+- []()
 - [Wrapping up](#wrapping-up)
 
 
 <br>
 
+## 
+
+
+
+
+
+
+
+<br>
+
+## 
+
+
+
+
+
+
+
+<br>
+
+## 
+
+
+
+
+
+
+
+<br>
+
+## 
+
+
+
+
+
+
+
+<br>
+
+## 
+
+
+
+
+
+
+
+<br>
 
 ## Wrapping up
 - 
