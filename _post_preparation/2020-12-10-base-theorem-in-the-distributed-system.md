@@ -2,7 +2,7 @@
 layout: post
 title: BASE theorem in the Distributed System
 bigimg: /img/image-header/yourself.jpeg
-tags: [Distributed system]
+tags: [Distributed System]
 ---
 
 
