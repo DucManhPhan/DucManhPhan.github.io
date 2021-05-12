@@ -200,3 +200,5 @@ Refer:
 [https://medium.com/@genchilu/a-brief-introduction-to-cluster-index-and-secondary-index-in-innodb-9b8874d4da6a](https://medium.com/@genchilu/a-brief-introduction-to-cluster-index-and-secondary-index-in-innodb-9b8874d4da6a)
 
 [Heaps (Tables without Clustered Indexes)](https://docs.microsoft.com/en-us/sql/relational-databases/indexes/heaps-tables-without-clustered-indexes?view=sql-server-ver15)
+
+[Bookmark Lookup in SQL Server](https://techcommunity.microsoft.com/t5/sql-server/bookmark-lookup/ba-p/383122)
