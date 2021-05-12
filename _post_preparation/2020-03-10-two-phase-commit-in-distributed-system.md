@@ -68,4 +68,8 @@ Refer:
 
 [https://www.cs.princeton.edu/courses/archive/fall16/cos418/docs/L6-2pc.pdf](https://www.cs.princeton.edu/courses/archive/fall16/cos418/docs/L6-2pc.pdf)
 
-[]()
+[https://www.ibm.com/docs/en/txseries/8.1.0?topic=processing-two-phase-commit-process](https://www.ibm.com/docs/en/txseries/8.1.0?topic=processing-two-phase-commit-process)
+
+[https://www.educative.io/edpresso/what-is-the-two-phase-commit-protocol](https://www.educative.io/edpresso/what-is-the-two-phase-commit-protocol)
+
+[https://docs.mongodb.com/v3.6/tutorial/perform-two-phase-commits/](https://docs.mongodb.com/v3.6/tutorial/perform-two-phase-commits/)
