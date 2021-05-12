@@ -12,6 +12,7 @@ tags: [Distributed System]
 ## Table of contents
 - [Given problem](#given-problem)
 - [Solution for using two phase commit](#solution-for-using-two-phase-commit)
+- [When to use](#when-to-use)
 - [Benefits and Drawbacks](#benefits-and-drawbacks)
 - [Wrapping up](#wrapping-up)
 
@@ -31,6 +32,14 @@ tags: [Distributed System]
 Transaction manager is used to split operations across multiple resources into two phases:
 - prepare
 - commit
+
+
+
+<br>
+
+## When to use
+
+
 
 
 
