@@ -18,7 +18,7 @@ tags: [MySQL, Database]
 
 <br>
 
-## 
+## Given problem
 
 
 
@@ -27,7 +27,34 @@ tags: [MySQL, Database]
 
 <br>
 
-## 
+## Introduction to InnoDB storage engine
+
+
+
+
+
+
+<br>
+
+## History about InnoDB storage engine
+
+
+
+
+
+
+<br>
+
+## Some best practice for using InnoDB
+
+
+
+
+
+
+<br>
+
+## When to use
 
 
 
@@ -53,6 +80,15 @@ Belows is the comparison between InnoDB and MyISAM storage engines that is usual
 | No full text search                     | Full text search                            |
 
 ACID stands for Atomicity, Consistency, Isolation and Durability. This is very crucial for data integrity.
+
+
+
+<br>
+
+## The comparison between InnoDB and storage engines
+
+
+
 
 
 
