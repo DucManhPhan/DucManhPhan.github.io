@@ -61,7 +61,7 @@ Refer:
 
 [https://medium.com/@milan.brankovic/transactions-in-microservices-49bdefdfb869](https://medium.com/@milan.brankovic/transactions-in-microservices-49bdefdfb869)
 
-[]()
+[https://vladmihalcea.com/relational-database-sql-prepared-statements/](https://vladmihalcea.com/relational-database-sql-prepared-statements/)
 
 []()
 
