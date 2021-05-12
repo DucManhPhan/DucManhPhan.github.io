@@ -16,8 +16,8 @@ tags: [Java]
 - [Given the problem](#given-the-problem)
 - [Solution with Redis](#solution-with-redis)
 - [How Redis works](#how-redis-works)
-- [Benefits and drawbacks](#benefits-and-drawbacks)
 - [How to use Redis in Spring framework](#how-to-use-redis-in-spring-framework)
+- [Benefits and drawbacks](#benefits-and-drawbacks)
 - [Wrapping up](#wrapping-up)
 
 <br>
@@ -43,14 +43,14 @@ tags: [Java]
 
 <br>
 
-## Benefits and drawbacks
+## How to use Redis in Spring framework
 
 
 
 
 <br>
 
-## How to use Redis in Spring framework
+## Benefits and drawbacks
 
 
 
