@@ -2,7 +2,7 @@
 layout: post
 title: Schema optimization in MySQL
 bigimg: /img/image-header/ravashing-beach.jpg
-tags: [MySQL]
+tags: [Database, MySQL]
 ---
 
 

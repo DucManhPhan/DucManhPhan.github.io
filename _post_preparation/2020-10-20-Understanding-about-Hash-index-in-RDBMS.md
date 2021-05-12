@@ -2,7 +2,7 @@
 layout: post
 title: Understanding about Hash Index in RDBMS
 bigimg: /img/image-header/yourself.jpeg
-tags: [MySQL, Index, Database]
+tags: [Database]
 ---
 
 In this article, we will learn how to use Hash Index and when to use it in our database. Let's get started.
