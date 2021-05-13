@@ -2,7 +2,7 @@
 layout: post
 title: Some interview questions about ExecutorService
 bigimg: /img/path.jpg
-tags: [Multithreading, Java, Interview question]
+tags: [Multithreading, Interview question]
 ---
 
 
