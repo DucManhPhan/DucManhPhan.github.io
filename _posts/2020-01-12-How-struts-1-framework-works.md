@@ -2,7 +2,7 @@
 layout: post
 title: How Struts 1 framework works
 bigimg: /img/image-header/california.jpg
-tags: [Java, Struts 1]
+tags: [Struts 1]
 ---
 
 
@@ -11,7 +11,10 @@ tags: [Java, Struts 1]
 
 ## Table of contents
 - [Introduction to Struts 1 framework](#introduction-to-struts-1-framework)
-- 
+- [How Struts 1 works]()
+- [Core componenets in Struts 1 framework]()
+- []()
+- [Wrapping up](#wrapping-up)
 
 
 <br>
@@ -65,6 +68,8 @@ To describe the way Struts 1 work, we will seee the below image:
 <br>
 
 ## Core componenets in Struts 1 framework
+
+Belows are some main components that we need to understand:
 - **ActionServlet** is a front controller Servlet in Struts, and the only Servlet exists in Struts framework. Every request comming to Struts must first come to **ActionServlet** clss instance. When **ActionServlet** class call ```init()``` method, **ActionServlet** reads ```struts-config.xml``` file to get data and stores it into one **ModuleConfig** object. 
 
     **ModuleConfig** object contains all 8 ```struts-config.xml``` file elements. Once after ```moduleConfig``` object is created that object is passed into one new instance of **RequestProcessor** constructor.
@@ -75,7 +80,7 @@ To describe the way Struts 1 work, we will seee the below image:
 
     **this** is current **ActionServlet** class instance, and **moduleConfig** is ModuleConfig object.
 
-![ActionServlet works](#../img/struts-1-framework/action-servlet-do.png)
+![ActionServlet works](../img/struts-1-framework/action-servlet-do.png)
 
 In the ```process()``` method, **ActionServlet** invokes ```process()``` method of **RequestProcessor**. 
 
@@ -85,11 +90,12 @@ In the ```process()``` method, **ActionServlet** invokes ```process()``` method 
 
     Whenever client request comes, ```ActionServlet``` sends request to ```RequestProcessor```, ```RequestProcessor``` uses ```ModuleConfig``` object to find out the ```ActionForm``` and ```Action``` class names of the requested action path uri.
 
-    Some important methods are:
-    -   
 
 <br>
 
+## Wrapping up
+
+- Understanding about the flows between components in Struts 1 helps us in coding, debugging.
 
 Refer:
 
