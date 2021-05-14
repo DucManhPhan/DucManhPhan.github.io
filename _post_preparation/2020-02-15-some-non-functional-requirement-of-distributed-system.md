@@ -85,6 +85,8 @@ Belows are some ways to achieve high availability.
 
     Fault tolerance is the ability of a system that still remains working when one or more components die. Then, it can recover to its original state without affecting to the other parts of a system.
 
+    It means that our system doesn't have the down time even if a part of a system failed. This is also a distinction between fault tolerance and high availability.
+
 - Redundancy
 
 - Replication
