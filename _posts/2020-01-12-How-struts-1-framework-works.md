@@ -13,7 +13,6 @@ tags: [Struts 1]
 - [Introduction to Struts 1 framework](#introduction-to-struts-1-framework)
 - [How Struts 1 works]()
 - [Core componenets in Struts 1 framework]()
-- []()
 - [Wrapping up](#wrapping-up)
 
 
