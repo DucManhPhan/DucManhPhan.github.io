@@ -29,11 +29,30 @@ Belows are some new characteristics in Java 8.
 2. Virtual methods
 3. Class and method references
 4. New Date and Time API
-5. Nashorn Javascript engine
+5. Nashorn Javascript engine that is replaced Rhino
+
+    It was faster and had better support for ECMA script.
+
 6. Remove the Permanent Generation from the Hotspot virtual machine 
 7. Stream API
 8. Optional
+9. Improvements in concurrency library
 
+    - improved concurrent hash map
+    - CompletableFuture
+    - thread safe accumulators
+    - an improved read write lock that is called a StampedLock
+    - an implementation of a work stealing thread pool
+
+10. Adding default, static methods to interfaces
+11. The integration with JRocket makes JVM run faster 
+
+    The JVM dropped the idea of perm gen, instead of using native OS memory for class metadata. This is a huge deal and provides better memory utilization.
+
+    The JRocket integration also brought Mission control (jmc) to the JDK as standard. It compliments JConsole and VisualVM with similar functionality but adds very inexpensive profiling.
+
+12. Improvements to Base64 encoding supports
+13. And anything else
 
 
 <br>
