@@ -11,9 +11,11 @@ tags: [Java]
 <br>
 
 ## Table of contents
-
-
-
+- [Given problem]()
+- [Solution of lambda expression]()
+- [Benefits and Drawbacks]()
+- [When to use]()
+- [Wrapping up]()
 
 
 <br>
