@@ -29,7 +29,11 @@ Belows are some new characteristics in Java 8.
 2. Virtual methods
 3. Class and method references
 4. New Date and Time API
-5. Javascript supports
+5. Nashorn Javascript engine
+6. Remove the Permanent Generation from the Hotspot virtual machine 
+7. Stream API
+8. Optional
+
 
 
 <br>
