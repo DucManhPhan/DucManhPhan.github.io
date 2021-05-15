@@ -60,7 +60,7 @@ Generally speaking, there are some terminal operators that we need to know.
 
 <br>
 
-## Reduce operator
+## reduce() operator
 
 
 For example:
@@ -71,6 +71,32 @@ final int max = prices.stream()
                       .reduce(0, Math::max);  
 ```
 
+
+
+<br>
+
+## 
+
+
+
+
+<br>
+
+## 
+
+
+
+
+<br>
+
+## 
+
+
+
+
+<br>
+
+## 
 
 <br>
 
