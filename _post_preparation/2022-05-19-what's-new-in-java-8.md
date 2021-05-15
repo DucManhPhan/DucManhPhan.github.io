@@ -29,9 +29,9 @@ Belows are some new characteristics in Java 8.
 2. Virtual methods
 3. Class and method references
 4. New Date and Time API
-5. Nashorn Javascript engine that is replaced Rhino
+5. Nashorn Javascript engine
 
-    It was faster and had better support for ECMA script.
+    Nashorn replaces Rhino as the default Javascript engine for the Oracle JVM. Nashorn is faster since it uses the invoke dynamic feature of the JVM and had better support for ECMA script.
 
 6. Remove the Permanent Generation from the Hotspot virtual machine 
 7. Stream API
@@ -83,5 +83,12 @@ Belows are some new characteristics in Java 8.
 
 Refer:
 
-[https://www.slideshare.net/Trayan_Iliev/spring-5-webflux-advances-in-java-2018](https://www.slideshare.net/Trayan_Iliev/spring-5-webflux-advances-in-java-2018)
+[]()
 
+[]()
+
+[]()
+
+[]()
+
+[]()
