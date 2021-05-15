@@ -53,7 +53,7 @@ Generally speaking, there are some terminal operators that we need to know.
 
 <br>
 
-## 
+## forEach() operator
 
 
 
@@ -75,7 +75,37 @@ final int max = prices.stream()
 
 <br>
 
-## 
+## collect() operator
+
+
+
+
+<br>
+
+## max() operator
+
+
+
+
+<br>
+
+## min() operator
+
+
+
+
+<br>
+
+## average() operator
+
+
+
+
+<br>
+
+## anyMatch() operator
+
+
 
 
 
@@ -87,6 +117,17 @@ final int max = prices.stream()
 
 
 
+
+
+<br>
+
+## 
+
+
+
+
+
+
 <br>
 
 ## 
@@ -94,9 +135,16 @@ final int max = prices.stream()
 
 
 
+
+
 <br>
 
 ## 
+
+
+
+
+
 
 <br>
 
@@ -109,7 +157,12 @@ final int max = prices.stream()
 
 Refer:
 
-[https://kipalog.com/posts/Mot-so-giai-phap-de-xu-ly-distributed-transaction-trong-he-thong-phan-tan](https://kipalog.com/posts/Mot-so-giai-phap-de-xu-ly-distributed-transaction-trong-he-thong-phan-tan)
+[]()
 
-[https://kipalog.com/posts/Mot-so-phan-tich-ve-deadlock-trong-co-so-du-lieu](https://kipalog.com/posts/Mot-so-phan-tich-ve-deadlock-trong-co-so-du-lieu)
+[]()
 
+[]()
+
+[]()
+
+[]()
