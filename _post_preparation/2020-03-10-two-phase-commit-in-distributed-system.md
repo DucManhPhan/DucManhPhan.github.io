@@ -2,7 +2,7 @@
 layout: post
 title: Two phase commit in Distributed System
 bigimg: /img/path.jpg
-tags: [Distributed System]
+tags: [Microservice]
 ---
 
 
