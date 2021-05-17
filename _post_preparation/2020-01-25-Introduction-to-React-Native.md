@@ -11,9 +11,11 @@ tags: [Multithreading, Java]
 <br>
 
 ## Table of contents
-
-
-
+- [Introduction to React Native](#introduction-to-react-native)
+- [Installing React Native](#installing-react-native)
+- [How React Native works](#how-react-native-works)
+- [Benefits and Drawbacks](#benefits-and-drawbacks)
+- [Wrapping up](#wrapping-up)
 
 
 <br>

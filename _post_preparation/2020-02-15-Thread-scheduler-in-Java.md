@@ -37,7 +37,7 @@ tags: [Multithreading]
 
 
 
-2. Time slicing  scheduling
+2. Time slicing scheduling
 
 
 

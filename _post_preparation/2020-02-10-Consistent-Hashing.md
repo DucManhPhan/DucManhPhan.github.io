@@ -2,7 +2,7 @@
 layout: post
 title: Consistent Hashing
 bigimg: /img/image-header/yourself.jpeg
-tags: [System Design]
+tags: [Distributed System]
 ---
 
 

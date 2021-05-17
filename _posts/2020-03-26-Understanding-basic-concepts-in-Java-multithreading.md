@@ -207,13 +207,17 @@ Depending on the consequences, the problems caused by concurrency can be categor
 <br>
 
 ## Wrapping up
-- Two points to note about race conditions
+- Some points to note about race conditions
 
     - It is safe if multiple threads are trying to read a shared resource as long as they are not trying to change it.
 
     - Multiple threads executing inside a method is not a problem in itself, problem arises when these threads try to access the same resource.
 
         For instance, class variables, record in a table, a file.
+
+    - There is no race condition between threads since no data is shared between them.
+
+    - The race conditions can generate different results, including unexpected results, that are dependent on the execution order.
 
 - The synchronization of a multithreaded environment is achieved by locking. Locking is used to orchestrate and limit access to a resource in a multithreaded environment.
 
