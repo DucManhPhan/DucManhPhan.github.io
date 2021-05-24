@@ -90,10 +90,6 @@ On the left side, we have a hash index and on the right side, we have the origin
 
 1. Benefits
 
-    
-
-
-
 2. Drawbacks
 
     - It only contains hash code, row pointers - not real data in the index. As Hash Index does not contain original data, it is not effective in sorting, and partial matching.
@@ -110,18 +106,9 @@ On the left side, we have a hash index and on the right side, we have the origin
 
 <br>
 
-## Applications and Examples
-
-
-
-<br>
-
-
 ## Wrapping up
 
 - Using hash index is very efficient and it improves the performance of the query massively.
-
-
 
 
 <br>
