@@ -22,7 +22,7 @@ In this article, we will learn how to use Hash Index and when to use it in our d
 
 ## Introduction to Hash Index
 
-Below are some characteristics of Hash Index:
+Belows are some characteristics of Hash Index:
 - A Hash Index is built on a Hash Table.
 - It increases performance for exact lookups.
 - For each row, a hash code is generated.
@@ -38,7 +38,7 @@ Below are some characteristics of Hash Index:
 
 ## Introduction to Adaptive Hash Index
 
-In MySQL, InnoDB storage engine supports adaptive hash index. This is an automatic process, it does not give us any control to configure it. So, we can disable adaptive hash index, but we cannot do any modification in this algorithm.
+In MySQL, InnoDB storage engine supports adaptive hash index. This is an automatic process, it does not give us any control to configure it. So, we can disable adaptive hash index, but we can't do any modification in this algorithm.
 
 Hash Indexes are built in-memory on the top of frequently used B-Tree indexes. MySQL engines automatically figures out which are the most frequently used B-Tree indexes. It will takes those B-Tree indexes and values and put them into memory. In the memory, it will build hash index on the top of it. Now, our storage engine has definitely B-Tree indexes and on the top of it, there are hash indexes in memory. When MySQL engines receives any query, it will evaluate it for hash index as well as B-Tree index. If there are scan or any other situation where we have used different operators than equal to, it will directly use B-Tree indexes. However, there is a direct lookup of any particular value, MySQL engine will use in memory hash index to get data immediately.
 
@@ -118,6 +118,7 @@ On the left side, we have a hash index and on the right side, we have the origin
 
 
 ## Wrapping up
+
 - Using hash index is very efficient and it improves the performance of the query massively.
 
 
