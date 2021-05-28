@@ -30,9 +30,22 @@ tags: [Database]
 
 ## Solution when using MVCC
 
+1. How MVCC works
 
 
 
+
+2. 
+
+
+
+3. The relationship between MVCC and isolation level
+
+    MVCC works only with the REPEATABLE READ and READ COMMITTED isolation levels.
+
+    READ UNCOMMITTED isn't MVCC compatible because queries don't read the row version that's appropriate for their transaction version. They read the newest version, no matter what.
+
+    SERIALIZABLE isn't MVCC-compatible because reads lock every row they return.
 
 <br>
 
