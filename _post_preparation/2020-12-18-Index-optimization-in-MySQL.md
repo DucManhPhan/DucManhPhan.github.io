@@ -10,9 +10,11 @@ Before we dive into how optimize index in MySQL, we need to understand the basis
 <br>
 
 ## Table of contents
-
-
-
+- []()
+- []()
+- []()
+- []()
+- []()
 
 
 <br>
@@ -55,3 +57,10 @@ Before we dive into how optimize index in MySQL, we need to understand the basis
 
 Refer:
 
+[]()
+
+[]()
+
+[]()
+
+[]()
