@@ -82,7 +82,7 @@ So, in this article, we will list some ways to optimize query database.
 
         When each request is sent to database, it will create a new connection. After finished, this connection is destroyed.
 
-        So, when we have multiple requests to database, it will create multi threads to work with queries. The problem about context switching will slow down the response time.
+        So, when we have multiple requests to database, it will create multiple threads to work with queries. The problem about context switching will slow down the response time.
 
     - Connections not closed/returned to pool in case of exceptions
 
@@ -92,7 +92,7 @@ So, in this article, we will list some ways to optimize query database.
 
 ## Solution with SELECT command
 
-1. Fetching more rows by using select  * command
+1. Fetching more rows by using select * command
 
     Using LIMIT clause to our query to get the number of rows, and use some specific columns that we want.
 
