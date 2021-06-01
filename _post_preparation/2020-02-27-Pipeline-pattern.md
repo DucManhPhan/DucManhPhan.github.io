@@ -70,13 +70,15 @@ Then, we will go to the definition and characteristic of pipeline:
 
 1. Benefits
 
-
-
+    - 
+    - 
+    - 
 
 2. Drawbacks
 
-
-
+    - 
+    - 
+    - 
 
 <br>
 
