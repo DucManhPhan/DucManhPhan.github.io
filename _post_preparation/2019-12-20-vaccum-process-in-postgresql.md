@@ -10,9 +10,10 @@ tags: [PostgreSQL]
 <br>
 
 ## Table of contents
-
-
-
+- [Given problem]()
+- [Solution with Vacuum process]()
+- [When to use]()
+- [Wrapping up]()
 
 
 <br>
@@ -42,7 +43,7 @@ tags: [PostgreSQL]
 
 <br>
 
-## 
+## When to use
 
 
 
