@@ -11,10 +11,14 @@ tags: [MySQL, Database]
 <br>
 
 ## Table of contents
-- []()
-- []()
+- [Given problem](#given-problem)
+- [Introduction to InnoDB storage engine](#introduction-to-innodb-storage-engine)
+- [History about InnoDB storage engine](#history-about-innodb-storage-engine)
+- [Some best practice for using InnoDB](#some-best-practice-for-using-innodb)
 - [The comparison between InnoDB and MyISAM storage engines](#the-comparison-between-innodb-and-myisam-storage-engines)
+- [The comparison between InnoDB and storage engines](#the-comparison-between-innodb-and-storage-engines)
 - [Wrapping up](#wrapping-up)
+
 
 <br>
 
