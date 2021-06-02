@@ -150,6 +150,8 @@ Refer:
 
 [High performance MySQL, 3rd edition](https://www.amazon.com/High-Performance-MySQL-Optimization-Replication/dp/1449314287)
 
+[InnoDB 1.1 for MySQL 5.5 User's Guide](https://downloads.mysql.com/docs/innodb-1.1-en.pdf)
+
 [https://blog.jcole.us/2013/01/07/the-physical-structure-of-innodb-index-pages/](https://blog.jcole.us/2013/01/07/the-physical-structure-of-innodb-index-pages/)
 
 [https://blog.jcole.us/2013/01/10/btree-index-structures-in-innodb/](https://blog.jcole.us/2013/01/10/btree-index-structures-in-innodb/)
