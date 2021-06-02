@@ -33,10 +33,28 @@ tags: [MySQL, Database]
 
 ## Introduction to InnoDB storage engine
 
+0. Introduction to InnoDB
 
 
 
+1. InnoDB and the table's data
 
+    The InnoDB storage engine stores its data in a series of one or more data files that are collectively known as a **tablespace**. A tablespace is essentially a black box that InnoDB manages all by itself.
+
+    In MySQL 4.1 and newer versions, InnoDB can store each table's data and indexes in separate files. InnoDB can also use raw disk partitions for building its tablespace, but modern filesystems make this unnecessary.
+
+2. InnoDB and isolation levels
+
+    InnoDB uses MVCC to achieve high concurrency, and it implements all four SQL standard isolation levels. It defaults to the REPEATABLE READ isolation level, and it has a **next-key locking strategy** that prevents phantom reads in this isolation level, rather than locking only the rows that we need. InnoDB locks gaps in the index structure as well, preventing phantoms from being inserted.
+
+3. InnoDB and indexes
+
+    InnoDB tables are built on a clustered index. InnoDB's index structure are very different from those of most other MySQL storage engines. As a result, it provides very fast primary key lookups. However, secondary indexes contain the primary key columns, so if our primary key is large, other indexes will also be large. So, we need to keep small primary key if we'll have many indexes on a table.
+
+    InnoDB includes some internal optimizations:
+    - predictive read-ahead for prefetching data from disk
+    - an adaptive hash index that automatically builds hash indexes in memory for very fast lookups.
+    - insert buffer to speed inserts.
 
 <br>
 
@@ -53,6 +71,27 @@ tags: [MySQL, Database]
 
 
 
+
+
+
+<br>
+
+## Some features of InnoDB
+
+1. In MySQL 5.1
+
+    The InnoDB storage engine was used as plugin in MySQL 5.1. Belows are some features of this version.
+    - building indexes by sorting
+    - drop and add indexes without rebuilding the whole table
+    - a new storage format that offers compression
+    - store large values such as BLOB columns
+    - file format management
+
+2. In MySQL 5.6
+
+
+
+3. In MySQL 8.0
 
 
 
