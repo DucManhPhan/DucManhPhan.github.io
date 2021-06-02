@@ -148,6 +148,8 @@ Refer:
 
 [MySQL Indexing for Performance by Pinal Dave](https://app.pluralsight.com/library/courses/mysql-indexing-performance/table-of-contents)
 
+[High performance MySQL, 3rd edition](https://www.amazon.com/High-Performance-MySQL-Optimization-Replication/dp/1449314287)
+
 [https://blog.jcole.us/2013/01/07/the-physical-structure-of-innodb-index-pages/](https://blog.jcole.us/2013/01/07/the-physical-structure-of-innodb-index-pages/)
 
 [https://blog.jcole.us/2013/01/10/btree-index-structures-in-innodb/](https://blog.jcole.us/2013/01/10/btree-index-structures-in-innodb/)

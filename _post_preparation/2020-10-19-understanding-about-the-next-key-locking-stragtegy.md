@@ -65,7 +65,7 @@ tags: [Database]
 
 Refer:
 
-[]()
+[High performance MySQL, 3rd edition](https://www.amazon.com/High-Performance-MySQL-Optimization-Replication/dp/1449314287)
 
 []()
 
