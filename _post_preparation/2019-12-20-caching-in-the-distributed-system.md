@@ -2,7 +2,7 @@
 layout: post
 title: Caching in the Distributed System
 bigimg: /img/image-header/factory.jpg
-tags: [Caching]
+tags: [Distributed System]
 ---
 
 
@@ -89,6 +89,15 @@ Therefore, how do we deal with it?
 
     - Memcached
 
+<br>
+
+## Some caching reading policies
+
+1. Read-through cache
+
+
+2. 
+
 
 <br>
 
@@ -96,7 +105,7 @@ Therefore, how do we deal with it?
 
 1. Write-through cache
 
-    A write-through cache means that updating data on both cache and database at the same time.
+    A write-through cache means that updating data on both cache and database synchronously. It means that systems have to wait for the database or cache complete their writes before moving to the next tasks of cache or database.
 
     Some trade-off characteristics of Write-through cache:
     1. Benefits
@@ -111,27 +120,24 @@ Therefore, how do we deal with it?
 
 2. Write-back cache
 
-    A write-back cache means that to hit the database directly and once we hit the database, make sure to make an entry in the cache, so either database can tell the cache that this entry is no longer valid or we hit the cache, we find that entry is evicted. Then, if there will be a query on the cache, that entry won't exist, so it's going to pull from the database, and send back to the client.
+    To reduce the time-consuming problem of write-through cache, the write-back cache was created. Instead of using synchronous ways for the writing of database and cache, we will utilize asynchronous ways. It means that first, update data to the cache. Then, after a few of times, our application will read which data isn't persisted in the database, then writing it to the database.
 
     A write-back cache is also called as write-behind cache and copy-back cache.
 
     Some trade-off characteristics of Write-back cache:
     1. Benefits
 
-        - 
-        - 
-        - 
-
+        - Improve the writing performance of the write-through cache.
+        - This way is suitable for write-heavy workloads.
 
     2. Drawbacks
 
-        - 
-        - 
-        - 
+        - It provides the complex tasks to keep track of the data which isn's still to implement writing data to the database.
+        - Because of pushing data to the memory of the either cachin system or the local cache in the application server, it can be lost update. 
 
 3. Write-around cache
 
-
+    
 
     Some trade-off characteristics of Write-around cache:
     1. Benefits
@@ -203,6 +209,8 @@ Refer:
 [What is Distributed Caching? Explained with Redis!](https://www.youtube.com/watch?v=U3RkDLtS7uY)
 
 [Understanding write-through, write-around and write-back caching (with Python)](https://shahriar.svbtle.com/Understanding-writethrough-writearound-and-writeback-caching-with-python)
+
+[https://dzone.com/articles/database-caching-with-redis-and-java](https://dzone.com/articles/database-caching-with-redis-and-java)
 
 [https://towardsdatascience.com/system-design-interview-prep-should-you-put-the-data-in-cache-56936697ee54](https://towardsdatascience.com/system-design-interview-prep-should-you-put-the-data-in-cache-56936697ee54)
 
