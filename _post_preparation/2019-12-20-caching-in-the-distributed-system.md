@@ -113,7 +113,7 @@ Therefore, how do we deal with it?
 
     A write-back cache means that to hit the database directly and once we hit the database, make sure to make an entry in the cache, so either database can tell the cache that this entry is no longer valid or we hit the cache, we find that entry is evicted. Then, if there will be a query on the cache, that entry won't exist, so it's going to pull from the database, and send back to the client.
 
-    A write-back cache is also called as write-behind cache.
+    A write-back cache is also called as write-behind cache and copy-back cache.
 
     Some trade-off characteristics of Write-back cache:
     1. Benefits
