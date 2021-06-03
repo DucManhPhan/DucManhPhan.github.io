@@ -10,10 +10,11 @@ tags: [Distributed System]
 <br>
 
 ## Table of contents
-- [Introduction to Scalability](#introduction-to-scalability)
+- [Given problem](#given-problem)
+- [Solution with Scalability](#solution-with-scalability)
 - [Vertical scaling](#vertical-scaling)
 - [Horizontal scaling](#horizontal-scaling)
-- [Examples about vertical/horizontal scaling](#examples-about-vertical/horizontal-scaling)
+- [Best practices for scalability](#best-practices-for-scalability)
 - [Wrapping up](#wrapping-up)
 
 
@@ -52,21 +53,57 @@ To solve all problems,
 
 ## Vertical scaling
 
+1. Introduction to vertical scaling
 
 
 
+
+
+2. Benefits and Drawbacks
+
+    - Benefits
+
+        - 
+        - 
+        - 
+
+    - Drawbacks
+
+        - 
+        - 
+        - 
 
 <br>
 
 ## Horizontal scaling
 
+1. Introduction to horizontal scaling
 
 
+
+
+
+2. Benefits and Drawbacks
+
+    - Benefits
+
+        - 
+        - 
+        - 
+
+    - Drawbacks
+
+        - 
+        - 
+        - 
 
 
 <br>
 
-## Examples about vertical/horizontal scaling
+## Best practices for scalability
+
+
+
 
 
 
@@ -81,5 +118,11 @@ To solve all problems,
 <br>
 
 Refer:
+
+[]()
+
+[]()
+
+[]()
 
 []()
