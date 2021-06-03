@@ -96,27 +96,24 @@ Therefore, how do we deal with it?
 
 1. Write-through cache
 
-    A write-through cache means that when we need to make an update to the data, now, our data is put on both cache and database at the same time. In this case, the first, we will update that data on Cache, but it causes the data inconsistency between Cache and Database. Then, we also push that update to the Database. 
-
-    So, it means that we update the Cache before updating the Database.
+    A write-through cache means that updating data on both cache and database at the same time.
 
     Some trade-off characteristics of Write-through cache:
     1. Benefits
     
-        - 
-        - 
-        - 
+        - This policy will improve the data consistency between cache and database.
+        - It's easy to recover data when the cache and database cope with problems accidently.
 
 
     2. Drawbacks
 
-        - 
-        - 
-        - 
+        - It's time-consuming job when we need to update the database.
 
 2. Write-back cache
 
     A write-back cache means that to hit the database directly and once we hit the database, make sure to make an entry in the cache, so either database can tell the cache that this entry is no longer valid or we hit the cache, we find that entry is evicted. Then, if there will be a query on the cache, that entry won't exist, so it's going to pull from the database, and send back to the client.
+
+    A write-back cache is also called as write-behind cache.
 
     Some trade-off characteristics of Write-back cache:
     1. Benefits
@@ -173,6 +170,8 @@ Therefore, how do we deal with it?
 ## When to use
 
 - When data is frequently access by the multiple users.
+
+    It means that caching should be used in the read-heavy case, not write-heavy case.
 
     For example: Google will cache the result of some hot search.
 
