@@ -12,9 +12,9 @@ tags: [Caching]
 ## Table of contents
 - [Given problem](#given-problem)
 - [Solution of using Caching](#solution-of-using-caching)
-- [Some cache policy that we need to know](#some-cache-policy-that-we-need-to-know)
-- [Thrashing concept of Caching](#thrashing-concept-in-caching)
-- [Consistency in Caching](#consistency-in-caching)
+- [Some types of caching](#some-types-of-caching)
+- [Some caching writing policies](#some-caching-writing-policies)
+- [Some caching replacement policies](#some-caching-replacement-policies)
 - [When to use](#when-to-use)
 - [Benefits and Drawbacks](#benefits-and-drawbacks)
 - [Wrapping up](#wrapping-up)
@@ -43,7 +43,12 @@ Therefore, how do we deal with it?
 
 ## Solution of using Caching
 
+1. Introduction to Caching
 
+
+
+
+2. Thrashing concept of Caching
 
 
 
@@ -79,36 +84,10 @@ Therefore, how do we deal with it?
 
     - Memcached
 
-    Then, 
 
 <br>
 
-## Some cache policy that we need to know
-
-1. LRU - Least Recently Used
-
-
-
-2. LFU - Least Frequently Used
-
-
-    For example:
-    - Used in caffeine
-
-3. 
-
-<br>
-
-## Thrashing concept of Caching
-
-
-
-
-
-
-<br>
-
-## Consistency in Caching
+## Some caching writing policies
 
 1. Write-through cache
 
@@ -139,6 +118,23 @@ Therefore, how do we deal with it?
 
 3. Write-around cache
 
+
+<br>
+
+
+## Some caching replacement policies
+
+1. LRU - Least Recently Used
+
+
+
+2. LFU - Least Frequently Used
+
+
+    For example:
+    - Used in caffeine
+
+3. 
 
 <br>
 
@@ -173,5 +169,7 @@ Refer:
 [What is Distributed Caching? Explained with Redis!](https://www.youtube.com/watch?v=U3RkDLtS7uY)
 
 [Understanding write-through, write-around and write-back caching (with Python)](https://shahriar.svbtle.com/Understanding-writethrough-writearound-and-writeback-caching-with-python)
+
+[https://towardsdatascience.com/system-design-interview-prep-should-you-put-the-data-in-cache-56936697ee54](https://towardsdatascience.com/system-design-interview-prep-should-you-put-the-data-in-cache-56936697ee54)
 
 [https://betterprogramming.pub/introduction-and-strategies-to-handle-challenges-in-caching-c619d51882c0](https://betterprogramming.pub/introduction-and-strategies-to-handle-challenges-in-caching-c619d51882c0)

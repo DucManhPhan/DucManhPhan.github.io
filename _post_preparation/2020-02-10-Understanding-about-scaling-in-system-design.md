@@ -82,8 +82,25 @@ To solve all problems,
 
 
 
+2. Some configurations to implement horizontal scaling
 
-2. Benefits and Drawbacks
+    - Active-Passive
+
+
+
+    - Master-Slave
+
+
+
+    - Cluster
+
+
+
+    - Sharding
+
+
+
+3. Benefits and Drawbacks
 
     - Benefits
 
@@ -119,7 +136,7 @@ To solve all problems,
 
 Refer:
 
-[]()
+[https://www.oshyn.com/blog/2011/11/mysql-scaling-options](https://www.oshyn.com/blog/2011/11/mysql-scaling-options)
 
 []()
 
