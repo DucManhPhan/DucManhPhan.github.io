@@ -47,8 +47,13 @@ Therefore, how do we deal with it?
 
 
 
+2. Cache hit, Cache miss
 
-2. Thrashing concept of Caching
+
+
+
+3. Thrashing concept of Caching
+
 
 
 
@@ -91,18 +96,23 @@ Therefore, how do we deal with it?
 
 1. Write-through cache
 
-    A write-through cache means that when we need to make an update to the data, now, our data is put on both cache and database. In this case, the first, we will update that data on Cache, but it causes the data inconsistency between Cache and Database. Then, we also push that update to the Database. 
+    A write-through cache means that when we need to make an update to the data, now, our data is put on both cache and database at the same time. In this case, the first, we will update that data on Cache, but it causes the data inconsistency between Cache and Database. Then, we also push that update to the Database. 
 
     So, it means that we update the Cache before updating the Database.
 
     Some trade-off characteristics of Write-through cache:
     1. Benefits
+    
+        - 
+        - 
+        - 
 
 
     2. Drawbacks
 
-
-
+        - 
+        - 
+        - 
 
 2. Write-back cache
 
@@ -111,12 +121,34 @@ Therefore, how do we deal with it?
     Some trade-off characteristics of Write-back cache:
     1. Benefits
 
+        - 
+        - 
+        - 
 
 
     2. Drawbacks
 
+        - 
+        - 
+        - 
 
 3. Write-around cache
+
+
+
+    Some trade-off characteristics of Write-around cache:
+    1. Benefits
+
+        - 
+        - 
+        - 
+
+
+    2. Drawbacks
+
+        - 
+        - 
+        - 
 
 
 <br>
@@ -140,8 +172,11 @@ Therefore, how do we deal with it?
 
 ## When to use
 
+- When data is frequently access by the multiple users.
 
+    For example: Google will cache the result of some hot search.
 
+- When the computation for that data is CPU-intensive.
 
 
 <br>
@@ -173,3 +208,5 @@ Refer:
 [https://towardsdatascience.com/system-design-interview-prep-should-you-put-the-data-in-cache-56936697ee54](https://towardsdatascience.com/system-design-interview-prep-should-you-put-the-data-in-cache-56936697ee54)
 
 [https://betterprogramming.pub/introduction-and-strategies-to-handle-challenges-in-caching-c619d51882c0](https://betterprogramming.pub/introduction-and-strategies-to-handle-challenges-in-caching-c619d51882c0)
+
+[https://docs.oracle.com/cd/E15357_01/coh.360/e15723/cache_rtwtwbra.htm#COHDG5181](https://docs.oracle.com/cd/E15357_01/coh.360/e15723/cache_rtwtwbra.htm#COHDG5181)
