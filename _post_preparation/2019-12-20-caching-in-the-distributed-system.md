@@ -102,12 +102,12 @@ Therefore, how do we deal with it?
     1. Benefits
     
         - This policy will improve the data consistency between cache and database.
-        - It's easy to recover data when the cache and database cope with problems accidently.
+        - It's easy to recover data when the cache and database cope with problems accidently such as crash, power failure, ...
 
 
     2. Drawbacks
 
-        - It's time-consuming job when we need to update the database.
+        - It's time-consuming task when we need to wait for the updating cache and database completely.
 
 2. Write-back cache
 
