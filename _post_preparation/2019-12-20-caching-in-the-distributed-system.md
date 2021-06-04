@@ -96,7 +96,9 @@ Therefore, how do we deal with it?
 1. Read-through cache
 
 
+
 2. 
+
 
 
 <br>
@@ -108,15 +110,18 @@ Therefore, how do we deal with it?
     A write-through cache means that updating data on both cache and database synchronously. It means that systems have to wait for the database or cache complete their writes before moving to the next tasks of cache or database.
 
     Some trade-off characteristics of Write-through cache:
-    1. Benefits
+    - Benefits
     
         - This policy will improve the data consistency between cache and database.
         - It's easy to recover data when the cache and database cope with problems accidently such as crash, power failure, ...
 
 
-    2. Drawbacks
+    - Drawbacks
 
         - It's time-consuming task when we need to wait for the updating cache and database completely.
+
+    When to use:
+    - It's suitable for an application that has read-heavy operations.
 
 2. Write-back cache
 
@@ -125,19 +130,19 @@ Therefore, how do we deal with it?
     A write-back cache is also called as write-behind cache and copy-back cache.
 
     Some trade-off characteristics of Write-back cache:
-    1. Benefits
+    - Benefits
 
         - Improve the writing performance of the write-through cache.
         - This way is suitable for write-heavy workloads.
 
-    2. Drawbacks
+    - Drawbacks
 
         - It provides the complex tasks to keep track of the data which isn's still to implement writing data to the database.
         - Because of pushing data to the memory of the either cachin system or the local cache in the application server, it can be lost update. 
 
 3. Write-around cache
 
-    
+
 
     Some trade-off characteristics of Write-around cache:
     1. Benefits
@@ -217,3 +222,15 @@ Refer:
 [https://betterprogramming.pub/introduction-and-strategies-to-handle-challenges-in-caching-c619d51882c0](https://betterprogramming.pub/introduction-and-strategies-to-handle-challenges-in-caching-c619d51882c0)
 
 [https://docs.oracle.com/cd/E15357_01/coh.360/e15723/cache_rtwtwbra.htm#COHDG5181](https://docs.oracle.com/cd/E15357_01/coh.360/e15723/cache_rtwtwbra.htm#COHDG5181)
+
+[https://shahriar.svbtle.com/Understanding-writethrough-writearound-and-writeback-caching-with-python](https://shahriar.svbtle.com/Understanding-writethrough-writearound-and-writeback-caching-with-python)
+
+[https://medium.com/rtkal/distributed-cache-design-348cbe334df1](https://medium.com/rtkal/distributed-cache-design-348cbe334df1)
+
+[https://dzone.com/articles/using-read-through-amp-write-through-in-distribute-2](https://dzone.com/articles/using-read-through-amp-write-through-in-distribute-2)
+
+[https://dzone.com/articles/using-read-through-amp-write-through-in-distribute](https://dzone.com/articles/using-read-through-amp-write-through-in-distribute)
+
+[https://comdy.vn/software-architecture/cache-trong-distributed-system/](https://comdy.vn/software-architecture/cache-trong-distributed-system/)
+
+[]()
