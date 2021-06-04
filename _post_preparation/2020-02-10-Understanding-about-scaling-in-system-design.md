@@ -45,7 +45,14 @@ Some problems that we will encounter:
 
 ## Solution with Scalability
 
-To solve all problems, 
+1. Introduction to scalability
+
+    To solve all problems, 
+
+2. Some concepts that are relevant to scalability
+
+
+
 
 
 
@@ -79,8 +86,10 @@ To solve all problems,
 
 1. Introduction to horizontal scaling
 
+    
+    It means that distributing the load across multiple machines.
 
-
+    Distributing load across multiple machines is also known as a shared-nothing architecture.
 
 2. Some configurations to implement horizontal scaling
 
