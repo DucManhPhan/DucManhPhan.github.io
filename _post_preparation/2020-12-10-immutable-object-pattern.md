@@ -71,6 +71,6 @@ tags: [Concurrency Pattern]
 
 Refer:
 
-[]()
+[https://codezup.com/immutability-in-java-immutable-objects/](https://codezup.com/immutability-in-java-immutable-objects/)
 
 []()

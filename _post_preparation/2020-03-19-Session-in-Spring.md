@@ -11,6 +11,16 @@ tags: [Spring]
 <br>
 
 ## Table of contents
+- [Given problem](#given-problem)
+- [Introduction to Session in Spring](#introduction-to-session-in-spring)
+- [Spring Session architecture](#spring-session-architecture)
+- [Wrapping up](#wrapping-up)
+
+
+<br>
+
+## Given problem
+
 
 
 
@@ -18,16 +28,7 @@ tags: [Spring]
 
 <br>
 
-## 
-
-
-
-
-
-
-<br>
-
-## 
+## Introduction to Session in Spring
 
 
 

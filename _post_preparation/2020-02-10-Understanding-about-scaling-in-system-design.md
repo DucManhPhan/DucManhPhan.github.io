@@ -10,10 +10,11 @@ tags: [Distributed System]
 <br>
 
 ## Table of contents
-- [Introduction to Scalability](#introduction-to-scalability)
+- [Given problem](#given-problem)
+- [Solution with Scalability](#solution-with-scalability)
 - [Vertical scaling](#vertical-scaling)
 - [Horizontal scaling](#horizontal-scaling)
-- [Examples about vertical/horizontal scaling](#examples-about-vertical/horizontal-scaling)
+- [Best practices for scalability](#best-practices-for-scalability)
 - [Wrapping up](#wrapping-up)
 
 
@@ -44,7 +45,14 @@ Some problems that we will encounter:
 
 ## Solution with Scalability
 
-To solve all problems, 
+1. Introduction to scalability
+
+    To solve all problems, 
+
+2. Some concepts that are relevant to scalability
+
+
+
 
 
 
@@ -52,21 +60,76 @@ To solve all problems,
 
 ## Vertical scaling
 
+1. Introduction to vertical scaling
 
 
 
+
+
+2. Benefits and Drawbacks
+
+    - Benefits
+
+        - 
+        - 
+        - 
+
+    - Drawbacks
+
+        - 
+        - 
+        - 
 
 <br>
 
 ## Horizontal scaling
 
+1. Introduction to horizontal scaling
+
+    
+    It means that distributing the load across multiple machines.
+
+    Distributing load across multiple machines is also known as a shared-nothing architecture.
+
+2. Some configurations to implement horizontal scaling
+
+    - Active-Passive
 
 
+
+    - Master-Slave
+
+
+
+    - Cluster
+
+
+
+    - Sharding
+
+
+
+3. Benefits and Drawbacks
+
+    - Benefits
+
+        - 
+        - 
+        - 
+
+    - Drawbacks
+
+        - 
+        - 
+        - 
 
 
 <br>
 
-## Examples about vertical/horizontal scaling
+## Best practices for scalability
+
+
+
 
 
 
@@ -81,5 +144,11 @@ To solve all problems,
 <br>
 
 Refer:
+
+[https://www.oshyn.com/blog/2011/11/mysql-scaling-options](https://www.oshyn.com/blog/2011/11/mysql-scaling-options)
+
+[]()
+
+[]()
 
 []()

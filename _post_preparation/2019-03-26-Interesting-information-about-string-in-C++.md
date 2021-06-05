@@ -2,7 +2,7 @@
 layout: post
 title: Interesting information about string in C++
 bigimg: /img/image-header/california.jpg
-tags: [Dynamic programming]
+tags: [Dynamic Programming]
 ---
 
 

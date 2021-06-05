@@ -2,7 +2,7 @@
 layout: post
 title: Two phase commit in Distributed System
 bigimg: /img/path.jpg
-tags: [Distributed System]
+tags: [Microservice]
 ---
 
 
@@ -12,6 +12,7 @@ tags: [Distributed System]
 ## Table of contents
 - [Given problem](#given-problem)
 - [Solution for using two phase commit](#solution-for-using-two-phase-commit)
+- [Source code](#source-code)
 - [When to use](#when-to-use)
 - [Benefits and Drawbacks](#benefits-and-drawbacks)
 - [Wrapping up](#wrapping-up)
@@ -32,6 +33,14 @@ tags: [Distributed System]
 Transaction manager is used to split operations across multiple resources into two phases:
 - prepare
 - commit
+
+
+
+<br>
+
+## Source code
+
+
 
 
 
@@ -82,3 +91,13 @@ Refer:
 [https://www.educative.io/edpresso/what-is-the-two-phase-commit-protocol](https://www.educative.io/edpresso/what-is-the-two-phase-commit-protocol)
 
 [https://docs.mongodb.com/v3.6/tutorial/perform-two-phase-commits/](https://docs.mongodb.com/v3.6/tutorial/perform-two-phase-commits/)
+
+[https://dzone.com/articles/distributed-transactions-with-two-phase-commit-pro](https://dzone.com/articles/distributed-transactions-with-two-phase-commit-pro)
+
+[https://dzone.com/articles/improving-microservices-reliability-with-the-two-p](https://dzone.com/articles/improving-microservices-reliability-with-the-two-p)
+
+[]()
+
+[]()
+
+[]()

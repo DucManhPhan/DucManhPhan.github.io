@@ -2,7 +2,7 @@
 layout: post
 title: Some basic steps for DP
 bigimg: /img/image-header/california.jpg
-tags: [Dynamic programming, Algorithm]
+tags: [Dynamic Programming, Algorithm]
 ---
 
 In this article, we will learn how to solve Dynamic Programming problems, and which steps to apply for it. It will make our thought clearly about the road that we have to go.

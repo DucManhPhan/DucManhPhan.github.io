@@ -136,13 +136,13 @@ In system design, software engineers always want to design a high performance sy
 Belows are some essential parameters for performance requirements:
 - Latency and Throughput
 
-    Latency is the time that transfer data from the client to the server and vice versa. It is called the rounded-trip time. So, the latency is completely affected by the hardware.
+    **Latency** is the time that transfer data from the client to the server and vice versa. It is called the rounded-trip time. So, the **latency** is completely affected by the hardware.
 
-    Throughput is the amount of completed work per the total of work in a given period of time .
+    **Throughput** is the amount of completed work per the total of work in a given period of time.
 
 - Response time
 
-    The response time is calculated from the client that starts sending a request until receiving results from this request. It means that the response time is equal to the sum of rounded-trip time or the latency between client and server, and the execution time of business operations such as the calculation time on server and the interaction time between server and the other external parts - message queue, cache, database.
+    The **response time** is calculated from the client that starts sending a request until receiving results from this request. It means that the response time is equal to the sum of rounded-trip time or the latency between client and server, and the **execution time** of business operations such as the calculation time on server and the interaction time between server and the other external parts - message queue, cache, database.
 
     So, we have the formula to calculate the response time:
 
@@ -150,9 +150,11 @@ Belows are some essential parameters for performance requirements:
     response time = latency + execution time
     ```
 
-    We can easily find that we do not change the latency, but we can improve the execution time by using caches, or using index, temporary memory table in database.
+    We can easily find that we do not change the **latency**, but we can improve the **execution time** by using caches, or using index, temporary memory table in database.
 
-- The number of TPS (Transaction per Second) 
+    In some books, the **execution time** can also be called as the **service time**.
+
+- The number of TPS (Transaction Per Second) 
 
 - Hardware's storage capacity and network
 

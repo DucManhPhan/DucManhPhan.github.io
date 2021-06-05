@@ -49,7 +49,11 @@ Constraints
 
 
 ```java
-
+public class Solution {
+    public static String superReducedString(String s) {
+        // ...
+    }
+}
 ```
 
 

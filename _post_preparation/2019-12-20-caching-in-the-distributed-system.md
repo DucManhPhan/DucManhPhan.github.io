@@ -2,7 +2,7 @@
 layout: post
 title: Caching in the Distributed System
 bigimg: /img/image-header/factory.jpg
-tags: [Caching]
+tags: [Distributed System]
 ---
 
 
@@ -12,9 +12,9 @@ tags: [Caching]
 ## Table of contents
 - [Given problem](#given-problem)
 - [Solution of using Caching](#solution-of-using-caching)
-- [Some cache policy that we need to know](#some-cache-policy-that-we-need-to-know)
-- [Thrashing concept of Caching](#thrashing-concept-in-caching)
-- [Consistency in Caching](#consistency-in-caching)
+- [Some types of caching](#some-types-of-caching)
+- [Some caching writing policies](#some-caching-writing-policies)
+- [Some caching replacement policies](#some-caching-replacement-policies)
 - [When to use](#when-to-use)
 - [Benefits and Drawbacks](#benefits-and-drawbacks)
 - [Wrapping up](#wrapping-up)
@@ -43,6 +43,16 @@ Therefore, how do we deal with it?
 
 ## Solution of using Caching
 
+1. Introduction to Caching
+
+
+
+2. Cache hit, Cache miss
+
+
+
+
+3. Thrashing concept of Caching
 
 
 
@@ -79,11 +89,80 @@ Therefore, how do we deal with it?
 
     - Memcached
 
-    Then, 
+<br>
+
+## Some caching reading policies
+
+1. Read-through cache
+
+
+
+2. 
+
+
 
 <br>
 
-## Some cache policy that we need to know
+## Some caching writing policies
+
+1. Write-through cache
+
+    A write-through cache means that updating data on both cache and database synchronously. It means that systems have to wait for the database or cache complete their writes before moving to the next tasks of cache or database.
+
+    Some trade-off characteristics of Write-through cache:
+    - Benefits
+    
+        - This policy will improve the data consistency between cache and database.
+        - It's easy to recover data when the cache and database cope with problems accidently such as crash, power failure, ...
+
+
+    - Drawbacks
+
+        - It's time-consuming task when we need to wait for the updating cache and database completely.
+
+    When to use:
+    - It's suitable for an application that has read-heavy operations.
+
+2. Write-back cache
+
+    To reduce the time-consuming problem of write-through cache, the write-back cache was created. Instead of using synchronous ways for the writing of database and cache, we will utilize asynchronous ways. It means that first, update data to the cache. Then, after a few of times, our application will read which data isn't persisted in the database, then writing it to the database.
+
+    A write-back cache is also called as write-behind cache and copy-back cache.
+
+    Some trade-off characteristics of Write-back cache:
+    - Benefits
+
+        - Improve the writing performance of the write-through cache.
+        - This way is suitable for write-heavy workloads.
+
+    - Drawbacks
+
+        - It provides the complex tasks to keep track of the data which isn's still to implement writing data to the database.
+        - Because of pushing data to the memory of the either cachin system or the local cache in the application server, it can be lost update. 
+
+3. Write-around cache
+
+
+
+    Some trade-off characteristics of Write-around cache:
+    1. Benefits
+
+        - 
+        - 
+        - 
+
+
+    2. Drawbacks
+
+        - 
+        - 
+        - 
+
+
+<br>
+
+
+## Some caching replacement policies
 
 1. LRU - Least Recently Used
 
@@ -99,53 +178,15 @@ Therefore, how do we deal with it?
 
 <br>
 
-## Thrashing concept of Caching
-
-
-
-
-
-
-<br>
-
-## Consistency in Caching
-
-1. Write-through cache
-
-    A write-through cache means that when we need to make an update to the data, now, our data is put on both cache and database. In this case, the first, we will update that data on Cache, but it causes the data inconsistency between Cache and Database. Then, we also push that update to the Database. 
-
-    So, it means that we update the Cache before updating the Database.
-
-    Some trade-off characteristics of Write-through cache:
-    1. Benefits
-
-
-    2. Drawbacks
-
-
-
-
-2. Write-back cache
-
-    A write-back cache means that to hit the database directly and once we hit the database, make sure to make an entry in the cache, so either database can tell the cache that this entry is no longer valid or we hit the cache, we find that entry is evicted. Then, if there will be a query on the cache, that entry won't exist, so it's going to pull from the database, and send back to the client.
-
-    Some trade-off characteristics of Write-back cache:
-    1. Benefits
-
-
-
-    2. Drawbacks
-
-
-3. Write-around cache
-
-
-<br>
-
 ## When to use
 
+- When data is frequently access by the multiple users.
 
+    It means that caching should be used in the read-heavy case, not write-heavy case.
 
+    For example: Google will cache the result of some hot search.
+
+- When the computation for that data is CPU-intensive.
 
 
 <br>
@@ -174,4 +215,22 @@ Refer:
 
 [Understanding write-through, write-around and write-back caching (with Python)](https://shahriar.svbtle.com/Understanding-writethrough-writearound-and-writeback-caching-with-python)
 
+[https://dzone.com/articles/database-caching-with-redis-and-java](https://dzone.com/articles/database-caching-with-redis-and-java)
+
+[https://towardsdatascience.com/system-design-interview-prep-should-you-put-the-data-in-cache-56936697ee54](https://towardsdatascience.com/system-design-interview-prep-should-you-put-the-data-in-cache-56936697ee54)
+
 [https://betterprogramming.pub/introduction-and-strategies-to-handle-challenges-in-caching-c619d51882c0](https://betterprogramming.pub/introduction-and-strategies-to-handle-challenges-in-caching-c619d51882c0)
+
+[https://docs.oracle.com/cd/E15357_01/coh.360/e15723/cache_rtwtwbra.htm#COHDG5181](https://docs.oracle.com/cd/E15357_01/coh.360/e15723/cache_rtwtwbra.htm#COHDG5181)
+
+[https://shahriar.svbtle.com/Understanding-writethrough-writearound-and-writeback-caching-with-python](https://shahriar.svbtle.com/Understanding-writethrough-writearound-and-writeback-caching-with-python)
+
+[https://medium.com/rtkal/distributed-cache-design-348cbe334df1](https://medium.com/rtkal/distributed-cache-design-348cbe334df1)
+
+[https://dzone.com/articles/using-read-through-amp-write-through-in-distribute-2](https://dzone.com/articles/using-read-through-amp-write-through-in-distribute-2)
+
+[https://dzone.com/articles/using-read-through-amp-write-through-in-distribute](https://dzone.com/articles/using-read-through-amp-write-through-in-distribute)
+
+[https://comdy.vn/software-architecture/cache-trong-distributed-system/](https://comdy.vn/software-architecture/cache-trong-distributed-system/)
+
+[]()

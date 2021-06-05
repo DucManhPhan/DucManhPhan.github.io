@@ -10,9 +10,11 @@ tags: [Multithreading, Java, Interview question]
 <br>
 
 ## Table of contents
-
-
-
+- [What is synchronization and why use synchronization?]()
+- [What is the difference between synchronized method and synchronized block?]()
+- [What are the two ways to perform static synchronization?](#)
+- [What is interthread-communication or cooperation?](#what-is-interthread-communication-or-cooperation)
+- [Wrapping up](#wrapping-up)
 
 
 <br>

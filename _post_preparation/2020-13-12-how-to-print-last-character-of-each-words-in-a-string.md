@@ -2,7 +2,7 @@
 layout: post
 title: How to print last character of each words in a string
 bigimg: /img/image-header/california.jpg
-tags: [Dynamic programming, Algorithm]
+tags: [Dynamic Programming, Algorithm]
 ---
 
 

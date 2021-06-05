@@ -65,7 +65,7 @@ tags: [Microservice Patterns]
 
 Refer:
 
-[]()
+[https://itnext.io/the-outbox-pattern-in-event-driven-asp-net-core-microservice-architectures-10b8d9923885](https://itnext.io/the-outbox-pattern-in-event-driven-asp-net-core-microservice-architectures-10b8d9923885)
 
 []()
 

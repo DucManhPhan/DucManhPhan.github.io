@@ -13,7 +13,13 @@ tags: [Functional Programming]
 ## Table of contents
 - [Given problem](#given-problem)
 - [Solution of the terminal operators]()
-- []()
+- [forEach() operator](#forEach()-operator)
+- [reduce() operator](#reduce()-operator)
+- [collect() operator](#collect()-operator)
+- [max() operator](#max()-operator)
+- [min() operator](#min()-operator)
+- [average() operator](#average()-operator)
+- [anyMatch() operator](#anyMatch()-operator)
 - [Benefits and Drawbacks](#benefits-and-drawbacks)
 - [Wrapping up](#wrapping-up)
 
@@ -46,10 +52,16 @@ In Java's stream, there are two types of operators:
 In our article, we only focus mainly on how many terminal operators, and how it works, then how we can apply in our source code.
 
 Generally speaking, there are some terminal operators that we need to know.
-1. 
-2. 
-3. 
-4. 
+1. forEach() operator
+2. reduce() operator
+3. collect() operator
+4. max() operator
+5. min() operator
+6. average() operator
+7. anyMatch() operator
+8. 
+9. 
+10. 
 
 <br>
 

@@ -168,7 +168,8 @@ tags: [Vert.x, Java]
 <br>
 
 ## Wrapping up
-- SpringBoot serves hundreds of requests just fine.
+
+- Spring Boot serves hundreds of requests just fine.
 
 
 
