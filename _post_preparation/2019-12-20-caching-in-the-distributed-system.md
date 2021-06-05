@@ -105,6 +105,8 @@ Therefore, how do we deal with it?
 
 ## Some caching writing policies
 
+    These policies are called as cache validation policies. Belows are some policies that we need to know.
+
 1. Write-through cache
 
     A write-through cache means that updating data on both cache and database synchronously. It means that systems have to wait for the database or cache complete their writes before moving to the next tasks of cache or database.
@@ -114,7 +116,6 @@ Therefore, how do we deal with it?
     
         - This policy will improve the data consistency between cache and database.
         - It's easy to recover data when the cache and database cope with problems accidently such as crash, power failure, ...
-
 
     - Drawbacks
 
@@ -233,4 +234,4 @@ Refer:
 
 [https://comdy.vn/software-architecture/cache-trong-distributed-system/](https://comdy.vn/software-architecture/cache-trong-distributed-system/)
 
-[]()
+[https://online.grokking.org/articles/28/phan-chia-du-lieu-cache-tren-cum-server-voi-consistent-hashing](https://online.grokking.org/articles/28/phan-chia-du-lieu-cache-tren-cum-server-voi-consistent-hashing)
