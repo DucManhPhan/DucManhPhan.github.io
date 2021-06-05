@@ -11,11 +11,11 @@ tags: [Java]
 <br>
 
 ## Table of contents
-- [Given problem]()
-- [Solution of lambda expression]()
-- [Benefits and Drawbacks]()
-- [When to use]()
-- [Wrapping up]()
+- [Given problem](#given-problem)
+- [Solution of lambda expression](#solution-of-lambda-expression)
+- [Benefits and Drawbacks](#benefits-and-drawbacks)
+- [When to use](#when-to-use)
+- [Wrapping up](#wrapping-up)
 
 
 <br>
