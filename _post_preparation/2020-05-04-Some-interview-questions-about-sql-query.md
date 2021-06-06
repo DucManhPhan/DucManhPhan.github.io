@@ -12,9 +12,9 @@ tags: [Database, Interview question]
 ## Table of contents
 - [The difference between WHERE clause and HAVING clause](#the-difference-between-where-clause-and-having-clause)
 - [The difference between TRUNCATE and DELETE](#the-difference-between-truncate-and-delete)
-- []()
-- []()
-- []()
+- [The difference between UNION and UNION ALL](#the-difference-between-union-and-union-all)
+- [The difference between JOIN and UNION](#the-difference-between-join-and-union)
+- [The difference between DROP and TRUNCATE](#the-difference-between-drop-and-truncate)
 - [Wrapping up](#wrapping-up)
 
 
@@ -161,16 +161,107 @@ Note:
 
 ## The difference between JOIN and UNION
 
-
+|               JOIN statement                |                       UNION statement                      |
+| ------------------------------------------- | ---------------------------------------------------------- |
+| JOIN combines data from many tables based on a matched condition between them | SQL combines the result-set of two or more SELECT statements |
+| It combines data into new columns           | It combines data into new rows                             |
+| Number of columns selected from each table may not be same | Number of columns selected from each table should be same |
+| Data types of corresponding columns selected from each table can be different | Data types of corresponding columns selected from each table should be same |
+| It may not return distinct columns          | It returns distinct rows                                   |
 
 
 <br>
 
 ## The difference between DROP and TRUNCATE
 
+|         DROP statement           |                  TRUNCATE statement                    |
+| -------------------------------- | ------------------------------------------------------ |
+| DROP command is used to remove table definition and its content | TRUNCATE command is used to delete all the rows from the table |
+| In the DROP command, table space is freed from memory | TRUNCATE command doesn't free the table space from memory |
+| DROP is DDL - Data Definition Language command | TRUNCATE is also DDL - Data Definition Language command |
+| In the DROP command, view of table doesn't exist | In the TRUNCATE command, view of table exist |
+| In the DROP command, integrity constraints will be removed | In the TRUNCATE command, integrity constraints won't be removed |
+| In the DROP command, undo space isn't used | In the TRUNCATE command, undo space is used but less than DELETE |
+| The DROP command is quick to perform but gives rise to complications | The TRUNCATE command is faster than DROP command |
 
+<br>
 
+## The difference between INNER JOIN and OUTER JOIN
 
+|              INNER JOIN            |                    OUTER JOIN                 |
+| ---------------------------------- | --------------------------------------------- |
+| It returns the combined tuple between two or more tables | It returns the combined tuple from a specified table even join condition will fail |
+| Used clause INNER JOIN and JOIN    | Used clause LEFT OUTER JOIN, RIGHT OUTER JOIN, FULL OUTER JOIN, ... |
+| When any attributes are not common, then it will return nothing | It doesn't depend upon the command attributes. If the attribute is blank, then here already placed NULL |
+| If tuples are more. Then INNER JOIN works faster than OUTER JOIN | Generally, the OUTER JOIN is slower than INNER JOIN. But except for some special cases |
+| It is used when we want detailed information about any specific attribute | It is used when we want to complete information |
+| JOIN and INNER JOIN both clause work the same | FULL OUTER JOIN and FULL JOIN both clauses work the same |
+
+Syntax of INNER JOIN and OUTER JOIN:
+
+```sql
+// INNER JOIN statement
+SELECT * FROM table1 JOIN table2
+ON table1.column_name = table2.column_name;
+
+// OUTER JOIN statement
+SELECT * FROM table1 LEFT OUTER JOIN/RIGHT OUTER JOIN/FULL OUTER JOIN table2
+ON table1.column_name = table2.column_name;
+```
+
+Note:
+- A LEFT JOIN is absolutely not faster than INNER JOIN. In fact, it's slower; by definition, an OUTER JOIN (LEFT JOIN, RIGHT JOIN) has to do all the work of an INNER JOIN plus the extra work of null-extending the results. It would also be expected to return more rows, further increasing the total execution time simply due to the larger size of the result set.
+
+    Reflecting further on this, I could think of one circumstance under which a LEFT JOIN might be faster than an INNER JOIN, and that is when:
+    - Some of the tables are very small (say, under 10 rows);
+    - The tables do not have sufficient indexes to cover the query.
+
+    Consider this example:
+
+    ```sql
+    CREATE TABLE #Test1
+    (
+        ID int NOT NULL PRIMARY KEY,
+        Name varchar(50) NOT NULL
+    )
+    INSERT #Test1 (ID, Name) VALUES (1, 'One')
+    INSERT #Test1 (ID, Name) VALUES (2, 'Two')
+    INSERT #Test1 (ID, Name) VALUES (3, 'Three')
+    INSERT #Test1 (ID, Name) VALUES (4, 'Four')
+    INSERT #Test1 (ID, Name) VALUES (5, 'Five')
+
+    CREATE TABLE #Test2
+    (
+        ID int NOT NULL PRIMARY KEY,
+        Name varchar(50) NOT NULL
+    )
+    INSERT #Test2 (ID, Name) VALUES (1, 'One')
+    INSERT #Test2 (ID, Name) VALUES (2, 'Two')
+    INSERT #Test2 (ID, Name) VALUES (3, 'Three')
+    INSERT #Test2 (ID, Name) VALUES (4, 'Four')
+    INSERT #Test2 (ID, Name) VALUES (5, 'Five')
+
+    SELECT *
+    FROM #Test1 t1
+    INNER JOIN #Test2 t2
+    ON t2.Name = t1.Name
+
+    SELECT *
+    FROM #Test1 t1
+    LEFT JOIN #Test2 t2
+    ON t2.Name = t1.Name
+
+    DROP TABLE #Test1
+    DROP TABLE #Test2
+    ```
+
+    If you run this and view the execution plan, you'll see that the INNER JOIN query does indeed cost more than the LEFT JOIN, because it satisfies the two criteria above. It's because SQL Server wants to do a hash match for the INNER JOIN, but does nested loops for the LEFT JOIN; the former is normally much faster, but since the number of rows is so tiny and there's no index to use, the hashing operation turns out to be the most expensive part of the query.
+
+    You can see the same effect by writing a program in your favourite programming language to perform a large number of lookups on a list with 5 elements, vs. a hash table with 5 elements. Because of the size, the hash table version is actually slower. But increase it to 50 elements, or 5000 elements, and the list version slows to a crawl, because it's O(N) vs. O(1) for the hashtable.
+
+    But change this query to be on the ID column instead of Name and you'll see a very different story. In that case, it does nested loops for both queries, but the INNER JOIN version is able to replace one of the clustered index scans with a seek - meaning that this will literally be an order of magnitude faster with a large number of rows.
+
+    So the conclusion is more or less what I mentioned several paragraphs above; this is almost certainly an indexing or index coverage problem, possibly combined with one or more very small tables. Those are the only circumstances under which SQL Server might sometimes choose a worse execution plan for an INNER JOIN than a LEFT JOIN.
 
 <br>
 
@@ -225,6 +316,20 @@ Refer:
 **DROP and TRUNCATE**
 
 [https://www.geeksforgeeks.org/difference-between-drop-and-truncate-in-sql/](https://www.geeksforgeeks.org/difference-between-drop-and-truncate-in-sql/)
+
+[]()
+
+[]()
+
+[]()
+
+<br>
+
+**JOIN**
+
+[https://stackoverflow.com/questions/2726657/inner-join-vs-left-join-performance-in-sql-server](https://stackoverflow.com/questions/2726657/inner-join-vs-left-join-performance-in-sql-server)
+
+[https://dba.stackexchange.com/questions/229165/why-is-this-left-join-faster-than-an-inner-join](https://dba.stackexchange.com/questions/229165/why-is-this-left-join-faster-than-an-inner-join)
 
 []()
 
