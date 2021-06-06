@@ -159,6 +159,21 @@ Note:
 
 <br>
 
+## The difference between JOIN and UNION
+
+
+
+
+<br>
+
+## The difference between DROP and TRUNCATE
+
+
+
+
+
+<br>
+
 ## Wrapping up
 
 
@@ -188,6 +203,30 @@ Refer:
 [https://intellipaat.com/community/1505/what-is-the-difference-between-union-and-union-all](https://intellipaat.com/community/1505/what-is-the-difference-between-union-and-union-all)
 
 [https://www.c-sharpcorner.com/UploadFile/ff2f08/difference-between-union-and-union-all-in-sql-server/](https://www.c-sharpcorner.com/UploadFile/ff2f08/difference-between-union-and-union-all-in-sql-server/)
+
+[]()
+
+[]()
+
+<br>
+
+**JOIN and UNION**
+
+[https://www.geeksforgeeks.org/difference-between-join-and-union-in-sql/](https://www.geeksforgeeks.org/difference-between-join-and-union-in-sql/)
+
+[]()
+
+[]()
+
+[]()
+
+<br>
+
+**DROP and TRUNCATE**
+
+[https://www.geeksforgeeks.org/difference-between-drop-and-truncate-in-sql/](https://www.geeksforgeeks.org/difference-between-drop-and-truncate-in-sql/)
+
+[]()
 
 []()
 
