@@ -96,9 +96,7 @@ Therefore, how do we deal with it?
 1. Read-through cache
 
 
-
-2. 
-
+2. Read-back cache
 
 
 <br>
