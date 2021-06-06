@@ -102,16 +102,60 @@ Some examples that use the above clauses:
 | DELETE table is a logged operation. So the deletion of each row gets logged in the transaction log, which makes it slow | TRUNCATE table also deletes all the rows in a table, but it won't log the deletion of each row instead it logs the deallocation of the data pages of the table, which makes it faster |
 | DELETE command can be rolled back | TRUNCATE also can be rolled back provided that it is enclosed in a transaction block and session is not closed. Once session is closed, we won't be able to roll back truncate |
 
+For example:
 
+```sql
+// TRUNCATE command
+TRUNCATE TABLE employee;
+
+// DELETE command
+DELETE FROM employee WHERE salary <= 500;
+```
 
 <br>
 
-## 
+## The difference between UNION and UNION ALL
 
+Supposed that we have the Customer and Supplier tables that looks like:
 
+|   customerId   |    address     |      contact      |
+| -------------- | -------------- | ----------------- |
+| 101            | London         | 123               |
+| 103            | New York       | 345               |
+| 105            | California     | 672               |
 
+|   supplierId   |    address     |      contact      |
+| -------------- | -------------- | ----------------- |
+| 100            | Singapore      | 648               |
+| 101            | Kuala Lampua   | 645               |
+| 107            | Singapore      | 649               |
 
+For example:
 
+```sql
+SELECT * FROM customer
+UNION
+SELECT * FROM supplier;
+
+SELECT * FROM customer
+UNION ALL 
+SELECT * FROM supplier;
+```
+
+|            UNION statement          |               UNION ALL statement                |
+| ----------------------------------- | ------------------------------------------------ |
+| It removes duplicate values in the data | It doesn't remove duplicate values from the data, instead, it just selects all the rows from all the tables which meets the conditions of our specific queries and combine them into the result table |
+| UNION will be slower than UNION ALL | UNION ALL will be faster than UNION              |
+| It is sorted                        | It is unsorted                                   |
+| UNION doesn't work with a column that has Text data type | UNION ALL works with all data type columns |
+
+Note:
+- UNION operator combines result set of two or more select statements
+
+    each select statement must have:
+    - same number of columns
+    - columns must have similar data types
+    - columns must be in same order
 
 <br>
 
@@ -128,6 +172,22 @@ Some examples that use the above clauses:
 Refer:
 
 [SQL "difference between" interview questions (part 1)](https://www.youtube.com/watch?v=RZc4QSRRk98&t=10s)
+
+<br>
+
+**TRUNCATE and DELETE**
+
+[https://stackoverflow.com/questions/139630/whats-the-difference-between-truncate-and-delete-in-sql](https://stackoverflow.com/questions/139630/whats-the-difference-between-truncate-and-delete-in-sql)
+
+[https://www.geeksforgeeks.org/difference-between-delete-and-truncate/](https://www.geeksforgeeks.org/difference-between-delete-and-truncate/)
+
+<br>
+
+**UNION and UNION ALL**
+
+[https://intellipaat.com/community/1505/what-is-the-difference-between-union-and-union-all](https://intellipaat.com/community/1505/what-is-the-difference-between-union-and-union-all)
+
+[https://www.c-sharpcorner.com/UploadFile/ff2f08/difference-between-union-and-union-all-in-sql-server/](https://www.c-sharpcorner.com/UploadFile/ff2f08/difference-between-union-and-union-all-in-sql-server/)
 
 []()
 
