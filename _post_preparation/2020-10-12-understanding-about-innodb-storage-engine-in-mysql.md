@@ -15,8 +15,10 @@ tags: [MySQL, Database]
 - [Introduction to InnoDB storage engine](#introduction-to-innodb-storage-engine)
 - [History about InnoDB storage engine](#history-about-innodb-storage-engine)
 - [Some best practice for using InnoDB](#some-best-practice-for-using-innodb)
+- [Some features of InnoDB](#some-features-of-innodb)
 - [The comparison between InnoDB and MyISAM storage engines](#the-comparison-between-innodb-and-myisam-storage-engines)
 - [The comparison between InnoDB and storage engines](#the-comparison-between-innodb-and-storage-engines)
+- [When to use](#when-to-use)
 - [Wrapping up](#wrapping-up)
 
 
