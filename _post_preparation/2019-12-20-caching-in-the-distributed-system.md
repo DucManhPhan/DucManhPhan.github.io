@@ -14,7 +14,7 @@ tags: [Distributed System]
 - [Solution of using Caching](#solution-of-using-caching)
 - [Some types of caching](#some-types-of-caching)
 - [Some caching writing policies](#some-caching-writing-policies)
-- [Some caching replacement policies](#some-caching-replacement-policies)
+- [Some caching eviction policies](#some-caching-eviction-policies)
 - [When to use](#when-to-use)
 - [Benefits and Drawbacks](#benefits-and-drawbacks)
 - [Wrapping up](#wrapping-up)
@@ -95,6 +95,12 @@ Therefore, how do we deal with it?
 
 1. Read-through cache
 
+    The read-through cache is only concerned with cache reads.
+    - On cache read miss, fetch the data from the data source and save it into the cache before returning the new value.
+    - A cache write won't persist the value into the data source.
+
+    Drawbacks:
+    - higher latency on cache read misses.
 
 2. Read-back cache
 
@@ -161,7 +167,7 @@ Therefore, how do we deal with it?
 <br>
 
 
-## Some caching replacement policies
+## Some caching eviction policies
 
 1. LRU - Least Recently Used
 
