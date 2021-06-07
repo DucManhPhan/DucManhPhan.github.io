@@ -108,9 +108,6 @@ Therefore, how do we deal with it?
     Drawbacks:
     - higher latency on cache read misses.
 
-2. Read-back cache
-
-
 <br>
 
 ## Some caching writing policies
@@ -213,23 +210,27 @@ A caching eviction algorithm is a way of deciding which element to evict when th
 
 ## Benefits and Drawbacks
 
+1. Benefits
 
+    - If using the suitable strategies for caching, it will improve hugely performance for our application.
 
-
+2. Drawbacks
 
 
 <br>
 
 ## Wrapping up
 
+- Understanding about some cache invalidation policies, cache eviction policies.
 
-
-
+- Always wonder ourself about the rate of read operations and write operations in our application, then choosing the best policies that fit our problems.
 
 
 <br>
 
 Refer:
+
+[https://www.8bitmen.com/distributed-cache-101-the-only-guide-youll-ever-need/](https://www.8bitmen.com/distributed-cache-101-the-only-guide-youll-ever-need/)
 
 [What is Distributed Caching? Explained with Redis!](https://www.youtube.com/watch?v=U3RkDLtS7uY)
 
@@ -254,3 +255,23 @@ Refer:
 [https://comdy.vn/software-architecture/cache-trong-distributed-system/](https://comdy.vn/software-architecture/cache-trong-distributed-system/)
 
 [https://online.grokking.org/articles/28/phan-chia-du-lieu-cache-tren-cum-server-voi-consistent-hashing](https://online.grokking.org/articles/28/phan-chia-du-lieu-cache-tren-cum-server-voi-consistent-hashing)
+
+[https://codeahoy.com/2017/08/11/caching-strategies-and-how-to-choose-the-right-one/](https://codeahoy.com/2017/08/11/caching-strategies-and-how-to-choose-the-right-one/)
+
+[https://www.techtalksbyanvita.com/post/caching-strategies-for-distributed-systems](https://www.techtalksbyanvita.com/post/caching-strategies-for-distributed-systems)
+
+[https://dev.to/tharindu/a-quick-introduction-to-distributed-caching-48e3](https://dev.to/tharindu/a-quick-introduction-to-distributed-caching-48e3)
+
+[https://igotanoffer.com/blogs/tech/caching-system-design-interview](https://igotanoffer.com/blogs/tech/caching-system-design-interview)
+
+<br>
+
+**Cache Thrashing**
+
+[https://searchsoftwarequality.techtarget.com/definition/cache-thrash](https://searchsoftwarequality.techtarget.com/definition/cache-thrash)
+
+[https://www.quora.com/What-is-cache-thrashing](https://www.quora.com/What-is-cache-thrashing)
+
+[https://www.geeksforgeeks.org/techniques-to-handle-thrashing/](https://www.geeksforgeeks.org/techniques-to-handle-thrashing/)
+
+[]()
