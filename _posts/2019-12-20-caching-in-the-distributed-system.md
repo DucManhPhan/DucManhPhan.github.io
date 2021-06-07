@@ -45,17 +45,19 @@ Therefore, how do we deal with it?
 
 1. Introduction to Caching
 
+    Caching is a ways that we save the frequent used data in memory without disk. Caching is really an important way to improve hugely the performance of a system.
 
+2. Some essential concepts of Caching
 
-2. Cache hit, Cache miss
+    - Cache hit
+    
+        Cache hit is a case that our application access cache and find it.
 
+    - Cache miss
 
+        Cache miss is a case that our application doesn't find a data in a cache.
 
-
-3. Thrashing concept of Caching
-
-
-
+    - Thrashing 
 
 <br>
 
@@ -101,9 +103,7 @@ Therefore, how do we deal with it?
 
 1. Read-through cache
 
-    The read-through cache is only concerned with cache reads.
-    - On cache read miss, fetch the data from the data source and save it into the cache before returning the new value.
-    - A cache write won't persist the value into the data source.
+    If cache miss happens, fetch the data from the data source and save it into the cache before returning the new value.
 
     Drawbacks:
     - higher latency on cache read misses.
