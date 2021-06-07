@@ -274,4 +274,4 @@ Refer:
 
 [https://www.geeksforgeeks.org/techniques-to-handle-thrashing/](https://www.geeksforgeeks.org/techniques-to-handle-thrashing/)
 
-[]()
+[https://www.cs.utexas.edu/users/dahlin/Classes/UGOS/lectures/lec16.pdf](https://www.cs.utexas.edu/users/dahlin/Classes/UGOS/lectures/lec16.pdf)
