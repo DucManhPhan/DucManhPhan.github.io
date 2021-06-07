@@ -179,7 +179,16 @@ Therefore, how do we deal with it?
     For example:
     - Used in caffeine
 
-3. 
+3. MRU - Most Recently Used
+
+
+
+4. FIFO - First In First Out
+
+
+5. LIFO - Last In First Out
+
+
 
 <br>
 
