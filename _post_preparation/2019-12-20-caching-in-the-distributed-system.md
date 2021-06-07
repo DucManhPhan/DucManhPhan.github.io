@@ -80,14 +80,20 @@ Therefore, how do we deal with it?
 
         Off-heap caching refers to storing the data outside the heap. This data is not automatically handled by GC. Since it's stored outside the Java heap, the data needs to be stored as an array of bytes. Hence, there's an additional overhead of serializing and de-serializing the data.
 
-2. Remote cache
+2. Distributed cache
 
-    A remote cache is a seperated server that uses in-memory stores.
+    A distributed cache is a seperated server that uses in-memory stores.
 
-    Belows are some remote caches that we can usually use to design a system.
+    Belows are some distributed caches that we can usually use to design a system.
     - Redis
 
     - Memcached
+
+    - EhCache
+
+    - Riak
+
+    - Hazelcast
 
 <br>
 
@@ -113,7 +119,7 @@ Therefore, how do we deal with it?
 
 1. Write-through cache
 
-    A write-through cache means that updating data on both cache and database synchronously. It means that systems have to wait for the database or cache complete their writes before moving to the next tasks of cache or database.
+    A write-through cache means that updating data on both cache and database synchronously. It means that systems have to wait for the database or cache complete their writes before moving to the next tasks of cache or database. So, if one of their writes fail, we will consider their operations as fail.
 
     Some trade-off characteristics of Write-through cache:
     - Benefits
@@ -137,51 +143,51 @@ Therefore, how do we deal with it?
     Some trade-off characteristics of Write-back cache:
     - Benefits
 
-        - Improve the writing performance of the write-through cache.
-        - This way is suitable for write-heavy workloads.
+        - Improve the writing performance of the write-through cache with low latency and high throughput.
+            
+            This way is suitable for write-heavy workloads.
 
     - Drawbacks
 
         - It provides the complex tasks to keep track of the data which isn's still to implement writing data to the database.
-        - Because of pushing data to the memory of the either cachin system or the local cache in the application server, it can be lost update. 
+        - Because of pushing data to the memory of the either caching system or the local cache in the application server, it can be lost update. 
 
 3. Write-around cache
 
-
+    This policy will only write data to the data source without cache. And this policy will usually combine with the read-through cache.
 
     Some trade-off characteristics of Write-around cache:
     1. Benefits
 
-        - 
-        - 
-        - 
-
+        - If our data isn't frequently used, applying this policy will reduce the redundancy of writing operations to cache.
 
     2. Drawbacks
 
-        - 
-        - 
-        - 
+        - Sometimes, we encounter the cache miss problem, we need to access the data source to get that data. Then, it's high latency, and low throughput.
 
+            But is's a rare case. 
 
 <br>
 
 
 ## Some caching eviction policies
 
+A caching eviction algorithm is a way of deciding which element to evict when the cache is full.
+
 1. LRU - Least Recently Used
 
-
+    Remove the least recently used items first.
 
 2. LFU - Least Frequently Used
 
+    Remove the least frequently used items first.
 
     For example:
     - Used in caffeine
 
 3. MRU - Most Recently Used
 
-
+    Remove the most recently used items first.
 
 4. FIFO - First In First Out
 
