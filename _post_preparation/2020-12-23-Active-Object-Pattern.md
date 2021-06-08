@@ -11,7 +11,7 @@ tags: [Concurrency Pattern]
 
 ## Table of contents
 - [Given problem](#given-problem)
-- [Introduction to Active object pattern](#introduction-to-active-object-pattern)
+- [Solution of Active object pattern](#solution-of-active-object-pattern)
 - [When to use](#when-to-use)
 - [Benefits and drawbacks](#benefits-and-drawbacks)
 - [Source code Java](#source-code-java)
@@ -29,7 +29,7 @@ tags: [Concurrency Pattern]
 
 <br>
 
-## Introduction to Active object pattern
+## Solution of Active object pattern
 
 
 
