@@ -128,6 +128,8 @@ Therefore, how do we deal with it?
 
         - It's time-consuming task when we need to wait for the updating cache and database completely.
 
+            It means that it has the high latency of write operations.
+
     When to use:
     - It's suitable for an application that has read-heavy operations.
 
@@ -151,7 +153,7 @@ Therefore, how do we deal with it?
 
 3. Write-around cache
 
-    This policy will only write data to the data source without cache. And this policy will usually combine with the read-through cache.
+    This policy will only write directly data to the data source without cache. This can reduce the cache being flooded with write operations that will not subsequently be re-read. And this policy will usually combine with the read-through cache.
 
     Some trade-off characteristics of Write-around cache:
     1. Benefits
@@ -160,9 +162,7 @@ Therefore, how do we deal with it?
 
     2. Drawbacks
 
-        - Sometimes, we encounter the cache miss problem, we need to access the data source to get that data. Then, it's high latency, and low throughput.
-
-            But is's a rare case. 
+        - Sometimes, we encounter the cache miss problem, we need to access the data source to get that data. Then, it's high latency, and low throughput. But is's a rare case.
 
 <br>
 
