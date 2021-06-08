@@ -191,6 +191,9 @@ A caching eviction algorithm is a way of deciding which element to evict when th
 
 5. LIFO - Last In First Out
 
+6. RR - Random Replacement
+
+    Randomly selects a candidate item and discards it to make space when necessary.
 
 
 <br>
@@ -231,6 +234,8 @@ A caching eviction algorithm is a way of deciding which element to evict when th
 Refer:
 
 [https://www.8bitmen.com/distributed-cache-101-the-only-guide-youll-ever-need/](https://www.8bitmen.com/distributed-cache-101-the-only-guide-youll-ever-need/)
+
+[https://lethain.com/introduction-to-architecting-systems-for-scale/](https://lethain.com/introduction-to-architecting-systems-for-scale/)
 
 [What is Distributed Caching? Explained with Redis!](https://www.youtube.com/watch?v=U3RkDLtS7uY)
 
