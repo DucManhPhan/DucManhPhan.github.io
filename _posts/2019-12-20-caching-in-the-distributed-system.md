@@ -156,11 +156,11 @@ Therefore, how do we deal with it?
     This policy will only write directly data to the data source without cache. This can reduce the cache being flooded with write operations that will not subsequently be re-read. And this policy will usually combine with the read-through cache.
 
     Some trade-off characteristics of Write-around cache:
-    1. Benefits
+    - Benefits
 
         - If our data isn't frequently used, applying this policy will reduce the redundancy of writing operations to cache.
 
-    2. Drawbacks
+    - Drawbacks
 
         - Sometimes, we encounter the cache miss problem, we need to access the data source to get that data. Then, it's high latency, and low throughput. But is's a rare case.
 
