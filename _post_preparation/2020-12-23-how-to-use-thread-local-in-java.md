@@ -227,3 +227,8 @@ Refer:
 [https://smartbear.com/blog/how-and-when-to-use-javas-threadlocal-object/](https://smartbear.com/blog/how-and-when-to-use-javas-threadlocal-object/)
 
 [https://docs.oracle.com/javase/7/docs/api/java/util/concurrent/ThreadPoolExecutor.html](https://docs.oracle.com/javase/7/docs/api/java/util/concurrent/ThreadPoolExecutor.html)
+
+[http://veerasundar.com/blog/2010/11/java-thread-local-how-to-use-and-code-sample/](http://veerasundar.com/blog/2010/11/java-thread-local-how-to-use-and-code-sample/)
+
+[http://javarevisited.blogspot.co.at/2013/01/threadlocal-memory-leak-in-java-web.html](http://javarevisited.blogspot.co.at/2013/01/threadlocal-memory-leak-in-java-web.html)
+
