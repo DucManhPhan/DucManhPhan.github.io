@@ -232,3 +232,10 @@ Refer:
 
 [http://javarevisited.blogspot.co.at/2013/01/threadlocal-memory-leak-in-java-web.html](http://javarevisited.blogspot.co.at/2013/01/threadlocal-memory-leak-in-java-web.html)
 
+<br>
+
+**Problems of ThreadLocal**
+
+[https://plumbr.io/blog/locked-threads/how-to-shoot-yourself-in-foot-with-threadlocals](https://plumbr.io/blog/locked-threads/how-to-shoot-yourself-in-foot-with-threadlocals)
+
+[https://medium.com/javarevisited/java-concurrency-threadlocal-c1b18ab8e488](https://medium.com/javarevisited/java-concurrency-threadlocal-c1b18ab8e488)
