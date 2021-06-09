@@ -11,9 +11,11 @@ tags: [MySQL, Database]
 <br>
 
 ## Table of contents
-
-
-
+- [Introduction to Engines in MySQL](#introduction-to-engines-in-mysql)
+- [MyISAM engine](#myisam-engine)
+- [InnoDB engine](#innodb-engine)
+- [Memory engine](#memory-engine)
+- [Wrapping up](#wrapping-up)
 
 
 <br>
@@ -36,7 +38,7 @@ tags: [MySQL, Database]
 
 <br>
 
-## INNODB engine
+## InnoDB engine
 
 
 
@@ -44,7 +46,7 @@ tags: [MySQL, Database]
 
 <br>
 
-## MEMORY engine
+## Memory engine
 
 
 
