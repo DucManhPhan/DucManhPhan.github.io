@@ -1,6 +1,6 @@
 ---
 layout: post
-title: Some interesting things about HTTP methods
+title: Some interesting things about HTTP protocol
 bigimg: /img/image-header/yourself.jpeg
 tags: [Network]
 ---
@@ -25,11 +25,7 @@ tags: [Network]
 1. Do not use GET method to send sensitive data to server
 
 
-
-
 2. Size of path in GET method
-
-
 
 
 <br>
