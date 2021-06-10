@@ -294,6 +294,8 @@ Refer:
 
 [https://programmingsharing.com/caching-in-the-distributed-system-c5dce8a41321](https://programmingsharing.com/caching-in-the-distributed-system-c5dce8a41321)
 
+[https://www.slideshare.net/HARIHARANANANTHARAMA1/caching-in-java-best-practises](https://www.slideshare.net/HARIHARANANANTHARAMA1/caching-in-java-best-practises)
+
 <br>
 
 **Cache Thrashing**
