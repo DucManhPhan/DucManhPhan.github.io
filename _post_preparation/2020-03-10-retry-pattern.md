@@ -1,6 +1,6 @@
 ---
 layout: post
-title: Cache-aside pattern
+title: Retry pattern
 bigimg: /img/image-header/factory.jpg
 tags: [Enterprise Pattern]
 ---
@@ -62,9 +62,7 @@ tags: [Enterprise Pattern]
 
 Refer:
 
-[https://docs.microsoft.com/en-us/azure/architecture/patterns/cache-aside](https://docs.microsoft.com/en-us/azure/architecture/patterns/cache-aside)
-
-[]()
+[https://docs.microsoft.com/en-us/azure/architecture/patterns/retry](https://docs.microsoft.com/en-us/azure/architecture/patterns/retry)
 
 []()
 
