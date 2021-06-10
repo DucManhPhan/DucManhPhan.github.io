@@ -2,7 +2,7 @@
 layout: post
 title: PACELC theorem in the Distributed System
 bigimg: /img/image-header/yourself.jpeg
-tags: [Distributed system]
+tags: [Distributed System]
 ---
 
 
@@ -11,23 +11,22 @@ tags: [Distributed system]
 <br>
 
 ## Table of contents
-
-
-
+- [Given problem]()
+- [Solution of using PACELC theorem]()
+- [When to use]()
+- [Benefits and Drawbacks]()
+- [Wrapping up]()
 
 
 <br>
 
 ## Given problem
 
-https://hub.packtpub.com/the-cap-theorem-in-practice-the-consistency-vs-availability-trade-off-in-distributed-databases/
-
-https://mytechnetknowhows.wordpress.com/2016/05/31/cap-theorem-consistency-availability-and-partition-tolerance/
 
 
 <br>
 
-## 
+## Solution of using PACELC theorem
 
 
 
@@ -36,7 +35,15 @@ https://mytechnetknowhows.wordpress.com/2016/05/31/cap-theorem-consistency-avail
 
 <br>
 
-## 
+## When to use
+
+
+
+
+
+<br>
+
+## Benefits and Drawbacks
 
 
 
@@ -52,5 +59,23 @@ https://mytechnetknowhows.wordpress.com/2016/05/31/cap-theorem-consistency-avail
 <br>
 
 Refer:
+
+**Drawbacks of CAP theorem**
+
+[https://hub.packtpub.com/the-cap-theorem-in-practice-the-consistency-vs-availability-trade-off-in-distributed-databases/](https://hub.packtpub.com/the-cap-theorem-in-practice-the-consistency-vs-availability-trade-off-in-distributed-databases/)
+
+[https://mytechnetknowhows.wordpress.com/2016/05/31/cap-theorem-consistency-availability-and-partition-tolerance/](https://mytechnetknowhows.wordpress.com/2016/05/31/cap-theorem-consistency-availability-and-partition-tolerance/)
+
+<br>
+
+**PACELC theorem**
+
+[]()
+
+[]()
+
+[]()
+
+[]()
 
 []()
