@@ -269,6 +269,8 @@ Refer:
 
 [https://igotanoffer.com/blogs/tech/caching-system-design-interview](https://igotanoffer.com/blogs/tech/caching-system-design-interview)
 
+[https://programmingsharing.com/caching-in-the-distributed-system-c5dce8a41321](https://programmingsharing.com/caching-in-the-distributed-system-c5dce8a41321)
+
 <br>
 
 **Cache Thrashing**
