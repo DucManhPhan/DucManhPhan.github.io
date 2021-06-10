@@ -1,6 +1,6 @@
 ---
 layout: post
-title: How to use http caching
+title: How to use Http caching
 bigimg: /img/path.jpg
 tags: [Network]
 ---
