@@ -82,6 +82,8 @@ Therefore, how do we deal with it?
 
         Off-heap caching refers to storing the data outside the heap. This data is not automatically handled by GC. Since it's stored outside the Java heap, the data needs to be stored as an array of bytes. Hence, there's an additional overhead of serializing and de-serializing the data.
 
+    ![](../img/distributed-system/caching/localize-cache.png)
+
 2. Distributed cache
 
     A distributed cache is a seperated server that uses in-memory stores.
@@ -96,6 +98,15 @@ Therefore, how do we deal with it?
     - Riak
 
     - Hazelcast
+
+    Benefits of this approach:
+    - Utilize some distributed caches will make a system that satisfies some non-functional requirements such as scalability, reliability, availability.
+
+        For example:
+        - Using redis sentinel and redis cluster.
+
+    Drawbacks of this approach:
+    - It takes the round-trip time between the application server and the distributed cache.
 
 <br>
 
