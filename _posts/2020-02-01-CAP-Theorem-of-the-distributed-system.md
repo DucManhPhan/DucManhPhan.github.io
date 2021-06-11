@@ -101,6 +101,7 @@ On the other hand, a partition could be just a temporary loss of connectivity li
 <br>
 
 ## Example with CAP theorem
+
 Assuming that our system is in case of a network failure, when a few of the nodes of the system are down. So, following with CAP theorem, we have to make a choice between ```Availability``` and ```Consistency```.
 
 If we pick ```Availability``` that means when a few nodes go down, the other nodes are available to the users for making updates. In this situation, the system is inconsistent as the nodes which are down do not get updated with the new data. At the point in time when they come back online, if a user fetches the data from them, they'll return the old values they had when they went down.
@@ -153,8 +154,10 @@ Below is an image that describe the coordination between CAP properties.
 
 3. Consistency - Availability Databases
 
+    
+
     Some database types:
-    - All relational databases.
+    - sing-node relational databases.
 
 <br>
 
@@ -179,6 +182,12 @@ Below is an image that describe the coordination between CAP properties.
 <br>
 
 ## Wrapping up
+
+- Consistency means that data is the same across the cluster, so we can read/write to/from any node and get the same data.
+
+- Availability means the ability to access the cluster even if a node in the cluster goes down.
+
+- Partition Tolerance means that the cluster continues to function even if the communication between two nodes breaks down but none of them goes down.
 
 - Understanding about the CP/AP databases, which types that our application needs.
 

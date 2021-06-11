@@ -24,6 +24,10 @@ tags: [Distributed System]
 
 
 
+
+
+
+
 <br>
 
 ## Solution of using PACELC theorem
