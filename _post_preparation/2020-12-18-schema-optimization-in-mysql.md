@@ -155,7 +155,35 @@ Since MySQL 4.1, each string column can have its own character set and set of so
 
         This can result in a serious performance overhead. Even if we configure MySQL to store temporary tables on RAM disk, many expensive operating system calls will be required.
 
-        The best solution is to avoid using the BLOB and TEXT types unless we really need them. If we can't avoid them, we may be able to use the SUBSTRING(column, length) trick everywhere a BLOB column is mentioned (including in the ORDER BY clause) to convert the values to character strings. 
+        The best solution is to avoid using the BLOB and TEXT types unless we really need them. If we can't avoid them, we may be able to use the SUBSTRING(column, length) trick everywhere a BLOB column is mentioned (including in the ORDER BY clause) to convert the values to character strings, which will permit in-memory temporary tables. Just be sure that we're using a short enough substring that the temporary table doesn't grow larger than max_heap_table_size or tmp_table_size, or MySQL will convert the table to an on-disk MyISAM table.
+
+        The worst case length allocation also applies to sorting of values, so this trick can help with both kinds of problems:
+        - creating large temporary tables and sort files.
+        - creating them on disk.
+
+3. Using ENUM instead of a string type
+
+    An ENUM column can store a predefined set of distinct string values. MySQL stores them very compactly, packed into one or two bytes depending on the number of values in the list. It stores each value internally as an interger representing its position in the field definition list, and it keeps the **lookup table** that defines the number-to-string correspondence in the table's .frm file.
+
+    For example:
+
+    ```sql
+    CREATE TABLE enum_test(e ENUM('fish', 'apple', 'dog') NOT NULL);
+    ```
+
+    Another surprise is that an ENUM field sorts by the internal integer values, not by the strings themselves.
+
+    We can work around this by specifying ENUM members in the order in which we want them to sort. We can also use FIELD() to specify a sort order explicitly in our queries, but this prevents MySQL from using the index for sorting.
+
+    If we'd defined the values in alphabetical order, we wouldn't have needed to do that.
+
+    The biggest downside of ENUM is that the list of strings is fixed, and adding or removing strings requires the use of ALTER TABLE. Thus, it might not be a good idea to use ENUM as a string data type when the list of allowed string values is likely to change arbitrarily in the future, unless it's acceptable to add them at then end of the list, which can be done without a full rebuild of the table in MySQL 5.1.
+
+    Because MySQL stores each value as an integer and has to do a lookup to convert it to its string representation, ENUM column have some overhead. This is usually offset by their smaller size, but not always. In particular, it can be slower to join a CHAR or VARCHAR column to an ENUM column than to another CHAR or VARCHAR column.
+
+    The join is faster after converting the columns to ENUM, but joining the ENUM columns to VARCHAR columns is slower. In this case, it looks like a good idea to convert these columns, as long as they don't have to be joined to VARCHAR columns. It's a common design practice to use **lookup tables** with integer primary keys to avoid using character-based values in joins.
+
+    There's another benefit to converting the columns. The primary key itself is only about half the size after the conversion. Because this is an InnoDB table, if there are any other indexes on this table, reducing the primary key size will make them much smaller, too.
 
 <br>
 
