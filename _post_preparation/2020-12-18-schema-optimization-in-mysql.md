@@ -114,6 +114,49 @@ Since MySQL 4.1, each string column can have its own character set and set of so
         - a CHAR(1) designed to hold only Y and N values will use only one byte in a single-byte character set.
         - a VARCHAR(1) would use two bytes because of the length byte.
 
+    The memory storage engine uses fixed-length rows, so it has to allocate the maximum possible space for each value even when it's a variable-length field. However, the padding and trimming behavior is consistent across storage engines, because the MySQL server itself handles that.
+
+    The sibling types for CHAR and VARCHAR are BINARY and VARBINARY, which store binary strings. Binary strings are very similar to conventional strings, but they store bytes instead of characters. Padding is also different: MySQL pads BINARY values with \0 (the zero byte) instead of spaces and doesn't strip the pad value on retrieval.
+
+    These types are useful when we need to store binary data and want MySQL to compare the values as bytes instead of characters. The advantage of byte-wise comparisons is more than just a matter of case insensitivity. MySQL literally compares BINARY strings one byte at a time, according to the numeric value of each byte. As a result, binary comparisons can be much simpler than character comparisons, so they are faster.
+
+    For example:
+    - Storing the value 'hello' requires the same amount of space in a VARCHAR(5) and a VARCHAR(200) column. Is there any advantage to using the shorter column?
+
+        As it turns out, there is a big advantage. The larger column can use much more memory, because MySQL often allocates fixed-size chunks of memory to hold values internally. This is especially bad for sorting or operations that use in-memory temporary tables. The same thing happens with filesorts that use on-disk temporary tables.
+
+        The best strategy is to allocate only as much space as we really need.
+
+2. BLOB and TEXT types
+
+    BLOB and TEXT are string data types designed to store large amounts of data as either binary or character strings, respectively.
+
+    In fact, they are each families of data types:
+    - the character types: TINYTEXT, SMALL TEXT, TEXT, MEDIUMTEXT, and LONGTEXT.
+
+        TEXT is a synonym for SMALLTEXT.
+
+    - the binary types: TINYBLOB, SMALLBLOB, BLOB, MEDIUMBLOB, and LONGBLOB.
+
+        BLOB is a synonym for SMALLBLOB.
+
+    Unlike all other data types, MySQL handles each BLOB and TEXT value as an object with its own identity. Storage engines often store them specially; InnoDB may use a separate external storage area for them when they're large. Each value requires from **one to four bytes of storage space in the row** and **enough space in external storage to actually hold the value**.
+
+    The only difference between the BLOB and TEXT families is that BLOB types store binary data with no collation or character set, but TEXT types have a character set and collation.
+
+    MySQL sorts **BLOB** and **TEXT** columns differently from other types: instead of sorting the full length of the string, it sorts only the first **max_sort_length** bytes of such columns. If we need to sort by only the first few characters, we can either decrease the **max_sort_length** server variable or use **ORDER BY SUBSTRING(column, length)**.
+
+    MySQL can't index the full length of these data types and can't use the indexes for sorting.
+
+    The problem when using BLOB and TEXT file:
+    - On-Disk temporary tables and sort files
+
+        Because the memory storage engine doesn't support the BLOB and TEXT types, queries that use BLOB and TEXT columns and need an implicit temporary table will have to use on-disk MyISAM temporary tables, even for only a few rows.
+
+        This can result in a serious performance overhead. Even if we configure MySQL to store temporary tables on RAM disk, many expensive operating system calls will be required.
+
+        The best solution is to avoid using the BLOB and TEXT types unless we really need them. If we can't avoid them, we may be able to use the SUBSTRING(column, length) trick everywhere a BLOB column is mentioned (including in the ORDER BY clause) to convert the values to character strings. 
+
 <br>
 
 ## Wrapping up
@@ -125,7 +168,7 @@ Since MySQL 4.1, each string column can have its own character set and set of so
 
 Refer:
 
-[]()
+[High performance MySQL, third edition]()
 
 []()
 
