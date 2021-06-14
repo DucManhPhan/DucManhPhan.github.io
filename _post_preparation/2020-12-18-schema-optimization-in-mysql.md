@@ -13,7 +13,7 @@ tags: [Database, MySQL]
 ## Table of contents
 - [Solution with Data types](#solution-with-data-types)
 - [Solution with Default value](#solution-with-default-value)
-- []()
+- [Solution with String data type](#solution-with-string-data-type)
 - []()
 - [Wrapping up](#wrapping-up)
 
@@ -66,18 +66,53 @@ Normally, we do not use **NOT NULL** condition to apply for multiple fields in t
 
 - When a nullable column is indexed, it requires an extra byte per entry and can even cause a fixed-size index (such as an index on a single integer column) to be converted to a variable-sized one in MyISAM.
 
-- InnoDB stores NULL with a single bit, so it can be pretty space-efficient for sparsely populated data. This doesn’t apply to MyISAM, though.
+- InnoDB stores NULL with a single bit, so it can be pretty space-efficient for sparsely populated data. This doesn't apply to MyISAM, though.
 
-So, to avoid the null value, we can use default value or set that column to NOT NULL.
-
+So, to avoid the NULL value, we can use default value or set that column to **NOT NULL**.
 
 <br>
 
-## 
+## Solution with String data type
 
+Since MySQL 4.1, each string column can have its own character set and set of sorting rules for that character set, or collation.
 
+1. VARCHAR and CHAR type
 
+    The implementation of these types are storage engine-dependent. So, we will concentrate largely on the InnoDB storage engine or MyISAM.
 
+    - VARCHAR
+
+        VARCHAR stores variable-length character strings and is the most common string data type. It can require less storage space than fixed-length types, because it uses only as much space as it needs. The exception is a MyISAM table created with ROW_FORMAT=FIXED, which uses a fixed amount of space on disk for each row and can thus waste space.
+
+        VARCHAR uses 1 or 2 extra bytes to record the value's length:
+        - 1 byte if the column's maximum length is 255 bytes or less
+        - 2 byte if it's more.
+
+        VARCHAR helps performance because it saves space. However, because the rows are variable-length, they can grow when we update them, which can cause extra work. If a row grows and no longer fits in its orginal location, the behavior is storage engine-dependent.
+
+        For example, MyISAM may fragment the row, and InnoDB may need to split the page to fit the row into it. Other engines may never update data in-place at all.
+
+        It's usually worth using VARCHAR when the maximum column length is much larger than the average length.
+        - when updates to the fields are rare, so fragmentation is not a problem
+        - when we're using a complex character set such as UTF-8, where each character uses a variable number of bytes of storage.
+
+        In version 5.0 and newer, MySQL preserves **trailing spaces** when we store and retrieve values. In versions 4.1 and older, MySQL strips trailing spaces.
+
+        It's trickier with InnoDB, which can store long VARCHAR values as BLOBs.
+
+    - CHAR
+
+        CHAR is fixed-length. MySQL always allocates enough space for the specified number of characters. When storing a CHAR value, MySQL removes any trailing spaces. This was also true of VARCHAR in MySQL 4.1 and older versions - CHAR and VARCHAR were logically identical and differed only in storage format. Values are padded with spaces as needed for comparisons.
+
+        CHAR is useful if we want to store very short strings, or if all the values are nearly the same length. For example, CHAR is a good choice for MD5 values for user passwords, which are always the same length.
+
+        CHAR is also better than VARCHAR for data that's changed frequently, because a fixed-length row is not prone to fragmentation.
+
+        For very short columns, CHAR is also more efficient than VARCHAR.
+
+        For example:
+        - a CHAR(1) designed to hold only Y and N values will use only one byte in a single-byte character set.
+        - a VARCHAR(1) would use two bytes because of the length byte.
 
 <br>
 
