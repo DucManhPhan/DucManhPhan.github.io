@@ -187,6 +187,34 @@ Since MySQL 4.1, each string column can have its own character set and set of so
 
 <br>
 
+## 
+
+
+
+
+<br>
+
+## 
+
+
+
+
+<br>
+
+## 
+
+
+
+
+<br>
+
+## 
+
+
+
+
+<br>
+
 ## Wrapping up
 
 
