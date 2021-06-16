@@ -12,10 +12,10 @@ tags: [Database]
 
 ## Table of contents
 - [Given problem](#given-problem)
-- [Solution of Isolation Level in database]()
-- []()
-- []()
-- []()
+- [Solution of Isolation Level in database](#solution-of-isolation-level-in-database)
+- [When to use](#when-to-use)
+- [Benefits and Drawbacks](#benefits-and-drawbacks)
+- [Wrapping up](#wrapping-up)
 
 
 <br>
@@ -60,7 +60,7 @@ tags: [Database]
 
 Refer:
 
-[]()
+[Beginning Database with PostgreSQl, from novice to professional, second edition]()
 
 []()
 

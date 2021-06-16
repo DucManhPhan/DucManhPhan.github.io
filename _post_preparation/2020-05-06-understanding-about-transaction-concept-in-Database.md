@@ -1,6 +1,6 @@
 ---
 layout: post
-title: Transaction Control in Database
+title: Understanding about transaction concept in database
 bigimg: /img/image-header/yourself.jpeg
 tags: [Database]
 ---
@@ -12,8 +12,9 @@ tags: [Database]
 
 ## Table of contents
 - [Given problem](#given-problem)
-- []
-- [Some types of transaction](#some-types-of-transaction)
+- [Solution of using transaction](#solution-of-using-transaction)
+- [Some types of transactions](#some-types-of-transactions)
+- [When to use](#when-to-use)
 - [Benefits and Drawbacks](#benefits-and-drawbacks)
 - [Wrapping up](#wrapping-up)
 
@@ -29,7 +30,7 @@ tags: [Database]
 
 <br>
 
-## 
+## Solution of using transaction
 
 
 
@@ -50,23 +51,13 @@ tags: [Database]
 
 <br>
 
-## 
+## When to use
 
 
 
 
 
 <br>
-
-
-## 
-
-
-
-
-
-<br>
-
 
 ## Benefits and Drawbacks
 
