@@ -81,7 +81,7 @@ tags: [Database]
 
 Refer:
 
-[Beginning Database with PostgreSQl, from novice to professional, second edition]()
+[Chapter 9 of Beginning Database with PostgreSQl, from novice to professional, second edition]()
 
 [http://www.agiledata.org/essays/transactionControl.html](http://www.agiledata.org/essays/transactionControl.html)
 
