@@ -19,8 +19,6 @@ tags: [Architecture Pattern]
 - [Wrapping up](#wrapping-up)
 
 
-
-
 <br>
 
 ## Given problem
@@ -211,3 +209,7 @@ Refer:
 [https://medium.com/swlh/event-sourcing-as-a-ddd-pattern-fea6de35fcca](https://medium.com/swlh/event-sourcing-as-a-ddd-pattern-fea6de35fcca)
 
 [https://martinfowler.com/bliki/ReportingDatabase.html](https://martinfowler.com/bliki/ReportingDatabase.html)
+
+[https://itnext.io/cqrs-architecture-pattern-c7f5c613c59c](https://itnext.io/cqrs-architecture-pattern-c7f5c613c59c)
+
+[https://itnext.io/optimize-your-data-access-by-using-cqrs-architecture-pattern-a-theoretical-and-practical-approach-part-1-b31fe259ea04](https://itnext.io/optimize-your-data-access-by-using-cqrs-architecture-pattern-a-theoretical-and-practical-approach-part-1-b31fe259ea04)
