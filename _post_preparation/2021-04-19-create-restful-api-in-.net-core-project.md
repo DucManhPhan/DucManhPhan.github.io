@@ -11,9 +11,12 @@ tags: [C#]
 <br>
 
 ## Table of contents
-
-
-
+- [Introduction to .NET Core](#introduction-to-.net-core)
+- [Understanding about Web API architecture of .NET Core ]()
+- [How to create .NET Core project]()
+- [Source code]()
+- [The meaning of setting files in .NET Core project]()
+- [Wrapping up]()
 
 
 <br>
