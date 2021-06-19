@@ -31,6 +31,11 @@ tags: [DDD]
 
 ## Solution with Domain Model pattern
 
+To summary about some patterns of Domain-Driven Design, we can refer to the below image.
+
+![](../img/Architecture-pattern/Domain-driven-design/Background-DDD.png)
+
+But in this article, we only concentrate mostly on the Domain Model pattern.
 1. Definition of Domain Model
 
 
@@ -88,7 +93,7 @@ tags: [DDD]
 
 ## Wrapping up
 
-- Business logic container domain logic and application logic.
+- Business logic contains domain logic and application logic.
 
     - Domain logic does something purely with the problem domain such as strategies for calculating revenue recognition on a contract. Domain logic contains validation, calculations, and business rules.
 
@@ -110,7 +115,7 @@ Refer:
 
 [https://enterprisecraftsmanship.com/posts/domain-model-purity-lazy-loading/](https://enterprisecraftsmanship.com/posts/domain-model-purity-lazy-loading/)
 
-[]()
+[https://martinfowler.com/bliki/AnemicDomainModel.html](https://martinfowler.com/bliki/AnemicDomainModel.html)
 
 []()
 
