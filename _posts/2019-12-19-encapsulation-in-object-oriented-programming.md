@@ -169,6 +169,19 @@ So how do we solve this problem?
                 private int height;
                 private int width;
 
+                public Rectangle(int height, int width) {
+                    if (height <= 0) {
+                        throw new RuntimeException();
+                    }
+
+                    if (width <= 0) {
+                        throw new RuntimeException();
+                    }
+
+                    this.height = height;
+                    this.width = width;
+                }
+
                 public int calculateArea() {
                     return this.height * this.width;
                 }
@@ -182,6 +195,10 @@ So how do we solve this problem?
                 }
             }
             ```
+
+            Benefits of this approach:
+            - Our objects will always in a consistent states. It's really useful when we have to cope with the null value of arguments. It is one of the ways in defense programming.
+            - Using **calculateArea()** method in Rectangle class is a presentation of Rich Domain Model.
 
     - When our system becomes complex, which benefits does encapsulation provide?
 
@@ -230,6 +247,7 @@ So how do we solve this problem?
 
 2. Drawbacks
 
+    - It's diffcult for a beginner when trying to learn some new concepts of OOP.
 
 <br>
 
@@ -276,7 +294,7 @@ And then it is the process for OOAD.
 
 - Encapsulation is an act of protecting the data integrity. It means that encapsulation prevents clients of a class from setting the internal data into an invalid or consistent state.
 
-    So, to archive the data integrity, we need to bundle data and operation together.
+    So, **to archive the data integrity, we need to bundle data and operation together**.
 
 <br>
 
