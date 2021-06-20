@@ -57,29 +57,11 @@ To summary about some patterns of Domain-Driven Design, we can refer to the belo
 
 ![](../img/Architecture-pattern/Domain-driven-design/Background-DDD.png)
 
-But in this article, we only concentrate mostly on the Domain Model pattern.
-1. Definition of Domain Model
+But in this article, we only concentrate mostly on the Rich Domain Model pattern.
 
 
 
-2. Types of Domain Model
-
-    - Anemic Domain Model
-
-
-
-        It's a model which seperates data and operation working with them from each other. In most of the time, our domain consists of two separated classes. One is the entity, which is holding data, the other is the stateless service, which operates with an entity. We may use more than one service class to operates with an entity.
-
-        Entity is simply a class that contains some necessary information that will be saved to database. Normally, we use entity to map a record from a table to an object in our program by taking advantage of ORM framework such as Hibernate, Eclipse Link, Entity framework, ...
-
-        Stateless service is a class that implements business logic, not contains data model. Normally, it is only a method, and interact with an entity. A stateless service can be called the other stateless services, or call the DAO in the persisten layer to communicate with a database.
-
-        Drawbacks of Anemic Domain Model:
-    - Rich Domain Model
-
-
-
-        ![](../img/Architecture-pattern/Domain-driven-design/domain-model/anemic_model.jpg)
+![](../img/Architecture-pattern/Domain-driven-design/domain-model/anemic_model.jpg)
 
 <br>
 
@@ -116,6 +98,8 @@ But in this article, we only concentrate mostly on the Domain Model pattern.
     - Application logic has to do with application responsibilities such as notifying contract administrators, and integrated applications, or revenue recognition calculations.
 
         Application logic is sometimes referred to as **workflow logic**:
+
+- In Domain-Driven Design or Microservice architecture, we still use Anemic Domain Model to implement based largely on the needs of bounded contexts.
 
 <br>
 
