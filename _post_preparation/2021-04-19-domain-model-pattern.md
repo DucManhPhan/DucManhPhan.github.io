@@ -1,6 +1,6 @@
 ---
 layout: post
-title: Domain Model pattern
+title: Domain Model Pattern
 bigimg: /img/image-header/yourself.jpeg
 tags: [DDD]
 ---
@@ -59,9 +59,39 @@ To summary about some patterns of Domain-Driven Design, we can refer to the belo
 
 But in this article, we only concentrate mostly on the Rich Domain Model pattern.
 
+Rich Domain Model is a model that has both its data and operations that it needs to work.
 
+Below is an image that describe its meaning.
 
 ![](../img/Architecture-pattern/Domain-driven-design/domain-model/anemic_model.jpg)
+
+For example:
+
+```java
+public class Rectangle {
+    private int height;
+    private int width;
+
+    public Rectangle(int height, int width) {
+        this.height = height;
+        this.width = width;
+    }
+
+    public int calculateArea() {
+        return this.height * this.width;
+    }
+
+    public int getHeight() {
+        return this.height;
+    }
+
+    public int getWidth() {
+        return this.width;
+    }
+}
+```
+
+To make the above Rectangle class towards more about Domain-Driven Design, we can use [Value Object pattern](https://ducmanhphan.github.io/2020-09-02-value-object-pattern/).
 
 <br>
 
@@ -75,17 +105,25 @@ But in this article, we only concentrate mostly on the Rich Domain Model pattern
 
 ## When to use
 
+- When we want to apply Domain-Driven Design in our project.
 
-
-
+- When our project want to describe the business domain exactly, and we have enough time to do it.
 
 <br>
 
 ## Benefits and Drawbacks
 
+1. Benefits
 
+    - 
+    - 
+    - 
 
+2. Drawbacks
 
+    - 
+    - 
+    - 
 
 <br>
 
