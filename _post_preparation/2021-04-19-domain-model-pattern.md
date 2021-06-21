@@ -28,7 +28,7 @@ We knew that 3-layer architecture can be depicted as the following image.
 
 The Domain layer wil contain the business logic that implements some operations such as validation, business rules, ... Then, in reality, the service classes will posses these implementations.
 
-And the data of our Domain is represented through by Entities. Each entity will have its own identity. It means that we can differentiate between entities relied on their identity. Next, entities are also reflected to the records in the database. To persist entities, the service classes will call the repository object to do that job.
+And the data of our Domain is represented through by Entities. Each entity will have its own identity. It means that we can differentiate between entities relied on their identity. Next, entities are also reflected to the records in the database. To persist entities, the service classes will call the repository/DAO object to do that job.
 
 From my understanding about Domain Model, we have the concept Anemic Domain Model that has the relationship between the service classes and entities.
 

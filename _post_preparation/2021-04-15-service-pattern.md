@@ -30,7 +30,7 @@ tags: [DDD]
 ## Solution of Service Pattern
 
 
-
+1. 
 
 
 
