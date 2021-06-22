@@ -1,8 +1,8 @@
 ---
 layout: post
-title: Onion architecture pattern
+title: Onion architectural pattern
 bigimg: /img/image-header/yourself.jpeg
-tags: [Architecture Pattern]
+tags: [Architectural Pattern]
 ---
 
 

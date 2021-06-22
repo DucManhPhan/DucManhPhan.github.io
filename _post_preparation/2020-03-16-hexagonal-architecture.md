@@ -1,8 +1,8 @@
 ---
 layout: post
-title: Hexagonal architecture
+title: Hexagonal architectural pattern
 bigimg: /img/image-header/yourself.jpeg
-tags: [Architecture Pattern]
+tags: [Architectural Pattern]
 ---
 
 
@@ -143,6 +143,8 @@ Refer:
 [https://alistair.cockburn.us/hexagonal-architecture/](https://alistair.cockburn.us/hexagonal-architecture/)
 
 <br>
+
+[Implementing Ports and Adapters](https://yuriktech.com/2020/02/01/Implementing-Ports-and-Adapters/)
 
 [http://wiki.c2.com/?HexagonalArchitecture](http://wiki.c2.com/?HexagonalArchitecture)
 
