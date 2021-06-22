@@ -138,32 +138,83 @@ tags: [DDD]
 
     - Customer-Supplier
 
+        The supplier bounded context provides a service for its customers. The service provider is **upstream**, and the customer or consumer is **downstream**.
+
+        ![](../img/Architecture-pattern/Domain-driven-design/bounded-contexts/customer-supplier.png)
+
+        Unlike in the cooperation case, both teams (upstream and downstream) can succeed independently. Hence, in most cases, we have an imbalance of power: either the upstream or the downstream team can dictate the integration contract.
 
         - Conformist
 
+            In some cases the balance of power is in favor of the upstream team, which has no real motivation to support its clients’ needs. Instead, it just provides the integration contract, defined according to its own model—take it or leave it. Such power imbalances can be caused by integration with service providers that are external to the organization, or simply by organizational politics.
+
+            If the downstream team can accept the upstream team’s model, the relationship between the bounded contexts is called conformist. The downstream team conforms to the upstream team’s model.
+
+            ![](../img/Architecture-pattern/Domain-driven-design/bounded-contexts/conformist.png)
+
+            The downstream team’s decision to give up some of its autonomy can be justified in multiple ways. For example, the contract exposed by the upstream team may be an industry-standard, well-established model, or it may just be good enough for the downstream team’s needs.
 
         - Anticorruption layer
 
+            The anticorruption layer pattern addresses the case where a consumer is not willing to accept the supplier's model.
+
+            As in the case of the conformist pattern, the balance of power in this relationship is still skewed toward the upstream service. However, in this case the downstream bounded context is not willing to conform. What it can do instead is translate the upstream bounded context’s model into a model tailored to its own needs via an anticorruption layer.
+
+            ![](../img/Architecture-pattern/Domain-driven-design/bounded-contexts/anticorruption-layer.png)
+
+            The anticorruption layer pattern addresses scenarios in which it is not desirable or worth the effort to conform to the supplier’s model, such as:
+            - When the downstream bounded context contains a core subdomain. A core subdomain’s model requires extra attention, and adhering to the supplier’s model might impede the modeling of the problem domain.
+            - When the upstream model is bad or inconvenient. If a bounded context conforms to a mess, it risks becoming a mess itself. This is often the case with integration with legacy systems.
+            - When the supplier’s contract changes often, and the consumer wants to protect its model from such frequent changes. With an anticorruption layer, the changes in the supplier’s model only affect the translation mechanism.
+
+            From the modeling perspective, the translation of the supplier’s model isolates the downstream consumer from foreign concepts that are not relevant to its bounded context. Hence, it simplifies the consumer’s ubiquitous language and model.
 
         - Open-Host service
 
+            This pattern addresses the case where the power is skewed toward the consumers. The supplier is interested in protecting its consumers and providing the best service possible.
+
+            To protect the consumers from changes in its implementation, the upstream supplier decouples its implementation model from the public interface. This decoupling allows the supplier to evolve its implementation and public models at different rates.
+
+            ![](../img/Architecture-pattern/Domain-driven-design/bounded-contexts/open-host-service.png)
+
+            The supplier’s public interface is not intended to conform to its ubiquitous language. Instead, it is intended to expose a protocol convenient for the consumers, expressed in an integration-oriented language. Hence, the public protocol is called the “published language.”
+
+            In a sense, the open-host service pattern is a reversal of the anticorruption layer pattern: instead of the consumer, the supplier implements the translation of its internal model.
+
     - Seperate Ways
 
-        - Communication Issues
+        This pattern can arise for different reasons, in cases where the teams are not willing or able to collaborate.
 
+        - Communication Issues
+        
+            A common reason for avoiding collaboration is communication difficulties driven by the organization’s size or internal political issues. When teams have a hard time collaborating and agreeing, it may be more cost-effective for them to go their separate ways and duplicate functionality in multiple bounded contexts.
 
         - Generic Subdomains
 
+            The nature of the duplicated subdomain can also be a reason for teams to go their separate ways. More specifically, when the subdomain in question is generic, if the generic solution is easy to integrate it may be more cost-effective to integrate it in each of the bounded contexts locally. An example is a logging framework; it would make little sense for one of the bounded contexts to expose it as a service, as the added complexity of integrating such a solution would outweigh the benefit of not duplicating the functionality in multiple contexts. Duplicating the functionality would be less expensive than collaboration.
 
         - Model Differences
 
+            The difference in bounded contexts’ models can also be a reason to go separate ways. The models may be so different that a conformist relationship is not possible, and implementing an anticorruption layer would be more expensive than duplicating the functionality. In such a case, again, it’s more cost-effective for the teams to go their separate ways.
 
-        - 
+        The separate ways pattern should be avoided when integrating core subdomains. Duplicating the implementation of such subdomains would defy the company’s strategy to implement them in the most effective and optimized way.
 
+3. Context Map
 
-3. Context Maps
+    To have an obviously background of a picture about the bounded context's relationship, we will plot them on a context map.
 
+    The context map is a visual representation of the system’s bounded contexts and integrations between them. This visual notation gives valuable strategic insight on multiple levels:
+    - High-level design
 
+        A context map provides an overview of the system’s components and the models they implement.
+
+    - Communication patterns
+
+        A context map depicts the communication patterns between teams—for example, which teams are collaborating and which prefer “less intimate” integration patterns, such as the anticorruption layer and separate ways patterns.
+
+    - Organization issues
+
+        Finally, a context map can give an insight into organizational issues. For example, what does it mean if a certain upstream team’s downstream consumers all resort to implementing an anticorruption layer, or if all implementations of the separate ways pattern are concentrated around the same team?
 
 <br>
 
