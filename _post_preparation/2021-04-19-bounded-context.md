@@ -13,8 +13,11 @@ tags: [DDD]
 ## Table of contents
 - [Given problem](#given-problem)
 - [Solution with Bounded Contexts](#solution-with-bounded-contexts)
+- [Some types of the Bounded Contexts' relationship](#some-types-of-the-bounded-contexts'-relationship)
+- [Some common problems in Bounded Contexts](#some-common-problems-in-bounded-contexts)
 - [Benefits and Drawbacks](#benefits-and-drawbacks)
 - [Wrapping up](#wrapping-up)
+
 
 <br>
 
@@ -31,14 +34,13 @@ tags: [DDD]
 
 1. Introduction to Bounded Context
 
-    The term bounded context refers to the circumstances in which certain words of the ubiquitous language have certain meaning. Each context uses a particular dialect of the ubiquitous language, and each one is optimized to solve a specific problem.
-
+    The term **bounded context** refers to the circumstances in which certain words of the ubiquitous language have certain meaning. Each context uses a particular dialect of the ubiquitous language, and each one is optimized to solve a specific problem.
 
 2. The relationship between Bounded Contexts and CAP Theorem
 
     Bounded contexts also offer benefits over enterprise data models in terms of the CAP theorem. An enterprise data model represents one tightly interconnected cluster of nodes in the distributed system where consistency is prioritized over availability. Any party that needs a consistent view of any part of the enterprise needs to make a connection to this one cluster. The more consumers that connect to it, the less available it becomes. The only way to combat this trend is to reduce the likehood of a network partition by spending more money on expensive hardware and network management.
 
-    An enterprise model forces us to scale up rather than scaling out, but a bounded context represents a smaller cluster of nodes. It's decoupled from the other contexts. Because it has its own model, it's not reliant upon its connection to those other contexts. It can make decisions based only on the information that it has on hand. A bounded context could be written to favor availability over consistency. If the system of record is down, then the downstream system is unaffected. It already has a cache of the data that it needs organized and optimized for the problems that it is designed to solve. This isn't automatic. We have to conscientiously choose to build this kind of capability using CQRS, Event Sourcing, or any the other patterns and techniques that we're going to look at, but this is a choice that we don't easily have if we use an enterprise data model.
+    An enterprise model forces us to scale up rather than scaling out, but a bounded context represents a smaller cluster of nodes. It's decoupled from the other contexts. Because it has its own model, it's not reliant upon its connection to those other contexts. It can make decisions based only on the information that it has on hand. A bounded context could be written to favor availability over consistency. If the system of record is down, then the downstream system is unaffected. It already has a cache of the data that it needs organized and optimized for the problems that it is designed to solve. This isn't automatic. We have to conscientiously choose to build this kind of capability using CQRS, Event Sourcing, or any the other patterns and techniques, but this is a choice that we don't easily have if we use an enterprise data model.
 
 3. Some examples about Bounded Contexts
 
@@ -49,9 +51,7 @@ tags: [DDD]
         Based on their features, we have 4 bounded contexts:
         - Registration
 
-            This is the first step to process the course registration of a student. This bounded context will take on:
-            - preventing the duplication or overlap times between courses.
-            - check whether or not the teachers are available.
+            This is the first step to process the course registration of a student.
 
         - Payment
 
@@ -63,7 +63,8 @@ tags: [DDD]
         - Scheduler
 
             After finishing the course's payment completely, the Scheduler bounded context will take action.
-            - 
+            - preventing the duplication or overlap times between courses.
+            - check whether or not the teachers/courses are available.
 
         - Notification
 
@@ -85,30 +86,96 @@ tags: [DDD]
 
 ## Some types of the Bounded Contexts' relationship
 
-1. Context Mapping
+1. Bounded Contexts's relationship
 
+    In each bounded context, we will use ubiquitous language to model the business objects. There is no relationship between domain models of the other bounded contexts. The biggest benefits of this way is that it isolates the complexity of our business logic, and reduce the effects of the changes from the customer's requirements.
 
+    But a question arises in our mind: **Do the bounded contexts have the relationship together?**. The answer is that absolutely they have, simply because to run completely the business logic, we need to combine bounded contexts together.
 
-
+    Belows are some pattern groups that describe the relationships and integrations between bounded contexts.
+    - Cooperation
+    - Customer-Supplier
+    - Seperate ways
 
 2. Types of Bounded Contexts' relationship
 
+    Supposed that in our project, each team will manage one bounded context. So, to understand about the relationship between bounded contexts, we need to be aware of the constraints between teams in a project.
+
     - Cooperation
 
+        Cooperation patterns relate to the bounded contexts implemented by teams with well-established communication.
 
-    - Shared Kernel
+        Naturally, this requirement is fullfilled for bounded contexts that are implemented by the same team. It also applies to teams that have dependent goals, where the success of one team depends on the other's and vice versa. Again, the main criterion is the quality of the team's communication and collaboration.
 
+        - Partnership
+
+            In the partnership model, the integration between bounded contexts is coordinated in an ad hoc manner. A team can notify a second one about a change in the API, and the second team will cooperate and adapt. No drama or conflicts.
+
+            ![](../img/Architecture-pattern/Domain-driven-design/bounded-contexts/partnership-in-cooperation.png)
+
+            The coordination of integration is two-way. No one team dictates the language that is used for defining the contracts. The teams can work out the differences, and choose the most appropriate solution. Also, both sides cooperate in solving any integration issues that might come up. Neither team is interested in blocking the other one.
+
+            Well-established collaboration practices, high levels of commitment, and frequent synchronizations between teams are all required for successful integration in this manner.
+
+            Note that this pattern might not be a good fit for geographically distributed teams, since it may present synchronization and communication challenges.
+
+        - Shared Kernel
+
+            The shared kernel is a more formal way of defining a contract between multiple bounded contexts. Here, instead of ad hoc integrations, the contract is defined explicitly in a compiled library—the shared kernel. The library defines the integration methods and language used by both bounded contexts.
+
+            ![](../img/Architecture-pattern/Domain-driven-design/bounded-contexts/shared-kernel-in-cooperations.png)
+
+            The shared kernel is both referenced and owned by multiple bounded contexts. Each team is free to modify the compiled library that defines the integration contract. A change to the contract can break the other team's build, though; hence, as in the partnership case, this pattern requires high levels of commitment and synchronization between teams.
+
+            A peculiar detail about the shared kernel pattern is that in a way, it contradicts a core principle of bounded contexts: that only one team can own a bounded context. Here we extract a shared part of multiple bounded contexts into its own bounded context. As a result, the shared bounded context is jointly owned by multiple teams.
+
+            The key to implementing the shared kernel pattern is to keep the scope of the shared kernel small, and limited to the integration contract only.
+
+        One team owning multiple bounded contexts
+        - It's worth mentioning that a shared kernel is a natural fit for integrating bounded contexts that are owned and implemented by the same team. In such a case, an ad hoc integration of the bounded contexts can “wash out” the contexts’ boundaries over time. A shared kernel can be used for explicitly defining the integration contract.
+
+            Moreover, in this scenario, the one team ownership principle is not broken—both bounded contexts are implemented by the same team.
 
     - Customer-Supplier
 
 
-    - Conformist
+        - Conformist
 
 
-    - Anticorruption layer
+        - Anticorruption layer
 
 
-    - Open-Host service
+        - Open-Host service
+
+    - Seperate Ways
+
+        - Communication Issues
+
+
+        - Generic Subdomains
+
+
+        - Model Differences
+
+
+        - 
+
+
+3. Context Maps
+
+
+
+<br>
+
+## Some common problems in Bounded Contexts
+
+1. The difference between Model and Domain Model
+
+
+
+
+2. The difference between sub-domain and bounded context
+
 
 
 
