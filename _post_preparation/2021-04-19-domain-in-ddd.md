@@ -13,6 +13,7 @@ tags: [DDD]
 ## Table of contents
 - [Given problem](#given-problem)
 - [Solution with Domain concept in DDD](#solution-with-domain-concept-in-ddd)
+- [How to split Domains into subdomains](#how-to-plit-domain-into-subdomains)
 - [Benefits and Drawbacks](#benefits-and-drawbacks)
 - [Wrapping up](#wrapping-up)
 
@@ -51,15 +52,35 @@ tags: [DDD]
     Belows are some types of subdomain that we need to take care of when desinging an application that use Domain-Driven Design.
     - Core Domain
 
+
+
     - Supporting Domain
 
+
+
     - Generic Domain
+        
+        
+
+
+<br>
+
+## How to split Domains into subdomains
+
+
+
+
 
 
 <br>
 
 ## Benefits and Drawbacks
 
+1. Benefits
+
+
+
+2. Drawbacks
 
 
 
