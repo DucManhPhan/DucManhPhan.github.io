@@ -36,6 +36,19 @@ tags: [DDD]
 
     The term **bounded context** refers to the circumstances in which certain words of the ubiquitous language have certain meaning. Each context uses a particular dialect of the ubiquitous language, and each one is optimized to solve a specific problem.
 
+    It means that the same business subject can be present under the different meanings in bounded contexts.
+
+    For example:
+    - Assuming that in the course registration application, at the moment, we only take care about two bounded contexts such as registration, and payment.
+
+        In both bounded contexts, the same business object is a user/student.
+
+        In registration bounded context, a user only need to provides a little bit of information to register a course, e.g, name of a user, age, sex, and the course.
+
+        In payment bounded context, a user provides information to pay for this course such as the number of visa card, due date of card, the CVV number. This bounded context doesn't take care of other information, simply because of providing other information is redundancy.
+
+    And a bounded context also means the solution space of the subdomain.
+
 2. The relationship between Bounded Contexts and CAP Theorem
 
     Bounded contexts also offer benefits over enterprise data models in terms of the CAP theorem. An enterprise data model represents one tightly interconnected cluster of nodes in the distributed system where consistency is prioritized over availability. Any party that needs a consistent view of any part of the enterprise needs to make a connection to this one cluster. The more consumers that connect to it, the less available it becomes. The only way to combat this trend is to reduce the likehood of a network partition by spending more money on expensive hardware and network management.
@@ -238,17 +251,19 @@ tags: [DDD]
 
 1. Benefits
 
+    - Understanding about bounded context helps us know more about the domain, and the problems that we will cope with. Then, providing the corresponding solution for them.
 
+    - Each bounded context will be under a team's responsibility. So, we can develop in parallel, without affect to the other teams.
 
 2. Drawbacks
 
-
+    - Take a lot of time to be aware of our domain.
 
 <br>
 
 ## Wrapping up
 
-
+- Understanding about the meaning of the bounded contexts makes us reduce a lot of time when coding such as using a large enterprise data model through the whole of project, understanding quickly when communicating the requirements' changes.
 
 
 <br>
@@ -272,3 +287,5 @@ Refer:
 [Discovering the Domain Architecture](https://www.microsoftpressstore.com/articles/article.aspx?p=2248811)
 
 [https://www.oreilly.com/library/view/what-is-domain-driven/9781492057802/ch04.html](https://www.oreilly.com/library/view/what-is-domain-driven/9781492057802/ch04.html)
+
+[https://robertbasic.com/blog/i-think-i-understand-bounded-contexts/](https://robertbasic.com/blog/i-think-i-understand-bounded-contexts/)
