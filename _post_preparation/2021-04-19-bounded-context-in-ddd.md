@@ -220,15 +220,17 @@ tags: [DDD]
 
 ## Some common problems in Bounded Contexts
 
-1. The difference between Model and Domain Model
+1. The difference between Domain and Domain Model
 
+    Domain represents the problem to solve.
 
-
+    Domain Model is the model that implements the solution to the problem.
 
 2. The difference between sub-domain and bounded context
 
+    A subdomain is a segment of the Domain.
 
-
+    A bounded context is a segment of the solution.
 
 <br>
 
