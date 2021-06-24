@@ -111,6 +111,8 @@ So, how Domain-Driven Design solve these problems?
 
 ## Wrapping up
 
+- The concepts of ubiquitous language means we should keep our code base in sync with this single terminology and name all our classes and tables in the database after the terms in the ubiquitous language.
+
 - Understanding about Ubiquitous Language in DDD, how to apply it in our project.
 
 <br>
