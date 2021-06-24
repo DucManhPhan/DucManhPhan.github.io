@@ -14,8 +14,10 @@ tags: [DDD]
 - [Given problem](#given-problem)
 - [Solution with Domain concept in DDD](#solution-with-domain-concept-in-ddd)
 - [How to split Domains into subdomains](#how-to-plit-domain-into-subdomains)
+- [When to use Domain-Drive Design in a project](#when-to-use-domain-driven-design-in-a-project)
 - [Benefits and Drawbacks](#benefits-and-drawbacks)
 - [Wrapping up](#wrapping-up)
+
 
 <br>
 
@@ -74,15 +76,27 @@ tags: [DDD]
 
 <br>
 
+## When to use Domain-Drive Design in a project
+
+- When the project we are working on has a lot of complex business rules. Donmain-driven design help us if we work with big data, need to achieve outstanding performance, or program against hardware systems.
+
+    So the only purpose of DDD is to tackle business logic complexity.
+
+<br>
+
 ## Benefits and Drawbacks
 
 1. Benefits
 
-
+    - 
+    - 
+    - 
 
 2. Drawbacks
 
-
+    - 
+    - 
+    - 
 
 
 <br>
