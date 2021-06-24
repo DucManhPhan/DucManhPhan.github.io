@@ -11,9 +11,11 @@ tags: [DDD]
 <br>
 
 ## Table of contents
-
-
-
+- [Given problem](#given-problem)
+- [Solution of Aggregate pattern](#solution-of-aggregate-pattern)
+- [When to use](#when-to-use)
+- [Benefits and Drawbacks](#benefits-and-drawbacks)
+- [Wrapping up](#wrapping-up)
 
 
 <br>
@@ -73,7 +75,15 @@ So, these are the three sets of rules.
 
 <br>
 
-## 
+## When to use
+
+
+
+
+
+<br>
+
+## Benefits and Drawbacks
 
 
 
