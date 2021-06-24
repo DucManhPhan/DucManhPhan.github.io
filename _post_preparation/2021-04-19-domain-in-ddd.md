@@ -37,8 +37,8 @@ tags: [DDD]
     In reality, Domain represents a problem in business.
 
     For example:
-    - e-commerce
-    - payroll
+    - E-commerce
+    - Payroll
 
 2. Understanding about subdomain
 

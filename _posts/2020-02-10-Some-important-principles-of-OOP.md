@@ -26,6 +26,8 @@ Let's get started.
     Always implement things when you actually need them, never when you just foresee that you need them.
     ```
 
+    It means that we should implement only the functionality we need in this particular moment. We shouldn't try to anticipate the future needs, because most of the functionality we develop just in case turns out to be unused and thus, just a waste of time.
+
     Benefits:
     - it saves our time because we do not use this functionality.
     - Our code is short, concise, do not cause confused to the reader **What does it mean?** when reviewing our code.
@@ -42,11 +44,13 @@ Let's get started.
     - Avoid duplication code makes us easily change to apply all places where it utilizes.
     - Do not make strange feeling when modifying something.
 
-3. KISS - Keep It Simple, Stupid
+3. KISS - Keep It Short and Simple 
 
     ```
     Most systems work best if they are kept simple rather than made complicated.
     ```
+
+    This principle is about making the implementation of the remaining functionality as simple as possible. The point here is that the simpler our code is, the more readable, and thus more maintainable it becomes.
 
     Benefits:
     - Take less time for the maintainer.
@@ -87,7 +91,6 @@ Let's get started.
 
 
 5. Robustness Principle
-
 
 
 
