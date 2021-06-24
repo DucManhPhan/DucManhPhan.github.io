@@ -54,11 +54,14 @@ tags: [DDD]
     Belows are some types of subdomain that we need to take care of when desinging an application that use Domain-Driven Design.
     - Core Domain
 
+        It is the most important part of the system. It means that this core domain expresses the true business logic of our domain. Our system can't live without this core domain. It means that if we seperate this core domain, the system doesn't work correctly.
 
+        For example:
+        - In the online course registration application, the Scheduler subdomain is the core domain.
 
     - Supporting Domain
 
-
+        
 
     - Generic Domain
         
