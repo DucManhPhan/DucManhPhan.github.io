@@ -14,7 +14,6 @@ tags: [DDD]
 - [Given problem](#given-problem)
 - [Solution with Domain concept in DDD](#solution-with-domain-concept-in-ddd)
 - [How to split Domains into subdomains](#how-to-plit-domain-into-subdomains)
-- [When to use Domain-Drive Design in a project](#when-to-use-domain-driven-design-in-a-project)
 - [Benefits and Drawbacks](#benefits-and-drawbacks)
 - [Wrapping up](#wrapping-up)
 
@@ -61,20 +60,11 @@ tags: [DDD]
 
     - Supporting Domain
 
-        
+
 
     - Generic Domain
         
         
-
-
-<br>
-
-## How to split Domains into subdomains
-
-
-
-
 
 
 <br>
