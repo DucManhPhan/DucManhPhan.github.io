@@ -2,7 +2,7 @@
 layout: post
 title: Repository pattern
 bigimg: /img/image-header/california.jpg
-tags: [Enterprise Pattern]
+tags: [DDD]
 ---
 
 In this article, we will find out something about Repository pattern such as the context's problem, when to use Repository pattern, the advantages and disadvantages, ...

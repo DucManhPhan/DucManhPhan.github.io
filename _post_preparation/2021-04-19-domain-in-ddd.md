@@ -88,7 +88,7 @@ tags: [DDD]
 
 1. Benefits
 
-    - 
+    - It extracts the central part of the problem domain and simplify it, removing most the necessary complexity. The ability to express business logic in the clearest way possible is a single trait that makes domain-driven design so appealing in enterprise-level applications. Uncontrollable growth of complexity is one of the biggest reasons why software projects fail.
     - 
     - 
 
