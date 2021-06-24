@@ -2,7 +2,7 @@
 layout: post
 title: Value Object pattern
 bigimg: /img/image-header/yourself.jpeg
-tags: [Enterprise Pattern]
+tags: [DDD]
 ---
 
 
