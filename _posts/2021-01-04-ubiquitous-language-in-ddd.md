@@ -87,6 +87,12 @@ So, how Domain-Driven Design solve these problems?
 
         ![](../img/Architecture-pattern/Domain-driven-design/ubiquitous-language-aircraft.jpg)
 
+    - E-commerce application
+
+        In this system, we have a class called Product, which is an atomic sale unit.
+
+        But with the domain experts refer to this elements as both Product and Package.
+
 <br>
 
 ## Benefits and Drawbacks
@@ -113,6 +119,8 @@ Refer:
 
 [Domain-Driven Design in Practice by Vladimir Khorikov](https://app.pluralsight.com/library/courses/domain-driven-design-in-practice/table-of-contents)
 
-[Domain Driven Design Quickly ebook]()
+[Domain Driven Design Quickly by Vernon Vaughn](https://www.amazon.com/Domain-Driven-Design-Distilled-Vaughn-Vernon-ebook/dp/B01JJSGE5S)
 
-[Implementing Domain Driven Design ebook]()
+[Implementing Domain Driven Design by Vernon Vaughn](https://www.amazon.com/Implementing-Domain-Driven-Design-Vaughn-Vernon/dp/0321834577)
+
+[Domain-Driven Design: Tackling Complexity in the Heart of Software by Eric Evans](https://www.amazon.com/Domain-Driven-Design-Tackling-Complexity-Software/dp/0321125215)
