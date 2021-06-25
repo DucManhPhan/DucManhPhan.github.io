@@ -14,6 +14,7 @@ tags: [DDD]
 - [Given problem](#given-problem)
 - [Solution of Entity pattern](#solution-of-entity-pattern)
 - [Some types of equality](#some-types-equality)
+- [The difference between Entity and Value Object](#the-difference-between-entity-and-value-object)
 - [When to use](#when-to-use)
 - [Benefits and Drawbacks](#benefits-and-drawbacks)
 - [Wrapping up](#wrapping-up)
@@ -60,6 +61,22 @@ There are three types of equality.
     ![](../img/Architecture-pattern/Domain-driven-design/entity-pattern/structural-equality.png)
 
     Structural equality means that there are two objects equal if all of their members match.
+
+As I said, we can have the equality in the entities and value objects.
+
+![](../img/Architecture-pattern/Domain-driven-design/entity-pattern/entities-value-objects-equality.png)
+
+<br>
+
+## The difference between Entity and Value Object
+
+|      Property          |             Entity                                                       |                    Value Object                     |
+| -----------------------| ------------------------------------------------------------------------ | --------------------------------------------------- |
+| Identity               | Entity has its own inherent identity                                     | Value Object has no its own identity                |
+| Changable              | It's mutable                                                             | It's immutable                                      | 
+| Equality               | Using identifier equality                                                | Using structural equality                           |
+| Lifespan               | Entities can live by their own. They can be persisted into the database. | Value Objects can't live by their own. They should always belong to one or several entities. It means that value objects don't have their own tables in the database | 
+
 
 <br>
 
