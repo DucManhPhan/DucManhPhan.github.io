@@ -11,9 +11,12 @@ tags: [DDD]
 <br>
 
 ## Table of contents
-
-
-
+- [Given problem](#given-problem)
+- [Solution of Entity pattern](#solution-of-entity-pattern)
+- [Some types of equality](#some-types-equality)
+- [When to use](#when-to-use)
+- [Benefits and Drawbacks](#benefits-and-drawbacks)
+- [Wrapping up](#wrapping-up)
 
 
 <br>
@@ -56,12 +59,19 @@ There are three types of equality.
 
     ![](../img/Architecture-pattern/Domain-driven-design/entity-pattern/structural-equality.png)
 
-    
+    Structural equality means that there are two objects equal if all of their members match.
 
 <br>
 
-## 
+## When to use
 
+
+
+
+
+<br>
+
+## Benefits and Drawbacks
 
 
 
@@ -77,4 +87,10 @@ There are three types of equality.
 
 Refer:
 
-[https://labs.septeni-technology.jp/technote/on-currying-and-partial-function-application/](https://labs.septeni-technology.jp/technote/on-currying-and-partial-function-application/)
+[]()
+
+[]()
+
+[]()
+
+[]()
