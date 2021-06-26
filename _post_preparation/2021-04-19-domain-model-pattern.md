@@ -13,7 +13,6 @@ tags: [DDD]
 ## Table of contents
 - [Given problem](#given-problem)
 - [Solution with Domain Model pattern](#solution-with-domain-model-pattern)
-- [Source code](#source-code)
 - [When to use](#when-to-use)
 - [Benefits and Drawbacks](#benefits-and-drawbacks)
 - [Wrapping up](#wrapping-up)
@@ -95,14 +94,6 @@ To make the above Rectangle class towards more about Domain-Driven Design, we ca
 
 <br>
 
-## Source code
-
-
-
-
-
-<br>
-
 ## When to use
 
 - When we want to apply Domain-Driven Design in our project.
@@ -138,6 +129,11 @@ To make the above Rectangle class towards more about Domain-Driven Design, we ca
         Application logic is sometimes referred to as **workflow logic**:
 
 - In Domain-Driven Design or Microservice architecture, we still use Anemic Domain Model to implement based largely on the needs of bounded contexts.
+
+- The Anemic Domain Model is applicable when:
+
+    - our project is simple.
+    - will not be developed for a long period of time.
 
 <br>
 
