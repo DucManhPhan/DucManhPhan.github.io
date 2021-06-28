@@ -1,8 +1,8 @@
 ---
 layout: post
-title: Decentralized architecture pattern
+title: Decentralized architectural pattern
 bigimg: /img/image-header/yourself.jpeg
-tags: [Architecture Pattern]
+tags: [Architectural Pattern]
 ---
 
 

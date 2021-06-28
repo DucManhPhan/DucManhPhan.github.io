@@ -2,7 +2,7 @@
 layout: post
 title: Microservices architectural pattern
 bigimg: /img/image-header/california.jpg
-tags: [Architecture pattern]
+tags: [Architectural pattern]
 ---
 
 
