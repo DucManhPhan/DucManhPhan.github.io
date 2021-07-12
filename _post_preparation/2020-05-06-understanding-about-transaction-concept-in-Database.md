@@ -53,8 +53,9 @@ tags: [Database]
 
 ## When to use
 
-
-
+- 
+- 
+- 
 
 
 <br>
@@ -63,11 +64,15 @@ tags: [Database]
 
 1. Benefits
 
-
-
+    - 
+    - 
+    - 
 
 2. Drawbacks
 
+    - 
+    - 
+    - 
 
 
 <br>
