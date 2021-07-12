@@ -62,21 +62,19 @@ Some problems that we will encounter:
 
 1. Introduction to vertical scaling
 
-
-
-
+    The vertical scaling, or scaling up implies bigger machines, more processors, disk storage, and memory.
 
 2. Benefits and Drawbacks
 
     - Benefits
 
-        - 
+        - This is the fastest, most convenient way to improve the scalability of our system when encountering the emergent cases.
         - 
         - 
 
     - Drawbacks
 
-        - 
+        - Bigger machines get more and more expensive, but it is limited as our size increases.
         - 
         - 
 
