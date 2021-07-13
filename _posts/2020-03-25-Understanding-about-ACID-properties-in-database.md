@@ -111,6 +111,7 @@ In PostgreSQL, it is called WAL - Write Ahead Log. In MySQL, Oracle, it is calle
 <br>
 
 ## Wrapping up
+
 - Understanding about Atomicity, Consistency, Isolation, and Durability properties.
 
 - Understanding how these properties will be applied in our database SQL or NoSQL.
