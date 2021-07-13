@@ -20,6 +20,7 @@ In this article, we will learn some ways to deal with Null value in Java. Let's 
 <br>
 
 ## Working with Reference types and Nulls
+
 1. Null and Reference types  
     In the conference, in 2009, Sir Charles Antony Richard Hoare apologized for introducing null references in the programming language Algol Wz in 1965.
 
