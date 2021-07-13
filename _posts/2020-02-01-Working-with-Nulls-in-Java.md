@@ -21,7 +21,8 @@ In this article, we will learn some ways to deal with Null value in Java. Let's 
 
 ## Working with Reference types and Nulls
 
-1. Null and Reference types  
+1. Null and Reference types
+
     In the conference, in 2009, Sir Charles Antony Richard Hoare apologized for introducing null references in the programming language Algol Wz in 1965.
 
     ```
@@ -155,7 +156,7 @@ In this article, we will learn some ways to deal with Null value in Java. Let's 
 
             - Throw exceptions to indicate that an invalid value has been received.
 
-                We can choose one of the NullPointerException or IllegalArgumentException and use it consistently.
+                We can choose one of the **NullPointerException** or **IllegalArgumentException** and use it consistently.
 
                 For example:
 
@@ -230,7 +231,7 @@ In this article, we will learn some ways to deal with Null value in Java. Let's 
 
 1. Spring Annotations
 
-    Belows are some annotations in org.springframework.lang package.
+    Belows are some annotations in **org.springframework.lang** package.
     - ```@NonNull```
 
         ```java
@@ -320,6 +321,7 @@ Some notes about Null Object pattern:
 - It's not a kind of GoF patterns.
 - It was described in a article **The Null Object pattern** by Bobby Woolf. And later, it was published in the **Pattern Languages of Program Design Vol.3**.
 - The other names of this pattern are **Active nothing**, **Stub**.
+- The other pattern that has the same idea with this Null Object pattern is the Special pattern.
 
 <br>
 
