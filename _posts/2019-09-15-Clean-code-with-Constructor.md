@@ -183,7 +183,7 @@ Constructor chaining helps adhere to the DRY principle.
 
     Therefore, we should create many constructors with different arguments, our constructors have a long list argument. The problem is multiplied by the simple fact that we should mix and match any number of ingredients.
 
-    This is called as telescoping constructor pattern.
+    This is called as **telescoping constructor pattern**.
 
     ```java
     Pizza(int size) { ... }
@@ -236,7 +236,6 @@ Constructor chaining helps adhere to the DRY principle.
             Pizza build() {
                 return new Pizza(this);
             }
-
         }
     }
 
