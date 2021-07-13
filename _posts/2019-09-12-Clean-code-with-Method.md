@@ -23,7 +23,8 @@ Let's get started.
 <br>
 
 ## What (not) to Return
-- Avoid returning null as much as possible.
+
+1. Avoid returning null as much as possible.
 
     Example: Assuming that we are in a case that we want to get a list populated from a database or from a file on disk.
 
@@ -43,11 +44,11 @@ Let's get started.
     In the above code, when we want to return null, there are two things that we want:
     - We assume that everyone will know about this internal implementation. But, it's much safer to assume that people do not know something.
 
-        So, if a caller does not know about null, they will hit a ```NullPointerException```. And if someone does know about that null, they have to add extra checks, if list is null. So, we have to write check null every time. Meaning, if we had to call this getSomeData() method four or five times, then this extra check has to be applied four or five times.
+        So, if a caller does not know about null, they will hit a ```NullPointerException```. And if someone does know about that null, they have to add extra checks, if list is null. So, we have to write check null every time. Meaning, if we had to call this **getSomeData()** method four or five times, then this extra check has to be applied four or five times.
 
     Solution for this problem is to return an empty collection such as ```Collections.emptyList()```.
 
-- Avoid returning special integers that act as error codes.
+2. Avoid returning special integers that act as error codes.
 
     ```java
     int withDraw(int amount) {
@@ -113,7 +114,7 @@ private static long nowPlusTime(int months, int weeks, int days) {
 }
 ```
 
-Convert nowPlusTime() method:
+Convert **nowPlusTime()** method:
 
 ```java
 private static long nowPlusMonths(int months) {
@@ -232,8 +233,8 @@ Instead of having a single ```switchLights()``` method, we will create two small
 ## Fail fast && Return early
 
 
-|            Fail fast              |               Fail safe             |
-| --------------------------------- | ----------------------------------- |
+|            Fail fast                                    |               Fail safe             |
+| ------------------------------------------------------- | ----------------------------------- |
 | Immediately report any failure and let the program fail | Try to keep the program running. |
 
 Benefits of fail fast:
@@ -280,11 +281,13 @@ We can use libraries to check:
     ```java
     Objects.isNull();
     ```
+
 - Guava
 
     ```java
     Preconditions.checkArgument();
     ```
+
 - Apache
 
     ```java
@@ -505,13 +508,11 @@ private static long nowPlusDays(int days) {
     ```
 
 
-
 <br>
 
 ## Wrapping up
 
-
-
+- Understanding deeply about these above problems and how to solve them.
 
 
 <br>
