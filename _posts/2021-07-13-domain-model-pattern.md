@@ -92,6 +92,11 @@ public class Rectangle {
 
 To make the above Rectangle class towards more about Domain-Driven Design, we can use [Value Object pattern](https://ducmanhphan.github.io/2020-09-02-value-object-pattern/).
 
+To continue with domain model, we can learn about some new concepts in Domain-Driven Design:
+- Entity
+- Value Object
+- Aggregate
+
 <br>
 
 ## When to use
@@ -106,15 +111,11 @@ To make the above Rectangle class towards more about Domain-Driven Design, we ca
 
 1. Benefits
 
-    - 
-    - 
-    - 
+    - Squeeze all business logic into domain models, so it reduces the duplications logic and make the data consistency by using value object pattern, aggregate pattern, and specification pattern.
 
 2. Drawbacks
 
-    - 
-    - 
-    - 
+    - To go deeper into the drawbacks of Domain Model, we can go to the drawbacks of Aggregate pattern.
 
 <br>
 
@@ -148,9 +149,3 @@ Refer:
 [https://enterprisecraftsmanship.com/posts/always-valid-domain-model/](https://enterprisecraftsmanship.com/posts/always-valid-domain-model/)
 
 [https://enterprisecraftsmanship.com/posts/domain-model-purity-lazy-loading/](https://enterprisecraftsmanship.com/posts/domain-model-purity-lazy-loading/)
-
-[]()
-
-[]()
-
-[]()
