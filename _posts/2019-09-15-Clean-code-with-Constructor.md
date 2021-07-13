@@ -12,7 +12,6 @@ Let's get started.
 <br>
 
 ## Table of contents
-- [Given problem](#given-problem)
 - [Use static factory method](#use-static-factory-method)
 - [Constructor chaining](#constructor-chaining)
 - [Constructor Telescoping](#constructor-telescoping)
@@ -20,16 +19,8 @@ Let's get started.
 
 <br>
 
-## Given problem
-
-
-
-
-
-
-<br>
-
 ## Use static factory method
+
 1. Given problem
 
     Before we want to create an object, we have to need calculate and validate the other things so much, then it makes our problem hard to follow, and understand.
@@ -91,19 +82,9 @@ Let's get started.
     GregorianCalendar.getInstance();
     ```
 
-3. Benefits and Drawbacks
+3. Benefits of this solution
 
-    - Benefits
-
-        - 
-        - 
-        - 
-
-    - Drawbacks
-
-        - 
-        - 
-        - 
+    - hide all the details of this creation for an object, and it satisfied the Tell Don't Ask principle.
 
 <br>
 
@@ -187,11 +168,13 @@ Constructor chaining helps adhere to the DRY principle.
 
     In the above code, we have several constructors sorted in a particular order from no arguments to one argument to two arguments. Only the bottom one has validation logic, so it's all in one place, and it also sets the fields. This constructor does all of the heavy lifting. The others just ```this``` keywork and call it. 
 
-    This could be further refactored. The interest rate could be refactored into a constant since it is a default value, and these argument checks could be wrapped into prettier methods.
+    This could be further refactored. The *interest rate* could be refactored into a constant since it is a default value, and these argument checks could be wrapped into prettier methods.
+
 
 <br>
 
 ## Constructor Telescoping
+
 1. Given problem
 
     Assume that we are building a backend system for a pizza restaurant, so we start off with a single parameter that takes the base size.
@@ -210,6 +193,7 @@ Constructor chaining helps adhere to the DRY principle.
     ```
 
 2. Solution
+
     To fix this problem, we should use Builder pattern.
 
     The downside of this solution is to have boilerplate code such as set properties in Builder class. But it makes our constructor readable, maintainable.
@@ -265,9 +249,12 @@ Constructor chaining helps adhere to the DRY principle.
     }
     ```
 
+
 <br>
 
 ## Wrapping up
+
+- Understanding these above problems that we have just encountered and their solutions.
 
 
 <br>
@@ -280,4 +267,4 @@ Refer:
 
 [Java: Writing readable code and maintainable code](https://app.pluralsight.com/library/courses/java-writing-readable-maintainable-code/table-of-contentshttps://www.pluralsight.com/courses/java-writing-readable-maintainable-code)
 
-[Effective Java of Joshual Bloch]()
+[Effective Java by Joshual Bloch](https://www.amazon.com/Effective-Java-Joshua-Bloch/dp/0134685997)
