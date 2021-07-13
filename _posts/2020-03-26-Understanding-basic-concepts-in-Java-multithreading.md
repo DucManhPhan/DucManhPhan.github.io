@@ -175,6 +175,7 @@ Belows are some characteristics of a thread.
 <br>
 
 ## Benefits and Drawbacks for using threads
+
 1. Benefits
 
     - Improve performance of system when we choose the compatible number of threads.
