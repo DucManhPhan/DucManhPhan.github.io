@@ -124,6 +124,7 @@ Belows are three main use cases of the Specification pattern:
 
 - Specification pattern usually used in persistence layer, and combine with the other patterns such as Repository pattern, Unit of Work pattern.
 
+
 <br>
 
 Refer:
