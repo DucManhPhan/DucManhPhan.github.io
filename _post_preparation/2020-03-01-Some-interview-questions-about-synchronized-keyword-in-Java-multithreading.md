@@ -2,7 +2,7 @@
 layout: post
 title: Some interview questions about synchronized keyword in Java's Multithreading
 bigimg: /img/path.jpg
-tags: [Multithreading, Java, Interview question]
+tags: [Interview Question]
 ---
 
 
