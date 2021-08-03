@@ -5,7 +5,10 @@ bigimg: /img/image-header/home-office-1.jpg
 tags: [Spring, Logging framework]
 ---
 
+
+
 In this article, we will use Logback to implement logging functinality in Spring Boot. Let's get started.
+
 <br>
 
 ## Table of contents
@@ -33,6 +36,27 @@ Below is an image that describe the structure of Logback framework.
 
 ## Setup some packages for utilizing logback
 - Configuration logback in Spring boot
+
+    Spring Boot uses Logback framework as as a default Logger.
+
+    ![](../img/Logback/logback-default-spring-boot.png)
+
+    In **pom.xml** file, we have.
+
+    ```xml
+    <dependency>
+        <groupId>org.springframework.boot</groupId>
+        <artifactId>spring-boot-starter</artifactId>
+    </dependency>
+    ```
+
+    With Gradle, we will add the following statement to the **build.gradle** file.
+
+    ```groovy
+    implementation "org.springframework.boot:spring-boot-starter:${springBootVersion}"
+    ```
+
+- Configuration logback in Spring MVC
 
     ```xml
     <properties>
@@ -66,8 +90,6 @@ Below is an image that describe the structure of Logback framework.
         </dependency>
     </dependencies>
     ```
-
-    Spring Boot uses Logback framework as as a default Logger.
 
 - Configuration logback in normal Java project
 
