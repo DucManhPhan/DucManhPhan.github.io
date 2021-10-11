@@ -86,6 +86,29 @@ When to use:
 
 <br>
 
+## How to check URL for remote repository
+
+1. Using ```git config``` command
+
+    ```bash
+    git config --get remote.origin.url
+    ```
+
+2. Using ```git remote``` command.
+
+    ```bash
+    git remote show origin
+    ```
+
+    To know more details a particular remote, use the generic command:
+
+    ```bash
+    git remote show [remote-name] command
+    ```
+
+
+<br>
+
 ## Wrapping up
 
 - Understanding what we will intend to do with Git.
