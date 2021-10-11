@@ -34,7 +34,7 @@ tags: [PostgreSQL]
 
 One of PostgreSQL's strengths derives from its architecture. In common with commercial database systems, PostgreSQL can be used in a client/server environment. This separation into client and server allows applications to be distributed. We can use a network to separate our clients from our server and develop client applications in an environment that suits the users.
 
-![](../img/Database/PostgreSQL/architecture/architecture-1.png)
+![](../../../../img/Database/PostgreSQL/architecture/architecture-1.png)
 
 
 
