@@ -15,6 +15,7 @@ tags: [Git]
 - [Move operation](#move-operation)
 - [Search operation](#search-operation)
 - [Undo operations](#undo-operations)
+- [Some problems with file and folder with git](#some-problems-with-file-and-folder-with-git)
 - [Wrapping up](#wrapping-up)
 
 <br>
@@ -249,6 +250,25 @@ git mv <file-path> <folder-path>
 
 <br>
 
+## Some problems with file and folder with git
+
+1. File name too long.
+
+    Git has a limit of 4096 characters for a filename, except on Windows when Git is compiled with msys. It uses an older version of the Windows API and there's a limit of 260 characters for a filename.
+
+    ```bash
+    git config --system core.longpaths true
+    ```
+
+    If it doesn't work, we can follow the command below:
+
+    ```bash
+    git config --global core.longpaths true
+    ```
+
+
+<br>
+
 ## Wrapping up
 
 - To use above commands effectively, we need to think about what object that we cope with, and then action for it.
@@ -258,3 +278,5 @@ git mv <file-path> <folder-path>
 Refer:
 
 [https://dodangquan.blogspot.com/2017/11/tim-kiem-voi-git.html](https://dodangquan.blogspot.com/2017/11/tim-kiem-voi-git.html)
+
+[https://stackoverflow.com/questions/22575662/filename-too-long-in-git-for-windows](https://stackoverflow.com/questions/22575662/filename-too-long-in-git-for-windows)
