@@ -13,6 +13,7 @@ tags: [Git]
 - [Create a new repository](#create-a-new-repository)
 - [Remove the remote repository](#remove-the-remote-repository)
 - [Add the new remote repository](#add-the-new-remote-repository)
+- [How to check URL for remote repository](#how-to-check-url-for-remote-repository)
 - [Wrapping up](#wrapping-up)
 
 
