@@ -107,6 +107,50 @@ When to use:
     git remote show [remote-name] command
     ```
 
+<br>
+
+## How to use token as credential for our repositories
+
+1. Create a token on Github
+
+    - Go to our account, then click to **Setting** menu item.
+
+        ![](../img/devops/version-control-system/git/using-tokens/using-tokens-1.png)
+
+    - Scroll down and then select **Developer settings** item.
+
+        ![](../img/devops/version-control-system/git/using-tokens/using-tokens-2.png)
+
+        Then, we have:
+
+        ![](../img/devops/version-control-system/git/using-tokens/using-tokens-3.png)
+
+    - Click on **Personal access tokens** item, we have:
+
+        ![](../img/devops/version-control-system/git/using-tokens/using-tokens-4.png)
+
+    - Click **Generate new token** button, select our information for this token, especially about defining scopes of this personal tokens.
+
+        We can create this personal token looks like the image below.
+
+        ![](../img/devops/version-control-system/git/using-tokens/using-tokens-5.png)
+
+    - Click **Generate** button, then we have:
+
+        ![](../img/devops/version-control-system/git/using-tokens/using-tokens-6.png)
+
+        We need to save this personal token to your secret place, and we will use it later.
+
+2. Using that token for our local repository
+
+    ```bash
+    # 1st step
+    git remote set-url origin https://<personal-token>@<url-repository>
+
+    # 2nd step
+    git push
+    ```
+
 
 <br>
 
