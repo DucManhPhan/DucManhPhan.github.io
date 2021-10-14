@@ -38,7 +38,7 @@ How do we deal with it?
 
 Before going straight forward to our problems, we will look at an image that describe the flows of Git.
 
-![](../img/Git-guide/commit/commit-flows.png)
+![](../img/devops/version-control-system/git/commit/commit-flows.png)
 
 Some command places of git:
 1. workspace

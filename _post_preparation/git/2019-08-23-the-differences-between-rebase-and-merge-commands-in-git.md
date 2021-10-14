@@ -23,14 +23,14 @@ Assuming that we have two branches: feature and master. Of course, feature branc
 
 So, our responsibility is to merge master branch to feature branch. 
 
-![](../img/Git-guide/merge-rebase/summary-rebase-merge.png)
+![](../../img/devops/version-control-system/git/merge-rebase/summary-rebase-merge.png)
 
 <br>
 
 ## Git rebase
 
 
-![](../img/Git-guide/merge-rebase/git-rebase.png)
+![](../../img/devops/version-control-system/git/merge-rebase/git-rebase.png)
 
 
 <br>
@@ -38,7 +38,7 @@ So, our responsibility is to merge master branch to feature branch.
 ## Git merge
 
 
-![](../img/Git-guide/merge-rebase/git-merge.png)
+![](../../img/devops/version-control-system/git/merge-rebase/git-merge.png)
 
 <br>
 
