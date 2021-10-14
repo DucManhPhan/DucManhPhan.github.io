@@ -322,13 +322,13 @@ git push <remote-name> :<old-name> <new-name>
 
     Assuming that there are two branches such as **master** and **feature**, our context will be described in the below image.
 
-    ![](../img/Git-guide/branch/fast-forward/problem-fast-forward-merge.png)
+    ![](../img/devops/version-control-system/git/branch/fast-forward/problem-fast-forward-merge.png)
 
     The **feature** branch is turned from the **master** branch, the **feature**'s commits - **commit3** are sequential from the **master**'s commits - **commit2**. It means that **commit2** is the parent commit of **commit3**.
 
     Now, we want to merge the feature branch to master branch, we have the **master** branch will point to the head commit of the **feature** branch.
 
-    ![](../img/Git-guide/branch/fast-forward/problem-fast-forward-merge.png)
+    ![](../img/devops/version-control-system/git/branch/fast-forward/problem-fast-forward-merge.png)
 
     So, the fast-forward merge means that it simply move the HEAD pointer of the **master** branch to the last commit of the **feature** branch that is being merge.
 

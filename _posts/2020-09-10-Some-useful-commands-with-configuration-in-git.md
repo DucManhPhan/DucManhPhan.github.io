@@ -15,6 +15,8 @@ tags: [Git]
 - [Show URL of the remote repository](#show-url-of-the-remote-repository)
 - [Fill configuration to Git](#fill-configuration-to-git)
 - [Configure certification to pass proxy](#configure-certification-to-pass-proxy)
+- [Wrapping up](#wrapping-up)
+
 
 <br>
 
@@ -62,6 +64,7 @@ git config --get remote.origin.url
 git remote show origin
 ```
 
+
 <br>
 
 ## Fill configuration to Git
@@ -84,6 +87,7 @@ git remote show origin
     git remote set-url origin <link_git_project>
     ```
 
+
 <br>
 
 ## Configure certification to pass proxy
@@ -93,3 +97,12 @@ git config --global http.proxy <host-proxy>:<port-proxy>
 
 git config --global http.sslCAInfo <path-certification>
 ```
+
+
+<br>
+
+## Wrapping up
+
+
+
+<br>
