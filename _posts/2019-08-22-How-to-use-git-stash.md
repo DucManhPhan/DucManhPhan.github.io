@@ -115,7 +115,7 @@ So, how do we overcome it?
     
         All ignored and untracked files are also stashed and then cleaned up with **git clean**.
 
-    ![](../img/Git-guide/stash/un-tracked-file-stash.svg)
+    ![](../img/devops/version-control-system/git/stash/un-tracked-file-stash.svg)
 
 2. When to use
 
