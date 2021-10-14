@@ -14,6 +14,7 @@ tags: [Git]
 - [Remove the remote repository](#remove-the-remote-repository)
 - [Add the new remote repository](#add-the-new-remote-repository)
 - [How to check URL for remote repository](#how-to-check-url-for-remote-repository)
+- [How to use token as credential for our repositories](#how-to-use-token-as-credential-for-our-repositories)
 - [Wrapping up](#wrapping-up)
 
 
