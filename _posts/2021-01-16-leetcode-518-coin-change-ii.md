@@ -1,6 +1,6 @@
 ---
 layout: post
-title: Coin Change II
+title: Leetcode 518 - Coin Change II
 bigimg: /img/image-header/yourself.jpeg
 tags: [Backtracking, Dynamic Programming]
 ---
