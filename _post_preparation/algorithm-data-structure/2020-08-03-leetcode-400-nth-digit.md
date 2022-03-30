@@ -1,6 +1,6 @@
 ---
 layout: post
-title: Nth Digit
+title: Leetcode 400 - Nth Digit
 bigimg: /img/image-header/yourself.jpeg
 tags: [Binary Search]
 ---
