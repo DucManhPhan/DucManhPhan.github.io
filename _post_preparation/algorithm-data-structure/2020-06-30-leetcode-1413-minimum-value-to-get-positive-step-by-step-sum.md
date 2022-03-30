@@ -1,6 +1,6 @@
 ---
 layout: post
-title: Minimum value to get positive step by step sum
+title: Leetcode 1413 - Minimum value to get positive step by step sum
 bigimg: /img/image-header/yourself.jpeg
 tags: [Prefix Sum, Binary Search]
 ---

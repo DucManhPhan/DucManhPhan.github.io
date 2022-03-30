@@ -1,6 +1,6 @@
 ---
 layout: post
-title: Largest Divisible Subset
+title: Leetcode 368 - Largest Divisible Subset
 bigimg: /img/image-header/yourself.jpeg
 tags: [Dynamic Programming]
 ---
