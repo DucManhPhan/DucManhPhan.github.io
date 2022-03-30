@@ -191,15 +191,16 @@ In order to get some examples of utilizing HttpURLConnection, we can check out [
         
         At (2) line, when configuring the HTTP **RequestMethod** pass in a string because there were no enums when this API was designed. However, we could easily pass in a malformed string.
 
-        At (3) line, it's difficult to realize that it's the actual handling of the response body. There we see that we can ask the connection for the input stream. But that's a raw input stream. Therefore, we need to write a helper method, in this case, readInputStream() to take that raw input stream and turn it into something useful. That's pretty low-level code that we have to write there with lots of possibilities.for subtle errors.
+        At (3) line, it's difficult to realize that it's the actual handling of the response body. There we see that we can ask the connection for the input stream. But that's a raw input stream. Therefore, we need to write a helper method, in this case, `readInputStream()` to take that raw input stream and turn it into something useful. That's pretty low-level code that we have to write there with lots of possibilities.for subtle errors.
 
     - The Http method **PATCH** does not support.
 
-    - An exception is thrown directly when encountering errors such as 400 Bad Request, 404 Not Found. So, we need to use exception handling try/cathch to handle our exceptions.
+    - An exception is thrown directly when encountering errors such as 400 Bad Request, 404 Not Found. So, we need to use exception handling try/catch to handle our exceptions.
 
 <br>
 
 ## Wrapping up
+
 - If our project do not use JDK 11, to communicate with other systems, we can use other third-party libraries such as the Apache HttpComponents project, which also offers an HttpClient API, and OkHttp from Square, which is another opensource HttpClient for Java, and there's also even higher-level libraries like the JAX-RS Rest client. This REST client doesn't only perform HTTP requests, but it also knows about REST principles, and can, for example, automatically map JSON responses to Java objects. 
 
 - The **java.net** package includes classes and interfaces that help manage cookies and can be used to create a stateful (as opposed to stateless) HTTP session. The classes are **CookieHandler**, **CookieManager**, and **HttpCookie**.
