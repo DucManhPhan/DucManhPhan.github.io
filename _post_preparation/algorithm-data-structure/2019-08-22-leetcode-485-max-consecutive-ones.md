@@ -1,6 +1,6 @@
 ---
 layout: post
-title: Max consecutive Ones 
+title: Leetcode 485 - Max consecutive Ones 
 bigimg: /img/image-header/unsplash.jpg
 tags: [Sliding Window]
 ---

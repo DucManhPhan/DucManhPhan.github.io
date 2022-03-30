@@ -30,6 +30,7 @@ Or we can define them with recursive version:
 <br>
 
 ## Applications of catalan number
+
 - Number of possible Binary Search Trees with n keys.
 
 - Number of expressions containing n pairs of parentheses which are correctly matched.

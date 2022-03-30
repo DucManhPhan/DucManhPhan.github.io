@@ -1,6 +1,6 @@
 ---
 layout: post
-title: Max consecutive Ones III
+title: Leetcode 1004 - Max consecutive Ones III
 bigimg: /img/image-header/unsplash.jpg
 tags: [Sliding Window]
 ---

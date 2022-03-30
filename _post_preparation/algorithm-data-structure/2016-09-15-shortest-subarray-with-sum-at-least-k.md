@@ -11,10 +11,11 @@ Link: https://leetcode.com/problems/shortest-subarray-with-sum-at-least-k/
 
 This problem is a good example for the mentioned situation. Don’t worry if it is marked as hard. It becomes clear soon, follow approaches and explanations below.
 
+
 <br>
 
 ## Table of contents
-- [Getting started with the problem](#getting-started-with-the-problem)
+- [Given problem](#given-problem)
 - [Solution](#solution)
 - [Solving with non-negative array](#solving-with-non-negative-array)
 - [Solving the original problem](#solving-the-original-problem)
@@ -22,7 +23,7 @@ This problem is a good example for the mentioned situation. Don’t worry if it 
 
 <br>
 
-## Getting started with the problem
+## Given problem
 
 Return the length of the shortest, non-empty, contiguous subarray of A with sum at least K. If there is no non-empty subarray with sum at least K, return -1.
 
@@ -67,6 +68,7 @@ To quickly find the best i is difficult, since we have 3 conditions at the same 
 Inheriting the loop of j, considering i as **j'<j**, we can reduce the searching space. This means at **j'**, we save some information which can support to compute i. Since it is obvious that **j'<j**, we solve the first condition. But **S[j]-K** is changed according to j. Is it possible to prepare some information at **j'** for computing alternative values of **S[j]-K** at further j?
 
 Yes, it is possible. For easier, let consider simpler cases below.
+
 
 <br>
 
