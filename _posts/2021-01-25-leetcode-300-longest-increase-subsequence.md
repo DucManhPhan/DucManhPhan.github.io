@@ -1,6 +1,6 @@
 ---
 layout: post
-title: Longest Increase Subsequence
+title: Leetcode 300 - Longest Increase Subsequence
 bigimg: /img/path.jpg
 tags: [Binary Search Tree, Dynamic Programming]
 ---

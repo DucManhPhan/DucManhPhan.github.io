@@ -1,6 +1,6 @@
 ---
 layout: post
-title: Subsets II
+title: Leetcode 90 - Subsets II
 bigimg: /img/image-header/yourself.jpeg
 tags: [Backtracking]
 ---

@@ -1,6 +1,6 @@
 ---
 layout: post
-title: Sort array by parity
+title: Leetcode 905 - Sort array by parity
 bigimg: /img/image-header/yourself.jpeg
 tags: [Two-Pointers]
 ---

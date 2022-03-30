@@ -1,6 +1,6 @@
 ---
 layout: post
-title: Long Pressed Name
+title: LeetCode 925 - Long Pressed Name
 bigimg: /img/image-header/yourself.jpeg
 tags: [Two-Pointers]
 ---

@@ -1,6 +1,6 @@
 ---
 layout: post
-title: Longest Substring Without Repeating Characters
+title: Leetcode 3 - Longest Substring Without Repeating Characters
 bigimg: /img/image-header/yourself.jpeg
 tags: [Sliding Window]
 ---

@@ -1,6 +1,6 @@
 ---
 layout: post
-title: Is Subsequence
+title: Leetcode 392 - Is Subsequence
 bigimg: /img/image-header/yourself.jpeg
 tags: [Dynamic Programming, Two-Pointers]
 ---

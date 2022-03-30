@@ -1,6 +1,6 @@
 ---
 layout: post
-title: Three sum closet
+title: Leetcode 16 - Three sum closet
 bigimg: /img/image-header/yourself.jpeg
 tags: [Two-Pointers]
 ---

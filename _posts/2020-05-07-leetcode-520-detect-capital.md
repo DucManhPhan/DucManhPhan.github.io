@@ -1,6 +1,6 @@
 ---
 layout: post
-title: Detect Flag
+title: Leetcode 520 - Detect Flag
 bigimg: /img/image-header/yourself.jpeg
 tags: [Algorithm]
 ---

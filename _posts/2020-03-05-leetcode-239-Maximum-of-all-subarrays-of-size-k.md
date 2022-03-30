@@ -1,6 +1,6 @@
 ---
 layout: post
-title: Maximum of all subarrays of size k
+title: Leetcode 239 - Maximum of all subarrays of size k
 bigimg: /img/image-header/factory.jpg
 tags: [Sliding Window, Deque]
 ---

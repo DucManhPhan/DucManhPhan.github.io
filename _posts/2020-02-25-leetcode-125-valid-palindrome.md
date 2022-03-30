@@ -1,6 +1,6 @@
 ---
 layout: post
-title: Valid Palindrome
+title: Leetcode 125 - Valid Palindrome
 bigimg: /img/path.jpg
 tags: [Two-Pointers]
 ---
@@ -128,5 +128,7 @@ The complexity of this solution:
 <br>
 
 Refer:
+
+[https://leetcode.com/problems/valid-palindrome/](https://leetcode.com/problems/valid-palindrome/)
 
 [https://leetcode.com/explore/challenge/card/august-leetcoding-challenge/549/week-1-august-1st-august-7th/3411/](https://leetcode.com/explore/challenge/card/august-leetcoding-challenge/549/week-1-august-1st-august-7th/3411/)

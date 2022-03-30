@@ -1,6 +1,6 @@
 ---
 layout: post
-title: Move Zeros
+title: Leetcode 283 - Move Zeros
 bigimg: /img/image-header/yourself.jpeg
 tags: [Two-Pointers]
 ---
