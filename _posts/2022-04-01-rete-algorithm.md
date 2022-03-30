@@ -16,6 +16,8 @@ tags: [Algorithm]
 - [The differences between Rete algorithm and Brute force approach](#the-differences-between-rete-algorithm-brute-force-approach)
 - [When to use](#when-to-use)
 - [Benefits and Drawbacks](#benefits-and-drawbacks)
+- [Some questions about Rete algorithm](#some-questions-about-rete-algorithm)
+- [Source code](#source-code)
 - [Wrapping up](#wrapping-up)
 
 
