@@ -1,6 +1,6 @@
 ---
 layout: post
-title: Count number of nice subarrays
+title: Leetcode 1248 - Count number of nice subarrays
 bigimg: /img/path.jpg
 tags: [Two-Pointers, Prefix Sum]
 ---
