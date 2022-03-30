@@ -29,9 +29,54 @@ tags: [Binary Search, Queue]
 
 ## Using Queue
 
+1. Using Queue to contain all data
 
+    ```java
+    public static class RecentCounter {
 
+        private final LinkedList<Integer> timeFrames;
 
+        private int count;
+
+        public RecentCounter() {
+            this.timeFrames = new LinkedList<>();
+        }
+
+        /**
+            * This way was Time Limit Exceeded Error.
+            *
+            * @param t
+            * @return
+            */
+        public int ping(int t) {
+            this.timeFrames.offer(t);
+            ++this.count;
+
+            int oldestTime = t - 3000;
+            if (oldestTime < 0) {
+                return this.count;
+            }
+
+            int lessElementsCount = 0;
+            Iterator<Integer> it = this.timeFrames.iterator();
+            while (it.hasNext()) {
+                int currentTime = it.next();
+
+                if (currentTime >= oldestTime) {
+                    break;
+                }
+
+                ++lessElementsCount;
+            }
+
+            return this.count - lessElementsCount;
+        }
+    }
+    ```
+
+2. Using Priority Queue
+
+    https://leetcode.com/problems/number-of-recent-calls/discuss/1647233/Java-Solution-Using-PriorityQueue
 
 
 <br>
@@ -39,6 +84,32 @@ tags: [Binary Search, Queue]
 ## Using Binary Search algorithm
 
 
+```java
+class RecentCounter {
+
+    private List<Integer> timeFrames;
+    
+    public RecentCounter() {
+        this.timeFrames = new ArrayList<>();
+    }
+    
+    public int ping(int t) {
+        this.timeFrames.add(t);
+
+        int oldestTime = t - 3000;
+        if (oldestTime < 0) {
+            return this.timeFrames.size();
+        }
+
+        int currentIdx = Collections.binarySearch(this.timeFrames, oldestTime);
+        if (currentIdx < 0) {
+            currentIdx = -currentIdx - 1;
+        }
+
+        return this.timeFrames.size() - currentIdx;
+    }
+}
+```
 
 
 
