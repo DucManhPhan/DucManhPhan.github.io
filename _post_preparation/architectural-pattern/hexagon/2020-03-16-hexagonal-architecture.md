@@ -27,7 +27,7 @@ Normally, when we want to make our website, in back-end, we use layer architectu
 
 Below is an commom layer architecture that we usually use in our projects.
 
-![](../img/Architecture-pattern/layered-architecture/common-layers.png)
+![](../../../img/Architecture-pattern/layered-architecture/common-layers.png)
 
 - At the top rectangle, we have a **Web layer**, or sometimes, it called as **Ws layer**, which receives requests.
 
@@ -64,7 +64,7 @@ How to deal with it?
 
 2. Introduction to Hexagonal architecture
 
-    ![](../img/Architecture-pattern/hexagonal/hexagonal-architecture.jpg)
+    ![](../../../img/Architecture-pattern/hexagonal/hexagonal-architecture.jpg)
 
     - Ports
 

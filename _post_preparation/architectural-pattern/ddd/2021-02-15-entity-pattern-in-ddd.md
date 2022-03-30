@@ -46,25 +46,25 @@ tags: [DDD]
 There are three types of equality.
 1. Reference equality
 
-    ![](../img/Architecture-pattern/Domain-driven-design/entity-pattern/reference-equality.png)
+    ![](../../../img/Architecture-pattern/Domain-driven-design/entity-pattern/reference-equality.png)
 
     Reference equality means that two objects are deemed to be equal if they reference the same address in the memory.
 
 2. Identifier equality
 
-    ![](../img/Architecture-pattern/Domain-driven-design/entity-pattern/identifier-equality.png)
+    ![](../../../img/Architecture-pattern/Domain-driven-design/entity-pattern/identifier-equality.png)
 
     Identifier equality implies a class has an ID field. Two instances of such a class would be equal if they have the same idenfifiers.
 
 3. Structural equality
 
-    ![](../img/Architecture-pattern/Domain-driven-design/entity-pattern/structural-equality.png)
+    ![](../../../img/Architecture-pattern/Domain-driven-design/entity-pattern/structural-equality.png)
 
     Structural equality means that there are two objects equal if all of their members match.
 
 As I said, we can have the equality in the entities and value objects.
 
-![](../img/Architecture-pattern/Domain-driven-design/entity-pattern/entities-value-objects-equality.png)
+![](../../../img/Architecture-pattern/Domain-driven-design/entity-pattern/entities-value-objects-equality.png)
 
 <br>
 

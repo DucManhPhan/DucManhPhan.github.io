@@ -33,11 +33,11 @@ Each bounded context is a separate solution. It's likely that a different develo
 
 We've created a separate solution for Performance, Rebates, and Sales.
 
-![](../img/Architecture-pattern/Domain-driven-design/layered-architecture/contexts-ex.png)
+![](../../../img/Architecture-pattern/Domain-driven-design/layered-architecture/contexts-ex.png)
 
 While we put them all in the same source code repository, it's equally likely that we'll put each one in separate repository. This will make it even easier for the individual teams to branch them independently. Let us dive into the Performance solution so that we can take a closer look.
 
-![](../img/Architecture-pattern/Domain-driven-design/layered-architecture/Performance-context-ex.png)
+![](../../../img/Architecture-pattern/Domain-driven-design/layered-architecture/Performance-context-ex.png)
 
 One thing that we should notice is that each of the projects within the solution is completely owned by its bounded context. We don't have any references to projects outside of this context. That's just another benefit of having separate solution for each bounded context. It discourages interdependencies between them. A bounded context should be just that, bounded. It should have strict boundaries so that it remains unaffected. Keeping the solutions separate makes it abundantly clear when we've crossed those context boundaries. Within each solution, the projects are organized into layers.
 
@@ -46,7 +46,7 @@ Eric Evan talks about four layers in his book, and we have three of them represe
 
 - Above the Domain layer we have the Application layer. This layer contains all of the business services. These are the behaviors that don't necessarily belong to a specific entity. For example, PerformanceCalculator is a service that creates ReportCard entities.
 
-    ![](../img/Architecture-pattern/Domain-driven-design/layered-architecture/ex-Performance-ctx-Application-layer.png)
+    ![](../../../img/Architecture-pattern/Domain-driven-design/layered-architecture/ex-Performance-ctx-Application-layer.png)
 
     It would be inappropriate to make this a responsibility of the ReportCard itself because that's the product of this factory. So this service, PerformanceCalculator, is separated from the Domain and moved up into the Application layer.
     
@@ -54,7 +54,7 @@ Eric Evan talks about four layers in his book, and we have three of them represe
 
     Presentation layer is a web application that displays ReportCards to members or the Presentation layer might be an API that some client application or external system uses in order to access the bounded context. For example, the Rebates.
     
-    ![](../img/Architecture-pattern/Domain-driven-design/layered-architecture/Rebates-context-ex.png)
+    ![](../../../img/Architecture-pattern/Domain-driven-design/layered-architecture/Rebates-context-ex.png)
 
     Presentation layer is a WCF service that the rich client application can use to setup the Rebates. Now remember that Eric Evans talked about four layers in his book. We've only seen three. The fourth layer that he talks about is infrastructure. We didn't represent that here inside of the Domain solution because infrastructure is not domain specific. Any sort of infrastructure components that we'll need to build, we'll build off in a separate solution and bring those in as external dependencies.
 

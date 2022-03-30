@@ -52,7 +52,7 @@ tags: [Architecture Pattern]
 
 3. CQRS architecture
 
-    ![](../img/Architecture-pattern/cqrs/cqrs-architecture.png)
+    ![](../../../img/Architecture-pattern/cqrs/cqrs-architecture.png)
 
     Command-Query Responsibility Separation architecture expands the concept of Command-Query Separation to the architectural level. In general, we're dividing the architecture into a command stack, and a query stack, starting at the application layer.
 
@@ -64,7 +64,7 @@ tags: [Architecture Pattern]
     There are three main types of CQRS.
     - Single database CQRS
 
-        ![](../img/Architecture-pattern/cqrs/cqrs-architecture.png)
+        ![](../../../img/Architecture-pattern/cqrs/cqrs-architecture.png)
 
         This type of CQRS has a single database that is either a third normal form relational database or some types of NoSQL.
         
@@ -76,7 +76,7 @@ tags: [Architecture Pattern]
 
     - Two database CQRS
 
-        ![](../img/Architecture-pattern/cqrs/two-database-cqrs-architecture.png)
+        ![](../../../img/Architecture-pattern/cqrs/two-database-cqrs-architecture.png)
 
         This type of CQRS has both a read database and a write database.
         
@@ -88,7 +88,7 @@ tags: [Architecture Pattern]
 
     - Event-Sourcing CQRS
 
-        ![](../img/Architecture-pattern/cqrs/event-sourcing-cqrs-architecture.png)
+        ![](../../../img/Architecture-pattern/cqrs/event-sourcing-cqrs-architecture.png)
 
         The third type of CQRS system is typically referred to as event sourcing. The main difference here is that we do not store the current state of our entities in a normalized data store. Instead, we store just the state modifications to the entities over time, represented as events that have occurred to the entities. We store this historical record of all events in a persistence medium called an event store. When we need to use an entity in its current state, we replay the events that have occurred to that entity, and we end up with the current state of the entity. Then, once we've reconstructed the current state of the entity we execute our domain logic, and modify the state of the entities accordingly.
 

@@ -12,7 +12,6 @@ tags: [Algorithm]
 
 ## Table of contents
 - [Given problem](#given-problem)
-- [Brute force approach](#brute-force-approach)
 - [Solution with Rete algorithm](#solution-with-rete-algorithm)
 - [The differences between Rete algorithm and Brute force approach](#the-differences-between-rete-algorithm-brute-force-approach)
 - [When to use](#when-to-use)
@@ -24,18 +23,7 @@ tags: [Algorithm]
 
 ## Given problem
 
-
-
-
-
-
-<br>
-
-## Brute force approach
-
-
-
-
+This article will be used to note everything about the simple version of Rete algorithm that I studied. 
 
 
 <br>
@@ -237,9 +225,13 @@ Belows are the two reasons that Rete algorithm runs faster than naive approach.
 1. Why do AlphaMemory, BetaMemory needs to contains WMEs?
 
 
+<br>
 
-2. 
+## Source code
 
+Below is the source code of the sample of this Rete algorithm that using Java language:
+
+[Code for Rete algorithm](https://github.com/DucManhPhan/basic-programming/tree/master/Algorithms/Pattern-Matching-Algorithm/rete-algorithm)
 
 
 <br>

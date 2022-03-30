@@ -124,7 +124,7 @@ tags: [DDD]
 
             In the partnership model, the integration between bounded contexts is coordinated in an ad hoc manner. A team can notify a second one about a change in the API, and the second team will cooperate and adapt. No drama or conflicts.
 
-            ![](../img/Architecture-pattern/Domain-driven-design/bounded-contexts/partnership-in-cooperation.png)
+            ![](../../../img/Architecture-pattern/Domain-driven-design/bounded-contexts/partnership-in-cooperation.png)
 
             The coordination of integration is two-way. No one team dictates the language that is used for defining the contracts. The teams can work out the differences, and choose the most appropriate solution. Also, both sides cooperate in solving any integration issues that might come up. Neither team is interested in blocking the other one.
 
@@ -136,7 +136,7 @@ tags: [DDD]
 
             The shared kernel is a more formal way of defining a contract between multiple bounded contexts. Here, instead of ad hoc integrations, the contract is defined explicitly in a compiled library—the shared kernel. The library defines the integration methods and language used by both bounded contexts.
 
-            ![](../img/Architecture-pattern/Domain-driven-design/bounded-contexts/shared-kernel-in-cooperations.png)
+            ![](../../../img/Architecture-pattern/Domain-driven-design/bounded-contexts/shared-kernel-in-cooperations.png)
 
             The shared kernel is both referenced and owned by multiple bounded contexts. Each team is free to modify the compiled library that defines the integration contract. A change to the contract can break the other team's build, though; hence, as in the partnership case, this pattern requires high levels of commitment and synchronization between teams.
 
@@ -153,7 +153,7 @@ tags: [DDD]
 
         The supplier bounded context provides a service for its customers. The service provider is **upstream**, and the customer or consumer is **downstream**.
 
-        ![](../img/Architecture-pattern/Domain-driven-design/bounded-contexts/customer-supplier.png)
+        ![](../../../img/Architecture-pattern/Domain-driven-design/bounded-contexts/customer-supplier.png)
 
         Unlike in the cooperation case, both teams (upstream and downstream) can succeed independently. Hence, in most cases, we have an imbalance of power: either the upstream or the downstream team can dictate the integration contract.
 
@@ -163,7 +163,7 @@ tags: [DDD]
 
             If the downstream team can accept the upstream team’s model, the relationship between the bounded contexts is called conformist. The downstream team conforms to the upstream team’s model.
 
-            ![](../img/Architecture-pattern/Domain-driven-design/bounded-contexts/conformist.png)
+            ![](../../../img/Architecture-pattern/Domain-driven-design/bounded-contexts/conformist.png)
 
             The downstream team’s decision to give up some of its autonomy can be justified in multiple ways. For example, the contract exposed by the upstream team may be an industry-standard, well-established model, or it may just be good enough for the downstream team’s needs.
 
@@ -173,7 +173,7 @@ tags: [DDD]
 
             As in the case of the conformist pattern, the balance of power in this relationship is still skewed toward the upstream service. However, in this case the downstream bounded context is not willing to conform. What it can do instead is translate the upstream bounded context’s model into a model tailored to its own needs via an anticorruption layer.
 
-            ![](../img/Architecture-pattern/Domain-driven-design/bounded-contexts/anticorruption-layer.png)
+            ![](../../../img/Architecture-pattern/Domain-driven-design/bounded-contexts/anticorruption-layer.png)
 
             The anticorruption layer pattern addresses scenarios in which it is not desirable or worth the effort to conform to the supplier’s model, such as:
             - When the downstream bounded context contains a core subdomain. A core subdomain’s model requires extra attention, and adhering to the supplier’s model might impede the modeling of the problem domain.
@@ -188,7 +188,7 @@ tags: [DDD]
 
             To protect the consumers from changes in its implementation, the upstream supplier decouples its implementation model from the public interface. This decoupling allows the supplier to evolve its implementation and public models at different rates.
 
-            ![](../img/Architecture-pattern/Domain-driven-design/bounded-contexts/open-host-service.png)
+            ![](../img/../../Architecture-pattern/Domain-driven-design/bounded-contexts/open-host-service.png)
 
             The supplier’s public interface is not intended to conform to its ubiquitous language. Instead, it is intended to expose a protocol convenient for the consumers, expressed in an integration-oriented language. Hence, the public protocol is called the “published language.”
 
