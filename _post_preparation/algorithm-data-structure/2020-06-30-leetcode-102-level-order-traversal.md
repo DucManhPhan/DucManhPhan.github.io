@@ -1,6 +1,6 @@
 ---
 layout: post
-title: Level Order Traversal
+title: Leetcode 102 - Level Order Traversal
 bigimg: /img/image-header/yourself.jpeg
 tags: [Tree]
 ---
