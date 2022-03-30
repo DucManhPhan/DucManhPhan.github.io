@@ -1,6 +1,6 @@
 ---
 layout: post
-title: Range Sum Query - Mutable
+title: Leetcode 307 - Range Sum Query - Mutable
 bigimg: /img/image-header/yourself.jpeg
 tags: [Segment Tree, Fenwick Tree]
 ---
