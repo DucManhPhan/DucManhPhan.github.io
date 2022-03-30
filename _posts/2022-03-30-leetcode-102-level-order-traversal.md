@@ -126,6 +126,7 @@ The output of the above binary tree is:
         }
     ```
 
+
 <br>
 
 ## Using iterative version
@@ -133,8 +134,45 @@ The output of the above binary tree is:
 In this version, we will use **Queue** to save the children nodes of the current node.
 
 ```java
-
+class Solution {
+    public List<List<Integer>> levelOrder(TreeNode root) {
+        if (root == null) {
+            return new ArrayList<>();
+        }
+        
+        Queue<TreeNode> queue = new LinkedList<>();
+        queue.offer(root);
+        
+        List<List<Integer>> levels = new ArrayList<>();
+        
+        while (!queue.isEmpty()) {
+            List<Integer> currentLevel = new ArrayList<>();
+            
+            int levelSize = queue.size();
+            for (int i = 0; i < levelSize; ++i) {
+                TreeNode currentNode = queue.poll();
+                currentLevel.add(currentNode.val);
+                
+                if (currentNode.left != null) {
+                    queue.offer(currentNode.left);
+                }
+                
+                if (currentNode.right != null) {
+                    queue.offer(currentNode.right);
+                }
+            }
+            
+            levels.add(currentLevel);
+        }
+        
+        return levels;
+    }
+}
 ```
+
+Below is the complexity of this way:
+- Time complexity: O(n) with n is the number nodes in the tree.
+- Space complexity: O(n)
 
 
 <br>
@@ -147,15 +185,11 @@ In this version, we will use **Queue** to save the children nodes of the current
 
 ## Wrapping up
 
-
+- Understanding about how to use Queue for the Level Order Traversal.
 
 
 <br>
 
 Refer:
 
-[https://www.geeksforgeeks.org/level-order-tree-traversal/](https://www.geeksforgeeks.org/level-order-tree-traversal/)
-
 [https://leetcode.com/problems/binary-tree-level-order-traversal/](https://leetcode.com/problems/binary-tree-level-order-traversal/)
-
-[https://www.educative.io/m/level-order-traversal-binary-tree](https://www.educative.io/m/level-order-traversal-binary-tree)
