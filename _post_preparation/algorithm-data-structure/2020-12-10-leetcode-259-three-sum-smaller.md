@@ -1,6 +1,6 @@
 ---
 layout: post
-title: Three Sum Smaller
+title: Leetcode 259 - Three Sum Smaller
 bigimg: /img/image-header/yourself.jpeg
 tags: [Two-Pointers]
 ---

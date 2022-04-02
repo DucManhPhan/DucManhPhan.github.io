@@ -2,7 +2,7 @@
 layout: post
 title: Leetcode 102 - Level Order Traversal
 bigimg: /img/image-header/yourself.jpeg
-tags: [Tree, BFS]
+tags: [Tree, BFS, Queue]
 ---
 
 
