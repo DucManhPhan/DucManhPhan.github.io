@@ -12,8 +12,8 @@ tags: [Queue]
 
 ## Table of contents
 - [Given problem](#given-problem)
-- []()
-- []()
+- [Using brute force algorithm](#using-brute-force-algorithm)
+- [Optimized the above solution](#optimized-the-above-solution)
 - [Wrapping up](#wrapping-up)
 
 
