@@ -125,9 +125,8 @@ If the number of circular sandwiches is equal to the number of students that lik
 ```
 
 The complexity of this way:
-- Time complexity:
-- Space complexity:
-
+- Time complexity: O(n)
+- Space complexity: O(1)
 
 
 <br>
