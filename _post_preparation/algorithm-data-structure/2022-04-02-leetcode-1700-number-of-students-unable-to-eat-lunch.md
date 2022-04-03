@@ -64,18 +64,69 @@ Constraints:
 
 Below is the sequence of steps for this problem:
 
+![](../../img/Data-structure/queue/leetcode-1700-1.png)
 
+From the image above, we can see that:
+- From the 1st step to 5th step, we are doing like the mechanism of this problem.
 
-In this way, we will simulate this problem by using the Java's Queue interface.
+    - Remove elements from both `students` and `sandwiches` arrays when both they have the same value.
+    - Otherwise, push the current element to the end of the `students` array.
 
+- From 5th step to 8th step, there's no element of `students` array that matches to the top element of `sandwiches` array.
 
+    It means that how many times we moved the non-matched element to the end of `students` array is the number of students that are unable to eat. And it is also the termination condition of this loop.
+
+In this way, we will simulate this problem by using the Java's `Queue` interface.
+
+```java
+class Solution {
+    public int countStudents(int[] students, int[] sandwiches) {
+        Queue<Integer> qStudents = new LinkedList<>();
+
+        for (int value : students) {
+            qStudents.add(value);
+        }
+
+        int topPositionOfSandwich = 0;
+        int numStudentsUnableEat = 0;
+        while (!qStudents.isEmpty() && numStudentsUnableEat < qStudents.size()) {
+            if (sandwiches[topPositionOfSandwich] == qStudents.peek()) {
+                numStudentsUnableEat = 0;
+
+                ++topPositionOfSandwich;
+                qStudents.poll();
+            } else {
+                ++numStudentsUnableEat;
+
+                qStudents.add(qStudents.poll());
+            }
+        }
+
+        return numStudentsUnableEat;
+    }
+}
+```
+
+The complexity of this way:
+- Time complexity: O(n)
+- Space complexity: O(n)
 
 
 <br>
 
-## 
+## Optimized the above solution  
 
+As we have just seen the solution above, we take care the order of each student in `students` array. But actually, we don't need. We can only take a look the number of students that like eating square sandwiches and circular sandwiches.
 
+If the number of circular sandwiches is equal to the number of students that like eating circular sandwiches, and if it is true for the square sandwiches and the number of students that like eating square sandwiches, then there's no students unable to eat. 
+
+```java
+
+```
+
+The complexity of this way:
+- Time complexity:
+- Space complexity:
 
 
 
