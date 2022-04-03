@@ -18,6 +18,7 @@ In this article, we will learn how to solve Dynamic Programming problems, and wh
 <br>
 
 ## Introduction to DP
+
 Dynamic Programming is an algorithmic paradigm that solves a given complex problem by breaking it into subproblems and stores the results of subproblems to avoid computing the same results again.
 
 Dynamic Programming (DP) is a technique that solves some particular type of problems in Polynomial Time. 
@@ -27,6 +28,7 @@ Dynamic Programming solutions are faster than exponential brute method and can b
 <br>
 
 ## Overlapping Subproblems Property
+
 Dynamic Programming is mainly used when solutions of same subproblems are needed again and again. 
 
 In dynamic programming, computed solutions to subproblems are stored in a table so that these don’t have to be recomputed. So Dynamic Programming is not useful when there are no common (overlapping) subproblems because there is no point storing the solutions if they are not needed again. 
@@ -94,14 +96,6 @@ Steps to solve a DP
     his is the easiest part of a dynamic programming solution. We just need to store the state answer so that next time that state is required, we can directly use it from our memory.
 
     Another way is to add tabulation and make solution iterative. 
-
-<br>
-
-## 
-
-
-
-
 
 <br>
 
