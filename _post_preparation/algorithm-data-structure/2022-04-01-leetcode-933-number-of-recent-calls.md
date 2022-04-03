@@ -20,9 +20,33 @@ tags: [Binary Search, Queue]
 
 ## Given problem
 
+You have a `RecentCounter` class which counts the number of recent requests within a certain time frame.
 
+Implement the `RecentCounter` class:
+- `RecentCounter()` Initializes the counter with zero recent requests.
+- `int ping(int t)` Adds a new request at time t, where t represents some time in milliseconds, and returns the number of requests that has happened in the past `3000` milliseconds (including the new request). Specifically, return the number of requests that have happened in the inclusive range `[t - 3000, t]`.
 
+It is guaranteed that every call to ping uses a strictly larger value of `t` than the previous call.
 
+```
+Input
+["RecentCounter", "ping", "ping", "ping", "ping"]
+[[], [1], [100], [3001], [3002]]
+Output
+[null, 1, 2, 3, 3]
+
+Explanation
+RecentCounter recentCounter = new RecentCounter();
+recentCounter.ping(1);     // requests = [1], range is [-2999,1], return 1
+recentCounter.ping(100);   // requests = [1, 100], range is [-2900,100], return 2
+recentCounter.ping(3001);  // requests = [1, 100, 3001], range is [1,3001], return 3
+recentCounter.ping(3002);  // requests = [1, 100, 3001, 3002], range is [2,3002], return 3
+```
+
+Constraints:
+- `1 <= t <= 109`
+- Each test case will call ping with **strictly increasing** values of t.
+- At most 104 calls will be made to `ping`.
 
 
 <br>
@@ -76,13 +100,40 @@ tags: [Binary Search, Queue]
 
 2. Using Priority Queue
 
-    https://leetcode.com/problems/number-of-recent-calls/discuss/1647233/Java-Solution-Using-PriorityQueue
+    The drawback of the above solution that use Queue to contain data is that we need to iterate all data. So to reduce this issue, we will use PriorityQueue to remove the elements that have values are less than `t - 3000`.
+
+    By default, PriorityQueue uses Binary Heap to implement and the front element is always the minimum element.
+
+    ```java
+    public static class RecentCounter {
+
+        PriorityQueue<Integer> queue;
+
+        public RecentCounter() {
+            this.queue = new PriorityQueue<>();
+        }
+
+        public int ping(int t) {
+            while (!this.queue.isEmpty() && this.queue.peek() < t - 3000) {
+                this.queue.poll();
+            }
+
+            this.queue.add(t);
+            return this.queue.size();
+        }
+    }
+    ```
+
+The complexity of this solution:
+- Time complexity: O(n)
+- Space complexity: O(n)
 
 
 <br>
 
 ## Using Binary Search algorithm
 
+Because of the increased order of the `requests` array, we can use Binary Search algorithm to find an index of element that is greater or equal to `t - 30000`.
 
 ```java
 class RecentCounter {
@@ -111,6 +162,9 @@ class RecentCounter {
 }
 ```
 
+The complexity of this solution:
+- Time complexity: O(log(n)).
+- Space complexity: O(n)
 
 
 <br>
