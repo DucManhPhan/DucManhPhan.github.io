@@ -1,8 +1,8 @@
 ---
 layout: post
-title: Four sum
+title: Leetcode 950 - Reveal Cards In Increasing Order
 bigimg: /img/image-header/yourself.jpeg
-tags: [Java]
+tags: [Deque]
 ---
 
 
@@ -12,8 +12,7 @@ tags: [Java]
 
 ## Table of contents
 - [Given problem](#given-problem)
-- []()
-- []()
+- [Using Deque data structure](#using-deque-data-structure)
 - [Wrapping up](#wrapping-up)
 
 
@@ -63,19 +62,52 @@ Constraints:
 
 <br>
 
-## 
+## Using Deque data structure
 
+Our target is to get an deck array that an ordering of the deck that would reveal the cards in increasing order. It can be difficult to go through an original deck array. So we will start from the increasing order of deck array. And we will go to these reversed steps.
 
+The solution can be described in the image below:
 
+![](../img/Data-structure/queue/leetcode-950-1.png)
 
+```java
+class Solution {
+    public int[] deckRevealedIncreasing(int[] deck) {
+        if (deck == null || deck.length == 0) {
+            return deck;
+        }
 
+        Arrays.sort(deck);
+        if (deck.length == 2) {
+            return deck;
+        }
 
-<br>
+        Deque<Integer> queue = new LinkedList<>();
+        for (int i = deck.length - 1; i >= 0; --i) {
+            if (deck.length - i <= 2) {
+                queue.addLast(deck[i]);
+                continue;
+            }
 
-## 
+            queue.addLast(queue.pollFirst());
+            queue.addLast(deck[i]);
+        }
 
+        int[] res = new int[queue.size()];
+        int i = 0;
+        while (!queue.isEmpty()) {
+            int value = queue.pollLast();
+            res[i++] = value;
+        }
 
+        return res;
+    }
+}
+```
 
+The complexity of this solution:
+- Time complexity: O(n)
+- Space complexity: O(n)
 
 
 <br>
