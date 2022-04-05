@@ -41,23 +41,23 @@ So how do we solve it?
 Before jumping directly to write JPA code for the above problem, we need to create Football club, and Player tables in our database. The relationship between them will be described through the foreign key.
 
 ```sql
-CREATE TABLE IF NOT EXISTS FOOTBALL_CLUB (
-    club_id INT NOT NULL AUTO_INCREMENT,
+CREATE TABLE IF NOT EXISTS footballClub (
+    id INT NOT NULL AUTO_INCREMENT,
     name VARCHAR(255) NOT NULL,
-    stadium_name VARCHAR(255) NOT NULL,
+    stadiumName VARCHAR(255) NOT NULL,
 
-    PRIMARY KEY (club_id),
+    PRIMARY KEY (id),
 );
 
-CREATE TABLE IF NOT EXISTS PLAYER (
-    player_id INT NOT NULL AUTO_INCREMENT,
+CREATE TABLE IF NOT EXISTS player (
+    id INT NOT NULL AUTO_INCREMENT,
     name VARCHAR(255) NOT NULL,
     number INT NOT NULL,
     address VARCHAR(255) NOT NULL,
-    club_id INT NOT NULL,
+    clubId INT NOT NULL,
 
-    PRIMARY KEY (player_id),
-    FOREIGN KEY (club_id) REFERENCES FOOTBALL_CLUB(club_id)
+    PRIMARY KEY (id),
+    FOREIGN KEY (clubId) REFERENCES footballClub(id)
 );
 ```
 
@@ -65,17 +65,17 @@ Then, we will use JPA to map entity with the record of the corresponding table.
 
 ```java
 @Entity
-@Table(name = "FOOTBALL_CLUB")
+@Table(name = "footballClub")
 public class FootballClubEntity {
 
     @Id
-    @Column(name = "club_id")
+    @Column(name = "id")
     private int id;
 
     @Column(name = "name")
     private String name;
 
-    @Column(name = "stadium_name")
+    @Column(name = "stadiumName")
     private String stadiumName;
 
     @OneToMany(mappedBy = "footballClub", cascade = CascadeType.ALL, orphanRemoval = true)
@@ -87,7 +87,7 @@ public class FootballClubEntity {
 public class PlayerEntity {
 
     @Id
-    @Column(name = "player_id")
+    @Column(name = "id")
     private int id;
 
     @Column(name = "name")
@@ -100,7 +100,7 @@ public class PlayerEntity {
     private String address;
 
     @ManyToOne(fetch = FetchType.LAZY)
-    @JoinColumn(name = "football_club_id", referencedColumnName="id")
+    @JoinColumn(name = "clubId", referencedColumnName="id")
     private FootballClubEntity footballClub;
 }
 ```
@@ -178,7 +178,7 @@ public class FootballClubEntity {
 
 public class PlayerEntity {
     @ManyToOne(fetch = FetchType.LAZY)
-    @JoinColumn(name = "football_club_id", referencedColumnName="id")
+    @JoinColumn(name = "clubId", referencedColumnName="id")
     private FootballClubEntity footballClub;
 }
 ```
@@ -211,31 +211,17 @@ The meaning of these parameters:
 
 3. **unique** parameter
 
-
-
 4. **nullable** parameter
-
-
 
 5. **insertable** parameter
 
-
-
 6. **updatable** parameter
-
 
 7. **columnDefinition** parameter
 
-
-
-
 8. **table** parameter
 
-
-
 9. **foreignKey** parameter
-
-
 
 
 <br>
@@ -382,7 +368,7 @@ To understand their meaning of parameters, we need to read up on the section [Un
 
 1. The difference between **orphanRemoval** parameter and **cascade.REMOVE** parameter
 
-    Assuming that we have the one-to-many relationship between FootballClub and Player, it can be described in the below code.
+    Assuming that we have the one-to-many relationship between `FootballClub` and `Player`, it can be described in the below code.
 
     ```java
     public class FootballClubEntity {
@@ -402,12 +388,12 @@ To understand their meaning of parameters, we need to read up on the section [Un
         private Long id;
 
         @ManyToOne(fetch = FetchType.LAZY)
-        @JoinColumn(name = "football_club_id", referencedColumnName="id")
+        @JoinColumn(name = "clubId", referencedColumnName="id")
         private FootballClubEntity footballClub;
     }
     ```
 
-    The difference between the cascade.REMOVE parameter and the orphanRemoval parameter is in the response to disconnecting a relationship.
+    The difference between the `cascade.REMOVE` parameter and the `orphanRemoval` parameter is in the response to disconnecting a relationship.
 
     For example:
 
@@ -420,12 +406,12 @@ To understand their meaning of parameters, we need to read up on the section [Un
     ```
 
     The response for each case:
-    - If we use the orphanRemoval parameter, all related player entities will be removed in database automatically.
-    - If we use the cascade.REMOVE parameter, all related player entities will not be remove in database automatically.
+    - If we use the `orphanRemoval` parameter, all related player entities will be removed in database automatically.
+    - If we use the `cascade.REMOVE` parameter, all related player entities will not be remove in database automatically.
 
 2. The difference between **CascadeType.Detach** and **CascadeType.Remove**
 
-    Supposed that we have the one-to-many relationship between Football club entity and Player entity.
+    Supposed that we have the one-to-many relationship between `FootballClub` entity and `Player` entity.
 
     ```java
     public class FootballClubEntity {
@@ -435,7 +421,7 @@ To understand their meaning of parameters, we need to read up on the section [Un
 
     public class Player {
         @ManyToOne(fetch = FetchType.LAZY)
-        @JoinColumn(name = "football_club_id", referencedColumnName="id")
+        @JoinColumn(name = "clubId", referencedColumnName="id")
         private FootballClubEntity footballClub;
     }
     ```
@@ -492,6 +478,7 @@ To understand their meaning of parameters, we need to read up on the section [Un
     In this our problem, if we remove an Address record, then it would lead to remove the related User. As a User can have multiple addresses, the other addresses would become orphans.
 
     To fix this problem, we can use **mappedBy** parameter in User class's OneToMany, and remove the **CascadeType.ALL** in Address class's @ManyToOne annotation.
+
 
 <br>
 
