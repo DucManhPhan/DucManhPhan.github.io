@@ -134,10 +134,6 @@ Our idea is that we need to find the value of **startValue** variable from 1 to 
 ## Using Kadane algorithm
 
 
-```java
-
-```
-
 
 <br>
 
