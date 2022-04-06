@@ -124,10 +124,6 @@ public int minStartValue(int[] nums) {
 
 Our idea is that we need to find the value of **startValue** variable from 1 to N. It means that its value is belong to a sorted array. So we can use Binary Search for this problem.
 
-```java
-
-```
-
 
 <br>
 
