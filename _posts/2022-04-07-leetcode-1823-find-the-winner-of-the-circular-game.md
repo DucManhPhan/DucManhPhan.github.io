@@ -34,7 +34,7 @@ Given the number of friends, `n`, and an integer `k`, return the winner of the g
 
 Example 1:
 
-![](../../img/Data-structure/queue/leetcode-1700-2.png)
+![](../img/Data-structure/queue/leetcode-1700-2.png)
 
 ```
 Input: n = 5, k = 2
