@@ -1,8 +1,8 @@
 ---
 layout: post
-title: Reverse Linked List
+title: Leetcode 1823 - Find the Winner of the Circular Game 
 bigimg: /img/image-header/yourself.jpeg
-tags: [Linked List, Slow-Fast Pointers]
+tags: [Queue]
 ---
 
 
