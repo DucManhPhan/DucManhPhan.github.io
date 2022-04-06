@@ -13,6 +13,7 @@ tags: [Queue]
 ## Table of contents
 - [Given problem](#given-problem)
 - [Using Circular Linked List](#using-circular-linked-list)
+- [Using Queue](#using-queue)
 - [Wrapping up](#wrapping-up)
 
 
