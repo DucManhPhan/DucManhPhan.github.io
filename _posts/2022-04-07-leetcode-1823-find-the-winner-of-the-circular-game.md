@@ -228,4 +228,4 @@ class Solution {
 
 Reference:
 
-[https://leetcode.com/problems/find-the-winner-of-the-circular-game/](https://leetcode.com/problems/find-the-winner-of-the-circular-game/)
+[1823. Find the Winner of the Circular Game](https://leetcode.com/problems/find-the-winner-of-the-circular-game/)
