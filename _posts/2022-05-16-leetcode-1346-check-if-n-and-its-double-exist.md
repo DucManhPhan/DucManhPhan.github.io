@@ -1,6 +1,6 @@
 ---
 layout: post
-title: Two sum
+title: Leetcode 1346 - Check If N and its Double Exists
 bigimg: /img/image-header/yourself.jpeg
 tags: [Binary Search, HashMap]
 ---
