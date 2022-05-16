@@ -2,7 +2,7 @@
 layout: post
 title: Three sum to Zero
 bigimg: /img/image-header/yourself.jpeg
-tags: [Two-Pointers, Hash-Map]
+tags: [Two-Pointers, HashMap]
 ---
 
 
