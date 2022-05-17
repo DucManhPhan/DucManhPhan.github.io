@@ -1,17 +1,15 @@
 
 
 
-
-
-
-
 <br>
 
 ## Table of Contents
-
-
-
-
+- [Given problem](#given-problem)
+- [Solution for this problem](#solution-for-this-problem)
+- [Using Counting sort](#using-counting-sort)
+- [Benefits and Drawbacks](#benefits-and-drawbacks)
+- [When to use](#when-to-use)
+- [Wrapping up](#wrapping-up)
 
 
 <br>
