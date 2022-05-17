@@ -1,6 +1,6 @@
 ---
 layout: post
-title: How to convert int[] to List<Integer>
+title: How to convert int[] to List\<Integer\>
 bigimg: /img/image-header/yourself.jpeg
 tags: [Java]
 ---
