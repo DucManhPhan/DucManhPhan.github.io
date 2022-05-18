@@ -84,7 +84,7 @@ In this problem, we have `recordTweet()` and `getTweetCountsPerFrequency()` meth
 
 - The `getTweetCountsPerFrequency()` method will check that for each `tweetName`, how many tweets per frequency.
 
-To improve the write operations in `recordTweet()` method, we can use some suitable data structure:
+Then we can use some suitable data structure for this problem:
 - HashMap data structure
 
     In the `getTweetCountsPerFrequency()` method, we will get a set of times per tweet to produce the frequency of a tweet per minute, or hour, or day.
