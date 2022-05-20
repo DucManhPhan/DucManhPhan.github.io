@@ -13,7 +13,7 @@ tags: [Binary Search]
 ## Table of contents
 - [Given problem](#given-problem)
 - [Using brute-force solution](#using-brute-force-solution)
-- [Using Binary Search algorithm](#using-binary-search-algorithm)
+- [Using Binary Search algorithm with Prefix-sum](#using-binary-search-algorithm-with-prefix-sum)
 - [Wrapping up](#wrapping-up)
 
 
@@ -102,10 +102,64 @@ The complexity of this solution:
 
 <br>
 
-## Using Binary Search algorithm
+## Using Binary Search algorithm with Prefix-sum
 
 
+```java
+class Solution {
+    public int minSubArrayLen(int target, int[] nums) {
+        int size = nums.length;
+        if (size == 0) {
+            return 0;
+        }
 
+        int[] sums = new int[size + 1];
+        Arrays.fill(sums, 0);
+
+        for (int i = 1; i <= size; ++i) {
+            sums[i] = sums[i - 1] + nums[i - 1];
+        }
+
+        System.out.println("Sums: " + Arrays.toString(sums));
+        int minSubArraySize = Integer.MAX_VALUE;
+
+        for (int i = 1; i <= size; ++i) {
+            int value = target + sums[i - 1];
+            int idx = lowerBound(sums, value);
+            if (idx != -1) {
+                minSubArraySize = Math.min(minSubArraySize, idx - i + 1);
+            }
+        }
+
+        return (minSubArraySize != Integer.MAX_VALUE) ? minSubArraySize : 0;   
+    }
+    
+    private static int lowerBound(int[] prefixSum, int target) {
+        int low = -1;
+        int high = prefixSum.length;
+
+        while (low + 1 != high) {
+            int mid = low + (high - low) / 2;
+
+            if (prefixSum[mid] < target) {
+                low = mid;
+            } else {
+                high = mid;
+            }
+        }
+
+        if (high < prefixSum.length) {
+            return high;
+        }
+
+        return -1;
+    }
+}
+```
+
+The complexity of this solution:
+- Time complexity: O(nlogn)
+- Space complexity: O|(n)
 
 
 <br>
