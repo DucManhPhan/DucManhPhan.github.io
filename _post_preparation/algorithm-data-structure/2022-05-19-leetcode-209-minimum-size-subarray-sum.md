@@ -2,7 +2,7 @@
 layout: post
 title: Leetcode 209 - Minimum Size Subarray Sum
 bigimg: /img/image-header/yourself.jpeg
-tags: [Binary Search]
+tags: [Binary Search, Prefix Sum, Sliding Window]
 ---
 
 
