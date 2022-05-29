@@ -57,9 +57,3 @@ Refer:
 [https://en.wikipedia.org/wiki/Two-phase_locking](https://en.wikipedia.org/wiki/Two-phase_locking)
 
 [https://www.geeksforgeeks.org/two-phase-locking-protocol/](https://www.geeksforgeeks.org/two-phase-locking-protocol/)
-
-[]()
-
-[]()
-
-[]()

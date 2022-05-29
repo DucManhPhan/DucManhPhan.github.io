@@ -95,4 +95,3 @@ Refer:
 
 [https://en.wikipedia.org/wiki/Snapshot_isolation](https://en.wikipedia.org/wiki/Snapshot_isolation)
 
-[]()
