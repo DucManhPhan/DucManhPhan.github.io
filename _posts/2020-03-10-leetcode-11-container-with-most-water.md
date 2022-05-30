@@ -1,6 +1,6 @@
 ---
 layout: post
-title: Leetcode 11 - Container with the most water
+title: Leetcode 11 - Container With Most Water
 bigimg: /img/image-header/yourself.jpeg
 tags: [Two-Pointers]
 ---
@@ -35,9 +35,9 @@ For example:
 ## Using brute force solution
 
 In order to solve this problem by using brute force solution, we will use two loops.
-- In outer loop, use i index to iterate elements from 0 to length - 1.
-- In inner loop, use j index to iterate elements from length - 1 to 0.
-- The termination conditions is i = j.
+- In outer loop, use `i` index to iterate elements from `0` to `length - 1`.
+- In inner loop, use `j` index to iterate elements from `length - 1` to `0`.
+- The termination conditions is `i = j`.
 
 
 ```java
