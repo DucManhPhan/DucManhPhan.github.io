@@ -737,7 +737,7 @@ So, based on two fundamental ideas, we can make object-oriented with C code, ass
 
     Then, we will rename the **FreezableActive** class to **Active** class, **FreezableFrozen** class to **Frozen** to represent the **Account** class's states. And we also defined some other states such as **Closed**, **NotVerified**.
 
-    ![](../img/refactoring/more-object-oriented/account-states.png)
+    ![](../../img/refactoring/more-object-oriented/account-states.png)
 
     Below is the source code of Closed state of an account.
 
@@ -1017,9 +1017,9 @@ So, based on two fundamental ideas, we can make object-oriented with C code, ass
 
     We have the new design for this Account class.
 
-    ![](../img/refactoring/more-object-oriented/account-original-design.png)
+    ![](../../img/refactoring/more-object-oriented/account-original-design.png)
 
-    ![](../img/refactoring/more-object-oriented/account-new-design.png)
+    ![](../../img/refactoring/more-object-oriented/account-new-design.png)
 
 6. Benefits from turning state into an object
 
@@ -1121,3 +1121,4 @@ So, based on two fundamental ideas, we can make object-oriented with C code, ass
 
 Refer:
 
+[Making Your Java Code More Object-oriented](https://app.pluralsight.com/library/courses/object-oriented-java-code/table-of-contents)
