@@ -9,6 +9,7 @@ Nowadays, knowledge about cloud is essential for us, mainly because, to business
 
 In this article, we will find out about the way to upload files to AWS S3 in Spring Boot. 
 
+
 <br>
 
 ## Table of contents
@@ -17,16 +18,16 @@ In this article, we will find out about the way to upload files to AWS S3 in Spr
 - [Common Problems](#common-problems)
 - [Wrapping up](#wrapping-up)
 
+
 <br>
 
 ## Introduction to S3
-Before diving into this problem about uploading file into AWS S3, we need to understand about how Spring Boot support the uploading file to S3. 
 
-We can reference to the [article](https://ducmanhphan.github.io/2019-02-14-Introduction-to-AWS-S3).
+Before diving into this problem about uploading file into AWS S3, we need to understand about how Spring Boot support the uploading file to S3. 
 
 We can see the following image:
 
-![The structure about how to upload file to S3](../img/Amazon-architecture/S3/amazon-s3-architecture.png)
+![The structure about how to upload file to S3](../img/cloud/aws/s3/upload-files/amazon-s3-architecture.png)
 
 So, we will use intermediate part in Spring Boot, it is AmazonS3 class. Next, to use this class, we have to import some ```dependency```s such as ```aws-java-sdk-s3```, ```aws-java-sdk-dynamodb```.
 
@@ -65,7 +66,7 @@ At this stage, all configuration is done. Now, we will starting code.
 ## Source code
 Our source code will represented to follow the below image:
 
-![The structure of folders](../img/Amazon-architecture/S3/structure-directory-s3.png)
+![The structure of folders](../img/cloud/aws/s3/upload-files/structure-directory-s3.png)
 
 - First step - Write Bean object in Configuration class
 
