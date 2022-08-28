@@ -1,0 +1,56 @@
+---
+layout: post
+title: How to configure a VPC in AWS
+bigimg: /img/image-header/yourself.jpeg
+tags: [AWS, VPC]
+---
+
+
+
+<br>
+
+## Table of contents
+- [Given problem](#given-problem)
+- []()
+- []()
+- [Wrapping up](#wrapping-up)
+
+
+<br>
+
+## Given problem
+
+
+
+
+
+
+<br>
+
+## 
+
+
+
+
+
+
+<br>
+
+## 
+
+
+
+
+
+<br>
+
+## Wrapping up
+
+
+
+
+<br>
+
+Refer:
+
+[]()
