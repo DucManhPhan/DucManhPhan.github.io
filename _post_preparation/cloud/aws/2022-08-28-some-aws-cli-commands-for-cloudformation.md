@@ -1,9 +1,10 @@
 ---
 layout: post
-title: Introduction to Amazon Web Service
-bigimg: /img/path.jpg
-tags: [AWS]
+title: Some AWS CLI commands for S3
+bigimg: /img/image-header/yourself.jpeg
+tags: [AWS, S3]
 ---
+
 
 
 <br>

@@ -1,9 +1,10 @@
 ---
 layout: post
-title: Introduction to Amazon Web Service
-bigimg: /img/path.jpg
-tags: [AWS]
+title: Some SAM commands for serverless project
+bigimg: /img/image-header/yourself.jpeg
+tags: [AWS, Lambda]
 ---
+
 
 
 <br>
