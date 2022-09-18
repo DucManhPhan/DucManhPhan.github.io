@@ -24,6 +24,7 @@ Let's get started.
 <br>
 
 ## What is Stream in Java 8?
+
 Normally, we will use Collections framework to handle data. Though this framework enables a user to handle data quite efficiently, the main complexity lies in using loops and performing repeating checks. It also does not facilitate the use of multi-core system efficiently. So, Stream will deal with this problem.
 
 A Stream is a series of different elements that have been emitted over a time period. Streams are like an array, but not an array. They do have distinct differences. The elements of an array are sequentially arranged in memory, while the elements in a Stream are not. Every Stream has a beginning as well as an end.
@@ -87,6 +88,7 @@ filter() was called abc13
 <br>
 
 ## Stream pipeline
+
 Stream pipeline is the concept of chaining operations together. Stream pipeline consists of:
 - Source
 
@@ -218,6 +220,7 @@ Stream pipeline is the concept of chaining operations together. Stream pipeline 
 <br>
 
 ## Some ways to create Stream
+
 1. From a ````Collection```` via the ```stream()``` and ```parallelStream()``` methods.
 
     ```java
@@ -287,7 +290,7 @@ Stream pipeline is the concept of chaining operations together. Stream pipeline 
 
 7. Numerous other stream-bearing methods in the ```JDK```, including ```BitSet.stream()```, ```Pattern.splitAsStream(java.lang.CharSequence)```, and ```JarFile.stream()```.
 
-8. Use Stream.builder() method
+8. Use `Stream.builder()` method
 
     ```java
     Stream.Builder<Employee> empStreamBuilder = Stream.builder();
@@ -299,14 +302,14 @@ Stream pipeline is the concept of chaining operations together. Stream pipeline 
     Stream<Employee> empStream = empStreamBuilder.build();
     ```
 
-9. Use Stream.generate() method
+9. Use `Stream.generate()` method
 
     ```java
     Stream<String> streamGenerated =
                 Stream.generate(() -> "element").limit(10);
     ```
 
-10. Use lines() static method of Java NIO class Files
+10. Use `lines()` static method of Java NIO class Files
 
     ```java
     String pathFile = "...";
@@ -318,7 +321,19 @@ Stream pipeline is the concept of chaining operations together. Stream pipeline 
 
 <br>
 
+## Benefits and Drawbacks
+
+1. Benefits
+
+    - Using stream makes our code concise, easy to follow, mainly because Streams follow the declarative programming.
+
+2. Drawbacks
+
+
+<br>
+
 ## The differences between Streams and Collection
+
 - Collection efficiently manage and allow access to elements, whereas Stream do not allow direct manipulation or access to elements.
 
 - Stream do not store data. They only allow passing the elements through a computational pipeline. The sources of elements in stream are array, list and map.
@@ -338,9 +353,11 @@ Stream pipeline is the concept of chaining operations together. Stream pipeline 
 
 In order to understand deeper about how stream runs in Java 8, check source code out on [Stream-java-8](https://github.com/DucManhPhan/J2EE/tree/master/src/Java_Core/Java%208/Stream).
 
+
 <br>
 
 ## The difference between map() and flatMap() methods
+
 1. Signature of ```map()``` and ```flatMap()``` methods
 
     ```java
@@ -382,6 +399,8 @@ In order to understand deeper about how stream runs in Java 8, check source code
             .flatMap(Collection::stream)
             .collect(Collectors.toList());
         ```
+
+
 <br>
 
 ## Wrapping up
