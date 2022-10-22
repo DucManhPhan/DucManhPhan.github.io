@@ -95,7 +95,7 @@ There are some following types of cache:
 
 The below image is used to describe the mechanism of Spring Caching.
 
-![The mechanism of Spring Caching](../img/Java-Common/spring-caching/spring-caching-mechanism.jpg)
+![The mechanism of Spring Caching](../img/Java-Common/spring-caching/spring-caching-mechanism-1.jpg)
 
 1. Server receives requests from user.
 
