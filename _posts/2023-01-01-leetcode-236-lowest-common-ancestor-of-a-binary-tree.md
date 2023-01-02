@@ -1,6 +1,6 @@
 ---
 layout: post
-title: 
+title: Leetcode 236 - Lowest Common Ancestor Of A Binary Tree
 bigimg: /img/image-header/yourself.jpeg
 tags: [Tree]
 ---
