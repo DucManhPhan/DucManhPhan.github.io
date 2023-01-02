@@ -14,7 +14,6 @@ tags: [Tree]
 - [Given problem](#given-problem)
 - [Brute-force Solution](#brute-force-solution)
 - [Optimized Solution 1](#optimized-solution-1)
-- [Optimized Solution 2](#optimized-solution-2)
 - [Wrapping up](#wrapping-up)
 
 
@@ -28,7 +27,7 @@ According to the definition of LCA on Wikipedia: "The lowest common ancestor is 
 
 1. Example 1
 
-    ![](../../img/Data-structure/binary-tree/lca/lca-1.png)
+    ![](../img/Data-structure/binary-tree/lca/lca-1.png)
 
     - Input: root = `[3,5,1,6,2,0,8,null,null,7,4]`, p = 5, q = 1
     - Output: 3
@@ -36,7 +35,7 @@ According to the definition of LCA on Wikipedia: "The lowest common ancestor is 
 
 2. Example 2
 
-    ![](../../img/Data-structure/binary-tree/lca/lca-2.png)
+    ![](../img/Data-structure/binary-tree/lca/lca-2.png)
 
     - Input: root = `[3,5,1,6,2,0,8,null,null,7,4]`, p = 5, q = 4
     - Output: 5
@@ -188,15 +187,6 @@ The complexity of this solution:
     So the time of this solution: 10^5 / 10^8 = 10^-3 = 1ms.
 
 - Space complexity: O(n) with n is the number of nodes because we need to maintain these nodes in recursive functions.
-
-
-<br>
-
-## Optimized Solution 2
-
-
-
-
 
 
 <br>
