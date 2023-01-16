@@ -13,6 +13,7 @@ tags: [Array]
 - [Given problem](#given-problem)
 - [Brute Force Solution](#brute-force-solution)
 - [Using Cyclic Sort](#using-cyclic-sort)
+- [Using Math Calculation](#using-math-calculation)
 - [Wrapping up](#wrapping-up)
 
 
