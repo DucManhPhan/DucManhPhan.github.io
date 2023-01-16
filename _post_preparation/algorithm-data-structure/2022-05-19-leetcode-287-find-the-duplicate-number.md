@@ -1,10 +1,9 @@
 ---
 layout: post
-title: 
+title: Leetcode 287 - Find The Duplicate Number
 bigimg: /img/image-header/yourself.jpeg
-tags: []
+tags: [Array]
 ---
-
 
 
 
@@ -12,8 +11,8 @@ tags: []
 
 ## Table of contents
 - [Given problem](#given-problem)
-- []()
-- []()
+- [Brute Force Solution](#brute-force-solution)
+- [Using Cyclic Sort](#using-cyclic-sort)
 - [Wrapping up](#wrapping-up)
 
 
@@ -28,7 +27,7 @@ tags: []
 
 <br>
 
-## 
+## Brute Force Solution
 
 
 
@@ -37,7 +36,15 @@ tags: []
 
 <br>
 
-## 
+## Using Cyclic Sort
+
+
+
+
+
+<br>
+
+## Using Math Calculation
 
 
 

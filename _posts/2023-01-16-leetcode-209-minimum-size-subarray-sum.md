@@ -159,7 +159,7 @@ class Solution {
 
 The complexity of this solution:
 - Time complexity: O(nlogn)
-- Space complexity: O|(n)
+- Space complexity: O(n)
 
 
 <br>
