@@ -12,6 +12,7 @@ tags: [Array]
 ## Table of contents
 - [Given problem](#given-problem)
 - [Using brute force solution](#using-brute-force-solution)
+- [Using HashMap data structure](#using-hashmap-data-structure)
 - [Using Cyclic Sort](#using-cyclic-sort)
 - [Wrapping up](#wrapping-up)
 
@@ -94,6 +95,37 @@ The complexity of this solution is:
 - Space complexity: O(1)
 
 To improve this brute force solution, we can improve the performance of the Bubble Sort algorithm by using Quick Sort or Merge Sort. So the time complexity of this solution can be O(n * logn).
+
+
+<br>
+
+## Using HashMap data structure
+
+Due to the range of our array from 0 to n, we can use additional data structure to contain elements in the current nums array. Then, iterate index from 0 to n, we will find a missing element. Otherwize, we will return the `n + 1` element.
+
+```Java
+class Solution {
+    public int missingNumber(int[] nums) {
+        int size = nums.length;
+
+        Set<Integer> fullNumbers = new HashSet<>();
+        IntStream.range(0, size)
+                 .forEach(i -> fullNumbers.add(nums[i]));
+
+        for (int i = 0; i < size; ++i) {
+            if (!fullNumbers.contains(i)) {
+                return i;
+            }
+        }
+
+        return size;
+    }
+}
+```
+
+The complexity of this solution:
+- Time complexity: O(n)
+- Space complexity: O(n - 1)
 
 
 <br>
