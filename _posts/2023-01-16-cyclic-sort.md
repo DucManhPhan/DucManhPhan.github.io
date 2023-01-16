@@ -21,15 +21,18 @@ tags: [Algorithm, Sorting]
 
 ## Given problem
 
-
-
-
+Given an array nums = `{3, 1, 5, 4, 2}`. How to use Cyclic sort for this array.
 
 
 <br>
 
 ## Solution of Cyclic Sort
 
+When using Cyclic Sort, there are some things that we need to take note:
+- At a specific position in an array, we always try to arrange it to the correct position by comparison `nums[start] != nums[current]`.
+- If an element lied in the correct position, process the next element.
+
+Below is the source code of Cyclic Sort.
 
 ```Java
 public static void cyclicSort(int[] nums) {
@@ -71,9 +74,7 @@ The complexity of this Cyclic Sort:
 
 ## When to use
 
-- 
-- 
-- 
+- When our array has a range from 0 to n.
 
 
 <br>
@@ -82,8 +83,12 @@ The complexity of this Cyclic Sort:
 
 1. Benefits
 
+    - It improves our sorting for an array simply because it only needs `O(n)` for time complexity.
+    - Its implementation is easy.
 
 2. Drawbacks
+
+    - Only use in some specific use cases.
 
 
 <br>
@@ -92,9 +97,3 @@ The complexity of this Cyclic Sort:
 
 
 
-
-<br>
-
-Refer:
-
-[]()
