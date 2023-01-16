@@ -1,6 +1,6 @@
 ---
 layout: post
-title: LeetCode 268 - Missing Number
+title: Leetcode 268 - Missing Number
 bigimg: /img/image-header/yourself.jpeg
 tags: [Array]
 ---

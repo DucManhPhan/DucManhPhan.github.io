@@ -1,6 +1,6 @@
 ---
 layout: post
-title: LeetCode 448 - Find All Numbers Disappeared in an Array
+title: Leetcode 448 - Find All Numbers Disappeared in an Array
 bigimg: /img/image-header/yourself.jpeg
 tags: [Array]
 ---
