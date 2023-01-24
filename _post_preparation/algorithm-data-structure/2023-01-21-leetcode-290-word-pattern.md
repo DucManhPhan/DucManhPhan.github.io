@@ -12,7 +12,7 @@ tags: [Array]
 
 ## Table of contents
 - [Given problem](#given-problem)
-- []()
+- [Analysis of this problem](#analysis-of-this-problem)
 - []()
 - [Wrapping up](#wrapping-up)
 
@@ -52,16 +52,80 @@ Here follow means a full match, such that there is a bijection between a letter 
 
 <br>
 
-## 
+## Analysis of this problem
 
+Currently, our problem is about validating the mapping between each character in `pattern` string and a word in string `s` based on the concept bijection.
 
+For example, we have string `pattern` = "abba", string `s` = "dog cat cat fish". The one side is that from `a` character, we have: "dog". And the reversed side is from "dog", we have: `a` character. But at the moment, "fish" string will be converted to `a` character. It is not correct. Our function should return `false`.
 
+From the above points, there are two approaches for it:
+- Using two Hash Maps to express the bijection concept.
 
+    - Firstly, we need to check the one side, assuming that we have a character, we need to check the corresponding string exists in the remaining Hash Map or not.
+
+    - Secondly, do the same thing but from string in `s`.
+
+- Using only one Hash Map - from a character to a string.
 
 
 <br>
 
-## 
+## Solution 1
+
+
+```Java
+class Solution {
+    public boolean wordPattern(String pattern, String s) {
+        Map<Character, String> mapper = new HashMap<>();
+        Character[] characters = pattern.chars()
+                                        .mapToObj(c -> (char) c)
+                                        .toArray(Character[]::new);
+        String[] words = s.split(" ");
+
+        if (invalidLength(characters, words)) {
+            return false;
+        }
+
+        int commonLength = characters.length;
+        for (int i = 0; i < commonLength; ++i) {
+            char c = characters[i];
+            String word = words[i];
+
+            if (mapper.containsKey(c)) {
+                String tmp = mapper.get(c);
+                if (!word.equals(tmp)) {
+                    return false;
+                }
+            }
+
+            mapper.put(c, word);
+        }
+
+        return true;
+    }
+
+    private boolean invalidLength(Character[] charsPattern, String[] words) {
+        if (charsPattern.length != words.length) {
+            return true;
+        }
+
+        Set<Character> charsSet = new HashSet<>();
+        Collections.addAll(charsSet, charsPattern);
+
+        Set<String> wordsSet = new HashSet<>(Arrays.asList(words));
+        return charsSet.size() != wordsSet.size();
+    }
+}
+```
+
+Them complexity of this solution:
+- Time complexity: O(n) with n is the length of pattern.
+- Space complexity: O(n)
+
+
+<br>
+
+## Solution 2
 
 
 
@@ -78,4 +142,4 @@ Here follow means a full match, such that there is a bijection between a letter 
 
 Refer:
 
-[437. Path Sum III](https://leetcode.com/problems/path-sum-iii/)
+[]()
