@@ -265,4 +265,4 @@ public class Solution {
 
 Refer:
 
-[]()
+[290. Word Pattern](https://leetcode.com/problems/word-pattern/description/)
