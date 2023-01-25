@@ -13,7 +13,8 @@ tags: [Array]
 ## Table of contents
 - [Given problem](#given-problem)
 - [Analysis of this problem](#analysis-of-this-problem)
-- []()
+- [Solution 1](#solution-1)
+- [Solution 2](#solution-2)
 - [Wrapping up](#wrapping-up)
 
 
@@ -220,7 +221,36 @@ Them complexity of this solution:
 To further optimize our current solution, we will use the alphabetical array.
 
 ```Java
+public class Solution {
 
+    public boolean wordPattern(String pattern, String s) {
+        String[] words = s.split(" ");
+        if (words.length != pattern.length()) {
+            return false;
+        }
+
+        String[] alphabets = new String[26];
+        for (int i = 0; i < words.length; i++) {
+            alphabets[pattern.charAt(i) - 'a'] = words[i];
+        }
+
+        for (int i = 0; i < words.length; i++) {
+            if (!alphabets[pattern.charAt(i) - 'a'].equals(words[i])) {
+                return false;
+            }
+        }
+
+        for (int i = 0; i < 26; i++) {
+            for (int j = i + 1; j < 26; j++) {
+                if (alphabets[i] != null && alphabets[j] != null && alphabets[i].equals(alphabets[j])) {
+                    return false;
+                }
+            }
+        }
+
+        return true;
+    }
+}
 ```
 
 
