@@ -67,11 +67,65 @@ From the above points, there are two approaches for it:
 
 - Using only one Hash Map - from a character to a string.
 
+    The another issue happened here is that when we need to check the case of a character based on the string.
+
+    For example: pattern = "abba", s = "dog dog dog dog".
+
+    To solve this issue, follow the below way:
+    - Using two Set data structures for both `pattern` and `s`.
+
+    The other improved version for this solution is to use alphabetical array that contains 26 characters in ASCII.
+
 
 <br>
 
 ## Solution 1
 
+Below is the source code that applied for first approach in [Analysis of this problem](#analysis-of-this-problem).
+
+```Java
+public class Solution {
+
+    public boolean wordPattern(String pattern, String s) {
+        Map<Character, String> charToWord = new HashMap<>();
+        Map<String, Character> wordToChar = new HashMap<>();
+
+        char[] chars = pattern.toCharArray();
+        String[] words = s.split(" ");
+
+        if (chars.length != words.length) {
+            return false;
+        }
+
+        int i = 0;
+        for (String word : words) {
+            char c = chars[i];
+            if (charToWord.containsKey(c) && !word.equals(charToWord.get(c))) {
+                return false;
+            } else if (wordToChar.containsKey(word) && c != wordToChar.get(word)) {
+                return false;
+            }
+
+            charToWord.put(c, word);
+            wordToChar.put(word, c);
+            ++i;
+        }
+
+        return true;
+    }
+}
+```
+
+Them complexity of this solution:
+- Time complexity: O(n) with n is the length of pattern.
+- Space complexity: O(n)
+
+
+<br>
+
+## Solution 2
+
+Below is the source code that applied for second approach in [Analysis of this problem](#analysis-of-this-problem).
 
 ```Java
 class Solution {
@@ -122,13 +176,52 @@ Them complexity of this solution:
 - Time complexity: O(n) with n is the length of pattern.
 - Space complexity: O(n)
 
+Then, to improve the above solution, we will not use two Set data structures for checking lengths of both strings.
 
-<br>
+```Java
+public class Solution {
 
-## Solution 2
+    public boolean wordPatternV2(String pattern, String s) {
+        Map<Character, String> charToWord = new HashMap<>();
+        char[] chars = pattern.toCharArray();
+        String[] words = s.split("\\s+");
 
+        if (words.length != pattern.length()) {
+            return false;
+        }
 
+        int i = 0;
+        for (char c : chars) {
+            if (charToWord.containsKey(c)) {
+                if (!charToWord.get(c).equals(words[i++])) {
+                    return false;
+                }
+            } else {
+                if (charToWord.containsValue(words[i])) {
+                    return false;
+                }
 
+                charToWord.put(c, words[i++]);
+            }
+        }
+
+        return true;
+    }
+}
+```
+
+Them complexity of this solution:
+- Time complexity: O(n^2) with n is the length of pattern.
+
+    Due to using the `containsValue()` method of HashMap, it can run in `O(n)` complexity.
+
+- Space complexity: O(n)
+
+To further optimize our current solution, we will use the alphabetical array.
+
+```Java
+
+```
 
 
 <br>
