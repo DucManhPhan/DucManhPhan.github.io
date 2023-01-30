@@ -164,7 +164,7 @@ Before reading about the source code, we can reference the article [How to use b
 
         return targetRange;
     }
-    ``
+    ```
 
 The complexity of this solution:
 - Time complexity: O(log(n)).
