@@ -37,6 +37,7 @@ Input: nums = [5,7,7,8,8,10], target = 6
 Output: [-1,-1]
 ```
 
+
 <br>
 
 ## Using brute force way
@@ -86,6 +87,7 @@ The complexity of this solution:
 - Time complexity: O(n)
 - Space complexity: O(1)
 
+
 <br>
 
 ## Using binary search
@@ -131,7 +133,7 @@ Before reading about the source code, we can reference the article [How to use b
 
 2. Using Template II of Binary Search
 
-    ```java
+    ```Java
     private int search(int[] nums, int target, boolean isLowerBound) {
         int left = 0;
         int right = nums.length;
