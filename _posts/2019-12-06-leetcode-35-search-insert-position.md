@@ -1,6 +1,6 @@
 ---
 layout: post
-title: Search insert position
+title: Leetcode 35 - Search insert position
 bigimg: /img/image-header/yourself.jpeg
 tags: [Binary Search]
 ---
@@ -44,6 +44,7 @@ Example 4:
 Input: [1,3,5,6], 0
 Output: 0
 ```
+
 
 <br>
 
@@ -105,9 +106,16 @@ The complexity of this way:
 - Time complexity: O(log(n))
 - Space complexity: O(1)
 
+
 <br>
 
 ## Wrapping up
 
 - Apply Binary Search algorithm when we have sorted array.
 
+
+<br>
+
+References:
+
+[35. Search Insert Position](https://leetcode.com/problems/search-insert-position/)

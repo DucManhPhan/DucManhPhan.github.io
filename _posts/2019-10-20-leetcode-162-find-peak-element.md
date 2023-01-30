@@ -1,6 +1,6 @@
 ---
 layout: post
-title: Find the peak element
+title: Leetcode 162 - Find Peak Element
 bigimg: /img/image-header/yourself.jpeg
 tags: [Binary Search, Array]
 ---
@@ -46,6 +46,7 @@ Example 2:
                 or index number 5 where the peak element is 6.
 ```
 
+
 <br>
 
 ## Solution
@@ -67,6 +68,7 @@ nums[i] > nums[i + 1] if i = 0
 In this our case, we can find that **nums[i]** and **nums[i + 1]** is not equal, and to get the peak element of this array, we only compare between **nums[i]** and **nums[i + 1]**.
 
 If we care an element **nums[i - 1]**, then we always check multiple conditions for that. And checking element **nums[i - 1]** and **nums[i]** is redundancy. Because checking elements **nums[i]** and **nums[i + 1]** makes us know the relationship between **nums[i]** and **nums[i - 1]** in the loop of an array.
+
 
 <br>
 
@@ -91,6 +93,7 @@ public static int findPeakElementBruteForce(int[] nums) {
 The complexity of this solution:
 - Time complexity: O(n).
 - Space complexity: O(1).
+
 
 <br>
 
@@ -140,18 +143,16 @@ Below is the source code about iterative version and recursive version.
     - Time complexity: O(log(n)).
     - Space complexity: O(log(n)).
 
+
 <br>
 
 ## Wrapping up
 
 - Understanding this variant of Binary Search when comparing two adjacency elements.
 
+
 <br>
 
 Refer:
 
-[https://www.tutorialcup.com/interview/array/peak-element.htm](https://www.tutorialcup.com/interview/array/peak-element.htm)
-
-[https://www.programcreek.com/2014/02/leetcode-find-peak-element/](https://www.programcreek.com/2014/02/leetcode-find-peak-element/)
-
-[https://www.techiedelight.com/find-peak-element-array/](https://www.techiedelight.com/find-peak-element-array/)
+[162. Find Peak Element](https://leetcode.com/problems/find-peak-element/)
