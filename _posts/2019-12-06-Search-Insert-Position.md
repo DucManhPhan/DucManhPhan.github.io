@@ -53,26 +53,53 @@ Our array is sorted, so we can apply Binary Search algorithm to deal with it.
 
 Below is the source code that using Binary Search algorithm.
 
-```java
-public int searchInsert(int[] nums, int target) {
-    int left = 0;
-    int right = nums.length - 1;
+1. Using first invariant
 
-    while (left <= right) {
-        int mid = left + (right - left) / 2;
+    ```java
+    public int searchInsert(int[] nums, int target) {
+        int left = 0;
+        int right = nums.length - 1;
 
-        if (nums[mid] == target) {
-            return mid;
-        } else if (nums[mid] < target) {
-            left = mid + 1;
-        } else {
-            right = mid - 1;
+        while (left <= right) {
+            int mid = left + (right - left) / 2;
+
+            if (nums[mid] == target) {
+                return mid;
+            } else if (nums[mid] < target) {
+                left = mid + 1;
+            } else {
+                right = mid - 1;
+            }
         }
-    }
 
-    return left;
-}
-```
+        return left;
+    }
+    ```
+
+2. Using third invariant
+
+    ```Java
+    public static int searchInsert(int[] nums, int target) {
+        int blue = -1;
+        int red = nums.length;
+
+        while (blue + 1 != red) {
+            int mid = blue + (red - blue) / 2;
+
+            if (nums[mid] == target) {
+                return mid;
+            }
+
+            if (nums[mid] < target) {
+                blue = mid;
+            } else {
+                red = mid;
+            }
+        }
+
+        return red;
+    }
+    ```
 
 The complexity of this way:
 - Time complexity: O(log(n))
