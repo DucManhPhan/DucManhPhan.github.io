@@ -91,7 +91,7 @@ Therefore, how do we deal with it?
 
     Drawbacks of this approach:
     - Building this local cache system is difficult, redundant because we also need to take care about the availability of cache notification server, select the most suitable protocol for updating data in local cache.
-    - the consistency problem between these local caches.
+    - The consistency problem between these local caches.
     - The local caches can take more resources such as CPU, RAM of the application servers. However, the vertical horizontal for each application server is limited.
 
 2. Distributed cache
@@ -120,22 +120,28 @@ Therefore, how do we deal with it?
     Drawbacks of this approach:
     - It takes the round-trip time between the application server and the distributed cache.
 
+
 <br>
 
 ## Some caching reading policies
 
-1. Read-through cache
+1. Cache-Aside
+
+2. Read-through cache
 
     If cache miss happens, fetch the data from the data source and save it into the cache before returning the new value.
 
     Drawbacks:
-    - higher latency on cache read misses.
+    - Higher latency on cache read misses.
+
+3. Refersh-Ahead
+
 
 <br>
 
 ## Some caching writing policies
 
-    These policies are called as cache validation policies. Belows are some policies that we need to know.
+These policies are called as cache validation policies. Belows are some policies that we need to know.
 
 1. Write-through cache
 
@@ -187,8 +193,8 @@ Therefore, how do we deal with it?
 
         - Sometimes, we encounter the cache miss problem, we need to access the data source to get that data. Then, it's high latency, and low throughput. But is's a rare case.
 
-<br>
 
+<br>
 
 ## Some caching eviction policies
 
@@ -210,7 +216,6 @@ A caching eviction algorithm is a way of deciding which element to evict when th
     Remove the most recently used items first.
 
 4. FIFO - First In First Out
-
 
 5. LIFO - Last In First Out
 
@@ -241,6 +246,16 @@ A caching eviction algorithm is a way of deciding which element to evict when th
     - If using the suitable strategies for caching, it will improve hugely performance for our application.
 
 2. Drawbacks
+
+    - Using additional components in our system will make it more complexity, especially the infrastructure.
+
+    - When using cache, we also need to take care its issues:
+
+        - Cache Avalanche
+        - Cache Breakdown
+        - Cache Penetration
+        - Cache Stampede
+        - Thundering Herd
 
 
 <br>
