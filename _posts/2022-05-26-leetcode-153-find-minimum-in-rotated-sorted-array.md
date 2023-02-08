@@ -231,26 +231,87 @@ The complexity of Linear Search:
 
 3. Using Template #3
 
-    ```java
-    class Solution {
-        public int findMin(int[] nums) {
-            int low = 0;
-            int high = nums.length - 1;
-            
-            while (low + 1 < high) {
-                int mid = low + (high - low) / 2;
-                
-                if (nums[mid] > nums[high]) {
-                    low = mid;
-                } else {
-                    high = mid;
+    - Comparing between `mid` and `right` position.
+
+        Due to the comparison between `mid` and `right`, the initial value of `right` will be the index of the last element in an array.
+
+        ```Java
+        int right = nums.length - 1;
+        ```
+
+        The property of a rotated array is that it divides our array into two sorted array in ascending order. So we can choose different points to move `mid`. In this case, we will choose `right` position. In the next way, we will choose `left` position.
+
+        Below is some cases that we take care:
+        - 1st case - No rotation or the number of rotations is equal to the length of the array.
+
+            ![](../img/Data-structure/array/rotated-array/find-min-element/case-6.png)
+
+        - 2nd case - The `mid` points to the minimum element in the array.
+
+            ![](../img/Data-structure/array/rotated-array/find-min-element/case-5.png)
+
+            We can easily find that it's the same with the above one.
+
+        - 3rd case - The `mid` points to the second child sorted array.
+
+            ![](../img/Data-structure/array/rotated-array/find-min-element/case-7.png)
+
+        - 4th case - The `mid` points to the first child sorted array.
+
+            ![](../img/Data-structure/array/rotated-array/find-min-element/case-8.png)
+
+        Below is our source code.
+
+        ```java
+        class Solution {
+            public int findMin(int[] nums) {
+                int low = 0;
+                int high = nums.length - 1;
+
+                while (low + 1 < high) {
+                    int mid = low + (high - low) / 2;
+
+                    if (nums[mid] > nums[high]) {
+                        low = mid;
+                    } else {
+                        high = mid;
+                    }
                 }
+
+                return nums[low] < nums[high] ? nums[low] : nums[high];
             }
-            
-            return nums[low] < nums[high] ? nums[low] : nums[high];
         }
-    }
-    ```
+        ```
+
+    - Comparing between `mid` and `left` position.
+
+        ```Java
+        public class Solution {
+            public int findMin(int[] nums) {
+                int pivot = this.findPivot(nums);
+                return Math.min(nums[0], nums[pivot]);
+            }
+
+            private int findPivot(int[] nums) {
+                int left = 0;
+                int right = nums.length;
+
+                while (left + 1 < right) {
+                    int mid = left + (right - left) / 2;
+
+                    if (nums[mid - 1] > nums[mid]) {
+                        return mid;
+                    } else if (nums[left] < nums[mid]) {
+                        left = mid;
+                    } else {
+                        right = mid;
+                    }
+                }
+
+                return left;
+            }
+        }
+        ```
 
 The complexity of this solution:
 - Time complexity: O(logn)
@@ -268,6 +329,8 @@ The complexity of this solution:
 - When we have two different trends in our array, we can use Binary Search to solve this problem.
 
 - From this problem, we can find that in a rotated array, the index of the minimum element will be equal to the number of rotation of its array.
+
+- Learn how to get the index of the next element in the rotated array by using modulo of the length of the array.
 
 
 <br>
