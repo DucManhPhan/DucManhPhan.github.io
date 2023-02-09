@@ -155,35 +155,78 @@ So we can use Binary Search.
 
     Below is our source code of this way:
 
-    ```java
-    public static int search(int[] nums, int target) {
-        int left = 0;
-        int right = nums.length - 1;
+    - First invariant of Binary Search.
 
-        while (left <= right) {
-            int mid = left + (right - left) / 2;
-            if (nums[mid] == target) {
-                return mid;
+        ```java
+        public static int search(int[] nums, int target) {
+            int left = 0;
+            int right = nums.length - 1;
+
+            while (left <= right) {
+                int mid = left + (right - left) / 2;
+                if (nums[mid] == target) {
+                    return mid;
+                }
+
+                if (nums[mid] <= nums[right]) { // right half is sorted
+                    if (target > nums[mid] && target <= nums[right]) {
+                        left = mid + 1;
+                    } else {
+                        right = mid - 1;
+                    }
+                } else {        // left half is sorted
+                    if (nums[left] <= target && target < nums[mid]) {
+                        right = mid - 1;
+                    } else {
+                        left = mid + 1;
+                    }
+                }
             }
 
-            if (nums[mid] <= nums[right]) { // right half is sorted
-                if (target > nums[mid] && target <= nums[right]) {
-                    left = mid + 1;
-                } else {
-                    right = mid - 1;
+            return -1;
+        }
+        ```
+
+    - Third invariant of Binary Search.
+
+        ```Java
+        class Solution {
+            public int search(int[] nums, int target) {
+                int left = 0;
+                int right = nums.length - 1;
+
+                while (left + 1 < right) {
+                    int mid = left + (right - left) / 2;
+
+                    if (nums[mid] == target) {
+                        return mid;
+                    } else if (nums[mid] > nums[left]) {    // 1st sorted sub-array
+                        if (nums[left] <= target && target <= nums[mid]) {
+                            right = mid;
+                        } else {
+                            left = mid;
+                        }
+                    } else {    // 2nd sorted sub-array
+                        if (right < nums.length && nums[mid] <= target && target <= nums[right]) {
+                            left = mid;
+                        } else {
+                            right = mid;
+                        }
+                    }
                 }
-            } else {        // left half is sorted
-                if (nums[left] <= target && target < nums[mid]) {
-                    right = mid - 1;
-                } else {
-                    left = mid + 1;
+
+                if (nums[left] == target) {
+                    return left;
                 }
+
+                if (right < nums.length && nums[right] == target) {
+                    return right;
+                }
+
+                return -1;
             }
         }
-
-        return -1;
-    }
-    ```
+        ```
 
 - Second way.
 
