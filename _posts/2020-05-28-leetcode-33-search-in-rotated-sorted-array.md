@@ -193,6 +193,9 @@ So we can use Binary Search.
         class Solution {
             public int search(int[] nums, int target) {
                 int left = 0;
+
+                // The initially condition of right variable is not correct when using the template of Binary Search's third invariant.
+                // But in this problem, we need to use it to pass all test case in LeetCode.
                 int right = nums.length - 1;
 
                 while (left + 1 < right) {
