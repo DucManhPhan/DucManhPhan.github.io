@@ -235,6 +235,67 @@ So we can use Binary Search.
 
     We can search pivot point in this sorted rotated array. Then, search the `target` on each sub-array.
 
+    ```Java
+    class Solution {
+        public int search(int[] nums, int target) {
+            int pivot = findPivot(nums);
+
+            int res = binarySearch(nums, 0, pivot, target);
+            if (res != -1) {
+                return res;
+            }
+
+            return binarySearch(nums, pivot, nums.length, target);
+        }
+
+        private int findPivot(int[] nums) {
+            int left = 0;
+            int right = nums.length;
+
+            while (left + 1 < right) {
+                int mid = left + (right - left) / 2;
+
+                if (nums[mid - 1] > nums[mid]) {
+                    return mid;
+                } else if (nums[mid] > nums[left]) {
+                    left = mid;
+                } else {
+                    right = mid;
+                }
+            }
+
+            return nums[left] > nums[0] ? 0 : left;
+        }
+
+        private int binarySearch(int[] nums, int startIdx, int endIdx, int target) {
+            int left = startIdx;
+            int right = endIdx;
+
+            while (left + 1 < right) {
+                int mid = left + (right - left) / 2;
+
+                if (nums[mid] == target) {
+                    return mid;
+                } else if (nums[mid] < target) {
+                    left = mid;
+                } else {
+                    right = mid;
+                }
+            }
+
+            if (nums[left] == target) {
+                return left;
+            }
+
+            if (right < nums.length - 1 && nums[right] == target) {
+                return right;
+            }
+
+            return -1;
+        }
+    }
+    ```
+
 The complexity of Binary Search is:
 - Time complexity: O(log(n)).
 - Space complexity: O(1).
