@@ -1,6 +1,6 @@
 ---
 layout: post
-title: Leetcode 888 - Fair Candy Swap
+title: Leetcode 2529 - Maximum Count of Positive Integer and Negative Integer
 bigimg: /img/image-header/yourself.jpeg
 tags: [Binary Search]
 ---
@@ -54,4 +54,4 @@ tags: [Binary Search]
 
 Refer:
 
-[888. Fair Candy Swap](https://leetcode.com/problems/fair-candy-swap/)
+[2529. Maximum Count of Positive Integer and Negative Integer](https://leetcode.com/problems/maximum-count-of-positive-integer-and-negative-integer/)

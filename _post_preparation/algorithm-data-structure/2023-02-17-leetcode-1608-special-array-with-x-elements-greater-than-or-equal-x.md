@@ -1,6 +1,6 @@
 ---
 layout: post
-title: Leetcode 374 - Guess Number Higher or Lower
+title: Leetcode 1608 - Special Array With X Elements Greater Than or Equal X
 bigimg: /img/image-header/yourself.jpeg
 tags: [Binary Search]
 ---

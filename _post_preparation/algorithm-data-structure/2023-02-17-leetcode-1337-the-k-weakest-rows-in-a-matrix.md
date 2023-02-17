@@ -1,6 +1,6 @@
 ---
 layout: post
-title: Leetcode 888 - Fair Candy Swap
+title: Leetcode 1337 - The K Weakest Rows in a Matrix
 bigimg: /img/image-header/yourself.jpeg
 tags: [Binary Search]
 ---
@@ -54,4 +54,4 @@ tags: [Binary Search]
 
 Refer:
 
-[888. Fair Candy Swap](https://leetcode.com/problems/fair-candy-swap/)
+[1337. The K Weakest Rows in a Matrix](https://leetcode.com/problems/the-k-weakest-rows-in-a-matrix/)

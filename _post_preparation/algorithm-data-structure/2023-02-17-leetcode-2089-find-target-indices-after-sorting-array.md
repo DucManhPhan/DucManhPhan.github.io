@@ -1,6 +1,6 @@
 ---
 layout: post
-title: Leetcode 888 - Fair Candy Swap
+title: Leetcode 2089 - Find Target Indices After Sorting Array
 bigimg: /img/image-header/yourself.jpeg
 tags: [Binary Search]
 ---
@@ -54,4 +54,4 @@ tags: [Binary Search]
 
 Refer:
 
-[888. Fair Candy Swap](https://leetcode.com/problems/fair-candy-swap/)
+[2089. Find Target Indices After Sorting Array](https://leetcode.com/problems/find-target-indices-after-sorting-array/)

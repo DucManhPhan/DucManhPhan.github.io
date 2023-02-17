@@ -1,6 +1,6 @@
 ---
 layout: post
-title: Leetcode 374 - Guess Number Higher or Lower
+title: Leetcode 2540 - Minimum Common Value
 bigimg: /img/image-header/yourself.jpeg
 tags: [Binary Search]
 ---

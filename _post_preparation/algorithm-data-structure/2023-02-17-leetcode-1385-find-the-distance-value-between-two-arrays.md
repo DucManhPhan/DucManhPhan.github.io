@@ -1,6 +1,6 @@
 ---
 layout: post
-title: Leetcode 888 - Fair Candy Swap
+title: Leetcode 1385 - Find the Distance Value Between Two Arrays
 bigimg: /img/image-header/yourself.jpeg
 tags: [Binary Search]
 ---
@@ -54,4 +54,4 @@ tags: [Binary Search]
 
 Refer:
 
-[888. Fair Candy Swap](https://leetcode.com/problems/fair-candy-swap/)
+[1385. Find the Distance Value Between Two Arrays](https://leetcode.com/problems/find-the-distance-value-between-two-arrays/)
