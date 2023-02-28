@@ -2,7 +2,7 @@
 layout: post
 title: Leetcode 2389 - Longest Subsequence With Limited Sum
 bigimg: /img/image-header/yourself.jpeg
-tags: [Binary Search]
+tags: [Binary Search, Prefix Sum, Queue, Backtracking]
 ---
 
 
@@ -14,6 +14,7 @@ tags: [Binary Search]
 - [Given problem](#given-problem)
 - [Using Backtracking algorithm](#using-backtracking-algorithm)
 - [Using Binary Search algorithm](#using-binary-search-algorithm)
+- [Using Priority Queue](#using-priority-queue)
 - [Wrapping up](#wrapping-up)
 
 
@@ -111,8 +112,111 @@ The complexity of this solution:
 
 ## Using Binary Search algorithm
 
+This problem relates to the sum of subsequences in an array. And we need to find the maximum size of a subsequence whose sum is less than or equal to the specific element in `queries` array.
+
+Below is our source code:
+
+```Java
+class Solution {
+    public int[] answerQueries(int[] nums, int[] queries) {
+        Arrays.sort(nums);
+
+        // calculate prefix sum array
+        int[] prefixSum = new int[nums.length];
+        prefixSum[0] = nums[0];
+
+        for (int i = 1; i < nums.length; i++) {
+            prefixSum[i] = prefixSum[i - 1] + nums[i];
+        }
+
+        // calculate the result array
+        int[] res = new int[queries.length];
+        int i = 0;
+        for (int sum : queries) {
+            int pos = upperBound(prefixSum, sum);
+            if (pos == -1) {
+                res[i++] = 0;
+            } else {
+                res[i++] = pos + 1;
+            }            
+        }
+
+        return res;
+    }
+
+    /**
+     * Find an element's index that is less or equal than target
+     */
+    private int upperBound(int[] prefixSum, int target) {
+        int left = 0;
+        int right = prefixSum.length;
+
+        while (left + 1 < right) {
+            int mid = left + (right - left) / 2;
+
+            if (prefixSum[mid] == target) {
+                return mid;
+            }
+
+            if (prefixSum[mid] < target) {
+                left = mid;
+            } else {
+                right = mid;
+            }
+        }
+
+        if (prefixSum[left] <= target) {
+            return left;
+        }
+
+        return -1;
+    }
+}
+```
+
+The complexity of this solution is:
+- Time complexity: `O(mlogn)` with `m` is the size of `queries` array and `n` is the size of `nums` array.
+- Space complexity: `O(m)`.
 
 
+<br>
+
+## Using Priority Queue
+
+Currently, we use Priority Queue to maintain the sum of its elements is always less or equal to an element of `queries` array. When `sum + nums[i] > queries[j]`, we will remove the max element in Priority Queue to satisfy our condition and add the current element to this queue.
+
+Below is our source code:
+
+```Java
+class Solution {
+    public int[] answerQueriesV1(int[] nums, int[] queries) {
+        int[] res = new int[queries.length];
+        int k = 0;
+
+        for (int max : queries) {
+            PriorityQueue<Integer> pq = new PriorityQueue<>((a, b) -> b - a);
+            int sum = 0;
+
+            for (int n : nums) {
+                if (sum + n > max) {
+                    if (!pq.isEmpty() && pq.peek() > n) {
+                        sum -= pq.remove();
+                        sum += n;
+                        pq.add(n);
+                    }
+                } else {
+                    sum += n;
+                    pq.add(n);
+                }
+            }
+
+            res[k++] = pq.size();
+        }
+
+        return res;
+    }
+}
+```
 
 
 <br>
