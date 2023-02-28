@@ -179,6 +179,30 @@ The complexity of this solution is:
 - Time complexity: `O(mlogn)` with `m` is the size of `queries` array and `n` is the size of `nums` array.
 - Space complexity: `O(m)`.
 
+Instead of defining the `upperBound()` method to find the element's index that is less than or equal to our target, we can use the `binarySearch()` method of `Arrays` class.
+
+```Java
+class Solution {
+    public int[] answerQueries(int[] nums, int[] queries) {
+        Arrays.sort(nums);
+
+        // Calculate the prefix sum in-place
+        for (int i = 1; i < nums.length; i++) {
+            nums[i] += nums[i - 1];
+        }
+
+        // calculate the result
+        int[] res = new int[queries.length];
+        for (int i = 0; i < queries.length; ++i) {
+            int j = Arrays.binarySearch(nums, queries[i]);
+            res[i] = Math.abs(j + 1);
+        }
+
+        return res;
+    }
+}
+```
+
 To further optimize the current solution, we can try the following solution. It takes only 3 ms in LeetCode, while our solution takes 6 ms.
 
 ```Java
