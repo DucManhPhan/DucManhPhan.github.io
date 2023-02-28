@@ -14,6 +14,7 @@ tags: [Binary Search, Prefix Sum, Queue, Backtracking]
 - [Given problem](#given-problem)
 - [Using Backtracking algorithm](#using-backtracking-algorithm)
 - [Using Binary Search algorithm](#using-binary-search-algorithm)
+- [Using Tree Map with Binary Search](#using-tree-map-with-binary-search)
 - [Using Priority Queue](#using-priority-queue)
 - [Wrapping up](#wrapping-up)
 
@@ -177,6 +178,72 @@ class Solution {
 The complexity of this solution is:
 - Time complexity: `O(mlogn)` with `m` is the size of `queries` array and `n` is the size of `nums` array.
 - Space complexity: `O(m)`.
+
+To further optimize the current solution, we can try the following solution. It takes only 3 ms in LeetCode, while our solution takes 6 ms.
+
+```Java
+class Solution {
+    public int[] answerQueries(int[] nums, int[] queries) {
+        Arrays.sort(nums);
+
+        // calculate the prefix sum in-place
+        for (int i = 1; i < nums.length; ++i) {
+            nums[i] += nums[i - 1];
+        }
+
+        int[] res = new int[queries.length];
+        for (int i = 0; i < queries.length; ++i) {
+            int j = 0;
+
+            if (queries[i] >= nums[nums.length - 1]) {
+                res[i] = nums.length;
+            } else {
+                while (nums[j] <= queries[i]) {
+                    ++j;
+                }
+
+                res[i] = j;
+            }
+        }
+
+        return res;
+    }
+}
+```
+
+
+<br>
+
+## Using Tree Map with Binary Search
+
+In Java, TreeMap supports the `floorKey()` method that returns the greatest key less than or equal to the given key, or null if there is no such key. This method is suitable for our case when we need to find the element's index in prefix sum array.
+
+Below is our source code:
+
+```Java
+class Solution {
+    public int[] answerQueries(int[] nums, int[] queries) {
+        Arrays.sort(nums);
+
+        int sum = 0;
+        TreeMap<Integer, Integer> treeMap = new TreeMap<>();
+        treeMap.put(0, 0);
+
+        for (int i = 0; i < nums.length; ++i) {
+            sum += nums[i];
+            treeMap.put(sum, i + 1);
+        }
+
+        int[] res = new int[queries.length];
+        for (int i = 0; i < queries.length; ++i) {
+            int key = treeMap.floorKey(queries[i]);
+            res[i] = treeMap.get(key);
+        }
+
+        return res;
+    }
+}
+```
 
 
 <br>
