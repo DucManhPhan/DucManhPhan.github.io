@@ -91,6 +91,8 @@ How do we overcome these problems?
 
     - Download Docker Desktop for Windows
 
+        Before setting up Docker on Windows, we need to install or upgrade WSL to WSL 2. We can check it on the following page: [The guide to install WSL 2 on Windows 10](https://linuxteamvietnam.us/huong-dan-cai-dat-wsl-2-tren-windows-10/)
+
         To install Docker for Windows, we need to download docker desktop from [https://hub.docker.com/editions/community/docker-ce-desktop-windows/](https://hub.docker.com/editions/community/docker-ce-desktop-windows/).
 
         ![](../img/CI-CD/docker/setup-docker-1.png)
