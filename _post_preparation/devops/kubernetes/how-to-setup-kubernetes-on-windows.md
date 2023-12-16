@@ -10,19 +10,12 @@ tags: [DevOps, Kubernetes]
 <br>
 
 ## Table of contents
-- [Given problem](#given-problem)
-- []()
+- [Pre-requisites](#pre-requisites)
+- [Step 1: Install kubectl](#step-1-install-kubectl)
+- [Step 2: Install Minikube](#step-2-install-minikube)
+- [Step 3: Setup connections for Minikube](#step-3-setup-connections-for-minikube)
 - []()
 - [Wrapping up](#wrapping-up)
-
-
-<br>
-
-## Given problem
-
-Currently, our projects are often deployed with 3 instances by using Docker. Our problem is that how can we manage this cluster like to reduce issues such as scalability, 
-
-
 
 
 <br>
@@ -56,10 +49,6 @@ Currently, our projects are often deployed with 3 instances by using Docker. Our
 
         ![](../../../img/devops/container-orchestrator/kubenetes/setup/kubernetes-4.png)
 
-    - Double click this executable file of kubectl to install it.
-
-        
-
     - Next step is that we will add the path of kubectl to the **Environment Variables** of Windows.
 
         Before doing this, we need to take care the note of Kubentes about kubectl of Docker Desktop for Windows like the below image.
@@ -67,8 +56,26 @@ Currently, our projects are often deployed with 3 instances by using Docker. Our
         ![](../../../img/devops/container-orchestrator/kubenetes/setup/kubernetes-5.png)
 
         Then, start to setup PATH of kubectl for Environment Variables.
+        
+        ![](../../../img/devops/container-orchestrator/kubenetes/setup/kubernetes-6.png)
+        
+        Choose the **Path** of User Variables section. And add our path of kubectl executable file into it.
+ 
+        ![](../../../img/devops/container-orchestrator/kubenetes/setup/kubernetes-7.png)
 
+        Click OK button.
 
+    - Verify the kubectl file is installed correctly or not by using cmd or powershell.
+
+        ```bat
+        kubectl version --client
+
+        kubectl version --client --output=yaml
+        ```
+
+        So, we installed kubectl successfully.
+
+        ![](../../../img/devops/container-orchestrator/kubenetes/setup/kubernetes-8.png)
 
 
 <br>
