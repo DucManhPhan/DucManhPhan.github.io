@@ -14,7 +14,7 @@ tags: [DevOps, Kubernetes]
 - [Step 1: Install kubectl](#step-1-install-kubectl)
 - [Step 2: Install Minikube](#step-2-install-minikube)
 - [Step 3: Setup connections for Minikube](#step-3-setup-connections-for-minikube)
-- []()
+- [Some issues while installing Kubernetes](#some-issues-while-installing-kubernetes)
 - [Wrapping up](#wrapping-up)
 
 
@@ -187,6 +187,48 @@ tags: [DevOps, Kubernetes]
 
     Run the following commands:
     - `minikube start --vm-driver="hyperv" --hyperv-virtual-switch="minikube"`
+
+    We still run into the issue with the message: "Hyper-V was unable to find a virtual machine with name "minikube".".
+
+    ![](../../../img/devops/container-orchestrator/kubenetes/setup/kubernetes-25.png)
+
+    Below are some solutions for the above issue:
+    - First way.
+
+        Due to the fact that we use the VPN of CloudFlare, it cause this issue. Run the below commands:
+
+        ```
+        minikube delete --all
+
+        minikube start --driver=hyperv --force
+        ```
+
+        Then, we have:
+
+        ![](../../../img/devops/container-orchestrator/kubenetes/setup/kubernetes-26.png)
+
+    - Second way.
+    
+        When running the following command by using external virtual switch:
+
+        ```
+        minikube start --hyperv-use-external-switch
+        ```
+
+        It works.
+
+
+<br>
+
+## Some issues while installing Kubernetes
+
+1. When running `minikube start`, we will run into the following error: "Unable to resolve the current Docker CLI context "default"".
+
+    Try to update your active context of docker which Minikube will pick up.
+
+    ```
+    docker context use default
+    ```   
 
 
 <br>
