@@ -195,9 +195,3 @@ tags: [DevOps, Kubernetes]
 
 
 
-
-<br>
-
-Refer:
-
-[]()
