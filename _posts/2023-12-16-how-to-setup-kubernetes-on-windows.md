@@ -34,7 +34,7 @@ tags: [DevOps, Kubernetes]
 
     Follow the instructions to enable Hyper-V on this page: [Install Hyper-V on Windows 10](https://learn.microsoft.com/en-us/virtualization/hyper-v-on-windows/quick-start/enable-hyper-v).
 
-    ![](../../../img/devops/container-orchestrator/kubenetes/setup/kubernetes-10.png)
+    ![](../img/devops/container-orchestrator/kubenetes/setup/kubernetes-10.png)
 
 4. Installed Docker Desktop.
 
@@ -47,35 +47,35 @@ tags: [DevOps, Kubernetes]
 
 - Firstly, go to the following page of Kubernetes: [https://kubernetes.io/docs/tasks/tools/](https://kubernetes.io/docs/tasks/tools/).
 
-    ![](../../../img/devops/container-orchestrator/kubenetes/setup/kubernetes-1.png)
+    ![](../img/devops/container-orchestrator/kubenetes/setup/kubernetes-1.png)
 
 - Then, select [Install kubectl on Windows](https://kubernetes.io/docs/tasks/tools/install-kubectl-windows/) item.
 
-    ![](../../../img/devops/container-orchestrator/kubenetes/setup/kubernetes-2.png)
+    ![](../img/devops/container-orchestrator/kubenetes/setup/kubernetes-2.png)
 
     In this step, we will follow **Install kubectl binary curl on Windows** section.
 
     - Download the kubectl with version - 1.29.0.
 
-        ![](../../../img/devops/container-orchestrator/kubenetes/setup/kubernetes-3.png)
+        ![](../img/devops/container-orchestrator/kubenetes/setup/kubernetes-3.png)
 
         Then, we have:
 
-        ![](../../../img/devops/container-orchestrator/kubenetes/setup/kubernetes-4.png)
+        ![](../img/devops/container-orchestrator/kubenetes/setup/kubernetes-4.png)
 
     - Next step is that we will add the path of kubectl to the **Environment Variables** of Windows.
 
         Before doing this, we need to take care the note of Kubentes about kubectl of Docker Desktop for Windows like the below image.
 
-        ![](../../../img/devops/container-orchestrator/kubenetes/setup/kubernetes-5.png)
+        ![](../img/devops/container-orchestrator/kubenetes/setup/kubernetes-5.png)
 
         Then, start to setup PATH of kubectl for Environment Variables.
         
-        ![](../../../img/devops/container-orchestrator/kubenetes/setup/kubernetes-6.png)
+        ![](../img/devops/container-orchestrator/kubenetes/setup/kubernetes-6.png)
         
         Choose the **Path** of User Variables section. And add our path of kubectl executable file into it.
  
-        ![](../../../img/devops/container-orchestrator/kubenetes/setup/kubernetes-7.png)
+        ![](../img/devops/container-orchestrator/kubenetes/setup/kubernetes-7.png)
 
         Click OK button.
 
@@ -89,7 +89,7 @@ tags: [DevOps, Kubernetes]
 
         So, we installed kubectl successfully.
 
-        ![](../../../img/devops/container-orchestrator/kubenetes/setup/kubernetes-8.png)
+        ![](../img/devops/container-orchestrator/kubenetes/setup/kubernetes-8.png)
 
 
 <br>
@@ -98,19 +98,19 @@ tags: [DevOps, Kubernetes]
 
 - Go to the **Installation** section of the following page: https://minikube.sigs.k8s.io/docs/start/.
 
-    ![](../../../img/devops/container-orchestrator/kubenetes/setup/kubernetes-9.png)
+    ![](../img/devops/container-orchestrator/kubenetes/setup/kubernetes-9.png)
 
 - Download the executable file of Minikube.
 
-    ![](../../../img/devops/container-orchestrator/kubenetes/setup/kubernetes-11.png)
+    ![](../img/devops/container-orchestrator/kubenetes/setup/kubernetes-11.png)
 
 - Add the path of Minikube to the **Path** of **User Variables** on Windows 10.
 
-    ![](../../../img/devops/container-orchestrator/kubenetes/setup/kubernetes-13.png)
+    ![](../img/devops/container-orchestrator/kubenetes/setup/kubernetes-13.png)
 
 - Install that executable file of Minikube like the below image.
 
-    ![](../../../img/devops/container-orchestrator/kubenetes/setup/kubernetes-12.png)
+    ![](../img/devops/container-orchestrator/kubenetes/setup/kubernetes-12.png)
 
 - Testing the Minikube.
 
@@ -120,7 +120,7 @@ tags: [DevOps, Kubernetes]
 
     But we also run into the following issue:
 
-    ![](../../../img/devops/container-orchestrator/kubenetes/setup/kubernetes-14.png)
+    ![](../img/devops/container-orchestrator/kubenetes/setup/kubernetes-14.png)
 
     To solve this issue, we will go to the next step: [Step 3: Setup connections for Minikube](#step-3-setup-connections-for-minikube).
 
@@ -133,15 +133,15 @@ tags: [DevOps, Kubernetes]
 
     - Go to the **Hyper-V Manager** by searching it on Windows's Start.
 
-        ![](../../../img/devops/container-orchestrator/kubenetes/setup/kubernetes-15.png)
+        ![](../img/devops/container-orchestrator/kubenetes/setup/kubernetes-15.png)
 
         Then, we have:
 
-        ![](../../../img/devops/container-orchestrator/kubenetes/setup/kubernetes-16.png)
+        ![](../img/devops/container-orchestrator/kubenetes/setup/kubernetes-16.png)
 
     - Select the **DESKTOP-HKLMQUVE** item under Hyper-V Manager.
 
-        ![](../../../img/devops/container-orchestrator/kubenetes/setup/kubernetes-17.png)
+        ![](../img/devops/container-orchestrator/kubenetes/setup/kubernetes-17.png)
 
     - Select Virtual Switch Manager on the left side of **Actions** dialog.
 
@@ -149,17 +149,17 @@ tags: [DevOps, Kubernetes]
 
         Then, choose **Internal** for the question: What type of virtual switch do you want to create?
 
-        ![](../../../img/devops/container-orchestrator/kubenetes/setup/kubernetes-18.png)
+        ![](../img/devops/container-orchestrator/kubenetes/setup/kubernetes-18.png)
 
         Click **Create Virtual Switch** button. Then, we have:
 
-        ![](../../../img/devops/container-orchestrator/kubenetes/setup/kubernetes-19.png)
+        ![](../img/devops/container-orchestrator/kubenetes/setup/kubernetes-19.png)
 
     - Setup the **New Virtual Switch Internal Only**.
 
         Change the **Name** field to **minikube**. Then, choose the **Internal network**.
 
-        ![](../../../img/devops/container-orchestrator/kubenetes/setup/kubernetes-20.png)
+        ![](../img/devops/container-orchestrator/kubenetes/setup/kubernetes-20.png)
         
         Click OK button.
 
@@ -167,19 +167,19 @@ tags: [DevOps, Kubernetes]
 
     - Go to the **Network and Sharing Center** dialog.
 
-        ![](../../../img/devops/container-orchestrator/kubenetes/setup/kubernetes-21.png)
+        ![](../img/devops/container-orchestrator/kubenetes/setup/kubernetes-21.png)
 
     - Choose the **Ethernet** in Connections.
 
-        ![](../../../img/devops/container-orchestrator/kubenetes/setup/kubernetes-22.png)
+        ![](../img/devops/container-orchestrator/kubenetes/setup/kubernetes-22.png)
 
     - Click **Properties** button on this dialog, and go to the **Sharing** tab.
 
-        ![](../../../img/devops/container-orchestrator/kubenetes/setup/kubernetes-23.png)
+        ![](../img/devops/container-orchestrator/kubenetes/setup/kubernetes-23.png)
 
     - Choose a checkbox **Allow other network users to connect through this computer's internet connection**. Then, Choose the **Home networking connection** with **vEthernet (minikube)** option.
 
-        ![](../../../img/devops/container-orchestrator/kubenetes/setup/kubernetes-24.png)
+        ![](../img/devops/container-orchestrator/kubenetes/setup/kubernetes-24.png)
 
         Click OK button.
 
@@ -190,7 +190,7 @@ tags: [DevOps, Kubernetes]
 
     We still run into the issue with the message: "Hyper-V was unable to find a virtual machine with name "minikube".".
 
-    ![](../../../img/devops/container-orchestrator/kubenetes/setup/kubernetes-25.png)
+    ![](../img/devops/container-orchestrator/kubenetes/setup/kubernetes-25.png)
 
     Below are some solutions for the above issue:
     - First way.
@@ -205,7 +205,7 @@ tags: [DevOps, Kubernetes]
 
         Then, we have:
 
-        ![](../../../img/devops/container-orchestrator/kubenetes/setup/kubernetes-26.png)
+        ![](../img/devops/container-orchestrator/kubenetes/setup/kubernetes-26.png)
 
     - Second way.
     
