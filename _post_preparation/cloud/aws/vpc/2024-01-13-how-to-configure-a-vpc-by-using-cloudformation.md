@@ -1,6 +1,6 @@
 ---
 layout: post
-title: How to configure a VPC in AWS
+title: How to configure a VPC by AWS Management Console
 bigimg: /img/image-header/yourself.jpeg
 tags: [AWS, VPC]
 ---

@@ -1,9 +1,10 @@
 ---
 layout: post
-title: Introduction to Amazon Web Service
-bigimg: /img/path.jpg
-tags: [AWS]
+title: How to configure a VPC by AWS Management Console
+bigimg: /img/image-header/yourself.jpeg
+tags: [AWS, VPC]
 ---
+
 
 
 <br>
