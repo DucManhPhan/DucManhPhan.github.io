@@ -2,7 +2,7 @@
 layout: post
 title: VPC and Subnets
 bigimg: /img/image-header/yourself.jpeg
-tags: [Java]
+tags: [AWS, VPC]
 ---
 
 
