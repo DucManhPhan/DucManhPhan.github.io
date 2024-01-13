@@ -24,6 +24,11 @@ tags: [Java]
     - [Private Subnets](#private-subnets)
     - [CIDR](#cidr)
 
+- [How to configure VPC and Subnets](#how-to-configure-vpc-and-subnets)
+
+    - [Configuration for VPC](#configuration-for-vpc)
+    - [Configuration for Subnets](#configuration-for-subnets)
+
 - [Wrapping up](#wrapping-up)
 
 
@@ -78,8 +83,10 @@ tags: [Java]
 
 ## How to configure VPC and Subnets
 
+### Configuration for VPC
 
 
+### Configuration for Subnets
 
 
 <br>
