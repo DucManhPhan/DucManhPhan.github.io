@@ -41,7 +41,7 @@ Nowadays, most of the projects will be deployed on Cloud. Some cloud providers t
 
 Today, we will learn the VPC - Virtual Private Network that is the important part in AWS. And how to create it by using AWS Management Console. Our design will be looked like the below image.
 
-![](../../../../img/cloud/aws/vpc/vpc-1.png)
+![](../img/cloud/aws/vpc/vpc-1.png)
 
 
 <br>
@@ -182,25 +182,25 @@ A route table consists of a set of rules. They are called routes. A route consis
 
 Go to the AWS Management Console. Then, search VPC, we have:
 
-![](../../../../img/cloud/aws/vpc/vpc-2.png)
+![](../img/cloud/aws/vpc/vpc-2.png)
 
 Click to **VPC** service, we have:
 
-![](../../../../img/cloud/aws/vpc/vpc-3.png)
+![](../img/cloud/aws/vpc/vpc-3.png)
 
 In this screen, click on the **Create VPC** button.
 
-![](../../../../img/cloud/aws/vpc/vpc-4.png)
+![](../img/cloud/aws/vpc/vpc-4.png)
 
 Because this is a guide step-by-step, so we will create only VPC resource, not other resources. Subnets will be created in the below section.
 
 Below is the configuration for the VPC:
 
-![](../../../../img/cloud/aws/vpc/vpc-5.png)
+![](../img/cloud/aws/vpc/vpc-5.png)
 
 Notes for **Tenancy** field.
 
-![](../../../../img/cloud/aws/vpc/vpc-6.png)
+![](../img/cloud/aws/vpc/vpc-6.png)
 
 There are two types of Tenancy:
 - **Default**.
@@ -213,7 +213,7 @@ There are two types of Tenancy:
 
 Click on the **Create VPC** button to complete the configuration for VPC.
 
-![](../../../../img/cloud/aws/vpc/vpc-7.png)
+![](../img/cloud/aws/vpc/vpc-7.png)
 
 ### Configuration for Subnets
 
@@ -221,27 +221,27 @@ Firstly, according to the infrastructure that we want to create, there're 2 publ
 
 To move to **Subnets** screen, choose **Subnets** item on the left-hand side.
 
-![](../../../../img/cloud/aws/vpc/vpc-8.png)
+![](../img/cloud/aws/vpc/vpc-8.png)
 
 Click on **Create subnet** button, we have:
 
-![](../../../../img/cloud/aws/vpc/vpc-9.png)
+![](../img/cloud/aws/vpc/vpc-9.png)
 
 In the drop-down of **VPC ID**, choose **vpc-guide**. Then, we have:
 
-![](../../../../img/cloud/aws/vpc/vpc-10.png)
+![](../img/cloud/aws/vpc/vpc-10.png)
 
 Next, fill the information of this public subnet like the below image:
 
-![](../../../../img/cloud/aws/vpc/vpc-11.png)
+![](../img/cloud/aws/vpc/vpc-11.png)
 
 Click on **Create subnet** button, we have:
 
-![](../../../../img/cloud/aws/vpc/vpc-12.png)
+![](../img/cloud/aws/vpc/vpc-12.png)
 
 Repeat these steps above for the second public subnet and 2 private subnets, we have:
 
-![](../../../../img/cloud/aws/vpc/vpc-13.png)
+![](../img/cloud/aws/vpc/vpc-13.png)
 
 
 <br>
