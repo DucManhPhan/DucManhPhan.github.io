@@ -213,9 +213,35 @@ There are two types of Tenancy:
 
 Click on the **Create VPC** button to complete the configuration for VPC.
 
+![](../../../../img/cloud/aws/vpc/vpc-7.png)
+
 ### Configuration for Subnets
 
+Firstly, according to the infrastructure that we want to create, there're 2 public subnets, and 2 private subnets. Each pair of public subnet and private subnet will be put in one availability zone of region - Singapore.
 
+To move to **Subnets** screen, choose **Subnets** item on the left-hand side.
+
+![](../../../../img/cloud/aws/vpc/vpc-8.png)
+
+Click on **Create subnet** button, we have:
+
+![](../../../../img/cloud/aws/vpc/vpc-9.png)
+
+In the drop-down of **VPC ID**, choose **vpc-guide**. Then, we have:
+
+![](../../../../img/cloud/aws/vpc/vpc-10.png)
+
+Next, fill the information of this public subnet like the below image:
+
+![](../../../../img/cloud/aws/vpc/vpc-11.png)
+
+Click on **Create subnet** button, we have:
+
+![](../../../../img/cloud/aws/vpc/vpc-12.png)
+
+Repeat these steps above for the second public subnet and 2 private subnets, we have:
+
+![](../../../../img/cloud/aws/vpc/vpc-13.png)
 
 
 <br>
