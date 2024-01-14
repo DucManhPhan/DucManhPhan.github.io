@@ -211,6 +211,8 @@ There are two types of Tenancy:
 
     Our resources will use the separated hardware with other accounts.
 
+Click on the **Create VPC** button to complete the configuration for VPC.
+
 ### Configuration for Subnets
 
 
