@@ -23,6 +23,7 @@ tags: [AWS, VPC]
     - [Public Subnets](#public-subnets)
     - [Private Subnets](#private-subnets)
     - [CIDR](#cidr)
+    - [Router Tables](#router-tables)
 
 - [How to configure VPC and Subnets](#how-to-configure-vpc-and-subnets)
 
@@ -103,16 +104,74 @@ There are two tyes of subnets:
 
 ### Public Subnets
 
-
+Public subnet is a subnet that is accessiable from Internet, and vice versa.
 
 ### Private Subnets
 
-
+Private subnet is a subnet that is not accessible from Internet.
 
 ### CIDR
 
+CIDR stands for **Classless Inter-Domain Routing**. It will be used to allocate the IP addresses to resources in a subnet.
+
+Before going into the meaning of CIDR, we need to walk through the classful addresses of IP addres. IP address, like 192.168.1.0, consists of 32 bits. Each number was separated by a dot, and has value from 0 - (2^8 - 1).
+
+Below are 3 classful addreses of IP address.
+- Class A.
+
+    A Class A IPv4 address has 8 network prefix bits. The first bit in this octet is always `0`. So the range value of this octet, or the network address is from 1 - (2^7 - 1).
+
+    For example:
+    - 12.0.0.1
+
+        `12` is the network addres and `0.0.1` is the host address.
+
+- Class B.
+
+    A Class B IPv4 address has 16 network prefix bits. The first two bits in the first octet are always `10`. So the range value of this octet, or the network address is from 128 to 191.
+
+    For example:
+    - 128.12.0.1
+
+        `128.12` is the network addres and `0.1` is the host address.
+
+- Class C.
+
+    A Class C IPv4 address has 24 network prefix bits. The first three bits in the first octet are always `110`. So the range value of this octet, or the network address is from 192 to 233.
+
+    For example:
+    - 192.168.1.10
+
+        `192.168.1` is the network addres and `10` is the host address.
+
+Without using classful addres concepts, it will use the suffix number to point the number of bits for network address.
+
+For example:
+- CIDR: 192.168.1.0/24
+
+    24 will be used for network address. Or the remaining bits are 8 bits that use for host address.
+
+From that, this is a good way to manage the number of IP addreses efficiently, like our services will have 3 instances for now, then we can use CIDR suffix is 28. So the 4 bits will be used for host address, corresponding 16 host addresses.
 
 ### Router Tables
+
+After configured the VPC, subnets for our resources, the questions:
+- How do resources in each subnet access to outside, and vice versa? 
+- Which part will handle this issue?
+
+Router table will appear to solve it. It will define the data packet's flow of resources.
+
+Each subnet in a VPC will have a route table. The multiple subnets can point to the one route table.
+
+A route table consists of a set of rules. They are called routes. A route consists of a destination and a target.
+
+- A destination is the IP range that sent data.
+- A target is the network interface that is received data.
+
+|  Destination  |   Target   |
+| ------------- | ---------- |
+| 10.0.0.0/16   | local      |
+| 0.0.0.0/0     | igw        |
 
 
 <br>
@@ -121,8 +180,40 @@ There are two tyes of subnets:
 
 ### Configuration for VPC
 
+Go to the AWS Management Console. Then, search VPC, we have:
+
+![](../../../../img/cloud/aws/vpc/vpc-2.png)
+
+Click to **VPC** service, we have:
+
+![](../../../../img/cloud/aws/vpc/vpc-3.png)
+
+In this screen, click on the **Create VPC** button.
+
+![](../../../../img/cloud/aws/vpc/vpc-4.png)
+
+Because this is a guide step-by-step, so we will create only VPC resource, not other resources. Subnets will be created in the below section.
+
+Below is the configuration for the VPC:
+
+![](../../../../img/cloud/aws/vpc/vpc-5.png)
+
+Notes for **Tenancy** field.
+
+![](../../../../img/cloud/aws/vpc/vpc-6.png)
+
+There are two types of Tenancy:
+- **Default**.
+
+    This is the ubiquitous used configuration. It means that multiple customers will use the same hardware. Its cost is quite cheap, but the **noisy neighbor effect** is happened. It means that an account's resources can affect to the performance of resources of other account.
+
+- **Dedicated**.
+
+    Our resources will use the separated hardware with other accounts.
 
 ### Configuration for Subnets
+
+
 
 
 <br>
