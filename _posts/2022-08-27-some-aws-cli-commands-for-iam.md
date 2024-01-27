@@ -1,8 +1,8 @@
 ---
 layout: post
-title: Some AWS CLI commands for S3
+title: Some AWS CLI commands for IAM
 bigimg: /img/image-header/yourself.jpeg
-tags: [AWS, S3]
+tags: [AWS, IAM]
 ---
 
 
