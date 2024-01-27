@@ -87,7 +87,7 @@ Belows are some steps to use **@Async** annotation in our project.
 
         This problem is as same as calling **run()** method of Thread object directly, without calling **start()** method.
 
-    The **@Async** used with public method that have **void** return type or return type **Future<T>**, **CompletableFuture<T>**.
+    The **@Async** used with public method that have **void** return type or return type **Future\<T\>**, **CompletableFuture\<T\>**.
 
     ```java
     @Component
