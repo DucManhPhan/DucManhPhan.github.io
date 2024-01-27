@@ -1,8 +1,8 @@
 ---
 layout: post
-title: 
+title: Some AWS commands for S3
 bigimg: /img/image-header/yourself.jpeg
-tags: [Java]
+tags: [AWS, S3]
 ---
 
 
@@ -48,7 +48,7 @@ tags: [Java]
 
     Then, we have:
 
-    ![](../../../../img/cloud/aws/s3/setup/s3-setup-1.png)
+    ![](../img/cloud/aws/s3/setup/s3-setup-1.png)
 
 
 <br>
@@ -73,11 +73,11 @@ tags: [Java]
 
     For example:
 
-    ![](../../../../img/cloud/aws/s3/setup/s3-setup-2.png)
+    ![](../img/cloud/aws/s3/setup/s3-setup-2.png)
 
     At the same time, checking on S3 bucket - `s3manhpd`, we have:
 
-    ![](../../../../img/cloud/aws/s3/setup/s3-setup-3.png)
+    ![](../img/cloud/aws/s3/setup/s3-setup-3.png)
 
 2. To move a local file to a bucket in S3.
 
@@ -123,7 +123,7 @@ tags: [Java]
 
     For example:
 
-    ![](../../../../img/cloud/aws/s3/setup/s3-setup-4.png)
+    ![](../img/cloud/aws/s3/setup/s3-setup-4.png)
 
 9. List only the filenames of a S3 bucket.
 
