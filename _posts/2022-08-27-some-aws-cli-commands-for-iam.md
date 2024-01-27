@@ -31,7 +31,7 @@ aws <command> <subcommand> [options and parameters]
 
 ## Important files of IAM
 
-![](../../../../img/cloud/aws/cli/cli-1.png)
+![](../img/cloud/aws/cli/cli-1.png)
 
 AWS provides the two necessary files: **config** and **credentials**. They are located in the **.aws** directory.
 
