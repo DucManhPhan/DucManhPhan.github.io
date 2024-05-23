@@ -2,7 +2,7 @@
 layout: post
 title: Leetcode 1768 - Merge Strings Alternatively
 bigimg: /img/image-header/yourself.jpeg
-tags: [Two-Pointers]
+tags: [Two-Pointers, LeetCode 75]
 ---
 
 
