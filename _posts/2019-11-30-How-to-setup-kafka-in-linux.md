@@ -12,13 +12,26 @@ In this article, we will learn how to setup Kafka in Ubuntu. Let's get started.
 ## Table of contents
 - [Environment that Kafka need to work](#environment-that-kafka-need-to-word)
 - [Setup Kafka service](#setup-kafka-service)
+
+    - [Run zookeeper service](#run-zookeeper-service)
+    - [Run kafka service](#run-kafka-service)
+    - [Remove services that have status is failed](#remove-services-that-have-status-is-failed)
+
 - [Create producer and consumer to test connection between Kafka cluster and Zookeeper](#create-producer-and-consumer-to-test-connection-between-kafka-cluster-and-zookeeper)
+
+    - [Create topic](#create-topic)
+    - [Create producer](#create-producer)
+    - [Create consumer](#create-consumer)
+
 - [Create script file](#create-script-file)
+- [Operations for consumer groups](#operations-for-consumer-groups)
+- [Operations for topics](#operations-for-topics)
 - [Wrapping up](#wrapping-up)
 
 <br>
 
 ## Environment that Kafka need to work
+
 - Ubuntu 18.4.0 LTS.
 
 - Use Putty instead of command line of WinSCP.
@@ -64,190 +77,200 @@ In this article, we will learn how to setup Kafka in Ubuntu. Let's get started.
 <br>
 
 ## Setup Kafka service
-1. Run zookeeper service
 
-    - Create file ```zookeeper.service``` in Ubuntu's ```systemd```.
+### Run zookeeper service
 
-        ```bash
-        sudo nano /etc/systemd/system/zookeeper.service
-        ```
-
-    - Content of ```zookeeper.service``` file.
-
-        ```java
-        [Unit]
-        Requires=network.target remote-fs.target
-        After=network.target remote-fs.target
-
-        [Service]
-        Type=simple
-        User=root
-        ExecStart=/home/kafka/kafka_2.11-2.3.1/bin/zookeeper-server-start.sh /home/kafka/kafka_2.11-2.3.1/config/zookeeper.properties
-        ExecStop=/home/kafka/kafka_2.11-2.3.1/bin/zookeeper-server-stop.sh
-        Restart=on-abnormal
-
-        [Install]
-        WantedBy=multi-user.target
-        ```
-    
-    - Check whether zookeeper server is running.
-
-        ```bash
-        # setup net-tools package
-        sudo apt-get install net-tools
-
-        # zookeeper server run default at port 2181
-        netstat -tulpn | grep 2181
-
-        # stop zookeeper service
-        systemctl stop zookeeper
-
-        # if we do not install net-tools package, we can use other way to check
-        telnet ip_addr port
-        ```
-
-    - Run ```zookeeper.service``` file.
-
-        ```bash
-        # run as root user
-        sudo su
-
-        # use systemctl
-        systemctl start zookeeper
-
-        # run zookeper service automatically when starting system
-        systemctl enable zookeeper
-        ```
-
-
-2. Run kafka service
-
-    - Create file ```kafka.service``` in ```systemd``` of Ubuntu.
-
-        ```bash
-        sudo nano /etc/systemd/system/kafka.service
-        ```
-
-    - Content of ```kafka.service```.
-
-        ```bash
-        [Unit]
-        Requires=zookeeper.service
-        After=zookeeper.service
-
-        [Service]
-        Type=simple
-        User=root
-        ExecStart=/bin/sh -c '/home/kafka/kafka_2.11-2.3.1/bin/kafka-server-start.sh /home/kafka/kafka_2.11-2.3.1/config/server.properties > /home/kafka/kafka_2.11-2.3.1/kafka-logs/kafka-service-log.txt 2>&1'
-        ExecStop=/home/kafka/kafka_2.11-2.3.1/bin/kafka-server-stop.sh
-        Restart=on-abnormal
-
-        [Install]
-        WantedBy=multi-user.target
-        ```
-
-    - Check whether kafka server is running.
-
-        ```bash
-        # setup net-tools package
-        sudo apt-get install net-tools
-
-        # zookeeper server  run default at port 9092
-        netstat -tulpn | grep 9092
-
-        # stop zookeeper service
-        systemctl stop kafka
-        ```
-
-    - Run ```kafka.service```.
-
-        ```bash
-        # run as root user
-        sudo su
-
-        # use systemctl
-        systemctl start kafka
-
-        # run kafka service automatically when starting system
-        systemctl enable kafka
-        ```
-
-3. Remove services that have status is failed
+- Create file ```zookeeper.service``` in Ubuntu's ```systemd```.
 
     ```bash
-    sudo systemctl reset-failed
-
-    # or
-    systemctl disable service_name
-    rm /etc/systemd/system/service_name
-    systemctl daemon-reload
+    sudo nano /etc/systemd/system/zookeeper.service
     ```
+
+- Content of ```zookeeper.service``` file.
+
+    ```java
+    [Unit]
+    Requires=network.target remote-fs.target
+    After=network.target remote-fs.target
+
+    [Service]
+    Type=simple
+    User=root
+    ExecStart=/home/kafka/kafka_2.11-2.3.1/bin/zookeeper-server-start.sh /home/kafka/kafka_2.11-2.3.1/config/zookeeper.properties
+    ExecStop=/home/kafka/kafka_2.11-2.3.1/bin/zookeeper-server-stop.sh
+    Restart=on-abnormal
+
+    [Install]
+    WantedBy=multi-user.target
+    ```
+
+- Check whether zookeeper server is running.
+
+    ```bash
+    # setup net-tools package
+    sudo apt-get install net-tools
+
+    # zookeeper server run default at port 2181
+    netstat -tulpn | grep 2181
+
+    # stop zookeeper service
+    systemctl stop zookeeper
+
+    # if we do not install net-tools package, we can use other way to check
+    telnet ip_addr port
+    ```
+
+- Run ```zookeeper.service``` file.
+
+    ```bash
+    # run as root user
+    sudo su
+
+    # use systemctl
+    systemctl start zookeeper
+
+    # run zookeper service automatically when starting system
+    systemctl enable zookeeper
+    ```
+
+### Run kafka service
+
+- Create file ```kafka.service``` in ```systemd``` of Ubuntu.
+
+    ```bash
+    sudo nano /etc/systemd/system/kafka.service
+    ```
+
+- Content of ```kafka.service```.
+
+    ```bash
+    [Unit]
+    Requires=zookeeper.service
+    After=zookeeper.service
+
+    [Service]
+    Type=simple
+    User=root
+    ExecStart=/bin/sh -c '/home/kafka/kafka_2.11-2.3.1/bin/kafka-server-start.sh /home/kafka/kafka_2.11-2.3.1/config/server.properties > /home/kafka/kafka_2.11-2.3.1/kafka-logs/kafka-service-log.txt 2>&1'
+    ExecStop=/home/kafka/kafka_2.11-2.3.1/bin/kafka-server-stop.sh
+    Restart=on-abnormal
+
+    [Install]
+    WantedBy=multi-user.target
+    ```
+
+- Check whether kafka server is running.
+
+    ```bash
+    # setup net-tools package
+    sudo apt-get install net-tools
+
+    # zookeeper server  run default at port 9092
+    netstat -tulpn | grep 9092
+
+    # stop zookeeper service
+    systemctl stop kafka
+    ```
+
+- Run ```kafka.service```.
+
+    ```bash
+    # run as root user
+    sudo su
+
+    # use systemctl
+    systemctl start kafka
+
+    # run kafka service automatically when starting system
+    systemctl enable kafka
+    ```
+
+### Remove services that have status is failed
+
+```bash
+sudo systemctl reset-failed
+
+# or
+systemctl disable service_name
+rm /etc/systemd/system/service_name
+systemctl daemon-reload
+```
+
 
 <br>
 
 ## Create producer and consumer to test connection between Kafka cluster and Zookeeper
-1. Create test topic
+
+### Create topic
+
+```bash
+# Create test topic
+kafka-topics.sh --create --topic test --bootstrap-server localhost:9092 --partitions 1 --replication-factor 1
+
+# Check whether the test topic is created or not
+kafka-topics.sh --list --bootstrap-server localhost:9092
+```
+
+### Create producer
 
     ```bash
-    # create test topic
-    bin/kafka-topics.sh --create --zookeeper localhost:2181 --replication-factor 1 --partitions 1 --topic test
+    # Run the below command of kafka-console-producer
+    kafka-console-producer.sh --bootstrap-server localhost:9092 --topic test
 
-    # check whether the test topic is created or not
-    bin/kafka-topics.sh --list --zookeeper localhost:2181
+    # Then, input the data
+    > ...
     ```
 
-2. Create producer
+### Create consumer
 
     ```bash
-    bin/kafka-console-producer.sh --broker-list localhost:9092 --topic test
+    kafka-console-consumer.sh --topic test --bootstrap-server localhost:9092 --from-beginning
     ```
 
-3. Create consumer
-
-    ```bash
-    bin/kafka-console-consumer.sh --bootstrap-server localhost:9092 --from-beginning --topic test
-    ```
 
 <br>
 
 ## Create script file
 
-    ```bash
-    sudo nano start.sh
+```bash
+sudo nano start.sh
 
-    # fill content for start.sh file
-    sudo systemctl reload-or-restart zookeeper.service
-    sudo systemctl reload-or-restart kafka.service
-    ```
+# fill content for start.sh file
+sudo systemctl reload-or-restart zookeeper.service
+sudo systemctl reload-or-restart kafka.service
+```
+
 
 <br>
 
 ## Operations for consumer groups
+
 1. List all consumer groups across all topics
 
     ```bash
-    bin/kafka-consumer-groups.sh --list --bootstrap-server localhost:9092
+    kafka-consumer-groups.sh --list --bootstrap-server localhost:9092
     ```
 
 2. Show information about specific consumer group
 
     ```bash
-    bin/kafak-consumer-groups.sh --describe --bootstrap-server localhost:9092 --group group_name
+    kafak-consumer-groups.sh --describe --bootstrap-server localhost:9092 --group group_name
     ```
 
 3. Delete specific consumer group
 
     ```bash
-    bin/kafka-consumer-groups.sh --delete --bootstrap-server localhost:9092 --group group_name
+    kafka-consumer-groups.sh --delete --bootstrap-server localhost:9092 --group group_name
     ```
 
 <br>
 
 ## Operations for topics
+
 1. List all topics
 
     ```bash
-    bin/kafka-topics.sh --list --zookeeper localhost:2181
+    kafka-topics.sh --list --bootstrap-server localhost:9092
     ```
 
 2. Create new topic
@@ -255,7 +278,7 @@ In this article, we will learn how to setup Kafka in Ubuntu. Let's get started.
     - First way, use ```kafka-topics.sh```
 
         ```bash
-        bin/kafka-topics.sh --create --zookeeper localhost:2181 --replication-factor 1 --partitions 1 --topic test
+        kafka-topics.sh --create --topic test --bootstrap-server localhost:9092 --replication-factor 1 --partitions 1
         ```
 
     - Second way, create new topic with specific consumer group name based on kafka-console-consumer.sh
@@ -266,14 +289,14 @@ In this article, we will learn how to setup Kafka in Ubuntu. Let's get started.
         # 2. change group.id=new_group_name in consumer1.properties file
 
         # 3. run below command
-        bin/kafka-console-consumer.sh --new-consumer --bootstrap-server localhost:9092 --topic topic_name --from-beginning --consumer.config config/consumer1.properties --delete-consumer-offsets
+        kafka-console-consumer.sh --new-consumer --bootstrap-server localhost:9092 --topic topic_name --from-beginning --consumer.config config/consumer1.properties --delete-consumer-offsets
         ```
 
     - Other way
 
         ```bash
         # or other way
-        bin/kafka-console-consumer.sh --bootstrap-server localhost:9092 --group test-consumer --topic test --from-beginning
+        kafka-console-consumer.sh --bootstrap-server localhost:9092 --group test-consumer --topic test --from-beginning
         ```
 
 3. Delete specific topic
@@ -285,7 +308,7 @@ In this article, we will learn how to setup Kafka in Ubuntu. Let's get started.
         delete.topic.enable=true
 
         # Then, use kafka-topics.sh to delete
-        bin/kafka-topics.sh --delete --zookeeper localhost:2181 --topic topic_name
+        kafka-topics.sh --delete --topic topic_name --bootstrap-server localhost:9092
         ```
 
     - Second, delete topic completely.
@@ -299,9 +322,11 @@ In this article, we will learn how to setup Kafka in Ubuntu. Let's get started.
         rmr /admin/delete_topics/topic_name
         ```
 
+
 <br>
 
 ## Wrapping up
+
 - Understanding about how many steps to run kafka.
 - Take care of commands about consumer groups, topics, producer.
 
