@@ -5,9 +5,6 @@ bigimg: /img/path.jpg
 tags: [Kafka]
 ---
 
-In this article, we will learn how to setup Kafka in Ubuntu. Let's get started.
-
-<br>
 
 ## Table of contents
 - [Environment that Kafka need to work](#environment-that-kafka-need-to-word)
@@ -27,6 +24,13 @@ In this article, we will learn how to setup Kafka in Ubuntu. Let's get started.
 - [Operations for consumer groups](#operations-for-consumer-groups)
 - [Operations for topics](#operations-for-topics)
 - [Wrapping up](#wrapping-up)
+
+<br>
+
+## Given problem
+
+In this article, we will learn how to setup Kafka in Ubuntu. Let's get started.
+
 
 <br>
 
