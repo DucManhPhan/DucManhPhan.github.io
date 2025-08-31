@@ -140,6 +140,22 @@ By default, AWS provides the **default** profile. If we want to have more profil
     $ aws configure list-profiles
     ```
 
+7. Verify connection based on these credentials.
+
+    ```bash
+    aws sts get-caller-identity
+    ```
+
+    If AWS returns the JSON output below, then it means we authentiate successfully.
+
+    ```json
+    {
+        "UserId": "xxx",
+        "Account": "xxx",
+        "Arn": "arn:aws:iam::xxx:user/xxx"
+    }
+    ```
+
 
 <br>
 
