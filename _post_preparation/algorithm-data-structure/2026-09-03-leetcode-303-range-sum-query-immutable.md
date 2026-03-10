@@ -12,8 +12,8 @@ tags: []
 
 ## Table of contents
 - [Given problem](#given-problem)
-- []()
-- []()
+- [Using For Loop](#using-for-loop)
+- [Using Prefix Sum](#using-prefix-sum)
 - [Wrapping up](#wrapping-up)
 
 
@@ -64,35 +64,91 @@ Constraints:
 
 <br>
 
-## Using Prefix Sum
+## Using For Loop
 
-
+For the first approach, we will rely on the steps of its description.
 
 ```Java
 class NumArray {
 
+    private int[] nums;
+
     public NumArray(int[] nums) {
-        
+        this.nums = nums;
     }
-    
+
     public int sumRange(int left, int right) {
-        
+        if (left < 0 || right >= nums.length || left > right) {
+            return -1;
+        }
+
+        int result = 0;
+        for (int i = left; i <= right; ++i) {
+            result += nums[i];
+        }
+
+        System.out.println("Sum range from " + left + " to " + right + ": " + result);
+        return result;
     }
 }
 ```
 
 The complexities of this way:
 
-- Time complexity:
-- Space complexity:
+- Time complexity: $O(m \times n)$.
+
+    - `m` is the number of queries.
+    - `n` is the length of the array.
+
+- Space complexity: $O(1)$.
 
 
 <br>
 
-## 
+## Using Prefix Sum
 
+To speed up [the previous solution](#using-for-loop) that is using For Loop, we need to eliminate the redundant sum in each loop by using the prefix sum array.
 
+```Java
+class NumArray {
 
+    private int[] nums;
+    private int[] prefixSum;
+
+    public NumArray(int[] nums) {
+        this.nums = nums;
+        this.prefixSum = this.calculatePrefixSum();
+    }
+    
+    public int sumRange(int left, int right) {
+        if (left < 0 || right >= this.nums.length || left > right) {
+            return -1;
+        }
+
+        return this.prefixSum[right + 1] - this.prefixSum[left];
+    }
+
+    private int[] calculatePrefixSum() {
+        int[] prefixSum = new int[this.nums.length + 1];
+        prefixSum[0] = 0;
+
+        for (int i = 0; i < nums.length; ++i) {
+            prefixSum[i + 1] = prefixSum[i] + nums[i];
+        }
+
+        return prefixSum;
+    }
+}
+```
+
+The complexities of this way:
+
+- Time complexity: $O(m + n)$.
+
+    - `m` is the number of queries.
+    - `n` is the length of the array.
+
+- Space complexity: $O(n + 1)$.
 
 
 <br>
