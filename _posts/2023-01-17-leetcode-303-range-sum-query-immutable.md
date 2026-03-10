@@ -145,12 +145,12 @@ class NumArray {
 
 The complexities of this way:
 
-- Time complexity: $O(m + n)$.
+- Time complexity: O(m + n).
 
     - `m` is the number of queries.
     - `n` is the length of the array.
 
-- Space complexity: $O(n + 1)$.
+- Space complexity: O(n + 1).
 
 
 <br>
