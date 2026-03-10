@@ -56,10 +56,10 @@ Example 1:
 
 Constraints:
 
-- $1 \le nums.length \le 10^4$.
-- $-10^5 \le nums[i] \le 10^5$
-- $0 \le left \le right \lt nums.length$.
-- At most $10^4$ calls will be made to `sumRange`.
+- 1 <= nums.length <= 10^4.
+- -10^5 <= nums[i] <= 10^5.
+- 0 <= left \le right <= nums.length.
+- At most 10^4 calls will be made to `sumRange`.
 
 
 <br>
@@ -95,12 +95,12 @@ class NumArray {
 
 The complexities of this way:
 
-- Time complexity: $O(m \times n)$.
+- Time complexity: O(m x n).
 
     - `m` is the number of queries.
     - `n` is the length of the array.
 
-- Space complexity: $O(1)$.
+- Space complexity: O(1).
 
 
 <br>
