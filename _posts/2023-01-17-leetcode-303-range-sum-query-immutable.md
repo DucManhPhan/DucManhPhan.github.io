@@ -1,8 +1,8 @@
 ---
 layout: post
-title: 
+title: Leetcode 303 - Range Sum Query - Immutable
 bigimg: /img/image-header/yourself.jpeg
-tags: []
+tags: [Prefix Sum]
 ---
 
 
@@ -106,6 +106,8 @@ The complexities of this way:
 <br>
 
 ## Using Prefix Sum
+
+Before jumping to this solution, we can read up on this article: [Prefix sum](https://ducmanhphan.github.io/2019-06-30-Prefix-sum/).
 
 To speed up [the previous solution](#using-for-loop) that is using For Loop, we need to eliminate the redundant sum in each loop by using the prefix sum array.
 
