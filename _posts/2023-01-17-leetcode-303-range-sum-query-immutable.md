@@ -58,7 +58,7 @@ Constraints:
 
 - 1 <= nums.length <= 10^4.
 - -10^5 <= nums[i] <= 10^5.
-- 0 <= left \le right <= nums.length.
+- 0 <= left <= right <= nums.length.
 - At most 10^4 calls will be made to `sumRange`.
 
 
