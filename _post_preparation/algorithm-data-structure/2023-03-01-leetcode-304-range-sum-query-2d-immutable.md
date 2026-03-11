@@ -2,7 +2,7 @@
 layout: post
 title: Leetcode 1365 - How Many Numbers Are Smaller Than the Current Number
 bigimg: /img/image-header/yourself.jpeg
-tags: [Binary Search]
+tags: [Prefix Sum]
 ---
 
 
@@ -12,6 +12,8 @@ tags: [Binary Search]
 
 ## Table of contents
 - [Given problem](#given-problem)
+- [Using Prefix Sum](#using-prefix-sum)
+- []()
 - []()
 - []()
 - [Wrapping up](#wrapping-up)
