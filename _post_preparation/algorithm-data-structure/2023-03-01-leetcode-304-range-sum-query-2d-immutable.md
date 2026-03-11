@@ -1,6 +1,6 @@
 ---
 layout: post
-title: Leetcode 1365 - How Many Numbers Are Smaller Than the Current Number
+title: Leetcode 304 - Range Sum Query 2D - Immutable
 bigimg: /img/image-header/yourself.jpeg
 tags: [Prefix Sum]
 ---
