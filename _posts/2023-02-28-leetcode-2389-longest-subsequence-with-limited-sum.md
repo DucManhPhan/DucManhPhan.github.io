@@ -309,6 +309,15 @@ class Solution {
 }
 ```
 
+- Time complexity: O(m * nlogn)
+
+    With m is the length of the `queries` array and n is the length of the `nums` array.
+
+- Space complexity: O(n).
+
+
+<br>
+
 
 <br>
 
