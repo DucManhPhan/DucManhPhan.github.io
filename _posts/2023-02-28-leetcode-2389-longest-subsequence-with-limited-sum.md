@@ -240,7 +240,7 @@ class Solution {
 
 ## Using Tree Map with Binary Search
 
-In Java, TreeMap supports the `floorKey()` method that returns the greatest key less than or equal to the given key, or null if there is no such key. This method is suitable for our case when we need to find the element's index in prefix sum array.
+In Java, `TreeMap` supports the `floorKey()` method that returns the greatest key less than or equal to the given key, or null if there is no such key. This method is suitable for our case when we need to find the element's index in prefix sum array.
 
 Below is our source code:
 
