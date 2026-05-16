@@ -2,7 +2,7 @@
 layout: post
 title: Leetcode 2389 - Longest Subsequence With Limited Sum
 bigimg: /img/image-header/yourself.jpeg
-tags: [Binary Search, Prefix Sum, Queue, Backtracking]
+tags: [Binary Search, Prefix Sum, PriorityQueue, Queue, Backtracking]
 ---
 
 
