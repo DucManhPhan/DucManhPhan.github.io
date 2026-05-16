@@ -102,11 +102,11 @@ class Solution {
 ```
 
 The complexity of this solution:
-- Time complexity: 
+- Time complexity: O(2^n).
 
     When running this solution on LeetCode, we run into the Time Limit Exceed issue. We need to try the other ways.
 
-- Space complexity: 
+- Space complexity: O(n).
 
 
 <br>
