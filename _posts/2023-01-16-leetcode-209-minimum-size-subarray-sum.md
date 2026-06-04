@@ -14,6 +14,7 @@ tags: [Binary Search, Prefix Sum, Sliding Window]
 - [Given problem](#given-problem)
 - [Using brute-force solution](#using-brute-force-solution)
 - [Using Binary Search algorithm with Prefix-sum](#using-binary-search-algorithm-with-prefix-sum)
+- [Using Sliding Window](#using-sliding-window)
 - [Wrapping up](#wrapping-up)
 
 
@@ -158,8 +159,41 @@ class Solution {
 ```
 
 The complexity of this solution:
-- Time complexity: O(nlogn)
-- Space complexity: O(n)
+- Time complexity: `O(nlogn)`.
+- Space complexity: `O(n)`.
+
+
+<br>
+
+## Using Sliding Window
+
+```Java
+class Solution {
+
+    private static int minSubArrayLen(int target, int[] nums) {
+        int sum = 0;
+        int start = 0;
+        int minLength = Integer.MAX_VALUE;
+
+        for (int end = 0; end < nums.length; end++) {
+            sum += nums[end];
+
+            while (sum >= target) {
+                minLength = Math.min(minLength, end - start + 1);
+
+                sum -= nums[start];
+                start++;
+            }
+        }
+
+        return minLength == Integer.MAX_VALUE ? 0 : minLength;
+    }
+}
+```
+
+The complexity of this solution:
+- Time complexity: `O(n)`.
+- Space complexity: `O(1)`.
 
 
 <br>
