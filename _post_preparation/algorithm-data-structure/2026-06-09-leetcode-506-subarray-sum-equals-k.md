@@ -75,6 +75,10 @@ The complexity of this solution:
 - Time complexity: $O(n^3)$.
 - Space complexity: $O(1)$.
 
+When running this solution on the Leetcode, it encounter TLE:
+
+![](../../img/Algorithm/prefix-sum/prefix-sum-1.png)
+
 
 <br>
 
@@ -95,4 +99,4 @@ The complexity of this solution:
 
 Refer:
 
-[]()
+[560. Subarray Sum Equals K](https://leetcode.com/problems/subarray-sum-equals-k/)
