@@ -84,11 +84,40 @@ When running this solution on the Leetcode, it encounter TLE:
 
 ## Using Prefix Sum + Hash Map
 
-
-
 ```Java
+class Solution {
+    public int subarraySum(int[] nums, int k) {
+        int count = 0;
 
+        // Initialize Prefix Sum array
+        int[] prefixSum = new int[nums.length + 1];
+        Arrays.fill(prefixSum, 0);
+
+        for (int i = 0; i < nums.length; ++i) {
+            prefixSum[i + 1] = prefixSum[i] + nums[i];
+        }
+
+        // Count the number of subarrays
+        Map<Integer, Integer> mp = new HashMap<>();
+        for (int i = 0; i < prefixSum.length; ++i) {
+            int target = prefixSum[i] - k;
+
+            if (mp.containsKey(target)) {
+                count += mp.get(target);
+            }
+
+            mp.put(prefixSum[i], mp.getOrDefault(prefixSum[i], 0) + 1);
+        }
+
+        return count;
+    }
+}
 ```
+
+The complexity of this solution:
+
+- Time complexity: $O(n)$.
+- Space complexity: $O(n)$.
 
 
 <br>
