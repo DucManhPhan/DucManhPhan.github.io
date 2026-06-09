@@ -72,8 +72,8 @@ class Solution {
 
 The complexity of this solution:
 
-- Time complexity: $O(n^3)$.
-- Space complexity: $O(1)$.
+- Time complexity: O(n^3).
+- Space complexity: O(1).
 
 When running this solution on the Leetcode, it encounter TLE:
 
@@ -116,8 +116,8 @@ class Solution {
 
 The complexity of this solution:
 
-- Time complexity: $O(n)$.
-- Space complexity: $O(n)$.
+- Time complexity: O(n).
+- Space complexity: O(n).
 
 
 <br>
