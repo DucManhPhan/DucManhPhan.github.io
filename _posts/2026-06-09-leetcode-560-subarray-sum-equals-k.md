@@ -77,7 +77,7 @@ The complexity of this solution:
 
 When running this solution on the Leetcode, it encounter TLE:
 
-![](../../img/Algorithm/prefix-sum/prefix-sum-1.png)
+![](../img/Algorithm/prefix-sum/prefix-sum-1.png)
 
 To improve this solution, we will use Prefix Sum that has already calculated the sum of a subarray, instead of using the inner 3rd for loop.
 
@@ -117,7 +117,7 @@ The complexity of this solution:
 
 This solution passed in Leetcode.
 
-![](../../img/Algorithm/prefix-sum/prefix-sum-2.png)
+![](../img/Algorithm/prefix-sum/prefix-sum-2.png)
 
 
 <br>
@@ -158,6 +158,10 @@ The complexity of this solution:
 
 - Time complexity: O(n).
 - Space complexity: O(n).
+
+This solution is accepted in Leetcode.
+
+![](../img/Algorithm/prefix-sum/prefix-sum-3.png)
 
 
 <br>
