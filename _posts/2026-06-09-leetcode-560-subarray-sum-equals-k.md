@@ -72,8 +72,8 @@ class Solution {
 
 The complexity of this solution:
 
-- Time complexity: O(n^3).
-- Space complexity: O(1).
+- Time complexity: `O(n^3)`.
+- Space complexity: `O(1)`.
 
 When running this solution on the Leetcode, it encounter TLE:
 
@@ -112,8 +112,8 @@ class Solution {
 
 The complexity of this solution:
 
-- Time complexity: O(n^2).
-- Space complexity: O(n).
+- Time complexity: `O(n^2)`.
+- Space complexity: `O(n)`.
 
 This solution passed in Leetcode.
 
@@ -156,12 +156,19 @@ class Solution {
 
 The complexity of this solution:
 
-- Time complexity: O(n).
-- Space complexity: O(n).
+- Time complexity: `O(n)`.
+- Space complexity: `O(n)`.
 
 This solution is accepted in Leetcode.
 
 ![](../img/Algorithm/prefix-sum/prefix-sum-3.png)
+
+Next, we will continue improving this solution by not using PrefixSum array. We will calculate it when iterate each element in the `nums` array.
+
+```Java
+
+```
+
 
 
 <br>
