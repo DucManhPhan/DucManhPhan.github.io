@@ -166,9 +166,34 @@ This solution is accepted in Leetcode.
 Next, we will continue improving this solution by not using PrefixSum array. We will calculate it when iterate each element in the `nums` array.
 
 ```Java
+class Solution {
+    public static int subarraySum3(int[] nums, int k) {
+        int count = 0;
+        int currentSum = 0;
+        int previousSum = 0;
 
+        Map<Integer, Integer> mp = new HashMap<>();
+        mp.put(0, 1);
+
+        for (int i = 0; i < nums.length; ++i) {
+            currentSum += nums[i];
+            previousSum = currentSum - k;
+
+            if (mp.containsKey(previousSum)) {
+                count += mp.get(previousSum);
+            }
+
+            mp.put(currentSum, mp.getOrDefault(currentSum, 0) + 1);
+        }
+
+        return count;
+    }
+}
 ```
 
+The result on Leetcode:
+
+![](../img/Algorithm/prefix-sum/prefix-sum-4.png)
 
 
 <br>
