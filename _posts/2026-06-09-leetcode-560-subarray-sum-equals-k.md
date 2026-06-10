@@ -79,6 +79,46 @@ When running this solution on the Leetcode, it encounter TLE:
 
 ![](../../img/Algorithm/prefix-sum/prefix-sum-1.png)
 
+To improve this solution, we will use Prefix Sum that has already calculated the sum of a subarray, instead of using the inner 3rd for loop.
+
+```Java
+class Solution {
+    public int subarraySum(int[] nums, int k) {
+        int count = 0;
+
+        // Initialize Prefix Sum array
+        int[] prefixSum = new int[nums.length + 1];
+        Arrays.fill(prefixSum, 0);
+
+        for (int i = 0; i < nums.length; ++i) {
+            prefixSum[i + 1] = prefixSum[i] + nums[i];
+        }
+
+        // Count the number of subarrays
+        for (int start = 0; start < nums.length; ++start) {
+            for (int end = start + 1; end <= nums.length; ++end) {
+                int currentSum = prefixSum[end] - prefixSum[start];
+
+                if (currentSum == k) {
+                    ++count;
+                }
+            }
+        }
+
+        return count;
+    }
+}
+```
+
+The complexity of this solution:
+
+- Time complexity: O(n^2).
+- Space complexity: O(n).
+
+This solution passed in Leetcode.
+
+![](../../img/Algorithm/prefix-sum/prefix-sum-2.png)
+
 
 <br>
 
