@@ -187,6 +187,36 @@ public int maxSubArray(int[] nums) {
 }
 ```
 
+The complexity of this solution:
+
+- Time complexity: `O(n^3)`.
+- Space complexity: `O(1)`.
+
+The above 3rd inner loop is redudant because we will calculate the sum of the elements in a subarray again. Then we can reduce it to 2 loops.
+
+```Java
+public int maxSubArray(int[] nums) {
+    int max = Integer.MIN_VALUE;
+    for (int start = 0; start < nums.length; start++) {
+        int currentSum = 0;
+
+        for (int end = start; end < nums.length; end++) {
+            currentSum += nums[end]; 
+            max = Math.max(max, currentSum);
+        }
+    }
+
+    return max;
+}
+```
+
+The complexity of this solution:
+
+- Time complexity: `O(n^2)`.
+- Space complexity: `O(1)`.
+
+So to iterate all subarrays, we will use this 2 loops version.
+
 
 <br>
 
