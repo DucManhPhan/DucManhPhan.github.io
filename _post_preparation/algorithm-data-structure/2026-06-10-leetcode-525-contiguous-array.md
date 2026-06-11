@@ -2,7 +2,7 @@
 layout: post
 title: Leetcode 525 - Contiguous Array
 bigimg: /img/image-header/yourself.jpeg
-tags: []
+tags: [Prefix Sum, HashMap]
 ---
 
 
