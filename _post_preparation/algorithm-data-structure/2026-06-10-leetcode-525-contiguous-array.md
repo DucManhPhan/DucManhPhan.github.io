@@ -12,7 +12,8 @@ tags: []
 
 ## Table of contents
 - [Given problem](#given-problem)
-- []()
+- [Using Brute Force](#using-brute-force)
+- [Using Prefix Sum](#using-prefix-sum)
 - []()
 - [Wrapping up](#wrapping-up)
 
@@ -46,7 +47,7 @@ Constraints:
 
 <br>
 
-## 
+## Using Brute Force
 
 
 
@@ -55,9 +56,39 @@ Constraints:
 
 <br>
 
-## 
+## Using Prefix Sum
 
+```Java
+class Solution {
+    public int findMaxLength(int[] nums) {
+                for (int i = 0; i < nums.length; ++i) {
+            if (nums[i] == 0) {
+                nums[i] = -1;
+            }
+        }
 
+        int[] prefixSum = new int[nums.length + 1];
+        for (int i = 0; i < nums.length; ++i) {
+            prefixSum[i + 1] = prefixSum[i] + nums[i];
+        }
+
+        Map<Integer, Integer> mp = new HashMap<>();
+        int maxLength = 0;
+
+        for (int i = 0; i < prefixSum.length; ++i) {
+            int currentSum = prefixSum[i];
+
+            if (mp.containsKey(currentSum)) {
+                maxLength = Math.max(maxLength, i - mp.get(currentSum));
+            }
+
+            mp.putIfAbsent(currentSum, i);
+        }
+
+        return maxLength;
+    }
+}
+```
 
 
 
