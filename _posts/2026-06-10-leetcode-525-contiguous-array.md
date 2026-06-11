@@ -130,6 +130,40 @@ But it still runs into TLE on Leetcode.
 
 ![](../../img/Algorithm/prefix-sum/prefix-sum-7.png)
 
+Next, we have the other brute force solution but use only 2 loops.
+
+```Java
+class Solution {
+    public int findMaxLength(int[] nums) {
+        int maxLength = 0;
+
+        for (int i = 0; i < nums.length; i++) {
+            int numOf0s = 0;
+            int numOf1s = 0;
+
+            for (int j = i; j < nums.length; j++) {
+                if (nums[j] == 0) {
+                    numOf0s++;
+                } else {
+                    numOf1s++;
+                }
+
+                if (numOf0s == numOf1s) {
+                    maxLength = Math.max(maxLength, j - i + 1);
+                }
+            }
+        }
+
+        return maxLength;
+    }
+}
+```
+
+The complexity of this solution:
+
+- Time complexity: `O(n^2)`.
+- Space complexity: `O(1)`.
+
 
 <br>
 
