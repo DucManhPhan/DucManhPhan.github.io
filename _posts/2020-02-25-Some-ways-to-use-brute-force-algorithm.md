@@ -238,45 +238,77 @@ Output: "bb"
 ```
 
 With this problem, we can use brute force with some ways:
-1. scan all substring that we can. We can use the similar idea in the section [Find the contiguous subarray has largest sum](#find-the-contiguous-subarray-has-largest-sum).
+1. Brute Force: Scan all substring that we can. We can use the similar idea in the section [Find the contiguous subarray has largest sum](#find-the-contiguous-subarray-has-largest-sum).
 
-    - Based on the start index and last index of substring.
+    - Based on the `start` index and `end` index of substring.
 
         ```java
-        public void subString(String str) {
-            int n = str.length();
+        public String longestPalindrome(String s) {
+            int n = s.length();
+            String res = "";
 
             for (int start = 0; start < n; ++start) {
-                for (int end = start + 1; end <= n; ++end) {
-                    String subString = str.substring(start, end);
-                    System.out.println(subString);
+                for (int end = start; end < n; ++end) {
+                    String sub = s.substring(start, end + 1);
+                    if (sub.length() > res.length() && isPalindrome(sub)) {
+                        res = sub;
+                    }
                 }
             }
+            return res;
+        }
+
+        private boolean isPalindrome(String s) {
+            int left = 0;
+            int right = s.length() - 1;
+
+            while (left < right) {
+                if (s.charAt(left++) != s.charAt(right--)) {
+                    return false;
+                }
+            }
+            return true;
         }
         ```
 
     - Based on the length of each substring.
 
         ```java
-        public void subString(String str) {
-            int n = str.length();
+        public String longestPalindrome(String s) {
+            int n = s.length();
+            String longestPal = "";
 
             for (int len = 1; len <= n; ++len) {
                 for (int start = 0; start <= n - len; ++start) {
-                    String subString = str.substring(start, start + len);
-                    System.out.println(subString);
+                    String sub = s.substring(start, start + len);
+                    
+                    if (isPalindrome(sub) && sub.length() > longestPal.length()) {
+                        longestPal = sub;
+                    }
                 }
             }
+
+            return longestPal;
+        }
+
+        private boolean isPalindrome(String str) {
+            int left = 0;
+            int right = str.length() - 1;
+
+            while (left < right) {
+                if (str.charAt(left++) != str.charAt(right--)) {
+                    return false;
+                }
+            }
+            return true;
         }
         ```
 
     The complexity of this solution:
-    - Time complexity: O(n^3)
-    - Space complexity: O(1)
+    - Time complexity: `O(n^3)`.
+    - Space complexity: `O(1)`.
 
-    To check the substring is palindromic string, we can refer the other article [Palindrome string]().
-
-2. At each character currently, we will expand both left and right side to check this substring is palindrome or not.
+2. Expand Around Center: At each character currently, we will expand both left and right side to check this substring is palindrome or not.
 
     Below is the source code of this problem.
 
@@ -312,8 +344,14 @@ With this problem, we can use brute force with some ways:
     ```
 
     The complexity of this solution:
-    - Time complexity: O(n^2)
-    - Space complexity: O(1)
+    - Time complexity: `O(n^2)`.
+    - Space complexity: `O(1)`.
+
+Ngoài cách sử dụng Brute Force solution, ta có thể sử dụng một vài solution khác như:
+
+- Dynamic Programming.
+- Manacher Algorithm.
+
 
 <br>
 
