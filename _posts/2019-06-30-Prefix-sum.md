@@ -1,6 +1,6 @@
 ---
 layout: post
-title: Prefix sum
+title: Prefix Sum
 bigimg: /img/image-header/yourself.jpeg
 tags: [Prefix Sum]
 ---
