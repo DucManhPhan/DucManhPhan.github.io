@@ -13,7 +13,7 @@ tags: [Prefix Sum, HashMap]
 ## Table of contents
 - [Given problem](#given-problem)
 - [Using Brute Force](#using-brute-force)
-- [Using Prefix Sum](#using-prefix-sum)
+- [Using Prefix Sum + HashMap](#using-prefix-sum--hashmap)
 - [Wrapping up](#wrapping-up)
 
 
@@ -167,7 +167,7 @@ The complexity of this solution:
 
 <br>
 
-## Using Prefix Sum
+## Using Prefix Sum + HashMap
 
 ```Java
 class Solution {
