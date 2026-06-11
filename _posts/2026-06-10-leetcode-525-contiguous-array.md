@@ -124,7 +124,7 @@ class Solution {
 The complexity of this solution:
 
 - Time complexity: `O(n^2)`.
-- Space complexity: `O(1)`.
+- Space complexity: `O(n)`.
 
 But it still runs into TLE on Leetcode.
 
