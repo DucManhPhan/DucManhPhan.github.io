@@ -14,7 +14,6 @@ tags: [Prefix Sum, HashMap]
 - [Given problem](#given-problem)
 - [Using Brute Force](#using-brute-force)
 - [Using Prefix Sum](#using-prefix-sum)
-- []()
 - [Wrapping up](#wrapping-up)
 
 
