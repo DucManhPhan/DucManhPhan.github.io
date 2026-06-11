@@ -12,7 +12,8 @@ tags: [Prefix Sum]
 
 ## Table of contents
 - [Given problem](#given-problem)
-- [Using prefix sum algorithm](#using-prefix-sum-algorithm)
+- [Using Brute Force Algorithm](#using-brute-force-algorithm)
+- [Using Prefix Sum Algorithm](#using-prefix-sum-algorithm)
 - [When to use](#when-to-use)
 - [Wrapping up](#wrapping-up)
 
@@ -36,7 +37,7 @@ We need to calculate the sum of the subarray from:
 
 <br>
 
-## Using brute force algorithm
+## Using Brute Force Algorithm
 
 The normal way to deal with it is that we will iterate all elements from i index to j index. Then, we will calculate the sum of this subarray.
 
@@ -64,7 +65,7 @@ When we have m queries, the time complexity of this algorithm:
 
 <br>
 
-## Using prefix sum algorithm
+## Using Prefix Sum Algorithm
 
 The idea of prefix sum technique is that it describes a way to pre-compute the cummulative sum for each value in a sequence. So they can be used later for a faster calculation of the total between the given indexes.
 
@@ -77,21 +78,21 @@ int[] nums = {3, 4, 2, 6, 8, 9}
 Our problem is that we need to calculate a new array ```prefixSum``` that satisfies some properties:
 
 ```javascript
-prefixSum[0] = nums[0]
-prefixSum[1] = prefixSum[0] + nums[1]
-prefixSum[2] = prefixSum[1] + nums[2]
+prefixSum[0] = 0
+prefixSum[1] = prefixSum[0] + nums[0]
+prefixSum[2] = prefixSum[1] + nums[1]
 
 ...
 
-prefixSum[i] = prefixSum[i - 1] + nums[i]
+prefixSum[i + 1] = prefixSum[i] + nums[i]
 ```
 
-Below is the source code of prefix sum algorithm.
+Below is the source code of Prefix Sum Algorithm.
 
 ```java
 public static void main(String[] args) {
     int[] nums = {3, 4, 2, 6, 8, 9};
-    int[] prefixSum = new int[nums.length];
+    int[] prefixSum = new int[nums.length + 1];
 
     calculatePrefixSum(nums, prefixSum);
     IntStream.of(prefixSum).forEach(item -> System.out.print(item + " --> "));
@@ -108,21 +109,19 @@ public static void calculatePrefixSum(int[] nums, int[] prefixSum) {
         return;
     }
 
-    prefixSum[0] = nums[0];
-    for (int i = 1; i < length; ++i) {
-        prefixSum[i] = prefixSum[i - 1] + nums[i];
+    for (int i = 0; i < length; ++i) {
+        prefixSum[i + 1] = prefixSum[i] + nums[i];
     }
 }
 
 public static int sumSubarrayWithPrefixSum(int[] prefixSum, int start, int end) {
-    int previousSum = start == 0 ? 0 : prefixSum[start - 1];
-    return prefixSum[end] - previousSum;
+    return prefixSum[end] - prefixSum[start];
 }
 ```
 
 The complexity of this algorithm:
-- Time complexity: O(n + m)
-- Space complexity: O(n)
+- Time complexity: `O(n + m)`.
+- Space complexity: `O(n)`.
 
 
 <br>
