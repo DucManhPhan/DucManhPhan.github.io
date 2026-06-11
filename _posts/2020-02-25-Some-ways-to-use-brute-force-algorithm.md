@@ -217,6 +217,11 @@ The complexity of this solution:
 
 So to iterate all subarrays, we will use this 2 loops version.
 
+Beside using Brute Force solution, there are some other solutions:
+
+- **Kadane's Algorithm:** Time complexity is `O(n)`, Space complexity is `O(1)`.
+- **Divide and Conquer:** Time complexity is `O(nlogn)`.
+- **Dynamic Programming.**
 
 <br>
 
@@ -347,7 +352,7 @@ With this problem, we can use brute force with some ways:
     - Time complexity: `O(n^2)`.
     - Space complexity: `O(1)`.
 
-Ngoài cách sử dụng Brute Force solution, ta có thể sử dụng một vài solution khác như:
+Beside using Brute Force solution, there are some other solutions:
 
 - Dynamic Programming.
 - Manacher Algorithm.
