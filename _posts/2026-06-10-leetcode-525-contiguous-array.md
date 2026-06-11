@@ -213,6 +213,33 @@ It passed on the Leetcode.
 
 ![](../img/Algorithm/prefix-sum/prefix-sum-5.png)
 
+Instead of using Prefix Sum array, we will optimize it with an variable.
+
+```Java
+class Solution {
+    public int findMaxLength(int[] nums) {
+        int maxLength = 0;
+
+        Map<Integer, Integer> mp = new HashMap<>();
+        mp.put(0, -1); // Element has 0 value will be corrssponding -1
+
+        int prefixSum = 0;
+
+        for (int i = 0; i < nums.length; ++i) {
+            prefixSum += (nums[i] == 1) ? 1 : -1;
+
+            if (mp.containsKey(prefixSum)) {
+                maxLength = Math.max(maxLength, i - mp.get(prefixSum));
+            } else {
+                mp.put(prefixSum, i);
+            }
+        }
+
+        return maxLength;
+    }
+}
+```
+
 
 <br>
 
