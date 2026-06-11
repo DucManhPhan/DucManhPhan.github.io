@@ -61,17 +61,20 @@ Constraints:
 ```Java
 class Solution {
     public int findMaxLength(int[] nums) {
-                for (int i = 0; i < nums.length; ++i) {
+        // Convert the element 0s to -1s
+        for (int i = 0; i < nums.length; ++i) {
             if (nums[i] == 0) {
                 nums[i] = -1;
             }
         }
 
+        // Calculate the prefix sum array
         int[] prefixSum = new int[nums.length + 1];
         for (int i = 0; i < nums.length; ++i) {
             prefixSum[i + 1] = prefixSum[i] + nums[i];
         }
 
+        // Find the longest subarray
         Map<Integer, Integer> mp = new HashMap<>();
         int maxLength = 0;
 
@@ -90,6 +93,14 @@ class Solution {
 }
 ```
 
+The complexity of this solution:
+
+- Time complexity: `O(n)`.
+- Space complexity: `O(n)`.
+
+It passed on the Leetcode.
+
+![](../../img/Algorithm/prefix-sum/prefix-sum-5.png)
 
 
 <br>
