@@ -238,7 +238,7 @@ Output: "bb"
 ```
 
 With this problem, we can use brute force with some ways:
-1. Brute Force: Scan all substring that we can. We can use the similar idea in the section [Find the contiguous subarray has largest sum](#find-the-contiguous-subarray-has-largest-sum).
+1. **Brute Force:** Scan all substring that we can. We can use the similar idea in the section [Find the contiguous subarray has largest sum](#find-the-contiguous-subarray-has-largest-sum).
 
     - Based on the `start` index and `end` index of substring.
 
@@ -308,7 +308,7 @@ With this problem, we can use brute force with some ways:
     - Time complexity: `O(n^3)`.
     - Space complexity: `O(1)`.
 
-2. Expand Around Center: At each character currently, we will expand both left and right side to check this substring is palindrome or not.
+2. **Expand Around Center:** At each character currently, we will expand both left and right side to check this substring is palindrome or not.
 
     Below is the source code of this problem.
 
