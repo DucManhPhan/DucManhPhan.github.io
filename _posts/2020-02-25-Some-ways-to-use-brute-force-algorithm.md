@@ -198,11 +198,11 @@ The above 3rd inner loop is redudant because we will calculate the sum of the el
 public int maxSubArray(int[] nums) {
     int max = Integer.MIN_VALUE;
     for (int start = 0; start < nums.length; start++) {
-        int currentSum = 0;
+        int sum = 0;
 
         for (int end = start; end < nums.length; end++) {
-            currentSum += nums[end]; 
-            max = Math.max(max, currentSum);
+            sum += nums[end]; 
+            max = Math.max(max, sum);
         }
     }
 
