@@ -86,7 +86,7 @@ The complexity of this solution:
 
 It encountered the TLE on the Leetcode.
 
-![](../../img/Algorithm/prefix-sum/prefix-sum-6.png)
+![](../img/Algorithm/prefix-sum/prefix-sum-6.png)
 
 Instead of using 3 loops, we will use Prefix Sum to reduce the time complexity to `O(n^2)`. Then, due to the fact that the number of 0s will be equal to the number of `1`s, if we change the element `0`s to `-1`s, the sum of all elements `-1`s and `1`s will be `0`. This is the tips to solve it. It makes the sum of all elements easier than using sum and the divide by 2.
 
@@ -128,7 +128,7 @@ The complexity of this solution:
 
 But it still runs into TLE on Leetcode.
 
-![](../../img/Algorithm/prefix-sum/prefix-sum-7.png)
+![](../img/Algorithm/prefix-sum/prefix-sum-7.png)
 
 Next, we have the other brute force solution but use only 2 loops.
 
@@ -211,7 +211,7 @@ The complexity of this solution:
 
 It passed on the Leetcode.
 
-![](../../img/Algorithm/prefix-sum/prefix-sum-5.png)
+![](../img/Algorithm/prefix-sum/prefix-sum-5.png)
 
 
 <br>
