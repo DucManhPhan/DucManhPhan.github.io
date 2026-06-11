@@ -49,9 +49,43 @@ Constraints:
 
 ## Using Brute Force
 
+```Java
+class Solution {
+    public int findMaxLength(int[] nums) {
+        int maxLength = 0;
 
+        for (int start = 0; start < nums.length; ++start) {
+            for (int end = start + 1; end <= nums.length; ++end) {
+                int numOf0s = 0;
+                int numOf1s = 0;
 
+                for (int i = start; i < end; ++i) {
+                    if (nums[i] == 0) {
+                        ++numOf0s;
+                    } else {
+                        ++numOf1s;
+                    }
+                }
 
+                if (numOf0s == numOf1s) {
+                    maxLength = Math.max(maxLength, end - start);
+                }
+            }
+        }
+
+        return maxLength;
+    }
+}
+```
+
+The complexity of this solution:
+
+- Time complexity: `O(n^3)`.
+- Space complexity: `O(1)`.
+
+It encountered the TLE on the Leetcode.
+
+![](../../img/Algorithm/prefix-sum/prefix-sum-6.png)
 
 
 <br>
