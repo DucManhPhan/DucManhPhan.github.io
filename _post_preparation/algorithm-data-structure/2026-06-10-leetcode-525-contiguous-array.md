@@ -49,6 +49,8 @@ Constraints:
 
 ## Using Brute Force
 
+In this way, we will use 3 loops to iterate all subarrays. In each subarray, we will count the number of `0`s and `1`s.
+
 ```Java
 class Solution {
     public int findMaxLength(int[] nums) {
@@ -86,6 +88,48 @@ The complexity of this solution:
 It encountered the TLE on the Leetcode.
 
 ![](../../img/Algorithm/prefix-sum/prefix-sum-6.png)
+
+Instead of using 3 loops, we will use Prefix Sum to reduce the time complexity to `O(n^2)`. Then, due to the fact that the number of 0s will be equal to the number of `1`s, if we change the element `0`s to `-1`s, the sum of all elements `-1`s and `1`s will be `0`. This is the tips to solve it. It makes the sum of all elements easier than using sum and the divide by 2.
+
+```Java
+class Solution {
+    public int findMaxLength(int[] nums) {
+        int maxLength = 0;
+
+        for (int i = 0; i < nums.length; ++i) {
+            if (nums[i] == 0) {
+                nums[i] = -1;
+            }
+        }
+
+        int[] prefixSum = new int[nums.length + 1];
+        for (int i = 0; i < nums.length; ++i) {
+            prefixSum[i + 1] = prefixSum[i] + nums[i];
+        }
+
+        for (int start = 0; start < nums.length; ++start) {
+            for (int end = start + 1; end <= nums.length; ++end) {
+                int sum = prefixSum[end] - prefixSum[start];
+
+                if (sum == 0) {
+                    maxLength = Math.max(maxLength, end - start);
+                }
+            }
+        }
+
+        return maxLength;
+    }
+}
+```
+
+The complexity of this solution:
+
+- Time complexity: `O(n^2)`.
+- Space complexity: `O(1)`.
+
+But it still runs into TLE on Leetcode.
+
+![](../../img/Algorithm/prefix-sum/prefix-sum-7.png)
 
 
 <br>
