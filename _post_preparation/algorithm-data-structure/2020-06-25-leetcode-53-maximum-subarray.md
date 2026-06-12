@@ -12,7 +12,7 @@ tags: [HashMap, Priority Queue, Divide & Conquer]
 
 ## Table of contents
 - [Given problem](#given-problem)
-- [Using brute force algorithm](#using-brute-force-algorithm)
+- [Using Brute Force Algorithm](#using-brute-force-algorithm)
 - [Using HashMap and Priority Queue](#using-hashmap-and-priority-queue)
 - [Using Divide and Conquer algorithm](#using-divide-and-conquer-algorithm)
 - [Wrapping up](#wrapping-up)
@@ -56,7 +56,7 @@ Constraints:
 
 <br>
 
-## Using brute force algorithm
+## Using Brute Force Algorithm
 
 
 
@@ -71,7 +71,7 @@ Constraints:
 
 <br>
 
-## Using Divide and Conquer algorithm
+## Using Divide and Conquer Algorithm
 
 Below is a solution template for the divide and conquer problems :
 - Define the base case(s).
