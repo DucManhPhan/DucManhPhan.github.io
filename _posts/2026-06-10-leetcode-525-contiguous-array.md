@@ -81,8 +81,8 @@ class Solution {
 
 The complexity of this solution:
 
-- Time complexity: `O(n^3)`.
-- Space complexity: `O(1)`.
+- Time complexity: $O(n^3)$.
+- Space complexity: $O(1)$.
 
 It encountered the TLE on the Leetcode.
 
@@ -123,8 +123,8 @@ class Solution {
 
 The complexity of this solution:
 
-- Time complexity: `O(n^2)`.
-- Space complexity: `O(n)`.
+- Time complexity: $O(n^2)$.
+- Space complexity: $O(n)$.
 
 But it still runs into TLE on Leetcode.
 
@@ -161,8 +161,8 @@ class Solution {
 
 The complexity of this solution:
 
-- Time complexity: `O(n^2)`.
-- Space complexity: `O(1)`.
+- Time complexity: $O(n^2)$.
+- Space complexity: $O(1)$.
 
 
 <br>
@@ -206,8 +206,8 @@ class Solution {
 
 The complexity of this solution:
 
-- Time complexity: `O(n)`.
-- Space complexity: `O(n)`.
+- Time complexity: $O(n)$.
+- Space complexity: $O(n)$.
 
 It passed on the Leetcode.
 
