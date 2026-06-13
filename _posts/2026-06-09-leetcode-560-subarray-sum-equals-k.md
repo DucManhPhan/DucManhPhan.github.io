@@ -79,7 +79,7 @@ When running this solution on the Leetcode, it encounter TLE:
 
 ![](../img/Algorithm/prefix-sum/prefix-sum-1.png)
 
-To improve this solution, we will use Prefix Sum that has already calculated the sum of a subarray, instead of using the inner 3rd for loop.
+To improve this solution, we will use Prefix Sum that has already calculated the sum of a subarray, instead of using the inner 3rd for loop, to reduce the time complexity to $O(n^2)$.
 
 ```Java
 class Solution {
