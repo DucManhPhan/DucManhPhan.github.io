@@ -131,7 +131,6 @@ The complexity of this algorithm:
 - When we have multiple queries for our array.
 
 
-
 <br>
 
 ## Wrapping up
